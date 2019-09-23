@@ -10,7 +10,7 @@ const config = {
     logoLink: "https://learn.hasura.io",
     title:
       "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/flutter-graphql'>/ flutter</a>",
-    githubUrl: "https://github.com/hasura/graphql-engine",
+    githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discordapp.com/invite/vBPpJkS",
     tweetText:
       "Check out this GraphQL course for Flutter developers by @HasuraHQ https://learn.hasura.io/graphql/flutter-graphql",

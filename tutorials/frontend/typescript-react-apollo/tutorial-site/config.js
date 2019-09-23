@@ -8,7 +8,7 @@ const config = {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
 		"logoLink": "https://learn.hasura.io",
 		"title": "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/typescript-react-apollo'>/ typescript-react-apollo</a>",
-		"githubUrl": "https://github.com/hasura/graphql-engine",
+		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
 		"tweetText": "Check out this GraphQL course for React, Typescript developers by @HasuraHQ https://learn.hasura.io/graphql/typescript-react-apollo",
 		"links": [{

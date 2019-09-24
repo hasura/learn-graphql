@@ -14,7 +14,7 @@ As we saw in the previous step, Apollo injected props into the component’s ren
 
 Now let's go back to the `<Query>` component that you wrote in the previous step.
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/react-native-apollo/app-final/src/screens/components/Todo/Todos.js" text="Todos.js"/>
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/components/Todo/Todos.js" text="Todos.js"/>
 
 ```javascript
 

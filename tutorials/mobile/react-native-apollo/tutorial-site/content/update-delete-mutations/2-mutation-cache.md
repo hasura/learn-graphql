@@ -12,7 +12,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 Now let's do the integration part. Open `src/screens/components/Todo/TodoItem.js` and add the following code below the other imports:
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/react-native-apollo/app-final/src/screens/components/Todo/TodoItem.js" text="TodoItem.js"/>
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/components/Todo/TodoItem.js" text="TodoItem.js"/>
 
 ```javascript
 +import gql from 'graphql-tag';

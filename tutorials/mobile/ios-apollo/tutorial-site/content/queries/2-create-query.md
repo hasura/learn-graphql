@@ -17,7 +17,7 @@ A useful convention is to colocate queries, mutations or fragments with the Swif
 For the sake of brevity, we will keep all our queries and mutations in one file named `api.graphql`
 Create a new file at the roo `Todo/api.graphql` and add the following code:
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/ios-apollo/app-final/Todo/api.graphql" text="Todo/api.graphql" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/api.graphql" text="Todo/api.graphql" />
 
 ```swift
 

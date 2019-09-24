@@ -12,7 +12,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 Firstly, let us define the mutation that we looked at in the previous section. Import `gql` from `graphql-tag` and define the following mutation in `src/screens/components/Todo/Textbox.js`.
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/react-native-apollo/app-final/src/screens/components/Todo/Textbox.js" text="Textbox.js"/>
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/components/Todo/Textbox.js" text="Textbox.js"/>
 
 ```js
 + import gql from 'graphql-tag';

@@ -10,7 +10,7 @@ Let's define the graphql query to be used:
 
 Open `Todo/FeedVC.swift` and add the following variable and initialize in `viewWillAppear` and `viewWillDisappear`.
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/ios-apollo/app-final/Todo/FeedVC.swift" text="Todo/FeedVC.swift" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/FeedVC.swift" text="Todo/FeedVC.swift" />
 
 ```swift
 +    var apollo: ApolloClient!

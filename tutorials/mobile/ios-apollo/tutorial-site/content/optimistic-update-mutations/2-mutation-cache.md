@@ -8,7 +8,7 @@ import GithubLink from '../../src/GithubLink.js'
 
 Now let's do the integration part. Open `Todo/TodoVC.swift` and add the following code at the bottom of the file:
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/ios-apollo/app-final/Todo/TodoVC.swift" text="Todo/TodoVC.swift" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/TodoVC.swift" text="Todo/TodoVC.swift" />
 
 ```swift
     // Toggle Todos to Cloud

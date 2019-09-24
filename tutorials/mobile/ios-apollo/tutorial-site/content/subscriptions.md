@@ -27,7 +27,7 @@ The goal is to update every few seconds from the client that you are online. Ide
 
 Open `Todo/OnlineVC.swift` and add the following functions and define a variable `registerSelfAsOnlineTimer` of type `Timer`.
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/ios-apollo/app-final/Todo/OnlineVC.swift" text="Todo/OnlineVC.swift" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/OnlineVC.swift" text="Todo/OnlineVC.swift" />
 
 ```swift
 +    var apollo: ApolloClient!

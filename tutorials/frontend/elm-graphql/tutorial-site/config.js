@@ -53,7 +53,7 @@ const config = {
 		"title": "2 hour GraphQL course for Elm developers | Hasura",
 		"description": "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in Elm",
 		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-elm.jpg",
-		"docsLocation": "https://github.com/hasura/graphql-engine/tree/master/community/learn/graphql-tutorials/tutorials/elm-graphql/tutorial-site/content",
+		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/elm-graphql/tutorial-site/content",
     	"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-elm/favicon.ico"
 	},
 };

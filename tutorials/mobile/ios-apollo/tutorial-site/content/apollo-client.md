@@ -100,7 +100,7 @@ If you have the Xcode add-ons installed, you can use the Xcode companion view to
 
 Open LoginVC.swift and add below
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/ios-apollo/app-final/Todo/LoginVC.swift" text="LoginVC.swift"/>
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/LoginVC.swift" text="LoginVC.swift"/>
 
 ```swift
 case .success(let credentials):

@@ -18,5 +18,3 @@ Restart docker container
 
 - In case there are new files
 - Gatsby cache needs to be updated
-
-docker run -ti -p 8080:8080 -v /Volumes/Office/Projects/GQL/graphql-engine/community/learn/graphql-tutorials/tutorials/android-apollo/tutorial-site/content:/gatsby-gitbook-starter/content -v /Volumes/Office/Projects/GQL/graphql-engine/community/learn/graphql-tutorials/tutorials/android-apollo/tutorial-site/config.js:/gatsby-gitbook-starter/config.js tutorial-site:0.1

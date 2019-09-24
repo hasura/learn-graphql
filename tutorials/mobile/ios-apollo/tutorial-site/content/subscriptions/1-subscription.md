@@ -12,7 +12,7 @@ Now we need to update our `ApolloClient` instance to point to the subscription s
 
 Open `Todo/NetworkManager.swift` and update the following:
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/ios-apollo/app-final/Todo/NetworkManager.swift" text="Todo/NetworkManager.swift" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/NetworkManager.swift" text="Todo/NetworkManager.swift" />
 
 ```swift
 import Foundation

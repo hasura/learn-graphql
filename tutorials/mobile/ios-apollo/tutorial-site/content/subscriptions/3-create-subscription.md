@@ -10,7 +10,7 @@ So let's define the graphql subscription to be used.
 
 Open `Todo/OnlineVC.swift` and update following code,
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/ios-apollo/app-final/Todo/OnlineVC.swift" text="Todo/OnlineVC.swift" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/OnlineVC.swift" text="Todo/OnlineVC.swift" />
 
 ```swift
 +    var onlineUsersSub: Cancellable?

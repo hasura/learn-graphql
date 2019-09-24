@@ -29,7 +29,7 @@ We have to make this change to see yourself online first. Remember that you are 
 
 The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's do in the entrypoint of the app i.e. `src/navigation/Main.js`. We instantiate `client` in `componentDidMount`. Thats where we want to start polling. Firstly, lets define the mutation that sets `last_seen` to the current timestamp.
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/react-native-apollo/app-final/src/navigation/Main.js" text="Main.js"/>
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/navigation/Main.js" text="Main.js"/>
 
 ```javascript
 + import gql from "graphql-tag";

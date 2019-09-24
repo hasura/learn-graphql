@@ -1,0 +1,96 @@
+apiVersion: gitkube.sh/v1alpha1
+kind: Remote
+metadata:
+  creationTimestamp: null
+  name: hasura
+  namespace: default
+spec:
+  authorizedKeys:
+  - |
+    <add ssh keys here; one per line>
+  deployments:
+  - containers:
+    - dockerfile: ./services/homepage/Dockerfile
+      name: homepage
+      path: ./services/homepage
+    name: homepage
+  - containers:
+    - dockerfile: ./services/graphiql/Dockerfile
+      name: graphiql
+      path: ./services/graphiql
+    name: graphiql
+  - containers:
+    - dockerfile: ./services/backend/auth-server/Dockerfile
+      name: auth-jwt-server
+      path: ./services/backend/auth-server
+    name: auth-jwt-server
+  - containers:
+    - dockerfile: ./services/backend/auth-webhook/Dockerfile
+      name: auth-webhook
+      path: ./services/backend/auth-webhook
+    name: auth-webhook
+  - containers:
+    - dockerfile: ./tutorials/backend/hasura/tutorial-site/Dockerfile
+      name: hasura-backend
+      path: ./tutorials/backend/hasura/tutorial-site
+    name: hasura-backend
+  - containers:
+    - dockerfile: ./tutorials/frontend/react-apollo/tutorial-site/Dockerfile
+      name: react-apollo
+      path: ./tutorials/frontend/react-apollo/tutorial-site
+    name: react-apollo
+  - containers:
+    - dockerfile: ./tutorials/mobile/react-native-apollo/tutorial-site/Dockerfile
+      name: react-native-apollo
+      path: ./tutorials/mobile/react-native-apollo/tutorial-site
+    name: react-native-apollo
+  - containers:
+    - dockerfile: ./tutorials/frontend/vue-apollo/tutorial-site/Dockerfile
+      name: vue-apollo
+      path: ./tutorials/frontend/vue-apollo/tutorial-site
+    name: vue-apollo
+  - containers:
+    - dockerfile: ./tutorials/mobile/ios-apollo/tutorial-site/Dockerfile
+      name: ios-apollo
+      path: ./tutorials/mobile/ios-apollo/tutorial-site
+    name: ios-apollo
+  - containers:
+    - dockerfile: ./tutorials/mobile/android-apollo/tutorial-site/Dockerfile
+      name: android-apollo
+      path: ./tutorials/mobile/android-apollo/tutorial-site
+    name: android-apollo
+  - containers:
+    - dockerfile: ./tutorials/frontend/elm-graphql/tutorial-site/Dockerfile
+      name: elm-graphql
+      path: ./tutorials/frontend/elm-graphql/tutorial-site
+    name: elm-graphql
+  - containers:
+    - dockerfile: ./tutorials/frontend/reason-react-apollo/tutorial-site/Dockerfile
+      name: reason-react-apollo
+      path: ./tutorials/frontend/reason-react-apollo/tutorial-site
+    name: reason-react-apollo
+  - containers:
+    - dockerfile: ./tutorials/frontend/angular-apollo/tutorial-site/Dockerfile
+      name: angular-apollo
+      path: ./tutorials/frontend/angular-apollo/tutorial-site
+    name: angular-apollo
+  - containers:
+    - dockerfile: ./tutorials/mobile/flutter-graphql/tutorial-site/Dockerfile
+      name: flutter-graphql
+      path: ./tutorials/mobile/flutter-graphql/tutorial-site
+    name: flutter-graphql
+  - containers:
+    - dockerfile: ./tutorials/frontend/typescript-react-apollo/tutorial-site/Dockerfile
+      name: typescript-react-apollo
+      path: ./tutorials/frontend/typescript-react-apollo/tutorial-site
+    name: typescript-react-apollo
+  manifests:
+    helm: {}
+    path: ./services/manifests
+  registry:
+    credentials:
+      secretKeyRef:
+        key: ""
+status:
+  remoteUrl: ""
+  remoteUrlDesc: ""

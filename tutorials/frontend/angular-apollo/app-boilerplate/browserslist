@@ -10,3 +10,26 @@ last 2 versions
 Firefox ESR
 not dead
 not IE 9-11 # For IE 9-11 support, remove 'not'.
+
+BROWSERLIST
+
+#All tools will find target browsers automatically, when you add the following to 
+package.json:
+
+"browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
+
+Or in .browserslistrc config:
+
+# Browsers that we support
+
+last 1 version
+> 1%
+maintained node versions
+not dead
+
+Developers set versions list in queries like last 2 version to be free from updating versions manually.

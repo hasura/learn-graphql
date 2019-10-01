@@ -18,7 +18,7 @@ $ npm install apollo-boost @apollo/react-hooks graphql
 ### Create Apollo Client Instance
 Open `src/components/App.js` and add the following imports at the top:
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/react-apollo-hooks/app-final/src/components/App.js" text="src/components/App.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/App.js" text="src/components/App.js" />
 
 ```javascript
 import React from 'react';

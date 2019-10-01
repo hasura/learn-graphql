@@ -18,7 +18,7 @@ Now we need to update our `ApolloClient` instance to point to the subscription s
 
 Open `src/components/App.js` and update the following imports:
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/react-apollo-hooks/app-final/src/components/App.js" text="src/components/App.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/App.js" text="src/components/App.js" />
 
 ```javascript
 - import { HttpLink } from 'apollo-link-http';

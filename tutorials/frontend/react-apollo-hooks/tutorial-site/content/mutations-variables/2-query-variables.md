@@ -14,7 +14,7 @@ So let's define the graphql mutation to be used.
 
 Open `src/components/Todo/TodoInput.js` and add the following code:
 
-<GithubLink link="https://github.com/hasura/graphql-engine/blob/master/community/learn/graphql-tutorials/tutorials/react-apollo-hooks/app-final/src/components/Todo/TodoInput.js" text="src/components/Todo/TodoInput.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/Todo/TodoInput.js" text="src/components/Todo/TodoInput.js" />
 
 ```javascript
 import React from 'react';

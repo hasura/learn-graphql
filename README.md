@@ -1,7 +1,8 @@
 # learn.hasura.io
 
 Real world GraphQL tutorials for frontend developers with deadlines!
-With these tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours
+
+With these tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.
 
 ![learn graphql](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-banner.png)
 

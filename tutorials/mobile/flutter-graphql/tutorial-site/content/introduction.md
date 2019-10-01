@@ -4,8 +4,6 @@ metaTitle: "Course Introduction | GraphQL Flutter Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your Flutter app with graphql_flutter package, in the shortest amount of time possible."
 ---
 
-import CommunityAuthor from '../src/CommunityAuthor';
-
 GraphQL is becoming the new way to use APIs in modern web and mobile apps.
 
 However, learning new things always takes time and without getting your hands dirty, it’s very hard to understand the nuances of a new technology.

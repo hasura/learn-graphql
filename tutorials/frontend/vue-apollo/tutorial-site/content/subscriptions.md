@@ -67,6 +67,6 @@ Open `src/components/OnlineUsers.vue` and add the following imports and set the 
 +   },
 ```
 
-In `mounted()`, we are creating a `setInterval` to update the last_seen of the user every 30 seconds.
+In `mounted()`, we are creating a `setInterval` to update the `last_seen` of the user every 30 seconds.
 
 Great! Now the metadata about whether the user is online will be available in the backend. Let's now do the integration to display realtime data of online users.

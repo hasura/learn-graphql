@@ -41,7 +41,7 @@ export class OnlineUsersWrapper {
 +    constructor(private apollo: Apollo) {}
 ```
 
-In `ngOnInit`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.
+In `ngOnInit`, we will create a `setInterval` to update the `last_seen` of the user every 30 seconds.
 
 ```typescript
 export class OnlineUsersWrapper implements OnInit {

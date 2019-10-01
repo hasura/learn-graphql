@@ -58,7 +58,7 @@ Update the export by wrapping the OnlineUsersWrapper component with `withApollo`
 + export default withApollo(OnlineUsersWrapper);
 ```
 
-In `componentDidMount`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.
+In `componentDidMount`, we will create a `setInterval` to update the `last_seen` of the user every 30 seconds.
 
 ```javascript
 class OnlineUsersWrapper extends Component {

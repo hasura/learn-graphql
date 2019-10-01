@@ -3,9 +3,9 @@ title: "Tutorial & boilerplate setup"
 metaTitle: "Todo app react boilerplate setup | GraphQL React Apollo Tutorial"
 metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in React.js"
 ---
-
+```js
 import YoutubeEmbed from "../src/YoutubeEmbed.js";
-
+```
 <YoutubeEmbed link="https://www.youtube.com/embed/rzH_Xxv4d-A" />
 
 For this tutorial, the GraphQL backend and the basic app UI is already ready.

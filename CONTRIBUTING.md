@@ -25,7 +25,7 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 ### Reporting an Issue
 
-- Provide steps to reproduce the issue, including the tutorial that you are trying out.
+- Provide steps to reproduce an issue, including the tutorial that you are trying out.
 
 - Please include logs, if relevant.
 
@@ -33,7 +33,7 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 - Please make sure there is an issue associated with the work that you're doing.
 
-- If you're working on an issue, please comment that you are doing so to prevent duplicate work by others also.
+- If you're working on an issue, please mention that you are doing so to prevent duplicate work by others and also it prevents any conflicts in the pull request.
 
 - Squash your commits and refer to the issue using `fix #<issue-no>` or `close
   #<issue-no>` in the commit message, at the end.

@@ -5,6 +5,7 @@ With these tutorials, you will move from the basics of GraphQL to building a rea
 
 ![learn graphql](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-banner.png)
 
+
 There are three different series:
 
 #### Frontend
@@ -27,6 +28,10 @@ There are three different series:
 
 - [Introduction to Hasura](https://learn.hasura.io/graphql/hasura)
 - Postgres Basics (coming soon)
+
+## Documentation
+
+- [Official GraphQL Docs](https://docs.hasura.io/1.0/graphql/manual/index.html)
 
 ## Contributing
 

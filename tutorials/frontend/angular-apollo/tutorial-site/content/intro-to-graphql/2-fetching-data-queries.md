@@ -159,8 +159,8 @@ create the entire query string again.
 This is what we don't want to do:
 
 ```javascript
-var limit = getMaxTodosFromUserInput();
-var query = "query { todos (limit: " + limit.toString() + ") {id title} }";
+const limit = getMaxTodosFromUserInput();
+const query = "query { todos (limit: " + limit.toString() + ") {id title} }";
 ```
 
 Thankfully, we don't ever have to do this! GraphQL variables are extra variables

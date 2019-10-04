@@ -42,7 +42,7 @@ the response window on the right.
 
 ## How do GraphQL subscriptions work?
 
-GraphQL queries and mutations are strings sent to a POST endpoint. What is a GraphQL subscription? That can't happen over a POST endpoint, because a simple HTTP endpoint would just return the response and the connection would close.
+GraphQL queries and mutations are strings sent to a POST endpoint. How about GraphQL subscription? That can't happen over a POST endpoint, because a simple HTTP endpoint would just return the response and the connection would close.
 
 A GraphQL subscription is a subscription query string sent to a websocket endpoint. And whenever data changes on the backend, new data is pushed over websockets from the server to the client.
 

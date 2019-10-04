@@ -156,6 +156,7 @@ Notice that we are passing arguments to different fields. This GraphQL query rea
 <b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 <a name="query-variables"></a>
+
 ## GraphQL variables: Passing arguments to your queries dynamically
 
 This is great, but we still have a problem. If we want to create a query

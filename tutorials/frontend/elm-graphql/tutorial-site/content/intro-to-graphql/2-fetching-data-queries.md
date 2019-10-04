@@ -5,6 +5,7 @@ metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example 
 ---
 
 <a name="graphiql"></a>
+
 ## Try out GraphQL queries
 
 For this tutorial we've set up a GraphQL API for you. The most common
@@ -153,6 +154,7 @@ Notice that we are passing arguments to different fields. This GraphQL query rea
 <b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 <a name="query-variables"></a>
+
 ## GraphQL variables: Passing arguments to your queries dynamically
 
 This is great, but we still have a problem. If we want to create a query

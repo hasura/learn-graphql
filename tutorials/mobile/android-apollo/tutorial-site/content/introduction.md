@@ -19,7 +19,7 @@ We’ve structured this course to cover fundamental concepts of both GraphQL and
 - Using subscriptions with a subscriptions methods
 - Building a real-time feed with notifications using mutations and subscriptions
 
-## What will be building?
+## What will we be building?
 We will be building a realtime todo app using authenticated GraphQL APIs.
 
 Try this deployed version of the frontend app to see what we'll be building: https://learn-hasura-todo-app.netlify.com/
@@ -28,7 +28,7 @@ This is built on React but the functionality will be the same for android.
 
 ## Will this course teach Android concepts as well?
 No, we will be simulating a scenario where we already have a
-GraphQL API and the basic UI of a android app built. Our task in this
+GraphQL API and the basic UI of an android app built. Our task in this
 scenario is to integrate the GraphQL APIs into our android app to build
 a complete and working app.
 

@@ -16,7 +16,7 @@ your stack:
 
 ### GraphQL client-server flow:
 
-1. Note that the GraphQL query is not really JSON; it looks like the shape of the
+1. Note that the GraphQL query is not JSON; it looks like the shape of the
    JSON you *want*. So when we make a 'POST' request to send our GraphQL query to
    the server, it is sent as a "string" by the client.
 2. The server gets the JSON object and extracts the query string. As per the
@@ -28,7 +28,7 @@ your stack:
 
 ### Example GraphQL client setup:
 
-In your day to day work, you don't actually need to worry about the underlying
+In your day to day work, you don't need to worry about the underlying
 HTTP requests & responses.
 
 Just like when you work with a REST API and use a HTTP

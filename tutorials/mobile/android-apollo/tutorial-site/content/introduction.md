@@ -6,7 +6,7 @@ metaDescription: "A powerful and concise tutorial that will introduce you to Gra
 
 This course is a concise and powerful introduction to GraphQL for android developers.
 
-We’ve structured this course to cover fundamental concepts of both GraphQL and using GraphQL in Android, in the shortest amount of time possible. The course is light on opinions so that once you grok the fundamentals you can go on to choose your favourite tools and tailor your workflow.
+We’ve structured this course to cover fundamental concepts of both GraphQL and using GraphQL in Android, in the shortest amount of time possible. The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite tools and tailor your workflow.
 
 ## Key topics and takeways:
 - GraphQL vs REST

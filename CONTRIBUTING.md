@@ -11,7 +11,7 @@ can quickly merge or address your contributions will increase.
 
 ### Tutorials
 
-Our goal is to keep our tutorial content and the apps associated with it comprehensive and updated. If you would like to help us in doing so, we are greatful for any kind of contribution:
+Our goal is to keep our tutorial content and the apps associated with it comprehensive and updated. If you would like to help us in doing so, we are grateful for any kind of contribution:
 
 - Add new tutorials (please reach out to us if you have ideas to avoid duplicate work)
 

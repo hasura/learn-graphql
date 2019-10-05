@@ -1,4 +1,6 @@
 *npm-debug.log
+*.log
+!debug.log
 *.DS_Store
 .vscode
 .idea

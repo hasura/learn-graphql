@@ -41,6 +41,16 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 - Rebase master with your branch before submitting a pull request.
 
+### Testing
+
+- Please make sure that your code is linted as per the rules in the project. To run an ESLint check, run npm run eslint from the root of the project.
+
+- To run the tests locally, you will need to have a Hasura GraphQL engine URL. You can run the tests locally by passing the GraphQL Engine URL and the access key to the npm test command.
+
+- $ GRAPHQURL_TEST_GRAPHQL_ENGINE_URL=<Hasura GraphQL Engine> \
+  GRAPHQURL_TEST_X_HASURA_ACCESS_KEY=<Access key> \
+  npm test
+
 ## Commit messages
 
 - The first line should be a summary of the changes, not exceeding 50

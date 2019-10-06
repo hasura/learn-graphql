@@ -6,21 +6,21 @@ Sample JWT Authentication server for generating a JWT to use in the `Authenticat
 
 ### Deploy locally
 
-#### Local Prerequisites
+#### Local Prerequisites:
 
--   PostgreSQL up and accepting connections
--   Hasura GraphQL engine up and accepting connections
--   Node.js 8.9+ installed
+-   PostgreSQL up and accepting connections.
+-   Hasura GraphQL engine up and accepting connections.
+-   Node.js 8.9+ installed.
 
-#### Local instructions
+#### Local instructions:
 
-Install NPM dependencies
+Install NPM dependencies:
 
 ```bash
 npm install
 ```
 
-Set environment variables. Open `.env` file and add the following env
+Set environment variables. Open `.env` file and add the following env:
 
 ```bash
 ENCRYPTION_KEY=<replace_it_with_your_JWT_SECRET>
@@ -39,7 +39,7 @@ The following `users` table is assumed to be present in your schema. The table c
 | password   | Text    | no       | no     |         | no      |
 | created_at | Date    | no       | no     | now()   |         |
 
-Then start your app
+Then start your app:
 
 ```bash
 npm start
@@ -83,7 +83,7 @@ On success, we get the response:
 
 ### Authenticate JWT using GraphQL Engine
 
-The GraphQL engine comes with built in JWT authentication.  You will need to start the engine with the same secret/key as the JWT auth server using the environment variable `HASURA_GRAPHQL_JWT_SECRET` (HASURA_GRAPHQL_ACCESS_KEY is also required see the docs)
+The GraphQL engine comes with built in JWT authentication.  You will need to start the engine with the same secret/key as the JWT auth server using the environment variable `HASURA_GRAPHQL_JWT_SECRET` (HASURA_GRAPHQL_ACCESS_KEY is also required see the docs).
 
 In your GraphQL engine you will need to add permissions for a user named `user` with read permissions on the table and columns.
 

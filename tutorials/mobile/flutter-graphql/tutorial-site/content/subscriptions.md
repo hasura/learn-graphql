@@ -22,7 +22,7 @@ We need to tell the server that the user who is logged in is online. We have to 
 
 We have to make this change to see ourselves online first. Remember that we are already logged in and registered your data in the server, but not updated your `last_seen` value?
 
-The goal is to update it every few seconds from the client that you are online. Ideally, you should do this after you have successfully authenticated. So let's do it on the entry point of the app i.e. `lib/screens/tabs/todos/all.dart`. We instantiate `GraphQLClient`.
+The goal is to update it every few seconds from the client that you are online. Ideally, you should do this after you have successfully authenticated. So let's do it on the entrypoint of the app i.e. `lib/screens/tabs/todos/all.dart`. We instantiate `GraphQLClient`.
 First, let's define the mutation that sets `last_seen` to the current timestamp. For that create a file named `online_fetch.dart` inside `lib/data` and add the code below.
 
 ```dart

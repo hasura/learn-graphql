@@ -8,7 +8,7 @@ import CommunityAuthor from '../src/CommunityAuthor.js';
 
 GraphQL is becoming the new way to use APIs in modern web and mobile apps.
 
-However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of  new technology.
+However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of new technology.
 
 So, we put together a powerful and concise course that will introduce you to GraphQL and integrating GraphQL into your frontend stack, in the shortest amount of time possible.
 

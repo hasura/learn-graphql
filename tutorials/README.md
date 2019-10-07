@@ -4,13 +4,13 @@
 - GraphQL vs REST 
 - GraphQL Queries, Mutations, Subscriptions
 - Setting up a GraphQL Client with Apollo
-- Integrating GraphQL Queries in the app
+- Integrating GraphQL Queries in the App
 - Integrating GraphQL Mutations with Query Variables
-- Integrating Mutations to update, delete and bulk delete
-- Managing Local Cache after a GraphQL Mutation
-- Optismistic UI updates for responsive user experience
+- Integrating Mutations to Update, Delete and Bulk Delete
+- Managing Local Cache After a GraphQL Mutation
+- Optismistic UI Updates For Rresponsive User Experience
 - Using Subscriptions
-- Realtime feed with notifications
+- Realtime Feed With Notifications
 
 ### Backend
 
@@ -18,6 +18,6 @@
 - Postgres Data Modelling
 - Authorization
 - Authentication
-- Custom business logic
+- Custom Business Logic
 - Remote Schemas, Event Triggers
 

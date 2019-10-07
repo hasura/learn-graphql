@@ -53,3 +53,17 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 - Don't capitalize the first letter of the summary line.
 
 - Don't add a period/dot (.) at the end of the summary line.
+
+## Creating a pull request
+
+-Navigate to the main page of Hasura repository.
+
+-In the "Branch" menu, choose the branch that contains your commits.
+
+-To the right of the Branch menu, click New pull request.
+
+-Use the base branch dropdown menu to select the branch you'd like to merge your changes into, then use the compare branch drop-down menu to choose the topic branch you made your changes in.
+
+-Type a title and description for your pull request.
+
+-After your pull request has been reviewed, it can be merged into the repository.

@@ -1,7 +1,7 @@
 ---
 title: "Relationships"
 metaTitle: "Relationships with Hasura | Hasura GraphQL Tutorial"
-metaDescription: "This part of the tutorial covers how to make nested object queries by using object relationships and array relationships"
+metaDescription: "This part of the tutorial covers how to make nested Object Queries by using Object Relationships and Array Relationships"
 ---
 
 import YoutubeEmbed from "../src/YoutubeEmbed.js";
@@ -10,10 +10,10 @@ import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 Relationships enable you to make nested object queries if the tables/views in your database are connected. 
 
-GraphQL schema relationships can be either of
+GraphQL Schema Relationships can be either of
 
-- object relationships (one-to-one)
-- array relationships (one-to-many)
+- Object Relationships (one-to-one)
+- Array Relationships (one-to-many)
 
 ## Object Relationships
 
@@ -56,7 +56,7 @@ query {
 In this query, you are able to fetch users and for each user, you are fetching the todos (multiple) written by that user. Since a user can have multiple todos, this would be an array relationship.
 
 Relationships can be captured by foreign key constraints. Foreign key constraints ensure that there are no dangling data.
-Hasura Console automatically suggests relationships based on these constraints.
+Hasura Console automatically suggests Relationships based on these Constraints.
 
 Though the constraints are optional, it is recommended to enforce these constraints for data consistency.
 

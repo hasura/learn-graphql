@@ -1,12 +1,12 @@
 ---
-title: "Course introduction"
+title: "Course Introduction"
 metaTitle: "Course Introduction | Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to setting up a GraphQL backend with Hasura GraphQL Engine in the shortest amount of time possible."
 ---
 
 This course is a super fast introduction to setting up a GraphQL backend with Hasura.
 
-In 30 mins, you will setup a powerful, scalable realtime GraphQL backend complete with queries, mutations, and subscriptions. You will also learn how Hasura helps you integrate custom business logic (in any programming language), both as custom GraphQL APIs that you write yourself, and as event triggers that run asynchronously and are triggered by database events.
+In 30 mins, you will setup a Powerful, Scalable Realtime GraphQL Backend complete with Queries, Mutations, and Subscriptions. You will also learn how Hasura helps you integrate custom business logic (in any programming language), both as custom GraphQL APIs that you write yourself, and as Event Triggers that run asynchronously and are triggered by database events.
 
 ## What will I learn?
 
@@ -23,7 +23,7 @@ is an ideal starting point before diving into advanced topics.
 
 ## What will we be building?
 
-We will be building the backend of a realtime todo app. If you're interested in building the frontend and are new to GraphQL, head to the [GraphQL tutorials](https://learn.hasura.io) for different frontend frameworks.
+We will be building the backend of a realtime todo app. If you're interested in building the Frontend and are new to GraphQL, head to the [GraphQL tutorials](https://learn.hasura.io) for different frontend frameworks.
 
 Try this deployed version of the app, to see what features our backend will need to have:
 https://learn-hasura-todo-app.netlify.com/
@@ -38,7 +38,7 @@ can work with any programming language you choose on the server side.
 
 We've kept this course light on developer workflows and
 environment choices so that you can focus on the key concepts and
-go on to set up your favourite tools and workflows.
+go on to set up your favorite tools and workflows.
 
 ## How long will this tutorial take?
 Less than 30 mins.

@@ -57,7 +57,7 @@ URL endpoint" that returns data based on the query.
 
 As you can see in the example above, GraphQL queries look very neat and easy to
 read! This is because the query is the "shape" of the final JSON data you desire.
-This is one of the key-reasons that makes GraphQL a joy to work with!
+This is one of the key reasons that makes GraphQL a joy to work with!
 
 ## GraphQL benefits
 
@@ -73,7 +73,7 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
   app.
 - **Self-documenting**: Every GraphQL API conforms to a "schema" which is the graph
   data model and what kinds of queries a client can make. This allows the community
-  to build lots of cool tools to explore & visualise your API or create IDE plugins
+  to build lots of cool tools to explore & visualize your API or create IDE plugins
   that autocomplete your GraphQL queries and even do "codegen". We'll understand this
   in more detail later!
 

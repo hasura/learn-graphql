@@ -19,5 +19,5 @@
 - Authorization
 - Authentication
 - Custom Business Logic
-- Remote Schemas, Event Triggers
+- Remote Schemas and Event Triggers
 

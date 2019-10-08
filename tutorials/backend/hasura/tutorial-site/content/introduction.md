@@ -38,7 +38,7 @@ can work with any programming language you choose on the server side.
 
 We've kept this course light on developer workflows and
 environment choices so that you can focus on the key concepts and
-go on to set up your favourite tools and workflows.
+go on to set up your favorite tools and workflows.
 
 ## How long will this tutorial take?
 Less than 30 mins.

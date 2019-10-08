@@ -43,7 +43,7 @@ class WillLearn extends React.Component {
               <div className={'purpleLineSeperator'}>
               </div>
               <div className={'sectionDescription'}>
-                2 hour GraphQL Tutorial Series to teach you what GraphQL is and how to integrate GraphQL APIs with your favourite web/mobile framework.
+                2 hour GraphQL Tutorial Series to teach you what GraphQL is and how to integrate GraphQL APIs with your favorite web/mobile framework.
               </div>
             </div>
             <div className={'willLearnTutorial wd100 flexBoxWrapper'}>

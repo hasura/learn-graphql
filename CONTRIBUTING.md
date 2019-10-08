@@ -23,11 +23,13 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 ## Ways of contributing
 
+
+
 ### Reporting an Issue
 
 - Provide steps to reproduce the issue, including the tutorial that you are trying out.
 
-- Please include logs, if relevant.
+- Please include any logs, if relevant.
 
 ### Working on an issue
 

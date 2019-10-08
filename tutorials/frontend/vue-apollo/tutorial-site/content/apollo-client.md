@@ -9,7 +9,8 @@ import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/iph-ERuYx_Y" />
 
-Apollo gives a neat abstraction layer and an interface to your GraphQL server. You don't need to worry about constructing your queries with request body, headers and options, that you might have done with `axios` or `fetch` say. You can directly write queries and mutations in GraphQL and they will automatically be sent to your server via your apollo client instance.
+Apollo gives a neat abstraction layer and an interface to your GraphQL server. You don't need to worry about constructing your queries with a request body, headers, and options, that you might have done with `axios` or `fetch`.
+You can directly write queries and mutations in GraphQL and they will automatically be sent to your server via your apollo client instance.
 
 ### Vue Apollo Installation
 Let's get started by installing apollo client & peer graphql dependencies:
@@ -91,7 +92,7 @@ Now let's install the VueApollo plugin into Vue.
 
 ### Add the ApolloProvider
 
-Finally, lets add the ApolloProvider. The provider holds the Apollo client instances that can then be used by all the child components.
+Finally, let's add ApolloProvider. The provider holds the Apollo client instances that can then be used by all the child components.
 
 ```javascript
 +  const apolloProvider = new VueApollo({
@@ -105,8 +106,8 @@ Finally, lets add the ApolloProvider. The provider holds the Apollo client insta
   }).$mount("#app");
 
 ```
-Let's try to understand what is happening here. 
+Let's try to understand what is happening here.
 
 We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at [https://learn.hasura.io/graphql](https://learn.hasura.io/graphql)
-
-At the end, we instantiate ApolloClient by passing in our HttpLink and a new instance of `InMemoryCache` (recommended caching solution). Finally we are adding apollo provider to the Vue app.
+Subsequently, we instantiate ApolloClient by passing in our HttpLink and a new instance of `InMemoryCache` (recommended caching solution).
+Finally, we are adding ApolloProvider to the Vue app.

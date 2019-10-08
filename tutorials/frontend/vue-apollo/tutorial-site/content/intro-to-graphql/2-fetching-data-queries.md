@@ -12,7 +12,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 ## Try out GraphQL queries
 
-For this tutorial we've set up a GraphQL API for you. The most common
+For this tutorial, we've set up a GraphQL API for you. The most common
 way to browse a GraphQL API is to use GraphiQL. GraphiQL is a tool
 built by Facebook, (pronounced "graphical") that makes it easy to explore
 any GraphQL API.
@@ -27,7 +27,7 @@ Tools like GraphiQL make GraphQL APIs really easy
 to use and integrate APIs in your app without requiring
 external documentation tools.
 
-You can access the GraphiQL for this realtime todo app tutorial here:
+You can access the GraphiQL for this real-time todo app tutorial here:
 [learn.hasura.io/graphql/graphiql](https://learn.hasura.io/graphql/graphiql)
 
 When you work with a GraphQL API in a project you will almost always
@@ -36,7 +36,7 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 ## Basic GraphQL query
 
 1. Open GraphiQL at: [learn.hasura.io/graphql/graphiql](https://learn.hasura.io/graphql/graphiql). 
-   You'll have to login to get an auth token to query the API. In a real-world scenario
+   You'll have to login to get an auth token to query the API. In a real-world scenario,
    your GraphQL APIs will be protected.
 2. You'll see a URL, and headers that contain the auth
    token that will be sent along with your GraphQL query.
@@ -57,7 +57,7 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 
 Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL query string
 to the server at the given endpoint with the HTTP headers. The server then sends the response
-that you see on the right hand side.
+that you see on the right-hand side.
 
 ## Fetching "graphs"
 
@@ -192,8 +192,8 @@ In addition to the query above, we send a variables object:
 }
 ```
 
-Now instead of sending just the query to the GraphQL server, from our client
-we'll send both the query and the variables. The GraphQL server will use the
+Now instead of sending just the query to the GraphQL server,
+we'll send both the query and the variables from our client. The GraphQL server will use the
 variable in the right place in the query automatically for us!
 
 Let's try this out in GraphiQL:

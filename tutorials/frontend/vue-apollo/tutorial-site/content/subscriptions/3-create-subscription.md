@@ -1,7 +1,7 @@
 ---
 title: "Create Subscription and Render Result"
 metaTitle: "Vue Apollo Subscription Example | GraphQL Vue Apollo Tutorial"
-metaDescription: "Integrate Vue Apollo Smart Subscription to watch for changes in realtime data. We use GraphQL subscriptions as an example to get live data in the Vue app"
+metaDescription: "Integrate Vue Apollo Smart Subscription to watch for changes in real-time data. We use GraphQL subscriptions as an example to get live data in the Vue app"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -95,7 +95,7 @@ Now that we have the real data, let's remove the mock online user state
 How does this work?
 -------------------
 
-We are using the `apollo` object to define the subscription query, which functions similar to queries. The `online_users` prop gives the result of the realtime data for the query we have made.
+We are using the `apollo` object to define the subscription query, which functions similar to queries. The `online_users` prop gives the result of the real-time data for the query we have made.
 
 Refresh your vue app and see yourself online! Don't be surprised ;) There could be other users online as well.
 

@@ -84,6 +84,11 @@ spec:
       name: typescript-react-apollo
       path: ./tutorials/frontend/typescript-react-apollo/tutorial-site
     name: typescript-react-apollo
+  - containers:
+    - dockerfile: ./tutorials/frontend/react-apollo-hooks/tutorial-site/Dockerfile
+      name: react-apollo-hooks
+      path: ./tutorials/frontend/react-apollo-hooks/tutorial-site
+    name: react-apollo-hooks
   manifests:
     helm: {}
     path: ./services/manifests

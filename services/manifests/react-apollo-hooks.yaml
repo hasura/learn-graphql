@@ -3,14 +3,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: react-apollo
-  name: react-apollo
+    app: react-apollo-hooks
+  name: react-apollo-hooks
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: react-apollo
+      app: react-apollo-hooks
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,12 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: react-apollo
+        app: react-apollo-hooks
     spec:
       containers:
       - image: hasura/base-git-image:0.7
         imagePullPolicy: IfNotPresent
-        name: react-apollo
+        name: react-apollo-hooks
         env:
         - name: GATSBY_ALGOLIA_APP_ID
           valueFrom:
@@ -46,15 +46,15 @@ spec:
           protocol: TCP
         readinessProbe:
           httpGet:
-            path: /graphql/react-apollo-components/introduction
+            path: /graphql/react/introduction
             port: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: react-apollo
-  name: react-apollo
+    app: react-apollo-hooks
+  name: react-apollo-hooks
   namespace: default
 spec:
   ports:
@@ -62,5 +62,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: react-apollo
+    app: react-apollo-hooks
   type: ClusterIP

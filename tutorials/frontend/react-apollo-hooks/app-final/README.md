@@ -9,7 +9,7 @@ Tech stack
 
 - Frontend
     - React v16.8
-    - Apollo Boost v0.3
+    - Apollo Boost v0.4.3
 
 - Backend
     - Hasura GraphQL Engine

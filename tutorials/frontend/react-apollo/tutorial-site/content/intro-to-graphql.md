@@ -5,9 +5,46 @@ metaDescription: "What is GraphQL? GraphQL is a specification for how to talk to
 ---
 
 ## What is GraphQL?
-GraphQL is a specification for how to talk to an API. It's typically used over HTTP where the key idea is to `POST` a "query" to an HTTP endpoint, instead of hitting different HTTP endpoints for different resources.
+GraphQL is a query language for your API, and a server-side runtime for executing queries by using a type system you define for your data. GraphQL isn't tied to any specific database or storage engine and is instead backed by your existing code and data.
 
-GraphQL is designed for developers of web/mobile apps (HTTP clients) to be able to make API calls to fetch the data they need from their backend APIs conveniently.
+A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type. For example, a GraphQL service that tells us who the logged in user is (`me`) as well as that user's name might look something like this:
+```bash
+type Query {
+  me: User
+}
+
+type User {
+  id: ID
+  name: String
+}
+```
+Along with functions for each field on each type:
+```bash
+function Query_me(request) {
+  return request.auth.user;
+}
+function User-name(user) {
+  return user.getName();
+}
+```
+Open a GraphQL service is runnning (typically at a URL on a webservice), it can be sent GraphQL queries to validate and execute. A received query is first checked to ensure it only refers to the types and fields defined, then runs the provided functions to produce a result. 
+For example the query:
+```bash 
+{
+  me {
+    name
+  }
+}
+```
+Could produce the JSON result:
+```bash
+{
+  "me": {
+    "name": "Rohit Rathore"
+  }
+}
+```
+Learn more about GraphQL-the query language, type system, how the GraphQL service works, as well as best practices for using GraphQL to solve common problems-in the articles written in below sections.
 
 ## GraphQL vs REST: an example
 Let's say you have an API to fetch a user's profile and their address. In a typical REST scenario, this is what the request/response would look like:

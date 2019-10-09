@@ -1,3 +1,5 @@
+![hasura logo](https://img.stackshare.io/service/6590/hasura_logo_vertical_black.png)
+
 # [learn.hasura.io](https://learn.hasura.io)
 
 Real world GraphQL tutorials for frontend developers with deadlines!
@@ -27,6 +29,8 @@ There are three different series:
 
 - [Introduction to Hasura](https://learn.hasura.io/graphql/hasura)
 - Postgres Basics (coming soon)
+
+#### [Head over to our Youtube page and subscribe !] (https://www.youtube.com/channel/UCZo1ciR8pZvdD3Wxp9aSNhQ)
 
 ## Contributing
 

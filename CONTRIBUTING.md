@@ -19,7 +19,7 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 - Fix errors in existing tutorials.
 
-- Help us in updating the apps versions.
+- Help us in updating the app's versions.
 
 ## Ways of contributing
 

@@ -9,7 +9,7 @@ class CommonNavBar extends React.Component {
         <div className={'upArrow'}>
         </div>
         {/* eslint-disable-next-line */}
-        <a id={this.props.id} className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{this.props.navTitle}</a>
+        <button type="button" id={this.props.id} className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{this.props.navTitle}</button>
         <div aria-labelledby="frontend" className="dropdown-menu dropdownMenu">
           <div className={'dropdownMenuBgImg'}>
             <img className={'img-responsive'} src={dropPath} alt={'dropPath'} />

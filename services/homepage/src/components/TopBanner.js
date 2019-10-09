@@ -5,7 +5,7 @@ class TopBanner extends React.Component {
   render() {
     const hasuraDumbledore = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-dumbledore.png';
     return (
-      <div className={'gradientBgColor commonSectionWrapper positionRel'}>
+      <section className={'gradientBgColor commonSectionWrapper positionRel'}>
         <div className={'container noPadd'}>
           <div className={'topBannerWrapper col-md-12'}>
             <div className={'col-md-6 col-sm-6 col-xs-12 noPadd'}>
@@ -25,7 +25,7 @@ class TopBanner extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

@@ -57,12 +57,12 @@ class Testimonials extends React.Component {
     });
     return (
       /* Use global styles normally */
-      <div className={'whiteBgColor commonSectionWrapper'}>
+      <section className={'whiteBgColor commonSectionWrapper'}>
         <div className={'container noPadd'}>
           <div className={'testimoialsWrapper wd80'}>
-            <div className={'sectionHeader'}>
+            <h1 className={'sectionHeader'} tabIndex={0}>
               Testimonials
-            </div>
+            </h1>
             <div className={'purpleLineSeperator'}>
             </div>
             <div className={'testimonialListWrapper'}>
@@ -70,7 +70,7 @@ class Testimonials extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

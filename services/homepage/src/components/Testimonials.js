@@ -13,7 +13,7 @@ class Testimonials extends React.Component {
           designation: (<span>Instructor <b>@egghead.io</b></span>),
         },
         {
-          description: (<span>“This is a really great tutorial for people keen to learn more about GraphQL <span role="img" aria-labelledby="emoji">🚀</span> I just went through the React one, but they have tutorials for Vue, iOS and RN too <span role="img" aria-labelledby="emoji">💙</span> <a href="https://twitter.com/hashtag/2Hours2GraphQL?src=hash" target="_blank" rel="noopener noreferrer">#2Hours2GraphQL</a>.</span>),
+          description: (<span>“This is a really great tutorial for people keen to learn more about GraphQL <span role="img" aria-label="rocket emoji">🚀</span> I just went through the React one, but they have tutorials for Vue, iOS and RN too <span role="img" aria-label="heart emoji">💙</span> <a href="https://twitter.com/hashtag/2Hours2GraphQL?src=hash" target="_blank" rel="noopener noreferrer">#2Hours2GraphQL</a>.</span>),
           img: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/Sibylle.png',
           name: 'Sibylle',
           twitterLink: 'https://twitter.com/s_ibylle/status/1138143802831585280',

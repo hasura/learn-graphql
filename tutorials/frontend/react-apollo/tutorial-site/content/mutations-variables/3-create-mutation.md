@@ -41,7 +41,7 @@ const TodoInput = ({isPublic=false}) => {
 };
 ```
 
-In the `<Mutation>` component defined above, the first argument of the render prop function is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations.html#render-prop)
+In the `<Mutation>` component defined above, the first argument of the render prop function is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/data/mutations/)
 
 The mutate function optionally takes variables, optimisticResponse, refetchQueries, and update; You are going to make use of the `update` function later.
 

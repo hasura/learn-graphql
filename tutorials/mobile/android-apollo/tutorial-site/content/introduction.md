@@ -6,7 +6,7 @@ metaDescription: "A powerful and concise tutorial that will introduce you to Gra
 
 This course is a concise and powerful introduction to GraphQL for android developers.
 
-We’ve structured this course to cover fundamental concepts of both GraphQL and using GraphQL in Android, in the shortest amount of time possible. The course is light on opinions so that once you grok the fundamentals you can go on to choose your favourite tools and tailor your workflow.
+We’ve structured this course to cover fundamental concepts of both GraphQL and using GraphQL in Android, in the shortest amount of time possible. The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite tools and tailor your workflow.
 
 ## Key topics and takeways:
 - GraphQL vs REST
@@ -19,7 +19,7 @@ We’ve structured this course to cover fundamental concepts of both GraphQL and
 - Using subscriptions with a subscriptions methods
 - Building a real-time feed with notifications using mutations and subscriptions
 
-## What will be building?
+## What will we be building?
 We will be building a realtime todo app using authenticated GraphQL APIs.
 
 Try this deployed version of the frontend app to see what we'll be building: https://learn-hasura-todo-app.netlify.com/
@@ -28,7 +28,7 @@ This is built on React but the functionality will be the same for android.
 
 ## Will this course teach Android concepts as well?
 No, we will be simulating a scenario where we already have a
-GraphQL API and the basic UI of a android app built. Our task in this
+GraphQL API and the basic UI of an android app built. Our task in this
 scenario is to integrate the GraphQL APIs into our android app to build
 a complete and working app.
 

@@ -92,6 +92,8 @@ body
   color: #2b0785;
   line-height: 1.4;
   font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .sectionSubHeader
 {
@@ -234,7 +236,7 @@ ul
     margin-left: 4%;
     border: 2px solid #fff;
 }
-.notifyWrapper button:hover {
+.notifyWrapper button:hover, .notifyWrapper button:focus {
   background-color: #fff;
   color: #2b0785;
 }
@@ -286,7 +288,7 @@ ul
     background-color: #4767a1 !important;
     border-color: #4767a1 !important;
     color: #fff !important;
-    &:hover
+    &:hover, &:focus
     {
       background-color: #3b5f93 !important;
       border-color: #3b5f93 !important;
@@ -340,7 +342,7 @@ ul
         transform: translateX(-50%);
         bottom: -2px;
       }
-      a
+      button
       {
         font-family: 'Raleway';
         font-size: 12px;
@@ -349,16 +351,11 @@ ul
         padding: 0;
         color: #ffffff !important;
         opacity: 0.5;
-        &:hover
+        background-color: transparent !important;
+        border: none;
+        &:hover, &:focus
         {
-          background-color: transparent !important;
           opacity: 1;
-          outline: none;
-          color: #ffffff !important;
-        }
-        &:focus
-        {
-          background-color: transparent;
           outline: none;
         }
       }
@@ -888,6 +885,15 @@ ul
       {
         display: inline-block;
         padding-right: 25px;
+        a:focus {
+          i {
+            color: #fff;
+          }
+          .discordIcon
+          {
+            background-image: url('https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-white.svg');
+          }
+        }
 				i
 				{
 					font-size: 25px;

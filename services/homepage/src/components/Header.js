@@ -6,7 +6,7 @@ class TopBanner extends React.Component {
   render() {
     const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
     return (
-      <div className={'headerWrapper blueBgColor'}>
+      <header className={'headerWrapper blueBgColor'}>
         <nav className="navbar navbar-default navbarDefault">
           <div className="container">
             <div className="navbar-header navbarHeader">
@@ -26,28 +26,28 @@ class TopBanner extends React.Component {
                 id="frontend"
                 navTitle="FRONTEND"
                 title="Frontend Tutorials"
-                description="2 hour Frontend GraphQL Tutorial Series to teach you your favourite framework."
+                description="2 hour Frontend GraphQL Tutorial Series to teach you your favorite framework."
                 commonTutorial = {frontendTutorial}
                 />
                 <CommonNavBar
                 id="mobile"
                 navTitle="MOBILE"
                 title="Mobile Tutorials"
-                description="2 hour mobile GraphQL Tutorial Series to teach you your favourite framework."
+                description="2 hour mobile GraphQL Tutorial Series to teach you your favorite framework."
                 commonTutorial={mobileTutorial}
                 />
                 <CommonNavBar
                 id="backend"
                 navTitle="BACKEND"
                 title="Backend Tutorials"
-                description="2 hour backend GraphQL Tutorial Series to teach you your favourite framework."
+                description="2 hour backend GraphQL Tutorial Series to teach you your favorite framework."
                 commonTutorial={backendTutorial}
                 />
               </ul>
             </div>
           </div>
         </nav>
-      </div>
+      </header>
     );
   }
 }

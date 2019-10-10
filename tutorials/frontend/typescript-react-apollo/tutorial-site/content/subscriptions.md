@@ -71,7 +71,7 @@ As we did in previous steps, we will pass the above mutation to `useMutation` ho
 We will need to trigger this mutation every 30 seconds.
 
 We are going to make use of `useEffect` to implement this side effect.
-In `useEffect`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.
+In `useEffect`, we will create a `setInterval` to update the `last_seen` of the user every 30 seconds.
 
 ```javascript
 

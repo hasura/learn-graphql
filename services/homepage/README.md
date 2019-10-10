@@ -4,5 +4,5 @@
 
 - Test the app
 
-  Run `npm run develop` to start the gatsby server.
+  Run `npm start` to start the gatsby server.
   Visit [http://localhost:8000](http://localhost:8000) to view the app

@@ -33,17 +33,17 @@ class WillLearn extends React.Component {
       )
     })
     return (
-      <div className={'lightGrayBgColor commonSectionWrapper'}>
+      <section className={'lightGrayBgColor commonSectionWrapper'}>
         <div className={'container noPadd'}>
           <div className={'willLearnWrapper'}>
             <div className={'col-md-12'}>
-              <div className={'sectionHeader'}>
+              <h1 className={'sectionHeader'} tabIndex={0}>
                 What you will learn
-              </div>
+              </h1>
               <div className={'purpleLineSeperator'}>
               </div>
               <div className={'sectionDescription'}>
-                2 hour GraphQL Tutorial Series to teach you what GraphQL is and how to integrate GraphQL APIs with your favourite web/mobile framework.
+                2 hour GraphQL Tutorial Series to teach you what GraphQL is and how to integrate GraphQL APIs with your favorite web/mobile framework.
               </div>
             </div>
             <div className={'willLearnTutorial wd100 flexBoxWrapper'}>
@@ -70,7 +70,7 @@ class WillLearn extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

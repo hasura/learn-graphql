@@ -9,8 +9,10 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 <YoutubeEmbed link="https://www.youtube.com/embed/ygUDIeiYZNA" />
 
 <a name="graphiql"></a>
+
 ## Try out GraphQL queries
-For this tutorial we've set up a GraphQL API for you. The most common
+
+For this tutorial, we've set up a GraphQL API for you. The most common
 way to browse a GraphQL API is to use GraphiQL. GraphiQL is a tool
 built by Facebook, (pronounced "graphical") that makes it easy to explore
 any GraphQL API.
@@ -25,7 +27,7 @@ Tools like GraphiQL make GraphQL APIs really easy
 to use and integrate APIs in your app without requiring
 external documentation tools.
 
-You can access the GraphiQL for this realtime todo app tutorial here:
+You can access the GraphiQL for this real-time todo app tutorial here:
 [learn.hasura.io/graphql/graphiql](https://learn.hasura.io/graphql/graphiql)
 
 When you work with a GraphQL API in a project you will almost always
@@ -34,7 +36,7 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 ## Basic GraphQL query
 
 1. Open GraphiQL at: [learn.hasura.io/graphql/graphiql](https://learn.hasura.io/graphql/graphiql). 
-   You'll have to login to get an auth token to query the API. In a real-world scenario
+   You'll have to login to get an auth token to query the API. In a real-world scenario,
    your GraphQL APIs will be protected.
 2. You'll see a URL, and headers that contain the auth
    token that will be sent along with your GraphQL query.
@@ -55,7 +57,7 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 
 Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL query string
 to the server at the given endpoint with the HTTP headers. The server then sends the response
-that you see on the right hand side.
+that you see on the right-hand side.
 
 ## Fetching "graphs"
 
@@ -154,6 +156,7 @@ Notice that we are passing arguments to different fields. This GraphQL query rea
 <b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 <a name="query-variables"></a>
+
 ## GraphQL variables: Passing arguments to your queries dynamically
 
 This is great, but we still have a problem. If we want to create a query
@@ -163,8 +166,8 @@ create the entire query string again.
 This is what we don't want to do:
 
 ```javascript
-var limit = getMaxTodosFromUserInput();
-var query = "query { todos (limit: " + limit.toString() + ") {id title} }";
+const limit = getMaxTodosFromUserInput();
+const query = "query { todos (limit: " + limit.toString() + ") {id title} }";
 ```
 
 Thankfully, we don't ever have to do this! GraphQL variables are extra variables
@@ -189,8 +192,8 @@ In addition to the query above, we send a variables object:
 }
 ```
 
-Now instead of sending just the query to the GraphQL server, from our client
-we'll send both the query and the variables. The GraphQL server will use the
+Now instead of sending just the query to the GraphQL server,
+we'll send both the query and the variables from our client. The GraphQL server will use the
 variable in the right place in the query automatically for us!
 
 Let's try this out in GraphiQL:

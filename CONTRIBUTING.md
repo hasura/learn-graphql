@@ -37,7 +37,7 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 - Squash your commits and refer to the issue using `fix #<issue-no>` or `close
   #<issue-no>` in the commit message, at the end.
-  For example: `resolve answers to everything (fix #42)` or `resolve answers to everything, fix #42`
+  For example: `resolve answers to everything (fix #42)` or `resolve answers to everything, fix #42`.
 
 - Rebase master with your branch before submitting a pull request.
 

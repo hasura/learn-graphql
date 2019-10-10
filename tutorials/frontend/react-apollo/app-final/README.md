@@ -18,3 +18,4 @@ Run the React app
 -----------------
 
 Run `npm start` to start the todo app.
+A user can add todos, delete his todos and mark his todos which are completed.

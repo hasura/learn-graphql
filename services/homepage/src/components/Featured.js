@@ -3,12 +3,12 @@ import '../styles/styles.scss';
 class Featured extends React.Component {
   render() {
     return (
-      <div className={'whiteBgColor commonSectionWrapper'}>
+      <section className={'whiteBgColor commonSectionWrapper'}>
         <div className={'container noPadd'}>
           <div className={'featuredWrapper'}>
-            <div className={'sectionHeader'}>
+            <h1 className={'sectionHeader'} tabIndex={0}>
               We’ve been featured!
-            </div>
+            </h1>
             <div className={'purpleLineSeperator'}>
             </div>
             <div className={'featuredIconWrapper'}>
@@ -27,7 +27,7 @@ class Featured extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

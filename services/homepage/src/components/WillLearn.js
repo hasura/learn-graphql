@@ -33,13 +33,13 @@ class WillLearn extends React.Component {
       )
     })
     return (
-      <div className={'lightGrayBgColor commonSectionWrapper'}>
+      <section className={'lightGrayBgColor commonSectionWrapper'}>
         <div className={'container noPadd'}>
           <div className={'willLearnWrapper'}>
             <div className={'col-md-12'}>
-              <div className={'sectionHeader'}>
+              <h1 className={'sectionHeader'} tabIndex={0}>
                 What you will learn
-              </div>
+              </h1>
               <div className={'purpleLineSeperator'}>
               </div>
               <div className={'sectionDescription'}>
@@ -70,7 +70,7 @@ class WillLearn extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

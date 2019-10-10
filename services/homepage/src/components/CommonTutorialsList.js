@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import '../styles/styles.scss';
 
-const CommonTutorialsList = () => {
+const CommonTutorialsList = ({ tutorial, title, subText }) => {
   const path = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/tutorial-path.svg';
   let anchorClass;
-  const listTutorial = this.props.tutorial.map((list, key) => {
+  const listTutorial = tutorial.map((list, key) => {
     anchorClass = list.comingSoon ? 'noClick' : '';
     return (
       <a className={anchorClass} key={key} href={list.url} target={'_blank'} data-toggle="tooltip" title={list.name}>
@@ -29,7 +29,7 @@ const CommonTutorialsList = () => {
           <img className={'img-responsive'} src={path} alt={'path'} />
         </div>
         <div className={'tutorialHeader'}>
-          {this.props.title} <span>{this.props.subText}</span>
+          {title} <span>{subText}</span>
         </div>
       </div>
       <div className={'tutorialListWrapper'}>

@@ -2,31 +2,31 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import '../styles/styles.scss';
 
-const CommonNavBar = () => {
+const CommonNavBar = ({ id, navTitle, title, description, commonTutorial}) => {
   const dropPath = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/dropdown-path.svg';
   return (
     <li className="dropdown">
       <div className={'upArrow'}>
       </div>
       {/* eslint-disable-next-line */}
-      <button type="button" id={this.props.id} className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{this.props.navTitle}</button>
+      <button type="button" id={id} className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{navTitle}</button>
       <div aria-labelledby="frontend" className="dropdown-menu dropdownMenu">
         <div className={'dropdownMenuBgImg'}>
           <img className={'img-responsive'} src={dropPath} alt={'dropPath'} />
         </div>
         <div className={'col-md-6 col-sm-6 col-xs-12'}>
           <div className={'menuTitle'}>
-            {this.props.title}
+            {title}
           </div>
           <div className={'purpleLineSeperator'}>
           </div>
           <div className={'sectionDescription'}>
-            {this.props.description}
+            {description}
           </div>
         </div>
         <div className={'col-md-6 col-sm-6 col-xs-12'}>
           <ul className={'dropdownUl'}>
-            {this.props.commonTutorial.map((item, key) => {
+            {commonTutorial.map((item, key) => {
               if(!item.comingSoon) {
                 return (
                   <a href={item.url} target={'_blank'}>

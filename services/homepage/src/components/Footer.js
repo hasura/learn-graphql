@@ -32,7 +32,7 @@ class Footer extends React.Component {
   render() {
     const blueLamda = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/Hasura.svg';
     return (
-      <div id="footer" ref="footer" className={'darkGrayBgColor commonSectionWrapper wd100'}>
+      <footer id="footer" ref="footer" className={'darkGrayBgColor commonSectionWrapper wd100'}>
           <div className={'container noPadd'}>
             <div className={'footer_wrapper'}>
               <div className={'col-md-2  col-sm-12 col-xs-12'}>
@@ -160,7 +160,7 @@ class Footer extends React.Component {
               © 2019 Hasura Inc. All rights reserved
             </div>
           </div>
-        </div>
+        </footer>
     );
   }
 }

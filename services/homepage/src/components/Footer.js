@@ -32,7 +32,7 @@ class Footer extends React.Component {
   render() {
     const blueLamda = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/Hasura.svg';
     return (
-      <div id="footer" ref="footer" className={'darkGrayBgColor commonSectionWrapper wd100'}>
+      <footer id="footer" ref="footer" className={'darkGrayBgColor commonSectionWrapper wd100'}>
           <div className={'container noPadd'}>
             <div className={'footer_wrapper'}>
               <div className={'col-md-2  col-sm-12 col-xs-12'}>
@@ -112,37 +112,37 @@ class Footer extends React.Component {
                   </div>
                   <div className={'footer_social_wrapper'}>
                     <div className={'social_icons'}>
-                      <a href={'https://www.facebook.com/HasuraHQ/'} target={'_blank'} >
+                      <a href={'https://www.facebook.com/HasuraHQ/'} target={'_blank'} aria-label="Follow us on Facebook">
                         <i className="fab fa-facebook" aria-hidden="true"/>
                       </a>
                     </div>
                     <div className={'social_icons'}>
-                      <a href={'https://twitter.com/hasurahq/'} target={'_blank'}>
+                      <a href={'https://twitter.com/hasurahq/'} target={'_blank'} aria-label="Follow us on Twitter">
                         <i className="fab fa-twitter" aria-hidden="true"/>
                       </a>
                     </div>
                     <div className={'social_icons'}>
-                      <a href={'https://www.instagram.com/hasurahq/'} target={'_blank'}>
+                      <a href={'https://www.instagram.com/hasurahq/'} target={'_blank'} aria-label="Follow us on Instagram">
                         <i className="fab fa-instagram" aria-hidden="true"/>
                       </a>
                     </div>
                     <div className={'social_icons'}>
-                      <a href={'https://discord.gg/hasura'} target={'_blank'}>
+                      <a href={'https://discord.gg/hasura'} target={'_blank'} aria-label="Chat with us on Discord">
                         <div className={'discordIcon'}></div>
                       </a>
                     </div>
                     <div className={'social_icons'}>
-                      <a href={'https://github.com/hasura/graphql-engine'} target={'_blank'}>
+                      <a href={'https://github.com/hasura/graphql-engine'} target={'_blank'} aria-label="Follow us on GitHub">
                         <i className="fab fa-github" aria-hidden="true"></i>
                       </a>
                     </div>
                     <div className={'social_icons'}>
-                      <a href={'https://www.twitch.tv/hasuraHQ'} target={'_blank'}>
+                      <a href={'https://www.twitch.tv/hasuraHQ'} target={'_blank'} aria-label="Follow us on Twitch">
                         <i className="fab fa-twitch" aria-hidden="true"></i>
                       </a>
                     </div>
                     <div className={'social_icons'}>
-                      <a href={'https://www.youtube.com/channel/UCZo1ciR8pZvdD3Wxp9aSNhQ'} target={'_blank'}>
+                      <a href={'https://www.youtube.com/channel/UCZo1ciR8pZvdD3Wxp9aSNhQ'} target={'_blank'} aria-label="Follow us on Youtube">
                         <i className="fab fa-youtube" aria-hidden="true"></i>
                       </a>
                     </div>
@@ -160,7 +160,7 @@ class Footer extends React.Component {
               © 2019 Hasura Inc. All rights reserved
             </div>
           </div>
-        </div>
+        </footer>
     );
   }
 }

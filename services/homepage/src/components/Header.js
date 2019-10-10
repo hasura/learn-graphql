@@ -6,7 +6,7 @@ class TopBanner extends React.Component {
   render() {
     const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
     return (
-      <div className={'headerWrapper blueBgColor'}>
+      <header className={'headerWrapper blueBgColor'}>
         <nav className="navbar navbar-default navbarDefault">
           <div className="container">
             <div className="navbar-header navbarHeader">
@@ -47,7 +47,7 @@ class TopBanner extends React.Component {
             </div>
           </div>
         </nav>
-      </div>
+      </header>
     );
   }
 }

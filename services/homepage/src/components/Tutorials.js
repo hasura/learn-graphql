@@ -5,13 +5,13 @@ import {frontendTutorial, backendTutorial, mobileTutorial} from './AllState.js'
 class Tutorials extends React.Component {
   render() {
     return (
-      <div className={'lightGrayBgColor commonSectionWrapper'}>
+      <section className={'lightGrayBgColor commonSectionWrapper'}>
         <div className={'container noPadd'}>
           <div className={'tutorialWrapper'}>
             <div className={'col-md-12'}>
-              <div className={'sectionHeader'}>
+              <h1 className={'sectionHeader'} tabIndex={0}>
                 Check out the tutorials
-              </div>
+              </h1>
             </div>
             <CommonTutorialsList
             title="Frontend Tutorials"
@@ -30,7 +30,7 @@ class Tutorials extends React.Component {
             />
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

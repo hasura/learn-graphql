@@ -39,7 +39,7 @@ If you're new to React, we recommend going through this [official tutorial](http
 You need to have npm/yarn & node 8+ running.
 
 ## How long will this tutorial take?
-Less than 2 hours
+Less than 2 hours.
 
 ## Other courses
 

@@ -1,8 +1,10 @@
 ---
-title: "Course introduction"
+title: "Course Introduction"
 metaTitle: "Course Introduction | GraphQL React Apollo Hooks Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your React app with Apollo, in the shortest amount of time possible."
 ---
+
+import CommunityAuthor from '../src/CommunityAuthor.js';
 
 GraphQL is becoming the new way to use APIs in modern web and mobile apps.
 
@@ -48,3 +50,11 @@ Less than 2 hours
 **Mobile**: GraphQL for: [React Native](https://learn.hasura.io/graphql/react-native), [iOS](https://learn.hasura.io/graphql/ios), [Android](https://learn.hasura.io/graphql/android), [Flutter](https://learn.hasura.io/graphql/flutter-graphql)
 
 **Backend**: [Building a realtime GraphQL backend with Hasura](https://learn.hasura.io/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
+
+<CommunityAuthor 
+    name="Apoorv Vardhan"
+    imageUrl="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-angular/author.jpg"
+    twitterUrl="https://twitter.com/vardhanapoorv16"
+    githubUrl="https://github.com/vardhanapoorv"
+    description="Loves to try out and build new things!"
+/>

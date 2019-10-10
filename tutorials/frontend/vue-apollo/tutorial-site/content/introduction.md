@@ -1,5 +1,5 @@
 ---
-title: "Course introduction"
+title: "Course Introduction"
 metaTitle: "Course Introduction | GraphQL Vue Apollo Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your Vue app with Apollo, in the shortest amount of time possible."
 ---

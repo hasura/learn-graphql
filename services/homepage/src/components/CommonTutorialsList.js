@@ -8,11 +8,11 @@ const CommonTutorialsList = ({ tutorial, title, subText }) => {
   const listTutorial = tutorial.map((list, key) => {
     anchorClass = list.comingSoon ? 'noClick' : '';
     return (
-      <a className={anchorClass} key={key} href={list.url} target={'_blank'} data-toggle="tooltip" title={list.name}>
-        <div className= {(list.comingSoon) ? list.disableBgClassName + ' disabledList' : list.bgClassName + ' listTutorial'}>
-          <div className={'tutorialIconWrapper'}>
+      <a className={anchorClass} key={key} href={list.url} target='_blank' data-toggle="tooltip" title={list.name}>
+        <div className={(list.comingSoon) ? list.disableBgClassName + ' disabledList' : list.bgClassName + ' listTutorial'}>
+          <div className='tutorialIconWrapper'>
             {(list.comingSoon) ?
-              <div className={'comingSoon'}>
+              <div className='comingSoon'>
                 Coming soon
               </div>
               : null
@@ -23,16 +23,16 @@ const CommonTutorialsList = ({ tutorial, title, subText }) => {
     )
   });
   return (
-    <div className={'col-md-4 col-sm-12 col-xs-12'}>
-      <div className={'tutorailsHeaderWrapper'}>
-        <div className={'tutorialBgImg'}>
-          <img className={'img-responsive'} src={path} alt={'path'} />
+    <div className='col-md-4 col-sm-12 col-xs-12'>
+      <div className='tutorailsHeaderWrapper'>
+        <div className='tutorialBgImg'>
+          <img className='img-responsive' src={path} alt='path' />
         </div>
-        <div className={'tutorialHeader'}>
+        <div className='tutorialHeader'>
           {title} <span>{subText}</span>
         </div>
       </div>
-      <div className={'tutorialListWrapper'}>
+      <div className='tutorialListWrapper'>
         {listTutorial}
       </div>
     </div>

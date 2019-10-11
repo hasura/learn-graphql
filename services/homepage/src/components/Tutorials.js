@@ -5,28 +5,28 @@ import CommonTutorialsList from './CommonTutorialsList';
 
 const Tutorials = () => {
   return (
-    <section className={'lightGrayBgColor commonSectionWrapper'}>
-      <div className={'container noPadd'}>
-        <div className={'tutorialWrapper'}>
-          <div className={'col-md-12'}>
-            <h1 className={'sectionHeader'} tabIndex={0}>
+    <section className='lightGrayBgColor commonSectionWrapper'>
+      <div className='container noPadd'>
+        <div className='tutorialWrapper'>
+          <div className='col-md-12'>
+            <h1 className='sectionHeader' tabIndex={0}>
               Check out the tutorials
             </h1>
           </div>
           <CommonTutorialsList
-          title="Frontend Tutorials"
-          subText="(2-hour Series)"
-          tutorial={frontendTutorial}
+            title="Frontend Tutorials"
+            subText="(2-hour Series)"
+            tutorial={frontendTutorial}
           />
           <CommonTutorialsList
-          title="Mobile Tutorials"
-          subText="(2-hour Series)"
-          tutorial={mobileTutorial}
+            title="Mobile Tutorials"
+            subText="(2-hour Series)"
+            tutorial={mobileTutorial}
           />
           <CommonTutorialsList
-          title="Backend Tutorials"
-          subText=""
-          tutorial={backendTutorial}
+            title="Backend Tutorials"
+            subText=""
+            tutorial={backendTutorial}
           />
         </div>
       </div>

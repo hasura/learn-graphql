@@ -15,7 +15,7 @@ In the `TodoPublicListSubscription` component of the previous step, we only get 
 Start off by importing `useEffect` from  `react` and `useApolloClient` from `@apollo/react-hooks`
 
 ```javascript
-- import React, { Fragment, useState } from "react";
+- import React, { Fragment } from "react";
 + import React, { Fragment, useState, useEffect } from "react";
 - import { useSubscription } from "@apollo/react-hooks";
 + import { useSubscription, useApolloClient } from "@apollo/react-hooks";
@@ -28,7 +28,8 @@ Now that we have access to the client, let's update the `TodoPublicList` compone
 
 ```javascript
 const TodoPublicList = props => {
-    const [state, setState] = useState({
+-    const state = {
++    const [state, setState] = useState({
 -     olderTodosAvailable: true,
 +     olderTodosAvailable: props.latestTodo ? true : false,
 -     newTodosCount: 1,
@@ -66,7 +67,8 @@ const TodoPublicList = props => {
 -       }
       ],
 +     error: false
-    });
+-   }; 
++   });
 
 +  let numTodos = state.todos.length;
 +  let oldestTodoId = numTodos

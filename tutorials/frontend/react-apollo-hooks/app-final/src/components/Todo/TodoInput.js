@@ -45,7 +45,7 @@ const TodoInput = ({ isPublic = false }) => {
     setTodoInput("");
   };
 
-  const [addTodo, { loading }] = useMutation(ADD_TODO, {
+  const [addTodo] = useMutation(ADD_TODO, {
     update: updateCache,
     onCompleted: resetInput
   });

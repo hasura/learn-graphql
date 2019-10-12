@@ -70,10 +70,7 @@ Now that we have the real data, let's remove the mock online user state
 
 ```javascript
 const OnlineUsersWrapper = () => {
--  const [onlineUsers, setOnlineUsers] = useState([
--    { name: "someUser1" },
--    { name: "someUser2" }
--  ]);
+-  const onlineUsers = [{ name: "someUser1" }, { name: "someUser2" }];
 -
 -  const onlineUsersList = [];
 -  onlineUsers.forEach((user, index) => {

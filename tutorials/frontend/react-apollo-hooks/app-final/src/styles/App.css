@@ -23,6 +23,11 @@ body {
   padding-right: 0;
 }
 
+.m-left-right-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .p-30 {
   padding: 30px;
 }
@@ -96,7 +101,6 @@ body {
   opacity: 0.6;
   font-size: 14px;
 }
-
 
 .formInput {
   position: relative;
@@ -369,8 +373,8 @@ body {
   left: 50%;
   font-size: 18px;
   text-align: center;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 .overlay .overlay-heading {

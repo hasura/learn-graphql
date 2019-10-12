@@ -18,7 +18,7 @@ const Login = () => {
         <div className="overlay-action">
           <Button
             id="qsLoginBtn"
-            bsStyle="primary"
+            variant="primary"
             className="btn-margin loginBtn"
             onClick={() => {
               loginWithRedirect({});

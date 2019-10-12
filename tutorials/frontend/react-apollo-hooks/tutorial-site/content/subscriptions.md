@@ -30,7 +30,8 @@ Open `src/components/OnlineUsers/OnlineUsersWrapper.js` and add the following im
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/OnlineUsers/OnlineUsersWrapper.js" text="src/components/OnlineUsers/OnlineUsersWrapper.js" />
 
 ```javascript
-  import React, { useState } from "react";
+- import React from "react";
++ import React, { useEffect, useState } from "react";
 + import { useMutation } from "@apollo/react-hooks";
 + import gql from "graphql-tag";
 ```

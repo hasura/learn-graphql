@@ -1,9 +1,9 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 
 import TaskItem from "./TaskItem";
 
 const TodoPublicList = props => {
-  const [state, setState] = useState({
+  const state = {
     olderTodosAvailable: true,
     newTodosCount: 1,
     todos: [
@@ -38,7 +38,7 @@ const TodoPublicList = props => {
         }
       }
     ]
-  });
+  };
 
   const loadNew = () => {};
 

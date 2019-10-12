@@ -19,7 +19,7 @@ const TodoItem = ({ index, todo }) => {
     e.stopPropagation();
     removeTodoMutation({
       variables: { id: todo.id },
-      optimisticResponse: {},
+      optimisticResponse: null,
       update: cache => {
         const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
         const newTodos = existingTodos.todos.filter(t => t.id !== todo.id);
@@ -47,7 +47,7 @@ const TodoItem = ({ index, todo }) => {
   const toggleTodo = () => {
     toggleTodoMutation({
       variables: { id: todo.id, isCompleted: !todo.is_completed },
-      optimisticResponse: {},
+      optimisticResponse: null,
       update: cache => {
         const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
         const newTodos = existingTodos.todos.map(t => {

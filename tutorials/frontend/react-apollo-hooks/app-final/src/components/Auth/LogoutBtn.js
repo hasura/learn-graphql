@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 const LogoutBtn = ({ logoutHandler }) => (
   <Button
     id="qsLogoutBtn"
-    bsStyle="primary"
+    variant="primary"
     className="btn-margin logoutBtn"
     onClick={logoutHandler}
   >

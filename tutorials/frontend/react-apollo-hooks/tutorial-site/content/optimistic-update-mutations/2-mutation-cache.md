@@ -83,7 +83,7 @@ We already have the onChange handler toggleTodo for the input. Let's update the 
   const toggleTodo = () => {
 +    toggleTodoMutation({
 +      variables: {id: todo.id, isCompleted: !todo.is_completed},
-+      optimisticResponse: {},
++      optimisticResponse: null,
 +    });
   };
 ```
@@ -100,7 +100,7 @@ Now let's add the code for `update` function.
   const toggleTodo = () => {
     toggleTodoMutation({
       variables: {id: todo.id, isCompleted: !todo.is_completed},
-      optimisticResponse: {},
+      optimisticResponse: null,
 +      update: (cache) => {
 +        const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
 +        const newTodos = existingTodos.todos.map(t => {

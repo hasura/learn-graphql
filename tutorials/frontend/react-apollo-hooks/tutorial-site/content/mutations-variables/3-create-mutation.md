@@ -18,7 +18,7 @@ Now, we will use the `useMutation` React hook passing our graphql mutation const
 ```javascript
 const TodoInput = ({isPublic=false}) => {
   
-+ const [addTodo, { loading }] = useMutation(ADD_TODO);
++ const [addTodo] = useMutation(ADD_TODO);
 
 return (
   ...
@@ -48,7 +48,7 @@ const TodoInput = ({isPublic = false}) => {
 
 +  const [todoInput, setTodoInput] = useState('');
 
-   const [addTodo, { loading }] = useMutation(ADD_TODO);
+   const [addTodo] = useMutation(ADD_TODO);
  
    return (
            <form className="formInput" onSubmit={(e) => {
@@ -100,8 +100,8 @@ Let's implement `update` for the above mutation.
 We pass the update function as an option to `useMutation`.
 
 ```javascript
--    const [addTodo, { loading }] = useMutation(ADD_TODO);
-+    const [addTodo, { loading }] = useMutation(ADD_TODO, {update: updateCache});
+-    const [addTodo] = useMutation(ADD_TODO);
++    const [addTodo] = useMutation(ADD_TODO, {update: updateCache});
 ```
 
 We need to fetch the current list of todos from the cache. So let's import the query that we used in the previous steps.
@@ -137,7 +137,7 @@ const TodoInput = ({isPublic = false}) => {
 +    });
 +  };
 
-  const [addTodo, { loading }] = useMutation(ADD_TODO, {update: updateCache});
+  const [addTodo] = useMutation(ADD_TODO, {update: updateCache});
   
    return (
     ...
@@ -178,8 +178,8 @@ Great! That was actually easy :)
 Let's wrap this by adding a function to clear the input value once the mutation is successful.
 
 ```javascript
--  const [addTodo, { loading }] = useMutation(ADD_TODO, {update: updateCache});
-+  const [addTodo, { loading }] = useMutation(ADD_TODO, {
+-  const [addTodo] = useMutation(ADD_TODO, {update: updateCache});
++  const [addTodo] = useMutation(ADD_TODO, {
 +    update: updateCache,
 +    onCompleted: resetInput
 +  });
@@ -201,7 +201,7 @@ const TodoInput = ({isPublic = false}) => {
 +    setTodoInput('');
 +  };
 
-  const [addTodo, { loading }] = useMutation(ADD_TODO, {
+  const [addTodo] = useMutation(ADD_TODO, {
     update: updateCache,
     onCompleted: resetInput
   });

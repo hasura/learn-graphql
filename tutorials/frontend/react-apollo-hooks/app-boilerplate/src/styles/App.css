@@ -23,6 +23,11 @@ body {
   padding-right: 0;
 }
 
+.m-left-right-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .p-30 {
   padding: 30px;
 }

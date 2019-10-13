@@ -31,3 +31,6 @@ There are three different series:
 ## Contributing
 
 Check out our [contributing guide](CONTRIBUTING.md) for more details.
+
+## License
+This project is licensed under the MIT License - read [LICENSE](LICENSE) file for details.

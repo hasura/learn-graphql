@@ -1,6 +1,6 @@
 # JWT Authentication server Boilerplate
 
-Sample JWT Authentication server for generating a JWT to use in the `Authentication` header by the built in JWT decoder in Hasura GraphQL Engine when started in JWT mode.
+Sample JWT Authentication server for generating a JWT to use in the `Authentication` header by the built-in JWT decoder in Hasura GraphQL Engine when started in JWT mode.
 
 ## Getting Started
 
@@ -49,7 +49,7 @@ npm start
 
 ### Signup/Login
 
-Once deployed or started locally, we can create an user using `/signup` API like below:
+Once deployed or started locally, we can create a user using `/signup` API like below:
 
 ```bash
 curl -H "Content-Type: application/json" \
@@ -83,9 +83,9 @@ On success, we get the response:
 
 ### Authenticate JWT using GraphQL Engine
 
-The GraphQL engine comes with built in JWT authentication.  You will need to start the engine with the same secret/key as the JWT auth server using the environment variable `HASURA_GRAPHQL_JWT_SECRET` (HASURA_GRAPHQL_ACCESS_KEY is also required see the docs)
+The GraphQL engine comes with built-in JWT authentication.  You will need to start the engine with the same secret/key as the JWT auth server using the environment variable `HASURA_GRAPHQL_JWT_SECRET` (HASURA_GRAPHQL_ACCESS_KEY is also required see the docs)
 
-In your GraphQL engine you will need to add permissions for a user named `user` with read permissions on the table and columns.
+In your GraphQL engine, you will need to add permissions for a user named `user` with reading permissions on the table and columns.
 
 A sample CURL command using the above token would be:
 

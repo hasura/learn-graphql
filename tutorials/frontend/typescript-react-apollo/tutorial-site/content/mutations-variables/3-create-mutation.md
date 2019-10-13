@@ -22,7 +22,7 @@ We are importing the `useMutation` hook from `@apollo/react-hooks` and passing i
 
 ```
 
-In the `useMutation` hook defined above, the first property of the result object is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations.html)
+In the `useMutation` hook defined above, the first property of the result object is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/data/mutations/)
 
 The mutate function optionally takes variables and update among other arguments; You are going to make use of the `update` function later.
 

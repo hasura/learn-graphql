@@ -118,4 +118,4 @@ This is a good start to grokking mutations!
 - You can make basic GraphQL mutations
 - You can pass dynamic arguments/data to mutations with query variables
 
-Next, let's look at GraphQL subscriptions
+Next, let's look at GraphQL subscriptions.

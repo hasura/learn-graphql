@@ -183,7 +183,7 @@ When you wrapped your return with `<Query>` component, Apollo injected props int
 
 `data`: An object containing the result of your GraphQL query. This will contain our actual data from the server. In our case, it will be the todo data.
 
-You can read more about other render props that Apollo passes [here](https://www.apollographql.com/docs/react/essentials/queries.html#render-prop)
+You can read more about other render props that Apollo passes [here](https://www.apollographql.com/docs/react/data/queries/)
 
 Using the `data` prop, we are parsing the results from the server. In our query, `data` prop has an array `todos` which can be mapped over to render each `TodoItem`.
 

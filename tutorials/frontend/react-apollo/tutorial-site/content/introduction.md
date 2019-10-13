@@ -25,7 +25,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 - Building a real-time feed with notifications using mutations and subscriptions
 
 ## What will we be building?
-We will be building a realtime todo app using authenticated GraphQL APIs.
+We will be building a realtime to-do app using authenticated GraphQL APIs.
 
 Try this deployed version of the app to see what we'll be building:
 https://learn-hasura-todo-app.netlify.com/
@@ -39,7 +39,7 @@ If you're new to React, we recommend going through this [official tutorial](http
 You need to have npm/yarn & node 8+ running.
 
 ## How long will this tutorial take?
-Less than 2 hours
+Less than 2 hours.
 
 ## Other courses
 

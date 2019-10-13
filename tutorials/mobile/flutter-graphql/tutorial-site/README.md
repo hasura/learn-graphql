@@ -11,7 +11,7 @@ docker build -t tutorial-site:0.1 -f Dockerfile.localdev .
 docker run -ti -p 8080:8080 -v /path/to/learn-graphql/tutorials/mobile/flutter-graphql/tutorial-site/content:/gatsby-gitbook-starter/content -v /path/to/learn-graphql/tutorials/mobile/flutter-graphql/tutorial-site/config.js:/gatsby-gitbook-starter/config.js tutorial-site:0.1
 ```
 
-Two volumes are mounted. One for `content` and one for `config.js`. This is required for hot-reloading. 
+* Two volumes are mounted. One for `content` and one for `config.js`. This is required for hot-reloading. 
 
 Restart docker container
 - In case there are new files

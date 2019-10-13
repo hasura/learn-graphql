@@ -1,6 +1,6 @@
 ---
 title: "Set up a GraphQL client with Apollo"
-metaTitle: "Apollo Client GraphQL Setup | GraphQL React Apollo Tutorial"
+metaTitle: "Apollo Client GraphQL Setup | GraphQL React Apollo Components Tutorial"
 metaDescription: "You will learn how to configure Apollo Client in React by installing dependencies like react-apollo, apollo-client, apollo-link-http, apollo-cache-inmemory"
 ---
 

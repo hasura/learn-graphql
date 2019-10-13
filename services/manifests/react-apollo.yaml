@@ -46,7 +46,7 @@ spec:
           protocol: TCP
         readinessProbe:
           httpGet:
-            path: /graphql/react/introduction
+            path: /graphql/react-apollo-components/introduction
             port: 8080
 ---
 apiVersion: v1

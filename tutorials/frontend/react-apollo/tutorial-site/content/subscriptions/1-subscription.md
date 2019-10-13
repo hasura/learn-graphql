@@ -1,6 +1,6 @@
 ---
 title: "Subscription"
-metaTitle: "Set up GraphQL Subscriptions using Apollo Client | GraphQL React Apollo Tutorial"
+metaTitle: "Set up GraphQL Subscriptions using Apollo Client | GraphQL React Apollo Components Tutorial"
 metaDescription: "You will learn how to configure GraphQL Subscriptions using React Apollo Client by installing dependencies like apollo-link-ws, subscriptions-transport-ws. This will also have authorization token setup"
 ---
 

@@ -65,7 +65,8 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
   can specify the exact **fields** you need.
 - **Prevent multipe API calls**: In case you need more data, you can also avoid
   making multiple calls to your API. In the case above, you don't need to make
-  2 API calls to fetch `user` and `address` separately.
+  2 API calls to fetch `user` and `address` separately. In GraphQL you can retrieve
+  as many data as you need in a single request.
 - **Lesser communication with API developers**: Sometimes to fetch the exact data
   you need, especially if you need to fetch more data and want to avoid multipe API
   calls, you will need to ask your API developers to build a new API. With GraphQL,
@@ -76,6 +77,18 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
   to build lots of cool tools to explore & visualise your API or create IDE plugins
   that autocomplete your GraphQL queries and even do "codegen". We'll understand this
   in more detail later!
+- **Predictable-request**: One of the main benefits is clients have the ability to 
+dictate exactly what they need from the server, and receive that data in a predictable
+way.
+
+## GraphQL disadvantages
+
+- **Error codes**: One disadvantage is queries always return a HTTP status code of 200,
+regardless of whether or not that query was successful. If your query is unsuccessful, 
+your response JSON will have a top-level errors key with associated error messages and 
+stacktrace. This can make it much more difficult to do error handling and can lead to 
+additional complexity for things like monitoring.
+
 
 Here's a quick chart to show you the GraphQL analogs of typical REST-ish terms:
 

@@ -18,3 +18,5 @@ Run the React app
 -----------------
 
 Run `npm start` to start the todo app.
+or
+Run `yarn start` to start the todo app

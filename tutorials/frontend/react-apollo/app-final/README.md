@@ -7,11 +7,11 @@ Tutorial
 Tech stack
 ----------
 
-## - Frontend
+## Frontend
     - React v16.8
     - Apollo Boost v0.3
 
-## - Backend
+## Backend
     - Hasura GraphQL Engine
 
 Run the React app

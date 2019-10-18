@@ -30,7 +30,7 @@ Hay tres series diferentes:
 
 ## Contribuyendo
 
-Mira nuestro [guía contribuyente](CONTRIBUTING.md) para más detalles.
+Mira nuestro [guía contribuyente](CONTRIBUTING_Espanyol.md) para más detalles.
 
 ## Licencia
 Este proyecto está licenciado bajo la Licencia MIT - lea el archivo [LICENCIA] (LICENSE) para más detalles.

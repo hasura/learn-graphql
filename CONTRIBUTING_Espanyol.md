@@ -45,7 +45,7 @@ Nuestro objetivo es mantener el contenido de nuestro tutorial y las aplicaciones
 
 - La primera línea debe ser un resumen de los cambios, sin exceder 50
 caracteres, seguidos de un cuerpo opcional que tiene más detalles sobre el
-  cambios. Referirse a [este enlace](https://github.com/erlang/otp/wiki/writing-good-commit-messages)
+cambios. Referirse a [este enlace](https://github.com/erlang/otp/wiki/writing-good-commit-messages)
   para obtener más información sobre cómo escribir buenos mensajes de confirmación.
 
 - Use el tiempo presente imperativo: "agregar / arreglar / cambiar", no "agregar / arreglar / cambiar" ni "agregar / arreglar / cambiar"".

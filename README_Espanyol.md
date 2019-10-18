@@ -1,4 +1,4 @@
-# [learn.hasura.io](https://learn.hasura.io)
+# [aprender.hasura.io](https://learn.hasura.io)
 
 ¡Tutoriales de GraphQL del mundo real para desarrolladores frontend con plazos!
 Con estos tutoriales, pasará de los conceptos básicos de GraphQL para crear una aplicación en tiempo real en 2 horas.

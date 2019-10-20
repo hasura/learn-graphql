@@ -21,3 +21,6 @@
 - Custom Business Logic
 - Remote Schemas, Event Triggers
 
+### Mobile
+
+- Breakdown of what you will learn for mobile

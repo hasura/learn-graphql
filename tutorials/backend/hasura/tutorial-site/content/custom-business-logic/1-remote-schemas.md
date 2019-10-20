@@ -48,10 +48,13 @@ const resolvers = {
     Query: {
         auth0: (parent, args, context) => {
           // read the authorization header sent from the client
-          const authHeaders = context.headers.authorization;
+          const authHeaders = context.headers.authorization || '';
           const token = authHeaders.replace('Bearer ', '');
           // decode the token to find the user_id
           try {
+            if (!token) {
+              return 'Authorization token is missing!';
+            }
             const decoded = jwt.decode(token);
             const user_id = decoded.sub;
             // make a rest api call to auth0

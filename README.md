@@ -1,4 +1,4 @@
-# [learn.hasura.io](https://learn.hasura.io)
+# [learn.hasura.io](https://learn.hasura.io)  [![GitHub stars](https://img.shields.io/github/stars/hasura/learn-graphql.svg?style=social&label=Star&maxAge=2592000)](https://github.com/hasura/learn-graphql/stargazers/)
 
 Real world GraphQL tutorials for frontend developers with deadlines!
 With these tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.

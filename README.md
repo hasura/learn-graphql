@@ -26,7 +26,7 @@ There are three different series:
 #### Backend
 
 - [Introduction to Hasura](https://learn.hasura.io/graphql/hasura)
-- Postgres Basics (coming soon)
+- [Postgres Basics](https://www.postgresql.org/docs/)
 
 ## Contributing
 

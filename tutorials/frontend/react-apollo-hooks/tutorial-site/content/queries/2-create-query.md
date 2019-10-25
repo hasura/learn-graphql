@@ -132,7 +132,7 @@ const TodoPrivateList = props => {
   const clearCompleted = () => {};
 
 -    let filteredTodos = state.todos;
-+    const {todos} = this.props;
++    const {todos} = props;
 +
 +    let filteredTodos = todos;
     if (state.filter === "active") {

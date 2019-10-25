@@ -38,7 +38,7 @@ const FooterLinks = ({ href, text }) => (
 
 const SocialIcons = ({ href, label, icon }) => (
   <div className='social_icons'>
-    <a href={href} target='_blank' aria-label={label}>
+    <a href={href} target='_blank' rel="noopener noreferrer" aria-label={label}>
       <i className={icon} aria-hidden="true"/>
     </a>
   </div>
@@ -92,11 +92,11 @@ const Footer = () => {
                   FOLLOW US
                 </div>
                 <div className='footer_social_wrapper'>
-                  <SocialIcons href="https://www.facebook.com/HasuraHQ/" label="Follow us on Facebook" icon="fa fa-facebook"/>
-                  <SocialIcons href="https://twitter.com/hasurahq/" label="Follow us on Twitter" icon="fa fa-twitter"/>
-                  <SocialIcons href="https://www.instagram.com/hasurahq/" label="Follow us on Instagram" icon="fa fa-instagram"/>
-                  <SocialIcons href="https://discord.gg/hasura/" label="Chat with us on Discord" icon="discordIcon"/>
-                  <SocialIcons href="https://github.com/hasura/graphql-engine/" label="Follow us on GitHub" icon="fa fa-github"/>
+                  <SocialIcons href="https://www.facebook.com/HasuraHQ/" label="Follow us on Facebook" icon="fab fa-facebook"/>
+                  <SocialIcons href="https://twitter.com/hasurahq/" label="Follow us on Twitter" icon="fab fa-twitter"/>
+                  <SocialIcons href="https://www.instagram.com/hasurahq/" label="Follow us on Instagram" icon="fab fa-instagram"/>
+                  <SocialIcons href="https://discord.gg/hasura/" label="Chat with us on Discord" icon="fab fa-discord"/>
+                  <SocialIcons href="https://github.com/hasura/graphql-engine/" label="Follow us on GitHub" icon="fab fa-github"/>
                   <SocialIcons href="https://www.twitch.tv/hasuraHQ/" label="Follow us on Twitch" icon="fab fa-twitch"/>
                   <SocialIcons href="https://www.youtube.com/channel/UCZo1ciR8pZvdD3Wxp9aSNhQ" label="Follow us on Youtube" icon="fab fa-youtube"/>
                 </div>

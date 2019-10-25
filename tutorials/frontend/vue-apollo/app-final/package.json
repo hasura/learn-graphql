@@ -16,7 +16,7 @@
     "graphql": "^14.5.8",
     "morgan": "^1.9.1",
     "subscriptions-transport-ws": "^0.9.16",
-    "vue-apollo": "^3.0.0-beta.11"
+    "vue-apollo": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",

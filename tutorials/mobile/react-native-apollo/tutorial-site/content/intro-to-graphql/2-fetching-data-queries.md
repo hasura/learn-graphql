@@ -19,7 +19,7 @@ any GraphQL API.
 
 When you connect GraphiQL to a GraphQL endpoint, it
 queries the server for its GraphQL schema and gives you a UI to browse
-and test queries, and that powers its amazing autocomplete!
+and test queries, and that powers its amazing autocomplete functionality!
 
 ![GraphiQL demo](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphiql.gif)
 
@@ -30,7 +30,7 @@ external documentation tools.
 You can access the GraphiQL for this realtime todo app tutorial here:
 [learn.hasura.io/graphql/graphiql?tutorial=react-native](https://learn.hasura.io/graphql/graphiql?tutorial=react-native)
 
-When you work with a GraphQL API in a project you will almost always
+When you work with a GraphQL API in a project, you will almost always
 use a tool like GraphiQL to explore and test your GraphQL queries.
 
 ## Basic GraphQL query
@@ -57,7 +57,7 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 
 Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL query string
 to the server at the given endpoint with the HTTP headers. The server then sends the response
-that you see on the right hand side.
+that you see on the right-hand side.
 
 ## Fetching "graphs"
 
@@ -66,11 +66,11 @@ This is what our API "schema" looks like:
 
 ![Schema](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/schema.png)
 
-As you can see, it is a "graph" like schema where all the 3 models are linked to each other.
+As you can see, it is a "graph"-like schema where all the 3 models are linked to each other.
 
 Let's try making queries that fetch different slices of our data from the overall "graph".
 
-### Fetch users and their todos
+### Fetch users and their todo
 
 This GraphQL query will fetch all the users and their publicly visible todos:
 
@@ -194,7 +194,7 @@ In addition to the query above, we send a variables object:
 
 Now instead of sending just the query to the GraphQL server, from our client
 we'll send both the query and the variables. The GraphQL server will use the
-variable in the right place in the query automatically for us!
+variable in the correct place in the query automatically for us!
 
 Let's try this out in GraphiQL:
 1. Head to GraphiQL

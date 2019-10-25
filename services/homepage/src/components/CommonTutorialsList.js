@@ -8,7 +8,7 @@ const CommonTutorialsList = ({ tutorial, title, subText }) => {
   const listTutorial = tutorial.map((list, key) => {
     anchorClass = list.comingSoon ? 'noClick' : '';
     return (
-      <a className={anchorClass} key={key} href={list.url} target='_blank' data-toggle="tooltip" title={list.name}>
+      <a className={anchorClass} key={key} href={list.url} target='_blank' rel="noopener noreferrer" data-toggle="tooltip" title={list.name}>
         <div className={(list.comingSoon) ? list.disableBgClassName + ' disabledList' : list.bgClassName + ' listTutorial'}>
           <div className='tutorialIconWrapper'>
             {(list.comingSoon) ?

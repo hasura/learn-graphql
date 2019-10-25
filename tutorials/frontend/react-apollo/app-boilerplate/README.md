@@ -1,7 +1,7 @@
 Tutorial
 --------
 
-- [React](https://learn.hasura.io/graphql/react/introduction)
+- [React](https://learn.hasura.io/graphql/react-apollo-components/introduction)
 - [Hasura GraphQL Endpoint](https://learn.hasura.io/graphql)
 
 Tech stack

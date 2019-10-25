@@ -1,6 +1,6 @@
 ---
 title: "Apollo Subscription Component"
-metaTitle: "Apollo Subscription Component | GraphQL React Apollo Tutorial"
+metaTitle: "Apollo Subscription Component | GraphQL React Apollo Components Tutorial"
 metaDescription: "The easiest way to bring live data to your UI is using the Subscription component from React Apollo."
 ---
 

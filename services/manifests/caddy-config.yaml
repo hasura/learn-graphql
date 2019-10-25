@@ -10,7 +10,11 @@ data:
         dns cloudflare
       }
       redir 301 {
-        /graphql/react/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react/react-boilerplate.zip
+        /graphql/react/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react/boilerplate.zip
+      }
+
+      redir 301 {
+        /graphql/react-apollo-components/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react-apollo-components/boilerplate.zip
       }
 
       redir 301 {
@@ -71,6 +75,10 @@ data:
 
       redir 301 {
         /graphql/react-native/ /graphql/react-native/introduction
+      }
+
+      redir 301 {
+        /graphql/react-apollo-components/ /graphql/react-apollo-components/introduction
       }
 
       redir 301 {
@@ -135,7 +143,9 @@ data:
 
       proxy /graphql/react-native react-native-apollo
 
-      proxy /graphql/react react-apollo
+      proxy /graphql/react-apollo-components react-apollo
+
+      proxy /graphql/react react-apollo-hooks
 
       proxy /graphql/vue vue-apollo
 

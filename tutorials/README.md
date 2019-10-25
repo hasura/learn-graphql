@@ -8,14 +8,14 @@
 - Integrating GraphQL Mutations with Query Variables
 - Integrating Mutations to Update, Delete and Bulk Delete
 - Managing Local Cache After a GraphQL Mutation
-- Optismistic UI Updates For Rresponsive User Experience
+- Optimistic UI Updates For Responsive User Experience
 - Using Subscriptions
 - Realtime Feed With Notifications
 
 ### Backend
 
 - Hasura Basics
-- Postgres Data Modelling
+- PostgreSQL Data Modelling
 - Authorization
 - Authentication
 - Custom Business Logic

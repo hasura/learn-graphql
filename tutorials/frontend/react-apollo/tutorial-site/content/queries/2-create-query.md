@@ -1,6 +1,6 @@
 ---
 title: "<Query> component"
-metaTitle: "Apollo Query Component | GraphQL React Apollo Tutorial"
+metaTitle: "Apollo Query Component | GraphQL React Apollo Components Tutorial"
 metaDescription: "We will use the Apollo Client Query component from react-apollo. It is a render prop API to fetch data and handle data, loading and error props"
 ---
 

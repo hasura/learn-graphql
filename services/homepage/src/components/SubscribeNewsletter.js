@@ -34,28 +34,28 @@ const formProps = {
 
 const SubscribeNewsletter = () => {
   return (
-    <section className={'gradientBgColor commonSectionWrapper positionRel'}>
-      <div className={'container noPadd'}>
-        <div className={'topBannerWrapper col-md-12'}>
-          <div className={'col-md-6 col-sm-12 col-xs-12 noPadd'}>
-            <h1 className={'sectionHeader'}>
+    <section className='gradientBgColor commonSectionWrapper positionRel'>
+      <div className='container noPadd'>
+        <div className='topBannerWrapper col-md-12'>
+          <div className='col-md-6 col-sm-12 col-xs-12 noPadd'>
+            <h1 className='sectionHeader'>
               Subscribe to the Hasura newsletter
             </h1>
-            <div className={'sectionDescription'}>
+            <div className='sectionDescription'>
               Join the community mailing list to receive updates about the product, company and our OSS work.
             </div>
             {/*
-            <div className={'notifyWrapper'}>
-              <div className={'sectionDescription notifyHeader'}>
+            <div className='notifyWrapper'>
+              <div className='sectionDescription notifyHeader'>
                 Subscribe for updates
               </div>
-              <SubscribeFrom className={"notifyForm"} {...formProps}/>
+              <SubscribeFrom className="notifyForm" {...formProps}/>
             </div>
             */}
           </div>
-          <div className={'col-md-6 col-sm-12 col-xs-12 noPadd'}>
-            <div className={'notifyWrapper'}>
-              <SubscribeFrom className={"notifyForm"} {...formProps}/>
+          <div className='col-md-6 col-sm-12 col-xs-12 noPadd'>
+            <div className='notifyWrapper'>
+              <SubscribeFrom className="notifyForm" {...formProps}/>
             </div>
           </div>
         </div>

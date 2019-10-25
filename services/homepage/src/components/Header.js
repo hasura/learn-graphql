@@ -6,12 +6,12 @@ import CommonNavBar from './CommonNavBar';
 const TopBanner = () => {
   const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
   return (
-    <header className={'headerWrapper blueBgColor'}>
+    <header className='headerWrapper blueBgColor'>
       <nav className="navbar navbar-default navbarDefault">
         <div className="container">
           <div className="navbar-header navbarHeader">
-            <div className={'logoWrapper'}>
-              <a href="https://hasura.io/" target="_blank" rel="noopener noreferrer"><img className={'img-responsive'} src={logo} alt={'Hasura logo'} /></a>
+            <div className='logoWrapper'>
+              <a href="https://hasura.io/" target="_blank" rel="noopener noreferrer"><img className='img-responsive' src={logo} alt='Hasura logo' /></a>
             </div>
             <button type="button" className="navbar-toggle collapsed navbarToggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span className="sr-only">Toggle navigation</span>
@@ -23,25 +23,25 @@ const TopBanner = () => {
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav navbar-right navBarWrapper">
               <CommonNavBar
-              id="frontend"
-              navTitle="FRONTEND"
-              title="Frontend Tutorials"
-              description="2 hour Frontend GraphQL Tutorial Series to teach you your favorite framework."
-              commonTutorial = {frontendTutorial}
+                id="frontend"
+                navTitle="FRONTEND"
+                title="Frontend Tutorials"
+                description="2 hour Frontend GraphQL Tutorial Series to teach you your favorite framework."
+                commonTutorial={frontendTutorial}
               />
               <CommonNavBar
-              id="mobile"
-              navTitle="MOBILE"
-              title="Mobile Tutorials"
-              description="2 hour mobile GraphQL Tutorial Series to teach you your favorite framework."
-              commonTutorial={mobileTutorial}
+                id="mobile"
+                navTitle="MOBILE"
+                title="Mobile Tutorials"
+                description="2 hour mobile GraphQL Tutorial Series to teach you your favorite framework."
+                commonTutorial={mobileTutorial}
               />
               <CommonNavBar
-              id="backend"
-              navTitle="BACKEND"
-              title="Backend Tutorials"
-              description="2 hour backend GraphQL Tutorial Series to teach you your favorite framework."
-              commonTutorial={backendTutorial}
+                id="backend"
+                navTitle="BACKEND"
+                title="Backend Tutorials"
+                description="2 hour backend GraphQL Tutorial Series to teach you your favorite framework."
+                commonTutorial={backendTutorial}
               />
             </ul>
           </div>

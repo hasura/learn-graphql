@@ -29,7 +29,7 @@ const CommonNavBar = ({ id, navTitle, title, description, commonTutorial}) => {
             {commonTutorial.map((item, key) => {
               if(!item.comingSoon) {
                 return (
-                  <a href={item.url} target='_blank'>
+                  <a href={item.url} target='_blank' rel="noopener noreferrer">
                     <li key={item.url} className={item.bgClassName}>
                         {item.name}
                     </li>

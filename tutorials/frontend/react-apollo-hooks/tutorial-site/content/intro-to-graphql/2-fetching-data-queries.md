@@ -4,8 +4,8 @@ metaTitle: "GraphQL Queries to fetch data | GraphQL React Apollo Hooks Tutorial"
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 ---
 
-<a name="graphiql"></a>
 ## Try out GraphQL queries
+
 For this tutorial we've set up a GraphQL API for you. The most common
 way to browse a GraphQL API is to use GraphiQL. GraphiQL is a tool
 built by Facebook, (pronounced "graphical") that makes it easy to explore

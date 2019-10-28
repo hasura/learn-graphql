@@ -82,7 +82,7 @@ apollo schema:download --endpoint=http://learn.hasura.io/graphql --header="Autho
 
 - Place the downloaded schema.json in the same folder as your api.graphql
 
-Detailed instructions to download your schema using the apollo CLI [HERE](https://github.com/apollographql/apollo-tooling#apollo-schemadownload-output)
+Detailed instructions to download your schema using the apollo CLI [HERE](https://github.com/apollographql/apollo-tooling#apollo-clientdownload-schema-output)
 
 - We also need to add javax annotation processor for the generated code,
 

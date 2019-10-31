@@ -1,18 +1,18 @@
 ---
 title: "Course Introduction"
 metaTitle: "Course Introduction | GraphQL React Apollo Hooks Tutorial"
-metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your React app with Apollo, in the shortest amount of time possible."
+metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your React app with Apollo, in the minimum time possible."
 ---
 
 import CommunityAuthor from '../src/CommunityAuthor.js';
 
-GraphQL is becoming the new way to use APIs in modern web and mobile apps.
+GraphQL is the trending way to use APIs in the modern web and mobile apps.
 
-However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of a new technology.
+However, learning new things always takes time and without getting your hands dirty it’s quite hard to understand the nuances of a new technology.
 
-So, we put together a powerful and concise course that will introduce you to GraphQL and integrating GraphQL into your frontend stack, in the shortest amount of time possible.
+So, we put forward a powerful and a concise course that will introduce you to GraphQL and also integrating GraphQL into your frontend stack, in the minimum possible time! 
 
-We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
+We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grasp the fundamentals you can go on to choose your favorite libraries, tools and further tailor your workflow.
 
 ## Key topics and takeways:
 
@@ -29,7 +29,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 ## What will we be building?
 We will be building a realtime todo app using authenticated GraphQL APIs.
 
-Try this deployed version of the app to see what we'll be building:
+Try this deployed version of the app to see what we'll be building!!
 https://learn-hasura-todo-app.netlify.com/
 
 ## Will this course teach React concepts as well?

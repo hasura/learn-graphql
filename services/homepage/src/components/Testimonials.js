@@ -17,7 +17,7 @@ class Testimonials extends React.Component {
           img: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/Sibylle.png',
           name: 'Sibylle',
           twitterLink: 'https://twitter.com/s_ibylle/status/1138143802831585280',
-          designation: (<span>Typeface <b>@brandung</b></span>),
+          designation: (<span>Frontend Developer <b>@brandung</b></span>),
         },
         {
           description: (<span>Check out this GraphQL <a href="https://twitter.com/hashtag/ReasonML?src=hash" target="_blank" rel="noopener noreferrer">#ReasonML</a> course for Reason React developers by <a href="https://twitter.com/HasuraHQ" target="_blank" rel="noopener noreferrer">@HasuraHQ</a> <a href="https://learn.hasura.io/graphql/reason-react-apollo" target="_blank" rel="noopener noreferrer">https://learn.hasura.io/graphql/reason-react-apollo</a>... “Will this course teach ReasonReact concepts as well?” Hell yes. There are some programming patterns on display in this app that are different from what you see in generally.</span>),

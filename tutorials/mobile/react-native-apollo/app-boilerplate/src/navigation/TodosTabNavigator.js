@@ -1,5 +1,7 @@
 import React from 'react';
-import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 import TabBarIcon from './components/TabBarIcon';
 import PrivateTodos from '../screens/PrivateTodosScreen';
 import PublicTodos from '../screens/PublicTodosScreen';

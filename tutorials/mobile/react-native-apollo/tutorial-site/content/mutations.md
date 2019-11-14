@@ -10,7 +10,7 @@ their task list.
 We will learn the following concepts:
 
 - Creating a GraphQL mutation
-- Using the `<Mutation>` component
+- Using the `useMutation` hook
 - Capturing loading/finished/error states
 
 Let's get started!

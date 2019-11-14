@@ -15,7 +15,7 @@ Apollo gives a neat abstraction layer and an interface to your GraphQL server. Y
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ npm install --save apollo-client react-apollo apollo-cache-inmemory apollo-link-http graphql graphql-tag
+$ npm install --save apollo-client react-apollo @apollo/react-hooks apollo-cache-inmemory apollo-link-http graphql graphql-tag
 ```
 
 ### Create Apollo Client Instance

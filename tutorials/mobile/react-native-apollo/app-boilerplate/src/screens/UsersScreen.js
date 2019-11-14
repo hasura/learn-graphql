@@ -10,47 +10,36 @@ import CenterSpinner from './components/Util/CenterSpinner';
 import MenuButton from './components/Util/MenuButton';
 
 
-export default class OnlineUsers extends React.Component {
-
-  static navigationOptions = ({ navigation }) => ({
-    headerTitle: 'Online Users',
-    headerLeft: (
-      <MenuButton onPress={navigation.toggleDrawer} /> 
-    )
-  }); 
-
-  render() {
-    
-   const data = {
-      "online_users": [
-        {
-          user: {
-            name: "User 1",
-            id: 1
-          },
+const OnlineUsers = () => {
+  const data = {
+    "online_users": [
+      {
+        user: {
+          name: "User 1",
           id: 1
         },
-        {
-          user: {
-            name: "User   2",
-            id: 2
-          },
+        id: 1
+      },
+      {
+        user: {
+          name: "User   2",
           id: 2
         },
-      ]
-   }
-    return (
-      <View style={styles.container}>
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-          <FlatList
-            data={data.online_users}
-            renderItem={({item}) => <UserItem item={item} />}
-            keyExtractor={(item) => item.user.name}
-          />
-        </ScrollView>
-      </View>
-    );
+        id: 2
+      },
+    ]
   }
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+        <FlatList
+          data={data.online_users}
+          renderItem={({item}) => <UserItem item={item} />}
+          keyExtractor={(item) => item.user.name}
+        />
+      </ScrollView>
+    </View>
+  );
 }
 
 const UserItem = ({item}) => (
@@ -59,6 +48,14 @@ const UserItem = ({item}) => (
     <View style={styles.greenDot} />
   </View>
 )
+
+OnlineUsers.navigationOptions = ({ navigation }) => ({
+  headerTitle: 'Online Users',
+  headerLeft: (
+    <MenuButton onPress={navigation.toggleDrawer} /> 
+  )
+});
+
 
 const styles = StyleSheet.create({
   container: {
@@ -94,3 +91,5 @@ const styles = StyleSheet.create({
     width: 15
   }
 });
+
+export default OnlineUsers;

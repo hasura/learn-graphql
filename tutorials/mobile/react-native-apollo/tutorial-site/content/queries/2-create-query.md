@@ -96,11 +96,11 @@ As you see, we have explicitly mentioned that `is_public` must be false. But in 
 + }
 ```
 
-Great! The query is now ready, let's integrate it with our react native code. Currently, we are just rendering some dummy data. Let us remove this dummy data and render the UI based on our GraphQL response. Firstly, lets import `Query` component from `react-apollo`.
+Great! The query is now ready, let's integrate it with our react native code. Currently, we are just rendering some dummy data. Let us remove this dummy data and render the UI based on our GraphQL response. Firstly, lets import the `useQuery` component from `@apollo/react-hooks`.
 
 ```js
 
-+ import {Query} from 'react-apollo';
++ import { useQuery } from '@apollo/react-hooks';
 
 ```
 
@@ -108,7 +108,6 @@ Now, inside the render method, get GraphQL data using the Query component and re
 
 
 ```js
-render () {
   const { isPublic } = this.props;
 -  const data = {
 -    todos: [
@@ -134,48 +133,46 @@ render () {
 -      }
 -    ]
 -  }
-  return (
-+    <Query
-+      query={FETCH_TODOS}
-+      variables={{isPublic: this.props.isPublic}}
-+    >
-+      {
-+        ({data, error, loading }) => {
-+          if (!data.todos) return null;
-+          return (
-            <View style={styles.container}>
-            <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
-              <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-                <FlatList
-                  data={data.todos}
-                  renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
-                  keyExtractor={(item) => item.id.toString()}
-                />
-                <LoadOlder
-                  isPublic={this.props.isPublic}
-                  styles={styles}
-                />
-              </ScrollView>
-            </View>
-+          );
-+        }
-+      }
-+    </Query>
-  );
-}
++  const { data, error, loading } = useQuery(
++    FETCH_TODOS,
++    {
++      variables: {isPublic: this.props.isPublic}
++    }
++  );
+
++  if (!data) return null;
+
+   return (
+     <View style={styles.container}>
+       <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
+       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+         <FlatList
+           data={data.todos}
+           renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
+           keyExtractor={(item) => item.id.toString()}
+         />
+         <LoadOlder
+           isPublic={this.props.isPublic}
+           styles={styles}
+         />
+       </ScrollView>
+     </View>
+   );
+
 ```
 
 Remember that we wrapped our App component with `<ApolloProvider>` and passed `client` as a prop. We are using the same client prop to send it down to the components.
 
-We are importing the `Query` component from `react-apollo` and the graphql query we defined above to fetch the todo data.
+We are importing the `useQuery` hook from `@apollo/react-hooks` and the graphql query we defined above to fetch the todo data.
 
-Then, we wrap the new functional component with `Query` passing our graphql query. We also provide a prop to this Query component called `variables`. This is where we pass the value of the query variables.
+`useQuery` is a hook that makes the GraphQL query as a side-effect and returns `data`, `loading` and `error` which contain the GraphQL response, the request state and the request error respectively. It also caches the `data` in memory so that whenever `useQuery` is called again, the data from this cache is used.
 
 Woot! You have written your first GraphQL integration with React. Easy isn't it?
 
 How does this work?
 -------------------
-When you wrapped your return with `<Query>` component, Apollo injected props into the component’s render prop function. Most important ones are:
+
+As mentioned above, `useQuery` returns `data`, `error` and `loading`:
 
 `loading`: A boolean that indicates whether the request is in flight. If loading is true, then the request hasn't finished. Typically this information can be used to display a loading spinner.
 
@@ -183,8 +180,8 @@ When you wrapped your return with `<Query>` component, Apollo injected props int
 
 `data`: An object containing the result of your GraphQL query. This will contain our actual data from the server. In our case, it will be the todo data.
 
-You can read more about other render props that Apollo passes [here](https://www.apollographql.com/docs/react/data/queries/)
+You can read more about other render props that Apollo passes [here](https://www.apollographql.com/docs/react/data/queries/).
 
-Using the `data` prop, we are parsing the results from the server. In our query, `data` prop has an array `todos` which can be mapped over to render each `TodoItem`.
+Using the `data`, we are parsing the results from the server. In our query, `data` prop has an array `todos` which can be mapped over to render each `TodoItem`.
 
 If you noted, there has been some client side filtering to the todos that are displayed.

@@ -51,21 +51,17 @@ Also, import the `FETCH_TODOS` query so that we can read its cache locally.
 + import { FETCH_TODOS } from './Todos';
 ```
 
-Now, whenever the button is pressed, we wish to make the `FETCH_NEW_TODOS` query and add the data to cache. Lets write a function that does just that.
+Let us initialise a new state variables that contain the button text and loading.;
+
+Now, whenever the button is pressed, we wish to make the `FETCH_NEW_TODOS` query and add the data to cache. Lets write a function that does just that. 
 
 ```js
-class LoadNewerButton extends React.Component {
+const LoadNewerButton = ({ isPublic, ...props}) => {
+  const [buttonText, setButtonText] = React.useState('New tasks have arrived');
+  const [loading, setLoading] = React.useState(false);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonText: 'New tasks have arrived!',
-      loading: false,
-    };
-  }
-
-+  fetchNewerTodos = async () => {
-+    const { client, isPublic } = this.props;
++  const fetchNewerTodos = async () => {
++    const { client } = props;
 +    const data = client.readQuery({
 +      query: FETCH_TODOS,
 +      variables: {
@@ -73,12 +69,12 @@ class LoadNewerButton extends React.Component {
 +      }
 +    });
 +    const lastId = data.todos[0].id;
-+    this.setState({ loading: true})
++    setLoading(true);
 +    const resp = await client.query({
 +      query: FETCH_NEW_TODOS,
 +      variables: { lastId }
 +    });
-+    this.setState({ loading: false})
++    setLoading(false);
 +    if (resp.data) {
 +      const newData = {
 +        todos: [ ...resp.data.todos, ...data.todos]
@@ -90,32 +86,27 @@ class LoadNewerButton extends React.Component {
 +        },
 +        data: newData
 +      });
-+      this.props.toggleShow();
++      props.toggleShow();
 +    }
 +  }
-  
-  render () {
-    const { disabled, buttonText, loading } = this.state;
-    const { styles, show } = this.props;
-    if (!show) {
-      return null;
-    }
-    return (
-      <TouchableOpacity
-        style={styles.pagination}
-+        onPress={this.fetchNewerTodos}
-        disabled={disabled}
-      > 
-        {
-          loading ?
-          <CenterSpinner /> :
-          <Text style={styles.buttonText}>
-            {buttonText}
-          </Text>
-        }
-      </TouchableOpacity> 
-    )
-  }
++  if (!show) {
++    return null;
++  }
+  return (
+    <TouchableOpacity
+      style={styles.pagination}
++      onPress={fetchNewerTodos}
+      disabled={loading}
+    > 
+      {
+        loading ?
+        <CenterSpinner /> :
+        <Text style={styles.buttonText}>
+          {buttonText}
+        </Text>
+      }
+    </TouchableOpacity> 
+  )
 
 }
 ```

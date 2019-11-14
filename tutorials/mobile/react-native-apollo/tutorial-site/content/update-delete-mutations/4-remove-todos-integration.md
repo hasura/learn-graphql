@@ -33,59 +33,54 @@ Let us integrate the remove todos feature in our React Native app. Firstly impor
 +`;
 ```
 
-Now, in the render method of the `TodoItem` component, update the `deleteButton` function to wrap the button JSX with a `Mutation` component.
+Firstly use the `useMutation` hook with the above mutation to generate the `deleteTodo` function.
+
+```js
++  const [deleteTodo, { loading: deleting, error: deleteError }] = useMutation(REMOVE_TODO);
+```
+
+Now, in the `TodoItem` component, update the `deleteButton` function to use the `deleteTodo` function from the `useMutation` hook. We also have to update the cache with the todo removal in this case. So we will also write an `updateCache` function that we will remove this todo from the UI cache.
 
 ```js
 
 const deleteButton = () => {
   if (isPublic) return null;
--  const remove = () => {
--    if (loading) { return; }
--  };
+  const remove = () => {
+    if (deleting) { return; }
++   deleteTodo({
++     variables: { id: item.id }
++   });
+  };
+
++ const updateCache = (cache) = {
++   const data = cache.readQuery({
++     query: FETCH_TODOS,
++     variables: {
++       isPublic,
++     }
++   });
++   const newData = {
++     todos: data.todos.filter((t) => t.id !== item.id)
++   }
++   cache.writeQuery({
++     query: FETCH_TODOS,
++     variables: {
++       isPublic,
++     },
++     data: newData
++   });
++ }
+
   return (
-+    <Mutation
-+      mutation={DELETE_TODO}
-+      update={(cache) => {
-+        const data = cache.readQuery({
-+          query: FETCH_TODOS,
-+          variables: {
-+            isPublic,
-+          }
-+        });
-+        const newData = {
-+          todos: data.todos.filter((t) => t.id !== item.id)
-+        }
-+        cache.writeQuery({
-+          query: FETCH_TODOS,
-+          variables: {
-+            isPublic,
-+          },
-+          data: newData
-+        });
-+      }}
-+    >
-+      {
-+        (deleteTodo, { loading, error }) => {
-+          const remove = () => {
-+            if (loading) { return; }
-+            deleteTodo({
-+              variables: { id: item.id }
-+            });
-+          };
-+          return (
-            <View style={styles.deleteButton}>
-              <Icon
-                name="delete"
-                size={26}
-                onPress={remove}
-                disabled={loading}
-                color={loading ? "lightgray" : "#BC0000"}
-              />
-            </View>
-+          );
-+        }
-+      }
-+    </Mutation> 
+    <View style={styles.deleteButton}>
+      <Icon
+        name="delete"
+        size={26}
+        onPress={remove}
+        disabled={deleting}
+        color={deleting ? "lightgray" : "#BC0000"}
+      />
+    </View>
   )
 }
 ```

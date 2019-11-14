@@ -17,7 +17,7 @@ Open `src/screens/UsersScreen.js` and add the following code, below the other im
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/UserScreen.js" text="UserScreen.js" />
 
 ```javascript
-import {Subscription} from 'react-apollo';
+import {useSubscription} from '@apollo/react-hooks';
 ```
 
 Import `gql` from `graphql-tag` and define the subscription query:
@@ -39,9 +39,10 @@ Import `gql` from `graphql-tag` and define the subscription query:
 +`; 
 ```
 
-We are importing the `Subscription` component from `react-apollo` and the graphql subscription query we defined above to fetch the online user data.
+We are importing the `useSubscription` hook from `@apollo/react-hooks` and the graphql subscription query we defined above to fetch the online user data. The `useSubscription` hook behaves similar to the `useQuery` hook. It accepts the GraphQL subscription and returns `data`, `error` and `loading` information, except, `data` is realtime data.
 
-Now, we will wrap the component with `Subscription` passing our graphql subscription constant that we imported. Replace the `return` with the following code:
+Replace the component's body with this code.
+
 
 ```javascript
 -   const data = {
@@ -62,36 +63,27 @@ Now, we will wrap the component with `Subscription` passing our graphql subscrip
 -        },
 -      ]
 -   }
+
++  const { data, error, loading } = useSubscription(SUBSCRIBE_TO_ONLINE_USERS)
+
++  if (loading) { return <CenterSpinner />}
+
++  if (error) {
++    return <Text> Error </Text>
++  }
+
 +  return (
 +    <View style={styles.container}>
-+      <Subscription
-+        subscription={subscribeToOnlineUsers}
-+      >
-+        {
-+          ({data, loading, error}) => {
-+            if (loading) { return <CenterSpinner />}
-+            if (error) {
-+              return <Text> Error </Text>
-+            }
-+            return (
-+              <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-+              <FlatList
-+                data={data.online_users}
-+                renderItem={({item}) => <UserItem item={item} />}
-+                keyExtractor={(item) => item.user.name}
-+              />
-+              </ScrollView>
-+            )
-+          }
-+        }
-+      </Subscription>
++      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
++      <FlatList
++        data={data.online_users}
++        renderItem={({item}) => <UserItem item={item} />}
++        keyExtractor={(item) => item.user.name}
++      />
++      </ScrollView>
 +    </View>
 +  );
 ```
-
-How does this work?
--------------------
-We are using the `<Subscription>` component which gives render props (similar to `<Query>` and `<Mutation>` components). The `data` prop gives the result of the realtime data for the query we have made.
 
 Refresh your app and see yourself online! Don't be surprised; There could be other users online as well.
 

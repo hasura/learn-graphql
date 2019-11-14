@@ -12,46 +12,36 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 As we saw in the previous step, Apollo injected props into the component’s render prop function. Among them `loading` and `error` are common ones that you will need to handle in your app.
 
-Now let's go back to the `<Query>` component that you wrote in the previous step.
+Now let's go back to the Todos file that you wrote in the previous step.
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/components/Todo/Todos.js" text="Todos.js"/>
 
 ```javascript
+if (error) {
+  console.error(error);
+  return <Text>Error</Text>;
+}
 
-<Query
-  query={FETCH_TODOS}
-  variables={{isPublic: this.props.isPublic}}
->
-  {
-    ({data, error, loading }) => {
-      if (error) {
-        console.error(error);
-        return <Text>Error</Text>;
-      }
+if (loading) {
+  return <CenterSpinner />;
+}
 
-      if (loading) {
-        return <CenterSpinner />;
-      }
-
-      return (
-        <View style={styles.container}>
-        <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
-          <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-            <FlatList
-              data={data.todos}
-              renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
-              keyExtractor={(item) => item.id.toString()}
-            />
-            <LoadOlder
-              isPublic={this.props.isPublic}
-              styles={styles}
-            />
-          </ScrollView>
-        </View>
-      );
-    }
-  }
-</Query>
+return (
+  <View style={styles.container}>
+    <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+      <FlatList
+        data={data.todos}
+        renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
+        keyExtractor={(item) => item.id.toString()}
+      />
+      <LoadOlder
+        isPublic={this.props.isPublic}
+        styles={styles}
+      />
+    </ScrollView>
+  </View>
+)
 ```
 
 

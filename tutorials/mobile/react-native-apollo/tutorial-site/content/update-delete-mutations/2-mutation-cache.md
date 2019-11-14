@@ -44,43 +44,34 @@ Let's define the graphql mutation to update the completed status of the todo
 +`;
 ```
 
-Now, in the render function of the `TodoItem` component, modify the `updateCheckbox` function to wrap the JSX with a `Mutation` component so that we can toggle todos.
+Firstly let us get the `updateTodo` function by using the `useMutation` hook with the above query.
+
+```js
++  const [updateTodo, { loading: updating, error: updateError }] = useMutation(UPDATE_TODO);
+```
+
+Now, in the `TodoItem` component, modify the `updateCheckbox` function to use the `updateTodo` function for toggling todos.
 
 
 ```js
 const updateCheckbox = () => {
   if (isPublic) return null;
--  const update = () => {
--  }
+  const update = () => {
++    // do not fire another mutation if there's already a mutation in progress
++    if (updating) return;
++    updateTodo()
+  };
+
   return (
-+    <Mutation
-+      mutation={UPDATE_TODO}
-+      variables={{
-+        id: item.id,
-+        isCompleted: !item.is_completed
-+      }}
-+    >
-+      {
-+        (updateTodo, {loading, error}) => {
-+          const update = () => {
-+            // do not fire another mutation if there's already a mutation in progress
-+            if (loading) { return; }
-+            updateTodo();
-+          }
-+          return (
-            <TouchableOpacity
-              style={item.is_completed ? styles.completedCheckBox : styles.checkBox}
-              onPress={update}
-              disabled={loading}
-            >
-              { loading && <CenterSpinner />}
-            </TouchableOpacity>
-+          )
-+        }
-+      }
-+    </Mutation>
+    <TouchableOpacity
+      style={item.is_completed ? styles.completedCheckBox : styles.checkBox}
+      onPress={update}
+      disabled={updating}
+    >
+      { updating && <CenterSpinner />}
+    </TouchableOpacity>
   )
-}
+};
 ```
 
 The above code will just make a mutation, updating the todo's is_completed property in the database. If you see in the above code snippet, we are not doing anything to updating the cache, but if you try it out, the mutation succeeds and the UI is also updated.

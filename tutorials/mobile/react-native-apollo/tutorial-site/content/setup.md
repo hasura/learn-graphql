@@ -18,8 +18,8 @@ Our task will be to convert the "static" UI into a working realtime app.
 3. Make sure you have `expo-cli` installed
     - `npm install -g expo-cli`
 4. Install dependencies and run the app. This will start the development server
-    - `npm install`
-    - `npm start`
+    - `yarn`
+    - `yarn start`
 5. Open this app from your phone using `Expo`
 6. Signup/login as a user to load the todo app screen
 

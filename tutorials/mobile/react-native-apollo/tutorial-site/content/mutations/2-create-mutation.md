@@ -1,7 +1,7 @@
 ---
 title: "Run mutation, update cache"
-metaTitle: "Apollo Mutation Component | GraphQL React Native Apollo Tutorial"
-metaDescription: "We will use the Apollo Client Mutation component from react-apollo in React Native app as an example to insert new data and update cache locally using readQuery and writeQuery."
+metaTitle: "Apollo useMutation Hook | GraphQL React Native Apollo Tutorial"
+metaDescription: "We will use the Apollo Client useMutation hook in React Native app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -104,9 +104,6 @@ import {FETCH_TODOS} from './Todos';
 Let's define the `updateCache` function to read and write to cache..
 
 ```javascript
-
-  const { text } = this.state
-  const { isPublic } = this.props;
 
 +  const updateCache = (client, {data: {insert_todos}}) => {
 +    const data = client.readQuery({

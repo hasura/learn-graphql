@@ -1,6 +1,6 @@
 ---
-title: "Apollo Subscription Component"
-metaTitle: "Apollo Subscription Component | GraphQL React Native Apollo Tutorial"
+title: "Apollo useSubscription hook"
+metaTitle: "Apollo useSubscription hook | GraphQL React Native Apollo Tutorial"
 metaDescription: "The easiest way to bring live data to your UI is using the `useSubscription` hook from `@apllo/react-hooks`"
 ---
 

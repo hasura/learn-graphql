@@ -1,7 +1,7 @@
 ---
-title: "<Query> component"
-metaTitle: "Apollo Query Component | GraphQL React Native Apollo Tutorial"
-metaDescription: "We will use the Apollo Client Query component from react-apollo. It is a render prop API to fetch data and handle data, loading and error props"
+title: "useQuery hook"
+metaTitle: "Apollo useQuery hook | GraphQL React Native Apollo Tutorial"
+metaDescription: "We will use the Apollo Client useQuery hook to make GraphQL queries and handle the loading and error states"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -10,9 +10,9 @@ In this section, we will implement GraphQL Queries and integrate with the react 
 With Apollo Client, you can send queries in 2 different ways.
 
 1. Using the `query` method directly and then process the response.
-2. Render Prop API. (Recommended)
+2. The `useQuery` hook. (Recommended)
 
-The recommended method is to use the render prop method, where you will just pass your GraphQL query as prop and `<Query />` component will fetch the data automatically and will present it in the component's render prop function.
+The recommended method is to use the `useQuery` hook where you just pass your GraphQL query and variables and you receive the GraphQL response data in stateful variables.
 
 Great! Now let's define the graphql query to be used:
 
@@ -92,7 +92,7 @@ As you see, we have explicitly mentioned that `is_public` must be false. But in 
 + }
 ```
 
-Great! The query is now ready, let's integrate it with our react native code. Currently, we are just rendering some dummy data. Let us remove this dummy data and render the UI based on our GraphQL response. Firstly, lets import the `useQuery` component from `@apollo/react-hooks`.
+Great! The query is now ready, let's integrate it with our react native code. Currently, we are just rendering some dummy data. Let us remove this dummy data and render the UI based on our GraphQL response. Firstly, lets import the `useQuery` hook from `@apollo/react-hooks`.
 
 ```js
 
@@ -100,7 +100,7 @@ Great! The query is now ready, let's integrate it with our react native code. Cu
 
 ```
 
-Now, inside the render method, get GraphQL data using the Query component and render it:
+Now, inside the render method, get GraphQL data from the `useQuery` hook and render it:
 
 
 ```js
@@ -139,15 +139,15 @@ Now, inside the render method, get GraphQL data using the Query component and re
 
    return (
      <View style={styles.container}>
-       <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
+       <LoadNewer show={newTodosExist && isPublic} toggleShow={dismissNewTodoBanner} styles={styles} isPublic={isPublic}/>
        <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
          <FlatList
            data={data.todos}
-           renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
+           renderItem={({item}) => <TodoItem item={item} isPublic={isPublic}/>}
            keyExtractor={(item) => item.id.toString()}
          />
          <LoadOlder
-           isPublic={this.props.isPublic}
+           isPublic={isPublic}
            styles={styles}
          />
        </ScrollView>

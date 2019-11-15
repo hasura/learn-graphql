@@ -1,12 +1,12 @@
 ---
 title: "Handle loading/errorrs"
-metaTitle: "Apollo Query Component Error Handling | GraphQL React Native Apollo Tutorial"
-metaDescription: "We will handle the GraphQL loading and error states in React Native app using the Apollo Query Component render props - loading and error "
+metaTitle: "`useQuery` Hook Error Handling | GraphQL React Native Apollo Tutorial"
+metaDescription: "We will handle the GraphQL loading and error states in React Native app using the data from the `useQuery` hook"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
 
-As we saw in the previous step, Apollo injected props into the component’s render prop function. Among them `loading` and `error` are common ones that you will need to handle in your app.
+As we saw in the previous step, the useQuery returned an object with `data`, `error`, `loading` fields. `loading` and `error` are states that you typically want to handle in your app.
 
 Now let's go back to the Todos file that you wrote in the previous step.
 

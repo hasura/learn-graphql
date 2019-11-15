@@ -21,7 +21,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 - Integrating GraphQL mutations in your app to change data on the server
 - Updating local state after a GraphQL mutation (TextInput) using Apollo cache
 - Automatic updates to local state and UI after mutations
-- Using subscriptions with subscription components
+- Using GraphQL subscriptions
 - Building a real-time feed with notifications using mutations and subscriptions
 
 ## What will we be building?

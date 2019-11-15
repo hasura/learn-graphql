@@ -7,7 +7,7 @@ metaDescription: "We will use the Apollo Client's automatic cache update to perf
 In this section, we will learn the following concepts:
 
 - Creating a GraphQL mutation
-- Using the `useMutation` component
+- Using the `useMutation` hook
 - Optimistic updates
 - Automatic cache updates
 

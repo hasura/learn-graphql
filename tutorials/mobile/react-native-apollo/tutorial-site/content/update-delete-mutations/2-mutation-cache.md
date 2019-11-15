@@ -6,10 +6,6 @@ metaDescription: "We will use the Apollo Mutation component from react-apollo as
 
 import GithubLink from "../../src/GithubLink.js";
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/KlenUF0jBg4" />
-
 Now let's do the integration part. Open `src/screens/components/Todo/TodoItem.js` and add the following code below the other imports:
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/components/Todo/TodoItem.js" text="TodoItem.js"/>

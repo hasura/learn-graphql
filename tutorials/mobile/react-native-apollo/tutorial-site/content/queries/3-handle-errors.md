@@ -6,10 +6,6 @@ metaDescription: "We will handle the GraphQL loading and error states in React N
 
 import GithubLink from "../../src/GithubLink.js";
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/RoZRYf-7mUY" />
-
 As we saw in the previous step, Apollo injected props into the component’s render prop function. Among them `loading` and `error` are common ones that you will need to handle in your app.
 
 Now let's go back to the Todos file that you wrote in the previous step.

@@ -1,0 +1,23 @@
+---
+title: "Tables for Slack Clone"
+metaTitle: "Tables | Hasura Auth Tutorial"
+metaDescription: "Slack clone data models"
+---
+
+Let's get started by looking at the data model.
+
+The primary functionality of the app revolves around users and their messages. So we have the following tables.
+
+- `users` and `user_message`
+
+Slack app has workspaces where users can join. It is managed by the owner and the admins of the workspace. The following tables takes care of this requirement.
+
+- `workspace` and `workspace_member`
+
+Each workspace can have channels scoped to a specific topic of discussion having subset of members from the workspace. Members of the channel can post messages to the channel that everyone can see.
+
+- `channel`, `channel_member` and `channel_message`
+
+The final model roughly looks like the following with basic relational columns:
+
+![Slack Data Model](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-auth/slack-datamodel.png)

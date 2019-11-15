@@ -7,63 +7,57 @@ import {
 } from 'react-native';
 import Textbox from './components/Todo/Textbox';
 import Todos from './components/Todo/Todos';
-import {ApolloConsumer} from 'react-apollo';
 
-export default class TodoScreen extends React.Component {
+const TodoScreen = ({ isPublic, navigate }) => {
 
-  state = {
+  // session variable
+  const [sessionInfo, setSessionInfo] = React.useState({
     id: null,
     token: null,
     name: null
-  }
+  });
 
-  async componentDidMount() {
-    const session = await AsyncStorage.getItem('@todo-graphql:session');
-    const {id, name, token} = JSON.parse(session);
+  const { id, token, name } = sessionInfo;
+
+  const fetchSession = async () =>  {
+    const sessionString = await AsyncStorage.getItem('@todo-graphql:session');
+    const session = JSON.parse(sessionString);
     // set session details in state
-    this.setState({
-      id,
-      name,
-      token
-    })
+    setSessionInfo(session);
   }
 
-  render() {
-    if (!this.state.token) {
-      return <ActivityIndicator />
-    }
-    // provide session details to children components
-    return (
-      <View style={styles.container}>
-        <Textbox
-          isPublic={this.props.isPublic}
-          navigate={this.props.navigate}
-          userId={this.state.id}
-          username={this.state.name}
-          token={this.state.token}
+  // fetch session on first mount
+  React.useEffect(() => {
+    fetchSession();
+  }, []);
+
+  if (!token) {
+    return <ActivityIndicator />
+  }
+
+  // provide session details to children components
+  return (
+    <View style={styles.container}>
+      <Textbox
+        isPublic={isPublic}
+        navigate={navigate}
+        userId={id}
+        username={name}
+        token={token}
+      />
+      <View
+        style={styles.todoListContainer}
+      >
+        <Todos
+          isPublic={isPublic}
+          navigate={navigate}
+          userId={id}
+          username={name}
+          token={token}
         />
-        <ApolloConsumer>
-          {
-            client => (
-              <View
-                style={styles.todoListContainer}
-              >
-                <Todos
-                  isPublic={this.props.isPublic}
-                  navigate={this.props.navigate}
-                  userId={this.state.id}
-                  username={this.state.name}
-                  token={this.state.token}
-                  client={client}
-                />
-              </View>
-            )
-          }
-
-        </ApolloConsumer>
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -80,3 +74,5 @@ const styles = StyleSheet.create({
     borderColor: '#d6d7da',
   }
 });
+
+export default TodoScreen;

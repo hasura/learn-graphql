@@ -6,32 +6,27 @@ import {
 import CenterSpinner from './components/Util/CenterSpinner';
 import { logout } from '../authActions';
 
-class LogoutScreen extends React.Component {
+const LogoutScreen = () => {
 
-  static navigationOptions = {
-    drawerLabel: 'Logout',
-    title: 'Logging out'
-  };
-
-  componentDidMount() {
-    this.logout()
-  }
-
-  logout = () => {
+  const _logout = () => {
     AsyncStorage.removeItem('@todo-graphql:session').then(() => {
       logout();
     });
-  } 
+  };
 
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <CenterSpinner />
-      </View>
-    );
-  }
+  React.useEffect(_logout, []);
 
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <CenterSpinner />
+    </View>
+  );
 }
 
-export default LogoutScreen
+LogoutScreen.navigationOptions = {
+  drawerLabel: 'Logout',
+  title: 'Logging out'
+};
+
+export default LogoutScreen;
 

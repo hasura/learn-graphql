@@ -1,9 +1,9 @@
 import React from 'react';
-import { withApollo } from 'react-apollo';
 import { TouchableOpacity, Text } from 'react-native'
 import CenterSpinner from '../Util/CenterSpinner';
-import { FETCH_TODOS } from './Todos';
 import gql from 'graphql-tag';
+import { FETCH_TODOS } from './Todos';
+import { withApollo } from 'react-apollo';
 
 const FETCH_OLD_TODOS = gql`
 query ($lastId: Int, $isPublic: Boolean){
@@ -11,39 +11,33 @@ query ($lastId: Int, $isPublic: Boolean){
     order_by: {
       id: desc
     },
-    where: {
-      _and: {
-        is_public: { _eq: $isPublic},
-        id: { _lt: $lastId}
-      }
-    },
-    limit: 10
-  ) {
-    id
-    title
-    is_completed
-    created_at
-    is_public
-    user {
-      name
-    }
-  }
+   where: {
+     _and: {
+       is_public: { _eq: $isPublic},
+      id: { _lt: $lastId}
+     }
+   },
+   limit: 10
+ ) {
+   id
+   title
+   is_completed
+   created_at
+   is_public
+   user {
+     name
+   }
+ }
 }
 `
 
-class LoadOlderButton extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonText: 'Load more todos',
-      disabled: false,
-      loading: false,
-    };
-  }
+const LoadOlderButton = ({ styles, isPublic, ...props }) => {
+  const [buttonText, setButtonText] = React.useState('Load more todos');
+  const [loading, setLoading] = React.useState(false);
+  const [disabled, setDisabled] = React.useState(false);
 
   fetchOlderTodos = async () => {
-    const { client, isPublic } = this.props;
+    const { client } = props;
     const data = client.readQuery({
       query: FETCH_TODOS,
       variables: {
@@ -51,8 +45,8 @@ class LoadOlderButton extends React.Component {
       }
     });
     const numTodos = data.todos.length;
-    this.setState({ disabled: true });
-    this.setState({ loading: true });
+    setDisabled(true);
+    setLoading(true);
     const response = await client.query({
       query: FETCH_OLD_TODOS,
       variables: {
@@ -60,9 +54,9 @@ class LoadOlderButton extends React.Component {
         lastId: numTodos === 0 ? 0 : data.todos[numTodos - 1].id
       },
     });
-    this.setState({ loading: false });
+    setLoading(false);
     if (!response.data) {
-      this.setState({ disabled: false })
+      setDisabled(false)
       return;
     }
     if (response.data.todos) {
@@ -74,34 +68,32 @@ class LoadOlderButton extends React.Component {
         data: { todos: [ ...data.todos, ...response.data.todos]}
       });
       if (response.data.todos.length < 10) {
-        this.setState({ buttonText: 'No more todos', disabled: true })
+        setButtonText('No more todos');
+        setDisabled(true);
       } else {
-        this.setState({ buttonText: 'Load more todos', disabled: false})
+        setButtonText('Load more todos');
+        setDisabled(false);
       }
     } else {
-      this.setState({ buttonText: 'Load more todos' });  
+      setButtonText('Load more todos');
     }
   }
 
-  render () {
-    const { disabled, buttonText, loading } = this.state;
-    const { styles } = this.props;
-    return (
-      <TouchableOpacity
-        style={styles.pagination}
-        onPress={this.fetchOlderTodos}
-        disabled={disabled}
-      > 
-        {
-          loading ?
-          <CenterSpinner /> :
-          <Text style={styles.buttonText}>
-            {buttonText}
-          </Text>
-        }
-      </TouchableOpacity> 
-    )
-  }
+  return (
+    <TouchableOpacity
+      style={styles.pagination}
+      disabled={disabled}
+      onPress={fetchOlderTodos}
+    > 
+      {
+        loading ?
+        <CenterSpinner /> :
+        <Text style={styles.buttonText}>
+          {buttonText}
+        </Text>
+      }
+    </TouchableOpacity> 
+  )
 }
 
 export default withApollo(LoadOlderButton);

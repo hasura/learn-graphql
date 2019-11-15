@@ -11,59 +11,52 @@ import LoadOlder from './LoadOlder';
 import LoadNewer from './LoadNewer';
 import CenterSpinner from '../Util/CenterSpinner';
 
-export default class Todos extends React.Component {
+const Todos = ({ isPublic, ...props }) => {
 
-  constructor (props) {
-    super(props);
-    this.state={
-      newTodosExist: true
-    }
-  }
+  const [newTodosExist, setNewTodosExist] = React.useState(true);
 
-  render() {
-
-    const { isPublic } = this.props;
-    const data = {
-      todos: [
-        {
+  const data = {
+    todos: [
+      {
+        id: "1",
+        title: "This is todo 1",
+        is_completed: true,
+        is_public: isPublic,
+        user: {
           id: "1",
-          title: "This is todo 1",
-          is_completed: true,
-          is_public: isPublic,
-          user: {
-            id: "1",
-            name: "user1"
-          }
-        },
-        {
-          id: "2",
-          title: "This is todo 2",
-          is_completed: false,
-          is_public: isPublic,
-          user: {
-            id: "2",
-            name: "user2"
-          }
+          name: "user1"
         }
-      ]
-    }
-    return (
-      <View style={styles.container}>
-        <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-          <FlatList
-            data={data.todos}
-            renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
-            keyExtractor={(item) => item.id.toString()}
-          />
-          <LoadOlder
-            isPublic={this.props.isPublic}
-            styles={styles}
-          />
-        </ScrollView>
-      </View>
-    );
+      },
+      {
+        id: "2",
+        title: "This is todo 2",
+        is_completed: false,
+        is_public: isPublic,
+        user: {
+          id: "2",
+          name: "user2"
+        }
+      }
+    ]
   }
+
+  return (
+    <View style={styles.container}>
+      <LoadNewer show={isPublic} styles={styles} isPublic={isPublic}/>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+        <FlatList
+          data={data.todos}
+          renderItem={({item}) => <TodoItem item={item} isPublic={isPublic}/>}
+          keyExtractor={(item) => item.id.toString()}
+        />
+        <LoadOlder
+          isPublic={isPublic}
+          styles={styles}
+        />
+      </ScrollView>
+    </View>
+  );
+
 }
 
 const styles = StyleSheet.create({
@@ -101,3 +94,5 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
+
+export default Todos;

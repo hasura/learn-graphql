@@ -16,7 +16,7 @@ const config = {
 			"link": "https://hasura.io"
 		}],
 		"search": {
-			"enabled": true,
+			"enabled": process.env.NODE_ENV !== 'development',
 			"indexName": "learn-react-native-apollo",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,

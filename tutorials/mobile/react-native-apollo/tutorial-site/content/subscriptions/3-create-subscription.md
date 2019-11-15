@@ -72,17 +72,17 @@ Replace the component's body with this code.
 +    return <Text> Error </Text>
 +  }
 
-+  return (
-+    <View style={styles.container}>
-+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-+      <FlatList
-+        data={data.online_users}
-+        renderItem={({item}) => <UserItem item={item} />}
-+        keyExtractor={(item) => item.user.name}
-+      />
-+      </ScrollView>
-+    </View>
-+  );
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+      <FlatList
+        data={data.online_users}
+        renderItem={({item}) => <UserItem item={item} />}
+        keyExtractor={(item) => item.user.name}
+      />
+      </ScrollView>
+    </View>
+  );
 ```
 
 Refresh your app and see yourself online! Don't be surprised; There could be other users online as well.

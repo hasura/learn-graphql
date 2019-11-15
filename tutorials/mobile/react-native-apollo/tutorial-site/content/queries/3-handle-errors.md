@@ -17,6 +17,8 @@ Now let's go back to the Todos file that you wrote in the previous step.
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/components/Todo/Todos.js" text="Todos.js"/>
 
 ```javascript
+- if (!data) return null;
+
 if (error) {
   console.error(error);
   return <Text>Error</Text>;

@@ -42,7 +42,7 @@ const Todos = ({ isPublic, ...props }) => {
 
   return (
     <View style={styles.container}>
-      <LoadNewer show={newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={isPublic}/>
+      <LoadNewer show={isPublic} styles={styles} isPublic={isPublic}/>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
         <FlatList
           data={data.todos}

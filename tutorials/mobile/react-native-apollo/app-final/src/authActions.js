@@ -61,10 +61,8 @@ export const login = (email, password, successCb, errorCb) => {
     }
   )
   .then(resp => {
-    console.log(resp);
     resp.json()
     .then(respObj => {
-      console.log(respObj);
       if (resp.status === 200) {
         successCb(respObj);
         return;
@@ -91,3 +89,8 @@ export const login = (email, password, successCb, errorCb) => {
   })
 };
 
+let logout;
+export const setLogout = (l) => {
+  logout = l
+};
+export { logout };

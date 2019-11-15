@@ -45,10 +45,20 @@ Go to `src/screens/components/Todo/LoadNewer.js`, import `gql` and define the qu
 +`;
 ```
 
-Also, import the `FETCH_TODOS` query so that we can read its cache locally.
+Import the `FETCH_TODOS` query so that we can read its local cache and update it with newer todos.
 
 ```js
 + import { FETCH_TODOS } from './Todos';
+```
+
+Also wrap the `LoadNewerButton` component in `withApollo` so that we receive the `client` prop.
+
+```js
++ import { withApollo } from 'react-apollo';
+
+// LoadNewer.js
+
+export default withApollo(LoadNewerButton);
 ```
 
 Let us initialise a new state variables that contain the button text and loading.;
@@ -89,9 +99,9 @@ const LoadNewerButton = ({ isPublic, ...props}) => {
 +      props.toggleShow();
 +    }
 +  }
-+  if (!show) {
-+    return null;
-+  }
+  if (!show) {
+    return null;
+  }
   return (
     <TouchableOpacity
       style={styles.pagination}

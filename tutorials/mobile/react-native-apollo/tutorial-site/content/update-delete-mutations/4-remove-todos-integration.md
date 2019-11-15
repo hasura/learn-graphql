@@ -16,8 +16,6 @@ Let us integrate the remove todos feature in our React Native app. Firstly impor
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/components/Todo/TodoItem.js" text="TodoItem.js"/>
 
 ```js
-+ import gql from 'graphql-tag';
-
 + const REMOVE_TODO = gql`
 +  mutation ($id: Int) {
 +    delete_todos (
@@ -42,48 +40,54 @@ Firstly use the `useMutation` hook with the above mutation to generate the `dele
 Now, in the `TodoItem` component, update the `deleteButton` function to use the `deleteTodo` function from the `useMutation` hook. We also have to update the cache with the todo removal in this case. So we will also write an `updateCache` function that we will remove this todo from the UI cache.
 
 ```js
-
-const deleteButton = () => {
-  if (isPublic) return null;
-  const remove = () => {
-    if (deleting) { return; }
-+   deleteTodo({
-+     variables: { id: item.id }
-+   });
-  };
-
-+ const updateCache = (cache) = {
-+   const data = cache.readQuery({
-+     query: FETCH_TODOS,
-+     variables: {
-+       isPublic,
-+     }
-+   });
-+   const newData = {
-+     todos: data.todos.filter((t) => t.id !== item.id)
-+   }
-+   cache.writeQuery({
-+     query: FETCH_TODOS,
-+     variables: {
-+       isPublic,
-+     },
-+     data: newData
-+   });
-+ }
-
-  return (
-    <View style={styles.deleteButton}>
-      <Icon
-        name="delete"
-        size={26}
-        onPress={remove}
-        disabled={deleting}
-        color={deleting ? "lightgray" : "#BC0000"}
-      />
-    </View>
-  )
-}
++import { FETCH_TODOS } from './Todos';
 ```
 
+```js
+  const deleteButton = () => {
+
+    if (isPublic) return null;
+
++    const updateCache = (client) => {
++      const data = client.readQuery({
++        query: FETCH_TODOS,
++        variables: {
++          isPublic,
++        }
++      });
++      const newData = {
++        todos: data.todos.filter((t) => t.id !== item.id)
++      }
++      client.writeQuery({
++        query: FETCH_TODOS,
++        variables: {
++          isPublic,
++        },
++        data: newData
++      });
++    }
+
+    const remove = () => {
+      if (deleting) return;
++      deleteTodo({
++        variables: { id: item.id },
++        update: updateCache
++      });
++    };
+
+    return (
+      <View style={styles.deleteButton}>
+        <Icon
+          name="delete"
+          size={26}
+          onPress={remove}
++          disabled={deleting}
+          color={"#BC0000"}
+        />
+      </View>
+    );
+  }
+
+```
 
 This was done similar to the `insert_todos` mutation. We have also updated the cache in the `update` function. With this, we have a fully functional todo app working :)

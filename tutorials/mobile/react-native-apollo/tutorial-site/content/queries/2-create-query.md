@@ -108,7 +108,6 @@ Now, inside the render method, get GraphQL data using the Query component and re
 
 
 ```js
-  const { isPublic } = this.props;
 -  const data = {
 -    todos: [
 -      {
@@ -136,7 +135,7 @@ Now, inside the render method, get GraphQL data using the Query component and re
 +  const { data, error, loading } = useQuery(
 +    FETCH_TODOS,
 +    {
-+      variables: {isPublic: this.props.isPublic}
++      variables: { isPublic }
 +    }
 +  );
 

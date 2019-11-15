@@ -34,7 +34,7 @@ Let's define the graphql mutation to update the completed status of the todo
 +    ) {
 +      returning {
 +        id
-+        text
++        title
 +        is_completed
 +        created_at
 +        is_public
@@ -43,6 +43,7 @@ Let's define the graphql mutation to update the completed status of the todo
 +  }
 +`;
 ```
+
 
 Firstly let us get the `updateTodo` function by using the `useMutation` hook with the above query.
 
@@ -57,21 +58,24 @@ Now, in the `TodoItem` component, modify the `updateCheckbox` function to use th
 const updateCheckbox = () => {
   if (isPublic) return null;
   const update = () => {
-+    // do not fire another mutation if there's already a mutation in progress
 +    if (updating) return;
-+    updateTodo()
-  };
-
++    updateTodo({
++      variables: {
++        id: item.id,
++        isCompleted: !item.is_completed
++      }
++    });
+  }
   return (
     <TouchableOpacity
       style={item.is_completed ? styles.completedCheckBox : styles.checkBox}
++      disabled={updating}
       onPress={update}
-      disabled={updating}
     >
-      { updating && <CenterSpinner />}
+      {null}
     </TouchableOpacity>
   )
-};
+}
 ```
 
 The above code will just make a mutation, updating the todo's is_completed property in the database. If you see in the above code snippet, we are not doing anything to updating the cache, but if you try it out, the mutation succeeds and the UI is also updated.

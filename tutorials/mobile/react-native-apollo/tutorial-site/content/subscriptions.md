@@ -36,7 +36,7 @@ The goal is to update every few seconds from the client that you are online. Ide
 
 
 + // GraphQL mutation to update last_seen
-+ const emitOnlineEvent = gql`
++ const EMIT_ONLINE_EVENT = gql`
 + mutation {
 +   update_users(
 +     _set: {
@@ -56,25 +56,24 @@ In `componentDidMount`, we will create a `setInterval` to update the last_seen o
 
 
 ```javascript
-// bootstrap session in componentDidMount
-async componentDidMount() {
+const fetchSession = async () => {
   // fetch session
   const session = await AsyncStorage.getItem('@todo-graphql:session');
   const sessionObj = JSON.parse(session);
   const { token, id } = sessionObj;
-  // make apollo client with this session token
+
   const client = makeApolloClient(token);
-  // start emitting events saying that the useri s online
-  this.setState({ client });
-+ setInterval(
-+   () => client.mutate({
-+     mutation: emitOnlineEvent,
-+     variables: {
-+       userId: id
-+     }
+
+  setClient(client);
++  setInterval(
++    () => client.mutate({
++      mutation: EMIT_ONLINE_EVENT,
++      variables: {
++        userId: id
++      }
 +   }),
-+   30000
-+ );
++    30000
++  );
 }
 ```
 

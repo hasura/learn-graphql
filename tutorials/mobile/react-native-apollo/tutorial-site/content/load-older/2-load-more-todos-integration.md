@@ -45,22 +45,28 @@ In the last section, we modified the query that fetches all the todos to fetch o
 +`
 ```
 
-Now write a class function in the `LoadOlder` component.
+We need the apollo client instance to make queries and mutations manually. Just import `withApollo` from `react-apollo` and wrap the `LoadOlder` component with it before while exporting. `withApollo` helps us inject the `client` instance as a prop in our `TodoItem` component. At the very bottom of the file:
 
 ```js
-class LoadOlder extends React.Component {
- 
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonText: 'Load more todos',
-      disabled: false,
-      loading: false,
-    };
-  }
++import { withapollo } from 'react-apollo'
+```
 
-+  fetchOlderTodos = async () => {
-+    const { client, isPublic } = this.props;
+```js
+-export default loadolder;
++export default withapollo(loadolder);
+```
+
+Also import the `FETCH_TODOS` query.
+
+```
+import { FETCH_TODOS } from './Todos'
+```
+
+Now write a function in the `LoadOlder` component.
+
+```js
++  const fetchOlderTodos = async () => {
++    const { client } = props;
 +    const data = client.readQuery({
 +      query: FETCH_TODOS,
 +      variables: {
@@ -68,8 +74,8 @@ class LoadOlder extends React.Component {
 +      }
 +    });
 +    const numTodos = data.todos.length;
-+    this.setState({ disabled: true });
-+    this.setState({ loading: true });
++    setDisabled(true);
++    setLoading(true);
 +    const response = await client.query({
 +      query: FETCH_OLD_TODOS,
 +      variables: {
@@ -77,9 +83,9 @@ class LoadOlder extends React.Component {
 +        lastId: numTodos === 0 ? 0 : data.todos[numTodos - 1].id
 +      },
 +    });
-+    this.setState({ loading: false });
++    setLoading(false);
 +    if (!response.data) {
-+      this.setState({ disabled: false })
++      setDisabled(false)
 +      return;
 +    }
 +    if (response.data.todos) {
@@ -91,23 +97,19 @@ class LoadOlder extends React.Component {
 +        data: { todos: [ ...data.todos, ...response.data.todos]}
 +      });
 +      if (response.data.todos.length < 10) {
-+        this.setState({ buttonText: 'No more todos', disabled: true })
++        setButtonText('No more todos');
++        setDisabled(true);
 +      } else {
-+        this.setState({ buttonText: 'Load more todos', disabled: false})
++        setButtonText('Load more todos');
++        setDisabled(false);
 +      }
 +    } else {
-+      this.setState({ buttonText: 'Load more todos' });  
++      setButtonText('Load more todos');
 +    }
 +  }
-
-
-  render() {
-    ...
-  }
-}
 ```
 
-The `this.fetchOlderTodos` function does the following:
+The `fetchOlderTodos` function does the following:
 
 1. Reads the cache to get the data for query `FETCH_TODOS` and store it in a variable called `data`
 2. Makes a GraphQL query to get 10 todos older than the oldest todo in the cache
@@ -119,7 +121,7 @@ Finally, integrate this function into the JSX such that it is invoked whenever t
 ```js
 <TouchableOpacity
   style={styles.pagination}
-+ onPress={this.fetchOlderTodos}
++ onPress={fetchOlderTodos}
   disabled={disabled}
 > 
   {

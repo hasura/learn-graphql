@@ -50,17 +50,12 @@ Now let's do the integration part. Now add the following code below the other im
 We are importing the `useMutation` hook from `react-apollo`.
 
 ```js
-  const { text } = this.state
-+ const { isPublic } = this.props;
-
 +  const [insertTodo, { loading, error }] = useMutation(INSERT_TODO);
 
   const submit = () => {
-    this.setState({
-      text: ''
-    });
+    setText('');
 +    insertTodo({
-+      variables: { text, isPublic }
++      variables: { text, isPublic },
 +    });
   };
 
@@ -70,7 +65,7 @@ We are importing the `useMutation` hook from `react-apollo`.
           <TextInput
             style={styles.textbox}
             editable = {true}
-            onChangeText = {this._handleTextChange}
+            onChangeText = {setText}
             value = {text}
           />
         </View>
@@ -99,7 +94,7 @@ We pass the update function to the mutation options while calling `insertTodo`.
 
 ```javascript
   insertTodo({
-    variables: { text, isPublic }
+    variables: { text, isPublic },
 +   update: updateCache
   });
 ```

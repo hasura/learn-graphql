@@ -15,7 +15,7 @@ When we had initially set up Apollo, we used Apollo Boost to install the require
 ### React Native Apollo Subscriptions Setup
 
 ```bash
-+ $ npm install apollo-link-ws subscriptions-transport-ws --save
+yarn add apollo-link-ws subscriptions-transport-ws
 ```
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.

@@ -11,7 +11,7 @@ When we had initially set up Apollo, we installed the required dependencies for 
 ### React Apollo Subscriptions Setup
 
 ```bash
-+ $ yarn add apollo-link-ws subscriptions-transport-ws
+$ yarn add apollo-link-ws subscriptions-transport-ws
 ```
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.

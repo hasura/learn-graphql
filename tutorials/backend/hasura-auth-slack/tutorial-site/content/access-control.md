@@ -29,4 +29,4 @@ As you can imagine, combining both these rules gives a flexible and powerful way
 
 Access control rules can be applied to all the CRUD operations (Create, Read, Update and Delete). Some operations can be completely restricted to not allow the user perform the operation.
 
-In the previous section we learnt that the slack app requires a role called `users`. We will create permissions for this role in the next part.
+In the previous section we learnt that the slack app requires a role called `user`. We will create permissions for this role in the next part.

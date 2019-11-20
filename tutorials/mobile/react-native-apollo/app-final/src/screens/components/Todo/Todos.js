@@ -6,34 +6,34 @@ import {
   View,
   FlatList,
 } from 'react-native';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
 import TodoItem from './TodoItem';
 import LoadOlder from './LoadOlder';
 import LoadNewer from './LoadNewer';
 import CenterSpinner from '../Util/CenterSpinner';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
+import { withApollo } from 'react-apollo';
+
 
 export const FETCH_TODOS = gql`
-query (
-  $isPublic: Boolean,
-){
-  todos (
-    order_by: {
-      id: desc
-    },
-    where: { is_public: { _eq: $isPublic} }
-    limit: 10
-  ) {
-    id
-    title
-    is_completed
-    created_at
-    is_public
-    user {
-      name
-    }
-  }
-}
+  query ($isPublic: Boolean) {
+   todos (
+     order_by: {
+       created_at: desc
+     },
+     where: { is_public: { _eq: $isPublic} }
+     limit: 20
+   ) {
+     id
+     title
+     is_completed
+     created_at
+     is_public
+     user {
+       name
+     }
+   }
+ }
 `;
 
 const SUBSCRIBE_TO_NEW_TODOS = gql`
@@ -51,21 +51,12 @@ subscription {
 }
 `;
 
-export default class Todos extends React.Component {
+const Todos = ({ isPublic, ...props }) => {
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      newTodosExist: false
-    }
-  }
+  const [newTodosExist, setNewTodosExist] = React.useState(false);
 
-  async componentDidMount() {
-    this.subscribeToNewTodos();
-  }
-
-  subscribeToNewTodos = () => {
-    const { client, isPublic } = this.props;
+  const subscribeToNewTodos = () => {
+    const { client } = props;
     if (isPublic) {
       client.subscribe({
         query: SUBSCRIBE_TO_NEW_TODOS,
@@ -86,7 +77,7 @@ export default class Todos extends React.Component {
             
             const lastId = localData.todos[0] ? localData.todos[0].id : 0;
             if (event.data.todos[0].id > lastId) {
-              this.setState({ newTodosExist: true})
+              setNewTodosExist(true)
             }
           }
         },
@@ -95,48 +86,46 @@ export default class Todos extends React.Component {
         }
       })
     }
+  };
+  React.useEffect(subscribeToNewTodos, []);
+
+  const dismissNewTodoBanner = () => {
+    setNewTodosExist(false);
+  };
+
+  const { data, error, loading } = useQuery(
+    FETCH_TODOS,
+    {
+      variables: { isPublic }
+    }
+  );
+
+  if (error) {
+    console.error(error);
+    return <Text>Error</Text>;
   }
 
-  dismissNewTodoBanner = () => {
-    this.setState({ newTodosExist: false });
+  if (loading) {
+    return <CenterSpinner />;
   }
 
-  render() {
-    const { isPublic } = this.props;
-    return (
-      <Query
-        query={FETCH_TODOS}
-        variables={{isPublic: this.props.isPublic}}
-      >
-        {
-          ({data, error, loading }) => {
-            if (error) {
-              return <Text>Error</Text>;
-            }
-            if (loading) {
-              return <CenterSpinner />;
-            }
-            return (
-              <View style={styles.container}>
-                <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
-                <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-                  <FlatList
-                    data={data.todos}
-                    renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
-                    keyExtractor={(item) => item.id.toString()}
-                  />
-                  <LoadOlder
-                    isPublic={this.props.isPublic}
-                    styles={styles}
-                  />
-                </ScrollView>
-              </View>
-            );
-          }
-        }
-      </Query>
-    );
-  }
+  return (
+    <View style={styles.container}>
+    <LoadNewer show={newTodosExist && isPublic} toggleShow={dismissNewTodoBanner} styles={styles} isPublic={isPublic}/>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+        <FlatList
+          data={data.todos}
+          renderItem={({item}) => <TodoItem item={item} isPublic={isPublic}/>}
+          keyExtractor={(item) => item.id.toString()}
+        />
+        <LoadOlder
+          isPublic={isPublic}
+          styles={styles}
+        />
+      </ScrollView>
+    </View>
+  );
+
 }
 
 const styles = StyleSheet.create({
@@ -174,3 +163,5 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
+
+export default  withApollo(Todos);

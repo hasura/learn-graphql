@@ -1,12 +1,13 @@
 import React from 'react';
-import { withApollo } from 'react-apollo';
 import { TouchableOpacity, Text } from 'react-native'
 import CenterSpinner from '../Util/CenterSpinner';
-import { FETCH_TODOS } from './Todos';
 import gql from 'graphql-tag';
+import { withApollo } from 'react-apollo';
+
+import { FETCH_TODOS } from './Todos';
 
 const FETCH_NEW_TODOS = gql`
-query ($lastId: Int){
+ query ($lastId: Int){
   todos (
     order_by: {
       id: desc
@@ -30,18 +31,13 @@ query ($lastId: Int){
 }
 `;
 
-class LoadNewerButton extends React.Component {
+const LoadNewerButton = ({ show, styles, isPublic, ...props }) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonText: 'New tasks have arrived!',
-      loading: false,
-    };
-  }
+  const [buttonText, setButtonText] = React.useState('New todos have arrived');
+  const [loading, setLoading] = React.useState(false);
 
-  fetchNewerTodos = async () => {
-    const { client, isPublic } = this.props;
+  const fetchNewerTodos = async () => {
+    const { client } = props;
     const data = client.readQuery({
       query: FETCH_TODOS,
       variables: {
@@ -49,12 +45,12 @@ class LoadNewerButton extends React.Component {
       }
     });
     const lastId = data.todos[0].id;
-    this.setState({ loading: true})
+    setLoading(true);
     const resp = await client.query({
       query: FETCH_NEW_TODOS,
       variables: { lastId }
     });
-    this.setState({ loading: false})
+    setLoading(false);
     if (resp.data) {
       const newData = {
         todos: [ ...resp.data.todos, ...data.todos]
@@ -66,32 +62,29 @@ class LoadNewerButton extends React.Component {
         },
         data: newData
       });
-      this.props.toggleShow();
+      props.toggleShow();
     }
   }
 
-  render () {
-    const { disabled, buttonText, loading } = this.state;
-    const { styles, show } = this.props;
-    if (!show) {
-      return null;
-    }
-    return (
-      <TouchableOpacity
-        style={styles.banner}
-        onPress={this.fetchNewerTodos}
-        disabled={disabled}
-      > 
-        {
-          loading ?
-          <CenterSpinner /> :
-          <Text style={styles.buttonText}>
-            {buttonText}
-          </Text>
-        }
-      </TouchableOpacity> 
-    )
+  if (!show) {
+    return null;
   }
+
+  return (
+    <TouchableOpacity
+      style={styles.banner}
+      disabled={loading}
+      onPress={fetchNewerTodos}
+    > 
+      {
+        loading ?
+        <CenterSpinner /> :
+        <Text style={styles.buttonText}>
+          {buttonText}
+        </Text>
+      }
+    </TouchableOpacity> 
+  )
 }
 
 export default withApollo(LoadNewerButton);

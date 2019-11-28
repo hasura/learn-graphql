@@ -84,7 +84,16 @@ Head to [GraphiQL](https://learn.hasura.io/graphql/graphiql) to obtain the Autho
 Now run the following command to generate the types
 
 ```bash
+# Linux and macOS
 AUTH_TOKEN=xxxxx yarn generate --watch
+
+# Windows cmd.exe
+set AUTH_TOKEN="xxxxx"
+yarn generate --watch
+
+# Windows powershell
+$env:AUTH_TOKEN="xxxxx"
+yarn generate --watch
 ```
 
 *Note*: Replace xxxxx with the Auth Token you copied from GraphiQL. The Auth Token shouldn't have `Bearer`

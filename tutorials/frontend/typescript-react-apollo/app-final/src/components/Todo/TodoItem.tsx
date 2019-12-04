@@ -45,7 +45,7 @@ const TodoItem = ({index, todo}: TodoItemType) => {
         const existingTodos = cache.readQuery<GetMyTodosQuery>({ query: GET_MY_TODOS });
         const newTodos = existingTodos!.todos.map(t => {
           if (t.id === todo.id) {
-            return({...t, is_completed: !t.is_completed});
+            return({...t, is_completed: t.is_completed});
           } else {
             return t;
           }
@@ -92,7 +92,7 @@ const TodoItem = ({index, todo}: TodoItemType) => {
             __typename: "todos",
             id: todo.id,
             title: todo.title,
-            is_completed: todo.is_completed,
+            is_completed: !todo.is_completed,
           }]
         }
       }

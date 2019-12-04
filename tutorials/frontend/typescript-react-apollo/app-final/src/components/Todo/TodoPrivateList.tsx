@@ -56,12 +56,12 @@ const TodoPrivateList = () => {
 
   let filteredTodos = data.todos;
   if (filter === "active") {
-    filteredTodos = data.todos.filter((todo: Partial<Todos>) => todo.is_completed !== true);
+    filteredTodos = data.todos.filter((todo: Pick<Todos, "id" | "title" | "is_completed">) => todo.is_completed !== true);
   } else if (filter === "completed") {
-    filteredTodos = data.todos.filter((todo: Partial<Todos>) => todo.is_completed === true);
+    filteredTodos = data.todos.filter((todo: Pick<Todos, "id" | "title" | "is_completed">) => todo.is_completed === true);
   }
 
-  const todoList = filteredTodos.map((todo: Partial<Todos>, index: number) => (
+  const todoList = filteredTodos.map((todo: Pick<Todos, "id" | "title" | "is_completed">, index: number) => (
     <TodoItem
       key={'item'+index}
       index={index}

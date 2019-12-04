@@ -30,7 +30,6 @@ const config = {
     		"/thinking-in-roles",
     		"/access-control",
     		"/choosing-jwt-mode",
-    		"/auth-external-services",
     		"/production-ready-auth",
     		"/what-next"
     	],

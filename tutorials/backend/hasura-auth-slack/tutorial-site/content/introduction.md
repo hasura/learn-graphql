@@ -26,7 +26,7 @@ This course will help you understand how to think about permissions and access c
 
 ## What will we be building?
 
-We will be building the backend of a basic Slack clone, setting up permissions so that the right data is exposed to the right user.
+We will be building the backend of a basic Slack clone, setting up permissions so that the right data is exposed to the right user. There won't be any frontend app building associated with this tutorial.
 
 ## What do I need to take this tutorial?
 

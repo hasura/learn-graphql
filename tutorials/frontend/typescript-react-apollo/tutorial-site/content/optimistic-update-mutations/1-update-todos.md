@@ -12,6 +12,11 @@ Let's define a graphql query to do a mutation into todos.
   mutation toggleTodo ($id: Int!, $isCompleted: Boolean!) {
     update_todos(where: {id: {_eq: $id}}, _set: {is_completed: $isCompleted}) {
       affected_rows
+      returning {
+        id
+        title
+        is_completed
+      }
     }
   }
 ```

@@ -55,14 +55,14 @@ Let's update the parts of code where the `Todo` type is being used.
   let filteredTodos = data.todos;
   if (filter === "active") {
 -   filteredTodos = data.todos.filter((todo: Todo) => todo.is_completed !== true);
-+   filteredTodos = data.todos.filter((todo: Partial<Todos>) => todo.is_completed !== true);
++   filteredTodos = data.todos.filter((todo: Pick<Todos, "id" | "title" | "is_completed">) => todo.is_completed !== true);
   } else if (filter === "completed") {
 -   filteredTodos = data.todos.filter((todo: Todo) => todo.is_completed === true);
-+   filteredTodos = data.todos.filter((todo: Partial<Todos>) => todo.is_completed === true);
++   filteredTodos = data.todos.filter((todo: Pick<Todos, "id" | "title" | "is_completed">) => todo.is_completed === true);
   }
 
 - const todoList = filteredTodos.map((todo: Todo, index: number) => (
-+ const todoList = filteredTodos.map((todo: Partial<Todos>, index: number) => (
++ const todoList = filteredTodos.map((todo: Pick<Todos, "id" | "title" | "is_completed">, index: number) => (
     <TodoItem
       key={'item'+index}
       index={index}
@@ -71,7 +71,7 @@ Let's update the parts of code where the `Todo` type is being used.
   ));
 ```
 
-We are using `Partial<Todos>`, instead of `<Todos>` to handle properties that are not used in the UI.
+We are using `Pick<Todos, "id" | "title" | "is_completed">`, instead of `<Todos>` to handle properties that are not used in the UI.
 
 And now with updated todos, let's remove the manually declared type definition for todo.
 
@@ -108,7 +108,7 @@ Open `src/components/Todo/TodoItem.tsx`
   interface TodoItemType {
     index: number,
 -   todo: TodoItem
-+   todo: Partial<Todos>
++   todo: Pick<Todos, "id" | "title" | "is_completed">;
   };
 
 ```

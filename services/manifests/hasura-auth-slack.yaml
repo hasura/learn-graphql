@@ -22,7 +22,7 @@ spec:
         app: hasura-auth-slack
     spec:
       containers:
-      - image: hasura/base-git-image:0.7
+      - image: hasura/hasura-auth-slack:bed7c8
         imagePullPolicy: IfNotPresent
         name: hasura-auth-slack
         env:

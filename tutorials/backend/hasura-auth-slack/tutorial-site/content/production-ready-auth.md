@@ -1,6 +1,6 @@
 ---
 title: "Production Ready Auth"
-metaTitle: "Production Ready Auth | Hasura Auth Tutorial"
+metaTitle: "Production Ready Auth | Hasura Auth Slack Tutorial"
 metaDescription: "This part of the tutorial will teach you how to configure Allow Lists so that you can go production ready with Hasura GraphQL"
 ---
 

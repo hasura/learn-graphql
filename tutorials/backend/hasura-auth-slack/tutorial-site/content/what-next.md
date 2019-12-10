@@ -1,6 +1,6 @@
 ---
 title: "What next?"
-metaTitle: "What next? | Hasura Auth Tutorial"
+metaTitle: "What next? | Hasura Auth Slack Tutorial"
 ---
 
 import TwitterShare from './twitter-share';

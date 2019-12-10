@@ -1,6 +1,6 @@
 ---
 title: "Data Modelling: Slack"
-metaTitle: "Slack Data Modelling with Hasura | Hasura Auth Tutorial"
+metaTitle: "Slack Data Modelling with Hasura | Hasura Auth Slack Tutorial"
 metaDescription: "This tutorial covers how to do data modelling in Postgres and create tables using Hasura console for a Slack Clone"
 ---
 

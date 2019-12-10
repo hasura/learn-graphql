@@ -1,6 +1,6 @@
 ---
 title: "Authentication Modes"
-metaTitle: "Authentication Modes | Hasura Auth Tutorial"
+metaTitle: "Authentication Modes | Hasura Auth Slack Tutorial"
 metaDescription: "This part of the tutorial covers how to choose the right auth mode"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Permissions for Users"
-metaTitle: "Permissions for Users | Hasura Auth Tutorial"
+metaTitle: "Permissions for Users | Hasura Auth Slack Tutorial"
 metaDescription: "In this part, we will learn how to create permissions for users of the app"
 ---
 

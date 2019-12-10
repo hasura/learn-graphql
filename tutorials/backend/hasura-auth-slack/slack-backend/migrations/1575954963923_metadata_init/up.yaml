@@ -1,0 +1,324 @@
+- args:
+    allowlist: []
+    functions: []
+    query_collections: []
+    remote_schemas: []
+    tables:
+    - array_relationships:
+      - comment: null
+        name: workspace_members
+        using:
+          foreign_key_constraint_on:
+            column: workspace_id
+            table: workspace_member
+      - comment: null
+        name: channels
+        using:
+          foreign_key_constraint_on:
+            column: workspace_id
+            table: channel
+      - comment: null
+        name: user_messages
+        using:
+          foreign_key_constraint_on:
+            column: workspace_id
+            table: user_message
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: owner
+        using:
+          foreign_key_constraint_on: owner_id
+      select_permissions: []
+      table: workspace
+      update_permissions: []
+    - array_relationships: []
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: user
+        using:
+          foreign_key_constraint_on: user_id
+      - comment: null
+        name: recipient
+        using:
+          foreign_key_constraint_on: recipient_id
+      - comment: null
+        name: workspace
+        using:
+          foreign_key_constraint_on: workspace_id
+      select_permissions: []
+      table: user_message
+      update_permissions: []
+    - array_relationships: []
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: user
+        using:
+          foreign_key_constraint_on: user_id
+      - comment: null
+        name: channel_thread
+        using:
+          foreign_key_constraint_on: channel_thread_id
+      select_permissions: []
+      table: channel_thread_message
+      update_permissions: []
+    - array_relationships:
+      - comment: null
+        name: channel_members
+        using:
+          foreign_key_constraint_on:
+            column: channel_id
+            table: channel_member
+      - comment: null
+        name: channel_threads
+        using:
+          foreign_key_constraint_on:
+            column: channel_id
+            table: channel_thread
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: workspace
+        using:
+          foreign_key_constraint_on: workspace_id
+      select_permissions: []
+      table: channel
+      update_permissions: []
+    - array_relationships: []
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: channel
+        using:
+          foreign_key_constraint_on: channel_id
+      - comment: null
+        name: user
+        using:
+          foreign_key_constraint_on: user_id
+      select_permissions: []
+      table: channel_member
+      update_permissions: []
+    - array_relationships:
+      - comment: null
+        name: workspaces
+        using:
+          foreign_key_constraint_on:
+            column: owner_id
+            table: workspace
+      - comment: null
+        name: workspace_members
+        using:
+          foreign_key_constraint_on:
+            column: user_id
+            table: workspace_member
+      - comment: null
+        name: user_messages
+        using:
+          foreign_key_constraint_on:
+            column: user_id
+            table: user_message
+      - comment: null
+        name: userMessagesByRecipientId
+        using:
+          foreign_key_constraint_on:
+            column: recipient_id
+            table: user_message
+      - comment: null
+        name: channel_members
+        using:
+          foreign_key_constraint_on:
+            column: user_id
+            table: channel_member
+      - comment: null
+        name: channel_thread_messages
+        using:
+          foreign_key_constraint_on:
+            column: user_id
+            table: channel_thread_message
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships: []
+      select_permissions: []
+      table: users
+      update_permissions: []
+    - array_relationships: []
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: user
+        using:
+          foreign_key_constraint_on: user_id
+      - comment: null
+        name: workspace
+        using:
+          foreign_key_constraint_on: workspace_id
+      - comment: null
+        name: user_type
+        using:
+          foreign_key_constraint_on: type
+      select_permissions: []
+      table: workspace_member
+      update_permissions: []
+    - array_relationships:
+      - comment: null
+        name: workspace_members
+        using:
+          foreign_key_constraint_on:
+            column: type
+            table: workspace_member
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: true
+      object_relationships: []
+      select_permissions: []
+      table: workspace_user_type
+      update_permissions: []
+    - array_relationships: []
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: user
+        using:
+          manual_configuration:
+            column_mapping:
+              id: id
+            remote_table: users
+      select_permissions: []
+      table: online_users
+      update_permissions: []
+    - array_relationships:
+      - comment: null
+        name: channel_thread_messages
+        using:
+          foreign_key_constraint_on:
+            column: channel_thread_id
+            table: channel_thread_message
+      configuration:
+        custom_column_names: {}
+        custom_root_fields:
+          delete: null
+          insert: null
+          select: null
+          select_aggregate: null
+          select_by_pk: null
+          update: null
+      delete_permissions: []
+      event_triggers: []
+      insert_permissions: []
+      is_enum: false
+      object_relationships:
+      - comment: null
+        name: channel
+        using:
+          foreign_key_constraint_on: channel_id
+      select_permissions: []
+      table: channel_thread
+      update_permissions: []
+  type: replace_metadata

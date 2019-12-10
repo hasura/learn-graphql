@@ -1,7 +1,7 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | Hasura Auth Tutorial"
-metaDescription: "A powerful and concise tutorial that will introduce you to setting up a Slack clone backend in GraphQL with a walkthrough of auth, permissions and client side examples."
+metaTitle: "Course Introduction | Hasura Auth Slack Tutorial"
+metaDescription: "A powerful and concise tutorial that will introduce you to setting up a Slack clone backend in GraphQL with a walkthrough of auth and modelling permissions"
 ---
 
 This course is a super fast introduction to model and think about Auth with Hasura GraphQL.

@@ -1,6 +1,6 @@
 ---
 title: "Thinking in Roles"
-metaTitle: "Thinking in Roles | Hasura Auth Tutorial"
+metaTitle: "Thinking in Roles | Hasura Auth Slack Tutorial"
 metaDescription: ""
 ---
 

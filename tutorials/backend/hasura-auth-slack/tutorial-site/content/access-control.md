@@ -1,6 +1,6 @@
 ---
 title: "Access Control"
-metaTitle: "Authorization with Hasura | Hasura Auth Tutorial"
+metaTitle: "Authorization with Hasura | Hasura Auth Slack Tutorial"
 metaDescription: "This part of the tutorial covers how to do Authorization in Hasura GraphQL Engine by defining role based access control rules for the models."
 ---
 

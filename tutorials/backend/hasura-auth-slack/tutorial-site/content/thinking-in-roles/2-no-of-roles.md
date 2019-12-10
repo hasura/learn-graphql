@@ -1,6 +1,6 @@
 ---
 title: "Choosing roles"
-metaTitle: "Choosing roles | Hasura Auth Tutorial"
+metaTitle: "Choosing roles | Hasura Auth Slack Tutorial"
 metaDescription: "Learn how to choose the number of roles"
 ---
 

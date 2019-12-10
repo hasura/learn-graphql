@@ -1,6 +1,6 @@
 ---
 title: "User role for the app"
-metaTitle: "User role | Hasura Auth Tutorial"
+metaTitle: "User role | Hasura Auth Slack Tutorial"
 metaDescription: "Learn how to apply all the administrative and non-administrative actions with user role"
 ---
 

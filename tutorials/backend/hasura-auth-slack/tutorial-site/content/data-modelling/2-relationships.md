@@ -1,7 +1,7 @@
 ---
 title: "Relationships"
-metaTitle: "Relationships | Hasura Auth Tutorial"
-metaDescription: "Slack clone relationships"
+metaTitle: "Relationships | Hasura Auth Slack Tutorial"
+metaDescription: " Object and Array Relationships for Slack Clone"
 ---
 
 Relationships enable you to make nested object queries if the tables/views in your database are connected. 

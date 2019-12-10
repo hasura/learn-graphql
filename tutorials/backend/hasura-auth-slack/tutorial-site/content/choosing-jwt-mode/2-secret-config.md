@@ -1,6 +1,6 @@
 ---
 title: "Configuring JWT Secret"
-metaTitle: "Configuring JWT Secret | Hasura Auth Tutorial"
+metaTitle: "Configuring JWT Secret | Hasura Auth Slack Tutorial"
 metaDescription: "This part of the tutorial covers how to choose the right auth mode"
 ---
 

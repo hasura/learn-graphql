@@ -24,7 +24,7 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			  "/introduction",
+			"/introduction",
     		"/setup",
     		"/data-modelling",
     		"/thinking-in-roles",

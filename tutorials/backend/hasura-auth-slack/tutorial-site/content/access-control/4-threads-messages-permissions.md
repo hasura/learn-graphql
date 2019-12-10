@@ -1,6 +1,6 @@
 ---
 title: "Permissions for Threads and Messages"
-metaTitle: "Permissions for Threads and Messages | Hasura Auth Tutorial"
+metaTitle: "Permissions for Threads and Messages | Hasura Auth Slack Tutorial"
 metaDescription: "In this part, we will learn how to create permissions for threads and messages of the app"
 ---
 

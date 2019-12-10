@@ -1,6 +1,6 @@
 ---
 title: "Choosing the right mode"
-metaTitle: "Choosing the right mode | Hasura Auth Tutorial"
+metaTitle: "Choosing the right mode | Hasura Auth Slack Tutorial"
 metaDescription: "This part of the tutorial covers how to choose the right auth mode"
 ---
 

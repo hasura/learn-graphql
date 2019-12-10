@@ -21,13 +21,18 @@ Let's define the graphql mutation to update the completed status of the todo
   
   interface TodoItemType {
     index: number,
-    todo: Partial<Todos>
+    todo: Pick<Todos, "id" | "title" | "is_completed">
   };
 
 + const TOGGLE_TODO = gql`
 +   mutation toggleTodo ($id: Int!, $isCompleted: Boolean!) {
 +     update_todos(where: {id: {_eq: $id}}, _set: {is_completed: $isCompleted}) {
 +       affected_rows
++       returning {
++         id
++         title
++         is_completed
++       }
 +     }
 +   }
 + `;
@@ -63,13 +68,18 @@ We already have the onChange handler toggleTodo for the input. Let's update the 
 +   todoUpdate({
 +     variables: { id: todo.id, isCompleted: !todo.is_completed },
 +     optimisticResponse: {
-+       __typename: "Mutation",
++       __typename: "mutation_root",
 +       update_todos: {
 +         __typename: "todos_mutation_response",
-+         id: todo.id,
-+         title: todo.title,
-+         is_completed: todo.is_completed,
-+         affected_rows: 1
++         affected_rows: 1,
++         returning: [
++           {
++             __typename: "todos",
++             id: todo.id,
++             title: todo.title,
++             is_completed: !todo.is_completed
++           }
++         ]
 +       }
 +     }
 +   });
@@ -102,7 +112,7 @@ Now let's add the code for `update` function.
 +         const existingTodos : any = cache.readQuery({ query: GET_MY_TODOS });
 +         const newTodos = existingTodos!.todos.map((t:any) => {
 +           if (t.id === todo.id) {
-+             return({...t, is_completed: !t.is_completed});
++             return { ...t, ...data!.update_todos!.returning[0] };
 +           } else {
 +             return t;
 +           }
@@ -129,7 +139,7 @@ Now that the update mutation is completed, let's add type safety. We need type d
 
   import { GET_MY_TODOS } from './TodoPrivateList';
 - import { Todos } from '../../generated/graphql';
-+ import { GetMyTodosQuery, Todos } from '../../generated/graphql';
++ import { GetMyTodosQuery, Todos, ToggleTodoMutation, ToggleTodoMutationVariables } from '../../generated/graphql';
 
 ```
 
@@ -137,7 +147,8 @@ Now let's add it to both readQuery and writeQuery.
 
 ```javascript
 
-  const [todoUpdate] = useMutation(
+- const [todoUpdate] = useMutation<ToggleTodoMutation, ToggleTodoMutationVariables>(
++ const [todoUpdate] = useMutation<ToggleTodoMutation, ToggleTodoMutationVariables>(
      TOGGLE_TODO, 
      {
        update(cache, { data }) {
@@ -145,7 +156,7 @@ Now let's add it to both readQuery and writeQuery.
 +        const existingTodos = cache.readQuery<GetMyTodosQuery>({ query: GET_MY_TODOS });
          const newTodos = existingTodos!.todos.map(t => {
            if (t.id === todo.id) {
-             return({...t, is_completed: !t.is_completed});
+             return { ...t, ...data!.update_todos!.returning[0] };
            } else {
              return t;
            }

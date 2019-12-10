@@ -13,7 +13,7 @@ import {
 } from '../../generated/graphql';
 
 type publicListProps = {
-  latestTodo?: Partial<Todos> | null
+  latestTodo?: Pick<Todos, "id"> | null
 }
 
 const TodoPublicList = (props: publicListProps) => {

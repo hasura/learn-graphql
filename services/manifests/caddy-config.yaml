@@ -54,6 +54,10 @@ data:
       }
 
       redir 301 {
+        /graphql/hasura-auth-slack/slack-backend.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/hasura-auth-slack/slack-backend.zip
+      }
+
+      redir 301 {
         /graphql/typescript-react-apollo/ /graphql/typescript-react-apollo/introduction
       }
 
@@ -98,6 +102,10 @@ data:
       }
 
       redir 301 {
+        /graphql/hasura-auth-slack/ /graphql/hasura-auth-slack/introduction
+      }
+
+      redir 301 {
         /graphql/hasura/ /graphql/hasura/introduction
       }
 
@@ -136,6 +144,8 @@ data:
       proxy /graphql/graphiql graphiql {
         without /graphql/graphiql
       }
+
+      proxy /graphql/hasura-auth-slack hasura-auth-slack
 
       proxy /graphql/hasura hasura-backend
 

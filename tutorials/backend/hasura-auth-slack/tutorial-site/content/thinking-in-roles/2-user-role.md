@@ -4,7 +4,7 @@ metaTitle: "User role | Hasura Auth Slack Tutorial"
 metaDescription: "Learn how to apply all the administrative and non-administrative actions with user role"
 ---
 
-In this realtime slack app, we need to restrict all querying only for logged in users. Everything revolves around what users do on the app.
+In this realtime slack app, we need to restrict all querying only for logged in users. We assume that data is not publicly accessible. Everything revolves around what users do on the app.
 Also certain columns in tables need not be exposed to the user.
 
 Let's see the different responsibilities that a user can have.

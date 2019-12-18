@@ -109,6 +109,10 @@ data:
         /graphql/hasura/ /graphql/hasura/introduction
       }
 
+      redir 301 {
+        /graphql/test-gatsby-starter/ /graphql/test-gatsby-starter/introduction
+      }
+
       proxy / homepage
 
       proxy /auth/webhook auth-webhook {
@@ -145,31 +149,61 @@ data:
         without /graphql/graphiql
       }
 
-      proxy /graphql/hasura-auth-slack hasura-auth-slack
+      proxy /graphql/hasura-auth-slack hasura-auth-slack {
+        without /graphql/hasura-auth-slack
+      }
 
-      proxy /graphql/hasura hasura-backend
+      proxy /graphql/hasura hasura-backend {
+        without /graphql/hasura-backend
+      }
 
-      proxy /graphql/typescript-react-apollo typescript-react-apollo
+      proxy /graphql/typescript-react-apollo typescript-react-apollo {
+        without /graphql/typescript-react-apollo
+      }
 
-      proxy /graphql/react-native react-native-apollo
+      proxy /graphql/react-native react-native-apollo {
+        without /graphql/react-native
+      }
 
-      proxy /graphql/react-apollo-components react-apollo
+      proxy /graphql/react-apollo-components react-apollo {
+        without /graphql/react-apollo-components
+      }
 
-      proxy /graphql/react react-apollo-hooks
+      proxy /graphql/react react-apollo-hooks {
+        without /graphql/react
+      }
 
-      proxy /graphql/vue vue-apollo
+      proxy /graphql/vue vue-apollo {
+        without /graphql/vue
+      }
 
-      proxy /graphql/ios ios-apollo
+      proxy /graphql/ios ios-apollo {
+        without /graphql/ios
+      }
 
-      proxy /graphql/android android-apollo
+      proxy /graphql/android android-apollo {
+        without /graphql/android
+      }
 
-      proxy /graphql/elm-graphql elm-graphql
+      proxy /graphql/elm-graphql elm-graphql {
+        without /graphql/elm-graphql
+      }
 
-      proxy /graphql/reason-react-apollo reason-react-apollo
+      proxy /graphql/reason-react-apollo reason-react-apollo {
+        without /graphql/reason-react-apollo
+      }
 
-      proxy /graphql/angular-apollo angular-apollo
+      proxy /graphql/angular-apollo angular-apollo {
+        without /graphql/angular-apollo
+      }
 
-      proxy /graphql/flutter-graphql flutter-graphql
+      proxy /graphql/flutter-graphql flutter-graphql {
+        without /graphql/flutter-graphql
+      }
+
+      proxy /graphql/test-gatsby-starter test-gatsby-starter {
+        without /graphql/test-gatsby-starter
+      }
 
       proxy /graphql hasura/v1/graphql {
         without /graphql

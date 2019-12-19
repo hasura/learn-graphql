@@ -58,59 +58,59 @@ data:
       }
 
       redir 301 {
-        /graphql/typescript-react-apollo/ /graphql/typescript-react-apollo/introduction
+        /graphql/typescript-react-apollo /graphql/typescript-react-apollo/introduction
       }
 
       redir 301 {
-        /graphql/angular-apollo/ /graphql/angular-apollo/introduction
+        /graphql/angular-apollo /graphql/angular-apollo/introduction
       }
 
       redir 301 {
-        /graphql/flutter-graphql/ /graphql/flutter-graphql/introduction
+        /graphql/flutter-graphql /graphql/flutter-graphql/introduction
       }
 
       redir 301 {
-        /graphql/reason-react-apollo/ /graphql/reason-react-apollo/introduction
+        /graphql/reason-react-apollo /graphql/reason-react-apollo/introduction
       }
 
       redir 301 {
-        /graphql/elm-graphql/ /graphql/elm-graphql/introduction
+        /graphql/elm-graphql /graphql/elm-graphql/introduction
       }
 
       redir 301 {
-        /graphql/react-native/ /graphql/react-native/introduction
+        /graphql/react-native /graphql/react-native/introduction
       }
 
       redir 301 {
-        /graphql/react-apollo-components/ /graphql/react-apollo-components/introduction
+        /graphql/react-apollo-components /graphql/react-apollo-components/introduction
       }
 
       redir 301 {
-        /graphql/react/ /graphql/react/introduction
+        /graphql/react /graphql/react/introduction
       }
 
       redir 301 {
-        /graphql/vue/ /graphql/vue/introduction
+        /graphql/vue /graphql/vue/introduction
       }
 
       redir 301 {
-        /graphql/ios/ /graphql/ios/introduction
+        /graphql/ios /graphql/ios/introduction
       }
 
       redir 301 {
-        /graphql/android/ /graphql/android/introduction
+        /graphql/android /graphql/android/introduction
       }
 
       redir 301 {
-        /graphql/hasura-auth-slack/ /graphql/hasura-auth-slack/introduction
+        /graphql/hasura-auth-slack /graphql/hasura-auth-slack/introduction
       }
 
       redir 301 {
-        /graphql/hasura/ /graphql/hasura/introduction
+        /graphql/hasura /graphql/hasura/introduction
       }
 
       redir 301 {
-        /graphql/test-gatsby-starter/ /graphql/test-gatsby-starter/introduction
+        /graphql/test-gatsby-starter /graphql/test-gatsby-starter/introduction
       }
 
       proxy / homepage
@@ -154,7 +154,7 @@ data:
       }
 
       proxy /graphql/hasura hasura-backend {
-        without /graphql/hasura-backend
+        without /graphql/hasura
       }
 
       proxy /graphql/typescript-react-apollo typescript-react-apollo {

@@ -727,7 +727,8 @@ ul
 {
   display: flex;
   align-items: center;
-  padding: 40px 0;
+  padding: 60px 0;
+  padding-bottom: 80px;
   .pageHeader
   {
     padding-top: 80px;
@@ -973,7 +974,10 @@ ul
   }
 }
 /* frontend tutorial section */
-.frontendTutorialWrapper, .hasuraTutorialWrapper {
+.frontendTutorialWrapper {
+  .tag {
+    padding-top: 60px;
+  }
   .sectionDescriptionTitle {
     padding-right: 70px;
   }
@@ -984,6 +988,7 @@ ul
     padding-bottom: 48px;
   }
   ul {
+    padding-bottom: 0 !important;
     li {
       list-style-type: none;
       padding: 16px 0px;
@@ -1002,6 +1007,7 @@ ul
       margin-right: 15px;
       .tag {
         color: #001934;
+        padding-top: 0;
         padding-bottom: 32px;
       }
     }
@@ -1009,6 +1015,7 @@ ul
       background-color: #f8f8f8;
       margin-left: 15px;
       .tag {
+        padding-top: 0;
         color: #005e70;
       }
     }
@@ -1047,20 +1054,6 @@ ul
 
       }
     }
-  }
-}
-.hasuraTutorialWrapper {
-  .pageHeader {
-    padding: 0 15px;
-    padding-bottom: 16px;
-  }
-  .sectionDescriptionTitle {
-    padding: 0 15px;
-    padding-bottom: 32px;
-  }
-  .sectionDescription {
-    padding: 0 15px;
-    padding-bottom: 48px;
   }
 }
 .boxWrapper {

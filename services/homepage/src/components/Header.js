@@ -6,7 +6,7 @@ import CommonNavBar from './CommonNavBar';
 const TopBanner = () => {
   const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
   return (
-    <header className='headerWrapper blueBgColor'>
+    <header className='headerWrapper'>
       <nav className="navbar navbar-default navbarDefault">
         <div className="container">
           <div className="navbar-header navbarHeader">

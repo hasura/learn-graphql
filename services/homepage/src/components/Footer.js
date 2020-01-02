@@ -126,7 +126,7 @@ const Footer = () => {
             <div className='copyWriteWrapper'>
               <div className='copyWrite'>
                 <img src={copyrightRegular} alt={'Copy write icon'}/>
-                <h4>2019 Hasura Inc. All rights reserved</h4>
+                <h4>2020 Hasura Inc. All rights reserved</h4>
               </div>
               <div className='footerSocialIconsWrapper'>
                 {socialWrapper}

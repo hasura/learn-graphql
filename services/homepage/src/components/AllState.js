@@ -1,3 +1,11 @@
+const githubBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/github-brands-white.svg';
+const twitterBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-white.svg';
+const discordBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-white.svg';
+const facebookBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/facebook-brands-white.svg';
+const instagramBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/instagram-brands-white.svg';
+const youtubeBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/youtube-brands-white.svg';
+const linkedinBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/linkedin-brands-white.svg';
+
 const frontendTutorial = [
   {
     name: 'React',
@@ -140,5 +148,41 @@ const learnBackend = [
     list: 'Remote Schemas, Event Triggers',
   },
 ]
-
-export {frontendTutorial, backendTutorial, mobileTutorial, learnFrontend, learnBackend}
+const socialItems = [
+  {
+    socialLink: 'https://github.com/hasura/graphql-engine',
+    altText: 'Github',
+    imageSrc: githubBrands,
+  },
+  {
+    socialLink: 'https://twitter.com/hasurahq',
+    altText: 'Titter',
+    imageSrc: twitterBrands,
+  },
+  {
+    socialLink: 'https://discordapp.com/invite/hasura',
+    altText: 'Discord',
+    imageSrc: discordBrands,
+  },
+  {
+    socialLink: 'https://www.facebook.com/HasuraHQ',
+    altText: 'Facebook',
+    imageSrc: facebookBrands,
+  },
+  {
+    socialLink: 'https://www.instagram.com/hasurahq/?hl=en',
+    altText: 'Instagram',
+    imageSrc: instagramBrands,
+  },
+  {
+    socialLink: 'https://www.youtube.com/channel/UCZo1ciR8pZvdD3Wxp9aSNhQ',
+    altText: 'Youtube',
+    imageSrc: youtubeBrands,
+  },
+  {
+    socialLink: 'https://www.linkedin.com/company/hasura',
+    altText: 'Linkedin',
+    imageSrc: linkedinBrands,
+  },
+]
+export {frontendTutorial, backendTutorial, mobileTutorial, learnFrontend, learnBackend, socialItems}

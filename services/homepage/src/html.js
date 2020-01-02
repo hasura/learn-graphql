@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 export default class HTML extends React.Component {
   render() {
     return (
-      <html {...this.props.htmlAttributes}>
+      <html {...this.props.htmlAttributes} lang="en-us">
         <head>
           <title>GraphQL Tutorials for Frontend Developers | learn.hasura.io</title>
           <meta charSet="utf-8" />

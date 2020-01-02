@@ -1,12 +1,13 @@
 import React from 'react';
 import SubscribeFrom from 'react-mailchimp-subscribe';
 import '../styles/styles.scss';
-
+import { socialItems } from './AllState.js';
+const subscribeArrow = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/arrow_forward-white.svg';
 const formProps = {
   action: '//hasura.us13.list-manage.com/subscribe/post?u=9b63e92a98ecdc99732456b0e&amp;id=f5c4f66bcf',
   messages: {
     inputPlaceholder: 'Your E-mail Address',
-    btnLabel: 'SUBSCRIBE',
+    btnLabel: (<img src={subscribeArrow} alt={'Arrow'} />),
     sending: 'Subscribing...',
     success: 'Thank you for subscribing!',
     error: 'Invalid email or you have already subscribed for the newsletter'
@@ -30,89 +31,109 @@ const formProps = {
   }
 };
 
-const FooterLinks = ({ href, text }) => (
-  <div className='footer_links'>
-    <a href={href} target="_blank" rel="noopener noreferrer">{text}</a>
-  </div>
-);
-
-const SocialIcons = ({ href, label, icon }) => (
-  <div className='social_icons'>
-    <a href={href} target='_blank' rel="noopener noreferrer" aria-label={label}>
-      <i className={icon} aria-hidden="true"/>
-    </a>
-  </div>
-)
-
 const Footer = () => {
-  const blueLamda = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/Hasura.svg';
+  const hasuraLogoWhite = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo-footer.svg'
+  const copyrightRegular = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/copyright-regular.svg'
+  const socialWrapper = socialItems.map((items, index) => {
+      return (
+        <div key={index} className='socialBrands'>
+          <a href={items.socialLink} rel="noopener noreferrer" aria-label={items.altText}>
+              <img src={items.imageSrc} alt={items.altText}/>
+          </a>
+        </div>
+      );
+    });
   return (
-    <footer id="footer" ref="footer" className='darkGrayBgColor commonSectionWrapper wd100'>
+    <footer id="footer" ref="footer" className='footerWrapper blueBgGradientColor wd100 removePaddBottom'>
+      <section className='footerWrapperBg commonSectionWrapper removePaddBottom'>
         <div className='container noPadd'>
-          <div className='footer_wrapper'>
-            <div className='col-md-2  col-sm-12 col-xs-12'>
-              <div className='logo_icon'>
-                <img className='img-responsive' src={blueLamda} alt='Lamda Icon' />
+          <div className='col-md-8 col-sm-8 col-xs-12 noPadd'>
+            <div className='clearBoth'>
+              <div className='col-md-4 col-sm-4 col-xs-12'>
+                <div className='footerLinks'>
+                  <h4>Product</h4>
+                  <p className='pSmall'><a href="/all-features">All Features</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura" target="_blank" rel="noopener noreferrer" aria-label="Open source">Opensource</a></p>
+                  <p className='pSmall'><a href="/event-triggers" target="_blank" rel="noopener noreferrer">Event Triggers</a></p>
+                  <p className='pSmall'><a href="https://blog.hasura.io/remote-joins-a-graphql-api-to-join-database-and-other-data-sources/" target={'_blank'} rel="noopener noreferrer" aria-label="Remote joins">Remote Joins</a></p>
+                  <p className='pSmall'><a href="/pricing" target="_blank" rel="noopener noreferrer">Pricing</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura/graphql-engine/releases" target="_blank" rel="noopener noreferrer" aria-label="Changelog">Changelog</a></p>
+                </div>
+              </div>
+              <div className='col-md-4 col-sm-4 col-xs-12'>
+                <div className='footerLinks'>
+                  <h4>Resources</h4>
+                  <p className='pSmall'><a href="https://blog.hasura.io/" target="_blank" rel="noopener noreferrer" aria-label="Blog">Blog</a></p>
+                  <p className='pSmall'><a href="/user-stories">User Stories</a></p>
+                  <p className='pSmall'><a href="https://3factor.app/" target="_blank" rel="noopener noreferrer" aria-label="3Factor app">3Factor Apps</a></p>
+                  <p className='pSmall'><a href="/react-graphql" >React Resources</a></p>
+                  <p className='pSmall'><a href="/vue-graphql" >Vue Resources</a></p>
+                  <p className='pSmall'><a href="/diy-graphql-baas" >DIY GraphQL BaaS</a></p>
+                </div>
+              </div>
+              <div className='col-md-4 col-sm-4 col-xs-12'>
+                <div className='footerLinks'>
+                  <h4>Community</h4>
+                  <p className='pSmall'><a href="/community">Community Resources</a></p>
+                  <p className='pSmall'><a href="https://learn.hasura.io/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL tutorials">GraphQL Tutorials</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura/graphql-engine/wiki" target="_blank" rel="noopener noreferrer" aria-label="Community wiki">Community Wiki</a></p>
+                  <p className='pSmall'><a href="/sample-apps" >Sample Apps</a></p>
+                  <p className='pSmall'><a href="https://graphql.asia/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL asia">GraphQL Asia</a></p>
+                </div>
               </div>
             </div>
-            <div className='col-md-2  col-sm-12 col-xs-12'>
-              <div className='footer_section'>
-                <div className='footer_header'>
-                  RESOURCES
+            <div className='clearBoth'>
+              <div className='col-md-4 col-sm-4 col-xs-12'>
+                <div className='footerLinks'>
+                  <h4>Hasura</h4>
+                  <p className='pSmall'><a href="/about" >About Us</a></p>
+                  <p className='pSmall'><a href="/careers" >Careers</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura/graphql-engine/tree/master/assets/brand" target="_blank" rel="noopener noreferrer" aria-label="Brand assets">Brand Assets</a></p>
+                  <p className='pSmall'><a href="/getintouch" >Contact Us</a></p>
+                  <p className='pSmall'><a href="/legal" >Legal Stuff</a></p>
                 </div>
-                <FooterLinks href="https://blog.hasura.io/" text="Blog" />
-                <FooterLinks href="https://learn.hasura.io/" text="GraphQL Tutorials" />
-                <FooterLinks href="https://hasura.io/community" text="Community & Events" />
-                <FooterLinks href="https://3factor.app/" text="3factor apps" />
-                <FooterLinks href="https://hasura.io/diy-graphql-baas/" text="DIY GraphQL BaaS" />
-                <FooterLinks href="https://firebase2graphql.com/" text="Firebase to GraphQL" />
-                <FooterLinks href="https://hasura.io/sample-apps/" text="Sample Apps" />
-                <FooterLinks href="https://hasura.io/3factor-radio/" text="3factor Radio" />
-                <FooterLinks href="https://hasura.io/vue-graphql" text="Vue GraphQL" />
-                <FooterLinks href="https://hasura.io/react-graphql/" text="React GraphQL" />
-                <FooterLinks href="https://www.graphql-asia.org/" text="GraphQL Asia" />
               </div>
-            </div>
-            <div className='col-md-2  col-sm-12 col-xs-12'>
-              <div className='footer_section'>
-                <div className='footer_header'>
-                  INFO
+              <div className='col-md-4 col-sm-4 col-xs-12'>
+                <div className='footerLinks'>
+                  <h4>Support</h4>
+                  <p className='pSmall'><a href="https://docs.hasura.io" target="_blank" rel="noopener noreferrer" aria-label="Documentation">Documentation</a></p>
+                  <p className='pSmall'><a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener noreferrer" aria-label="Community forum" >Community Forum</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura/" target="_blank" rel="noopener noreferrer" aria-label="Github">Github</a></p>
                 </div>
-                <FooterLinks href="https://hasura.io/about/" text="About Us" />
-                <FooterLinks href="https://hasura.io/careers/" text="Careers" />
-                <FooterLinks href="https://hasura.io/getintouch/" text="Get In Touch" />
-                <FooterLinks href="https://hasura.io/legal/" text="Legal Stuff" />
-                <FooterLinks href="https://github.com/hasura/graphql-engine/blob/master/assets/brand/" text="Brand Assets" />
-                <FooterLinks href="https://hasura.io/enterprise/" text="Enterprise" />
               </div>
-            </div>
-            <div className='col-md-5  col-sm-12 col-xs-12 noPadd'>
-              <div className='footer_section'>
-                <div className='footer_header'>
-                  FOLLOW US
-                </div>
-                <div className='footer_social_wrapper'>
-                  <SocialIcons href="https://www.facebook.com/HasuraHQ/" label="Follow us on Facebook" icon="fab fa-facebook"/>
-                  <SocialIcons href="https://twitter.com/hasurahq/" label="Follow us on Twitter" icon="fab fa-twitter"/>
-                  <SocialIcons href="https://www.instagram.com/hasurahq/" label="Follow us on Instagram" icon="fab fa-instagram"/>
-                  <SocialIcons href="https://discord.gg/hasura/" label="Chat with us on Discord" icon="fab fa-discord"/>
-                  <SocialIcons href="https://github.com/hasura/graphql-engine/" label="Follow us on GitHub" icon="fab fa-github"/>
-                  <SocialIcons href="https://www.twitch.tv/hasuraHQ/" label="Follow us on Twitch" icon="fab fa-twitch"/>
-                  <SocialIcons href="https://www.youtube.com/channel/UCZo1ciR8pZvdD3Wxp9aSNhQ" label="Follow us on Youtube" icon="fab fa-youtube"/>
-                </div>
-                <div className='footer_header'>
-                  Join Our Mailing List
-                </div>
-                <div className='footer_email'>
-                  <SubscribeFrom className="subscribe_form subscribe_form3" {...formProps}/>
+              <div className='col-md-4 col-sm-4 col-xs-12'>
+                <div className='footerLinks'>
+                  <h4>Tools</h4>
+                  <p className='pSmall'><a href="https://github.com/hasura/graphqurl" target="_blank" rel="noopener noreferrer" aria-label="Graphqurl">Graphqurl</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura/firebase2graphql" target="_blank" rel="noopener noreferrer" aria-label="Firebase2GraphQL">Firebase2GraphQL</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura/json2graphql" target="_blank" rel="noopener noreferrer" aria-label="JSON2GraphQL">JSON2GraphQL</a></p>
+                  <p className='pSmall'><a href="https://github.com/hasura/graphql2chartjs" target="_blank" rel="noopener noreferrer" aria-label="GraphQL2ChartJS">GraphQL2ChartJS</a></p>
                 </div>
               </div>
             </div>
           </div>
-          <div className='copy_text'>
-            © 2019 Hasura Inc. All rights reserved
+          <div className='col-md-4 col-sm-4 col-xs-12'>
+            <div className='subscribeFormWrapper'>
+              <h4>Join our mailing list</h4>
+              <SubscribeFrom className='subscribeForm' {...formProps}/>
+            </div>
+            <div className='footerLogo'>
+              <a href="/"><img src={hasuraLogoWhite} alt={'Hasura logo'}/></a>
+            </div>
           </div>
         </div>
+        <div className='container noPadd'>
+            <div className='copyWriteWrapper'>
+              <div className='copyWrite'>
+                <img src={copyrightRegular} alt={'Copy write icon'}/>
+                <h4>2019 Hasura Inc. All rights reserved</h4>
+              </div>
+              <div className='footerSocialIconsWrapper'>
+                {socialWrapper}
+              </div>
+            </div>
+          </div>
+        </section>
       </footer>
   );
 }

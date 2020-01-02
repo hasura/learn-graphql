@@ -3,9 +3,10 @@ import '../styles/styles.scss';
 import Header from '../components/Header';
 import TopBanner from '../components/TopBanner';
 import Featured from '../components/Featured';
-import Tutorials from '../components/Tutorials';
-import WillLearn from '../components/WillLearn';
-import SubscribeNewsletter from '../components/SubscribeNewsletter';
+import FrontendTutorials from '../components/FrontendTutorials';
+import HasuraTutorials from '../components/HasuraTutorials';
+// import WillLearn from '../components/WillLearn';
+// import SubscribeNewsletter from '../components/SubscribeNewsletter';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 class Index extends React.Component {
@@ -14,10 +15,9 @@ class Index extends React.Component {
       <div className="wd100">
         <Header/>
         <TopBanner/>
-        <Tutorials/>
+        <FrontendTutorials/>
+        <HasuraTutorials/>
         <Testimonials/>
-        <WillLearn/>
-        <SubscribeNewsletter/>
         <Featured/>
         <Footer/>
       </div>

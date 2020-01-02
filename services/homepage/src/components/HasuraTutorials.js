@@ -27,7 +27,7 @@ const HasuraTutorials = () => {
                 <img className='brandPos' src={logo} alt={'Logo'}/>
                 <div className='tag'>INTRO TO HASURA</div>
                 <h2><span>Hasura</span> Basics</h2>
-                <ul>
+                <ul className='sectionDescription'>
                   <li><img src={expandBlue} alt='Expand'/>Hasura Basics</li>
                   <li><img src={expandBlue} alt='Expand'/>Postgres Data modelling</li>
                   <li><img src={expandBlue} alt='Expand'/>Authorization</li>
@@ -46,7 +46,7 @@ const HasuraTutorials = () => {
                 <div className='tag'>AUTHENTICATION WITH HASURA</div>
                 <div className='greenLineSeperator'></div>
                 <h2><span>Hasura</span> Auth with Slack model</h2>
-                <ul>
+                <ul className='sectionDescription'>
                   <li><img src={expandRed} alt='Expand'/>Roles</li>
                   <li><img src={expandRed} alt='Expand'/>Access Control</li>
                   <li><img src={expandRed} alt='Expand'/>Authorization Modes</li>

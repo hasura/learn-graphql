@@ -30,7 +30,7 @@ const FrontendTutorials = () => {
               </div>
               <h2>What you will learn</h2>
               <div className='col-md-6 col-sm-6 col-xs-12 noPadd'>
-                <ul>
+                <ul className='sectionDescription'>
                   <li><img src={icon1} alt="Icon" />GraphQL vs. REST</li>
                   <li><img src={icon2} alt="Icon" />Integrating GraphQL Mutations with Query Variables.</li>
                   <li><img src={icon3} alt="Icon" />Using Subscriptions.</li>
@@ -40,7 +40,7 @@ const FrontendTutorials = () => {
                 </ul>
               </div>
               <div className='col-md-6 col-sm-6 col-xs-12'>
-                <ul>
+                <ul className='sectionDescription'>
                   <li><img src={icon7} alt="Icon" />GraphQL Queries, Mutations, Subscriptions.</li>
                   <li><img src={icon8} alt="Icon" />Integrating Mutations to update, delete and bulk delete.</li>
                   <li><img src={icon9} alt="Icon" />Integrating GraphQL queries in the app.</li>

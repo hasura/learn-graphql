@@ -118,13 +118,13 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   color: #001934;
   line-height: normal;
-  font-weight: 600;
+  font-weight: 600 !important;
   padding-bottom: 16px;
 }
 h2 {
   font-family: 'Poppins';
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 600 !important;
   font-stretch: normal;
   font-style: normal;
   line-height: 1;
@@ -132,7 +132,7 @@ h2 {
   text-align: left;
   color: #001934 !important;
   span {
-    font-weight: normal;
+    font-weight: normal !important;
   }
 }
 h4 {

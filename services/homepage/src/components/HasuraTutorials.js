@@ -20,7 +20,7 @@ const HasuraTutorials = () => {
               These are tutorials put together by our team to help new users get familiar with Hasura by building a fully functional realtime backend with Hasura.
             </div>
             <div className='sectionDescription'>
-              New to Hasura? Start here
+              New to Hasura? Start here -
             </div>
             <div className='hasuraListWrapper'>
               <div className='col-md-6 col-sm-6 col-xs-12 introList'>

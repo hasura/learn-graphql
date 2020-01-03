@@ -109,6 +109,8 @@ body
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0;
+  font-family: 'Poppins';
+  color: #001934;
 }
 .pageHeader, h1
 {
@@ -216,6 +218,7 @@ h4 {
   a {
     color: #001934;
     &:hover {
+      color: #001934;
       text-decoration: none;
       img {
         transform: translateX(4px);
@@ -1039,7 +1042,10 @@ ul
       }
       .arrowLink {
         a {
-          color: #e71857;
+          color: #AB1240;
+          &:hover {
+            color: #AB1240;
+          }
         }
       }
     }
@@ -1057,10 +1063,9 @@ ul
       }
       .waterMarkImg {
         position: absolute;
-        right: -95px;
-        bottom: -70px;
+        right: -130px;
+        bottom: -100px;
         opacity: .1;
-        width: 300px;
       }
       h2 {
         color: #001934;
@@ -1074,9 +1079,6 @@ ul
             margin-right: 8px;
           }
         }
-      }
-      .arrowLink {
-
       }
     }
   }
@@ -1352,6 +1354,7 @@ ul
         font-size: 16px;
         line-height: 1.56;
         letter-spacing: 1.6px;
+        text-transform: uppercase;
         span {
           font-weight: 600;
         }

@@ -5,6 +5,14 @@ body
   font-size: 16px;
   font-family: 'Open Sans'
 }
+@-webkit-keyframes autofill {
+  to {
+    color: rgba(255, 255, 255, 0.8);
+    background: transparent;
+    font-size: 18px;
+    font-family: 'Open Sans';
+  }
+}
 .carousel-indicators .active
 {
   background-color: #250687 !important;
@@ -816,11 +824,16 @@ ul
         padding: 12px 16px;
         color: rgba(255, 255, 255, .8);
         font-weight: 300;
+        height: 52px;
         padding-right: 35px;
         background-color: transparent;
         &:focus, &:hover {
           outline: none;
         }
+      }
+      input:-webkit-autofill {
+        -webkit-animation-name: autofill;
+        -webkit-animation-fill-mode: both;
       }
       ::-webkit-input-placeholder { /* Edge */
         color: rgba(255, 255, 255, .5);
@@ -1039,6 +1052,7 @@ ul
         width: 300px;
       }
       h2 {
+        color: #001934;
         padding-bottom: 32px;
         font-size: 30px;
       }

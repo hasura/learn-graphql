@@ -16,7 +16,7 @@ const formProps = {
     sending: {
       fontSize: '15px',
       paddingTop: '10px',
-      color: '#ccc'
+      color: '#fff'
     },
     success: {
       fontSize: '15px',

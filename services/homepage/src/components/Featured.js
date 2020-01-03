@@ -7,7 +7,7 @@ const Featured = () => {
       <div className='container noPadd'>
         <div className='featuredWrapper'>
           <h1>
-            We’ve been featured!
+            We have been featured!
           </h1>
           <div className='featuredIconWrapper'>
             <div className='featuredIcon'>

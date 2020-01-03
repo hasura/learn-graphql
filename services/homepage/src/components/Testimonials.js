@@ -20,7 +20,7 @@ class Testimonials extends React.Component {
                     <a href="https://twitter.com/eveporcello" target='_blank' rel="noopener noreferrer">Eve Porcello</a>
                   </div>
                   <div className='designation'>
-                    <span>Instructor <b>@egghead.io</b></span>
+                    Instructor <span>@egghead.io</span>
                   </div>
                 </div>
                 <div className='authorImg'>
@@ -39,7 +39,7 @@ class Testimonials extends React.Component {
                     <a href="https://twitter.com/s_ibylle/status/1138143802831585280" target='_blank' rel="noopener noreferrer">Sibylle</a>
                   </div>
                   <div className='designation'>
-                    <span>Frontend Developer <b>@brandung</b></span>
+                    Frontend Developer <span>@brandung</span>
                   </div>
                 </div>
                 <div className='quotes'>
@@ -58,7 +58,7 @@ class Testimonials extends React.Component {
                     <a href="https://twitter.com/_idkjs/status/1151765251991453696" target='_blank' rel="noopener noreferrer">Imani’s Father</a>
                   </div>
                   <div className='designation'>
-                    <span>Freelance software developer</span>
+                    Freelance software developer
                   </div>
                 </div>
                 <div className='authorImg'>

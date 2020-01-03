@@ -6,7 +6,7 @@ const TopBanner = () => {
   return (
     <section className='blueBgColor positionRel'>
       <div className='container noPadd'>
-        <div className='topBannerWrapper col-md-12'>
+        <div className='topBannerWrapper col-md-12 noPadd'>
           <div className='col-md-6 col-sm-6 col-xs-12'>
             <div className='pageHeader'>
               Real world GraphQL tutorials for frontend developers with deadlines!

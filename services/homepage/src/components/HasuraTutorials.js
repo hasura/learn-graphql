@@ -26,6 +26,7 @@ const HasuraTutorials = () => {
               <div className='col-md-6 col-sm-6 col-xs-12 introList'>
                 <img className='brandPos' src={logo} alt={'Logo'}/>
                 <div className='tag'>INTRO TO HASURA</div>
+                <div className='blueLineSeperator'></div>
                 <h2><span>Hasura</span> Basics</h2>
                 <ul className='sectionDescription'>
                   <li><img src={expandBlue} alt='Expand'/>Hasura Basics</li>

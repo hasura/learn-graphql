@@ -172,6 +172,7 @@ h4 {
   color: #001934;
   font-weight: 600;
   padding-bottom: 32px;
+  line-height: 1.44;
   a {
     color: #001934;
     &:hover {
@@ -254,6 +255,12 @@ ul
   width: 16px;
   height: 2px;
   background-color: #00829b;
+  margin: 16px 0;
+}
+.blueLineSeperator {
+  width: 16px;
+  height: 2px;
+  background-color: #001934;
   margin: 16px 0;
 }
 .purpleLineSeperator
@@ -1021,7 +1028,6 @@ ul
       .tag {
         color: #001934;
         padding-top: 0;
-        padding-bottom: 32px;
       }
     }
     .authList {
@@ -1030,6 +1036,11 @@ ul
       .tag {
         padding-top: 0;
         color: #005e70;
+      }
+      .arrowLink {
+        a {
+          color: #e71857;
+        }
       }
     }
     .introList, .authList {
@@ -1336,6 +1347,14 @@ ul
       }
       .designation {
         color: #00829b;
+        font-weight: 300;
+        font-family: 'Poppins';
+        font-size: 16px;
+        line-height: 1.56;
+        letter-spacing: 1.6px;
+        span {
+          font-weight: 600;
+        }
       }
       .authorImg
       {

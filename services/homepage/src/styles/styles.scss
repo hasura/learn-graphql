@@ -110,7 +110,6 @@ body
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0;
   font-family: 'Poppins' !important;
-  color: #001934;
 }
 .pageHeader, h1
 {
@@ -131,7 +130,7 @@ h2 {
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
-  color: #001934;
+  color: #001934 !important;
   span {
     font-weight: normal;
   }

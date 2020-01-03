@@ -6,48 +6,70 @@ const instagramBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/asset
 const youtubeBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/youtube-brands-white.svg';
 const linkedinBrands = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/linkedin-brands-white.svg';
 
+const reactGreen = require('../images/react-green.svg');
+const reactWhite = require('../images/react-white.svg');
+const vueGreen = require('../images/vue-green.svg');
+const vueWhite = require('../images/vue-white.svg');
+const angularGreen = require('../images/angular-green.svg');
+const angularWhite = require('../images/angular-white.svg');
+const typescriptGreen = require('../images/typescript-green.svg');
+const typescriptWhite = require('../images/typescript-white.svg');
+const elmGreen = require('../images/elm-green.svg');
+const elmWhite = require('../images/elm-white.svg');
+const reasonmlGreen = require('../images/reasonml-green.svg');
+const reasonmlWhite = require('../images/reasonml-white.svg');
+const hasuraGreen = require('../images/hasura-green.svg');
+const hasuraWhite = require('../images/hasura-white.svg');
+const postgresGreen = require('../images/postgres-green.svg');
+const postgresWhite = require('../images/postgres-white.svg');
+const flutterGreen = require('../images/flutter-green.svg');
+const flutterWhite = require('../images/flutter-white.svg');
+const iosGreen = require('../images/ios-green.svg');
+const iosWhite = require('../images/ios-white.svg');
+const androidGreen = require('../images/android-green.svg');
+const androidWhite = require('../images/android-white.svg');
 const frontendTutorial = [
   {
     name: 'React',
     url: 'https://learn.hasura.io/graphql/react',
     comingSoon: false,
-    bgClassName: 'reactBg',
-    disableBgClassName: 'reactDisableBg',
+    baseImgSrc: reactWhite,
+    hoverImgSrc: reactGreen,
   },
   {
     name: 'Vue',
     url: 'https://learn.hasura.io/graphql/vue',
     comingSoon: false,
-    bgClassName: 'vueBg',
-    disableBgClassName: 'vueDisableBg',
+    baseImgSrc: vueWhite,
+    hoverImgSrc: vueGreen,
   },
   {
     name: 'Angular',
     url: 'https://learn.hasura.io/graphql/angular-apollo',
     comingSoon: false,
-    bgClassName: 'angularBg',
-    disableBgClassName: 'angularDisableBg',
+    baseImgSrc: angularWhite,
+    hoverImgSrc: angularGreen,
   },
   {
     name: 'Typescript',
     url: 'https://learn.hasura.io/graphql/typescript-react-apollo',
     comingSoon: false,
-    bgClassName: 'typescriptBg',
-    disableBgClassName: 'typescriptDisableBg',
+    baseImgSrc: typescriptWhite,
+    hoverImgSrc: typescriptGreen,
   },
   {
     name: 'Elm',
     url: 'https://learn.hasura.io/graphql/elm-graphql',
     comingSoon: false,
-    bgClassName: 'elmBg',
-    disableBgClassName: 'elmDisableBg',
+    baseImgSrc: elmWhite,
+    hoverImgSrc: elmGreen,
   },
   {
     name: 'ReasonML',
     url: 'https://learn.hasura.io/graphql/reason-react-apollo',
     comingSoon: false,
-    bgClassName: 'reBg',
-    disableBgClassName: 'reDisableBg',
+    baseImgSrc: reasonmlWhite,
+    hoverImgSrc: reasonmlGreen,
   },
 ]
 const backendTutorial = [
@@ -55,15 +77,15 @@ const backendTutorial = [
     name: 'Hasura',
     url: 'https://learn.hasura.io/graphql/hasura',
     comingSoon: false,
-    bgClassName: 'hasuraBg',
-    disableBgClassName: 'hasuraDisableBg',
+    baseImgSrc: hasuraWhite,
+    hoverImgSrc: hasuraGreen,
   },
   {
     name: 'Postgres',
     url: '',
     comingSoon: true,
-    bgClassName: 'postgresBg',
-    disableBgClassName: 'postgresDisableBg',
+    baseImgSrc: postgresWhite,
+    hoverImgSrc: postgresGreen,
   },
 ]
 const mobileTutorial = [
@@ -71,29 +93,29 @@ const mobileTutorial = [
     name: 'React Native',
     url: 'https://learn.hasura.io/graphql/react-native',
     comingSoon: false,
-    bgClassName: 'reactBg',
-    disableBgClassName: 'reactDisableBg',
+    baseImgSrc: reactWhite,
+    hoverImgSrc: reactGreen,
   },
   {
     name: 'iOS',
     url: 'https://learn.hasura.io/graphql/ios',
     comingSoon: false,
-    bgClassName: 'iosBg',
-    disableBgClassName: 'iosDisableBg',
+    baseImgSrc: iosWhite,
+    hoverImgSrc: iosGreen,
   },
   {
     name: 'Android',
     url: 'https://learn.hasura.io/graphql/android',
     comingSoon: false,
-    bgClassName: 'androidBg',
-    disableBgClassName: 'androidDisableBg',
+    baseImgSrc: androidWhite,
+    hoverImgSrc: androidGreen,
   },
   {
     name: 'Flutter',
     url: 'https://learn.hasura.io/graphql/flutter-graphql',
     comingSoon: false,
-    bgClassName: 'flutterBg',
-    disableBgClassName: 'flutterDisableBg',
+    baseImgSrc: flutterWhite,
+    hoverImgSrc: flutterGreen,
   },
 ]
 const learnFrontend = [

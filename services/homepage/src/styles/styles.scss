@@ -259,6 +259,12 @@ ul
   background-color: #00829b;
   margin: 16px 0;
 }
+.greenLineSeperatorlight {
+  width: 16px;
+  height: 2px;
+  background-color: #1cd3c6;
+  margin: 16px 0;
+}
 .blueLineSeperator {
   width: 16px;
   height: 2px;
@@ -379,7 +385,7 @@ ul
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid #fff;
+  border-bottom: 8px solid #001e3e;
   display: none;
 }
 .subscribe_form {
@@ -495,11 +501,14 @@ ul
       }
       .dropdownMenu
       {
-        width: 460px;
-        border-radius: 2px;
+        width: 540px;
         top: 42px;
-        padding: 15px 10px;
+        padding: 0px 24px;
+        padding-right: 0;
         border: 0 !important;
+        border-radius: 5px;
+        box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.24);
+        background-color: #001e3e;
         .dropdownMenuBgImg
         {
           position: absolute;
@@ -514,35 +523,47 @@ ul
         }
         .menuTitle
         {
-          font-family: 'Open Sans';
-          font-size: 24px;
-          font-weight: bold;
-          color: #2b0785;
-          line-height: 1.17;
-          padding-bottom: 15px;
+          font-family: 'Poppins';
+          font-size: 32px;
+          font-weight: 600;
+          color: #1cd3c6;
+          line-height: 1.25;
+          padding-top: 16px;
+          padding-right: 20px;
+        }
+        .sectionDescription {
+          color: #fff;
+          opacity: .6;
+          padding-bottom: 32px;
         }
         .dropdownUl
         {
           a
           {
+            width: 100%;
+            float: left;
+            padding-left: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, .16);
             li
             {
               padding: 13px 0;
-              padding-left: 35px;
-              border-bottom: 1px solid #ededed;
             }
+          }
+          a:last-child {
+            border-bottom: 0;
           }
           li
           {
             padding: 13px 0;
-            border-bottom: 1px solid #ededed;
             list-style-type: none;
-            padding-left: 35px;
-            color: #2b0785;
+            color: #fff;
             cursor: pointer;
             background-repeat: no-repeat;
             background-size: 21px 21px;
             background-position: left;
+            img {
+              margin-right: 8px;
+            }
             a
             {
               color: #2b0785;
@@ -565,30 +586,28 @@ ul
           }
           a:hover
           {
-            color: #505050;
+            color: #1cd3c6;
             font-weight: 500;
             text-decoration: none;
           }
-          li:hover
-          {
-            color: #505050;
-            font-weight: 700;
+          .hoverLi {
+            color: #1cd3c6;
             a
             {
-              color: #505050 !important;
-              font-weight: 700;
+              color: #1cd3c6 !important;
             }
           }
           .comingSoonHover, .comingSoonHover:hover
           {
-            color: #909090 !important;
+            clear: both;
+            color: #fff !important;
             font-weight: normal;
-            // cursor: not-allowed;
             pointer-events: none;
-            opacity: 0.5 !important;
+            opacity: 0.35 !important;
+            margin-left: 12px;
             span
             {
-              color: #909090 !important;
+              color: #fff !important;
               font-weight: normal;
 
             }

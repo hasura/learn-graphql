@@ -584,16 +584,10 @@ ul
               text-transform: inherit;
             }
           }
-          a:hover
-          {
-            color: #1cd3c6;
-            font-weight: 500;
-            text-decoration: none;
-          }
           .hoverLi {
             color: #1cd3c6;
-            a
-            {
+            text-decoration: none;
+            li {
               color: #1cd3c6 !important;
             }
           }

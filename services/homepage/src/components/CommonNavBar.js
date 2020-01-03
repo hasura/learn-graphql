@@ -8,8 +8,6 @@ class CommonNavBar extends React.Component {
     this.state = { isMouseOver: false, currentHoverElement: null };
   }
   onMouseOver(name, e) {
-    console.log("Name: " + name);
-    console.log(e);
     e.preventDefault();
     this.setState({ isMouseOver: true, currentHoverElement: name });
   }
@@ -42,12 +40,12 @@ class CommonNavBar extends React.Component {
               {commonTutorial.map((item, key) => {
                 if(!item.comingSoon) {
                   return (
-                    <a key={item.url} href={item.url} target='_blank' rel="noopener noreferrer">
-                      <li
-                        onMouseOver={this.onMouseOver.bind(this, item.name)}
-                        onMouseOut={this.onMouseOut.bind(this)}
-                        className={((this.state.isMouseOver && this.state.currentHoverElement === item.name) ? 'hoverLi' : '')}
-                        >
+                    <a
+                      onMouseOver={this.onMouseOver.bind(this, item.name)}
+                      onMouseOut={this.onMouseOut.bind(this)}
+                      className={((this.state.isMouseOver && this.state.currentHoverElement === item.name) ? 'hoverLi' : '')}
+                      key={item.url} href={item.url} target='_blank' rel="noopener noreferrer">
+                      <li>
                           <img
                             src={((this.state.isMouseOver && this.state.currentHoverElement === item.name) ? item.hoverImgSrc : item.baseImgSrc)}alt={item.name}
                           />{item.name}

@@ -552,15 +552,15 @@ ul
           a:last-child {
             border-bottom: 0;
           }
+          a:hover {
+            text-decoration: none;
+          }
           li
           {
             padding: 13px 0;
             list-style-type: none;
             color: #fff;
             cursor: pointer;
-            background-repeat: no-repeat;
-            background-size: 21px 21px;
-            background-position: left;
             img {
               margin-right: 8px;
             }

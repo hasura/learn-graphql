@@ -38,7 +38,7 @@ const HasuraTutorials = () => {
                 </ul>
                 <div className='arrowLink'>
                   <a href="/graphql/hasura/introduction" target='_blank' rel="noopener noreferrer">
-                    START HASURA BASICS <img src={arrowBlue} alt='Arrow'/>
+                    START HASURA BASICS<img src={arrowBlue} alt='Arrow'/>
                   </a>
                 </div>
                 <img className='waterMarkImg' src={waterMark} alt={'Water mark logo'}/>
@@ -57,7 +57,7 @@ const HasuraTutorials = () => {
                 </ul>
                 <div className='arrowLink'>
                   <a href="/graphql/hasura-auth-slack/introduction" target='_blank' rel="noopener noreferrer">
-                    START AUTHENTICATION WITH HASURA <img src={arrowRed} alt='Arrow'/>
+                    START AUTHENTICATION WITH HASURA<img src={arrowRed} alt='Arrow'/>
                   </a>
                 </div>
               </div>

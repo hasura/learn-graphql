@@ -210,12 +210,15 @@ h4 {
   letter-spacing: normal;
   color: #001934;
   img {
-    margin-left: 8px;
+    margin-left: 6px;
+    margin-top: -2px;
     width: 16px;
     transition: 200ms;
   }
   a {
     color: #001934;
+    display: flex;
+    align-items: center;
     &:hover {
       color: #001934;
       text-decoration: none;
@@ -538,6 +541,7 @@ ul
         }
         .dropdownUl
         {
+          font-size: 18px;
           a
           {
             width: 100%;
@@ -1091,6 +1095,12 @@ ul
           img {
             margin-right: 8px;
           }
+        }
+      }
+      .arrowLink {
+        a {
+          display: flex;
+          align-items: center;
         }
       }
     }

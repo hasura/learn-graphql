@@ -1121,11 +1121,33 @@ ul
   margin-bottom: 16px;
   display: inline-block;
   padding: 20px;
+  position: relative;
+  .overlayWrapper {
+    border-radius: 2px;
+    background-color: #001934;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: normal;
+    color: #16baaf;
+    padding: 8px 27px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: -30px;
+    transition: opacity .3s ease-out;
+    opacity: 0;
+    z-index: 1;
+  }
   img {
     width: 80px;
     transition: 500ms;
   }
   &:hover {
+    .overlayWrapper {
+      transition: opacity .3s ease-out;
+      opacity: 1;
+    }
     img {
       transform: scale(1.2);
     }
@@ -1362,6 +1384,9 @@ ul
       .quoteWrapper {
         .sectionDescription {
           padding-bottom: 16px;
+          a {
+            word-break: break-all;
+          }
         }
         .sectionDescriptionTitle {
           padding-bottom: 8px;
@@ -1425,6 +1450,12 @@ ul
 }
 @media (max-width: 767px)
 {
+  .wd75 {
+    width: 100%;
+  }
+  .wd50 {
+    width: 100%;
+  }
   .commonSectionWrapper
   {
     padding: 30px 0;
@@ -1462,6 +1493,8 @@ ul
     }
     .navBarWrapper
     {
+      background-color: #001934;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       li
       {
         padding: 10px 20px;
@@ -1469,9 +1502,9 @@ ul
         {
           width: 100%;
           float: left;
-          background-color: #fff;
           position: relative;
           top: 10px;
+          padding-right: 24px;
           .menuTitle
           {
             padding-bottom: 0;
@@ -1513,6 +1546,7 @@ ul
       text-align: center;
       padding: 0 15px;
       padding-bottom: 20px;
+      padding-top: 45px;
     }
     .sectionHeader
     {
@@ -1534,6 +1568,7 @@ ul
     .topBannerImg
     {
       padding: 30px 0px;
+      padding-top: 0;
       text-align: center;
       img
       {
@@ -1678,35 +1713,33 @@ ul
     padding: 0 15px;
     .testimonialListWrapper
     {
-      .testimonialList
+
+      .testimonialList, .testimonialListRight
       {
+        display: block;
+        padding-bottom: 60px;
         .quotes
         {
+          display: none;
           img
           {
             width: 30px;
           }
         }
-        .testimonialContent
-        {
-          font-size: 16px;
-          padding: 15px 0;
-          line-height: 1.6;
-          a
-          {
-            word-break: break-all;
+        .authorImg {
+          padding-left: 0;
+          text-align: center;
+          padding-bottom: 20px;
+          img {
+            width: 120px;
+            height: 120px;
           }
+        }
+        .quoteWrapper {
+          text-align: center;
         }
         .authorWrapper
         {
-          .authorImg
-          {
-            img
-            {
-              width: 75px;
-              height: 75px;
-            }
-          }
           .author
           {
             padding-left: 15px;
@@ -1739,9 +1772,76 @@ ul
       }
     }
   }
+  .box {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    img {
+      width: 65px;
+    }
+  }
+  .footerWrapper {
+    .footerLinks {
+      text-align: center;
+      padding-bottom: 35px;
+    }
+    .footerLogo {
+      padding-top: 40px;
+      padding-bottom: 30px;
+    }
+    .copyWriteWrapper {
+      display: block;
+      padding: 30px 0;
+      text-align: center;
+      .copyWrite {
+        padding-bottom: 20px;
+        justify-content: center;
+      }
+      .footerSocialIconsWrapper {
+        justify-content: center;
+      }
+    }
+    .subscribeFormWrapper {
+      h4 {
+        text-align: center;
+      }
+    }
+  }
+  .frontendTutorialWrapper {
+    .sectionDescriptionTitle {
+      padding-right: 0;
+    }
+    .hasuraListWrapper {
+      display: block;
+      .authList, .introList {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 30px;
+        .arrowLink {
+          a {
+            display: block;
+          }
+        }
+      }
+      .introList {
+        margin-bottom: 30px;
+        .brandPos {
+          right: 10px;
+          top: 10px;
+        }
+      }
+    }
+  }
 }
 @media (min-width: 768px) and (max-width: 991px)
 {
+  .commonSectionWrapper {
+    padding: 30px 0;
+  }
+  .wd75 {
+    width: 100%;
+  }
   .tutorialWrapper
   {
     .sectionHeader
@@ -1844,13 +1944,62 @@ ul
   }
   .testimoialsWrapper
   {
+    padding-top: 30px;
     .testimonialListWrapper
     {
-      .testimonialList
+      .testimonialListRight {
+        .quotes {
+          padding-right: 50px;
+        }
+        .authorImg {
+          padding-left: 30px;
+        }
+      }
+      .testimonialList {
+        .quotes {
+          padding-left: 50px;
+        }
+      }
+      .testimonialList, .testimonialListRight
       {
+        .authorImg {
+          img {
+            width: 140px;
+            height: 140px;
+          }
+        }
+        .quotes {
+          img {
+            width: 110px;
+          }
+        }
         .testimonialContent
         {
           font-size: 20px;
+        }
+      }
+    }
+  }
+  .featuredWrapper {
+    .featuredIconWrapper {
+      padding-top: 30px;
+    }
+  }
+  .box {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    img {
+      width: 65px;
+    }
+  }
+  .frontendTutorialWrapper {
+    .hasuraListWrapper {
+      .authList, .introList {
+        .arrowLink {
+          a {
+            display: block;
+          }
         }
       }
     }

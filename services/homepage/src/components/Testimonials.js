@@ -12,7 +12,7 @@ class Testimonials extends React.Component {
                 <div className='quotes'>
                   <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/quote-new.svg' alt='Quote' />
                 </div>
-                <div className='quoteWrapper'>
+                <div className='quoteWrapper hidden-xs'>
                   <div className='sectionDescription'>
                     “This is one of the best tutorials I have seen for getting started with GraphQL and React. This is an incredible roadmap for learning these concepts in a linear and digestible way.
                   </div>
@@ -25,6 +25,17 @@ class Testimonials extends React.Component {
                 </div>
                 <div className='authorImg'>
                   <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/Eve-Porcello.png' alt='Eve Porcello' />
+                </div>
+                <div className='quoteWrapper visible-xs'>
+                  <div className='sectionDescription'>
+                    “This is one of the best tutorials I have seen for getting started with GraphQL and React. This is an incredible roadmap for learning these concepts in a linear and digestible way.
+                  </div>
+                  <div className='sectionDescriptionTitle'>
+                    <a href="https://twitter.com/eveporcello" target='_blank' rel="noopener noreferrer">Eve Porcello</a>
+                  </div>
+                  <div className='designation'>
+                    Instructor <span>@egghead.io</span>
+                  </div>
                 </div>
               </div>
               <div className='testimonialList wd75'>
@@ -50,7 +61,7 @@ class Testimonials extends React.Component {
                 <div className='quotes'>
                   <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/quote-new.svg' alt='Quote' />
                 </div>
-                <div className='quoteWrapper'>
+                <div className='quoteWrapper hidden-xs'>
                   <div className='sectionDescription'>
                     Check out this GraphQL <a href="https://twitter.com/hashtag/ReasonML?src=hash" target="_blank" rel="noopener noreferrer">#ReasonML</a> course for Reason React developers by <a href="https://twitter.com/HasuraHQ" target="_blank" rel="noopener noreferrer">@HasuraHQ</a> <a href="https://learn.hasura.io/graphql/reason-react-apollo" target="_blank" rel="noopener noreferrer">https://learn.hasura.io/graphql/reason-react-apollo</a>... “Will this course teach ReasonReact concepts as well?” Hell yes. There are some programming patterns on display in this app that are different from what you see in generally.
                   </div>
@@ -63,6 +74,17 @@ class Testimonials extends React.Component {
                 </div>
                 <div className='authorImg'>
                   <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/Imani.png' alt='Imani’s Father' />
+                </div>
+                <div className='quoteWrapper visible-xs'>
+                  <div className='sectionDescription'>
+                    Check out this GraphQL <a href="https://twitter.com/hashtag/ReasonML?src=hash" target="_blank" rel="noopener noreferrer">#ReasonML</a> course for Reason React developers by <a href="https://twitter.com/HasuraHQ" target="_blank" rel="noopener noreferrer">@HasuraHQ</a> <a href="https://learn.hasura.io/graphql/reason-react-apollo" target="_blank" rel="noopener noreferrer">https://learn.hasura.io/graphql/reason-react-apollo</a>... “Will this course teach ReasonReact concepts as well?” Hell yes. There are some programming patterns on display in this app that are different from what you see in generally.
+                  </div>
+                  <div className='sectionDescriptionTitle'>
+                    <a href="https://twitter.com/_idkjs/status/1151765251991453696" target='_blank' rel="noopener noreferrer">Imani’s Father</a>
+                  </div>
+                  <div className='designation'>
+                    Freelance software developer
+                  </div>
                 </div>
               </div>
             </div>

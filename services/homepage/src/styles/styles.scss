@@ -510,7 +510,7 @@ ul
         padding-right: 0;
         border: 0 !important;
         border-radius: 5px;
-        box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.24);
+        box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.32);
         background-color: #001e3e;
         .dropdownMenuBgImg
         {
@@ -527,7 +527,7 @@ ul
         .menuTitle
         {
           font-family: 'Poppins';
-          font-size: 32px;
+          font-size: 24px;
           font-weight: 600;
           color: #1cd3c6;
           line-height: 1.25;
@@ -843,6 +843,7 @@ ul
     .subscribeForm {
       padding: 0;
       position: relative;
+      font-size: 18px;
       input {
         width: 100%;
         border-radius: 5px;
@@ -853,6 +854,7 @@ ul
         height: 52px;
         padding-right: 35px;
         background-color: transparent;
+        margin-bottom: 16px;
         &:focus, &:hover {
           outline: none;
         }

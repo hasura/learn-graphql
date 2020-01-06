@@ -1,35 +1,11 @@
 import React from 'react';
-import SubscribeFrom from 'react-mailchimp-subscribe';
+// import SubscribeFrom from 'react-mailchimp-subscribe';
+import MailchimpSubscribe from "react-mailchimp-subscribe"
 import '../styles/styles.scss';
 import { socialItems } from './AllState.js';
-const subscribeArrow = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/arrow_forward-white.svg';
-const formProps = {
-  action: '//hasura.us13.list-manage.com/subscribe/post?u=9b63e92a98ecdc99732456b0e&amp;id=f5c4f66bcf',
-  messages: {
-    inputPlaceholder: 'Your E-mail Address',
-    btnLabel: (<img src={subscribeArrow} alt={'Arrow'} />),
-    sending: 'Subscribing...',
-    success: 'Thank you for subscribing!',
-    error: 'Invalid email or you have already subscribed for the newsletter'
-  },
-  styles: {
-    sending: {
-      fontSize: '15px',
-      paddingTop: '10px',
-      color: '#fff'
-    },
-    success: {
-      fontSize: '15px',
-      paddingTop: '10px',
-      color: '#FFCA27'
-    },
-    error: {
-      fontSize: '15px',
-      paddingTop: '10px',
-      color: 'red'
-    }
-  }
-};
+import MailchimpForm from './MailchimpForm';
+// const subscribeArrow = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/arrow_forward-white.svg';
+const url = "//hasura.us13.list-manage.com/subscribe/post?u=9b63e92a98ecdc99732456b0e&amp;id=f5c4f66bcf";
 
 const Footer = () => {
   const hasuraLogoWhite = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo-footer.svg'
@@ -115,7 +91,14 @@ const Footer = () => {
           <div className='col-md-4 col-sm-4 col-xs-12'>
             <div className='subscribeFormWrapper'>
               <h4>Join our mailing list</h4>
-              <SubscribeFrom className='subscribeForm' {...formProps}/>
+              <MailchimpSubscribe
+                url={url}
+                render={({ subscribe, status }) => (
+                  <MailchimpForm onSubmitted={formData => subscribe(formData)}
+                  status = {status}
+                  />
+                )}
+              />
             </div>
             <div className='footerLogo'>
               <a href="/"><img src={hasuraLogoWhite} alt={'Hasura logo'}/></a>

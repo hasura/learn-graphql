@@ -44,7 +44,7 @@ const Footer = () => {
       );
     });
   return (
-    <footer id="footer" ref="footer" className='footerWrapper blueBgGradientColor wd100 removePaddBottom'>
+    <footer id="footer" className='footerWrapper blueBgGradientColor wd100 removePaddBottom'>
       <section className='footerWrapperBg commonSectionWrapper removePaddBottom'>
         <div className='container noPadd'>
           <div className='col-md-8 col-sm-8 col-xs-12 noPadd'>

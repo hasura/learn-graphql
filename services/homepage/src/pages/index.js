@@ -15,8 +15,8 @@ class Index extends React.Component {
       <div className="wd100">
         <Header/>
         <TopBanner/>
-        <FrontendTutorials/>
         <HasuraTutorials/>
+        <FrontendTutorials/>
         <Testimonials/>
         <Featured/>
         <Footer/>

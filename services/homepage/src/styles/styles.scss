@@ -79,7 +79,7 @@ body
 }
 .lightGrayBgColor
 {
-  background-color: #f7f7f7;
+  background-color: #F8F8F8;
 }
 .whiteBgColor
 {
@@ -532,7 +532,7 @@ ul
           color: #1cd3c6;
           line-height: 1.25;
           padding-top: 16px;
-          padding-right: 20px;
+          padding-right: 66px;
         }
         .sectionDescription {
           color: #fff;
@@ -800,20 +800,20 @@ ul
   background-image: url('https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/footer-bg.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 .footerWrapper {
-  margin-top: 60px;
   h4 {
     font-weight: 500;
     color: #fff;
   }
   .footerLinks {
-    padding-bottom: 52px;
+    padding-bottom: 60px;
     .pSmall {
-      padding-bottom: 8px;
+      padding-bottom: 9px;
       font-size: 16px;
       font-family: 'Open Sans';
+      margin-bottom: 0;
       a {
         color: #fff;
         opacity: .6;
@@ -1437,6 +1437,7 @@ ul
   {
     text-align: center;
     padding-top: 60px;
+    padding-bottom: 20px;
     .featuredIcon
     {
       display: inline-block;
@@ -1508,6 +1509,7 @@ ul
           .menuTitle
           {
             padding-bottom: 0;
+            padding-right: 20px;
           }
           .dropdownMenuBgImg
           {

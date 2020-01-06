@@ -3,7 +3,7 @@ import '../styles/styles.scss';
 
 const Featured = () => {
   return (
-    <section className='whiteBgColor commonSectionWrapper'>
+    <section className='lightGrayBgColor commonSectionWrapper'>
       <div className='container noPadd'>
         <div className='featuredWrapper'>
           <h1>

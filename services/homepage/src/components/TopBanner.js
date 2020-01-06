@@ -7,7 +7,7 @@ const TopBanner = () => {
     <section className='blueBgColor positionRel'>
       <div className='container noPadd'>
         <div className='topBannerWrapper col-md-12 noPadd'>
-          <div className='col-md-6 col-sm-6 col-xs-12'>
+          <div className='col-md-7 col-sm-6 col-xs-12'>
             <div className='pageHeader'>
               Real world GraphQL tutorials for developers with deadlines!
             </div>
@@ -16,7 +16,7 @@ const TopBanner = () => {
               You will move from GraphQL basics to production-ready concepts with our hands-on tutorials for frontend and backend developers.
             </div>
           </div>
-          <div className='col-md-6 col-sm-6 col-xs-12'>
+          <div className='col-md-5 col-sm-6 col-xs-12'>
             <div className='topBannerImg'>
               <img className='img-responsive' src={hasuraDumbledore} alt='Hasura dumbledore' />
             </div>

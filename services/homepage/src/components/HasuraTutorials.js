@@ -12,15 +12,12 @@ const HasuraTutorials = () => {
     <section className='commonSectionWrapper'>
       <div className='container noPadd'>
         <div className='frontendTutorialWrapper'>
-          <div className='col-md-12'>
+          <div className='col-md-12 noPadd'>
             <h1 className='pageHeader'>
               Hasura Tutorials
             </h1>
             <div className='sectionDescriptionTitle wd50'>
               These are tutorials put together by our team to help new users get familiar with Hasura by building a fully functional realtime backend with Hasura.
-            </div>
-            <div className='sectionDescription'>
-              New to Hasura? Start here -
             </div>
             <div className='hasuraListWrapper'>
               <div className='col-md-6 col-sm-6 col-xs-12 introList'>

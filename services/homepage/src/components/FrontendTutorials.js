@@ -16,7 +16,7 @@ const FrontendTutorials = () => {
     <section className='commonSectionWrapper'>
       <div className='container noPadd'>
         <div className='frontendTutorialWrapper'>
-          <div className='col-md-12'>
+          <div className='col-md-12 noPadd'>
             <div className='tag'>
               2 HOUR SERIES
             </div>
@@ -55,6 +55,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React"/>
                     <div className='overlayWrapper'>
                       React
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -63,6 +64,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/angular-original.svg" alt="Angular"/>
                     <div className='overlayWrapper'>
                       Angular
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -71,6 +73,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/vue-original.svg" alt="Vue"/>
                     <div className='overlayWrapper'>
                       Vue
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -81,6 +84,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/elm-original.jpg" alt="Elm"/>
                     <div className='overlayWrapper'>
                       Elm
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -89,6 +93,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/typescript-original.png" alt="Typescript"/>
                     <div className='overlayWrapper'>
                       Typescript
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -97,6 +102,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React native"/>
                     <div className='overlayWrapper'>
                       React Native
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -107,6 +113,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/reasonml-original.svg" alt="ReasonML"/>
                     <div className='overlayWrapper'>
                       ReasonML
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -115,6 +122,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/flutter-original.svg" alt="Flutter"/>
                     <div className='overlayWrapper'>
                       Flutter
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -123,6 +131,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/ios-original.png" alt="IOS"/>
                     <div className='overlayWrapper'>
                       IOS
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
@@ -133,6 +142,7 @@ const FrontendTutorials = () => {
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/android-original.svg" alt="Android"/>
                     <div className='overlayWrapper'>
                       Android
+                      <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>

@@ -3,11 +3,17 @@ import '../styles/styles.scss';
 
 const TopBanner = () => {
   const hasuraDumbledore = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-dumbledore-new.png';
+  const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
   return (
     <section className='blueBgColor positionRel'>
       <div className='container noPadd'>
         <div className='topBannerWrapper col-md-12 noPadd'>
-          <div className='col-md-7 col-sm-6 col-xs-12'>
+          <div className='col-md-6 col-sm-6 col-xs-12 noPadd'>
+            <header className='headerWrapper'>
+              <div className='logoWrapper'>
+                <a href="https://hasura.io/" target="_blank" rel="noopener noreferrer"><img className='img-responsive' src={logo} alt='Hasura logo' /></a>
+              </div>
+            </header>
             <div className='pageHeader'>
               Real world GraphQL tutorials for developers with deadlines!
             </div>
@@ -16,7 +22,7 @@ const TopBanner = () => {
               You will move from GraphQL basics to production-ready concepts with our hands-on tutorials for frontend and backend developers.
             </div>
           </div>
-          <div className='col-md-5 col-sm-6 col-xs-12'>
+          <div className='col-md-6 col-sm-6 col-xs-12'>
             <div className='topBannerImg'>
               <img className='img-responsive' src={hasuraDumbledore} alt='Hasura dumbledore' />
             </div>

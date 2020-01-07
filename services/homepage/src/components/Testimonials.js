@@ -6,7 +6,7 @@ class Testimonials extends React.Component {
       /* Use global styles normally */
       <section className='whiteBgColor commonSectionWrapper'>
         <div className='container noPadd'>
-          <div className='testimoialsWrapper col-md-12'>
+          <div className='testimoialsWrapper'>
             <div className='testimonialListWrapper'>
               <div className='wd75 testimonialListRight'>
                 <div className='quotes'>

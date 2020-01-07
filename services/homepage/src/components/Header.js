@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/styles.scss';
-import { backendTutorial, frontendTutorial, mobileTutorial } from './AllState.js';
-import CommonNavBar from './CommonNavBar';
+// import { backendTutorial, frontendTutorial, mobileTutorial } from './AllState.js';
+// import CommonNavBar from './CommonNavBar';
 
 const TopBanner = () => {
   const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
@@ -13,13 +13,16 @@ const TopBanner = () => {
             <div className='logoWrapper'>
               <a href="https://hasura.io/" target="_blank" rel="noopener noreferrer"><img className='img-responsive' src={logo} alt='Hasura logo' /></a>
             </div>
+            {/*
             <button type="button" className="navbar-toggle collapsed navbarToggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
+            */}
           </div>
+          {/*
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav navbar-right navBarWrapper">
               <CommonNavBar
@@ -45,6 +48,7 @@ const TopBanner = () => {
               />
             </ul>
           </div>
+          */}
         </div>
       </nav>
     </header>

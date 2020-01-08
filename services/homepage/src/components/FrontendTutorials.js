@@ -39,7 +39,7 @@ const FrontendTutorials = () => {
                   <li><img src={icon6} alt="Icon" />Realtime feed with notifications.</li>
                 </ul>
               </div>
-              <div className='col-md-6 col-sm-6 col-xs-12'>
+              <div className='col-md-6 col-sm-6 col-xs-12 noPadd'>
                 <ul className='sectionDescription'>
                   <li><img src={icon7} alt="Icon" />GraphQL Queries, Mutations, Subscriptions.</li>
                   <li><img src={icon8} alt="Icon" />Integrating Mutations to update, delete and bulk delete.</li>
@@ -54,7 +54,7 @@ const FrontendTutorials = () => {
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React"/>
                     <div className='overlayWrapper'>
-                      React
+                      React + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
@@ -63,7 +63,7 @@ const FrontendTutorials = () => {
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/angular-original.svg" alt="Angular"/>
                     <div className='overlayWrapper'>
-                      Angular
+                      Angular + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
@@ -72,18 +72,16 @@ const FrontendTutorials = () => {
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/vue-original.svg" alt="Vue"/>
                     <div className='overlayWrapper'>
-                      Vue
+                      Vue + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-              </div>
-              <div className='boxWrapper'>
                 <a href="https://learn.hasura.io/graphql/elm-graphql" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/elm-original.jpg" alt="Elm"/>
                     <div className='overlayWrapper'>
-                      Elm
+                      Elm + GraphQL
                       <div className="downArrow"></div>
                     </div>
                   </div>
@@ -92,7 +90,7 @@ const FrontendTutorials = () => {
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/typescript-original.png" alt="Typescript"/>
                     <div className='overlayWrapper'>
-                      Typescript
+                      Typescript + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
@@ -101,18 +99,16 @@ const FrontendTutorials = () => {
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React native"/>
                     <div className='overlayWrapper'>
-                      React Native
+                      React Native + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-              </div>
-              <div className='boxWrapper'>
                 <a href="https://learn.hasura.io/graphql/reason-react-apollo" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/reasonml-original.svg" alt="ReasonML"/>
                     <div className='overlayWrapper'>
-                      ReasonML
+                      ReasonML + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
@@ -121,7 +117,7 @@ const FrontendTutorials = () => {
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/flutter-original.svg" alt="Flutter"/>
                     <div className='overlayWrapper'>
-                      Flutter
+                      Flutter + GraphQL
                       <div className="downArrow"></div>
                     </div>
                   </div>
@@ -130,18 +126,16 @@ const FrontendTutorials = () => {
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/ios-original.png" alt="IOS"/>
                     <div className='overlayWrapper'>
-                      IOS
+                      IOS + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-              </div>
-              <div className='boxWrapper'>
                 <a href="https://learn.hasura.io/graphql/android" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/android-original.svg" alt="Android"/>
                     <div className='overlayWrapper'>
-                      Android
+                      Android + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>

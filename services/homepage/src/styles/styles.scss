@@ -460,12 +460,55 @@ ul
   }
   .logoWrapper
   {
-    display: inline-block;
-    flex: 1;
-    img
+    display: flex;
+    align-items: center;
+    .brand
     {
       width: 120px;
       display: inline-block;
+    }
+    .learnBrand {
+      height: 13px;
+      margin-top: 14px;
+      margin-left: 6px;
+    }
+    .discordBtn {
+      margin-left: 25px;
+    }
+    .discordBtn, .twitterBtn {
+      border-radius: 4px;
+      border: solid 1px #d1d2d3;
+      background-color: #f1f5f8;
+      width: 20px;
+      height: 20px;
+      margin-top: 7px;
+      margin-right: 12px;
+      padding-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: .8;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+      img {
+        width: 12px;
+      }
+    }
+    .discordBtn {
+      img {
+        width: 10px;
+      }
+    }
+    .gitHubBtn
+    {
+      height: 20px;
+      padding-top: 3px;
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
   .navBarWrapper
@@ -1105,26 +1148,24 @@ ul
     }
   }
 }
-.boxWrapper {
-  display: flex;
-}
+
 .box {
-  width: 120px;
+  width: calc(33.333333% - 14px);
   height: 120px;
   border-radius: 2px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #fff;
-  margin-left: 16px;
-  margin-bottom: 16px;
+  margin: 7px 7px;
   display: inline-block;
   padding: 20px;
   position: relative;
+  text-align: center;
   .overlayWrapper {
     border-radius: 2px;
     background-color: #001934;
     font-family: 'Poppins';
     font-size: 14px;
-    font-weight: 500;
+    font-weight: normal;
     color: #fff;
     padding: 4px 8px;
     letter-spacing: normal;
@@ -1132,10 +1173,11 @@ ul
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: -30px;
+    top: -15px;
     transition: opacity .3s ease-out;
     opacity: 0;
     z-index: 1;
+    width: max-content;
     .downArrow {
       width: 0;
       height: 0;
@@ -1151,6 +1193,7 @@ ul
   img {
     width: 80px;
     transition: 500ms;
+    display: inline-block;
   }
   &:hover {
     .overlayWrapper {
@@ -1543,16 +1586,24 @@ ul
     .logoWrapper
     {
       text-align: left;
-      padding-left: 15px;
-      img
+      padding-left: 17px;
+      .brand
       {
+        width: 100px;
         display: inline-block;
+      }
+      .discordBtn {
+        margin-left: 10px;
+      }
+      .discordBtn, .twitterBtn {
+        margin-right: 8px;
       }
     }
   }
   .topBannerWrapper
   {
     display: block;
+    padding-top: 0;
     .pageHeader
     {
       text-align: center;
@@ -1785,9 +1836,9 @@ ul
     }
   }
   .box {
-    width: 80px;
-    height: 80px;
+    height: 85px;
     padding: 10px;
+    margin: 7px 4px;
     img {
       width: 65px;
     }
@@ -1820,6 +1871,7 @@ ul
     }
   }
   .frontendTutorialWrapper {
+    padding: 0 15px;
     .sectionDescriptionTitle {
       padding-right: 0;
       width: 100%;
@@ -1849,6 +1901,19 @@ ul
 }
 @media (min-width: 768px) and (max-width: 991px)
 {
+  .topBannerWrapper {
+    .pageHeader {
+      text-align: center;
+    }
+    .sectionDescription {
+      text-align: center;
+      width: 100%;
+    }
+    .topBannerImg {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
   .commonSectionWrapper {
     padding: 30px 0;
   }
@@ -1999,9 +2064,10 @@ ul
     }
   }
   .box {
-    width: 80px;
+    width: calc(33.3333% - 16px);
     height: 80px;
     padding: 10px;
+    margin: 7px 4px;
     img {
       width: 65px;
     }
@@ -2019,5 +2085,10 @@ ul
         }
       }
     }
+  }
+}
+@media (max-width: 344px) {
+  .gitHubBtn {
+    display: none;
   }
 }

@@ -6,9 +6,6 @@ metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation ex
 
 import {Link} from 'gatsby';
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/qGq1aVveKDc"/>
 
 These are the concepts you should know before you attack mutations (haha):
 - <Link to="/intro-to-graphql/2-fetching-data-queries#graphiql">Using GraphiQL</Link>
@@ -25,7 +22,7 @@ insert, updates or deletes that we can use in our app.
 
 Let's try these mutations out in the context of a todo app to see
 what mutations look like. Mutations that you get from another GraphQL
-service, say if your API team has built their own,  might be different.
+service, say if your API team has built their own, might be different.
 
 ### Create a todo
 
@@ -81,7 +78,7 @@ mutation {
 
 ## Parametrise what you insert
 
-For mutations, we would almost always have to paramatrise the arguments! We
+For mutations, we would almost always have to parametrise the arguments! We
 would rarely, if ever, have a "hardcoded" mutation in our app. This is because
 the arguments of what data to capture, how to modify or delete something is usually
 dependent on some user action.

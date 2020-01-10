@@ -1,14 +1,10 @@
 ---
 title: "Update mutation and automatic cache updates"
-metaTitle: "Apollo Mutation component for GraphQL mutation update | GraphQL React Native Apollo Tutorial"
-metaDescription: "We will use the Apollo Mutation component from react-apollo as an example to modify existing data and update cache automatically and handle optimisticResponse"
+metaTitle: "Apollo useMutation hook for GraphQL mutation update | GraphQL React Native Apollo Tutorial"
+metaDescription: "We will use the Apollo useMutation hook as an example to modify existing data and update cache automatically and handle optimisticResponse"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/KlenUF0jBg4" />
 
 Now let's do the integration part. Open `src/screens/components/Todo/TodoItem.js` and add the following code below the other imports:
 
@@ -34,7 +30,7 @@ Let's define the graphql mutation to update the completed status of the todo
 +    ) {
 +      returning {
 +        id
-+        text
++        title
 +        is_completed
 +        created_at
 +        is_public
@@ -44,41 +40,36 @@ Let's define the graphql mutation to update the completed status of the todo
 +`;
 ```
 
-Now, in the render function of the `TodoItem` component, modify the `updateCheckbox` function to wrap the JSX with a `Mutation` component so that we can toggle todos.
+
+Firstly let us get the `updateTodo` function by using the `useMutation` hook with the above query.
+
+```js
++  const [updateTodo, { loading: updating, error: updateError }] = useMutation(UPDATE_TODO);
+```
+
+Now, in the `TodoItem` component, modify the `updateCheckbox` function to use the `updateTodo` function for toggling todos.
 
 
 ```js
 const updateCheckbox = () => {
   if (isPublic) return null;
--  const update = () => {
--  }
-  return (
-+    <Mutation
-+      mutation={UPDATE_TODO}
-+      variables={{
+  const update = () => {
++    if (updating) return;
++    updateTodo({
++      variables: {
 +        id: item.id,
 +        isCompleted: !item.is_completed
-+      }}
-+    >
-+      {
-+        (updateTodo, {loading, error}) => {
-+          const update = () => {
-+            // do not fire another mutation if there's already a mutation in progress
-+            if (loading) { return; }
-+            updateTodo();
-+          }
-+          return (
-            <TouchableOpacity
-              style={item.is_completed ? styles.completedCheckBox : styles.checkBox}
-              onPress={update}
-              disabled={loading}
-            >
-              { loading && <CenterSpinner />}
-            </TouchableOpacity>
-+          )
-+        }
 +      }
-+    </Mutation>
++    });
+  }
+  return (
+    <TouchableOpacity
+      style={item.is_completed ? styles.completedCheckBox : styles.checkBox}
++      disabled={updating}
+      onPress={update}
+    >
+      {null}
+    </TouchableOpacity>
   )
 }
 ```

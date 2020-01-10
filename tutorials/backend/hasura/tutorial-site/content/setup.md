@@ -34,7 +34,7 @@ Once the app is deployed, you should see the following on your Heroku dashboard.
 - Open the Hasura console
 
     Click on the `View` button to open the app. 
-    Alternatively you can always visit `https://<app-name>.herokuapp.com` (*replace \<app-name\> with your app name*) to open the admin console.
+    Alternatively you can always visit `https://<app-name>.herokuapp.com` (*replace &lt;app-name> with your app name*) to open the admin console.
 
 It should look something like this:
 

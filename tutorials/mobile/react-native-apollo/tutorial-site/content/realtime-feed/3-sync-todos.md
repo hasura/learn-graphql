@@ -6,10 +6,6 @@ metaDescription: "You will learn how to sync new todos added by other people in 
 
 import GithubLink from "../../src/GithubLink.js";
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/mQaYuHjUyIg" />
-
 In the previous section we made a button that shows up only when there are new public todos in the database. Now lets make this button functional i.e. on pressing this button, newer todos should be fetched from the backend, synced with the local todos and the button must be dismissed.
 
 Go to `src/screens/components/Todo/LoadNewer.js`, import `gql` and define the query to fetch newer todos.
@@ -45,27 +41,33 @@ Go to `src/screens/components/Todo/LoadNewer.js`, import `gql` and define the qu
 +`;
 ```
 
-Also, import the `FETCH_TODOS` query so that we can read its cache locally.
+Import the `FETCH_TODOS` query so that we can read its local cache and update it with newer todos.
 
 ```js
 + import { FETCH_TODOS } from './Todos';
 ```
 
-Now, whenever the button is pressed, we wish to make the `FETCH_NEW_TODOS` query and add the data to cache. Lets write a function that does just that.
+Also wrap the `LoadNewerButton` component in `withApollo` so that we receive the `client` prop.
 
 ```js
-class LoadNewerButton extends React.Component {
++ import { withApollo } from 'react-apollo';
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonText: 'New tasks have arrived!',
-      loading: false,
-    };
-  }
+// LoadNewer.js
 
-+  fetchNewerTodos = async () => {
-+    const { client, isPublic } = this.props;
+export default withApollo(LoadNewerButton);
+```
+
+Let us initialise a new state variables that contain the button text and loading.;
+
+Now, whenever the button is pressed, we wish to make the `FETCH_NEW_TODOS` query and add the data to cache. Lets write a function that does just that. 
+
+```js
+const LoadNewerButton = ({ isPublic, ...props}) => {
+  const [buttonText, setButtonText] = React.useState('New tasks have arrived');
+  const [loading, setLoading] = React.useState(false);
+
++  const fetchNewerTodos = async () => {
++    const { client } = props;
 +    const data = client.readQuery({
 +      query: FETCH_TODOS,
 +      variables: {
@@ -73,12 +75,12 @@ class LoadNewerButton extends React.Component {
 +      }
 +    });
 +    const lastId = data.todos[0].id;
-+    this.setState({ loading: true})
++    setLoading(true);
 +    const resp = await client.query({
 +      query: FETCH_NEW_TODOS,
 +      variables: { lastId }
 +    });
-+    this.setState({ loading: false})
++    setLoading(false);
 +    if (resp.data) {
 +      const newData = {
 +        todos: [ ...resp.data.todos, ...data.todos]
@@ -90,32 +92,27 @@ class LoadNewerButton extends React.Component {
 +        },
 +        data: newData
 +      });
-+      this.props.toggleShow();
++      props.toggleShow();
 +    }
 +  }
-  
-  render () {
-    const { disabled, buttonText, loading } = this.state;
-    const { styles, show } = this.props;
-    if (!show) {
-      return null;
-    }
-    return (
-      <TouchableOpacity
-        style={styles.pagination}
-+        onPress={this.fetchNewerTodos}
-        disabled={disabled}
-      > 
-        {
-          loading ?
-          <CenterSpinner /> :
-          <Text style={styles.buttonText}>
-            {buttonText}
-          </Text>
-        }
-      </TouchableOpacity> 
-    )
+  if (!show) {
+    return null;
   }
+  return (
+    <TouchableOpacity
+      style={styles.pagination}
++      onPress={fetchNewerTodos}
+      disabled={loading}
+    > 
+      {
+        loading ?
+        <CenterSpinner /> :
+        <Text style={styles.buttonText}>
+          {buttonText}
+        </Text>
+      }
+    </TouchableOpacity> 
+  )
 
 }
 ```

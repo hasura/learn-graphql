@@ -65,6 +65,6 @@ query ($lastId: Int, $isPublic: Boolean){
 What does this query do?
 ------------------------
 
-This query fetches all the todos which have `id` greater than the value coming from the variable `$lastId` and which have `is_public` equal to the value of `$isPublic` in variables.
+This query fetches all the todos which have an `id` greater than the value coming from the variable `$lastId` and which have `is_public` equal to the value of `$isPublic` in variables.
 
 Let us go ahead and integrate this now.

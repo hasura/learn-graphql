@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import {Mutation} from 'react-apollo';
-import { FETCH_TODOS } from './Todos';
+import {FETCH_TODOS} from './Todos';
 
-const insertTodo = gql`
+const INSERT_TODO = gql`
   mutation ($text: String!, $isPublic: Boolean){
     insert_todos (
       objects: [{
@@ -32,88 +32,59 @@ const insertTodo = gql`
   }
 `;
 
-export default class Textbox extends React.Component {
+const Textbox = ({ isPublic }) => {
 
-  state = {
-    text: '',
+  const [text, setText] = React.useState('');
+
+  const [insertTodo, { loading, error }] = useMutation(INSERT_TODO);
+
+  const updateCache = (client, {data: {insert_todos}}) => {
+    const data = client.readQuery({
+      query: FETCH_TODOS,
+      variables: {
+        isPublic,
+      }
+    });
+    const newTodo = insert_todos.returning[0];
+    const newData = {
+      todos: [ newTodo, ...data.todos]
+    }
+    client.writeQuery({
+      query: FETCH_TODOS,
+      variables: {
+        isPublic,
+      },
+      data: newData
+    });
   }
 
-  render() {
-    const { text } = this.state;
-    const { isPublic } = this.props;
-    return (
-      <Mutation
-        mutation={insertTodo}
-        variables={{
-          text,
-          isPublic
-        }}
-        update={(cache, {data: {insert_todos}}) => {
-          if (isPublic) { return; }
-          const data = cache.readQuery({
-            query: FETCH_TODOS,
-            variables: {
-              isPublic,
-            }
-          });
-          const newTodo = insert_todos.returning[0];
-          const newData = {
-            todos: [ newTodo, ...data.todos]
-          }
-          cache.writeQuery({
-            query: FETCH_TODOS,
-            variables: {
-              isPublic,
-            },
-            data: newData
-          });
-        }}
-      >
-        {
-          (insertTodo, { loading, error}) => {
-            const submit = () => {
-              if (error) {
-                console.log(error);
-                return <Text> Error </Text>;
-              }
-              if (loading || text === '') {
-                return;
-              }
-              this.setState({
-                text: ''
-              });
-              insertTodo();
-            }
-            return (
-              <View style={styles.inputContainer}>
-                <View style={styles.textboxContainer}>
-                  <TextInput
-                    style={styles.textbox}
-                    editable = {true}
-                    onChangeText = {this._handleTextChange}
-                    value = {text}
-                  />
-                </View>
-                <View style={styles.buttonContainer}>
-                  <TouchableOpacity style={styles.button} onPress={submit} disabled={text === ''}>
-                    <Text style={styles.buttonText}> Add </Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            );
-          }
-        }
-        
-      </Mutation>
-    );
+  const submit = () => {
+    setText('');
+    insertTodo({
+      variables: { text, isPublic },
+      update: updateCache
+    });
   }
 
-  _handleTextChange = (text) => {
-    this.setState({
-      text
-    })
-  }
+  return (
+    <View style={styles.inputContainer}>
+      <View style={styles.textboxContainer}>
+        <TextInput
+          style={styles.textbox}
+          editable = {true}
+          onChangeText = {setText}
+          value = {text}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={submit} disabled={text === ''}>
+          <Text style={styles.buttonText}> Add </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 }
+
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -151,3 +122,5 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
+
+export default Textbox;

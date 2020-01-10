@@ -8,45 +8,33 @@ import {
 } from 'react-native';
 
 
-export default class Textbox extends React.Component {
+const Textbox = ({isPublic}) => {
 
-  state = {
-    text: '',
+  const [text, setText] = React.useState('');
+
+  const submit = () => {
+    setText('');
   }
 
-  render() {
-    const { text } = this.state;
-    const { isPublic } = this.props;
-    const submit = () => {
-      this.setState({
-        text: ''
-      });
-    }
-    return (
-      <View style={styles.inputContainer}>
-        <View style={styles.textboxContainer}>
-          <TextInput
-            style={styles.textbox}
-            editable = {true}
-            onChangeText = {this._handleTextChange}
-            value = {text}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={submit} disabled={text === ''}>
-            <Text style={styles.buttonText}> Add </Text>
-          </TouchableOpacity>
-        </View>
+  return (
+    <View style={styles.inputContainer}>
+      <View style={styles.textboxContainer}>
+        <TextInput
+          style={styles.textbox}
+          editable = {true}
+          onChangeText = {setText}
+          value = {text}
+        />
       </View>
-    );
-  }
-
-  _handleTextChange = (text) => {
-    this.setState({
-      text
-    })
-  }
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={submit} disabled={text === ''}>
+          <Text style={styles.buttonText}> Add </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 }
+
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -84,3 +72,5 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
+
+export default Textbox;

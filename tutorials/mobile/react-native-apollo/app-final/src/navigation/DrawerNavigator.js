@@ -1,4 +1,6 @@
-import { createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
 import OnlineUsers from '../screens/UsersScreen';
 import LogoutScreen from '../screens/LogoutScreen';
 import TodosTabs from './TodosTabNavigator';
@@ -9,6 +11,7 @@ const UsersStack = createStackNavigator({
     navigationOptions: () => ({ title: "Online Users" })
   }
 });
+
 // Drawer navigator
 const Drawer = createDrawerNavigator({
   Todos: {

@@ -6,10 +6,6 @@ metaDescription: "You will learn how to make use of GraphQL Subscriptions to get
 
 import GithubLink from "../../src/GithubLink.js";
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/NPF19xKjfqI" />
-
 Go to `src/screens/components/Todos`.
 
 For running a custom subscription, we need access to our `ApolloClient` instance. To do that, we convert our `Todos` component into an Apollo HOC by wrapping it in `withApollo`.
@@ -19,15 +15,13 @@ For running a custom subscription, we need access to our `ApolloClient` instance
 ```js
 + import { withApollo } from 'react-apollo'
 
-- export class Todos extends React.Component {
-+ class Todos extends React.Component {
-}
+// Todos.js
 
 - export default Todos;
 + export default withApollo(Todos);
 ```
 
-Once the component is an Apollo HOC, you receive the instance of Apollo client as a prop called `client.
+Once the component is an Apollo HOC, you receive the instance of Apollo client as a prop called `client`.
 
 Now let us define our subscription at the top level:
 
@@ -48,20 +42,16 @@ Now let us define our subscription at the top level:
 `;
 ```
 
-Using the above subscription, lets write a class level function called `subscribeToNewTodos` that subscribes to the last public todo in the database. We will start this subscription in the `componentDidMount` of the `Todos` component:
+Firstly, let us declare a boolean state variable that holds the information whether new todos exist in the database. Then, using the above subscription, lets write a function called `subscribeToNewTodos` that subscribes to the last public todo in the database. We will start this subscription after the first mount of the `Todos` component. We will use the `useEffect` hook for this.
+
 
 ```js
-export default class Todos extends React.Component {
+const Todos = ({ isPublic, ...props }) => {
 
-  constructor (props) {
-    super(props);
-+    this.state = {
-+      newTodosExist: false
-+    }
-  }
++  const [newTodosExist, setNewTodosExist] = React.useState(false)
 
-+  subscribeToNewTodos = () => {
-+    const { client, isPublic } = this.props;
++  const subscribeToNewTodos = () => {
++    const { client } = props;
 +    if (isPublic) {
 +      client.subscribe({
 +        query: SUBSCRIBE_TO_NEW_TODOS,
@@ -82,7 +72,7 @@ export default class Todos extends React.Component {
 +            
 +            const lastId = localData.todos[0] ? localData.todos[0].id : 0;
 +            if (event.data.todos[0].id > lastId) {
-+              this.setState({ newTodosExist: true})
++              setNewTodosExist(true)
 +            }
 +          }
 +        },
@@ -91,12 +81,11 @@ export default class Todos extends React.Component {
 +        }
 +      })
 +    }
-+  }
++  };
 
-+  componentDidMount() {
-+    this.subscribeToNewTodos();
-+  }
++  React.useEffect(subscribeToNewTodos, []);
 
+}
 ```
 
 The `subscribeToNewTodos` does the following:
@@ -109,16 +98,16 @@ If new todos exist, we wish to show a button, pressing which, new todos will be 
 
 ```js
   <View style={styles.container}>
--    <LoadNewer show={isPublic} styles={styles} isPublic={this.props.isPublic}/>
-+    <LoadNewer show={this.state.newTodosExist && isPublic} styles={styles} isPublic={this.props.isPublic}/>
+-    <LoadNewer show={isPublic} styles={styles} isPublic={isPublic}/>
++    <LoadNewer show={newTodosExist && isPublic} styles={styles} isPublic={isPublic}/>
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
       <FlatList
         data={data.todos}
-        renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
+        renderItem={({item}) => <TodoItem item={item} isPublic={isPublic}/>}
         keyExtractor={(item) => item.id.toString()}
       />
       <LoadOlder
-        isPublic={this.props.isPublic}
+        isPublic={isPublic}
         styles={styles}
       />
     </ScrollView>
@@ -132,35 +121,25 @@ We also need to write a function to dismiss this button (when the new todos are 
 
 ```js
 
-componentDidMount() {
-  ...
-}
-
-dismissNewTodoBanner() {
-  this.setState({
-    newTodosExist: false
-  })
-}
-
-render() {
-  ...
-}
++const dismissNewTodoBanner = () => {
++  setNewTodosExist(false);
++};
 
 ```
 
 
 ```js
   <View style={styles.container}>
--    <LoadNewer show={this.state.newTodosExist && isPublic} styles={styles} isPublic={this.props.isPublic}/>
-+    <LoadNewer show={this.state.newTodosExist && isPublic} toggleShow={this.dismissNewTodoBanner} styles={styles} isPublic={this.props.isPublic}/>
+-    <LoadNewer show={newTodosExist && isPublic} styles={styles} isPublic={isPublic}/>
++    <LoadNewer show={newTodosExist && isPublic} toggleShow={dismissNewTodoBanner} styles={styles} isPublic={isPublic}/>
     <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
       <FlatList
         data={data.todos}
-        renderItem={({item}) => <TodoItem item={item} isPublic={this.props.isPublic}/>}
+        renderItem={({item}) => <TodoItem item={item} isPublic={isPublic}/>}
         keyExtractor={(item) => item.id.toString()}
       />
       <LoadOlder
-        isPublic={this.props.isPublic}
+        isPublic={isPublic}
         styles={styles}
       />
     </ScrollView>

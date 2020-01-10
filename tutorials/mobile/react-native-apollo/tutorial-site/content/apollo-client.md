@@ -4,10 +4,7 @@ metaTitle: "Apollo Client GraphQL Setup | GraphQL React Native Apollo Tutorial"
 metaDescription: "You will learn how to configure Apollo Client in React Native by installing dependencies like react-apollo, apollo-client, apollo-link-http, apollo-cache-inmemory"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 import GithubLink from "../src/GithubLink.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/XSR6jH5doXk" />
 
 Apollo gives a neat abstraction layer and an interface to your GraphQL server. You don't need to worry about constructing your queries with request body, headers and options, that you might have done with `axios` or `fetch` say. You can directly write queries and mutations in GraphQL and they will automatically be sent to your server via your apollo client instance.
 
@@ -15,7 +12,7 @@ Apollo gives a neat abstraction layer and an interface to your GraphQL server. Y
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ npm install --save apollo-client react-apollo apollo-cache-inmemory apollo-link-http graphql graphql-tag
+$ yarn add apollo-client react-apollo @apollo/react-hooks apollo-cache-inmemory apollo-link-http graphql graphql-tag
 ```
 
 ### Create Apollo Client Instance
@@ -65,49 +62,50 @@ We are going to make use of this function inside our entrypoint component (`src/
 
 Go to `src/navigation/Main.js`, and create an instance of Apollo client using the function that we wrote above. This instance of `ApolloClient` must be passed to `ApolloProvider` that wraps the entire application. ApolloProvider provides this apollo client's to the context of the all the child components so that it can be used wherever required.
 
-In this component, we fetch the auth token from `AsyncStorage`, create an apollo client with this token in the state. All this is performed in `componentDidMount` of the component.
+In this component, we fetch the auth token from `AsyncStorage`, create an apollo client with this token in the state. All this is performed after the first mount of the component.
 
 
 ```js
 import React from 'react';
+import { AsyncStorage } from 'react-native';
 import Drawer from './DrawerNavigator';
-+ import { AsyncStorage } from 'react-native';
-+ import { ApolloProvider} from 'react-apollo';
-+ import CenterSpinner from '../screens/components/CenterSpinner';
-+ import makeApolloClient from '../apollo';
+import CenterSpinner from '../screens/components/Util/CenterSpinner';
++import { ApolloProvider } from 'react-apollo';
++import makeApolloClient from '../apollo';
 
-export default class App extends React.Component {
+const Main = () => {
 
-+ state = {
-+   client: null
-+ }
++  const [client, setClient] = React.useState(null);
 
-+ async componentDidMount() {
-+   // fetch session
-+   const session = await AsyncStorage.getItem('@todo-graphql:session');
-+   const sessionObj = JSON.parse(session);
-+   const { token, id } = sessionObj;
-+   // make apollo client with this session token
-+   const client = makeApolloClient(token);
-+   // start emitting events saying that the useri s online
-+   this.setState({ client });
-+ }
+  const fetchSession = async () => {
+    // fetch session
+    const session = await AsyncStorage.getItem('@todo-graphql:session');
+    const sessionObj = JSON.parse(session);
+    const { token, id } = sessionObj;
 
-  render() {
++    const client = makeApolloClient(token);
 
-+    if (!this.state.client) {
-+      return <CenterSpinner />
-+    }
-
--   return <Drawer/>
-+   return (
-+      <ApolloProvider client={this.state.client}>
-+        <Drawer />
-+     </ApolloProvider> 
-+   )
++    setClient(client);
   }
-};
 
+  React.useEffect(() => {
+    fetchSession();
+  }, [])
+
++  if (!client) {
++    return <CenterSpinner />
++  }
+
+-  return <Drawer />
+
++  return (
++    <ApolloProvider client={client}>
++      <Drawer />
++    </ApolloProvider>
++  );
+}
+
+export default Main;
 ```
 
 Once this has been completed, we can now use the features of Apollo Client anywhere in the child application.

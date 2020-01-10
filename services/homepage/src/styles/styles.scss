@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
 body
 {
   font-size: 16px;
@@ -39,7 +39,10 @@ body
   padding-right: 0 !important;
 }
 .removePaddBottom {
-  padding-bottom: 0 !important;
+  padding-bottom: 0 !important
+}
+.clearBoth {
+  clear: both;
 }
 .mb-20
 {
@@ -190,7 +193,7 @@ h4 {
   font-family: 'Open Sans';
   font-size: 18px;
   color: #001934;
-  font-weight: 300;
+  font-weight: 400;
 }
 .tag {
   font-family: 'Poppins';
@@ -241,13 +244,45 @@ ul
   font-family: 'Open Sans';
   font-size: 14px;
   color: #7a4fa1;
-  font-weight: 300;
+  font-weight: 400;
   color: #8a8a8a;
 }
 .displayFlex
 {
   display: flex;
   align-items: center;
+}
+.lightGrayBgColor {
+  background-color: #f8f8f8;
+}
+
+.pSmall {
+  font-size: 18px;
+  color: #303030;
+  font-weight: 400;
+  line-height: 1.56;
+  font-family: 'Open Sans';
+  a {
+    color: #909090;
+    &:hover {
+      text-decoration: none;;
+    }
+    &:focus {
+      text-decoration: none;;
+      outline: none;
+    }
+  }
+}
+h4 {
+  font-size: 18px;
+  color: #505050;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  margin: 0 0;
+  padding-bottom: 24px;
 }
 .whiteLineSeperator
 {
@@ -297,7 +332,7 @@ ul
     border-radius: 5px;
     display: flex;
     align-items: center;
-    font-family: 'raleway';
+    font-family: 'Poppins';
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.6px;
@@ -332,7 +367,7 @@ ul
     font-size: 14px;
     color: #ff724b;
     background-color: #fff;
-    font-family: 'raleway';
+    font-family: 'Poppins';
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.6px;
@@ -367,7 +402,7 @@ ul
     border: 0;
     width: 32%;
     color: #fff;
-    font-family: 'Raleway';
+    font-family: 'Poppins';
     font-size: 12px;
     font-weight: 600;
     height: 45px;
@@ -390,53 +425,6 @@ ul
   border-right: 8px solid transparent;
   border-bottom: 8px solid #001e3e;
   display: none;
-}
-.subscribe_form {
-  input {
-    background-color: #353535;
-    color: #7F7F7F;
-    width: 60%;
-    border: 0;
-    border-radius: 5px;
-    height: 40px;
-    padding-left: 10px;
-    font-size: 14px;
-    position: relative;
-    display: inline-block;
-  }
-  input:focus
-  {
-    outline: none;
-  }
-  button {
-    display: inline-block;
-    width: 30%;
-    margin-left: 2%;
-    text-align: center;
-    line-height: 32px;
-    height: 40px;
-    font-size: 14px;
-    font-family: 'Raleway';
-    font-weight: 600;
-    -webkit-letter-spacing: 1px;
-    -moz-letter-spacing: 1px;
-    -ms-letter-spacing: 1px;
-    letter-spacing: 1px;
-    border: 1px solid #FFCA27;
-    border-radius: 5px;
-    background-color: #4767a1 !important;
-    border-color: #4767a1 !important;
-    color: #fff !important;
-    &:hover, &:focus
-    {
-      background-color: #3b5f93 !important;
-      border-color: #3b5f93 !important;
-    }
-    &:focus
-    {
-      outline: none;
-    }
-  }
 }
 .headerWrapper
 {
@@ -857,7 +845,7 @@ ul
       a {
         color: #fff;
         opacity: .6;
-        font-weight: 300;
+        font-weight: 400;
         cursor: pointer;
         &:hover {
           text-decoration: none;
@@ -890,7 +878,7 @@ ul
         border: solid 2px #fff;
         padding: 12px 16px;
         color: rgba(255, 255, 255, .8);
-        font-weight: 300;
+        font-weight: 400;
         height: 52px;
         padding-right: 35px;
         background-color: transparent;
@@ -924,6 +912,23 @@ ul
         &:focus {
           outline: none;
         }
+      }
+      .sending {
+        color: #fff;
+        min-height: 50px;
+      }
+      .error, .success {
+        display: flex;
+        align-items: flex-start;
+        img {
+          margin-right: 8px;
+        }
+      }
+      .error {
+        color: #efc371;
+      }
+      .success {
+        color: #1cd3c6;
       }
     }
   }
@@ -1270,133 +1275,7 @@ ul
   }
 }
 /* Footer section update */
-.footer_wrapper
-{
-  width: 100%;
-  float: left;
-  .logo_icon
-  {
-    padding-top: 10px;
-    text-align: left;
-    padding-left: 15px;
-    img
-    {
-      max-width: 120px;
-      display: inline-block;
-    }
-  }
-  .footer_section
-  {
-    .footer_header
-    {
-      font-size: 15px;
-      font-family: 'Raleway';
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: #7D7D7D;
-      padding-bottom: 20px;
-      padding-top: 10px;
-    }
-    .footer_social_wrapper
-    {
-      padding-bottom: 35px;
-      display: flex;
-      align-items: center;
-      .social_icons
-      {
-        display: inline-block;
-        padding-right: 25px;
-        a:focus {
-          i {
-            color: #fff;
-          }
-          .discordIcon
-          {
-            background-image: url('https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-white.svg');
-          }
-        }
-				i
-				{
-					font-size: 25px;
-					color: #6A6A6A;
-				}
-				i:hover
-				{
-					color: #fff;
-				}
-        img
-        {
-          width: 30px;
-        }
-        .discordIcon
-        {
-          background-image: url('https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-gray.svg');
-          width: 27px;
-          height: 20px;
-          background-repeat: no-repeat;
-        }
-        .discordIcon:hover
-        {
-          background-image: url('https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-white.svg');
-        }
-      }
-    }
-    .footer_email
-    {
-      position: relative;
-      .email_input
-      {
-        background-color: #353535;
-        border: 0;
-        border-radius: 5px;
-        width: 90%;
-        height: 40px;
-        color: #7F7F7F;
-        padding-left: 10px;
-        font-size: 14px;
-        position: relative;
-      }
-      .footer_arrow
-      {
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        width: 30px;
-        cursor: pointer;
-      }
-      .email_input:focus
-      {
-        outline: none;
-      }
-    }
-    .footer_links
-    {
-      font-size: 14px;
-      font-family: 'Open Sans';
-      font-weight: 600;
-      padding-bottom: 15px;
-      color: #CECECE;
-      a
-      {
-        color: #7D7D7D;
-        cursor: pointer;
-      }
-      a:hover, a:focus
-      {
-        color: #fff;
-        text-decoration: none;
-      }
-    }
-  }
-}
-.copy_text
-{
-  padding-top: 50px;
-	text-align: center;
-	color: #FFF;
-  clear: both;
-  font-size: 12px;
-}
+
 .testimoialsWrapper
 {
   padding-bottom: 30px;
@@ -1503,6 +1382,7 @@ ul
     }
   }
 }
+/* Footer */
 @media (max-width: 767px)
 {
   .wd75 {
@@ -1527,12 +1407,6 @@ ul
   {
     margin: 0 auto;
     margin-bottom: 20px;
-  }
-  .subscribe_form {
-    button
-    {
-      font-size: 12px;
-    }
   }
   .headerWrapper
   {
@@ -1723,50 +1597,6 @@ ul
       width: auto;
       padding: 10px 25px;
     }
-  }
-  .footer_wrapper
-  {
-    .logo_icon
-    {
-      padding-top: 0;
-      text-align: center;
-      padding-left: 0;
-    }
-    .footer_section
-    {
-      padding-top: 15px;
-      text-align: center;
-      .footer_header
-      {
-        padding-bottom: 10px;
-        text-align: center;
-      }
-      .footer_links
-      {
-        padding-bottom: 10px;
-        text-align: center;
-      }
-      .footer_social_wrapper
-      {
-        padding-bottom: 25px;
-        justify-content: center;
-        .social_icons
-        {
-          padding-right: 10px;
-        }
-      }
-      .footer_email
-      {
-        .footer_arrow
-        {
-          right: 20px;
-        }
-      }
-    }
-  }
-  .copy_text
-  {
-    padding-top: 30px;
   }
   .wd80
   {
@@ -1975,51 +1805,6 @@ ul
         }
       }
     }
-  }
-  .footer_wrapper
-  {
-    .logo_icon
-    {
-      padding-top: 0;
-      text-align: center;
-      padding-left: 0;
-    }
-  }
-
-  .footer_section
-  {
-    padding-top: 20px;
-    text-align: center;
-    .footer_header
-    {
-      padding-bottom: 15px;
-      text-align: center;
-    }
-    .footer_links
-    {
-      padding-bottom: 10px;
-      text-align: center;
-    }
-    .footer_social_wrapper
-    {
-      padding-bottom: 25px;
-      justify-content: center;
-      .social_icons
-      {
-        padding-right: 5px;
-      }
-    }
-    .footer_email
-    {
-      .footer_arrow
-      {
-        right: 20px;
-      }
-    }
-  }
-  .copy_text
-  {
-    padding-top: 30px;
   }
   .testimoialsWrapper
   {

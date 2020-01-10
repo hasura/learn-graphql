@@ -41,9 +41,6 @@ body
 .removePaddBottom {
   padding-bottom: 0 !important
 }
-.clearBoth {
-  clear: both;
-}
 .mb-20
 {
   margin-bottom: 20px;
@@ -71,6 +68,35 @@ body
   background: -ms-linear-gradient(top, #002852, #000C19);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #002852, #000C19);
+}
+.greenGradientDiscordBg {
+  background-color: #7289da;
+  background-image: linear-gradient(to bottom, #7289da, #4458a0);
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7289da), to(#4458a0));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #7289da, #4458a0);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #7289da, #4458a0);
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #7289da, #4458a0);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #7289da, #4458a0);
+}
+.positionImg
+{
+  position: relative;
+  .fixedImg
+  {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    img {
+      opacity: .4;
+      width: 100%;
+    }
+  }
 }
 .yellowBgColor
 {
@@ -102,6 +128,56 @@ body
   background: -ms-linear-gradient(top, #372476, #3b173b);
   /* Opera 11.10+ */
   background: -o-linear-gradient(top, #372476, #3b173b);
+}
+.commonBtn {
+  border-radius: 5px;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  padding: 20px 75px;
+  transition: 500ms;
+  position: relative;
+  &:hover {
+    box-shadow: 0 2px 6px 0 rgba(0, 25, 52, 0.16);
+    -webkit-transform: translateY(1px);
+    transform: translateY(-4px);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.whiteTransparentBtn {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  &:hover {
+    background-color: #fff;
+    color: #001934;
+  }
+}
+.starsWrapper {
+  .star {
+    border-right: 3px solid #1cd3c6;
+    margin-bottom: 60px;
+    h1, h5 {
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      text-align: right;
+      padding-right: 24px;
+      color: #fff;
+      padding-bottom: 0;
+      font-weight: 500;
+    }
+    h5 {
+      letter-spacing: 3.2px;
+      img {
+        margin-right: 8px;
+      }
+    }
+  }
 }
 .commonSectionWrapper
 {
@@ -249,6 +325,10 @@ ul
 }
 .displayFlex
 {
+  display: flex;
+  align-items: center;
+}
+.alignCenter {
   display: flex;
   align-items: center;
 }
@@ -1383,8 +1463,38 @@ h4 {
   }
 }
 /* Footer */
+/* Discord */
+.discordWrapper {
+  h2 {
+    font-size: 25px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.25;
+    color: #fff !important;
+    padding-bottom: 16px;
+    img {
+      margin-right: 24px;
+    }
+  }
+  .pSmall {
+    color: #fff;
+    padding-bottom: 40px;
+  }
+  .starsWrapper {
+    .star {
+      margin-bottom: 0px;
+    }
+  }
+}
 @media (max-width: 767px)
 {
+  .commonBtn {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
+  .alignCenter {
+    display: block;
+  }
   .wd75 {
     width: 100%;
   }
@@ -1729,9 +1839,40 @@ h4 {
       }
     }
   }
+  .discordWrapper {
+    background-size: cover;
+    padding: 40px 15px;
+    h2 {
+      font-size: 25px;
+      a
+      img {
+        width: 30px;
+        margin-right: 15px;
+      }
+    }
+  }
+  .starsWrapper {
+    padding-top: 30px;
+    .star {
+      width: 200px;
+      margin-bottom: 30px;
+      border-left: 3px solid #1cd3c6;
+      border-right: 0;
+      text-align: center;
+      h1, h5 {
+        padding-left: 16px;
+        padding-right: 0;
+        text-align: left;
+      }
+    }
+  }
 }
 @media (min-width: 768px) and (max-width: 991px)
 {
+  .commonBtn {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
   .topBannerWrapper {
     .pageHeader {
       text-align: center;
@@ -1870,6 +2011,13 @@ h4 {
           }
         }
       }
+    }
+  }
+  .discordWrapper {
+    background-size: cover;
+    padding: 60px 0;
+    h2 {
+      font-size: 28px;
     }
   }
 }

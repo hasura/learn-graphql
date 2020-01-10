@@ -21,7 +21,7 @@ const Footer = () => {
     });
   return (
     <footer id="footer" className='footerWrapper blueBgGradientColor wd100 removePaddBottom'>
-      <section className='footerWrapperBg commonSectionWrapper removePaddBottom'>
+      <section className='commonSectionWrapper removePaddBottom'>
         <div className='container noPadd'>
           <div className='col-md-8 col-sm-8 col-xs-12 noPadd'>
             <div className='clearBoth'>

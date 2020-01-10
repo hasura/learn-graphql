@@ -8,7 +8,7 @@ const Discord = () => {
         <div className='container noPadd'>
           <div className='clearBoth alignCenter'>
             <div className='col-md-8 col-sm-8 col-xs-12 noPadd'>
-              <h1>
+              <h1 className='pageHeader'>
                 <img src={discordWhite} alt={'Discord logo'}/>
                 Hasura Discord Community
               </h1>
@@ -22,7 +22,7 @@ const Discord = () => {
             <div className='col-md-4 col-sm-4 col-xs-12 noPadd'>
               <div className='starsWrapper'>
                 <div className='star'>
-                  <h1>4300+</h1>
+                  <h1 className='pageHeader'>4300+</h1>
                   <h5>DISCORD MEMBERS</h5>
                 </div>
               </div>

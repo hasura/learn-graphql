@@ -3,14 +3,12 @@ import '../styles/styles.scss';
 
 const Featured = () => {
   return (
-    <section className='whiteBgColor commonSectionWrapper'>
+    <section className='lightGrayBgColor commonSectionWrapper'>
       <div className='container noPadd'>
         <div className='featuredWrapper'>
-          <h1 className='sectionHeader' tabIndex={0}>
-            We’ve been featured!
+          <h1>
+            We have been featured!
           </h1>
-          <div className='purpleLineSeperator'>
-          </div>
           <div className='featuredIconWrapper'>
             <div className='featuredIcon'>
               <a href="https://frontendweekly.co/issues/152" target="_blank" rel="noopener noreferrer"><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/frontend-weekly.png' alt='Frontend Weekly'/></a>

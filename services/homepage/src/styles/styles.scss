@@ -1426,12 +1426,14 @@ h4 {
 /* Footer */
 /* Discord */
 .discordWrapper {
+  padding: 80px 0;
   h1 {
     display: flex;
     align-items: center;
     line-height: 1.25;
     color: #fff !important;
     padding-bottom: 16px;
+    margin: 0 0;
     img {
       margin-right: 24px;
     }

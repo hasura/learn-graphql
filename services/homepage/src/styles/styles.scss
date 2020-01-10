@@ -156,7 +156,7 @@ body
   color: #fff;
   &:hover {
     background-color: #fff;
-    color: #001934;
+    color: #4458a0;
   }
 }
 .starsWrapper {
@@ -170,6 +170,7 @@ body
       color: #fff;
       padding-bottom: 0;
       font-weight: 500;
+      display: block;
     }
     h5 {
       letter-spacing: 3.2px;
@@ -395,46 +396,6 @@ h4 {
   height: 4px;
   background-color: #2b0785;
   margin-bottom: 20px;
-}
-.commonBtn
-{
-  padding-top: 10px;
-  button
-  {
-    background-color: #542683;
-    color: #fff;
-    width: 260px;
-    padding-left: 10px;
-    height: 50px;
-    border: 1px solid #542683;
-    position: relative;
-    text-align: left;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    font-family: 'Poppins';
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.6px;
-    img
-    {
-      display: inline-block;
-      margin-left: 20px;
-      width: 16px;
-      position: absolute;
-      right: 10px;
-      top: 19px;
-    }
-  }
-  button:hover
-  {
-    // border: 1px solid #ff724b;
-    background-color: #471f75;
-  }
-  button:focus
-  {
-    outline: none;
-  }
 }
 .gradientBtn
 {
@@ -1465,10 +1426,9 @@ h4 {
 /* Footer */
 /* Discord */
 .discordWrapper {
-  h2 {
-    font-size: 25px;
+  h1 {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     line-height: 1.25;
     color: #fff !important;
     padding-bottom: 16px;
@@ -1606,12 +1566,6 @@ h4 {
       width: 100%;
       padding: 0 15px;
       padding-bottom: 20px;
-    }
-    .commonBtn
-    {
-      text-align: center;
-      display: flex;
-      justify-content: center;
     }
     .topBannerImg
     {
@@ -1842,7 +1796,7 @@ h4 {
   .discordWrapper {
     background-size: cover;
     padding: 40px 15px;
-    h2 {
+    h1 {
       font-size: 25px;
       a
       img {
@@ -2016,7 +1970,7 @@ h4 {
   .discordWrapper {
     background-size: cover;
     padding: 60px 0;
-    h2 {
+    h1 {
       font-size: 28px;
     }
   }

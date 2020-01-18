@@ -8,7 +8,7 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.0.0",
     "@auth0/auth0-spa-js": "^1.2.3",
-    "@playlyfe/gql": "^2.6.1",
+    "@playlyfe/gql": "^2.6.2",
     "apollo-boost": "^0.4.3",
     "apollo-link-ws": "^1.0.17",
     "bootstrap": "^4.3.1",

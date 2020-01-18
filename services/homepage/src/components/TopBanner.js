@@ -15,18 +15,22 @@ const TopBanner = () => {
     <div>
       {
         (banner) ? (
-          <div className='bannerStrip hidden-xs'>
-            <div className='container displayFlex noPadd'>
-              <div className='announceIcon'>
-                <a href="https://graphql.asia" target="_blank" rel="noopener noreferrer"><img className={'img-responsive'} src={graphqlLogo} alt={'Graphql logo'} /></a>
+          <div className='bannerStripWrapper hidden-xs'>
+            <a href="https://graphql.asia" target="_blank" rel="noopener noreferrer">
+              <div className='bannerStrip'>
+                <div className='container displayFlex noPadd'>
+                  <div className='announceIcon'>
+                    <img className={'img-responsive'} src={graphqlLogo} alt={'Graphql logo'} />
+                  </div>
+                  <div className='pExtraSmall'>
+                    <span className='fontBold'>GraphQL Asia</span> is back in Bangalore from 20th-22nd February. <a href="https://graphql.asia/tickets" target="_blank" rel="noopener noreferrer">Get your tickets now<img className={'img-responsive'} src={arrowForwardPink} alt={'arrow'} /></a>
+                  </div>
+                </div>
               </div>
-              <div className='pExtraSmall'>
-                <span className='fontBold'>GraphQL Asia</span> is back in Bangalore from 20th-22nd February. <a href="https://graphql.asia/tickets" target="_blank" rel="noopener noreferrer">Get your tickets now<img className={'img-responsive'} src={arrowForwardPink} alt={'arrow'} /></a>
-              </div>
-              {/* eslint-disable-next-line */}
-              <div className='closeBanner' onClick={() => setBanner(false)}>
-                <img className={'img-responsive'} src={close} alt={'Close'} />
-              </div>
+            </a>
+            {/* eslint-disable-next-line */}
+            <div className='closeBanner' onClick={() => setBanner(false)}>
+              <img className={'img-responsive'} src={close} alt={'Close'} />
             </div>
           </div>
         ) : null

@@ -5,6 +5,68 @@ body
   font-size: 16px;
   font-family: 'Open Sans'
 }
+.bannerStrip
+{
+  background-color: #1b1653;
+  padding: 8px 20px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 10;
+  .displayFlex
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .announceIcon {
+    padding-right: 16px;
+  }
+  a:hover, a:focus
+  {
+    text-decoration: none;
+  }
+  .closeBanner
+  {
+    cursor: pointer;
+    text-align: right;
+    display: inline-block;
+    min-width: 34px;
+    position: absolute;
+    right: 30px;
+    top: 12px;
+  }
+  .pExtraSmall
+  {
+    font-size: 16px;
+    text-align: left;
+    padding-top: 0;
+    letter-spacing: normal;
+    font-weight: 400;
+    display: inline-block;
+    line-height: 17px;
+    color: #fff;
+    padding-bottom: 0;
+    padding-right: 10px;
+    img {
+    }
+    a {
+      color: #f81894;
+      img {
+        display: inline-block;
+        transition: 200ms;
+        margin-left: 5px;
+      }
+      &:hover {
+        img {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+}
 @-webkit-keyframes autofill {
   to {
     color: rgba(255, 255, 255, 0.8);
@@ -1825,6 +1887,17 @@ h4 {
 }
 @media (min-width: 768px) and (max-width: 991px)
 {
+  .bannerStrip {
+    .pExtraSmall {
+      font-size: 14px;
+    }
+    .closeBanner {
+      right: 0;
+    }
+    .displayFlex {
+      justify-content: flex-start;
+    }
+  }
   .commonBtn {
     padding: 15px 30px;
     font-size: 14px;

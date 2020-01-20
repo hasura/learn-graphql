@@ -53,7 +53,7 @@ CREATE TABLE public.workspace_member (
     type text DEFAULT 'member'::text NOT NULL
 );
 CREATE TABLE public.users (
-    id uuid NOT NULL,
+    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
     name text NOT NULL,
     email text NOT NULL,
     display_name text,

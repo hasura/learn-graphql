@@ -23,7 +23,7 @@ const TopBanner = () => {
                     <img className={'img-responsive'} src={graphqlLogo} alt={'Graphql logo'} />
                   </div>
                   <div className='pExtraSmall'>
-                    <span className='fontBold'>GraphQL Asia</span> is back in Bangalore from 20th-22nd February. <a href="https://graphql.asia/tickets" target="_blank" rel="noopener noreferrer">Get your tickets now<img className={'img-responsive'} src={arrowForwardPink} alt={'arrow'} /></a>
+                    <span className='fontBold'>GraphQL Asia</span> <span>is back in Bangalore from 20th-22nd February.</span> <a href="https://graphql.asia/tickets" target="_blank" rel="noopener noreferrer">Get your tickets now<img className={'img-responsive'} src={arrowForwardPink} alt={'arrow'} /></a>
                   </div>
                 </div>
               </div>

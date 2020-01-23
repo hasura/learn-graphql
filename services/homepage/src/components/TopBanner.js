@@ -5,13 +5,13 @@ const TopBanner = () => {
   const hasuraDumbledore = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-dumbledore-new.png';
   const learnLogo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg';
   const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
-  const discordBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg';
-  const twitterBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg';
+  const discordBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg'
+  const twitterBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg'
   const close = require('../images/close.svg');
   const graphqlLogo = require('../images/graphql-logo.svg');
   const arrowForwardPink = require('../images/arrow-forward-pink.svg');
   const [banner, setBanner] = useState(true);
-    return (
+  return (
     <div>
       {
         (banner) ? (

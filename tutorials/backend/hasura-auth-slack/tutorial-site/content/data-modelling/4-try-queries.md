@@ -14,7 +14,7 @@ Head over to Console -> GRAPHIQL tab and insert a user using GraphQL Mutations.
 
 ```graphql
 mutation {
-  insert_users(objects:[{name:"Praveen", email: "myemail@example.com"}]) {
+  insert_users(objects:[{name:"Praveen", email: "myemail@example.com", password: "password123"}]) {
     affected_rows
   }
 }

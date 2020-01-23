@@ -13,7 +13,7 @@ const FrontendTutorials = () => {
   const icon9 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-9.svg'
   const icon10 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-10.svg'
   return (
-    <section className='commonSectionWrapper'>
+    <section id="frontend-tutorials" className='commonSectionWrapper'>
       <div className='container noPadd'>
         <div className='frontendTutorialWrapper'>
           <div className='col-md-12 noPadd'>

@@ -4,7 +4,7 @@ const discordWhite = require('../images/discord-brands-white.svg');
 const hasuraIcon = require('../images/hasura-icon.svg');
 const Discord = () => {
   return (
-    <section id="discord" className='commonSectionWrapper discordWrapper greenGradientDiscordBg positionImg'>
+    <section id="hasura-discord" className='commonSectionWrapper discordWrapper greenGradientDiscordBg positionImg'>
         <div className='container noPadd'>
           <div className='clearBoth alignCenter'>
             <div className='col-md-8 col-sm-8 col-xs-12 noPadd'>

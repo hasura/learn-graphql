@@ -9,7 +9,7 @@ const HasuraTutorials = () => {
   const expandRed = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/expand-red.svg'
   const arrowRed = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/arrow-red.svg'
   return (
-    <section className='commonSectionWrapper'>
+    <section id="hasura-tutorials" className='commonSectionWrapper'>
       <div className='container noPadd'>
         <div className='frontendTutorialWrapper'>
           <div className='col-md-12 noPadd'>

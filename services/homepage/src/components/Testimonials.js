@@ -4,7 +4,7 @@ class Testimonials extends React.Component {
   render() {
     return (
       /* Use global styles normally */
-      <section className='whiteBgColor commonSectionWrapper'>
+      <section id="testimonials" className='whiteBgColor commonSectionWrapper'>
         <div className='container noPadd'>
           <div className='testimoialsWrapper'>
             <div className='testimonialListWrapper'>

@@ -1,0 +1,36 @@
+ALTER TABLE ONLY public.workspace DROP CONSTRAINT workspace_owner_fkey;
+ALTER TABLE ONLY public.workspace_member DROP CONSTRAINT workspace_members_workspace_id_fkey;
+ALTER TABLE ONLY public.workspace_member DROP CONSTRAINT workspace_members_user_id_fkey;
+ALTER TABLE ONLY public.workspace_member DROP CONSTRAINT workspace_member_type_fkey;
+ALTER TABLE ONLY public.user_message DROP CONSTRAINT user_message_workspace_id_fkey;
+ALTER TABLE ONLY public.user_message DROP CONSTRAINT user_message_user_id_fkey;
+ALTER TABLE ONLY public.user_message DROP CONSTRAINT user_message_recipient_id_fkey;
+ALTER TABLE ONLY public.channel DROP CONSTRAINT channels_workspace_id_fkey;
+ALTER TABLE ONLY public.channel_thread_message DROP CONSTRAINT channel_thread_message_user_id_fkey;
+ALTER TABLE ONLY public.channel_thread_message DROP CONSTRAINT channel_thread_message_channel_thread_id_fkey;
+ALTER TABLE ONLY public.channel_thread DROP CONSTRAINT channel_thread_channel_id_fkey;
+ALTER TABLE ONLY public.channel_member DROP CONSTRAINT channel_member_user_id_fkey;
+ALTER TABLE ONLY public.channel_member DROP CONSTRAINT channel_member_channel_id_fkey;
+ALTER TABLE ONLY public.workspace DROP CONSTRAINT workspace_url_slug_key;
+ALTER TABLE ONLY public.workspace DROP CONSTRAINT workspace_pkey;
+ALTER TABLE ONLY public.workspace DROP CONSTRAINT workspace_name_key;
+ALTER TABLE ONLY public.workspace_member DROP CONSTRAINT workspace_members_pkey;
+ALTER TABLE ONLY public.users DROP CONSTRAINT users_pkey;
+ALTER TABLE ONLY public.workspace_user_type DROP CONSTRAINT user_type_pkey;
+ALTER TABLE ONLY public.user_message DROP CONSTRAINT user_message_pkey;
+ALTER TABLE ONLY public.channel DROP CONSTRAINT channels_pkey;
+ALTER TABLE ONLY public.channel_thread DROP CONSTRAINT channel_thread_pkey;
+ALTER TABLE ONLY public.channel_thread_message DROP CONSTRAINT channel_thread_message_pkey;
+ALTER TABLE ONLY public.channel_member DROP CONSTRAINT channel_member_pkey;
+
+DROP VIEW IF EXISTS public.online_users;
+
+DROP TABLE IF EXISTS public.workspace_user_type;
+DROP TABLE IF EXISTS public.users;
+DROP TABLE IF EXISTS public.workspace_member;
+DROP TABLE IF EXISTS public.workspace;
+DROP TABLE IF EXISTS public.user_message;
+DROP TABLE IF EXISTS public.channel_thread_message;
+DROP TABLE IF EXISTS public.channel_thread;
+DROP TABLE IF EXISTS public.channel_member;
+DROP TABLE IF EXISTS public.channel;

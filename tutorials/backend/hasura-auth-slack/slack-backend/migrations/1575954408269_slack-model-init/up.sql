@@ -1,5 +1,7 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE public.channel (
-    id uuid NOT NULL,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     name text NOT NULL,
     is_public boolean NOT NULL,
     workspace_id uuid NOT NULL,
@@ -8,20 +10,20 @@ CREATE TABLE public.channel (
     created_by uuid NOT NULL
 );
 CREATE TABLE public.channel_member (
-    id uuid NOT NULL,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     channel_id uuid NOT NULL,
     user_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
 CREATE TABLE public.channel_thread (
-    id uuid NOT NULL,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     channel_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
 CREATE TABLE public.channel_thread_message (
-    id uuid NOT NULL,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     user_id uuid NOT NULL,
     channel_thread_id uuid NOT NULL,
     message text NOT NULL,
@@ -29,7 +31,7 @@ CREATE TABLE public.channel_thread_message (
     updated_at timestamp with time zone DEFAULT now() NOT NULL
 );
 CREATE TABLE public.user_message (
-    id uuid NOT NULL,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     user_id uuid NOT NULL,
     recipient_id uuid NOT NULL,
     message text NOT NULL,
@@ -38,7 +40,7 @@ CREATE TABLE public.user_message (
     workspace_id uuid NOT NULL
 );
 CREATE TABLE public.workspace (
-    id uuid NOT NULL,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     name text NOT NULL,
     owner_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
@@ -53,7 +55,7 @@ CREATE TABLE public.workspace_member (
     type text DEFAULT 'member'::text NOT NULL
 );
 CREATE TABLE public.users (
-    id uuid DEFAULT public.gen_random_uuid() NOT NULL,
+    id uuid NOT NULL DEFAULT uuid_generate_v4(),
     name text NOT NULL,
     email text NOT NULL,
     display_name text,

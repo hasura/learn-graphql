@@ -1,5 +1,7 @@
 ---
-title: 'Logging out'
+title: "Logging out"
+metaTitle: "Logging out | GraphQL React Native Apollo Tutorial"
+metaDescription: "Remember to clear the Apollo cache before logging out. You can use the instance of Apollo client to do so."
 ---
 
 

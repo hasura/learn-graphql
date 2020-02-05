@@ -25,8 +25,9 @@ app.get('/webhook', (request, response) => {
     issuer = decoded.iss;
   } catch(e) {
     console.log(e);
-    response.status(400);
+    response.status(401);
     response.send('invalid token');
+    return;
   }
 
   let hasuraVariables = {'X-Hasura-Role': 'user'};
@@ -41,13 +42,14 @@ app.get('/webhook', (request, response) => {
       hasuraVariables['X-Hasura-User-Id'] = verify['https://hasura.io/jwt/claims']['x-hasura-user-id']
       response.json(hasuraVariables);
      } else {
-      response.status(400);
+      response.status(401);
       response.send('invalid issuer');
     }
   } catch(e) {
     console.log(e);
-    response.status(500);
+    response.status(401);
     response.send('error ' + e);
+    return;
   }
 
 });

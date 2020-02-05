@@ -27,6 +27,7 @@ app.get('/webhook', (request, response) => {
     console.log(e);
     response.status(400);
     response.send('invalid token');
+    return;
   }
 
   let hasuraVariables = {'X-Hasura-Role': 'user'};
@@ -46,8 +47,9 @@ app.get('/webhook', (request, response) => {
     }
   } catch(e) {
     console.log(e);
-    response.status(500);
+    response.status(401);
     response.send('error ' + e);
+    return;
   }
 
 });

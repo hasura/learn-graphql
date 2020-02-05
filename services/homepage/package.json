@@ -18,7 +18,7 @@
     "gatsby-plugin-sass": "^2.1.27",
     "gatsby-source-graphql": "^2.1.31",
     "js-yaml": "^3.13.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",

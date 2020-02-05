@@ -84,7 +84,7 @@ let instance = ReasonApollo.createApolloClient(~link, ~cache, ());
 
 Let's try to understand what is happening here. 
 
-We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at [https://learn.hasura.io/graphql](https://learn.hasura.io/graphql). We are also configuring the headers with the JWT token from the local storage.
+We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at https://learn.hasura.io/graphql. We are also configuring the headers with the JWT token from the local storage.
 
 At the end, we instantiate ApolloClient by passing in our `HttpLink` and a new instance of `InMemoryCache` (recommended caching solution). This instance can be used anywhere in the application as `.
 

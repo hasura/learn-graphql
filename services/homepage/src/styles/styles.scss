@@ -1864,9 +1864,13 @@ h4 {
       }
       .introList {
         margin-bottom: 30px;
+        z-index: 0;
         .brandPos {
           right: 10px;
           top: 10px;
+        }
+        .waterMarkImg {
+          z-index: -1;
         }
       }
     }

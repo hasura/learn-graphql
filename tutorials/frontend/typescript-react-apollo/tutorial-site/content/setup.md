@@ -12,8 +12,8 @@ Our task will be to convert the "static" UI into a working realtime app.
 1. Download the boilerplate from https://learn.hasura.io/graphql/typescript-react-apollo/boilerplate.zip
 2. Unzip and make sure you're in the `app-boilerplate` directory
 3. Install dependencies and run the "static" app
-    - `npm install`
-    - `npm start`
+    - `yarn`
+    - `yarn start`
 4. Signup/login as a user to load the todo app page
 
 This is what you should see after the steps above:

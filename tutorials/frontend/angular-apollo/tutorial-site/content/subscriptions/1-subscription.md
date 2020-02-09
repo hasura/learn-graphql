@@ -35,8 +35,8 @@ providers: [{
     cache: new InMemoryCache(),    
 -   link:  httpLink.create({
 +   link: new WebSocketLink({
--     uri: 'https://learn.hasura.io/graphql',
-+     uri: 'wss://learn.hasura.io/graphql',
+-     uri: 'https://hasura.io/learn/graphql',
++     uri: 'wss://hasura.io/learn/graphql',
 +     options: {
 +       reconnect: true,
 +       connectionParams: {

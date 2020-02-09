@@ -16,7 +16,7 @@ Open `Network.kt` and update the following:
 
 ```kotlin
 
-+ private val GRAPHQL_WEBSOCKET_ENDPOINT: String = "wss://learn.hasura.io/graphql"
++ private val GRAPHQL_WEBSOCKET_ENDPOINT: String = "wss://hasura.io/learn/graphql"
 
 apolloClient = ApolloClient.builder()
             .serverUrl(GRAPHQL_ENDPOINT)

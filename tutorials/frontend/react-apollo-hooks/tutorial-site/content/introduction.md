@@ -45,11 +45,11 @@ Less than 2 hours
 
 ## Other courses
 
-**Frontend**: GraphQL for: [Vue](https://learn.hasura.io/graphql/vue), [Angular](https://learn.hasura.io/graphql/angular-apollo), [Elm](https://learn.hasura.io/graphql/elm-graphql), [ReasonReact](https://learn.hasura.io/graphql/reason-react-apollo)
+**Frontend**: GraphQL for: [Vue](https://hasura.io/learn/graphql/vue), [Angular](https://hasura.io/learn/graphql/angular-apollo), [Elm](https://hasura.io/learn/graphql/elm-graphql), [ReasonReact](https://hasura.io/learn/graphql/reason-react-apollo)
 
-**Mobile**: GraphQL for: [React Native](https://learn.hasura.io/graphql/react-native), [iOS](https://learn.hasura.io/graphql/ios), [Android](https://learn.hasura.io/graphql/android), [Flutter](https://learn.hasura.io/graphql/flutter-graphql)
+**Mobile**: GraphQL for: [React Native](https://hasura.io/learn/graphql/react-native), [iOS](https://hasura.io/learn/graphql/ios), [Android](https://hasura.io/learn/graphql/android), [Flutter](https://hasura.io/learn/graphql/flutter-graphql)
 
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://learn.hasura.io/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
+**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
 
 <CommunityAuthor 
     name="Apoorv Vardhan"

@@ -1,16 +1,16 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/typescript-react-apollo",
-		"siteUrl": "https://learn.hasura.io",
+		"pathPrefix": "/learn/graphql/typescript-react-apollo",
+		"siteUrl": "https://hasura.io/learn",
 		"gaTrackingId": "UA-59768903-1"
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-		"logoLink": "https://learn.hasura.io",
-		"title": "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/typescript-react-apollo'>/ typescript-react-apollo</a>",
+		"logoLink": "https://hasura.io/learn",
+		"title": "<a href='https://hasura.io/learn'>/ graphql </a><a href='https://hasura.io/learn/graphql/typescript-react-apollo'>/ typescript-react-apollo</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for React, Typescript developers by @HasuraHQ https://learn.hasura.io/graphql/typescript-react-apollo",
+		"tweetText": "Check out this GraphQL course for React, Typescript developers by @HasuraHQ https://hasura.io/learn/graphql/typescript-react-apollo",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"

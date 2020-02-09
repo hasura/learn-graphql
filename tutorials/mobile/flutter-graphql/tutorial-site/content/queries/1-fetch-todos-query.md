@@ -19,7 +19,7 @@ The first graphql query you will write will be to fetch personal todos. You will
 }
 ```
 
-[Try](https://learn.hasura.io/graphql/graphiql?tutorial=react-native) this query in GraphiQL against the application database to see what the response looks like.
+[Try](https://hasura.io/learn/graphql/graphiql?tutorial=react-native) this query in GraphiQL against the application database to see what the response looks like.
 
 **Note**: You need to pass the `Authorization: Bearer <token>` header before querying to get the results. The token is auto-filled in the UI after logging in via Auth0.
 

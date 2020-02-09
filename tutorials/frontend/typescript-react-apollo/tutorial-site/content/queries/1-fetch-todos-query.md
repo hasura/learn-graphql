@@ -16,7 +16,7 @@ query getMyTodos {
 }
 ```
 
-[Try this query in GraphiQL](https://learn.hasura.io/graphql/graphiql) against the application database to see what the response looks like.
+[Try this query in GraphiQL](https://hasura.io/learn/graphql/graphiql) against the application database to see what the response looks like.
 
 **Note**: You need to pass the `Authorization: Bearer <token>` header before querying to get the results. The token is auto-filled in the UI after logging in via Auth0.
 

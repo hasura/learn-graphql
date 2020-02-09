@@ -50,7 +50,7 @@ const FrontendTutorials = () => {
             </div>
             <div className='col-md-5 col-sm-5 col-xs-12 noPadd'>
               <div className='boxWrapper'>
-                <a href="https://learn.hasura.io/graphql/react" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/react" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React"/>
                     <div className='overlayWrapper'>
@@ -59,7 +59,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/angular-apollo" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/angular-apollo" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/angular-original.svg" alt="Angular"/>
                     <div className='overlayWrapper'>
@@ -68,7 +68,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/vue" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/vue" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/vue-original.svg" alt="Vue"/>
                     <div className='overlayWrapper'>
@@ -77,7 +77,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/elm-graphql" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/elm-graphql" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/elm-original.jpg" alt="Elm"/>
                     <div className='overlayWrapper'>
@@ -86,7 +86,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/typescript-react-apollo" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/typescript-react-apollo" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/typescript-original.png" alt="Typescript"/>
                     <div className='overlayWrapper'>
@@ -95,7 +95,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/react-native/introduction" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/react-native/introduction" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React native"/>
                     <div className='overlayWrapper'>
@@ -104,7 +104,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/reason-react-apollo" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/reason-react-apollo" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/reasonml-original.svg" alt="ReasonML"/>
                     <div className='overlayWrapper'>
@@ -113,7 +113,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/flutter-graphql" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/flutter-graphql" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/flutter-original.svg" alt="Flutter"/>
                     <div className='overlayWrapper'>
@@ -122,7 +122,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/ios" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/ios" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/ios-original.png" alt="IOS"/>
                     <div className='overlayWrapper'>
@@ -131,7 +131,7 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
-                <a href="https://learn.hasura.io/graphql/android" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/android" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
                     <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/android-original.svg" alt="Android"/>
                     <div className='overlayWrapper'>

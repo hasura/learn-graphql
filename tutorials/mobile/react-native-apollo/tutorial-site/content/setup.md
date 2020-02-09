@@ -9,7 +9,7 @@ Our task will be to convert the "static" UI into a working realtime app.
 
 ### Download and run the boilerplate
 
-1. Download the boilerplate at: https://learn.hasura.io/graphql/react-native/boilerplate.zip
+1. Download the boilerplate at: https://hasura.io/learn/graphql/react-native/boilerplate.zip
 2. Unzip and make sure you're in the `app-boilerplate` directory
 3. Make sure you have `expo-cli` installed
     - `npm install -g expo-cli`
@@ -25,7 +25,7 @@ After you login, you should get something like this:
 
 ### Load GraphiQL to play with your GraphQL APIs
 
-1. Head to https://learn.hasura.io/graphql/graphiql?tutorial=react-native
+1. Head to https://hasura.io/learn/graphql/graphiql?tutorial=react-native
 2. Log in (so that you can test the GraphQL APIs with a valid user token)
 
 This is what you should see after the steps above:

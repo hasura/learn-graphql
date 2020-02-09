@@ -10,7 +10,7 @@ var fs = require('fs');
 const AUTH0_JWT_SECRET = process.env.AUTH0_JWT_SECRET ? process.env.AUTH0_JWT_SECRET : fs.readFileSync('./graphql-tutorials.pem');
 const AUTH0_ISSUER = 'https://graphql-tutorials.auth0.com/';
 const CUSTOM_JWT_SECRET = process.env.CUSTOM_JWT_SECRET;
-const CUSTOM_ISSUER = 'https://learn.hasura.io/';
+const CUSTOM_ISSUER = 'https://hasura.io/learn/';
 
 app.get('/', (req, res) => {
   res.send('Webhooks are running');

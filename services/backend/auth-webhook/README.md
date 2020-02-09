@@ -1,6 +1,6 @@
-# Auth Webhook for learn.hasura.io
+# Auth Webhook for hasura.io/learn
 
-This is an auth webhook for authenticating requests to the Hasura GraphQL engine on learn.hasura.io. Splits between Auth0 and Custom JWT.
+This is an auth webhook for authenticating requests to the Hasura GraphQL engine on hasura.io/learn. Splits between Auth0 and Custom JWT.
 
 ## Usage with Hasura GraphQL engine
 

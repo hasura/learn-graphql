@@ -12,7 +12,7 @@ let headers = switch(Util.getTokenFromStorage()) {
 let connectionParams = Json.Encode.object_([("headers", headers)]);
 
 let link = ApolloLinks.webSocketLink(
-  ~uri="wss://learn.hasura.io/graphql",
+  ~uri="wss://hasura.io/learn/graphql",
   ~reconnect=true,
   ~connectionParams=connectionParams,
   ()

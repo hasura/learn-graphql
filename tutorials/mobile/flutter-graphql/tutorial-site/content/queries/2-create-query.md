@@ -35,7 +35,7 @@ We have now written the GraphQL query as a String named fetchAll and it will be 
 
 The query fetches `todos` with a simple condition : `is_public` which must be false. We sort the todos in descending order using its `created_at` attribute, according to the schema. We specify the fields we need for todos node.
 
-[Try](https://learn.hasura.io/graphql/graphiql?tutorial=react-native) out this query now!
+[Try](https://hasura.io/learn/graphql/graphiql?tutorial=react-native) out this query now!
 
 ## Introducing query variables
 

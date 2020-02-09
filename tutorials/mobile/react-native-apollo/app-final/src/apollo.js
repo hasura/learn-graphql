@@ -6,7 +6,7 @@ const makeApolloClient = (token) => {
 
   // create an apollo link instance, a network interface for apollo client
   const link = new WebSocketLink({
-    uri: `wss://learn.hasura.io/graphql`,
+    uri: `wss://hasura.io/learn/graphql`,
     options: {
       reconnect: true,
       connectionParams: {

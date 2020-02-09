@@ -13,7 +13,7 @@ import Graphql.SelectionSet as SelectionSet exposing (SelectionSet)
 
 graphql_url : String
 graphql_url =
-    "https://learn.hasura.io/graphql"
+    "https://hasura.io/learn/graphql"
 
 
 getAuthHeader : String -> (Graphql.Http.Request decodesTo -> Graphql.Http.Request decodesTo)

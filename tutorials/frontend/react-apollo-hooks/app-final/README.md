@@ -1,8 +1,8 @@
 Tutorial
 --------
 
-- [React](https://learn.hasura.io/graphql/react/introduction)
-- [Hasura GraphQL Endpoint](https://learn.hasura.io/graphql)
+- [React](https://hasura.io/learn/graphql/react/introduction)
+- [Hasura GraphQL Endpoint](https://hasura.io/learn/graphql)
 
 Tech stack
 ----------

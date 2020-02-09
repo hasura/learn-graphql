@@ -1,7 +1,7 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/hasura-auth-slack",
-		"siteUrl": "https://learn.hasura.io",
+		"pathPrefix": "/learn/graphql/hasura-auth-slack",
+		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "UA-59768903-1"
 	},
 	"header": {
@@ -9,7 +9,7 @@ const config = {
 		"title": "/ graphql / hasura-auth-slack",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ https://learn.hasura.io/graphql/hasura-auth-slack",
+		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ https://hasura.io/learn/graphql/hasura-auth-slack/introduction",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"

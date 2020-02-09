@@ -1,7 +1,7 @@
 const config = {
 	"gatsby": {
 		"pathPrefix": "/learn/graphql/react-native",
-		"siteUrl": "https://hasura.io/learn",
+		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "UA-59768903-1"
 	},
 	"header": {

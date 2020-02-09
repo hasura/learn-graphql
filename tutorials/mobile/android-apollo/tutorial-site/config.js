@@ -1,7 +1,7 @@
 const config = {
 	"gatsby": {
 		"pathPrefix": "/learn/graphql/android",
-		"siteUrl": "https://hasura.io/learn",
+		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "UA-59768903-1"
 	},
 	"header": {
@@ -35,7 +35,7 @@ const config = {
     		"/subscriptions",
     		"/realtime-feed",
     		"/what-next"
-    		],
+    	],
 		"links": [
 			{
 			"text": "Hasura Docs",

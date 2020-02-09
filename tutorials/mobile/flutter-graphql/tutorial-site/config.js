@@ -1,7 +1,7 @@
 const config = {
   gatsby: {
-    pathPrefix: "/graphql/flutter-graphql",
-    siteUrl: "https://hasura.io/learn",
+    pathPrefix: "/learn/graphql/flutter-graphql",
+    siteUrl: "https://hasura.io",
     gaTrackingId: "UA-59768903-1"
   },
   header: {

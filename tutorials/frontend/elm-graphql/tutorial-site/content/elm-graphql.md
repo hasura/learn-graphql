@@ -42,7 +42,7 @@ Open `package.json` and add the following script:
     "repl": "elm repl",
     "reactor": "elm reactor",
 +   "test": "echo \"Error: no test specified\" && exit 1",
-+   "generate-elm-types": "elm-graphql https://learn.hasura.io/graphql --base Hasura"
++   "generate-elm-types": "elm-graphql https://hasura.io/learn/graphql --base Hasura"
   },
   "keywords": [
     "Elm",
@@ -105,7 +105,7 @@ Open `package.json` and add the following script:
 
 Before we generate our types, we will need to get the `Authorization` token to access the GraphQL server. Lets login using the below link and get the `Authorization Token`
 
-[learn.hasura.io/graphql/graphiql?tutorial=react-native](https://learn.hasura.io/graphql/graphiql?tutorial=react-native)
+[hasura.io/learn/graphql/graphiql?tutorial=react-native](https://hasura.io/learn/graphql/graphiql?tutorial=react-native)
 
 ![Copy authorization token](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-elm/CopyAuthorizationToken.jpg)
 

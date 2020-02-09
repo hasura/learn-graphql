@@ -56,14 +56,14 @@ Update the link by removing HttpLink and adding a WebSocketLink function to inte
 
 -   // Create an http link:
 -   const link = new HttpLink({
--     uri: 'https://learn.hasura.io/graphql',
+-     uri: 'https://hasura.io/learn/graphql',
 -     fetch,
 -     headers: getHeaders()
 -   });
 
 +   // Create a WebSocket link:
 +   const link = new WebSocketLink({
-+     uri: 'wss://learn.hasura.io/graphql',
++     uri: 'wss://hasura.io/learn/graphql',
 +     options: {
 +       reconnect: true,
 +       timeout: 30000,

@@ -2,7 +2,7 @@
 
 This version of GraphiQL is a fork of the original version with a simple header management UI.
 
-You can access it live here - https://learn.hasura.io/graphql/graphiql
+You can access it live here - https://hasura.io/learn/graphql/graphiql
 
 ## Usage of Environment Variables
 

@@ -6,24 +6,25 @@ export default class HTML extends React.Component {
     return (
       <html {...this.props.htmlAttributes} lang="en-us">
         <head>
-          <title>Fullstack GraphQL Tutorials for Developers | learn.hasura.io</title>
+          <title>Fullstack GraphQL Tutorials for Developers</title>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <meta name="title" content="GraphQL Tutorials for Developers | learn.hasura.io" />
+          <meta name="title" content="GraphQL Tutorials for Developers" />
           <meta name="description" content="Learn how to integrate GraphQL APIs with your favorite frontend / mobile framework and Hasura GraphQL Engine" />
-          <meta property="og:title" content="GraphQL Tutorials for Developers | learn.hasura.io" />
+          <meta property="og:title" content="GraphQL Tutorials for Developers" />
           <meta property="og:description" content="Learn how to integrate GraphQL APIs with your favorite frontend / mobile framework and Hasura GraphQL Engine" />
           <meta property="og:image" content="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-homepage.png" />
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:title" content="GraphQL Tutorials for Developers | learn.hasura.io" />
+          <meta property="twitter:title" content="GraphQL Tutorials for Developers" />
           <meta property="twitter:description" content="Learn how to integrate GraphQL APIs with your favorite frontend / mobile framework and Hasura GraphQL Engine" />
           <meta property="twitter:image" content="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-homepage.png" />
           {this.props.headComponents}
           <link rel="shortcut icon" href="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png" type="image/png" />
+          <link rel="canonical" href="https://hasura.io/learn" />
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossOrigin="anonymous" />
           <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"

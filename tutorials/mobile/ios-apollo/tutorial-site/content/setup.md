@@ -9,7 +9,7 @@ Our task will be to convert the "static" UI into a working realtime app.
 
 ### Download and run the boilerplate
 
-1. Download the boilerplate at: https://learn.hasura.io/graphql/ios/boilerplate.zip
+1. Download the boilerplate at: https://hasura.io/learn/graphql/ios/boilerplate.zip
 2. Unzip and make sure you're in the `app-boilerplate` directory
 3. This project uses carthage for dependency resolution, so you would need carthage installed,
 
@@ -36,7 +36,7 @@ This is what you should see after the steps above:
 
 ### Load GraphiQL to play with your GraphQL APIs
 
-1. Head to https://learn.hasura.io/graphql/graphiql
+1. Head to https://hasura.io/learn/graphql/graphiql
 2. Log in (so that you can test the GraphQL APIs with a valid user token)
 
 This is what you should see after the steps above:

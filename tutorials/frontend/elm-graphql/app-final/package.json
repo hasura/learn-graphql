@@ -13,7 +13,7 @@
     "repl": "elm repl",
     "reactor": "elm reactor",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate-elm-types": "elm-graphql https://learn.hasura.io/graphql --base Hasura"
+    "generate-elm-types": "elm-graphql https://hasura.io/learn/graphql --base Hasura"
   },
   "keywords": [
     "Elm",

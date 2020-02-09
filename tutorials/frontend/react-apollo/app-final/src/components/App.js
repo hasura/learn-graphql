@@ -13,7 +13,7 @@ import { ApolloProvider } from 'react-apollo';
 const createApolloClient = (authToken) => {
   return new ApolloClient({
     link: new WebSocketLink({
-      uri: 'wss://learn.hasura.io/graphql',
+      uri: 'wss://hasura.io/learn/graphql',
       options: {
         reconnect: true,
         connectionParams: {

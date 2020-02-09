@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 8080
 # serve dist folder on port 8080
 # CMD ["serve", "-s", "public", "-p", "8080"]
-CMD ["gatsby", "serve", "-p", "8080", "--host", "0.0.0.0"]
+CMD ["gatsby", "serve", "--verbose", "--prefix-paths", "-p", "8080", "--host", "0.0.0.0"]

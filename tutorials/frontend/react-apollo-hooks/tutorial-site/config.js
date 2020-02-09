@@ -1,16 +1,16 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/react",
-		"siteUrl": "https://learn.hasura.io",
+		"pathPrefix": "/learn/graphql/react",
+		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "UA-59768903-1"
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-		"logoLink": "https://learn.hasura.io",
-		"title": "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/react'>/ react</a>",
+		"logoLink": "https://hasura.io/learn",
+		"title": "<a href='https://hasura.io/learn'>/ graphql </a><a href='https://hasura.io/learn/graphql/react'>/ react</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for React developers by @HasuraHQ https://learn.hasura.io/graphql/react",
+		"tweetText": "Check out this GraphQL course for React developers by @HasuraHQ https://hasura.io/learn/graphql/react",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"

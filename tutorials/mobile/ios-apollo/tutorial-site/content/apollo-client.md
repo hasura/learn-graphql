@@ -55,7 +55,7 @@ Apollo iOS requires a GraphQL schema file as input to the code generation proces
 To download `schema.json`, you need to use the id_token from auth0 and run this in your terminal
 
 ```sh
-apollo schema:download --endpoint=http://learn.hasura.io/graphql --header="Authorization: Bearer <token>"
+apollo schema:download --endpoint=http://hasura.io/learn/graphql --header="Authorization: Bearer <token>"
 ```
 
 ### Build your target
@@ -145,7 +145,7 @@ import ApolloWebSocket
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let graphEndpoint = "https://learn.hasura.io/graphql"
+    let graphEndpoint = "https://hasura.io/learn/graphql"
     var apolloClient : ApolloClient?
 
     private init (){

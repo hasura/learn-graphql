@@ -6,7 +6,7 @@ let authToken;
 if (!isReactNative()) {
   authToken = window.localStorage.getItem('auth0:id_token');
 } else {
-  authToken = window.localStorage.getItem('@learn.hasura.io:graphiql-react-native-token');
+  authToken = window.localStorage.getItem('@hasura.io/learn:graphiql-react-native-token');
 }
 
 

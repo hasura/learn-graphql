@@ -51,7 +51,7 @@ const Footer = () => {
                 <div className='footerLinks'>
                   <h4>Community</h4>
                   <p className='pSmall'><a href="https://hasura.io/community">Community Resources</a></p>
-                  <p className='pSmall'><a href="https://learn.hasura.io/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL tutorials">GraphQL Tutorials</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/learn/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL tutorials">GraphQL Tutorials</a></p>
                   <p className='pSmall'><a href="https://github.com/hasura/graphql-engine/wiki" target="_blank" rel="noopener noreferrer" aria-label="Community wiki">Community Wiki</a></p>
                   <p className='pSmall'><a href="https://hasura.io/sample-apps" target="_blank" rel="noopener noreferrer">Sample Apps</a></p>
                   <p className='pSmall'><a href="https://graphql.asia/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL asia">GraphQL Asia</a></p>

@@ -18,7 +18,7 @@ mutation toggleTodo ($id: Int!, $isCompleted: Boolean!) {
 
 You will also need to pass in the values for the variables.
 
-[Try](https://learn.hasura.io/graphql/graphiql?tutorial=react-native) this mutation in GraphiQL against the application database to see what the response looks like.
+[Try](https://hasura.io/learn/graphql/graphiql?tutorial=react-native) this mutation in GraphiQL against the application database to see what the response looks like.
 
 Let's now integrate this graphql mutation into our elm app.
 

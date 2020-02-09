@@ -31,6 +31,6 @@ GraphiQL.
 }
 ```
 
-[Try](https://learn.hasura.io/graphql/graphiql?tutorial=react-native) this mutation in GraphiQL against the application database to see what the response looks like.
+[Try](https://hasura.io/learn/graphql/graphiql?tutorial=react-native) this mutation in GraphiQL against the application database to see what the response looks like.
 
 Let's now integrate this GraphQL mutation into our flutter app.

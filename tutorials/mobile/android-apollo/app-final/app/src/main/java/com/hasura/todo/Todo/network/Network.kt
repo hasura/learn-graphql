@@ -20,8 +20,8 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 
 
-private val GRAPHQL_ENDPOINT: String = "https://learn.hasura.io/graphql"
-private val GRAPHQL_WEBSOCKET_ENDPOINT: String = "wss://learn.hasura.io/graphql"
+private val GRAPHQL_ENDPOINT: String = "https://hasura.io/learn/graphql"
+private val GRAPHQL_WEBSOCKET_ENDPOINT: String = "wss://hasura.io/learn/graphql"
 
 private val SQL_CACHE_NAME = "mktodo"
 

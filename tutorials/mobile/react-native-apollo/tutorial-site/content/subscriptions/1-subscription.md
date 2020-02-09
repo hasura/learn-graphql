@@ -31,14 +31,14 @@ Update the `makeApolloClient` function to integrate WebSocketLink.
 
   // create an apollo link instance, a network interface for apollo client
 -  const link = new HttpLink({
--    uri: `https://learn.hasura.io/graphql`,
+-    uri: `https://hasura.io/learn/graphql`,
 -    headers: {
 -      Authorization: `Bearer ${token}`
 -    }
 -  });
 
 + const link = new WebSocketLink({
-+   uri: `wss://learn.hasura.io/graphql`,
++   uri: `wss://hasura.io/learn/graphql`,
 +   options: {
 +     reconnect: true,
 +     connectionParams: {

@@ -1,6 +1,7 @@
 ## What you will learn
 
 ### Frontend
+
 - GraphQL vs REST 
 - GraphQL Queries, Mutations, Subscriptions
 - Setting up a GraphQL Client with Apollo

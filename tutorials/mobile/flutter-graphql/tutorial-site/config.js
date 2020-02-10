@@ -2,7 +2,8 @@ const config = {
   gatsby: {
     pathPrefix: "/learn/graphql/flutter-graphql",
     siteUrl: "https://hasura.io",
-    gaTrackingId: "UA-59768903-1"
+    gaTrackingId: "UA-59768903-1",
+    "trailingSlash": true
   },
   header: {
     logo:
@@ -30,17 +31,17 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      "/introduction",
-      "/intro-to-graphql",
-      "/setup",
-      "/graphql-client",
-      "/queries",
-      "/mutations",
-      "/update-delete-mutations",
-      "/subscriptions",
-      "/realtime-feed",
-      "/logout",
-      "/what-next"
+      "/introduction/",
+      "/intro-to-graphql/",
+      "/setup/",
+      "/graphql-client/",
+      "/queries/",
+      "/mutations/",
+      "/update-delete-mutations/",
+      "/subscriptions/",
+      "/realtime-feed/",
+      "/logout/",
+      "/what-next/"
     ],
     links: [
       {

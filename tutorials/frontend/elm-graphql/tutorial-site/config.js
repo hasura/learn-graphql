@@ -2,7 +2,8 @@ const config = {
 	"gatsby": {
 		"pathPrefix": "/learn/graphql/elm-graphql",
 		"siteUrl": "https://hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"gaTrackingId": "UA-59768903-1",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
@@ -25,16 +26,16 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/intro-to-graphql",
-    		"/setup",
-    		"/elm-graphql",
-    		"/queries",
-    		"/mutations-variables",
-        	"/apollo-client",
-    		"/subscriptions",
-    		"/realtime-feed",
-    		"/what-next"
+			"/introduction/",
+    		"/intro-to-graphql/",
+    		"/setup/",
+    		"/elm-graphql/",
+    		"/queries/",
+    		"/mutations-variables/",
+        	"/apollo-client/",
+    		"/subscriptions/",
+    		"/realtime-feed/",
+    		"/what-next/"
     	],
 		"links": [
 			{

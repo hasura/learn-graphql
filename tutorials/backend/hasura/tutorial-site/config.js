@@ -2,7 +2,8 @@ const config = {
 	"gatsby": {
 		"pathPrefix": "/learn/graphql/hasura",
 		"siteUrl": "https://hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"gaTrackingId": "UA-59768903-1",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_white.svg",
@@ -24,15 +25,15 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/setup",
-    		"/data-modelling",
-    		"/relationships",
-    		"/data-transformations",
-    		"/authorization",
-    		"/authentication",
-    		"/custom-business-logic",
-    		"/what-next"
+			"/introduction/",
+    		"/setup/",
+    		"/data-modelling/",
+    		"/relationships/",
+    		"/data-transformations/",
+    		"/authorization/",
+    		"/authentication/",
+    		"/custom-business-logic/",
+    		"/what-next/"
     	],
 		"links": [
 			{

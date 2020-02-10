@@ -2,7 +2,8 @@ const config = {
 	"gatsby": {
 		"pathPrefix": "/learn/graphql/hasura-auth-slack",
 		"siteUrl": "https://hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"gaTrackingId": "UA-59768903-1",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_white.svg",
@@ -24,14 +25,14 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/setup",
-    		"/data-modelling",
-    		"/thinking-in-roles",
-    		"/access-control",
-    		"/choosing-jwt-mode",
-    		"/production-ready-auth",
-    		"/what-next"
+			"/introduction/",
+    		"/setup/",
+    		"/data-modelling/",
+    		"/thinking-in-roles/",
+    		"/access-control/",
+    		"/choosing-jwt-mode/",
+    		"/production-ready-auth/",
+    		"/what-next/"
     	],
 		"links": [
 			{

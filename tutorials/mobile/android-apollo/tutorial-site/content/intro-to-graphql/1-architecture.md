@@ -46,7 +46,7 @@ Here's what a typical GraphQL client setup and making a query would look like:
 
 // Setup a GraphQL client to use the endpoint
 ApolloClient apolloClient = ApolloClient.builder()
-  .serverUrl("[/](http://learn.hasura.io/graphql)")
+  .serverUrl("[/](http://hasura.io/learn/graphql)")
   .httpCache(new ApolloHttpCache(cacheStore))
   .okHttpClient(okHttpClient)
   .build();

@@ -93,12 +93,12 @@ failMsg =
 
 signup_url : String
 signup_url =
-    "https://learn.hasura.io/auth/signup"
+    "https://hasura.io/learn/auth/signup"
 
 
 login_url : String
 login_url =
-    "https://learn.hasura.io/auth/login"
+    "https://hasura.io/learn/auth/login"
 
 
 

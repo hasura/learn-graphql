@@ -1,4 +1,4 @@
-# learn.hasura.io website
+# hasura.io/learn website
 
 ![Gatsby Postgres GraphQL](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/sample-apps/gatsby-postgres-graphql/assets/gatsby-postgres-graphql.png)
 

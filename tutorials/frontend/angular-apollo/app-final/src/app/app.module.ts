@@ -59,7 +59,7 @@ import { Header} from './Header';
       return new ApolloClient({
         cache: new InMemoryCache(),
         link:  new WebSocketLink({
-          uri: 'wss://learn.hasura.io/graphql',
+          uri: 'wss://hasura.io/learn/graphql',
           options: {
             reconnect: true,
             connectionParams: {

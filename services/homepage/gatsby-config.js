@@ -1,9 +1,10 @@
 module.exports = {
 	"siteMetadata": {
-    "title": 'GraphQL Tutorials for developers | learn.hasura.io',
-		"description": 'Learn how to integrate GraphQL APIs with React, Apollo and Hasura GraphQL Engine',
-		"siteUrl": 'https://learn.hasura.io'
-  },
+  		"pathPrefix": "/learn",
+    	"title": 'Fullstack GraphQL Tutorials',
+		"description": 'Learn how to integrate GraphQL APIs with Hasura GraphQL Engine',
+		"siteUrl": 'https://hasura.io'
+  	},
 	"plugins" : [
 		"gatsby-plugin-sass",
 		{

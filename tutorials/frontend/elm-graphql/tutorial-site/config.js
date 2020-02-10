@@ -1,16 +1,17 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/elm-graphql",
-		"siteUrl": "https://learn.hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"pathPrefix": "/learn/graphql/elm-graphql",
+		"siteUrl": "https://hasura.io",
+		"gaTrackingId": "UA-59768903-1",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-		"logoLink": "https://learn.hasura.io",
-		"title": "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/elm-graphql'>/ elm-graphql</a>",
+		"logoLink": "https://hasura.io/learn",
+		"title": "<a href='https://hasura.io/learn'>/ graphql </a><a href='https://hasura.io/learn/graphql/elm-graphql'>/ elm-graphql</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for Elm developers by @HasuraHQ https://learn.hasura.io/graphql/elm-graphql",
+		"tweetText": "Check out this GraphQL course for Elm developers by @HasuraHQ https://hasura.io/learn/graphql/elm-graphql",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
@@ -25,16 +26,16 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/intro-to-graphql",
-    		"/setup",
-    		"/elm-graphql",
-    		"/queries",
-    		"/mutations-variables",
-        	"/apollo-client",
-    		"/subscriptions",
-    		"/realtime-feed",
-    		"/what-next"
+			"/introduction/",
+    		"/intro-to-graphql/",
+    		"/setup/",
+    		"/elm-graphql/",
+    		"/queries/",
+    		"/mutations-variables/",
+        	"/apollo-client/",
+    		"/subscriptions/",
+    		"/realtime-feed/",
+    		"/what-next/"
     	],
 		"links": [
 			{

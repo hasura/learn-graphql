@@ -12,7 +12,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import gql from 'graphql-tag'
 
 // Replace it with your graphql url
-const GRAPHQL_URI = 'learn.hasura.io/graphql';
+const GRAPHQL_URI = 'hasura.io/learn/graphql';
 
 const getClient = (token) => {
   // Create an http link:

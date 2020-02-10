@@ -27,7 +27,7 @@ Create a new file `codegen.js` in the root directory and copy the contents below
 module.exports = {
     "schema": [
         {
-            "https://learn.hasura.io/graphql": {
+            "https://hasura.io/learn/graphql": {
                 "headers": {
                     "Authorization": "Bearer " + process.env.AUTH_TOKEN
                 }
@@ -62,7 +62,7 @@ module.exports = {
 };
 ```
 
-The configuration points to `https://learn.hasura.io/graphql` schema where our GraphQL API lives. It is configured to generate two files: `graphql.tsx` to output the types and `graphql.schema.json`, to output the result of introspection.
+The configuration points to `https://hasura.io/learn/graphql` schema where our GraphQL API lives. It is configured to generate two files: `graphql.tsx` to output the types and `graphql.schema.json`, to output the result of introspection.
 
 Let's add a new script to `package.json` to autogenerate these files.
 
@@ -79,7 +79,7 @@ Head to package.json and add this script
   },
 ```
 
-Head to [GraphiQL](https://learn.hasura.io/graphql/graphiql) to obtain the Authorization token. 
+Head to [GraphiQL](https://hasura.io/learn/graphql/graphiql) to obtain the Authorization token. 
 
 Now run the following command to generate the types
 

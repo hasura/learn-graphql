@@ -25,7 +25,7 @@ Create and Open `src/GraphQLClient.elm` and add the following code:
 +
 +graphql_url : String
 +graphql_url =
-+    "https://learn.hasura.io/graphql"
++    "https://hasura.io/learn/graphql"
 +
 +
 +getAuthHeader : String -> (Graphql.Http.Request decodesTo -> Graphql.Http.Request decodesTo)
@@ -143,7 +143,7 @@ What does this query do?
 ------------------------
 The query fetches `todos` with a simple condition; `is_public` must be false. We sort the todos descending by its `created_at` time according to the schema. We specify which fields we need for the todos node.
 
-[Try](https://learn.hasura.io/graphql/graphiql?tutorial=react-native) out this query now
+[Try](https://hasura.io/learn/graphql/graphiql?tutorial=react-native) out this query now
 
 Introducing query variables
 ---------------------------

@@ -22,7 +22,7 @@ exports.postLogin = async (req, res, next) => {
         sub: user.id,
         name: user.id.split('@')[0],
         iat: Date.now() / 1000,
-        iss: 'https://learn.hasura.io/',
+        iss: 'https://hasura.io/learn/',
         "https://hasura.io/jwt/claims": {
           "x-hasura-allowed-roles": ["user"],
           "x-hasura-user-id": '' + user.id,

@@ -8,7 +8,6 @@ const TopBanner = () => {
   const discordBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg'
   const twitterBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg'
   const close = require('../images/close.svg');
-  const graphqlLogo = require('../images/graphql-logo.svg');
   const arrowForwardPink = require('../images/arrow-forward-pink.svg');
   const [banner, setBanner] = useState(true);
   return (
@@ -20,7 +19,7 @@ const TopBanner = () => {
               <div className='bannerStrip'>
                 <div className='container displayFlex noPadd'>
                   <div className='announceIcon'>
-                    <img className={'img-responsive'} src={graphqlLogo} alt={'Graphql logo'} />
+                    <img className={'img-responsive'} src={'https://hasura.io/blog/assets/graphql-logo.svg'} alt={'Graphql logo'} />
                   </div>
                   <div className='pExtraSmall'>
                     <span className='fontBold'>GraphQL Asia</span> <span>is back in Bangalore from 20th-22nd February.</span> <span className='colorPink'>Get your tickets now<img className={'img-responsive'} src={arrowForwardPink} alt={'arrow'} /></span>

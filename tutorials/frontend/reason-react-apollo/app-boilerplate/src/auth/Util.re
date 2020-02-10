@@ -1,21 +1,21 @@
 let saveSessionToStorage = (token, expiryDuration) => {
-  Dom.Storage.(localStorage |> setItem("@learn.hasura.io:reason-apollo-token", token));
+  Dom.Storage.(localStorage |> setItem("@hasura.io/learn:reason-apollo-token", token));
   let expiryTime = (Js.Date.now() /. 1000.0) +. float_of_string(expiryDuration)
   |> Js.Float.toString;
-  Dom.Storage.(localStorage |> setItem("@learn.hasura.io:reason-apollo-exp", expiryTime));
+  Dom.Storage.(localStorage |> setItem("@hasura.io/learn:reason-apollo-exp", expiryTime));
 };
 
 let getTokenFromStorage = () => {
-  Dom.Storage.(localStorage |> getItem("@learn.hasura.io:reason-apollo-token"))
+  Dom.Storage.(localStorage |> getItem("@hasura.io/learn:reason-apollo-token"))
 };
 
 let removeSessionFromStorage = () => {
-  Dom.Storage.(localStorage |> removeItem("@learn.hasura.io:reason-apollo-token"))
-  Dom.Storage.(localStorage |> removeItem("@learn.hasura.io:reason-apollo-exp"))
+  Dom.Storage.(localStorage |> removeItem("@hasura.io/learn:reason-apollo-token"))
+  Dom.Storage.(localStorage |> removeItem("@hasura.io/learn:reason-apollo-exp"))
 };
 
 let isSessionValid = () => {
-  switch(Dom.Storage.(localStorage |> getItem("@learn.hasura.io:reason-apollo-exp"))) {
+  switch(Dom.Storage.(localStorage |> getItem("@hasura.io/learn:reason-apollo-exp"))) {
     | None => false
     | Some(expiryTime) => float_of_string(expiryTime) > Js.Date.now() /. 1000.0
   };

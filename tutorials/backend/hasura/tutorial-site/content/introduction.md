@@ -23,7 +23,7 @@ is an ideal starting point before diving into advanced topics.
 
 ## What will we be building?
 
-We will be building the backend of a realtime todo app. If you're interested in building the Frontend and are new to GraphQL, head to the [GraphQL tutorials](https://learn.hasura.io) for different frontend frameworks.
+We will be building the backend of a realtime todo app. If you're interested in building the Frontend and are new to GraphQL, head to the [GraphQL tutorials](https://hasura.io/learn) for different frontend frameworks.
 
 Try this deployed version of the app, to see what features our backend will need to have:
 https://learn-hasura-todo-app.netlify.com/

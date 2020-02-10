@@ -1,11 +1,10 @@
 FROM node:10.17-buster
 
 # update this line when gatsby-gitbook-starter repo changes
-RUN sh -c 'echo -e "Updated at: 2019-12-19 17:00:00 IST"'
+RUN sh -c 'echo -e "Updated at: 2020-02-10 17:00:00 IST"'
 
 # Install global dependencies
 RUN npm -g install gatsby-cli
-RUN npm -g install serve
 
 # clone gatsby-gitbook-starter repo
 RUN git clone https://github.com/hasura/gatsby-gitbook-starter.git
@@ -28,5 +27,4 @@ COPY . .
 RUN GATSBY_ALGOLIA_APP_ID=WCBB1VVLRC GATSBY_ALGOLIA_SEARCH_KEY=0301b192e18d1598fde3095dc721bdba npm run build
 
 # serve dist folder on port 8080
-# CMD ["gatsby", "serve", "--verbose", "--prefix-paths", "-p", "8080", "--host", "0.0.0.0"]
-CMD ["serve", "-l", "tcp://0.0.0.0:8080", "public"]
+CMD ["gatsby", "serve", "--verbose", "--prefix-paths", "-p", "8080", "--host", "0.0.0.0"]

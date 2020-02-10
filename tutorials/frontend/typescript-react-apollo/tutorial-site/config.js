@@ -2,7 +2,8 @@ const config = {
 	"gatsby": {
 		"pathPrefix": "/learn/graphql/typescript-react-apollo",
 		"siteUrl": "https://hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"gaTrackingId": "UA-59768903-1",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
@@ -25,17 +26,17 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/intro-to-graphql",
-    		"/setup",
-    		"/apollo-client",
-    		"/codegen",
-    		"/queries",
-    		"/mutations-variables",
-    		"/optimistic-update-mutations",
-    		"/subscriptions",
-    		"/realtime-feed",
-    		"/what-next"
+			"/introduction/",
+    		"/intro-to-graphql/",
+    		"/setup/",
+    		"/apollo-client/",
+    		"/codegen/",
+    		"/queries/",
+    		"/mutations-variables/",
+    		"/optimistic-update-mutations/",
+    		"/subscriptions/",
+    		"/realtime-feed/",
+    		"/what-next/"
     	],
 		"links": [
 			{

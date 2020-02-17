@@ -18,9 +18,9 @@ app.get('/', (req, res) => {
 
 app.get('/webhook', (request, response) => {
   // Extract token from request
-  var token = request.get('Authorization').replace('Bearer ', '');
   let issuer;
   try {
+    var token = request.get('Authorization').replace('Bearer ', '');
     var decoded = jwt.decode(token);
     issuer = decoded.iss;
   } catch(e) {

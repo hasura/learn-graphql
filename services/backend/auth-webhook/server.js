@@ -1,11 +1,11 @@
 // Sample webhook showing what a hasura auth webhook looks like
 
 // init project
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 8080;
-var jwt = require('jsonwebtoken');
-var fs = require('fs');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080;
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
 
 const AUTH0_JWT_SECRET = process.env.AUTH0_JWT_SECRET ? process.env.AUTH0_JWT_SECRET : fs.readFileSync('./graphql-tutorials.pem');
 const AUTH0_ISSUER = 'https://graphql-tutorials.auth0.com/';
@@ -19,10 +19,16 @@ app.get('/', (req, res) => {
 app.get('/webhook', (request, response) => {
   // Extract token from request
   let issuer;
+  let decoded;
+  let token;
   try {
-    var token = request.get('Authorization').replace('Bearer ', '');
-    var decoded = jwt.decode(token);
-    issuer = decoded.iss;
+    token = request.get('Authorization').replace('Bearer ', '');
+    decoded = jwt.decode(token);
+    if(!decoded) {
+      response.status(401);
+      response.send('invalid token');
+      return;
+    }
   } catch(e) {
     console.log(e);
     response.status(401);
@@ -33,15 +39,16 @@ app.get('/webhook', (request, response) => {
   let hasuraVariables = {'X-Hasura-Role': 'user'};
   try {
     // check if auth0 or custom server
+    issuer = decoded ? decoded.iss : null;
     if(issuer === AUTH0_ISSUER) {
-      var verify = jwt.verify(token, AUTH0_JWT_SECRET, {algorithm: 'RS256'});
+      const verify = jwt.verify(token, AUTH0_JWT_SECRET, {algorithm: 'RS256'});
       hasuraVariables['X-Hasura-User-Id'] = verify['https://hasura.io/jwt/claims']['x-hasura-user-id']
       response.json(hasuraVariables);
     } else if(issuer === CUSTOM_ISSUER) {
-      var verify = jwt.verify(token, CUSTOM_JWT_SECRET, {algorithm: 'RS256'});
+      const verify = jwt.verify(token, CUSTOM_JWT_SECRET, {algorithm: 'RS256'});
       hasuraVariables['X-Hasura-User-Id'] = verify['https://hasura.io/jwt/claims']['x-hasura-user-id']
       response.json(hasuraVariables);
-     } else {
+    } else {
       response.status(401);
       response.send('invalid issuer');
     }

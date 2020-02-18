@@ -11,7 +11,7 @@ DEPLOY=$2
 # go to each folder, build docker image and push
 tutorials() {
     for f in $REPO_PATH/tutorials/*;
-        do 
+        do
             [ -d $f ] && cd "$f"
             for tutorial in $f/*;
                 do
@@ -40,11 +40,11 @@ homepage() {
     if [[ -d "services/homepage" ]]; then
         cd "services/homepage"
         echo "Building docker image for learn homepage"
-        docker build -t hasura/learn-homepage:$GIT_HASH .
+        #docker build -t hasura/learn-homepage:$GIT_HASH .
         echo "Pushing docker image for learn homepage"
-        docker push hasura/learn-homepage:$GIT_HASH
+        #docker push hasura/learn-homepage:$GIT_HASH
         echo "Updating kubernetes deployment for learn homepage"
-        #kubectl set image deployment homepage hasura/learn-homepage:$GIT_HASH
+        kubectl set image deployment/homepage homepage=hasura/learn-homepage:$GIT_HASH
     fi
 }
 
@@ -57,7 +57,7 @@ authserver() {
         echo "Pushing docker image for auth server"
         docker push hasura/learn-auth-jwt-server:$GIT_HASH
         echo "Updating kubernetes deployment for auth server"
-        #kubectl set image deployment auth-jwt-server hasura/learn-auth-jwt-server:$GIT_HASH
+        #kubectl set image deployment/auth-jwt-server auth-jwt-server=hasura/learn-auth-jwt-server:$GIT_HASH
     fi
 }
 
@@ -69,7 +69,7 @@ authwebhook() {
         echo "Pushing docker image for auth webhook"
         docker push hasura/learn-auth-webhook:$GIT_HASH
         echo "Updating kubernetes deployment for auth webhook"
-        #kubectl set image deployment auth-webhook hasura/learn-auth-server:$GIT_HASH
+        #kubectl set image deployment/auth-webhook auth-webhook=hasura/learn-auth-server:$GIT_HASH
     fi
 }
 

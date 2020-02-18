@@ -13,18 +13,18 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <meta name="title" content="GraphQL Tutorials for Developers" />
-          <meta name="description" content="Learn how to integrate GraphQL APIs with your favorite frontend / mobile framework and Hasura GraphQL Engine" />
-          <meta property="og:title" content="GraphQL Tutorials for Developers" />
-          <meta property="og:description" content="Learn how to integrate GraphQL APIs with your favorite frontend / mobile framework and Hasura GraphQL Engine" />
+          <meta name="title" content="Fullstack GraphQL Tutorials for Developers" />
+          <meta name="description" content="Tutorials to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
+          <meta property="og:title" content="Fullstack GraphQL Tutorials for Developers" />
+          <meta property="og:description" content="Tutorials to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
           <meta property="og:image" content="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-homepage.png" />
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:title" content="GraphQL Tutorials for Developers" />
-          <meta property="twitter:description" content="Learn how to integrate GraphQL APIs with your favorite frontend / mobile framework and Hasura GraphQL Engine" />
+          <meta property="twitter:description" content="Tutorials to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
           <meta property="twitter:image" content="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-homepage.png" />
           {this.props.headComponents}
           <link rel="shortcut icon" href="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png" type="image/png" />
-          <link rel="canonical" href="https://hasura.io/learn" />
+          <link rel="canonical" href="https://hasura.io/learn/" />
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossOrigin="anonymous" />
           <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"

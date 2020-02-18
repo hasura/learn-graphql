@@ -7,11 +7,11 @@ const config = {
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-		"logoLink": "https://hasura.io/learn",
-		"title": "<a href='https://hasura.io/learn'>/ graphql </a><a href='https://hasura.io/learn/graphql/angular-apollo'>/ angular-apollo</a>",
+		"logoLink": "https://hasura.io/learn/",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/angular-apollo/introduction/'>/ angular-apollo</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for Angular developers by @HasuraHQ https://hasura.io/learn/graphql/angular-apollo",
+		"tweetText": "Check out this GraphQL course for Angular developers by @HasuraHQ https://hasura.io/learn/graphql/angular-apollo/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"

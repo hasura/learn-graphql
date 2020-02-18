@@ -25,9 +25,9 @@ tutorials() {
                         cd "tutorial-site"
                         echo "hasura/$current_tutorial:$GIT_HASH"
                         echo "Building docker image"
-                        docker build -t hasura/$current_tutorial:$GIT_HASH .
+                        #docker build -t hasura/$current_tutorial:$GIT_HASH .
                         echo "Pushing docker image"
-                        docker push hasura/$current_tutorial:$GIT_HASH
+                        #docker push hasura/$current_tutorial:$GIT_HASH
                         echo "Updating kubernetes deployment"
                         #kubectl set image deployment $current_tutorial $current_tutorial=hasura/$current_tutorial:$GIT_HASH
                     fi
@@ -44,7 +44,7 @@ homepage() {
         echo "Pushing docker image for learn homepage"
         #docker push hasura/learn-homepage:$GIT_HASH
         echo "Updating kubernetes deployment for learn homepage"
-        kubectl set image deployment/homepage homepage=hasura/learn-homepage:$GIT_HASH
+        #kubectl set image deployment/homepage homepage=hasura/learn-homepage:$GIT_HASH
     fi
 }
 

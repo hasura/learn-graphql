@@ -8,10 +8,10 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/react'>/ react</a>",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/react/introduction/'>/ react</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for React developers by @HasuraHQ https://hasura.io/learn/graphql/react",
+		"tweetText": "Check out this GraphQL course for React developers by @HasuraHQ https://hasura.io/learn/graphql/react/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"

@@ -6,15 +6,12 @@ const config = {
     "trailingSlash": true
   },
   header: {
-    logo:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
+    logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
     logoLink: "https://hasura.io/learn/",
-    title:
-      "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/flutter-graphql'>/ flutter</a>",
+    title: "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/flutter-graphql/introduction/'>/ flutter</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discordapp.com/invite/vBPpJkS",
-    tweetText:
-      "Check out this GraphQL course for Flutter developers by @HasuraHQ https://hasura.io/learn/graphql/flutter-graphql",
+    tweetText: "Check out this GraphQL course for Flutter developers by @HasuraHQ https://hasura.io/learn/graphql/flutter-graphql/introduction/",
     links: [
       {
         text: "hasura.io",

@@ -22,7 +22,7 @@ const FrontendTutorials = () => {
             </div>
             <div className='greenLineSeperator'></div>
             <h1 className='pageHeader'>
-              Frontend Tutorials
+              Frontend GraphQL Tutorials
             </h1>
             <div className='sectionDescriptionTitle'>
               These open-source community maintained tutorials  will help you learn GraphQL by doing! These are backend agnostic tutorials where you will integrate GraphQL APIs into your favourite frontend framework and get productive with GraphQL in ~2 hours!
@@ -50,90 +50,90 @@ const FrontendTutorials = () => {
             </div>
             <div className='col-md-5 col-sm-5 col-xs-12 noPadd'>
               <div className='boxWrapper'>
-                <a href="https://hasura.io/learn/graphql/react" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/react/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React Apollo GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       React + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/angular-apollo" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/angular-apollo/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/angular-original.svg" alt="Angular"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/angular-original.svg" alt="Angular Apollo GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       Angular + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/vue" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/vue/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/vue-original.svg" alt="Vue"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/vue-original.svg" alt="Vue Apollo GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       Vue + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/elm-graphql" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/elm-graphql/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/elm-original.jpg" alt="Elm"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/elm-original.jpg" alt="Elm GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       Elm + GraphQL
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/typescript-react-apollo" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/typescript-react-apollo/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/typescript-original.png" alt="Typescript"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/typescript-original.png" alt="Typescript React Apollo GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       Typescript + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/react-native/introduction" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/react-native/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React native"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/react-original.svg" alt="React Native Apollo GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       React Native + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/reason-react-apollo" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/reason-react-apollo/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/reasonml-original.svg" alt="ReasonML"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/reasonml-original.svg" alt="ReasonML React Apollo Tutorial"/>
                     <div className='overlayWrapper'>
                       ReasonML + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/flutter-graphql" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/flutter-graphql/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/flutter-original.svg" alt="Flutter"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/flutter-original.svg" alt="Flutter GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       Flutter + GraphQL
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/ios" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/ios/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/ios-original.png" alt="IOS"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/ios-original.png" alt="iOS Apollo GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
-                      IOS + Apollo
+                      iOS + Apollo
                       <div className="downArrow"></div>
                     </div>
                   </div>
                 </a>
-                <a href="https://hasura.io/learn/graphql/android" target='_blank' rel="noopener noreferrer">
+                <a href="https://hasura.io/learn/graphql/android/introduction/" target='_blank' rel="noopener noreferrer">
                   <div className='box'>
-                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/android-original.svg" alt="Android"/>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/android-original.svg" alt="Android Apollo GraphQL Tutorial"/>
                     <div className='overlayWrapper'>
                       Android + Apollo
                       <div className="downArrow"></div>

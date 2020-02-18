@@ -32,6 +32,7 @@ const frontendTutorial = [
   {
     name: 'React',
     url: 'https://hasura.io/learn/graphql/react/introduction/',
+    alt: 'React Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: reactWhite,
     hoverImgSrc: reactGreen,
@@ -39,6 +40,7 @@ const frontendTutorial = [
   {
     name: 'Vue',
     url: 'https://hasura.io/learn/graphql/vue/introduction/',
+    alt: 'Vue Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: vueWhite,
     hoverImgSrc: vueGreen,
@@ -46,6 +48,7 @@ const frontendTutorial = [
   {
     name: 'Angular',
     url: 'https://hasura.io/learn/graphql/angular-apollo/introduction/',
+    alt: 'Angular Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: angularWhite,
     hoverImgSrc: angularGreen,
@@ -53,6 +56,7 @@ const frontendTutorial = [
   {
     name: 'Typescript',
     url: 'https://hasura.io/learn/graphql/typescript-react-apollo/introduction/',
+    alt: 'Typescript React Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: typescriptWhite,
     hoverImgSrc: typescriptGreen,
@@ -60,6 +64,7 @@ const frontendTutorial = [
   {
     name: 'Elm',
     url: 'https://hasura.io/learn/graphql/elm-graphql/introduction/',
+    alt: 'Elm GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: elmWhite,
     hoverImgSrc: elmGreen,
@@ -67,6 +72,7 @@ const frontendTutorial = [
   {
     name: 'ReasonML',
     url: 'https://hasura.io/learn/graphql/reason-react-apollo/introduction/',
+    alt: 'ReasonML React Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: reasonmlWhite,
     hoverImgSrc: reasonmlGreen,
@@ -92,6 +98,7 @@ const mobileTutorial = [
   {
     name: 'React Native',
     url: 'https://hasura.io/learn/graphql/react-native/introduction/',
+    alt: 'React Native Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: reactWhite,
     hoverImgSrc: reactGreen,
@@ -99,6 +106,7 @@ const mobileTutorial = [
   {
     name: 'iOS',
     url: 'https://hasura.io/learn/graphql/ios/introduction/',
+    alt: 'iOS Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: iosWhite,
     hoverImgSrc: iosGreen,
@@ -106,6 +114,7 @@ const mobileTutorial = [
   {
     name: 'Android',
     url: 'https://hasura.io/learn/graphql/android/introduction/',
+    alt: 'Android Apollo GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: androidWhite,
     hoverImgSrc: androidGreen,
@@ -113,6 +122,7 @@ const mobileTutorial = [
   {
     name: 'Flutter',
     url: 'https://hasura.io/learn/graphql/flutter-graphql/introduction/',
+    alt: 'Flutter GraphQL Tutorial',
     comingSoon: false,
     baseImgSrc: flutterWhite,
     hoverImgSrc: flutterGreen,

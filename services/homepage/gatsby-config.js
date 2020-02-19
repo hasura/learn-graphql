@@ -1,10 +1,10 @@
 module.exports = {
 	"siteMetadata": {
-  		"pathPrefix": "/learn",
     	"title": 'Fullstack GraphQL Tutorials',
 		"description": 'Learn how to integrate GraphQL APIs with Hasura GraphQL Engine',
 		"siteUrl": 'https://hasura.io'
   	},
+  	"pathPrefix": "/learn",
 	"plugins" : [
 		"gatsby-plugin-sass",
 		{

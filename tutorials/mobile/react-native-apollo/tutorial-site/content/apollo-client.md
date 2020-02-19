@@ -54,7 +54,7 @@ export default makeApolloClient;
 Let's try to understand what is happening here. 
 
 ### HttpLink and InMemoryCache
-We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at https://hasura.io/learn/graphql
+We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at `https://hasura.io/learn/graphql`
 
 At the end, we instantiate ApolloClient by passing in our HttpLink and a new instance of `InMemoryCache` (recommended caching solution). We are wrapping all of this in a function which will return the client.
 

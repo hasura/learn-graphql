@@ -10,7 +10,7 @@ In 30 mins, you will setup a powerful, realtime and secure GraphQL Backend for S
 
 ## Pre-requisites
 
-- You should have some familiarity with Hasura to quickly dive into the Auth sections that this course focuses on. In case you are new to Hasura, we recommend you go over the [Introduction to Hasura Backend](https://hasura.io/learn/graphql/hasura/introduction) Course before taking this.
+- You should have some familiarity with Hasura to quickly dive into the Auth sections that this course focuses on. In case you are new to Hasura, we recommend you go over the [Introduction to Hasura Backend](https://hasura.io/learn/graphql/hasura/introduction/) Course before taking this.
 
 ## What will I learn?
 

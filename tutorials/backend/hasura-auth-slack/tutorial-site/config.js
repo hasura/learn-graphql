@@ -10,7 +10,7 @@ const config = {
 		"title": "/ graphql / hasura-auth-slack",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ https://hasura.io/learn/graphql/hasura-auth-slack/introduction",
+		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ https://hasura.io/learn/graphql/hasura-auth-slack/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"

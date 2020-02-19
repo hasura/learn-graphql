@@ -108,6 +108,6 @@ Finally, let's add ApolloProvider. The provider holds the Apollo client instance
 ```
 Let's try to understand what is happening here.
 
-We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at https://hasura.io/learn/graphql
+We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at `https://hasura.io/learn/graphql`
 Subsequently, we instantiate ApolloClient by passing in our HttpLink and a new instance of `InMemoryCache` (recommended caching solution).
 Finally, we are adding ApolloProvider to the Vue app.

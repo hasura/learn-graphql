@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TwitterShare = ({ platform = 'iOS' }) => {
-  const tweet = `https://twitter.com/intent/tweet?&text=I just completed this GraphQL course for ${platform} developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/ios`
+  const tweet = `https://twitter.com/intent/tweet?&text=I just completed this GraphQL course for ${platform} developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/ios/introduction/`
   return (
     <React.Fragment>
       <a href={tweet} target="_blank" rel="noopener noreferrer">

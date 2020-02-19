@@ -1,7 +1,7 @@
 Tutorial
 --------
 
-- [Vue](https://hasura.io/learn/graphql/vue/introduction)
+- [Vue]https://hasura.io/learn/graphql/vue/introduction/
 - [Hasura GraphQL Endpoint](https://hasura.io/learn/graphql)
 
 Tech stack

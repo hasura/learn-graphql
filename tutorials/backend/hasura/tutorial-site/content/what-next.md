@@ -17,8 +17,8 @@ Here's the [invite link](https://discordapp.com/invite/vBPpJkS) to join discord.
 ## Take the frontend course
 We have courses for your favorite frontend frameworks like React, Vue etc using the same backend that you just created.
 
-- React - [https://hasura.io/learn/graphql/react](https://hasura.io/learn/graphql/react)
-- Vue - [https://hasura.io/learn/graphql/vue](https://hasura.io/learn/graphql/vue)
+- React - [https://hasura.io/learn/graphql/react](https://hasura.io/learn/graphql/react/introduction/)
+- Vue - [https://hasura.io/learn/graphql/vue](https://hasura.io/learn/graphql/vue/introduction/)
 
 ## Spread the word!
 Liked the course? 

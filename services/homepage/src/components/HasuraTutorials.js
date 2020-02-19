@@ -34,7 +34,7 @@ const HasuraTutorials = () => {
                   <li><img src={expandBlue} alt='Expand'/>Remote Schemas, Event triggers</li>
                 </ul>
                 <div className='arrowLink'>
-                  <a href="/learn/graphql/hasura/introduction" target='_blank' rel="noopener noreferrer">
+                  <a href="/learn/graphql/hasura/introduction/" target='_blank' rel="noopener noreferrer">
                     START HASURA BASICS<img src={arrowBlue} alt='Arrow'/>
                   </a>
                 </div>
@@ -53,7 +53,7 @@ const HasuraTutorials = () => {
                   <li><img src={expandRed} alt='Expand'/>Allow Lists</li>
                 </ul>
                 <div className='arrowLink'>
-                  <a href="/learn/graphql/hasura-auth-slack/introduction" target='_blank' rel="noopener noreferrer">
+                  <a href="/learn/graphql/hasura-auth-slack/introduction/" target='_blank' rel="noopener noreferrer">
                     START AUTHENTICATION WITH HASURA<img src={arrowRed} alt='Arrow'/>
                   </a>
                 </div>

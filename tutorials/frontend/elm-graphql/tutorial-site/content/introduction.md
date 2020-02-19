@@ -42,6 +42,6 @@ Less than 2 hours
 
 ## Other courses
 
-**Frontend**: GraphQL for: [React](https://hasura.io/learn/graphql/react), [Vue](https://hasura.io/learn/graphql/vue), [React Native](https://hasura.io/learn/graphql/react-native), [iOS](https://hasura.io/learn/graphql/ios)
+**Frontend**: GraphQL for: [React](https://hasura.io/learn/graphql/react/introduction/), [Vue](https://hasura.io/learn/graphql/vue/introduction/), [React Native](https://hasura.io/learn/graphql/react-native/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/)
 
 **Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)

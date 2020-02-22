@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/styles.scss';
 
 const TopBanner = () => {
@@ -7,12 +7,12 @@ const TopBanner = () => {
   const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
   const discordBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg'
   const twitterBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg'
-  const close = require('../images/close.svg');
-  const arrowForwardPink = require('../images/arrow-forward-pink.svg');
-  const [banner, setBanner] = useState(true);
+  // const close = require('../images/close.svg');
+  // const arrowForwardPink = require('../images/arrow-forward-pink.svg');
+  // const [banner, setBanner] = useState(true);
   return (
     <div>
-      {
+      {/*
         (banner) ? (
           <div className='bannerStripWrapper hidden-xs'>
             <a href="https://graphql.asia" target="_blank" rel="noopener noreferrer">
@@ -27,13 +27,12 @@ const TopBanner = () => {
                 </div>
               </div>
             </a>
-            {/* eslint-disable-next-line */}
             <div className='closeBanner' onClick={() => setBanner(false)}>
               <img className={'img-responsive'} src={close} alt={'Close'} />
             </div>
           </div>
         ) : null
-      }
+      */}
 
       <section className='blueBgColor positionRel'>
         <div className='container noPadd'>

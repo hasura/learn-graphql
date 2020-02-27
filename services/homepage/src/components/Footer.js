@@ -30,6 +30,8 @@ const Footer = () => {
                   <h4>Product</h4>
                   <p className='pSmall'><a href="https://hasura.io/all-features" target="_blank" rel="noopener noreferrer">All Features</a></p>
                   <p className='pSmall'><a href="https://github.com/hasura" target="_blank" rel="noopener noreferrer" aria-label="Open source">Opensource</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/enterprise" target="_blank" rel="noopener noreferrer" aria-label="Enterprise">Enterprise</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/hasura-pro" target="_blank" rel="noopener noreferrer" aria-label="Hasura Pro">Hasura Pro</a></p>
                   <p className='pSmall'><a href="https://hasura.io/event-triggers" target="_blank" rel="noopener noreferrer">Event Triggers</a></p>
                   <p className='pSmall'><a href="https://blog.hasura.io/remote-joins-a-graphql-api-to-join-database-and-other-data-sources/" target={'_blank'} rel="noopener noreferrer" aria-label="Remote joins">Remote Joins</a></p>
                   <p className='pSmall'><a href="https://hasura.io/pricing" target="_blank" rel="noopener noreferrer">Pricing</a></p>

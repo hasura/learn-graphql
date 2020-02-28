@@ -19,6 +19,21 @@ We are just mapping current view's id column to users table's id column to creat
 
 ![create relationship from view](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-relationship-view.png)
 
+Let's explore the GraphQL APIs for the relationship created.
+
+```
+subscription {
+  online_users {
+    id
+    last_seen
+    user {
+      id
+      name
+    }
+  }
+}
+```
+
 Great! We are completely done with data modelling for the app.
 
 

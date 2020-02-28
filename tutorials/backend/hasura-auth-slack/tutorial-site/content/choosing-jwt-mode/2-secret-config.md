@@ -10,7 +10,7 @@ Follow the instructions [here](https://github.com/hasura/learn-graphql/tree/mast
 
 ### Authenticate JWT using GraphQL Engine
 
-The GraphQL engine comes with built in JWT authentication.  You will need to start the engine with the same secret/key as the JWT auth server using the environment variable `HASURA_GRAPHQL_JWT_SECRET` (HASURA_GRAPHQL_ADMIN_SECRET is also required to set this up). Read more in [docs](https://docs.hasura.io/1.0/graphql/manual/auth/authentication/jwt.html#running-with-jwt)
+The GraphQL engine comes with built in JWT authentication.  You will need to start the engine with the same secret/key as the JWT auth server using the environment variable `HASURA_GRAPHQL_JWT_SECRET` (HASURA_GRAPHQL_ADMIN_SECRET is also required to set this up). Read more in [docs](https://hasura.io/docs/1.0/graphql/manual/auth/authentication/jwt.html#running-with-jwt)
 
 A sample CURL command using the above token would be:
 

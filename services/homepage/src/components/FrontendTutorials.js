@@ -22,10 +22,10 @@ const FrontendTutorials = () => {
             </div>
             <div className='greenLineSeperator'></div>
             <h1 className='pageHeader'>
-              Frontend GraphQL Tutorials
+              Frontend GraphQL Tutorial
             </h1>
             <div className='sectionDescriptionTitle'>
-              These open-source community maintained tutorials  will help you learn GraphQL by doing! These are backend agnostic tutorials where you will integrate GraphQL APIs into your favourite frontend framework and get productive with GraphQL in ~2 hours!
+              These open-source community maintained tutorials will help you learn GraphQL by doing! These are backend agnostic tutorials where you will integrate GraphQL APIs into your favourite frontend framework and get productive with GraphQL in ~2 hours!
             </div>
             <div className='col-md-7 col-sm-7 col-xs-12 noPadd'>
               <h2>What you will learn</h2>

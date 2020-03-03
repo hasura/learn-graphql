@@ -7,7 +7,8 @@ const config = {
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_white.svg",
-		"title": "/ graphql / hasura-auth-slack",
+		"logoLink": "https://hasura.io/learn/",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/hasura-auth-slack/introduction/'>/ hasura-auth-slack</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
 		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ https://hasura.io/learn/graphql/hasura-auth-slack/introduction/",

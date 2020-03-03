@@ -14,7 +14,7 @@ const HasuraTutorials = () => {
         <div className='frontendTutorialWrapper'>
           <div className='col-md-12 noPadd'>
             <h1 className='pageHeader'>
-              Hasura Tutorials
+              Hasura Backend Tutorial
             </h1>
             <div className='sectionDescriptionTitle wd50'>
               These are tutorials put together by our team to help new users get familiar with Hasura by building a fully functional realtime backend with Hasura.

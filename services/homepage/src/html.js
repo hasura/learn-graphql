@@ -6,21 +6,21 @@ export default class HTML extends React.Component {
     return (
       <html {...this.props.htmlAttributes} lang="en-us">
         <head>
-          <title>Fullstack GraphQL Tutorials for Developers</title>
+          <title>Fullstack GraphQL Tutorial for Developers</title>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <meta name="title" content="Fullstack GraphQL Tutorials for Developers" />
-          <meta name="description" content="Tutorials to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
-          <meta property="og:title" content="Fullstack GraphQL Tutorials for Developers" />
-          <meta property="og:description" content="Tutorials to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
+          <meta name="title" content="Fullstack GraphQL Tutorial for Developers" />
+          <meta name="description" content="Tutorial to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
+          <meta property="og:title" content="Fullstack GraphQL Tutorial for Developers" />
+          <meta property="og:description" content="Tutorial to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
           <meta property="og:image" content="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-homepage.png" />
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:title" content="GraphQL Tutorials for Developers" />
-          <meta property="twitter:description" content="Tutorials to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
+          <meta property="twitter:title" content="Fullstack GraphQL Tutorial for Developers" />
+          <meta property="twitter:description" content="Tutorial to help you learn how to integrate GraphQL APIs and your favorite frontend frameworks like React, Angular, Vue with a Hasura Backend" />
           <meta property="twitter:image" content="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-homepage.png" />
           {this.props.headComponents}
           <link rel="shortcut icon" href="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png" type="image/png" />

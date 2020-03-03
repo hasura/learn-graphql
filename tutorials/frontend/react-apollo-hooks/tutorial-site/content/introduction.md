@@ -49,7 +49,7 @@ Less than 2 hours
 
 **Mobile**: GraphQL for: [React Native](https://hasura.io/learn/graphql/react-native/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/), [Android](https://hasura.io/learn/graphql/android/introduction/), [Flutter](https://hasura.io/learn/graphql/flutter-graphql/introduction/)
 
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
+**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)
 
 <CommunityAuthor 
     name="Apoorv Vardhan"

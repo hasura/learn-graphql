@@ -14,7 +14,7 @@ Ideally you would want to maintain a single GraphQL endpoint for all your data r
 
 Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. To handle the use-case of fetching Auth0 profile information, we will write custom resolvers in a custom GraphQL server. Hasura can then merge this custom GraphQL server with the existing auto-generated schema. This custom GraphQL server is the `Remote Schema`.
 
-![Remote schema architecture](https://docs.hasura.io/1.0/_images/remote-schemas-arch1.png)
+![Remote schema architecture](https://hasura.io/docs/1.0/_images/remote-schemas-arch1.png)
 
 ## Write GraphQL custom resolver
 So let's write a custom resolver which can be later merged into Hasura's GraphQL API.

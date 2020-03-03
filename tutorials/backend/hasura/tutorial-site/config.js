@@ -7,10 +7,11 @@ const config = {
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_white.svg",
-		"title": "/ graphql / hasura",
+		"logoLink": "https://hasura.io/learn/",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/hasura/introduction/'>/ hasura</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this Introduction to Hasura GraphQL backend course for frontend developers by @HasuraHQ https://hasura.io/learn/graphql/hasura",
+		"tweetText": "Check out this Introduction to Hasura GraphQL backend course for frontend developers by @HasuraHQ https://hasura.io/learn/graphql/hasura/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
@@ -38,7 +39,7 @@ const config = {
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://docs.hasura.io"
+			"link": "https://hasura.io/docs"
 			},
 			{
 			"text": "GraphQL Docs",

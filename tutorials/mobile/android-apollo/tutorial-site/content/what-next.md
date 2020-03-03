@@ -11,7 +11,7 @@ In case you are wondering what to do next, you have the following options:
 
 ## Take the Hasura backend course
 
-We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura) backend course to build the backend that you just used for your Android app.
+We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/) backend course to build the backend that you just used for your Android app.
 
 ## Join Discord for Support
 

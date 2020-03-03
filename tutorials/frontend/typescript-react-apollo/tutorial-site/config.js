@@ -41,7 +41,7 @@ const config = {
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://docs.hasura.io"
+			"link": "https://hasura.io/docs"
 			},
 			{
 			"text": "GraphQL Docs",

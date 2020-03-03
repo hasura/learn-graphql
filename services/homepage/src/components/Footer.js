@@ -30,8 +30,10 @@ const Footer = () => {
                   <h4>Product</h4>
                   <p className='pSmall'><a href="https://hasura.io/all-features" target="_blank" rel="noopener noreferrer">All Features</a></p>
                   <p className='pSmall'><a href="https://github.com/hasura" target="_blank" rel="noopener noreferrer" aria-label="Open source">Opensource</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/enterprise" target="_blank" rel="noopener noreferrer" aria-label="Enterprise">Enterprise</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/hasura-pro" target="_blank" rel="noopener noreferrer" aria-label="Hasura Pro">Hasura Pro</a></p>
                   <p className='pSmall'><a href="https://hasura.io/event-triggers" target="_blank" rel="noopener noreferrer">Event Triggers</a></p>
-                  <p className='pSmall'><a href="https://blog.hasura.io/remote-joins-a-graphql-api-to-join-database-and-other-data-sources/" target={'_blank'} rel="noopener noreferrer" aria-label="Remote joins">Remote Joins</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/blog/remote-joins-a-graphql-api-to-join-database-and-other-data-sources/" target={'_blank'} rel="noopener noreferrer" aria-label="Remote joins">Remote Joins</a></p>
                   <p className='pSmall'><a href="https://hasura.io/pricing" target="_blank" rel="noopener noreferrer">Pricing</a></p>
                   <p className='pSmall'><a href="https://github.com/hasura/graphql-engine/releases" target="_blank" rel="noopener noreferrer" aria-label="Changelog">Changelog</a></p>
                 </div>
@@ -39,7 +41,7 @@ const Footer = () => {
               <div className='col-md-4 col-sm-4 col-xs-12'>
                 <div className='footerLinks'>
                   <h4>Resources</h4>
-                  <p className='pSmall'><a href="https://blog.hasura.io/" target="_blank" rel="noopener noreferrer" aria-label="Blog">Blog</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/blog/" target="_blank" rel="noopener noreferrer" aria-label="Blog">Blog</a></p>
                   <p className='pSmall'><a href="https://hasura.io/user-stories" target="_blank" rel="noopener noreferrer">User Stories</a></p>
                   <p className='pSmall'><a href="https://3factor.app/" target="_blank" rel="noopener noreferrer" aria-label="3Factor app">3Factor Apps</a></p>
                   <p className='pSmall'><a href="https://hasura.io/react-graphql" target="_blank" rel="noopener noreferrer">React GraphQL</a></p>
@@ -51,7 +53,7 @@ const Footer = () => {
                 <div className='footerLinks'>
                   <h4>Community</h4>
                   <p className='pSmall'><a href="https://hasura.io/community">Community Resources</a></p>
-                  <p className='pSmall'><a href="https://hasura.io/learn/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL tutorials">GraphQL Tutorials</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/learn/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL Tutorial">GraphQL Tutorial</a></p>
                   <p className='pSmall'><a href="https://github.com/hasura/graphql-engine/wiki" target="_blank" rel="noopener noreferrer" aria-label="Community wiki">Community Wiki</a></p>
                   <p className='pSmall'><a href="https://hasura.io/sample-apps" target="_blank" rel="noopener noreferrer">Sample Apps</a></p>
                   <p className='pSmall'><a href="https://graphql.asia/" target="_blank" rel="noopener noreferrer" aria-label="GraphQL asia">GraphQL Asia</a></p>
@@ -72,7 +74,7 @@ const Footer = () => {
               <div className='col-md-4 col-sm-4 col-xs-12'>
                 <div className='footerLinks'>
                   <h4>Support</h4>
-                  <p className='pSmall'><a href="https://docs.hasura.io" target="_blank" rel="noopener noreferrer" aria-label="Documentation">Documentation</a></p>
+                  <p className='pSmall'><a href="https://hasura.io/docs" target="_blank" rel="noopener noreferrer" aria-label="Documentation">Documentation</a></p>
                   <p className='pSmall'><a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener noreferrer" aria-label="Community forum" >Community Forum</a></p>
                   <p className='pSmall'><a href="https://github.com/hasura/" target="_blank" rel="noopener noreferrer" aria-label="Github">Github</a></p>
                 </div>

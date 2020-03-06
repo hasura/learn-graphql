@@ -58,7 +58,7 @@ Any authenticated user who is a part of a workspace can post messages on the cha
 ## Update permission
 
 Users are not allowed to update a `channel_thread`.
-So then who is allowed to update the existing messages in `channel_message` table?
+So then who is allowed to update the existing messages in `channel_thread_message` table?
 
 - Any authenticated user can update their own message posted on any channel.
 

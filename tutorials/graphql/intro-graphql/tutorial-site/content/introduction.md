@@ -24,4 +24,4 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 - GraphQL Clients
 
 ## How long will this tutorial take?
-Less than 2 hours
+Less than an hour

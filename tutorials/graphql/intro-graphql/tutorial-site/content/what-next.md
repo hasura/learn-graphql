@@ -1,16 +1,17 @@
 ---
 title: "What next?"
 metaTitle: "What next? | GraphQL Tutorial"
+metaDescription: "By now, you should have a good grasp of GraphQL concepts and terminologies to be able to get your hands dirty in trying out the Backend or Frontend."
 ---
 
 import TwitterShare from "./twitter-share";
 
-Congratulations! You have successfully completed the course.
+Congratulations! That brings us to the end of the GraphQL Tutorial. By now, you should have a good grasp of GraphQL concepts and terminologies to be able to get your hands dirty in trying out the Backend or Frontend.
 
 In case you are wondering what to do next, you have the following options:
 
 ## Take the Hasura backend course
-We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/) backend course to build the backend that you just used for your react app.
+We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/) backend course to build the backend for a realtime todo app.
 
 ## Take the Frontend course
 We have a bunch of frontend courses based on the framework of your choice.

@@ -98,6 +98,8 @@ With REST APIs and proper HTTP status codes, a simple health check on a given en
 With REST APIs, all the GET endpoints can be cached at the server side or using a CDN. They can be cached by the browser as well and bookmarked by the client for frequent invocations.
 GraphQL doesn't follow the HTTP spec and is served over a single endpoint, usually (/graphql). Hence the queries cannot be cached in the same way as REST APIs. 
 
-However caching on the client side is better because of the tooling. Some of the clients implementing caching layer (Apollo Client, URQL) makes use of GraphQL's schema and type system to allow them to maintain a cache on the client side.
+However caching on the client side is better than REST because of the tooling. Some of the clients implementing caching layer (Apollo Client, URQL) makes use of GraphQL's schema and type system using Introspection to allow them to maintain a cache on the client side.
+
+We will learn more about Introspection in the coming sections.
 
 

@@ -47,5 +47,4 @@ A GraphQL subscription is a subscription query string sent to a websocket endpoi
 
 - You know how to make GraphQL subscriptions
 
-Now that you're comfortable with the basics of using GraphQL, let's start
-integrating GraphQL APIs with an app!
+Now that you're comfortable with the basics of using GraphQL, let's see how the servers and clients are structured.

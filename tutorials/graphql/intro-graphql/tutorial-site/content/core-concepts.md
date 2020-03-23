@@ -4,10 +4,21 @@ metaTitle: "GraphQL Core Concepts | GraphQL Tutorial"
 metaDescription: "Learn about the core concepts of GraphQL - document, operation, fields, arguments, variables, aliases, fragments and directives"
 ---
 
-Let's look at the core concepts of GraphQL from a client perspective.
+GraphQL introduces new set of concepts for someone coming from a REST API background. In this section we will look at the core concepts of GraphQL from a client / frontend perspective.
 
 ## GraphQL document 
-The content of a GraphQL request string is called the GraphQL document. The string follows a syntax which a GraphQL server or client can parse and validate.
+The content of a GraphQL request string is called the GraphQL document. This is a simple example of a document:
+
+```graphql
+{
+  author {
+    id
+    name
+  }
+}
+```
+
+The string follows a syntax like the above which a GraphQL server or client can parse and validate. The above syntax uses a shorthand notation for a query operation.
 
 ## GraphQL operation
 A GraphQL operation can be of type
@@ -16,9 +27,9 @@ A GraphQL operation can be of type
 - mutation (a write followed by fetch)
 - subscription (a long‐lived request that fetches data in response to source events.)
 
-GraphQL document can contain one or more of these operations (i.e multiple queries/mutations/subscriptions).
+A GraphQL document can contain one or more of these operations (i.e multiple queries/mutations/subscriptions).
 
-Let's look at a simple example of a GraphQL document:
+Let's look at a simple example of a GraphQL document with an operation:
 
 ```graphql
 query {
@@ -48,7 +59,7 @@ query {
 
 You would have realised that this is another GraphQL document with query operation.
 
-What is the rest of the document composed of? Read on.
+What is the rest of the document composed of? Let's see.
 
 #### Fields
 
@@ -198,6 +209,20 @@ Some default server directives supported by GraphQL spec are:
 - @deprecated(reason: String) - marks field as deprecated
 - @skip (if: Boolean) - Skips GraphQL execution for this field
 - @include (if: Boolean) - Calls resolver for annotated field, if true.
+
+For example:
+
+```graphql
+query ($showFullname: Boolean!) {
+  author {
+    id
+    name
+    fullname @include(if: $showFullname)
+  }
+}
+```
+
+In the above query, we include the field fullname, only if the condition is true (the condition can have its own logic depending on the app).
 
 You can also use custom directives to handle other use cases.
 

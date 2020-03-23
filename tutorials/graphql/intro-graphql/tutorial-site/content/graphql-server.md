@@ -29,10 +29,10 @@ The basic signature of a resolver looks like the following:
 resolverFunc(data, args, context, info)
 ```
 
-`data` - previously fetched data from the parent.
-`args` - key value pairs of arguments, optional. 
-`context` - state information per request, typically used for auth logic
-`info` - metadata about the selection context for traversal. 
+- `data` - previously fetched data from the parent.
+- `args` - key value pairs of arguments, optional. 
+- `context` - state information per request, typically used for auth logic
+- `info` - metadata about the selection context for traversal. 
 
 ## Compiler Approach
 

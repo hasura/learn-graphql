@@ -33,7 +33,7 @@ const config = {
 		    </a>
 		</li>`,
 		"search": {
-			"enabled": false,
+			"enabled": true,
 			"indexName": "learn-intro-graphql",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
@@ -44,8 +44,9 @@ const config = {
 		"forcedNavOrder": [
 			"/introduction/",
     		"/what-is-graphql/",
-    		"/core-concepts/",
     		"/graphql-vs-rest/",
+    		"/core-concepts/",
+    		"/introspection/",
     		"/graphql-queries/",
     		"/graphql-mutations/",
     		"/graphql-subscriptions/",

@@ -4,7 +4,7 @@ metaTitle: "GraphQL Core Concepts | GraphQL Tutorial"
 metaDescription: "Learn about the core concepts of GraphQL - document, operation, fields, arguments, variables, aliases, fragments and directives"
 ---
 
-GraphQL introduces new set of concepts for someone coming from a REST API background. In this section we will look at the core concepts of GraphQL from a client / frontend perspective.
+GraphQL introduces a new set of concepts for someone coming from a REST API background. In this section, we will look at the core concepts of GraphQL from a client/frontend perspective.
 
 ## GraphQL document 
 The content of a GraphQL request string is called the GraphQL document. This is a simple example of a document:
@@ -40,7 +40,7 @@ query {
 }
 ```
 
-In this example, document contains a query operation. GraphQL operation selects the set of information it needs, referred to as the selection set. In the above example, the query operation selects information about the `author` and their `id` and `name`.
+In this example, a document contains a query operation. GraphQL operation selects the set of information it needs, referred to as the selection set. In the above example, the query operation selects information about the `author` and its `id` and `name`.
 
 We will look into the anatomy of the document in detail now.
 
@@ -57,7 +57,7 @@ query {
 }
 ```
 
-You would have realised that this is another GraphQL document with query operation.
+You would have realized that this is another GraphQL document with query operation.
 
 What is the rest of the document composed of? Let's see.
 
@@ -65,7 +65,7 @@ What is the rest of the document composed of? Let's see.
 
 A GraphQL field describes a discrete piece of information. This information could be simple or complex with relationships between data.
 
-In the above document, everything enclosed within the operation are fields. (author, id and name).
+In the above document, everything enclosed within the operation is fields. (author, id, and name).
 
 ```
 author {
@@ -94,7 +94,7 @@ Here in addition to author fields, we also have articles fields allowing you to 
 
 #### Arguments
 
-Imagine fields as functions which return values. Now let's assume the function also accepts arguments which behave differently.
+Imagine fields as functions that return values. Now let's assume the function also accepts arguments that behave differently.
 
 In the above example,
 
@@ -106,7 +106,7 @@ The author field accepts an argument `limit` to limit the number of results retu
 
 #### Variables
 
-GraphQL query can be parameterized with variables for reuse and easy construction of queries on the client side.
+GraphQL queries can be parameterized with variables for reuse and easy construction of queries on the client-side.
 
 In the simple example above, assume the limit parameter is configurable by the user viewing the page, then it would be easier to pass a variable to the field argument.
 
@@ -129,7 +129,7 @@ The variable(s) is defined at the top of the operation and the value for the var
 
 #### Operation Name
 
-When the document contains multiple operations, the server has to know which one's to execute and map the results back in the same order. For example:
+When the document contains multiple operations, the server has to know which ones to execute and map the results back in the same order. For example:
 
 ```graphql
 query fetchAuthor {
@@ -151,7 +151,7 @@ This has two operations - one for fetching a single author and one for fetching 
 
 These are the most common ones typically used in a simple GraphQL request.
 
-But there are more concepts which is useful for complex apps.
+Here are some other concepts used by more complex apps.
 
 #### Aliases
 
@@ -171,7 +171,7 @@ When you are fetching information about an author, let's say you have two images
 
 #### Fragments
 
-Fragments make GraphQL's reusability even better. If there are some parts of your document that reuses the same set of fields on a given type, then fragment can be powerful.
+Fragments make GraphQL even more reusable. If there are some parts of your document that reuses the same set of fields on a given type, then fragment can be powerful.
 
 For example:
 
@@ -196,7 +196,7 @@ query fetchAuthors {
 }
 ```
 
-Notice the usage of fragment here - `...authorFields`. This type of usage is called a spread fragment. There's also inline fragments where you don't explictly declare fragment separately but use it inline in a query.
+Notice the usage of fragment here - `...authorFields`. This type of usage is called a spread fragment. There are also inline fragments where you don't explicitly declare fragment separately but use it inline in a query.
 
 #### Directives
 
@@ -206,9 +206,9 @@ The identifier `@` is optionally followed by a list of named arguments.
 
 Some default server directives supported by GraphQL spec are:
 
-- @deprecated(reason: String) - marks field as deprecated
+- @deprecated(reason: String) - marks the field as deprecated
 - @skip (if: Boolean) - Skips GraphQL execution for this field
-- @include (if: Boolean) - Calls resolver for annotated field, if true.
+- @include (if: Boolean) - Calls resolver for an annotated field, if true.
 
 For example:
 
@@ -226,5 +226,4 @@ In the above query, we include the field fullname, only if the condition is true
 
 You can also use custom directives to handle other use cases.
 
-These are some of the core concepts that you might encounter most of the time and getting familar with these should suffice to move forward.
-
+In your GraphQL adventures, you’re sure to run into these core concepts. Now you’re equipped to work with them!

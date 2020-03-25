@@ -7,8 +7,8 @@ metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation ex
 import {Link} from "gatsby";
 
 These are the concepts you should know before you attack mutations (haha):
-- <Link to="/intro-to-graphql/2-fetching-data-queries#graphiql">Using GraphiQL</Link>
-- <Link to="/intro-to-graphql/2-fetching-data-queries#query-variables">Using query variables</Link>
+- <Link to="/learn/graphql/intro-to-graphql/graphql-queries#graphiql">Using GraphiQL</Link>
+- <Link to="/learn/graphql/intro-to-graphql/graphql-queries#query-variables">Using query variables</Link>
 
 Now, let's get started with seeing how we can use GraphQL to "write" data.
 GraphQL mutations are types of GraphQL queries that may result in the state
@@ -28,7 +28,7 @@ service, say if your API team has built their own,  might be different.
 Let's make an API call to create a todo. As you would have guessed, this
 will be a critical portion of our todo app. 😉
 
-> **Protip**: Now let's say we don't know what the name of the mutation to 
+> **Protip**: Now let's say we don't know the name of the mutation to 
 > create a todo. GraphiQL to the rescue!
 > Head to GraphiQL and on the right, click on the "docs" tab.
 > Type "todo" there and you'll see a list of GraphQL queries and types
@@ -103,6 +103,8 @@ mutation($todo: todos_insert_input!){
   }
 }
 ```
+
+Here the `todos_insert_input` is the type of the variable `$todo` and `!` is used to denote that it is a mandatory input.
 
 <!-- [//]: # TODO: -->
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>

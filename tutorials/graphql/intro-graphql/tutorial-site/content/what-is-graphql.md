@@ -7,9 +7,9 @@ metaDescription: "What is GraphQL? GraphQL is a specification for how to talk to
 ## What is GraphQL?
 GraphQL is a specification for how to talk to an API. It's typically used over HTTP where the key idea is to `POST` a "query" to an HTTP endpoint, instead of hitting different HTTP endpoints for different resources.
 
-GraphQL is designed for developers of web/mobile apps (HTTP clients) to be able to make API calls to fetch the data they need exactly from their backend APIs conveniently.
+GraphQL is designed for developers of web/mobile apps (HTTP clients) to be able to make API calls to fetch exactly the data they need from their backend APIs.
 
-Before going further in understanding GraphQL, it's useful to get a sense of how GraphQL is actually used in an HTTP client (typically a web/mobile app).
+Before going further in understanding GraphQL, it's useful to get a sense of how GraphQL is actually used in an HTTP client.
 
 ## GraphQL over HTTP
 Check out the diagram below, to get a sense of how GraphQL is typically used in

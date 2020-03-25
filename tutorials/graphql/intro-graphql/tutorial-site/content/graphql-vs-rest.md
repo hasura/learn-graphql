@@ -45,7 +45,7 @@ query {           |   {
 
 We're changing the way we think about API calls. Instead of making different API calls to different URLs to fetch data, we're making ad-hoc queries to a "single URL endpoint" that returns data based on the query.
 - Instead of 'GET'ing a resource you 'POST' a query that describes what data you want.
-- You think of the data your API returns as a "graph", this allows you to make queries to fetch "related" pieces of data in a single shot. In the example above, you fetch the user and the user's address (as a nested JSON object) in the same API call, as opposed to making 2 API calls.
+- You think of the data your API returns as a "graph", this allows you to make queries to fetch "related" pieces of data in a single shot. In the example above, you fetch the user and the user's address (as a nested JSON object) in the same API call, as opposed to making two API calls.
 - The "query" you send as data in the POST request has a structure and a syntax. This "language" is called GraphQL.
 
 As you can see in the example above, GraphQL queries look very neat and easy to
@@ -56,7 +56,7 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
 
 - **Avoid over-fetching**: You avoid fetching more data than you need because you can specify the exact **fields** you need.
 - **Prevent multiple API calls**: In case you need more data, you can also avoid making multiple calls to your API. In the case above, you don't need to make 2 API calls to fetch `user` and `address` separately.
-- **Lesser communication with API developers**: Sometimes to fetch the exact data you need, especially if you need to fetch more data and want to avoid multiple API calls, you will need to ask your API developers to build a new API. With GraphQL, your work is *independent* of the API team! This allows you to work faster on your app.
+- **Less communication overhead with API developers**: Sometimes to fetch the exact data you need, especially if you need to fetch more data and want to avoid multiple API calls, you will need to ask your API developers to build a new API. With GraphQL, your work is *independent* of the API team! This allows you to work faster on your app.
 - **Self-documenting**: Every GraphQL API conforms to a "schema" which is the graph data model and what kinds of queries a client can make. This allows the community to build lots of cool tools to explore & visualise your API or create IDE plugins that autocomplete your GraphQL queries and even do "codegen". We'll understand this in more detail later!
 
 Here's a quick chart to show you the GraphQL analogs of typical REST-ish terms:
@@ -64,7 +64,7 @@ Here's a quick chart to show you the GraphQL analogs of typical REST-ish terms:
 | Requirement | REST | GraphQL |
 | :-- | :-- | :-- |
 | Fetching data objects | GET | query |
-| Writing data | POST | mutation |
+| Inserting data | POST | mutation |
 | Updating/deleting data | PUT/PATCH/DELETE | mutation |
 | Watching/subscribing to data | - | subscription |
 

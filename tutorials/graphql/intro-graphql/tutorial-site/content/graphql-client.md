@@ -34,7 +34,7 @@ fetch('/graphql', {
 
 This of course, assumes that your server accepts GraphQL requests over HTTP. (Remember GraphQL is protocol agnostic?).
 
-## Why do i need a GraphQL Client?
+## Why do I need a GraphQL Client?
 
 Now that you have learnt that requests can be made using the old fetch API method, what is the point of a GraphQL client?
 
@@ -62,4 +62,6 @@ In addition to freeing you from strings, they offer
 - Strong typing
 - Single source of truth for type definitions
 - Autocompletion of queries
+
+Here is a [list of Fluent GraphQL Clients](https://github.com/hasura/awesome-fluent-graphql) that you can try out.
 

@@ -22,6 +22,6 @@ Note that introspection queries start with `__`.
 
 ## Community Tooling
 
-The ability to introspect is what allows the community to build awesome tooling around GraphQL. There's [GraphiQL](https://github.com/graphql/graphiql) and [GraphQL Playground](https://github.com/prisma-labs/graphql-playground) which leverages the Introspection feature to provide self documentation to developers and try out APIs quickly.
+The ability to introspect is what allows the community to build awesome tooling around GraphQL. There's [GraphiQL](https://github.com/graphql/graphiql) and [GraphQL Playground](https://github.com/prisma-labs/graphql-playground) which leverages the Introspection feature to provide self-documentation to developers and try out APIs quickly.
 
-The above tools use the `__schema` introspection query to give the documentation of the schema. You can explore more by trying out the `__schema` query to see the different selection set, fields and directives.
+The above tools use the `__schema` introspection query to give the documentation of the schema. You can explore more by trying out the `__schema` query to see the different selection set, fields, and directives.

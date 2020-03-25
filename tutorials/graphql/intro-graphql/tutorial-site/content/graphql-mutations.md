@@ -7,8 +7,8 @@ metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation ex
 import {Link} from "gatsby";
 
 These are the concepts you should know before you attack mutations (haha):
-- <Link to="/learn/graphql/intro-to-graphql/graphql-queries#graphiql">Using GraphiQL</Link>
-- <Link to="/learn/graphql/intro-to-graphql/graphql-queries#query-variables">Using query variables</Link>
+- <Link to="/learn/graphql/intro-graphql/graphql-queries#graphiql">Using GraphiQL</Link>
+- <Link to="/learn/graphql/intro-graphql/graphql-queries#query-variables">Using query variables</Link>
 
 Now, let's get started with seeing how we can use GraphQL to "write" data.
 GraphQL mutations are types of GraphQL queries that may result in the state

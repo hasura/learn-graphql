@@ -109,6 +109,10 @@ data:
         /learn/graphql/hasura/ /learn/graphql/hasura/introduction
       }
 
+      redir 301 {
+        /learn/graphql/intro-graphql/ /learn/graphql/intro-graphql/introduction
+      }
+
       proxy /learn homepage
 
       proxy /learn/auth/webhook auth-webhook {
@@ -170,6 +174,8 @@ data:
       proxy /learn/graphql/angular-apollo angular-apollo
 
       proxy /learn/graphql/flutter-graphql flutter-graphql
+
+      proxy /learn/graphql/intro-graphql intro-graphql
 
       proxy /learn/graphql hasura/v1/graphql {
         without /learn/graphql

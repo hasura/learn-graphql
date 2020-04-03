@@ -2,16 +2,7 @@ import React from 'react';
 import '../styles/styles.scss';
 
 const FrontendTutorials = () => {
-  const icon1 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-1.svg'
-  const icon2 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-2.svg'
-  const icon3 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-3.svg'
-  const icon4 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-4.svg'
-  const icon5 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-5.svg'
-  const icon6 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-6.svg'
-  const icon7 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-7.svg'
-  const icon8 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-8.svg'
-  const icon9 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-9.svg'
-  const icon10 = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/icon-10.svg'
+  const expandRed = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/expand-red.svg'
   return (
     <section id="frontend-tutorials" className='commonSectionWrapper removePaddBottom'>
       <div className='container noPadd'>
@@ -36,20 +27,20 @@ const FrontendTutorials = () => {
             <h2>What you will learn</h2>
             <div className='col-md-6 col-sm-6 col-xs-12 noPadd'>
               <ul className='sectionDescription'>
-                <li><img src={icon1} alt="Icon" />GraphQL vs. REST</li>
-                <li><img src={icon2} alt="Icon" />Integrating GraphQL Mutations with Query Variables.</li>
-                <li><img src={icon3} alt="Icon" />Using Subscriptions.</li>
-                <li><img src={icon4} alt="Icon" />Setting up a GraphQL client with Apollo.</li>
-                <li><img src={icon5} alt="Icon" />Managing Local Cache after a GraphQL Mutation.</li>
-                <li><img src={icon6} alt="Icon" />Realtime feed with notifications.</li>
+                <li><img src={expandRed} alt="Expand" />GraphQL vs. REST</li>
+                <li><img src={expandRed} alt="Expand" />Integrating GraphQL Mutations with Query Variables.</li>
+                <li><img src={expandRed} alt="Expand" />Using Subscriptions.</li>
+                <li><img src={expandRed} alt="Expand" />Setting up a GraphQL client with Apollo.</li>
+                <li><img src={expandRed} alt="Expand" />Managing Local Cache after a GraphQL Mutation.</li>
+                <li><img src={expandRed} alt="Expand" />Realtime feed with notifications.</li>
               </ul>
             </div>
             <div className='col-md-6 col-sm-6 col-xs-12 noPadd'>
               <ul className='sectionDescription'>
-                <li><img src={icon7} alt="Icon" />GraphQL Queries, Mutations, Subscriptions.</li>
-                <li><img src={icon8} alt="Icon" />Integrating Mutations to update, delete and bulk delete.</li>
-                <li><img src={icon9} alt="Icon" />Integrating GraphQL queries in the app.</li>
-                <li><img src={icon10} alt="Icon" />Optimistic UI updates for responsive user experience.</li>
+                <li><img src={expandRed} alt="Expand" />GraphQL Queries, Mutations, Subscriptions.</li>
+                <li><img src={expandRed} alt="Expand" />Integrating Mutations to update, delete and bulk delete.</li>
+                <li><img src={expandRed} alt="Expand" />Integrating GraphQL queries in the app.</li>
+                <li><img src={expandRed} alt="Expand" />Optimistic UI updates for responsive user experience.</li>
               </ul>
             </div>
           </div>

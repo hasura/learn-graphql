@@ -1,21 +1,23 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/hasura-auth-slack",
-		"siteUrl": "https://learn.hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"pathPrefix": "/learn/graphql/hasura-auth-slack",
+		"siteUrl": "https://hasura.io",
+		"gaTrackingId": "UA-59768903-1",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_white.svg",
-		"title": "/ graphql / hasura-auth-slack",
+		"logoLink": "https://hasura.io/learn/",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/hasura-auth-slack/introduction/'>/ hasura-auth-slack</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ https://learn.hasura.io/graphql/hasura-auth-slack",
+		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ https://hasura.io/learn/graphql/hasura-auth-slack/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
 		}],
 		"search": {
-			"enabled": false,
+			"enabled": true,
 			"indexName": "learn-hasura-auth-slack",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
@@ -24,19 +26,19 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/setup",
-    		"/data-modelling",
-    		"/thinking-in-roles",
-    		"/access-control",
-    		"/choosing-jwt-mode",
-    		"/production-ready-auth",
-    		"/what-next"
+			"/introduction/",
+    		"/setup/",
+    		"/data-modelling/",
+    		"/thinking-in-roles/",
+    		"/access-control/",
+    		"/choosing-jwt-mode/",
+    		"/production-ready-auth/",
+    		"/what-next/"
     	],
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://docs.hasura.io"
+			"link": "https://hasura.io/docs"
 			},
 			{
 			"text": "GraphQL Docs",

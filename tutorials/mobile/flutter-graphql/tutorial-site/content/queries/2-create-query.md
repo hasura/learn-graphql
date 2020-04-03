@@ -25,7 +25,7 @@ class TodoFetch {
     title
     is_completed
   }
-""";
+}""";
 }
 ```
 
@@ -35,15 +35,15 @@ We have now written the GraphQL query as a String named fetchAll and it will be 
 
 The query fetches `todos` with a simple condition : `is_public` which must be false. We sort the todos in descending order using its `created_at` attribute, according to the schema. We specify the fields we need for todos node.
 
-[Try](https://learn.hasura.io/graphql/graphiql?tutorial=react-native) out this query now!
+[Try](https://hasura.io/learn/graphql/graphiql?tutorial=react-native) out this query now!
 
 ## Introducing query variables
 
 As you see, we have explicitly mentioned that `is_public` must be false. But in order to reuse this query for private and public todos, we must parameterize this query using `query variables`. Lets define a boolean query variable called `is_public`. The GraphQL query would fetch public todos if `is_public` is true and personal todos if `is_public` is false, which in code is represented as follows:
 
 ```dart
- - static String fetchAll = “”"query getMyTodos {
- + static String fetchAll = “”"query getTodos(\$is_public: Boolean!){
+ - static String fetchAll = """query getMyTodos {
+ + static String fetchAll = """query getTodos(\$is_public: Boolean!){
  - todos(where: { is_public: { _eq: false} },
  + todos(where: { is_public: { _eq: \$is_public} },
    order_by: { created_at: desc }) {
@@ -51,7 +51,7 @@ As you see, we have explicitly mentioned that `is_public` must be false. But in 
     id
     title
     is_completed
-+  }
+}
 }"""
 ```
 

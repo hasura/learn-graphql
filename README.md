@@ -1,4 +1,4 @@
-# [learn.hasura.io](https://learn.hasura.io)
+# [hasura.io/learn](https://hasura.io/learn/)
 
 Real world GraphQL tutorials for frontend developers with deadlines!
 With these open-source community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.
@@ -9,23 +9,23 @@ There are three different tutorial series:
 
 #### Frontend
 
-- [React](https://learn.hasura.io/graphql/react)
-- [Vue](https://learn.hasura.io/graphql/vue)
-- [Angular](https://learn.hasura.io/graphql/angular-apollo)
-- [Typescript](https://learn.hasura.io/graphql/typescript-react-apollo)
-- [Elm](https://learn.hasura.io/graphql/elm-graphql)
-- [ReasonML](https://learn.hasura.io/graphql/reason-react-apollo)
+- [React](https://hasura.io/learn/graphql/react/introduction/)
+- [Vue](https://hasura.io/learn/graphql/vue/introduction/)
+- [Angular](https://hasura.io/learn/graphql/angular-apollo/introduction/)
+- [Typescript](https://hasura.io/learn/graphql/typescript-react-apollo/introduction/)
+- [Elm](https://hasura.io/learn/graphql/elm-graphql/introduction/)
+- [ReasonML](https://hasura.io/learn/graphql/reason-react-apollo/introduction/)
 
 #### Mobile
 
-- [React Native](https://learn.hasura.io/graphql/react-native)
-- [iOS](https://learn.hasura.io/graphql/ios)
-- [Android](https://learn.hasura.io/graphql/android)
-- [Flutter](https://learn.hasura.io/graphql/flutter-graphql)
+- [React Native](https://hasura.io/learn/graphql/react-native/introduction/)
+- [iOS](https://hasura.io/learn/graphql/ios/introduction/)
+- [Android](https://hasura.io/learn/graphql/android/introduction/)
+- [Flutter](https://hasura.io/learn/graphql/flutter-graphql/introduction/)
 
 #### Backend
 
-- [Introduction to Hasura](https://learn.hasura.io/graphql/hasura)
+- [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/)
 - Postgres Basics (coming soon)
 
 ## Contributing

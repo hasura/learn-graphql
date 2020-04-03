@@ -15,7 +15,7 @@ import { useAuth0 } from "./Auth/react-auth0-spa";
  const createApolloClient = (authToken: string) => {
   return new ApolloClient({
     link: new WebSocketLink({
-      uri: 'wss://learn.hasura.io/graphql',
+      uri: 'wss://hasura.io/learn/graphql',
       options: {
         reconnect: true,
         connectionParams: {

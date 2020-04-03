@@ -45,7 +45,7 @@ Here's what a typical GraphQL client setup and making a query would look like:
 ```swift
 
 // Setup a GraphQL client to use the endpoint
-let apollo = ApolloClient(url: URL(string: "http://learn.hasura.io/graphql")!)
+let apollo = ApolloClient(url: URL(string: "http://hasura.io/learn/graphql")!)
 
 
 // Now, construct your query as

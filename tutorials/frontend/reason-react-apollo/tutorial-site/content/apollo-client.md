@@ -39,13 +39,13 @@ Also, add `reason-apollo` and `graphql_ppx` to the `bs-dependencies` and `ppx_fl
 
 Finally, you need a `graphql_schema.json` in the root of your project so that the GraphQL queries and mutations are type checked against it. To get `graphql_schema.json`,
 
-1. Go to https://learn.hasura.io/graphql/graphiql and login
+1. Go to https://hasura.io/learn/graphql/graphiql and login
 2. Copy the JWT from headers:
   ![graphiql-jwt-copy](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-reason-react-apollo/graphiql-jwt-copy.png)
 3. Run this command from the root of your project:
 
   ```js
-  npx send-introspection-query https://learn.hasura.io/graphql --headers "Authorization: Bearer <JWT>"
+  npx send-introspection-query https://hasura.io/learn/graphql --headers "Authorization: Bearer <JWT>"
   ```
 
 ## Setup
@@ -70,7 +70,7 @@ let headers = switch(Util.getTokenFromStorage()) {
 };
 
 let link = ApolloLinks.createHttpLink(
-  ~uri="https://learn.hasura.io/graphql",
+  ~uri="https://hasura.io/learn/graphql",
   ~headers=headers,
   ()
 );
@@ -84,7 +84,7 @@ let instance = ReasonApollo.createApolloClient(~link, ~cache, ());
 
 Let's try to understand what is happening here. 
 
-We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at [https://learn.hasura.io/graphql](https://learn.hasura.io/graphql). We are also configuring the headers with the JWT token from the local storage.
+We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at `https://hasura.io/learn/graphql`. We are also configuring the headers with the JWT token from the local storage.
 
 At the end, we instantiate ApolloClient by passing in our `HttpLink` and a new instance of `InMemoryCache` (recommended caching solution). This instance can be used anywhere in the application as `.
 

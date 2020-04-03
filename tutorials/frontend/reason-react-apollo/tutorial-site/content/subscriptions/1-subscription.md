@@ -26,14 +26,14 @@ Open `src/ApolloClient.re` and update the `link` as follows:
 +let connectionParams = Json.Encode.object_([("headers", headers)]);
 
 -let link = ApolloLinks.createHttpLink(
--  ~uri="https://learn.hasura.io/graphql",
+-  ~uri="https://hasura.io/learn/graphql",
 -  ~headers=headers,
 -  ()
 -);
 
 +
 +let link = ApolloLinks.webSocketLink(
-+  ~uri="wss://learn.hasura.io/graphql",
++  ~uri="wss://hasura.io/learn/graphql",
 +  ~reconnect=true,
 +  ~connectionParams=connectionParams,
 +  ()

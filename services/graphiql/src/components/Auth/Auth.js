@@ -28,7 +28,7 @@ export default class Auth {
         this.setSession(authResult);
       } else if (err) {
         console.error(err);
-        window.location.replace("/graphql/graphiql");
+        window.location.replace("/learn/graphql/graphiql");
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
@@ -44,14 +44,14 @@ export default class Auth {
     localStorage.setItem("auth0:expires_at", expiresAt);
     localStorage.setItem("auth0:id_token:sub", authResult.idTokenPayload.sub);
     // navigate to the home route
-    window.location.replace("/graphql/graphiql");
+    window.location.replace("/learn/graphql/graphiql");
   }
 
   logout() {
     if (isReactNative()) {
-      window.localStorage.removeItem('@learn.hasura.io:graphiql-react-native-token');
-      window.localStorage.removeItem('@learn.hasura.io:graphiql-react-native-exp');
-      window.location.replace("/graphql/graphiql?tutorial=react-native");
+      window.localStorage.removeItem('@hasura.io/learn:graphiql-react-native-token');
+      window.localStorage.removeItem('@hasura.io/learn:graphiql-react-native-exp');
+      window.location.replace("/learn/graphql/graphiql?tutorial=react-native");
       return;
     }
     // Clear access token and ID token from local storage
@@ -61,7 +61,7 @@ export default class Auth {
     localStorage.removeItem("auth0:id_token:sub");
     // navigate to the home route
     // history.replace("/home");
-    window.location.replace("/graphql/graphiql");
+    window.location.replace("/learn/graphql/graphiql");
   }
 
   isAuthenticated() {
@@ -71,8 +71,8 @@ export default class Auth {
       let expiresAt = JSON.parse(localStorage.getItem("auth0:expires_at"));
       return new Date().getTime() < expiresAt;
     } else {
-      const token = window.localStorage.getItem('@learn.hasura.io:graphiql-react-native-token');
-      const exp = window.localStorage.getItem('@learn.hasura.io:graphiql-react-native-exp');
+      const token = window.localStorage.getItem('@hasura.io/learn:graphiql-react-native-token');
+      const exp = window.localStorage.getItem('@hasura.io/learn:graphiql-react-native-exp');
       if (!exp || !token) {
         return false;
       }

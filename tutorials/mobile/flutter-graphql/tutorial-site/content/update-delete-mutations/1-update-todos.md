@@ -20,6 +20,6 @@ Let's define a GraphQL query to do a mutation into todos.
 
 You will also need to pass in the values for the variables.
 
-[Try](https://learn.hasura.io/graphql/graphiql?tutorial=react-native) this mutation in GraphiQL against the application database to see what the response looks like.
+[Try](https://hasura.io/learn/graphql/graphiql?tutorial=react-native) this mutation in GraphiQL against the application database to see what the response looks like.
 
 Let's now integrate this GraphQL mutation into our Flutter app.

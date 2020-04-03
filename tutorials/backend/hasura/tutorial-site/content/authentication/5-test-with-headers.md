@@ -19,6 +19,7 @@ To get a JWT token,
 - Replace callback_uri with `http://localhost:3000/callback` for testing.
 
 **Note**: In case logging in gives an error mentioning OIDC-conformant clients, try disabling OIDC Conformant setting (https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant) under Advanced Settings -> OAuth.
+**Note**: Make sure http://localhost:3000/callback has been added under Allowed Callback URLs in the Auth0 app settings.
 
 2. After successfully logging in, you will be redirected to https://localhost:3000/callback#xxxxxxxx&id_token=yyyyyyy. This page may be a 404 if you don’t have a UI running on localhost:3000.
 

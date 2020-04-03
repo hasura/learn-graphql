@@ -1,19 +1,17 @@
 const config = {
   gatsby: {
-    pathPrefix: "/graphql/flutter-graphql",
-    siteUrl: "https://learn.hasura.io",
-    gaTrackingId: "UA-59768903-1"
+    pathPrefix: "/learn/graphql/flutter-graphql",
+    siteUrl: "https://hasura.io",
+    gaTrackingId: "UA-59768903-1",
+    "trailingSlash": true
   },
   header: {
-    logo:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-    logoLink: "https://learn.hasura.io",
-    title:
-      "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/flutter-graphql'>/ flutter</a>",
+    logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
+    logoLink: "https://hasura.io/learn/",
+    title: "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/flutter-graphql/introduction/'>/ flutter</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discordapp.com/invite/vBPpJkS",
-    tweetText:
-      "Check out this GraphQL course for Flutter developers by @HasuraHQ https://learn.hasura.io/graphql/flutter-graphql",
+    tweetText: "Check out this GraphQL course for Flutter developers by @HasuraHQ https://hasura.io/learn/graphql/flutter-graphql/introduction/",
     links: [
       {
         text: "hasura.io",
@@ -30,22 +28,22 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      "/introduction",
-      "/intro-to-graphql",
-      "/setup",
-      "/graphql-client",
-      "/queries",
-      "/mutations",
-      "/update-delete-mutations",
-      "/subscriptions",
-      "/realtime-feed",
-      "/logout",
-      "/what-next"
+      "/introduction/",
+      "/intro-to-graphql/",
+      "/setup/",
+      "/graphql-client/",
+      "/queries/",
+      "/mutations/",
+      "/update-delete-mutations/",
+      "/subscriptions/",
+      "/realtime-feed/",
+      "/logout/",
+      "/what-next/"
     ],
     links: [
       {
         text: "Hasura Docs",
-        link: "https://docs.hasura.io"
+        link: "https://hasura.io/docs"
       },
       {
         text: "GraphQL Docs",

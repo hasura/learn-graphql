@@ -22,6 +22,6 @@ Let's define a graphql query to do a mutation into todos.
 ```
 You will also need to pass in the values for the variables.
 
-[Try this mutation in GraphiQL](https://learn.hasura.io/graphql/graphiql) against the application database to see what the response looks like.
+[Try this mutation in GraphiQL](https://hasura.io/learn/graphql/graphiql) against the application database to see what the response looks like.
 
 Let's now integrate this graphql mutation into our react app.

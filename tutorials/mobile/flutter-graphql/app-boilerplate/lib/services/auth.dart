@@ -10,7 +10,7 @@ class HasuraAuth {
     };
     http.Response response = await http
         .post(
-      "https://learn.hasura.io/auth/login",
+      "https://hasura.io/learn/auth/login",
       headers: {"content-type": "application/json"},
       body: jsonEncode(credentials),
     )
@@ -32,7 +32,7 @@ class HasuraAuth {
     };
     http.Response response = await http
         .post(
-      "https://learn.hasura.io/auth/signup",
+      "https://hasura.io/learn/auth/signup",
       headers: {"content-type": "application/json"},
       body: jsonEncode(credentials),
     )

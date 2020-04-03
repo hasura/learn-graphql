@@ -52,7 +52,7 @@ mutation {
 ```
 
 <!-- [//]: # TODO: -->
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Returning data after the mutation
 Notice that the data of the todo that is to be inserted is sent as
@@ -77,7 +77,7 @@ mutation {
 ```
 
 <!-- [//]: # TODO: -->
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Parameterize what you insert
 
@@ -109,7 +109,7 @@ mutation($todo: todos_insert_input!){
 ```
 
 <!-- [//]: # TODO: -->
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 We'll explore more mutations to update or delete data a little later.
 This is a good start to grokking mutations!

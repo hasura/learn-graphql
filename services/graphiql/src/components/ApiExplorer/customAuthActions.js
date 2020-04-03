@@ -1,6 +1,6 @@
 export const signup = (email, password, successCb, errorCb) => {
   fetch(
-    'https://learn.hasura.io/auth/signup',
+    'https://hasura.io/learn/auth/signup',
     {
       method: 'POST',
       headers: {
@@ -48,7 +48,7 @@ export const signup = (email, password, successCb, errorCb) => {
 
 export const login = (email, password, successCb, errorCb) => {
   fetch(
-    'https://learn.hasura.io/auth/login',
+    'https://hasura.io/learn/auth/login',
     {
       method: 'POST',
       headers: {

@@ -1,7 +1,7 @@
 ---
-title: "Permissions for Workspaces"
-metaTitle: "Permissions for Workspaces | Hasura Auth Slack Tutorial"
-metaDescription: "In this part, we will learn how to create permissions for workspaces of the app"
+title: "Permissions for Channels"
+metaTitle: "Permissions for Channels | Hasura Auth Slack Tutorial"
+metaDescription: "In this part, we will learn how to create permissions for channels of the app"
 ---
 
 ## Select permission

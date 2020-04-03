@@ -1,16 +1,17 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/reason-react-apollo",
-		"siteUrl": "https://learn.hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"pathPrefix": "/learn/graphql/reason-react-apollo",
+		"siteUrl": "https://hasura.io",
+		"gaTrackingId": "UA-59768903-1",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-		"logoLink": "https://learn.hasura.io",
-		"title": "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/reason-react-apollo'>/ reason-react-apollo</a>",
+		"logoLink": "https://hasura.io/learn/",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/reason-react-apollo/introduction/'>/ reason-react-apollo</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for Reason React developers by @HasuraHQ https://learn.hasura.io/graphql/reason-react-apollo",
+		"tweetText": "Check out this GraphQL course for Reason React developers by @HasuraHQ https://hasura.io/learn/graphql/reason-react-apollo/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
@@ -25,21 +26,21 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/intro-to-graphql",
-    		"/setup",
-    		"/apollo-client",
-    		"/queries",
-    		"/mutations-variables",
-    		"/update-delete-mutations",
-    		"/subscriptions",
-    		"/realtime-feed",
-    		"/what-next"
+			"/introduction/",
+    		"/intro-to-graphql/",
+    		"/setup/",
+    		"/apollo-client/",
+    		"/queries/",
+    		"/mutations-variables/",
+    		"/update-delete-mutations/",
+    		"/subscriptions/",
+    		"/realtime-feed/",
+    		"/what-next/"
     		],
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://docs.hasura.io"
+			"link": "https://hasura.io/docs"
 			},
 			{
 			"text": "GraphQL Docs",

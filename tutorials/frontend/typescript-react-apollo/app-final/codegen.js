@@ -1,7 +1,7 @@
 module.exports = {
     "schema": [
         {
-            "https://learn.hasura.io/graphql": {
+            "https://hasura.io/learn/graphql": {
                 "headers": {
                     "Authorization": "Bearer " + process.env.AUTH_TOKEN
                 }

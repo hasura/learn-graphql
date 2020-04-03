@@ -10,7 +10,7 @@ In 30 mins, you will setup a powerful, realtime and secure GraphQL Backend for S
 
 ## Pre-requisites
 
-- You should have some familiarity with Hasura to quickly dive into the Auth sections that this course focuses on. In case you are new to Hasura, we recommend you go over the [Introduction to Hasura Backend](https://learn.hasura.io/graphql/hasura/introduction) Course before taking this.
+- You should have some familiarity with Hasura to quickly dive into the Auth sections that this course focuses on. In case you are new to Hasura, we recommend you go over the [Introduction to Hasura Backend](https://hasura.io/learn/graphql/hasura/introduction/) Course before taking this.
 
 ## What will I learn?
 
@@ -30,7 +30,7 @@ We will be building the backend of a basic Slack clone, setting up permissions s
 
 ## What do I need to take this tutorial?
 
-- Hasura CLI ([Docs](https://docs.hasura.io/1.0/graphql/manual/hasura-cli/install-hasura-cli.html))
+- Hasura CLI ([Docs](https://hasura.io/docs/1.0/graphql/manual/hasura-cli/install-hasura-cli.html))
 - Node.js 8+ installed to setup the Auth Server later.
 
 We've kept this course light on developer workflows and

@@ -20,7 +20,7 @@ module.exports = function (user, context, cb) {
           }
         }
       `,
-      endpoint: 'https://learn.hasura.io/graphql',
+      endpoint: 'https://hasura.io/learn/graphql',
       headers: {
         'x-hasura-admin-secret': '<replace-with-admin-secret>'
       },

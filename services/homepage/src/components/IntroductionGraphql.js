@@ -9,7 +9,7 @@ const IntroductionGraphql = () => {
 
 
   return (
-    <section id="frontend-tutorials" className='commonSectionWrapper removePaddBottom'>
+    <section id="frontend-tutorials" className='commonSectionWrapper'>
       <div className='container noPadd'>
         <div className='introductionGraphqlWrapper'>
           <div className='col-md-12 noPadd'>

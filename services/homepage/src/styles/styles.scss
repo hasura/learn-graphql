@@ -131,9 +131,6 @@ body
 {
   background-color: #001934;
 }
-.blueMediumBgColor {
-  background-color: #003268;
-}
 .blueBgGradientColor {
   background-color: #002852;
   background-image: linear-gradient(to bottom, #002852, #000C19);
@@ -472,6 +469,12 @@ h4 {
   width: 16px;
   height: 2px;
   background-color: #001934;
+  margin: 16px 0;
+}
+.grayLineSeperator {
+  width: 16px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, .6);
   margin: 16px 0;
 }
 .purpleLineSeperator
@@ -1091,6 +1094,12 @@ h4 {
   }
 }
 /* Introduction GraphQL section */
+.introductionGraphqlWrapperBg {
+  background-color: #003268;
+  padding: 50px 60px;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
 .introductionGraphqlWrapper {
   .pageHeader {
     img {
@@ -1104,7 +1113,6 @@ h4 {
   }
   .introductionTag {
     opacity: .6;
-    padding-bottom: 4px;
   }
   h2 {
     padding-bottom: 32px;
@@ -1129,7 +1137,7 @@ h4 {
     }
   }
   .graphqlImg {
-    text-align: right;
+    text-align: center;
     img {
       width: 90%;
       display: inline-block;
@@ -1716,6 +1724,7 @@ h4 {
       }
     }
   }
+
   .introductionGraphqlWrapper {
     padding: 0 15px;
     .pageHeader {
@@ -1728,13 +1737,15 @@ h4 {
       width: 100%;
     }
     .graphqlImg {
-      text-align: center;
       padding-top: 30px;
       img {
         width: 70%;
         display: inline-block;
       }
     }
+  }
+  .introductionGraphqlWrapperBg {
+    padding: 25px;
   }
   .tutorialWrapper
   {
@@ -2024,6 +2035,9 @@ h4 {
   }
   .wd75 {
     width: 100%;
+  }
+  .introductionGraphqlWrapperBg {
+    padding: 25px 20px;
   }
   .tutorialWrapper
   {

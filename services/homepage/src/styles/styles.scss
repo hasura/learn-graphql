@@ -131,6 +131,9 @@ body
 {
   background-color: #001934;
 }
+.blueMediumBgColor {
+  background-color: #003268;
+}
 .blueBgGradientColor {
   background-color: #002852;
   background-image: linear-gradient(to bottom, #002852, #000C19);
@@ -348,13 +351,18 @@ h4 {
   color: #001934;
   font-weight: 400;
 }
-.tag {
+.tag, .introductionTag {
   font-family: 'Poppins';
   font-size: 16px;
   font-weight: 600;
-  color: #00829b;
   line-height: 1.56;
   letter-spacing: 3.2px;
+}
+.tag {
+  color: #00829b;
+}
+.introductionTag {
+  color: #fff;
 }
 .arrowLink {
   font-family: 'Poppins';
@@ -1082,6 +1090,53 @@ h4 {
     }
   }
 }
+/* Introduction GraphQL section */
+.introductionGraphqlWrapper {
+  .pageHeader {
+    img {
+      margin-left: 24px;
+    }
+  }
+  .sectionDescriptionTitle {
+    padding-right: 70px;
+    width: 60%;
+    padding-bottom: 48px;
+  }
+  .introductionTag {
+    opacity: .6;
+    padding-bottom: 4px;
+  }
+  h2 {
+    padding-bottom: 32px;
+    color: #fff !important;
+  }
+  .arrowLink {
+    clear: both;
+    padding-top: 32px;
+    color: #1cd3c6;
+    a {
+      color: #1cd3c6;
+    }
+  }
+  ul {
+    li {
+      list-style-type: none;
+      display: flex;
+      align-items: flex-start;
+      padding: 8px 0px;
+      color: #fff;
+      opacity: .86;
+    }
+  }
+  .graphqlImg {
+    text-align: right;
+    img {
+      width: 90%;
+      display: inline-block;
+    }
+  }
+}
+
 /* Tutorial section */
 .tutorialWrapper
 {
@@ -1185,6 +1240,7 @@ h4 {
   .sectionDescriptionTitle {
     padding-right: 70px;
     width: 60%;
+    padding-bottom: 48px;
   }
   h2 {
     padding-bottom: 32px;
@@ -1526,6 +1582,9 @@ h4 {
 }
 @media (max-width: 767px)
 {
+  .boxWrapper {
+    padding: 0 15px;
+  }
   .commonBtn {
     padding: 15px 30px;
     font-size: 14px;
@@ -1652,6 +1711,26 @@ h4 {
       text-align: center;
       img
       {
+        width: 70%;
+        display: inline-block;
+      }
+    }
+  }
+  .introductionGraphqlWrapper {
+    padding: 0 15px;
+    .pageHeader {
+      img {
+        display: none;
+      }
+    }
+    .sectionDescriptionTitle {
+      padding-right: 0;
+      width: 100%;
+    }
+    .graphqlImg {
+      text-align: center;
+      padding-top: 30px;
+      img {
         width: 70%;
         display: inline-block;
       }
@@ -1848,6 +1927,10 @@ h4 {
     .sectionDescriptionTitle {
       padding-right: 0;
       width: 100%;
+    }
+    h2, .sectionDescription {
+      padding: 0 15px;
+      padding-bottom: 32px;
     }
     .hasuraListWrapper {
       display: block;

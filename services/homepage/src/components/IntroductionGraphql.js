@@ -21,13 +21,10 @@ const IntroductionGraphql = () => {
               We will explore the fundamentals of GraphQL and how its realtime capabilities and community tooling makes it suitable for modern applications.
             </div>
           </div>
-        </div>
-      </div>
-      <div className='commonSectionWrapper blueMediumBgColor'>
-        <div className='container noPadd'>
-          <div className='introductionGraphqlWrapper'>
+          <div className='introductionGraphqlWrapper introductionGraphqlWrapperBg wd100'>
             <div className='col-md-8 col-sm-8 col-xs-12 noPadd'>
               <div className='introductionTag'>GRAPHQL BASICS</div>
+              <div className='grayLineSeperator'></div>
               <h2>Introduction to GraphQL</h2>
               <div className='col-md-6 col-sm-6 col-12 noPadd'>
                 <ul className='sectionDescription'>

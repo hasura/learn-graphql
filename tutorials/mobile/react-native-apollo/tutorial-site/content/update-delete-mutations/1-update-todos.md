@@ -22,7 +22,7 @@ Let's define a graphql query to do a mutation into todos.
     ) {
       returning {
         id
-        text
+        title
         is_completed
         created_at
         is_public

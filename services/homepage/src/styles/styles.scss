@@ -1886,6 +1886,11 @@ h4 {
         margin-right: 15px;
       }
     }
+    .buttonWrapper {
+      .commonBtn {
+        z-index: 1;
+      }
+    }
   }
   .starsWrapper {
     padding-top: 30px;

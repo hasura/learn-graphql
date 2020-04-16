@@ -54,7 +54,7 @@ const TopBanner = () => {
                 </div>
               </header>
               <div className='pageHeader'>
-                The Real world GraphQL tutorial for developers with deadlines!
+                The real world GraphQL tutorial for developers with deadlines!
               </div>
               <div className='sectionDescription'>
                 {/* With these <a href="https://github.com/hasura/learn-graphql">open-source</a> community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.*/}

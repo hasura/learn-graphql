@@ -26,7 +26,7 @@
     "auth0-js": "^9.11.3",
     "babel-eslint": "^10.0.3",
     "graphql-tag": "^2.10.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
     "sass-loader": "^8.0.0",
     "vue": "^2.6.10",

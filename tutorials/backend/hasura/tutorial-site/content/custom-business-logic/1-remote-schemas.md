@@ -95,6 +95,8 @@ In the server above, let's breakdown what's happening:
 
 ## Deploy 
 
+Let's deploy the above custom GraphQL server to Glitch. Glitch is a platform to build and deploy apps (Node.js) and is a quick way to test and iterate code on the cloud. Click on the Deploy to Glitch button below to get started.
+
 [![DEPLOY TO GLITCH](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~auth0-hasura-remote-schema)
 
 ### Environment variables

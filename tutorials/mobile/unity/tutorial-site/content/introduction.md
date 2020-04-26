@@ -1,7 +1,7 @@
 ---
 title: "Course Introduction"
 metaTitle: "Course Introduction | GraphQL Unity Tutorial"
-metaDescription: "A great tutorial showing how to integrate multiplayer features in Unity project using Hasura"
+metaDescription: "A great tutorial showing how to integrate multiplayer features in Unity games using Hasura"
 ---
 
 This course is a great tutorial that carefully tailors Hasura to implement multiplayer features in Unity.

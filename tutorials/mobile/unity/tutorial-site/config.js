@@ -1,6 +1,6 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/learn/graphql/android",
+		"pathPrefix": "/learn/graphql/unity",
 		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "UA-59768903-1",
 		"trailingSlash": true
@@ -8,10 +8,10 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/android/introduction/'>/ android</a>",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/unity/introduction/'>/ android</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for Android Developers by @HasuraHQ https://hasura.io/learn/graphql/android/introduction/",
+		"tweetText": "Check out this GraphQL course for Unity Developers by @HasuraHQ https://hasura.io/learn/graphql/unity/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
@@ -28,7 +28,7 @@ const config = {
 		"forcedNavOrder": [
 			"/introduction/",
     		"/intro-to-graphql/",
-    		"/setup/",
+    		"/unity-setup/",
     		"/apollo-client/",
     		"/queries/",
     		"/mutations-variables/",
@@ -51,10 +51,10 @@ const config = {
 		"ignoreIndex": true
 	},
 	"siteMetadata": {
-		"title": "2 hour GraphQL course for Android Developers | Hasura",
-		"description": "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in Android",
+		"title": "GraphQL course for Unity Developers | Hasura",
+		"description": "A great tutorial showing how to integrate multiplayer features in Unity games using Hasura",
 		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-android.png",
-		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/android-apollo/tutorial-site/content",
+		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/unity/tutorial-site/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-android/android-favicon.png"
 	},
 };

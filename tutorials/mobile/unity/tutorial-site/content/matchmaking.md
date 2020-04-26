@@ -15,3 +15,6 @@ To achieve this we would:
 - Write functions to actually get and put data into our Battle datamodel model in our Hasura backend
 
 At the end of this part of the course, players would be able to enter battle against fellow players from around the world.
+
+The process of Matchmaking goes thus:
+![Matchmaking flow](./matchmaking/media/matchmaking-flow.png)

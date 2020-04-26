@@ -22,6 +22,16 @@ We will be building a cross platform multiplayer realtime first person shooter g
 
 Play Shooter Arena to see what we'll be building.
 
+The rules of Shooter Arena is simple. 
+
+- There are two roles in each battle, `Shooter` and `Defender`.
+- The `Shooter` goes first and has to shoot some targets as fast as possible. These targets turn red.
+- The `Shooter`'s turn ends when they run out of bullets.
+- The `Defender` goes next and has to deactivate all the targets the `Shooter` shot. These targets are red at the start of the `Defender`'s turn and change to green when shot.
+- The `Defender`'s turn ends when he runs out of time or out of bullets.
+- The time the `Shooter` uses in their turn is the time the `Defender` has for their turn, plus 5 seconds.
+- The `Defender` wins if they successfully deactivate all the targets the `Shooter` shot. Else, the `Shooter` wins.
+
 ## Will this course teach Unity concepts as well?
 No, most of the Unit-centric parts of the game have already been built within the boilerplate version of the app.
 We will be focused mainly on integrating multiplayer features to the game by utilising Hasura's GraphQL engine.

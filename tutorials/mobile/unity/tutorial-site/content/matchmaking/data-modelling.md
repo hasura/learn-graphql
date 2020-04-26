@@ -3,6 +3,7 @@ title: "Data Modelling"
 metaTitle: "Data Modelling for Matchmaking with Hasura | Hasura GraphQL Tutorial"
 metaDescription: "We shall create two tables, Users and Battles and also create some views"
 ---
+
 We shall be creating two tables! 
 One for Users and the other for Battles
 

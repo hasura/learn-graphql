@@ -7,7 +7,7 @@ metaDescription: "This tutorial covers how to set up a matchmaking service with 
 In this part of the course, we shall be implementing a matchmaking service into our Shooter game.
 Matchmaking is the process of pairing players in games. For our Shooter game, we want to randomly pair online players together.
 
-![Matchmaking](https://github.com/Gazuntype/learn-graphql/tree/master/tutorials/mobile/unity/tutorial-site/content/matchmaking/media/Matchmaking.gif)
+![Matchmaking](./matchmaking/media/Matchmaking.gif)
 
 To achieve this we would:
 - Create a Battle and User datamodel in our Hasura backend

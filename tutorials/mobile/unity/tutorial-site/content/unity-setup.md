@@ -11,7 +11,7 @@ Our task would be converting it to an exciting online multiplayer game, just lik
 
 1. Create a new 3D Unity project.
 2. Change the target platform to Android/iOS
-3. Download and import shooterArena-boiilerplate.unitypackage
+3. Download and import [shooterArena-boiilerplate.unitypackage](https://github.com/Gazuntype/learn-graphql/tree/master/tutorials/mobile/unity/app-boilerplate)
 4. Change allowed orientations to only Landscape. This setting is found in Player Settings -> Resolution and Presentation
 5. Add menuScene and gameScene to build settings respectively
 6. Build the game and try out the menu system and game mechanics.

@@ -29,7 +29,7 @@ const config = {
 			"/introduction/",
     		"/intro-to-graphql/",
     		"/unity-setup/",
-    		"/apollo-client/",
+    		"/hasura-setup/",
     		"/queries/",
     		"/mutations-variables/",
     		"/optimistic-update-mutations/",

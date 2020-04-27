@@ -28,14 +28,13 @@ const config = {
 		"forcedNavOrder": [
 			"/introduction/",
     		"/intro-to-graphql/",
+			"/matchmaking/",
     		"/unity-setup/",
     		"/hasura-setup/",
-    		"/queries/",
-    		"/mutations-variables/",
-    		"/optimistic-update-mutations/",
-    		"/subscriptions/",
-    		"/realtime-feed/",
-    		"/what-next/"
+    		"/data-modelling/",
+    		"/unity-integration/",
+    		"/api-calls/",
+    		"/matchmake-logic/",
     	],
 		"links": [
 			{

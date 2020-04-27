@@ -34,6 +34,7 @@ The rules of Shooter Arena is simple.
 
 ## Will this course teach Unity concepts as well?
 No, most of the Unit-centric parts of the game have already been built within the boilerplate version of the app.
+
 We will be focused mainly on integrating multiplayer features to the game by utilising Hasura's GraphQL engine.
 
 ## What do I need to take this tutorial?
@@ -45,6 +46,7 @@ You will need to have Unity. Ideally, version 2019 and upward.
 
 ### Courses to gain prerequisite knowledge
 **Unity**: [Intro to Unity](https://learn.unity.com/)
+
 **Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)
 
 

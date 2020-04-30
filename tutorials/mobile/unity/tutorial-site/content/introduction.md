@@ -22,7 +22,7 @@ We will be building a cross platform multiplayer realtime first person shooter g
 
 Play Shooter Arena to see what we'll be building.
 
-The rules of Shooter Arena is simple. 
+The rules of Shooter Arena are simple. 
 
 - There are two roles in each battle, `Shooter` and `Defender`.
 - The `Shooter` goes first and has to shoot some targets as fast as possible. These targets turn red.

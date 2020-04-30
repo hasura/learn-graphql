@@ -99,12 +99,18 @@ After adding these variables, your Variable Declaration region should look like
     public float time;
     [NonSerialized]
     public bool inBattle;
+    public GameObject bulletPrefab;
+    private Vector3 opponentPosition;
+    private int misses;
+    private bool attackComplete;
+    private bool gameComplete;
     [NonSerialized]
     public Battles battle;
 	[NonSerialized]
     public float waitingTime;
 	[NonSerialized]
 	public ClientWebSocket battleCws;
+
 #endregion
 ```
 
@@ -129,6 +135,10 @@ public void Reset(){
 	defendedTargets = new List<int>();
 	shouldCount = false;
 	time = 0;
+    gameComplete = false;
+    attackComplete = false;
+    misses = 0;
+    opponentPosition = new Vector3(0, 1, 75);
 	battle = null;
 	battleCws = null;
 	waitingTime = 20;

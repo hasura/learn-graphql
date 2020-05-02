@@ -8,7 +8,7 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/unity/introduction/'>/ android</a>",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/unity/introduction/'>/ unity</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
 		"tweetText": "Check out this GraphQL course for Unity Developers by @HasuraHQ https://hasura.io/learn/graphql/unity/introduction/",
@@ -29,12 +29,8 @@ const config = {
 			"/introduction/",
     		"/intro-to-graphql/",
 			"/matchmaking/",
-    		"/unity-setup/",
-    		"/hasura-setup/",
-    		"/data-modelling/",
-    		"/unity-integration/",
-    		"/api-calls/",
-    		"/matchmake-logic/",
+    		"/realtime-gameplay/",
+    		"/authentication/",
     	],
 		"links": [
 			{

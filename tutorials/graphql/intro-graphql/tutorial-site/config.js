@@ -6,7 +6,7 @@ const config = {
 		"trailingSlash": true
 	},
 	"header": {
-		"logo": 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
+		"logo": 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_white.svg',
 		"logoLink": "https://hasura.io/learn/",
 		"title": "<a href='https://hasura.io/learn/'>/ intro-to-graphql </a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",

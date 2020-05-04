@@ -6,32 +6,16 @@ const config = {
 		"trailingSlash": true
 	},
 	"header": {
-		logo: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
+		"logo": 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/brand.svg',
 		"logoLink": "https://hasura.io/learn/",
 		"title": "<a href='https://hasura.io/learn/'>/ intro-to-graphql </a>",
-		title:
-      "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
-		"helpUrl": "",
+		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
 		"tweetText": "Check out this Introduction to GraphQL course for Fullstack developers by @HasuraHQ https://hasura.io/learn/graphql/intro-graphql/introduction/",
 		"links": [{
-			"text": "",
-			"link": ""
+			"text": "hasura.io",
+			"link": "https://hasura.io"
 		}],
-		social: `<li>
-		    <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
-		      <div class="twitterBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Discord'}/>
-		      </div>
-		    </a>
-		  </li>
-			<li>
-		    <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		      <div class="discordBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
-		      </div>
-		    </a>
-		</li>`,
 		"search": {
 			"enabled": true,
 			"indexName": "learn-intro-graphql",
@@ -65,9 +49,7 @@ const config = {
 			}
 		],
 		"frontline": false,
-		"ignoreIndex": true,
-		title:
-      "<a href='https://hasura.io/learn/'>GraphQL </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/intro-graphql/introduction/'>Introduction</a>",
+		"ignoreIndex": true
 	},
 	"siteMetadata": {
 		"title": "Introduction to GraphQL Tutorial for Fullstack Developers",

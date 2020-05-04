@@ -10,7 +10,8 @@ import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 Hasura gives you CRUD + realtime GraphQL APIs with authorization & access control. However, there are cases where you would want to add custom/business logic in your app. For example, in the todo app that we are building, before inserting todos into the public feed we want to validate the text for profanity. 
 
-Custom business logic can be handled in two ways using Hasura:
+Custom business logic can be handled in a few flexible ways using Hasura:
+- Actions: Extend Hasura’s schema with custom business logic using custom queries and mutations. Actions can be added to Hasura to handle various use cases such as data validation, data enrichment from external sources and any other complex business logic.
 - Writing custom GraphQL resolvers and adding it as a remote schema.
 - After a mutation operation, trigger a webhook asynchronously. This can be done via event triggers.
 

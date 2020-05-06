@@ -20,7 +20,13 @@ This course shows how to build the multiplayer features of Shooter Arena, which 
 ## What will we be building?
 We will be building a cross platform multiplayer realtime first person shooter game.
 
+[![Trailer](./matchmaking/media/trailer.png)](https://youtu.be/XO2RXRnmX-k)
+
 Play Shooter Arena to see what we'll be building.
+
+Google PlayStore: https://play.google.com/store/apps/details?id=com.Gazuntype.ShooterArena
+
+Apple AppStore: https://apps.apple.com/us/app/shooter-arena/id1506191296?ls=1
 
 The rules of Shooter Arena are simple. 
 

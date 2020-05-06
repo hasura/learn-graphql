@@ -31,6 +31,7 @@ const config = {
 			"/matchmaking/",
     		"/realtime-gameplay/",
     		"/authentication/",
+			"/leaderboard/"
     	],
 		"links": [
 			{

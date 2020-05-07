@@ -1,7 +1,7 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | GraphQL Unity Tutorial"
-metaDescription: "A great tutorial showing how to integrate multiplayer features in Unity games using Hasura"
+metaTitle: "Course Introduction | GraphQL Unity Hasura Tutorial"
+metaDescription: "A tutorial showing how to integrate multiplayer features in Unity games using Hasura GraphQL"
 ---
 
 This course is a great tutorial that carefully tailors Hasura to implement multiplayer features in Unity.
@@ -9,7 +9,6 @@ This course is a great tutorial that carefully tailors Hasura to implement multi
 This course shows how to build the multiplayer features of Shooter Arena, which is an ideal demo of what is possible with Hasura and Unity. 
 
 ## Key topics and takeaways:
-- GraphQL vs REST
 - GraphQL queries, mutations, subscriptions
 - Using GraphQL with Unity
 - Online matchmaking
@@ -20,11 +19,11 @@ This course shows how to build the multiplayer features of Shooter Arena, which 
 ## What will we be building?
 We will be building a cross platform multiplayer realtime first person shooter game.
 
-[![Trailer](./matchmaking/media/trailer.png)](https://youtu.be/XO2RXRnmX-k)
+[![Trailer](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/trailer.png)](https://youtu.be/XO2RXRnmX-k)
 
-Play Shooter Arena to see what we'll be building.
+Play Shooter Arena to see what we'll be building. Download the apps from:
 
-Google PlayStore: https://play.google.com/store/apps/details?id=com.Gazuntype.ShooterArena
+Google PlayStore: https://play.google.com/store/apps/details?id=com.gazuntype.shooterarena
 
 Apple AppStore: https://apps.apple.com/us/app/shooter-arena/id1506191296?ls=1
 
@@ -39,7 +38,7 @@ The rules of Shooter Arena are simple.
 - The `Defender` wins if they successfully deactivate all the targets the `Shooter` shot. Else, the `Shooter` wins.
 
 ## Will this course teach Unity concepts as well?
-No, most of the Unit-centric parts of the game have already been built within the boilerplate version of the app.
+No, most of the Unity-centric parts of the game have already been built within the boilerplate version of the app.
 
 We will be focused mainly on integrating multiplayer features to the game by utilising Hasura's GraphQL engine.
 
@@ -48,13 +47,9 @@ You will need to have Unity. Ideally, version 2019 and upward.
 
 ## Prerequisite knowledge/skills
 - Beginner level understanding of Unity
-- Ability to build a realtime GraohQL backend with Hasura
+- Ability to build a realtime GraphQL backend with Hasura
 
 ### Courses to gain prerequisite knowledge
 **Unity**: [Intro to Unity](https://learn.unity.com/)
 
 **Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)
-
-
-## How long will this tutorial take?
-I'm not sure.

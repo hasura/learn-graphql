@@ -1,6 +1,6 @@
 ﻿---
 title: "Actions"
-metaTitle: "Set Up Actions | Hasura GraphQL Tutorial"
+metaTitle: "Set Up Actions | GraphQL Unity Hasura Tutorial"
 metaDescription: "Set up the Battle Complete Action"
 ---
 
@@ -21,7 +21,7 @@ We shall be adding two columns:
 
 Next, go to the `Permissions` tab and update the `Select` permission for the user role.
 
-![User Select Permission](./media/permissions.jpg)
+![User Select Permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/leaderboard/permissions.jpg)
 
 Now, we create an new Action.
 
@@ -46,7 +46,7 @@ type BattleCompleteOutput {
 }
 ```
 
-![BattleComplete Action](./media/battle-complete-action.jpg)
+![BattleComplete Action](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/leaderboard/battle-complete-action.jpg)
 
 What this does is create a mutation action that takes in an Integer `id` as arguments and returns a `BattleCompleteOutput` object.
 
@@ -60,7 +60,7 @@ Open the [Glitch Project](https://glitch.com/edit/#!/shooter-battle-complete) an
 
 Go to `env` and set the `SECRET` to your ADMIN_SECRET
 
-![Secret](./media/admin-secret.jpg)
+![Secret](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/leaderboard/admin-secret.jpg)
 
 Great, rename the project appropriately and copy the link to the live app. 
 
@@ -82,6 +82,6 @@ Go back to the Hasura console and open the action we created. In the `handler`, 
 
 for example, if the link is `https://glitch.com/edit/#!/shooter-battle-complete`, we'll set the handler to `https://glitch.com/edit/#!/shooter-battle-complete/battleComplete`
 
-![Handler](./media/handler.jpg) 
+![Handler](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/leaderboard/handler.jpg) 
 
 That's it for setting up the action!

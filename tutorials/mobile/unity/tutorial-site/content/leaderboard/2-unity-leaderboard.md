@@ -1,6 +1,6 @@
 ﻿---
 title: "Unity Leaderboard"
-metaTitle: "Leaderboard with Unity | Hasura GraphQL Tutorial"
+metaTitle: "Leaderboard with Unity | GraphQL Unity Hasura Tutorial"
 metaDescription: "Setting up the leaderboard in Unity"
 ---
 
@@ -35,11 +35,11 @@ Now we can go to our `ShooterApi` and introspect.
 
 After Instrospecting, create a new Mutation called `BattleComplete`
 
-![BattleComplete Mutation](./media/battle-complete.jpg)
+![BattleComplete Mutation](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/leaderboard/battle-complete.jpg)
 
 Also create a new Query called `GetUsers`
 
-![GetUsers Query](./media/get-users.jpg)
+![GetUsers Query](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/leaderboard/get-users.jpg)
 
 Now we can remove the addition we made in `HttpHandler.cs` or comment it out if you want. You can also leave it there if you intend to introspect some more.
 
@@ -147,3 +147,5 @@ to become,
 ```
 
 And we are done! Leaderboard has been set up! Enjoy your version of Shooter Arena!
+
+In case you want the full source code of the final app, [download it from here](https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/unity/final.zip)

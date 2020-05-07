@@ -1,6 +1,6 @@
 ﻿---
 title: "Realtime Gameplay Overview"
-metaTitle: "Realtime Online FPS Gameplay | Hasura GraphQL Tutorial"
+metaTitle: "Realtime Online FPS Gameplay | GraphQL Unity Hasura Tutorial"
 metaDescription: "This part covers implementing the multiplayer realtime gameplay of our project."
 ---
 
@@ -29,6 +29,6 @@ We shall be passing information about the battle between two players using `subs
 
 Below is a small diagram explaining the flow.
 
-![Realtime flow](./realtime-gameplay/media/gameplay-flow.PNG)
+![Realtime flow](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/realtime-gameplay/gameplay-flow.PNG)
 
 Let's get into it!

@@ -1,6 +1,6 @@
 ﻿---
 title: "Matchmake Logic"
-metaTitle: "Utilizing our Api calls | Hasura GraphQL Tutorial"
+metaTitle: "Utilizing our Api calls | GraphQL Unity Hasura Tutorial"
 metaDescription: "With the use of the functions in GameData, we shall implement Matchmaking logic"
 ---
 
@@ -45,7 +45,7 @@ We would be adding two functions to it.
 #endregion
 ```
 
-#### `void MatchMake(List<GameData.Battles> availableBattles)`
+#### void MatchMake
 
 This function takes in a list of `Battles`. This list is gotten by calling `gameData.GetOnlineBattles()` which returns a list of open battles.
 
@@ -55,7 +55,7 @@ Else, if there are open battles, it selects the first one and joins. To join a b
 
 Remember, this simply changes the `defender_id` of our battle from `null` to an `id`. 
 
-#### `void StartBattle()`
+#### void StartBattle
 
 This is a public function that we would be assigning to a button on the menu to actually start a battle.
 
@@ -65,13 +65,13 @@ Now open the `menuScene` which can be found in Assets/_Game/Scene/menuScene.
 
 In the Hierarchy, go to the Quick gameobject in MainMenu/Title/Quick
 
-![Quick gameObject](./media/quick.jpg)
+![Quick gameObject](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/quick.jpg)
 
 Go to the inspector and scroll down to the `TargetButton` component. There are Event Listeners there.
 
 Add a new listener to the `OnReleased()`, drag the `MainMenu` object and select `StartBattle`
 
-![StartBattle](./media/on-release.jpg)
+![StartBattle](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/on-release.jpg)
 
 And that's it, we've set up matchmaking!
 
@@ -79,4 +79,4 @@ Test it out. Build the game.
 
 On both devices click Quick Play and see as they are paired with one another.
 
-![Quick Play](./media/Matchmaking.gif)
+![Quick Play](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/Matchmaking.gif)

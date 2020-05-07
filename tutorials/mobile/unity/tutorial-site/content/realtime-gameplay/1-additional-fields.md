@@ -1,6 +1,6 @@
 ﻿---
 title: "Additional Fields"
-metaTitle: "Additional Fields | Hasura GraphQL Tutorial"
+metaTitle: "Additional Fields | GraphQL Unity Hasura Tutorial"
 metaDescription: "Adding more fields to our battle table, subscription and class"
 ---
 
@@ -21,7 +21,7 @@ We shall add the following columns:
 - `shooterMisses` (Integer, non-nullable, default: 0)
 - `defenderMisses` (Integer, non-nullable, default: 0)
 
-![Updated Battles Table](./media/battle2-table.jpg)
+![Updated Battles Table](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/realtime-gameplay/battle2-table.jpg)
 
 Let's go through the columns to see their use.
 
@@ -42,11 +42,11 @@ Head over to the Api reference you created. Because there are changes to the bac
  
 Click `Introspect` on your Api reference
  
-[!Introspect](../matchmaking/media/introspect.jpg)
+![Introspect](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/introspect.jpg)
 
 After introspecting, scroll down to the subscription we created called `SubscribeToBattle`. We need to add the fields we added in our backend.
 
-[!SubscribeToBattle](./media/subscribe-to-battle.jpg)
+![SubscribeToBattle](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/realtime-gameplay/subscribe-to-battle.jpg)
 
 ### Update Battles Class
 

@@ -1,6 +1,6 @@
 ﻿---
 title: "Leaderboard"
-metaTitle: "Implementing Leaderboard | Hasura GraphQL Tutorial"
+metaTitle: "Implementing Leaderboard | GraphQL Unity Hasura Tutorial"
 metaDescription: "Using Hasura Actions to Implement a Worldwide Leaderboard"
 ---
 

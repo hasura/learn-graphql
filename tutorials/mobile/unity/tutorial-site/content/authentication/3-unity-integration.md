@@ -1,6 +1,6 @@
 ﻿---
 title: "Unity Integration"
-metaTitle: "Integrating Authentication With Unity | Hasura GraphQL Tutorial"
+metaTitle: "Integrating Authentication With Unity | GraphQL Unity Hasura Tutorial"
 metaDescription: "Integrating authentication with Unity"
 ---
 
@@ -12,13 +12,13 @@ Now we need to integrate these with our Unity project.
 
 Firstly, we'll create a query to get all the usernames that exist in our database. We'd used this to confirm the new user isn't picking a username that is already in use.
 
-Create new query `GetUsernames`
+Create new query GetUsernames
 
-![GetUsernames](./media/get-usernames.jpg)
+![GetUsernames](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/get-usernames.jpg)
 
 Next, we'll create a mutation to create a new user.
 
-![CreateUser](./media/create-user.jpg)
+![CreateUser](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/create-user.jpg)
 
 Those are the only new queries and mutations we need.
 
@@ -103,23 +103,23 @@ Copy and paste the code below into your `GameData.cs` script
     #endregion
 ```
 
-#### `Task GetJwt()`
+#### Task GetJwt
 
 This function sets the input of our `GetJwt` query to `user.Id`, `user.Username` and `user.Password`
 
 `user.Id`, `user.Username` and `user.Password` contain the values stored in `PlayerPrefs`. They're default values are `test`, to match that of our mock user.
 
-#### `void GetUsernames()`
+#### void GetUsernames
 
 This functions simply stores all the usernames of all our users in a variable, `takenUsernames`.
 
 `takenUsernames` is used by our Ui to check if the new username the user is inputting is taken.
 
-#### `string GenerateRandomPassword()`
+#### string GenerateRandomPassword
 
 This generates a random string for the password of the user. 
 
-#### `Task<User.Users> CreateUser()`
+#### Task User Users CreateUser
 
 This calls our `CreateUser` mutation and sets the arguments to the username the user desires and the generated random password.
 
@@ -159,7 +159,7 @@ That's it for `GameData.cs`
 
 Remember to assign your JWT `Api Reference` to the `jwtApi` variable in `GameData` which can be found in Assets/_Game/ScriptableObjects/GameData
 
-![jwtAPi](./media/jwt-assign.jpg)
+![jwtAPi](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/jwt-assign.jpg)
 
 Lastly, for clean up, head over to `User.cs` in Assets/_Game/Scripts/Data/User.cs
 
@@ -265,7 +265,7 @@ Add this function to `MenuManager.cs`
 
 Ensure this function is assigned to the `Enter` button in the User screen in the Hierarchy.
 
-![Enter](./media/confirm-create.jpg)
+![Enter](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/confirm-create.jpg)
 
 And that's it! Our users can now create a profile. 
 

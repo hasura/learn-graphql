@@ -1,6 +1,6 @@
 ﻿---
 title: "More Api Calls"
-metaTitle: "Making More Api Calls | Hasura GraphQL Tutorial"
+metaTitle: "Making More Api Calls | GraphQL Unity Hasura Tutorial"
 metaDescription: "Creating new Api call functions to easily update our backend"
 ---
 
@@ -8,7 +8,7 @@ We've set up the additional fields in our backend and Api reference.
 
 Now we shall write a couple of functions to properly update our battle table with the information it needs.
 
-### Update `CreateBattle()` with seed
+### Update CreateBattle with seed
 
 First off, we need to make a change to our `CreateBattle()` function our `GameData.cs` script. 
 
@@ -214,7 +214,7 @@ I know that seems like a lot of code but a lot of it is just to do game stuff.
 
 Let's break them down.
 
-#### `void UpdateHitTargets(bool complete)`
+#### void UpdateHitTargets
 
 This is a simple function to update the `hitTargets` column of our battle in the backend. It takes in a `bool complete` to signify if the `Shooter`'s turn is complete.
 
@@ -222,7 +222,7 @@ If `bool complete` is true, it also sets the `attackComplete` column of our batt
 
 We shall call this function every time the `Shooter` hits a target.
 
-#### `Task<string> UpdateDefendedTargets(bool complete)`
+#### UpdateDefendedTargets
 
 This is a simple function to update the `defendedTargets` column of our battle in the backend. It takes in a `bool complete` to signifty if the `Defender`'s turn is complete hereby signifying the end of the game.
 
@@ -230,11 +230,11 @@ If `bool complete` is true, it also sets the `gameComplete` column of our battle
 
 We shall call this function every time the `Defender` deactivates a target.
 
-#### `void UpdateMiss()`
+#### void UpdateMiss
 
 This is a simple function used to increase the value in column `shooterMisses` or `defenderMisses` when either the `Shooter` or `Defender` misses a target.
 
-#### `void ProcessBattle()`
+#### void ProcessBattle
 
 This function does a couple of things depending on the data we get from our subscription. It shall be called every time we get data from our subscription.
 
@@ -248,11 +248,11 @@ The `ProcessBattle()` function checks the state of our `battle` object and does 
 - if `battle.gameComplete` is `true`, it means the `Defender`'s turn is over and the game is over. It deletes the battle, unsubscribes from the subscription and fires the `OnGameComplete()` event which triggers the game over screen.
 - it calls the `ProcessShots()` functon which shall be explained below.
 
-#### `void ProcessShots()`
+#### void ProcessShots
 
 This is the function that simulates the opponent's turn. Depending on the value of `shooterMisses`, `defenderMisses`, `hitTargets` and `defendedTargets`, it simulates shots fired by the opponent when it's their turn.
 
-### Add `ProcessBattle()` to `ReceiveBattleData()`
+### Add ProcessBattle to ReceiveBattleData
 
 Go to the `ReceiveBattleData()` function and add `ProcessBattle()` at the start. 
 

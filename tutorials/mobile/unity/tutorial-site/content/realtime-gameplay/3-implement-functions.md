@@ -1,6 +1,6 @@
 ﻿---
 title: "Implement Api Call Functions"
-metaTitle: "Implement Api Call Functions | Hasura GraphQL Tutorial"
+metaTitle: "Implement Api Call Functions | GraphQL Unity Hasura Tutorial"
 metaDescription: "Calling the Api functions at the right places to complete gameplay"
 ---
 

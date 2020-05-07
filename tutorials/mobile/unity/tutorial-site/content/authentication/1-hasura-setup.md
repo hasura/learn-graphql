@@ -1,6 +1,6 @@
 ﻿---
 title: "Hasura Setup"
-metaTitle: "Hasura Authentication Setup | Hasura GraphQL Tutorial"
+metaTitle: "Hasura Authentication Setup | GraphQL Unity Hasura Tutorial"
 metaDescription: "Setting up Hasura for authentication"
 ---
 
@@ -27,7 +27,7 @@ Next, create a new Config Var called HASURA_GRAPHQL_ADMIN_SECRET and enter a sec
 
 You should end up with something like the following:
 
-![Config Variables](./media/config-vars.jpg)
+![Config Variables](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/config-vars.jpg)
 
 ### Permissions and Roles
 
@@ -35,7 +35,7 @@ Next up, go to your Hasura console. Refresh it if it was already open. You'd be 
 
 In the `Request Headers` slot in the GraphiQL tab, add key `x-hasura-admin-secret` and set it to your secret. This would enable you to have admin privileges when using GraphiQL
 
-![x-hasura-admin-secret](./media/admin-secret.jpg)
+![x-hasura-admin-secret](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/admin-secret.jpg)
 
 Next up, go to the `Data` tab and click the `users` table.
 
@@ -43,26 +43,26 @@ We shall add another column called
 
 `password` (String, nullable)
 
-![Password column](./media/add-password.jpg)
+![Password column](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/add-password.jpg)
 
 Go to `Insert Row` and add another mock user
 
-![Mock user](./media/mock-user.jpg)
+![Mock user](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/mock-user.jpg)
 
 Next, go to the `Permissions` tab and create a new role called `user`
 
 Set Insert, Update, Select, and Delete permissions
 
-![Users Insert](./media/user-insert.jpg)
+![Users Insert](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/user-insert.jpg)
 Insert
 
-![Users Select](./media/user-select.jpg)
+![Users Select](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/user-select.jpg)
 Select
 
-![Users Delete](./media/user-delete.jpg)
+![Users Delete](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/user-delete.jpg)
 Delete
 
-![Users Update](./media/user-update.jpg)
+![Users Update](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/user-update.jpg)
 Update
 
 The Update permissions can also be set by using this line of code
@@ -73,16 +73,16 @@ Go to permissions in `battles`
 
 Set Insert, Update, Select, and Delete permissions
 
-![Battles Insert](./media/battle-insert.jpg)
+![Battles Insert](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/battle-insert.jpg)
 Insert
 
-![Battles Select](./media/battle-select.jpg)
+![Battles Select](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/battle-select.jpg)
 Select
 
-![Battles Delete](./media/battle-delete.jpg)
+![Battles Delete](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/battle-delete.jpg)
 Delete
 
-![Battles Update](./media/battle-update.jpg)
+![Battles Update](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/battle-update.jpg)
 Update
 
 The Update permissions can also be set by using this line of code
@@ -93,17 +93,17 @@ Go to permissions in `old_battles`
 
 Set Select and Delete permissions
 
-![Old Battles Select](./media/old-battles-select.jpg)
+![Old Battles Select](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/old-battles-select.jpg)
 Select
 
-![Old Battles Delete](./media/old-battles-delete.jpg)
+![Old Battles Delete](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/old-battles-delete.jpg)
 Delete
 
 Go to  permissions in `online_battles`
 
 Set Select permissions
 
-![Online Battles Select](./media/online-battles-select.jpg)
+![Online Battles Select](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/online-battles-select.jpg)
 Select
 
 And that's it. Those are the permissions set up for our Shooter Arena game. Next up, we set up our jwt service provider on glitch.

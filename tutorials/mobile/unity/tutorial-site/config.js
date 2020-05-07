@@ -17,8 +17,8 @@ const config = {
 			"link": "https://hasura.io"
 		}],
 		"search": {
-			"enabled": true,
-			"indexName": "learn-android-apollo",
+			"enabled": false,
+			"indexName": "learn-unity",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
@@ -28,6 +28,8 @@ const config = {
 		"forcedNavOrder": [
 			"/introduction/",
     		"/intro-to-graphql/",
+    		"/unity-setup/",
+    		"/hasura-setup/",
 			"/matchmaking/",
     		"/realtime-gameplay/",
     		"/authentication/",
@@ -47,11 +49,11 @@ const config = {
 		"ignoreIndex": true
 	},
 	"siteMetadata": {
-		"title": "GraphQL course for Unity Developers | Hasura",
+		"title": "GraphQL Tutorial for Unity Developers | Hasura",
 		"description": "A great tutorial showing how to integrate multiplayer features in Unity games using Hasura",
-		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-android.png",
+		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-unity.png",
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/unity/tutorial-site/content",
-		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-android/android-favicon.png"
+		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/unity-favicon.png"
 	},
 };
 

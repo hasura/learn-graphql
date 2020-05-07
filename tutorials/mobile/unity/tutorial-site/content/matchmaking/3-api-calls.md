@@ -1,6 +1,6 @@
 ﻿---
 title: "Api Calls"
-metaTitle: "Functions to call our Hasura backend | Hasura GraphQL Tutorial"
+metaTitle: "Functions to call our Hasura backend | GraphQL Unity Hasura Tutorial"
 metaDescription: "With a few well-designed functions, we would be able to communicate effectively with our backend"
 ---
 
@@ -33,7 +33,7 @@ Next, we create a `Battles` class which would have fields matching that of our `
 This is useful in Deserializing the `JSON` data gotten from Hasura.
 
 ```c#
-public class Battles{
+public class Battles {
     public List<Battles> returning;
     public int id;
     public int shooter_id;
@@ -262,13 +262,13 @@ Wow, that's a lot of code! Let's go into breaking it down one function at a time
 
 Note: Don't forget to read the documentation for the [graphql-client-unity](https://github.com/Gazuntype/graphQL-client-unity) as it'll help understand most of what is going on.
 
-#### `Task<List<Battles>> GetOnlineBattles()`
+#### GetOnlineBattles
 
 This function calls our `GetOnlineBattles` query, waits for data to be returned from our backend and deserializes that data.
 
 It returns the deserialized data as `List<Battles>` which is a list of `Battles`.
 
-#### `Task<Battles> CreateBattle()`
+#### CreateBattle
 
 This functions calls our `CreateBattle` mutation.
 
@@ -278,7 +278,7 @@ Within the function, `createBattle.SetArgs(new{objects = new{shooter_id = 1}});`
 
 Later on, when we've implemented authentication, we would be setting the `shooter_id` to be the `id` of the user but for now we use the `id` of one of the mock users we created.
 
-#### `void UpdateShooterReady()`
+#### void UpdateShooterReady
 
 This function calls our `UpdateOnlineBattle` mutation. It is used to set the `shooterReady` flag of the battle to `true`. 
 
@@ -290,7 +290,7 @@ At the point we'd use this function, our `Battles battle` would already have bee
 
 We would use this function to confirm the availability of the player that creates the battle after a player has joined.
 
-#### `Task<Battles> UpdateBattle(int id)`
+#### UpdateBattle
 
 This also calls our `UpdateOnlineBattle` mutation. But this function is used to join a battle. This can be seen by the arguments in
 
@@ -300,11 +300,11 @@ Which sets the `defender_id` of a battle to 2.
 
 Later on, when we've implemented authentication, we would be setting the `defender_id` to be the `id` of the user but for now we use the `id` of one of the mock users we created.
 
-#### `DeleteBattles() and DeleteOldBattles()`
+#### DeleteBattles and DeleteOldBattles
 
 These are used to delete individual battles and all old battles from our database.
 
-#### `void BattleSubscribe(int battleId)`
+#### void BattleSubscribe
 
 This calls our `SubscribeToBattle` subscription. We'd use this to watch out for changes to a created battle.
 
@@ -312,7 +312,7 @@ If the player is the creator of the battle, data is returned when another player
 
 If the player is the joiner of the battle, data is returned when the creator confirms availability because the `shooterReady` flag changes from `false` to `true`.
 
-#### `void ReceiveBattleData(OnSubscriptionDataReceived subscriptionDataReceived)`
+#### void ReceiveBattleData
 
 This functions is called every time our subscription returns data from the backend. That is, it is called every time a change is made to the `battle` row we subcribed to.
 
@@ -320,7 +320,7 @@ The function also has the data received within `subscriptionDataReceived` and th
 
 The contents of this function performs the flow chart in our [Matchmaking](../matchmaking.md)
 
-#### `void StartWaiting()`
+#### void StartWaiting()
 
 This is used to wait for a particular time. If a battle isn't confirmed by then, it closes the subsription and resets the menu.
 
@@ -344,7 +344,7 @@ private void OnDisable(){
 
 Go to `GameData` at Assets/_Game/ScriptableObjects/GameData and drag your `Api Reference` in the slot for `shooterApi`
 
-![Shooter Api Reference](./media/shooter-api-reference.jpg)
+![Shooter Api Reference](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/shooter-api-reference.jpg)
 
 
 

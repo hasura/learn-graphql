@@ -1,6 +1,6 @@
 ﻿---
 title: "Unity Integration"
-metaTitle: "Integrating Hasura backend with Unity | Hasura GraphQL Tutorial"
+metaTitle: "Integrating Hasura backend with Unity | GraphQL Unity Hasura Tutorial"
 metaDescription: "Utilizing a graphQl client for Unity, we will integrate with our Hasura backend"
 ---
 
@@ -22,17 +22,17 @@ Create an `Api Reference` as shown in the client documentation and name it appro
 
 Next, we'd need the url for our backend. This can be gotten from the `GraphiQL` tab in our Hasura backend. 
 
-![Hasura backend url](./media/url.jpg)
+![Hasura backend url](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/url.jpg)
 
 After putting the url, we'd need to `introspect` the backend to let the client know the possible queries, mutations and subscriptions.
 
 Click the `Instrospect` button and wait a while for the client to get the info it need.
 
-![Introspect](./media/introspect.jpg)
+![Introspect](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/introspect.jpg)
 
 Great! Now our graphQL client is set up and we can begin to make queries and subscriptions.
 
-### Query, Mutations and Subscriptions
+### Query Mutations and Subscriptions
 
 Now that we've set up the client with our server, we need to make certain queries, mutations and subscriptions for our matchmaking to work.
 
@@ -57,7 +57,7 @@ To create this in our `Api reference`
 
 Your query should look like this.
 
-![GetOnlineBattles](./media/get-online-battle.jpg)
+![GetOnlineBattles](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/get-online-battle.jpg)
 
 According to our backend, `online_battles` is a view that returns all open battles that haven't been joined.
 
@@ -69,7 +69,7 @@ We shall create 4 mutations.
 - `DeleteBattle`
 - `DeleteOldBattles`
 
-#### `CreateBattle`
+#### CreateBattle
 
 ```
 mutation CreateBattle{
@@ -92,13 +92,13 @@ To create this in our `Api reference`
 
 Your mutation should look like this.
 
-![CreateBattle](./media/create-battle.jpg)
+![CreateBattle](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/create-battle.jpg)
 
 `insert_battles` is a mutation that allows us to create a new battle row in our `battles` table in Hasura.
 
-This would be used to create a battle if no open online battles is found. In accordance to our [Matchmaking Flow Chart](./media/matchmaking-flow.png)
+This would be used to create a battle if no open online battles is found. In accordance to our [Matchmaking Flow Chart](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/matchmaking-flow.png)
 
-#### `UpdateOnlineBattle`
+#### UpdateOnlineBattle
 
 ```
 mutation UpdateOnlineBattle{
@@ -124,13 +124,13 @@ To create this in our `Api reference`
 
 Your mutation should look like this.
 
-![UpdateOnlineBattle](./media/update-online-battle.jpg)
+![UpdateOnlineBattle](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/update-online-battle.jpg)
 
 `update_battles` is a mutation that allows us to update a new battle row in our `battles` table in Hasura.
 
 This would be used to join battles (ergo, setting the defender_id to the player's id) and to update the `shooterReady` and `defenderReady` flags.
 
-#### `DeleteBattle`
+#### DeleteBattle
 
 ```
 mutation DeleteBattle{
@@ -152,13 +152,13 @@ To create this in our `Api reference`
 
 Your mutation should look like this.
 
-![DeleteBattle](./media/delete-battle.jpg)
+![DeleteBattle](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/delete-battle.jpg)
 
 `delete_battles` is a mutation that allows us to delete a battle row in our `battles` table in Hasura.
 
 This would be used to delete battles if no one joins after a period of time.
 
-#### `DeleteBattle`
+#### DeleteOldBattles
 
 ```
 mutation DeleteOldBattles{
@@ -180,7 +180,7 @@ To create this in our `Api reference`
 
 Your mutation should look like this.
 
-![DeleteOldBattles](./media/delete-old-battles.jpg)
+![DeleteOldBattles](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/delete-old-battles.jpg)
 
 `old_battles` is a view that shows battles that were created over 50 seconds ago and no one joined.
 
@@ -221,7 +221,7 @@ To create this in our `Api reference`
 
 Your subscription should look like this.
 
-![SubscribeToBattle](./media/subscribe-to-battle.jpg)
+![SubscribeToBattle](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/subscribe-to-battle.jpg)
 
 Subscribing to `battles_by_pk` let's our client receive data anytime a particular battle is updated. 
 

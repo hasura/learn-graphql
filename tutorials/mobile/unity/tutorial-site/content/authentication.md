@@ -1,6 +1,6 @@
 ﻿---
 title: "Authentication Overview"
-metaTitle: "Authentication and Authorization with Hasura | Hasura GraphQL Tutorial"
+metaTitle: "Authentication and Authorization with Hasura | GraphQL Unity Hasura Tutorial"
 metaDescription: "This part covers authentication, allowing our players to be unique users."
 ---
 

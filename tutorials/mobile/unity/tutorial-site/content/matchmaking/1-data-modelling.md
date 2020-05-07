@@ -1,6 +1,6 @@
 ﻿---
 title: "Data Modelling"
-metaTitle: "Data Modelling for Matchmaking with Hasura | Hasura GraphQL Tutorial"
+metaTitle: "Data Modelling for Matchmaking with Hasura | GraphQL Unity Hasura Tutorial"
 metaDescription: "We shall create two tables, Users and Battles and also create some views"
 ---
 
@@ -18,15 +18,15 @@ These columns are self-explanatory.
 
 Ensure you set the column `id` as the primary key for the table.
 
-![User Table](./media/user-table.jpg)
+![User Table](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/user-table.jpg)
 
 The `users` table contains data concerning our players. For now, let's create two mock players.
 
 This can be done in the `Insert Row` tab in the users table. You can give the two mock players whatever usernames you want, but I shall be using `test1` and `test2`.
 
-![Insert First Player](./media/insert-user.jpg)
+![Insert First Player](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/insert-user.jpg)
 
-![Insert Second User](./media/insert-second-user.jpg)
+![Insert Second User](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/insert-second-user.jpg)
 
 ### Create Battles Table
 
@@ -42,7 +42,7 @@ Next up, we shall create the `battles` table. It shall have the following column
 
 Ensure you set the column `id` as the primary key for the table.
 
-![Battle Table](./media/battle-table.jpg)
+![Battle Table](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/battle-table.jpg)
 
 Let us go through these columns to understand why they're important for matchmaking purposes.
 
@@ -60,14 +60,14 @@ If you recall the flow chat in [Matchmaking Overview](../matchmaking.md), the ne
 
 To ensure that the `shooter_id` column points to an actual `users` row, we add a foreign key in `battles`
 
-![Shooter foreign key](./media/shooter-foreign-key.jpg)
+![Shooter foreign key](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/shooter-foreign-key.jpg)
 
 To ensure that the `defender_id` column points to an actual `users` row, we add a foreign key in `battles`
 
-![Defender foreign key](./media/defender-foreign-key.jpg)
+![Defender foreign key](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/defender-foreign-key.jpg)
 
 Then head over to the `Relationships` tab and add the relationship between shooter_id, defender_id and users. These will be the suggested relationships based on foreign keys.
-![Relationships](./media/relationships.jpg)
+![Relationships](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/relationships.jpg)
 
 To make things easier and cleaner, we shall create two [Views](https://hasura.io/learn/graphql/hasura/data-transformations) `OnlineBattles` and `OldBattles`.
 
@@ -84,7 +84,7 @@ CREATE OR REPLACE VIEW "public"."online_battles" AS
 ```
 Ensure `Track this` is selected and click `Run`
 
-![Online Battles View](./media/online-battles.jpg)
+![Online Battles View](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/online-battles.jpg)
 
 This View displays only `Online Battles`, meaning open battles that no opponent has joined. 
 
@@ -102,7 +102,7 @@ CREATE OR REPLACE VIEW "public"."old_battles" AS
 ```
 Ensure `Track this` is selected and click `Run`
 
-![Old Battles View](./media/old-battles.jpg)
+![Old Battles View](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/old-battles.jpg)
 
 This View displays only `Old Battles`, meaning battles that were open over 50 seconds ago and no one joined.
 

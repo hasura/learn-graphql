@@ -10,14 +10,43 @@ import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 Hasura gives you CRUD + realtime GraphQL APIs with authorization & access control. However, there are cases where you would want to add custom/business logic in your app. For example, in the todo app that we are building, before inserting todos into the public feed we want to validate the text for profanity. 
 
-Custom business logic can be handled in a few flexible ways using Hasura:
-- Actions: Extend Hasura’s schema with custom business logic using custom queries and mutations. Actions can be added to Hasura to handle various use cases such as data validation, data enrichment from external sources and any other complex business logic.
-- Writing custom GraphQL resolvers and adding it as a remote schema.
-- After a mutation operation, trigger a webhook asynchronously. This can be done via event triggers.
+Custom business logic can be handled in a few flexible ways in Hasura:
+
+Actions (Recommended)
+---------------------
+
+[Actions](https://hasura.io/docs/1.0/graphql/manual/actions/index.html) are a way to extend Hasura’s schema with custom business logic using custom queries and mutations. Actions can be added to Hasura to handle various use cases such as data validation, data enrichment from external sources and any other complex business logic.
+
+![Actions architecture](https://hasura.io/docs/1.0/_images/actions-arch1.png)
+
+Actions can be either a Query or a Mutation. 
+
+- `Query Action` - If you are querying some data from an external API or doing some validations / transformations before sending back the data, you can use a Query Action.
+- `Mutation Action` - If you want to perform data validations or do some custom logic before manipulating the database, you can use a Mutation Action.
+
+
+Remote Schemas
+--------------
+
+Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema. 
+
+For most use cases Actions would be the recommended solution, but in case there is an already existing GraphQL API or you plan to write one from scratch, Remote Schemas are the way to go.
+
+![Remote schema architecture](https://hasura.io/docs/1.0/_images/remote-schemas-arch1.png)
+
+Event Triggers
+--------------
+
+Hasura can be used to create event triggers on tables in the Postgres database. Event triggers reliably capture events on specified tables and invoke webhooks to carry out any custom logic. After a mutation operation, trigger a webhook asynchronously. Such things can be done via event triggers.
+
+**Use case for the todo app**
 
 In the todo app backend that you have built, there are certain custom functionalities you may want to add:
 
-- If you want to fetch profile information from Auth0, you need to make an API call to Auth0 with the token. This API has to be exposed to the GraphQL client and hence we will add a custom GraphQL resolver and add it as a remote schema in Hasura.
+- If you want to fetch profile information from Auth0, you need to make an API call to Auth0 with the token. Auth0 only exposes a REST API and not GraphQL. This API has to be exposed to the GraphQL client. 
+
+We will add an Action in Hasura to extend the API. We will also see how the same thing can be done with a custom GraphQL server.
+
 - Get notified via email whenever a new user registers in your app. This is an asynchronous operation that can be invoked via webhook.
 
 We will see how these 2 use-cases can be handled in Hasura.

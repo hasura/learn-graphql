@@ -8,7 +8,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/i5rMmXXcVsk" />
 
-We need to set up a rule in Auth0 which allows the users of Auth0 to be in sync with the users in our database. The following code snippet allows us to do the same. Again using the Rules feature, create a new blank rule and paste in the following code snippet:
+Auth0 has rules that can be set up to be called on every login request. We need to set up a rule in Auth0 which allows the users of Auth0 to be in sync with the users in our database. The following code snippet allows us to do the same. Again using the Rules feature, create a new blank rule and paste in the following code snippet:
 
 ```javascript
 function (user, context, callback) {
@@ -34,7 +34,7 @@ function (user, context, callback) {
 **Note**: Modify `x-hasura-admin-secret` and `url` parameters appropriately according to your app.
 Here we are making a simple request to make a mutation into `users` table.
 
-That’s it! This rule will now be triggered on every successful signup or login, and we insert or  update the user data into our database using a Hasura GraphQL mutation.
+That’s it! This rule will now be triggered on every successful signup or login, and we insert or update the user data into our database using a Hasura GraphQL mutation.
 
 The above request performs a mutation on the users table with the `id` and `name` values.
 

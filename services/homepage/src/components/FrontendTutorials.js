@@ -12,9 +12,9 @@ const FrontendTutorials = () => {
               2 HOUR SERIES
             </div>
             <div className='greenLineSeperator'></div>
-            <h1 className='pageHeader'>
+            <h2 className='pageHeader'>
               Frontend GraphQL Tutorial
-            </h1>
+            </h2>
             <div className='sectionDescriptionTitle'>
               These open-source community maintained tutorials will help you learn GraphQL by doing! These are backend agnostic tutorials where you will integrate GraphQL APIs into your favourite frontend framework and get productive with GraphQL in ~2 hours!
             </div>
@@ -24,7 +24,7 @@ const FrontendTutorials = () => {
       <div className='commonSectionWrapper lightGrayBgColor'>
         <div className='container noPadd frontendTutorialWrapper'>
           <div className='col-md-7 col-sm-7 col-xs-12 noPadd'>
-            <h2>What you will learn</h2>
+            <h3>What you will learn</h3>
             <div className='col-md-6 col-sm-6 col-xs-12 noPadd'>
               <ul className='sectionDescription'>
                 <li><img src={expandRed} alt="Expand" />GraphQL vs. REST</li>
@@ -132,6 +132,15 @@ const FrontendTutorials = () => {
                   <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/android-original.svg" alt="Android Apollo GraphQL Tutorial"/>
                   <div className='overlayWrapper'>
                     Android + Apollo
+                    <div className="downArrow"></div>
+                  </div>
+                </div>
+              </a>
+              <a href="https://hasura.io/learn/graphql/unity/introduction/" target='_blank' rel="noopener noreferrer">
+                <div className='box'>
+                  <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/unity-original.svg" alt="Unity GraphQL Tutorial"/>
+                  <div className='overlayWrapper'>
+                    Unity + GraphQL
                     <div className="downArrow"></div>
                   </div>
                 </div>

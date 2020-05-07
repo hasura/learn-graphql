@@ -1,5 +1,5 @@
 ---
-title: "Handle loading/errorrs"
+title: "Handle loading/errors"
 metaTitle: "`useQuery` Hook Error Handling | GraphQL React Native Apollo Tutorial"
 metaDescription: "We will handle the GraphQL loading and error states in React Native app using the data from the `useQuery` hook"
 ---

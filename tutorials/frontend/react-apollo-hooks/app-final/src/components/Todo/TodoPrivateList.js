@@ -47,7 +47,7 @@ const TodoPrivateList = props => {
 
   const clearCompleted = () => {
     clearCompletedTodos({
-      optimisticResponse: null,
+      optimisticResponse: true,
       update: (cache, { data }) => {
         const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
         const newTodos = existingTodos.todos.filter(t => !t.is_completed);

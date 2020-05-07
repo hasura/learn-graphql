@@ -30,24 +30,26 @@ Remote Schemas
 
 Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema. 
 
-For most use cases Actions would be the recommended solution, but in case there is an already existing GraphQL API or you plan to write one from scratch, Remote Schemas are the way to go.
-
 ![Remote schema architecture](https://hasura.io/docs/1.0/_images/remote-schemas-arch1.png)
+
+If you are choosing between Actions and Remote Schemas, here's something to keep in mind:
+- Use Remote Schemas if you have a GraphQL server or if you're comfortable building one yourself. 
+- Use Actions if you need to call a REST API
 
 Event Triggers
 --------------
 
-Hasura can be used to create event triggers on tables in the Postgres database. Event triggers reliably capture events on specified tables and invoke webhooks to carry out any custom logic. After a mutation operation, trigger a webhook asynchronously. Such things can be done via event triggers.
+Hasura can be used to create event triggers on tables in the Postgres database. Event triggers reliably capture events on specified tables and invoke webhooks to carry out any custom logic. After a mutation operation, triggers can call a webhook asynchronously.
 
 **Use case for the todo app**
 
 In the todo app backend that you have built, there are certain custom functionalities you may want to add:
 
-- If you want to fetch profile information from Auth0, you need to make an API call to Auth0 with the token. Auth0 only exposes a REST API and not GraphQL. This API has to be exposed to the GraphQL client. 
+If you want to fetch profile information from Auth0, you need to make an API call to Auth0 with the token. Auth0 only exposes a REST API and not GraphQL. This API has to be exposed to the GraphQL client. 
 
-We will add an Action in Hasura to extend the API. We will also see how the same thing can be done with a custom GraphQL server.
+We will add an Action in Hasura to extend the API. We will also see how the same thing can be done with a custom GraphQL server added as a Remote Schema.
 
-- Get notified via email whenever a new user registers in your app. This is an asynchronous operation that can be invoked via webhook.
+- Get notified via email whenever a new user registers in your app. This is an asynchronous operation that can be invoked via Event trigger webhook.
 
 We will see how these 2 use-cases can be handled in Hasura.
 

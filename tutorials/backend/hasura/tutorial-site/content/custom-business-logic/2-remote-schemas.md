@@ -8,7 +8,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/_d3sn_S6u-E" />
 
-Now we saw how the GraphQL API can be extended using Actions. We also mentioned that, a GraphQL server can also be added to customise the API graph.
+Now we saw how the GraphQL API can be extended using Actions. We mentioned earlier that another way of customising the API graph is through a custom GraphQL server.
 
 Let's take the same use-case of fetching profile information from Auth0.
 

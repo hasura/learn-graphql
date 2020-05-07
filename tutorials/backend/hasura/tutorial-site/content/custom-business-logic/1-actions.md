@@ -19,7 +19,7 @@ On the Hasura Console, head to the `Actions` tab and Click on `Create` to create
 
 ### Action definition
 
-We will need to define our Action definition and the type of action. Since we are just reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments if any and the response type of the action.
+We will need to define our Action and the type of action. Since we are just reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments (none in this case) and the response type of the action (`auth0_profile` in this case).
 
 ```
 type Query {
@@ -45,7 +45,7 @@ We will change the Handler URL later once we write our REST API and deploy it on
 
 ![Create Action](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-action.png)
 
-Click on Create once you are done configuring the above fields.
+Click on `Create` once you are done configuring the above fields.
 
 ## Write a REST API
 
@@ -104,19 +104,21 @@ app.listen(PORT);
 
 ```
 
-In the server above, let's breakdown what's happening:
+In the server above, let's break down what's happening:
 
 - We receive the payload `session_variables` as the request body from the Action.
-- We make a request to the [Auth0's Management API](https://auth0.com/docs/api/management/v2/create-m2m-app), passing in the user_id to get details about this user.
-- Once we get a response, we return back the object `{email: resp.email, picture: resp.picture}` as response. Else, we return an error case.
+- We make a request to the [Auth0's Management API](https://auth0.com/docs/api/management/v2/create-m2m-app), passing in the `user_id` to get details about this user.
+- Once we get a response from the Auth0 API in our server, we form the following object `{email: resp.email, picture: resp.picture}` and send it back to the client. Else, we return an error case.
  
 In case you are stuck with the code above, use the following [readymade 
 server](https://glitch.com/~auth0-hasura-action) on Glitch to clone it.
+You also need to remix the Glitch project to start modifying any code.
 
 ### Environment variables
-After remixing to your own project on Glitch, modify the `.env` file to enter the 
+In your Glitch app source code, modify the `.env` file to enter the 
 - `AUTH0_MANAGEMENT_API_TOKEN`
 - `AUTH0_DOMAIN` 
+
 
 values appropriately. The AUTH0_MANAGEMENT_API_TOKEN can be obtained from the Auth0 project.
 

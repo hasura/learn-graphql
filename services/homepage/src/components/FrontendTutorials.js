@@ -140,6 +140,15 @@ const FrontendTutorials = () => {
                     </div>
                   </div>
                 </a>
+                <a href="https://hasura.io/learn/graphql/unity/introduction/" target='_blank' rel="noopener noreferrer">
+                  <div className='box'>
+                    <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/unity-original.svg" alt="Unity GraphQL Tutorial"/>
+                    <div className='overlayWrapper'>
+                      Unity + GraphQL
+                      <div className="downArrow"></div>
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
           </div>

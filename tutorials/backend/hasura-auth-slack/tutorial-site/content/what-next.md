@@ -1,6 +1,7 @@
 ---
 title: "What next?"
 metaTitle: "What next? | Hasura Auth Slack Tutorial"
+metaDescription: "Learn what to do next with GraphQL and Hasura with more community resources. Join our discord channel for support."
 ---
 
 import TwitterShare from './twitter-share';

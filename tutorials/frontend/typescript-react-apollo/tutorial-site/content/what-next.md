@@ -1,6 +1,7 @@
 ---
 title: "What next?"
 metaTitle: "What next? | GraphQL React Apollo Typescript Tutorial"
+metaDescription: "Learn what to do next with GraphQL, Typescript and Backend with more community resources. Join our discord channel for support."
 ---
 
 import TwitterShare from "./twitter-share";

@@ -23,7 +23,7 @@ We will be building a cross platform multiplayer realtime first person shooter g
 
 Play Shooter Arena to see what we'll be building. Download the apps from:
 
-Google PlayStore: https://play.google.com/store/apps/details?id=com.gazuntype.shooterarena
+Google PlayStore: https://play.google.com/store/apps/details?id=com.Gazuntype.ShooterArena
 
 Apple AppStore: https://apps.apple.com/us/app/shooter-arena/id1506191296?ls=1
 

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__streamline-icon-tag-new-circle_40x40" width="40" height="40" data-name="streamline-icon-tag-new-circle@40x40" viewBox="0 0 40 40">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#1cd3c6;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}
+        </style>
+    </defs>
+    <path id="prefix__Path_5905" d="M5 26.25v-12.5l5 12.5v-12.5" class="prefix__cls-1" data-name="Path 5905"/>
+    <path id="prefix__Path_5906" d="M20 26.25h-2.5a2.5 2.5 0 0 1-2.5-2.5v-7.5a2.5 2.5 0 0 1 2.5-2.5H20" class="prefix__cls-1" data-name="Path 5906"/>
+    <path id="prefix__Path_5907" d="M15 21.25h5" class="prefix__cls-1" data-name="Path 5907"/>
+    <path id="prefix__Path_5908" d="M25 13.75v3.362a14.97 14.97 0 0 0 1.073 5.57L27.5 26.25 30 17.5l2.5 8.75 1.427-3.568A15 15 0 0 0 35 17.112V13.75" class="prefix__cls-1" data-name="Path 5908"/>
+    <path id="prefix__Path_5909" d="M38.75 31.25v5a2.5 2.5 0 0 1-2.5 2.5H3.75a2.5 2.5 0 0 1-2.5-2.5v-5" class="prefix__cls-1" data-name="Path 5909"/>
+    <path id="prefix__Path_5910" d="M1.25 8.75v-5a2.5 2.5 0 0 1 2.5-2.5h32.5a2.5 2.5 0 0 1 2.5 2.5v5" class="prefix__cls-1" data-name="Path 5910"/>
+</svg>

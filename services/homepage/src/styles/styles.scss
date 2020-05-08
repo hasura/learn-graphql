@@ -264,7 +264,7 @@ body
   pointer-events: none;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0;
+  margin: 0 0 !important;
   font-family: 'Poppins' !important;
 }
 .pageHeader, h1
@@ -287,6 +287,11 @@ h2 {
   letter-spacing: normal;
   text-align: left;
   color: #001934 !important;
+  span {
+    font-weight: normal !important;
+  }
+}
+h3 {
   span {
     font-weight: normal !important;
   }
@@ -348,18 +353,23 @@ h4 {
   color: #001934;
   font-weight: 400;
 }
-.tag {
+.tag, .introductionTag {
   font-family: 'Poppins';
   font-size: 16px;
-  font-weight: 600;
-  color: #00829b;
+  font-weight: 500;
   line-height: 1.56;
   letter-spacing: 3.2px;
+}
+.tag {
+  color: #00829b;
+}
+.introductionTag {
+  color: #fff;
 }
 .arrowLink {
   font-family: 'Poppins';
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.56;
@@ -464,6 +474,12 @@ h4 {
   width: 16px;
   height: 2px;
   background-color: #001934;
+  margin: 16px 0;
+}
+.grayLineSeperator {
+  width: 16px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, .6);
   margin: 16px 0;
 }
 .purpleLineSeperator
@@ -1082,6 +1098,59 @@ h4 {
     }
   }
 }
+/* Introduction GraphQL section */
+.introductionGraphqlWrapperBg {
+  background-color: #003268;
+  padding: 50px 60px;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+.introductionGraphqlWrapper {
+  .pageHeader {
+    img {
+      margin-left: 24px;
+    }
+  }
+  .sectionDescriptionTitle {
+    padding-right: 70px;
+    width: 60%;
+    padding-bottom: 48px;
+  }
+  .introductionTag {
+    opacity: .6;
+  }
+  h3 {
+    padding-bottom: 32px;
+    color: #fff !important;
+    font-size: 30px;
+  }
+  .arrowLink {
+    clear: both;
+    padding-top: 32px;
+    color: #1cd3c6;
+    a {
+      color: #1cd3c6;
+    }
+  }
+  ul {
+    li {
+      list-style-type: none;
+      display: flex;
+      align-items: flex-start;
+      padding: 8px 0px;
+      color: #fff;
+      opacity: .86;
+    }
+  }
+  .graphqlImg {
+    text-align: center;
+    img {
+      width: 90%;
+      display: inline-block;
+    }
+  }
+}
+
 /* Tutorial section */
 .tutorialWrapper
 {
@@ -1180,17 +1249,24 @@ h4 {
 /* frontend tutorial section */
 .frontendTutorialWrapper {
   .tag {
-    padding-top: 60px;
+    // padding-top: 60px;
   }
   .sectionDescriptionTitle {
     padding-right: 70px;
     width: 60%;
+    padding-bottom: 48px;
   }
   h2 {
-    padding-bottom: 32px;
+
   }
   .sectionDescription {
     padding-bottom: 48px;
+  }
+  h3 {
+    padding-bottom: 32px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #001934;
   }
   ul {
     padding-bottom: 0 !important;
@@ -1249,7 +1325,7 @@ h4 {
         bottom: -100px;
         opacity: .1;
       }
-      h2 {
+      h3 {
         color: #001934;
         padding-bottom: 32px;
         font-size: 30px;
@@ -1526,6 +1602,9 @@ h4 {
 }
 @media (max-width: 767px)
 {
+  .boxWrapper {
+    padding: 0 15px;
+  }
   .commonBtn {
     padding: 15px 30px;
     font-size: 14px;
@@ -1656,6 +1735,34 @@ h4 {
         display: inline-block;
       }
     }
+  }
+
+  .introductionGraphqlWrapper {
+    padding: 0 15px;
+    position: relative;
+    .pageHeader {
+      img {
+        display: none;
+      }
+    }
+    .sectionDescriptionTitle {
+      padding-right: 0;
+      width: 100%;
+    }
+    .graphqlImg {
+      position: absolute;
+      right: -25px;
+      bottom: -25px;
+      padding-top: 30px;
+      text-align: right;
+      img {
+        width: 70%;
+        display: inline-block;
+      }
+    }
+  }
+  .introductionGraphqlWrapperBg {
+    padding: 25px;
   }
   .tutorialWrapper
   {
@@ -1849,6 +1956,14 @@ h4 {
       padding-right: 0;
       width: 100%;
     }
+    h3 {
+      padding: 0 15px;
+      padding-bottom: 32px;
+    }
+    .sectionDescription {
+      padding: 0 15px;
+      padding-bottom: 32px;
+    }
     .hasuraListWrapper {
       display: block;
       .authList, .introList {
@@ -1856,6 +1971,14 @@ h4 {
         margin-right: 0;
         margin-left: 0;
         padding: 30px;
+        .sectionDescription {
+          padding: 0 0px;
+          padding-bottom: 32px;
+        }
+        h3 {
+          padding: 0 0px;
+          padding-bottom: 32px;
+        }
         .arrowLink {
           a {
             display: block;
@@ -1946,6 +2069,9 @@ h4 {
   }
   .wd75 {
     width: 100%;
+  }
+  .introductionGraphqlWrapperBg {
+    padding: 25px 20px;
   }
   .tutorialWrapper
   {

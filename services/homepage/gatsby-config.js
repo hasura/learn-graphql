@@ -22,15 +22,11 @@ module.exports = {
 			}
 		},
 		{
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: `UA-59768903-1`,
-        // Puts tracking script in the head instead of the body
-        head: true,
-        // enable ip anonymization
-        anonymize: false,
-      },
-    },
+    		resolve: "gatsby-plugin-google-tagmanager",
+      		options: {
+		        id: "GTM-WBBW2LN",
+		        includeInDevelopment: false,
+		    },
+  		},
 	]
 };

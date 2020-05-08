@@ -12,6 +12,7 @@
     "gatsby": "^2.19.18",
     "gatsby-link": "^2.2.29",
     "gatsby-plugin-favicon": "^3.1.6",
+    "gatsby-plugin-google-tagmanager": "^2.3.1",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-robots-txt": "^1.5.0",

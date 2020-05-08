@@ -13,9 +13,9 @@ const HasuraTutorials = () => {
       <div className='container noPadd'>
         <div className='frontendTutorialWrapper'>
           <div className='col-md-12 noPadd'>
-            <h2 className='pageHeader'>
+            <h1 className='pageHeader'>
               Hasura Backend Tutorial
-            </h2>
+            </h1>
             <div className='sectionDescriptionTitle wd50'>
               These are tutorials put together by our team to help new users get familiar with Hasura by building a fully functional realtime backend with Hasura.
             </div>
@@ -24,7 +24,7 @@ const HasuraTutorials = () => {
                 <img className='brandPos' src={logo} alt={'Logo'}/>
                 <div className='tag'>INTRO TO HASURA</div>
                 <div className='blueLineSeperator'></div>
-                <h3><span>Hasura</span> Basics</h3>
+                <h2><span>Hasura</span> Basics</h2>
                 <ul className='sectionDescription'>
                   <li><img src={expandBlue} alt='Expand'/>Hasura Basics</li>
                   <li><img src={expandBlue} alt='Expand'/>Postgres Data modelling</li>
@@ -43,7 +43,7 @@ const HasuraTutorials = () => {
               <div className='col-md-6 col-sm-6 col-xs-12 authList'>
                 <div className='tag'>AUTHENTICATION WITH HASURA</div>
                 <div className='greenLineSeperator'></div>
-                <h3><span>Hasura</span> Auth with Slack model</h3>
+                <h2><span>Hasura</span> Auth with Slack model</h2>
                 <ul className='sectionDescription'>
                   <li><img src={expandRed} alt='Expand'/>Roles</li>
                   <li><img src={expandRed} alt='Expand'/>Access Control</li>

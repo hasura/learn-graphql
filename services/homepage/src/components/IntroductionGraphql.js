@@ -48,7 +48,7 @@ const IntroductionGraphql = () => {
                 </a>
               </div>
             </div>
-            <div className='col-md-4 col-sm-4 col-xs-12 noPadd'>
+            <div className='col-md-4 col-sm-4 col-xs-12 noPadd hidden-xs'>
               <div className='graphqlImg'>
                 <img src={graphql} alt='GraphQL logo'/>
               </div>

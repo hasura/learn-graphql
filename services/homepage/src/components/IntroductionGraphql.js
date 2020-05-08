@@ -13,10 +13,10 @@ const IntroductionGraphql = () => {
       <div className='container noPadd'>
         <div className='introductionGraphqlWrapper'>
           <div className='col-md-12 noPadd'>
-            <h1 className='pageHeader'>
+            <h2 className='pageHeader'>
               Introduction to GraphQL
               <img src={newTag} alt='New tag' />
-            </h1>
+            </h2>
             <div className='sectionDescriptionTitle'>
               We will explore the fundamentals of GraphQL and how its realtime capabilities and community tooling makes it suitable for modern applications.
             </div>
@@ -25,7 +25,7 @@ const IntroductionGraphql = () => {
             <div className='col-md-8 col-sm-8 col-xs-12 noPadd'>
               <div className='introductionTag'>GRAPHQL BASICS</div>
               <div className='grayLineSeperator'></div>
-              <h2>Introduction to GraphQL</h2>
+              <h3>Introduction to GraphQL</h3>
               <div className='col-md-6 col-sm-6 col-12 noPadd'>
                 <ul className='sectionDescription'>
                   <li><img src={expandGreen} alt='Expand'/>Introduction to GraphQL</li>
@@ -48,7 +48,7 @@ const IntroductionGraphql = () => {
                 </a>
               </div>
             </div>
-            <div className='col-md-4 col-sm-4 col-xs-12 noPadd hidden-xs'>
+            <div className='col-md-4 col-sm-4 col-xs-12 noPadd'>
               <div className='graphqlImg'>
                 <img src={graphql} alt='GraphQL logo'/>
               </div>

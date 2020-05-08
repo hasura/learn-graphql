@@ -31,9 +31,9 @@ const TopBanner = () => {
                   </div>
                 </div>
               </header>
-              <div className='pageHeader'>
+              <h1 className='pageHeader'>
                 The real world GraphQL tutorial for developers with deadlines!
-              </div>
+              </h1>
               <div className='sectionDescription'>
                 {/* With these <a href="https://github.com/hasura/learn-graphql">open-source</a> community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.*/}
                 You will move from GraphQL basics to production-ready concepts with our hands-on tutorial for frontend and backend developers.

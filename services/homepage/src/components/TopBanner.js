@@ -12,28 +12,6 @@ const TopBanner = () => {
   // const [banner, setBanner] = useState(true);
   return (
     <div>
-      {/*
-        (banner) ? (
-          <div className='bannerStripWrapper hidden-xs'>
-            <a href="https://graphql.asia" target="_blank" rel="noopener noreferrer">
-              <div className='bannerStrip'>
-                <div className='container displayFlex noPadd'>
-                  <div className='announceIcon'>
-                    <img className={'img-responsive'} src={'https://hasura.io/blog/assets/graphql-logo.svg'} alt={'Graphql logo'} />
-                  </div>
-                  <div className='pExtraSmall'>
-                    <span className='fontBold'>GraphQL Asia</span> <span>is back in Bangalore from 20th-22nd February.</span> <span className='colorPink'>Get your tickets now<img className={'img-responsive'} src={arrowForwardPink} alt={'arrow'} /></span>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <div className='closeBanner' onClick={() => setBanner(false)}>
-              <img className={'img-responsive'} src={close} alt={'Close'} />
-            </div>
-          </div>
-        ) : null
-      */}
-
       <section className='blueBgColor positionRel'>
         <div className='container noPadd'>
           <div className='topBannerWrapper col-md-12 noPadd'>
@@ -54,7 +32,7 @@ const TopBanner = () => {
                 </div>
               </header>
               <div className='pageHeader'>
-                The Real world GraphQL tutorial for developers with deadlines!
+                The real world GraphQL tutorial for developers with deadlines!
               </div>
               <div className='sectionDescription'>
                 {/* With these <a href="https://github.com/hasura/learn-graphql">open-source</a> community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.*/}

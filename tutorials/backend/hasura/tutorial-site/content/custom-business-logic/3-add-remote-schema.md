@@ -34,7 +34,7 @@ query {
 }
 ```
 
-You also need to pass in the `Authorization` header with the token to get the right data.
+Remember the JWT token that we got after configuring Auth0 and testing it out? Here you also need to pass in the `Authorization` header with the same JWT token to get the right data.
 
 ![remote schema query](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/query-remote-schema.png)
 

@@ -38,7 +38,7 @@
       addTodo: function () {
         // insert new todo into db
         const title = this.newTodo && this.newTodo.trim()
-        const isPublic = this.type === "public" ? true : false;
+        const isPublic = this.type === "public";
         this.$apollo.mutate({
           mutation: ADD_TODO,
           variables: {

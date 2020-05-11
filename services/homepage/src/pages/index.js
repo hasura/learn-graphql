@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/styles.scss';
 // import Header from '../components/Header';
 import TopBanner from '../components/TopBanner';
-// import Featured from '../components/Featured';
+import IntroductionGraphql from '../components/IntroductionGraphql';
 import FrontendTutorials from '../components/FrontendTutorials';
 import HasuraTutorials from '../components/HasuraTutorials';
 // import WillLearn from '../components/WillLearn';
@@ -16,6 +16,7 @@ class Index extends React.Component {
       <div className="wd100">
         {/* <Header/> */}
         <TopBanner/>
+        <IntroductionGraphql/>
         <HasuraTutorials/>
         <FrontendTutorials/>
         <Discord/>

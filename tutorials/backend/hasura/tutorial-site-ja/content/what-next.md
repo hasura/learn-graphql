@@ -20,6 +20,6 @@ GraphQL を初めて使う人のための Hasura の Discord Channel があり�
 - React - [https://hasura.io/learn/graphql/react](https://hasura.io/learn/graphql/react/introduction/)
 - Vue - [https://hasura.io/learn/graphql/vue](https://hasura.io/learn/graphql/vue/introduction/)
 
-## シャアをお願いします！
+## シェアをお願いします！
 このコースを気に入ってもらえましたか？
 Twitterで口コミを広めてください！ <TwitterShare />

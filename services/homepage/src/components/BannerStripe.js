@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import { trackGAEvents } from "./trackGA";
 import '../styles/styles.scss';
 const hasuraCon = require("../images/hasura-con.svg")
@@ -37,8 +37,10 @@ const BannerStripe = () => {
   return (
     <div className="bannerStripWrapper">
       <div className='container noPadd displayFlex'>
-        <Link
-          to="/events/hasura-con-2020/"
+        <a
+          href="https://hasura.io/events/hasura-con-2020/"
+          target='_blank'
+          rel="noopener noreferrer"
           onClick={()=>trackGAEvents("Learn Homepage", "Link Click", "Hasura Con Banner Strip")}
         >
           <div className="bannerStrip">
@@ -57,7 +59,7 @@ const BannerStripe = () => {
               </div>
             </div>
           </div>
-        </Link>
+        </a>
         <div
           className="closeBanner"
           onKeyDown={()=>handleBannerClose()}

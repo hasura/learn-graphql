@@ -6,55 +6,66 @@ body
   font-family: 'Open Sans'
 }
 .bannerStripWrapper {
-  a {
-    &:hover, &:focus {
-      text-decoration: none;
-      outline: none;
+  background-color: #3D1BB7;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.4);
+  position: relative;
+  max-height: 56px;
+  .displayFlex
+  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      flex: 1;
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  .bannerStripImg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    img {
+      max-height: 56px;
     }
   }
   .bannerStrip
   {
-    background-color: #1b1653;
-    padding: 8px 20px;
-    height: 48px;
+    padding: 8px 0px;
+    // height: 48px;
     display: flex;
     align-items: center;
-    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.4);
+    // justify-content: center;
     position: relative;
     z-index: 10;
-    .displayFlex
-    {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     .announceIcon {
-      padding-right: 16px;
+
+      img {
+        margin-top: 4px;
+        margin-right: 16px;
+        width: 32px;
+      }
     }
     a:hover, a:focus
     {
       text-decoration: none;
     }
-    .pExtraSmall
+    .bodyTextSmall
     {
-      font-size: 16px;
+      font-family: 'Poppins';
+      font-size: 18px;
       text-align: left;
       padding-top: 0;
       letter-spacing: normal;
-      font-weight: 400;
+      font-weight: normal;
       display: inline-block;
       line-height: 17px;
       color: #fff;
       padding-bottom: 0;
       padding-right: 10px;
-      span {
-        opacity: .8;
-      }
-      img {
-      }
-      .colorPink {
-        color: #f81894;
-        opacity: 1;
+      .textColor {
+        color: #fff;
         img {
           display: inline-block;
           transition: 200ms;
@@ -72,12 +83,18 @@ body
   {
     cursor: pointer;
     text-align: right;
-    display: inline-block;
-    min-width: 34px;
-    position: absolute;
-    right: 30px;
-    top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 11;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(61,27,183, .8);
+    img {
+      margin-right: 0;
+    }
   }
 }
 
@@ -2034,10 +2051,10 @@ h4 {
 @media (min-width: 768px) and (max-width: 991px)
 {
   .bannerStripWrapper {
+    .bannerStripImg {
+      display: none;
+    }
     .bannerStrip {
-      .pExtraSmall {
-        font-size: 14px;
-      }
       .displayFlex {
         justify-content: flex-start;
       }
@@ -2046,7 +2063,6 @@ h4 {
       right: 0;
     }
   }
-
   .commonBtn {
     padding: 15px 30px;
     font-size: 14px;
@@ -2199,6 +2215,22 @@ h4 {
     padding: 60px 0;
     h1 {
       font-size: 35px;
+    }
+  }
+}
+@media(max-width: 767px) {
+  .bannerStripWrapper {
+    max-height: none;
+    .bannerStrip {
+      padding-left: 15px;
+      .bodyTextSmall {
+        padding-left: 8px;
+        line-height: 120%;
+        font-size: 15px;
+      }
+    }
+    .bannerStripImg {
+      display: none;
     }
   }
 }

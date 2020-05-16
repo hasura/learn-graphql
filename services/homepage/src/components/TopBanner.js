@@ -1,4 +1,5 @@
 import React from 'react';
+import BannerStripe from './BannerStripe'
 import '../styles/styles.scss';
 
 const TopBanner = () => {
@@ -7,11 +8,9 @@ const TopBanner = () => {
   const logo = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.svg';
   const discordBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg'
   const twitterBrandsBlock = 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg'
-  // const close = require('../images/close.svg');
-  // const arrowForwardPink = require('../images/arrow-forward-pink.svg');
-  // const [banner, setBanner] = useState(true);
   return (
     <div>
+      <BannerStripe/>
       <section className='blueBgColor positionRel'>
         <div className='container noPadd'>
           <div className='topBannerWrapper col-md-12 noPadd'>

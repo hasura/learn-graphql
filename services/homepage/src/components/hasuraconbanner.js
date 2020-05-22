@@ -14,7 +14,7 @@ const HasuraConBanner = ({trackEvent}) => {
               <img src={bannerHasCon} alt='Hasuracon20'/>
             </div>
             <h2 className='pageHeader'>We’re hosting our first user conference!</h2>
-            <div className='sectionDescription removePaddTop'>Join us for a week of online talks, live workshops & Q&As as we push the boundaries of GraphQL forward!</div>
+            <div className='sectionDescription removePaddTop'>Hasura Con is a free, online conference. Join us for a week of talks and hand-on workshops about pushing the boundaries of GraphQL forward!</div>
             <div className='buttonWrapper'>
               <a onClick={()=>trackGAEvents("Learn Homepage", "Button Click", "Hasura Con Learn More")} href="https://hasura.io/events/hasura-con-2020/"><button className='commonBtn hasuraConRegBtn'>Register</button></a>
             </div>

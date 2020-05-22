@@ -256,6 +256,16 @@ body
     color: #4458a0;
   }
 }
+.hasuraConRegBtn {
+  padding: 18px 48px;
+  background-color: #FF437D;
+  border-radius: 8px;
+  border: 1px solid #FF437D;
+  color: #fff;
+  text-transform: none;
+  font-size: 18px;
+  font-weight: 600;
+}
 .starsWrapper {
   .star {
     border-right: 3px solid #1cd3c6;
@@ -2059,6 +2069,10 @@ h4 {
     right: 0;
     top: 0;
     text-align: right;
+    img {
+      width: 90%;
+      display: inline-block;
+    }
   }
 }
 .topBannerWrapperHasuraCon {
@@ -2073,6 +2087,10 @@ h4 {
     font-family: 'Poppins';
     color: #fff !important;
     line-height: 168%;
+    font-weight: 300;
+  }
+  .buttonWrapper {
+    padding-top: 32px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px)
@@ -2244,6 +2262,16 @@ h4 {
       font-size: 35px;
     }
   }
+  .topBannerWrapperHasuraConRel {
+    .bannerFrameImg {
+      img {
+        width: 65%;
+      }
+    }
+  }
+  .hasuraConRegBtn {
+    font-size: 18px;
+  }
 }
 @media(max-width: 767px) {
   .bannerStripWrapper {
@@ -2258,6 +2286,20 @@ h4 {
     }
     .bannerStripImg {
       display: none;
+    }
+  }
+  .hasuraConRegBtn {
+    font-size: 18px;
+  }
+  .topBannerWrapperHasuraConRel {
+    .bannerFrameImg {
+      display: none;
+    }
+  }
+  .topBannerWrapperHasuraCon {
+    padding: 0 15px;
+    .frameCon, .pageHeader, .sectionDescription, .buttonWrapper {
+      text-align: center;
     }
   }
 }

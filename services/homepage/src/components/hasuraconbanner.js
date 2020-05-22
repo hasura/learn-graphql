@@ -1,6 +1,4 @@
-
 import React from "react"
-import { Link } from "gatsby"
 // import PropTypes from "prop-types"
 import { trackGAEvents } from "./trackGA";
 import '../styles/styles.scss';
@@ -17,8 +15,8 @@ const HasuraConBanner = ({trackEvent}) => {
             </div>
             <h2 className='pageHeader'>We’re hosting our first user conference!</h2>
             <div className='sectionDescription removePaddTop'>Join us for a week of online talks, live workshops & Q&As as we push the boundaries of GraphQL forward!</div>
-            <div className='buttonWrapper addPaddTopHasuraCon'>
-              <Link onClick={()=>trackGAEvents("Learn Homepage", "Button Click", "Hasura Con Learn More")} to="/events/hasura-con-2020/"><button className='commonBtnCon hasuraConRegBtn'>Register</button></Link>
+            <div className='buttonWrapper'>
+              <a onClick={()=>trackGAEvents("Learn Homepage", "Button Click", "Hasura Con Learn More")} href="https://hasura.io/events/hasura-con-2020/"><button className='commonBtn hasuraConRegBtn'>Register</button></a>
             </div>
           </div>
         </div>

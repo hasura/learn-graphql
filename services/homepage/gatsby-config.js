@@ -4,7 +4,7 @@ module.exports = {
 		"description": 'Learn how to integrate GraphQL APIs with Hasura GraphQL Engine',
 		"siteUrl": 'https://hasura.io'
   	},
-  	"pathPrefix": "/learn",
+  	"pathPrefix": "/",
 	"plugins" : [
 		"gatsby-plugin-sass",
 		{

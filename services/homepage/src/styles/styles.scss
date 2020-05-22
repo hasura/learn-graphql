@@ -28,6 +28,7 @@ body
     top: 0;
     img {
       max-height: 56px;
+      opacity: .4;
     }
   }
   .bannerStrip
@@ -60,7 +61,7 @@ body
       letter-spacing: normal;
       font-weight: normal;
       display: inline-block;
-      line-height: 17px;
+      line-height: 120%;
       color: #fff;
       padding-bottom: 0;
       padding-right: 10px;
@@ -147,6 +148,9 @@ body
 .blueBgColor
 {
   background-color: #001934;
+}
+.hasuraConBannerBgColor {
+  background-color: #291473;
 }
 .blueBgGradientColor {
   background-color: #002852;
@@ -251,6 +255,16 @@ body
     background-color: #fff;
     color: #4458a0;
   }
+}
+.hasuraConRegBtn {
+  padding: 18px 48px;
+  background-color: #FF437D;
+  border-radius: 8px;
+  border: 1px solid #FF437D;
+  color: #fff;
+  text-transform: none;
+  font-size: 18px;
+  font-weight: 600;
 }
 .starsWrapper {
   .star {
@@ -2048,6 +2062,37 @@ h4 {
     }
   }
 }
+.topBannerWrapperHasuraConRel {
+  position: relative;
+  .bannerFrameImg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: right;
+    img {
+      width: 90%;
+      display: inline-block;
+    }
+  }
+}
+.topBannerWrapperHasuraCon {
+  .frameCon {
+    padding-bottom: 56px;
+  }
+  .pageHeader {
+    line-height: 1.25;
+    color: #fff !important;
+  }
+  .sectionDescription {
+    font-family: 'Poppins';
+    color: #fff !important;
+    line-height: 168%;
+    font-weight: 300;
+  }
+  .buttonWrapper {
+    padding-top: 32px;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px)
 {
   .bannerStripWrapper {
@@ -2217,6 +2262,16 @@ h4 {
       font-size: 35px;
     }
   }
+  .topBannerWrapperHasuraConRel {
+    .bannerFrameImg {
+      img {
+        width: 65%;
+      }
+    }
+  }
+  .hasuraConRegBtn {
+    font-size: 18px;
+  }
 }
 @media(max-width: 767px) {
   .bannerStripWrapper {
@@ -2231,6 +2286,20 @@ h4 {
     }
     .bannerStripImg {
       display: none;
+    }
+  }
+  .hasuraConRegBtn {
+    font-size: 18px;
+  }
+  .topBannerWrapperHasuraConRel {
+    .bannerFrameImg {
+      display: none;
+    }
+  }
+  .topBannerWrapperHasuraCon {
+    padding: 0 15px;
+    .frameCon, .pageHeader, .sectionDescription, .buttonWrapper {
+      text-align: center;
     }
   }
 }

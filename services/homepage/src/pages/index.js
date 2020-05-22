@@ -5,6 +5,7 @@ import TopBanner from '../components/TopBanner';
 import IntroductionGraphql from '../components/IntroductionGraphql';
 import FrontendTutorials from '../components/FrontendTutorials';
 import HasuraTutorials from '../components/HasuraTutorials';
+import HasuraConBanner from '../components/hasuraconbanner'
 // import WillLearn from '../components/WillLearn';
 // import SubscribeNewsletter from '../components/SubscribeNewsletter';
 import Discord from '../components/Discord';
@@ -22,6 +23,7 @@ class Index extends React.Component {
         <Discord/>
         <Testimonials/>
         {/* <Featured/> */}
+        <HasuraConBanner/>
         <Footer/>
       </div>
     );

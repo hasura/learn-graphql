@@ -28,6 +28,7 @@ body
     top: 0;
     img {
       max-height: 56px;
+      opacity: .5;
     }
   }
   .bannerStrip
@@ -60,7 +61,7 @@ body
       letter-spacing: normal;
       font-weight: normal;
       display: inline-block;
-      line-height: 17px;
+      line-height: 120%;
       color: #fff;
       padding-bottom: 0;
       padding-right: 10px;
@@ -147,6 +148,9 @@ body
 .blueBgColor
 {
   background-color: #001934;
+}
+.hasuraConBannerBgColor {
+  background-color: #291473;
 }
 .blueBgGradientColor {
   background-color: #002852;
@@ -2046,6 +2050,29 @@ h4 {
         text-align: left;
       }
     }
+  }
+}
+.topBannerWrapperHasuraConRel {
+  position: relative;
+  .bannerFrameImg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: right;
+  }
+}
+.topBannerWrapperHasuraCon {
+  .frameCon {
+    padding-bottom: 56px;
+  }
+  .pageHeader {
+    line-height: 1.25;
+    color: #fff !important;
+  }
+  .sectionDescription {
+    font-family: 'Poppins';
+    color: #fff !important;
+    line-height: 168%;
   }
 }
 @media (min-width: 768px) and (max-width: 991px)

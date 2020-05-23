@@ -1137,6 +1137,7 @@ h4 {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 .introductionGraphqlWrapper {
+  z-index: 0;
   .pageHeader {
     img {
       margin-left: 24px;
@@ -1175,6 +1176,7 @@ h4 {
   }
   .graphqlImg {
     text-align: center;
+    z-index: -1;
     img {
       width: 90%;
       display: inline-block;

@@ -72,7 +72,7 @@ resolvers = {
     author: async () => {
       return ORM.getAllAuthors()
     }
-  }
+  },
   Author: {
     articles:  async (authorObj, args) => {
       return ORM.getArticlesBy(authorObj.id)

@@ -44,8 +44,6 @@ We will initialise the state and add an `onChange` handler to update the state.
 
 ```javascript
 const TodoInput = ({isPublic = false}) => {
-+  let input;
-
 +  const [todoInput, setTodoInput] = useState('');
 
    const [addTodo] = useMutation(ADD_TODO);
@@ -59,7 +57,6 @@ const TodoInput = ({isPublic = false}) => {
                placeholder="What needs to be done?"
 +              value={todoInput}
 +              onChange={e => (setTodoInput(e.target.value))}
-+              ref={n => (input = n)}
              />
              <i className="inputMarker fa fa-angle-right" />
            </form>
@@ -80,7 +77,6 @@ Now let's handle the form submit to invoke the mutation.
             placeholder="What needs to be done?"
             value={todoInput}
             onChange={e => (setTodoInput(e.target.value))}
-            ref={n => (input = n)}
           />
           <i className="inputMarker fa fa-angle-right" />
         </form>
@@ -189,8 +185,6 @@ We pass a function called `resetInput` to the `onCompleted` option which will be
 
 ```javascript
 const TodoInput = ({isPublic = false}) => {
-  let input;
-
   const [todoInput, setTodoInput] = useState('');
 
   const updateCache = (cache, {data}) => {

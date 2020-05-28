@@ -72,7 +72,7 @@ class _AllState extends State<All> {
             builder: (QueryResult result,
                 {VoidCallback refetch, FetchMore fetchMore}) {
               refetchQuery = refetch;
-              if (result.hasException != null) {
+              if (result.hasException) {
                 return Text(result.exception.toString());
               }
               if (result.loading) {

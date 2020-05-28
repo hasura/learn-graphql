@@ -24,6 +24,7 @@ class Online extends StatelessWidget {
             dynamic payload,
             dynamic error,
           }) {
+            print('Online error ----> $error');
             if (payload != null) {
               return Expanded(
                 child: ListView.builder(

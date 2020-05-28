@@ -80,6 +80,9 @@ class _FeedsState extends State<Feeds> {
             dynamic payload,
             dynamic error,
           }) {
+            print('Payload -----> $payload');
+            print('Error -----> $error');
+
             if (payload != null) {
               _newId = payload['todos'][0]['id'];
 

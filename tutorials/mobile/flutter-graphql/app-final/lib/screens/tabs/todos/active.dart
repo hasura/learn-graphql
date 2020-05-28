@@ -22,7 +22,7 @@ class _ActiveState extends State<Active> {
       children: <Widget>[
         Mutation(
           options: MutationOptions(
-            documentNode: gql(TodoFetch.addTodo), // TODO(DivjakLab) Check here!
+            documentNode: gql(TodoFetch.addTodo),
             update: (Cache cache, QueryResult result) {
               return cache;
             },

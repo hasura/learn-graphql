@@ -54,7 +54,15 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/nextjs-fullstack-serverless/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/nextjs-fullstack-serverless/boilerplate.zip
+      }
+
+      redir 301 {
         /learn/graphql/hasura-auth-slack/slack-backend.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/hasura-auth-slack/slack-backend.zip
+      }
+
+      redir 301 {
+        /learn/graphql/nextjs-fullstack-serverless/hasura.zip https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-nextjs/hasura.zip
       }
 
       redir 301 {
@@ -115,6 +123,10 @@ data:
 
       redir 301 {
         /learn/graphql/unity/ /learn/graphql/unity/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/nextjs-fullstack-serverless/ /learn/graphql/nextjs-fullstack-serverless/introduction
       }
 
       redir 301 {
@@ -186,6 +198,8 @@ data:
       proxy /learn/graphql/intro-graphql intro-graphql
 
       proxy /learn/graphql/unity unity
+
+      proxy /learn/graphql/nextjs-fullstack-serverless nextjs-fullstack-serverless
 
       proxy /learn/ja/graphql/hasura hasura-backend-ja
 

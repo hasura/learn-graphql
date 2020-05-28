@@ -99,6 +99,13 @@ We are defining a query to fetch older public todos and making a `client.query` 
 + const [error, setError] = useState(false);
 - const [todos] = useState<TodoItem[]>(initialTodos);
 + const [todos, setTodos] = useState<TodoItem[]>(initialTodos);
+  ...
+  const loadOlder = async () => {
+    ...
+    const { data, networkStatus } = await client.query({
+      query: GET_OLD_PUBLIC_TODOS,
+      variables: { oldestTodoId: oldestTodoId.current }
+    });
 +   if (data.todos && data.todos.length) {
 +     setTodos(prevTodos => {
 +       if(prevTodos) {
@@ -115,6 +122,7 @@ We are defining a query to fetch older public todos and making a `client.query` 
 +     console.error(data);
 +     setError(true);
 +   }
+  }
 
 ```
 

@@ -18,8 +18,6 @@ const ADD_TODO = gql`
 `;
 
 const TodoInput = ({ isPublic = false }) => {
-  let input;
-
   const [todoInput, setTodoInput] = useState("");
 
   const updateCache = (cache, { data }) => {
@@ -62,7 +60,6 @@ const TodoInput = ({ isPublic = false }) => {
         className="input"
         value={todoInput}
         placeholder="What needs to be done?"
-        ref={n => (input = n)}
         onChange={e => setTodoInput(e.target.value)}
       />
       <i className="inputMarker fa fa-angle-right" />

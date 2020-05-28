@@ -1,5 +1,4 @@
 import 'package:app_final/data/online_fetch.dart';
-import 'package:app_final/data/online_list.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 

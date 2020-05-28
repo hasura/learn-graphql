@@ -17,8 +17,7 @@ class Config {
     ),
   );
 
-  static final Link link =
-      authLink.concat(httpLink as Link).concat(websocketLink);
+  static final Link link = authLink.concat(httpLink).concat(websocketLink);
 
   static ValueNotifier<GraphQLClient> initailizeClient() {
     ValueNotifier<GraphQLClient> client = ValueNotifier(

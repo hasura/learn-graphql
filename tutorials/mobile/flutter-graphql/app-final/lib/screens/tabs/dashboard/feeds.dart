@@ -34,7 +34,7 @@ class _FeedsState extends State<Feeds> {
     return Column(
       children: <Widget>[
         Mutation(
-          options: MutationOptions(document: FeedFetch.addPublicTodo),
+          options: MutationOptions(documentNode: gql(FeedFetch.addPublicTodo)),
           builder: (
             RunMutation runMutation,
             QueryResult result,
@@ -90,7 +90,7 @@ class _FeedsState extends State<Feeds> {
                 _client
                     .query(
                   QueryOptions(
-                    document: FeedFetch.loadMoreTodos,
+                    documentNode: gql(FeedFetch.loadMoreTodos),
                     variables: {"oldestTodoId": _newId + 1},
                   ),
                 )
@@ -113,7 +113,7 @@ class _FeedsState extends State<Feeds> {
                     _client
                         .query(
                       QueryOptions(
-                        document: FeedFetch.newTodos,
+                        documentNode: gql(FeedFetch.newTodos),
                         variables: {"latestVisibleId": _lastLatestFeedId},
                       ),
                     )
@@ -156,7 +156,7 @@ class _FeedsState extends State<Feeds> {
             _client
                 .query(
               QueryOptions(
-                document: FeedFetch.loadMoreTodos,
+                documentNode: gql(FeedFetch.loadMoreTodos),
                 variables: {"oldestTodoId": _oldestFeedId},
               ),
             )

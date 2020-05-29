@@ -22,7 +22,8 @@ app.get('/webhook', (request, response) => {
   let decoded;
   let token;
   try {
-    token = request.get('Authorization').replace('Bearer ', '');
+    let auth_header = request.get('Authorization');
+    token = auth_header ? auth_header.replace('Bearer ', '') : ''
     decoded = jwt.decode(token);
     if(!decoded) {
       response.status(401);

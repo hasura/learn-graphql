@@ -46,7 +46,7 @@ Now we shall create a function `runOnlineMutation` to start polling at regular i
 +      () async {
 +        _client.mutate(
 +          MutationOptions(
-+            document: OnlineFetch.updateStatus,
++            documentNode: gql(OnlineFetch.updateStatus),
 +            variables: {
 +              'now': DateTime.now().toUtc().toIso8601String(),
 +            },

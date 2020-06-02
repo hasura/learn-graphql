@@ -31,8 +31,7 @@ To do this create a file named `client.dart` inside `lib/config` folder and add 
 +     uri: 'https://hasura.io/learn/graphql',
 +   );
 +
-+   static final AuthLink authLink =
-+   AuthLink(getToken: () async => await sharedPreferenceService.token);
++   static final AuthLink authLink = AuthLink(getToken: () => _token);
 +
 +   static final WebSocketLink websocketLink =
 +    WebSocketLink(
@@ -40,13 +39,16 @@ To do this create a file named `client.dart` inside `lib/config` folder and add 
 +       config: SocketClientConfig(
 +       autoReconnect: true,
 +       inactivityTimeout: Duration(seconds: 30),
++       initPayload: {
++        'headers': {'Authorization': _token},
++       },
 +     ),
 +   );
 +
-+   static final Link link =
-+       authLink.concat(httpLink as Link).concat(websocketLink);
++   static final Link link = authLink.concat(httpLink).concat(websocketLink);
 +
-+   static ValueNotifier<GraphQLClient>  initailizeClient() {
++   static ValueNotifier<GraphQLClient> initailizeClient(String token) {
++     _token = token;
 +     ValueNotifier<GraphQLClient> client =
 +     ValueNotifier(
 +       GraphQLClient(

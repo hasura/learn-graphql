@@ -59,7 +59,7 @@ First let's fetch current todos and new notification todos in `lib/screens/tabs/
 +                _client
 +                    .query(
 +                  QueryOptions(
-+                    document: FeedFetch.loadMoreTodos,
++                    documentNode: gql(FeedFetch.loadMoreTodos),
 +                    variables: {"oldestTodoId": _newId + 1},
 +                  ),
 +               )
@@ -82,7 +82,7 @@ First let's fetch current todos and new notification todos in `lib/screens/tabs/
 +                    _client
 +                       .query(
 +                     QueryOptions(
-+                       document: FeedFetch.newTodos,
++                       documentNode: gql(FeedFetch.newTodos),
 +                       variables: {"latestVisibleId": _lastLatestFeedId},
 +                     ),
 +                   )
@@ -135,7 +135,7 @@ Now let's add functionality to our load more button by again using `_client.quer
 +           _client
 +               .query(
 +             QueryOptions(
-+               document: FeedFetch.loadMoreTodos,
++               documentNode: gql(FeedFetch.loadMoreTodos),
 +               variables: {"oldestTodoId": _oldestFeedId},
 +             ),
 +           )

@@ -22,7 +22,7 @@ We are just mapping current view's id column to users table's id column to creat
 Let's explore the GraphQL APIs for the relationship created.
 
 ```
-subscription {
+query {
   online_users {
     id
     last_seen

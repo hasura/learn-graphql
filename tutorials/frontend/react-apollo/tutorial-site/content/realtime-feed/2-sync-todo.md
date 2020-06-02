@@ -1,6 +1,6 @@
 ---
 title: "Sync new todos"
-metaTitle: "Sync new todos in public feed | GraphQL React Apollo Tutorial"
+metaTitle: "Sync new todos in public feed | GraphQL React Apollo Components Tutorial"
 metaDescription: "You will learn how to sync new todos added by other people in the public feed by fetching older and newer data using GraphQL Queries"
 ---
 
@@ -183,9 +183,9 @@ Let's handle that in `componentDidUpdate()` lifecycle method
   }
 ```
 
-Now try adding a new todo to the public feed and you will see the notification appearing saying that a new task has arrived.
+Next, try adding a new todo to the public feed and you will see the notification appearing saying that a new task has arrived.
 
-Great! We still have one functionality left. When a new task arrives on the public feed and when the user clicks on the New tasks section, we should make a query to re-fetch the todos that are not present on our current public feed.
+That's Great! But we are still left with one functionality. When a new task arrives on the public feed and user clicks on the New tasks section, we should make a query to re-fetch the todos that are not present on our current public feed.
 
 Update `loadNew()` method with the following code
 

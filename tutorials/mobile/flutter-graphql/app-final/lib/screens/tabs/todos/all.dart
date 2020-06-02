@@ -21,7 +21,7 @@ class _AllState extends State<All> {
       () async {
         _client.mutate(
           MutationOptions(
-            document: OnlineFetch.updateStatus,
+            documentNode: gql(OnlineFetch.updateStatus),
             variables: {
               'now': DateTime.now().toUtc().toIso8601String(),
             },
@@ -46,7 +46,12 @@ class _AllState extends State<All> {
     return Column(
       children: <Widget>[
         Mutation(
-          options: MutationOptions(document: TodoFetch.addTodo),
+          options: MutationOptions(
+            documentNode: gql(TodoFetch.addTodo),
+            onCompleted: (dynamic resultData) {
+              refetchQuery();
+            },
+          ),
           builder: (
             RunMutation runMutation,
             QueryResult result,
@@ -57,20 +62,18 @@ class _AllState extends State<All> {
               },
             );
           },
-          onCompleted: (dynamic resultData) {
-            refetchQuery();
-          },
         ),
         Expanded(
           child: Query(
             options: QueryOptions(
-              document: TodoFetch.fetchAll,
+              documentNode: gql(TodoFetch.fetchAll),
               variables: {"is_public": false},
             ),
-            builder: (QueryResult result, {VoidCallback refetch}) {
+            builder: (QueryResult result,
+                {VoidCallback refetch, FetchMore fetchMore}) {
               refetchQuery = refetch;
-              if (result.errors != null) {
-                return Text(result.errors.toString());
+              if (result.hasException) {
+                return Text(result.exception.toString());
               }
               if (result.loading) {
                 return Text('Loading');

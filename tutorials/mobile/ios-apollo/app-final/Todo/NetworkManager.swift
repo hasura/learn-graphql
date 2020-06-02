@@ -4,8 +4,8 @@ import ApolloWebSocket
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let graphEndpoint = "https://learn.hasura.io/graphql"
-    let graphWSEndpoint = "wss://learn.hasura.io/graphql"
+    let graphEndpoint = "https://hasura.io/learn/graphql"
+    let graphWSEndpoint = "wss://hasura.io/learn/graphql"
     var apolloClient : ApolloClient?
     
     private init (){

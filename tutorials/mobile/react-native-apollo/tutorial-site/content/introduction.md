@@ -1,5 +1,5 @@
 ---
-title: "Course introduction"
+title: "Course Introduction"
 metaTitle: "Course Introduction | GraphQL React Native Apollo Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your React Native app with Apollo, in the shortest amount of time possible."
 ---
@@ -21,7 +21,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 - Integrating GraphQL mutations in your app to change data on the server
 - Updating local state after a GraphQL mutation (TextInput) using Apollo cache
 - Automatic updates to local state and UI after mutations
-- Using subscriptions with subscription components
+- Using GraphQL subscriptions
 - Building a real-time feed with notifications using mutations and subscriptions
 
 ## What will we be building?
@@ -42,6 +42,6 @@ Less than 2 hours
 
 ## Other courses
 
-**Frontend**: GraphQL for: [Vue](https://learn.hasura.io/graphql/vue), [React](https://learn.hasura.io/graphql/react), [iOS](https://learn.hasura.io/graphql/ios)
+**Frontend**: GraphQL for: [Vue](https://hasura.io/learn/graphql/vue/introduction/), [React](https://hasura.io/learn/graphql/react/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/)
 
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://learn.hasura.io/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
+**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)

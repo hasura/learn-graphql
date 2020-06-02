@@ -11,7 +11,7 @@ When we had initially set up Apollo, we installed the required dependencies for 
 ### React Apollo Subscriptions Setup
 
 ```bash
-+ $ yarn add apollo-link-ws subscriptions-transport-ws
+$ yarn add apollo-link-ws subscriptions-transport-ws
 ```
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.
@@ -35,8 +35,8 @@ const createApolloClient = (authToken: string) => {
   return new ApolloClient({
 -   link: new HttpLink({
 +   link: new WebSocketLink({
--     uri: 'https://learn.hasura.io/graphql',
-+     uri: 'wss://learn.hasura.io/graphql',
+-     uri: 'https://hasura.io/learn/graphql',
++     uri: 'wss://hasura.io/learn/graphql',
 +     options: {
 +       reconnect: true,
 +       connectionParams: {

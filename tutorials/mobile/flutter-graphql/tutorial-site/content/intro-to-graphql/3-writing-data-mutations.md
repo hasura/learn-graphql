@@ -51,7 +51,7 @@ mutation {
 
 <!-- [//]: # TODO: -->
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Returning data after the mutation
 
@@ -70,7 +70,7 @@ mutation {
       title
       is_completed
       is_public
-      created
+      created_at
     }
   }
 }
@@ -78,7 +78,7 @@ mutation {
 
 <!-- [//]: # TODO: -->
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Parametrise what you insert
 
@@ -109,7 +109,7 @@ mutation($title: String!) {
 
 <!-- [//]: # TODO: -->
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 We'll explore more mutations to update or delete data a little later.
 This is a good start to grokking mutations!

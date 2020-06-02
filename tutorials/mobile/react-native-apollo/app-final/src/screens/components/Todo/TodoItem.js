@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   Alert
 } from 'react-native';
-import {Mutation} from 'react-apollo';
-import gql from 'graphql-tag';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { FETCH_TODOS } from './Todos';
 import CenterSpinner from '../Util/CenterSpinner';
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
+import { FETCH_TODOS } from './Todos';
 
 const UPDATE_TODO = gql`
   mutation ($id: Int, $isCompleted: Boolean) {
@@ -30,16 +30,12 @@ const UPDATE_TODO = gql`
         is_completed
         created_at
         is_public
-        user {
-          id
-          name
-        }
       }
     }
   }
 `;
 
-const DELETE_TODO = gql`
+const REMOVE_TODO = gql`
   mutation ($id: Int) {
     delete_todos (
       where: {
@@ -53,131 +49,110 @@ const DELETE_TODO = gql`
   }
 `;
 
-export default class TodoItem extends React.Component {
+const TodoItem = ({ item, isPublic }) =>  {
 
-  render() {
-    const { item, isPublic } = this.props;
-    const userIcon = () => {
-      if (!isPublic) {
-        return null;
-      }
-      return (
-        <TouchableOpacity
-          style={styles.userItem}
-          onPress={() => Alert.alert('Message', `This todo is by @${item.user.name}`)}
-        >
-          <Text style={styles.userText}>@{item.user.name.toLowerCase()}</Text>
-        </TouchableOpacity>
-      );
+  const [updateTodo, { loading: updating, error: updateError }] = useMutation(UPDATE_TODO);
+  const [deleteTodo, { loading: deleting, error: deleteError }] = useMutation(REMOVE_TODO);
+
+  const userIcon = () => {
+    if (!isPublic) {
+      return null;
     }
+    return (
+      <TouchableOpacity
+        style={styles.userItem}
+        onPress={() => Alert.alert('Message', `This todo is by @${item.user.name}`)}
+      >
+        <Text style={styles.userText}>@{item.user.name.toLowerCase()}</Text>
+      </TouchableOpacity>
+    );
+  }
 
-    const updateCheckbox = () => {
-      if (isPublic) return null;
-      return (
-        <Mutation
-          mutation={UPDATE_TODO}
-          variables={{
-            id: item.id,
-            isCompleted: !item.is_completed
-          }}
-        >
-          {
-            (updateTodo, {loading, error}) => {
-              if (error) {
-                console.log(error);
-                return (<Text> Error </Text>);
-              }
-              const update = () => {
-                if (loading) { return; }
-                updateTodo();
-              }
-              return (
-                <TouchableOpacity
-                  style={item.is_completed ? styles.completedCheckBox : styles.checkBox}
-                  onPress={update}
-                  disabled={loading}
-                >
-                  { loading && <CenterSpinner />}
-                </TouchableOpacity>
-              )
-            }
-          }
-        </Mutation>
-      )
+  const updateCheckbox = () => {
+    if (isPublic) return null;
+    const update = () => {
+      if (updating) return;
+
+      updateTodo({
+        variables: {
+          id: item.id,
+          isCompleted: !item.is_completed
+        }
+      });
     }
-
-    const todoText = () => (
-      <View style={styles.todoTextWrapper}>
-        <Text style={item.is_completed ? styles.completedText : styles.activeText}>
-          {item.title}
-        </Text>
-      </View>
+    return (
+      <TouchableOpacity
+        style={item.is_completed ? styles.completedCheckBox : styles.checkBox}
+        disabled={updating}
+        onPress={update}
+      >
+        {null}
+      </TouchableOpacity>
     )
+  }
 
-    const deleteButton = () => {
-      if (isPublic) return null;
-      return (
-        <Mutation
-          mutation={DELETE_TODO}
-          variables={{
-            id: item.id,
-          }}
-          update={(cache) => {
-            const data = cache.readQuery({
-              query: FETCH_TODOS,
-              variables: {
-                isPublic,
-              }
-            });
-            const newData = {
-              todos: data.todos.filter((t) => t.id !== item.id)
-            }
-            cache.writeQuery({
-              query: FETCH_TODOS,
-              variables: {
-                isPublic,
-              },
-              data: newData
-            });
-          }}
-        >
-          {
-            (deleteTodo, { loading, error }) => {
-              if (error) {
-                return <Text> Error </Text>;
-              }
-              const remove = () => {
-                if (loading) { return; }
-                deleteTodo();
-              };
-              return (
-                <View style={styles.deleteButton}>
-                  <Icon
-                    name="delete"
-                    size={26}
-                    onPress={remove}
-                    disabled={loading}
-                    color={loading ? "lightgray" : "#BC0000"}
-                  />
-                </View>
-              );
-            }
-          }
-        </Mutation> 
-      )
+  const todoText = () => (
+    <View style={styles.todoTextWrapper}>
+      <Text style={item.is_completed ? styles.completedText : styles.activeText}>
+        {item.title}
+      </Text>
+    </View>
+  )
+
+  const deleteButton = () => {
+
+    if (isPublic) return null;
+
+    const updateCache = (client) => {
+      const data = client.readQuery({
+        query: FETCH_TODOS,
+        variables: {
+          isPublic,
+        }
+      });
+      const newData = {
+        todos: data.todos.filter((t) => t.id !== item.id)
+      }
+      client.writeQuery({
+        query: FETCH_TODOS,
+        variables: {
+          isPublic,
+        },
+        data: newData
+      });
     }
 
-    const todoContainerStyle = isPublic ? styles.todoContainerPublic : styles.todoContainerPrivate;
+    const remove = () => {
+      if (deleting) return;
+      deleteTodo({
+        variables: { id: item.id },
+        update: updateCache
+      });
+    };
 
     return (
-      <View style={todoContainerStyle}>
-        {userIcon()}
-        {updateCheckbox()}
-        {todoText()}
-        {deleteButton()}
+      <View style={styles.deleteButton}>
+        <Icon
+          name="delete"
+          size={26}
+          onPress={remove}
+          disabled={deleting}
+          color={"#BC0000"}
+        />
       </View>
     );
   }
+
+  const todoContainerStyle = isPublic ? styles.todoContainerPublic : styles.todoContainerPrivate;
+
+  return (
+    <View style={todoContainerStyle}>
+      {userIcon()}
+      {updateCheckbox()}
+      {todoText()}
+      {deleteButton()}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -248,3 +223,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
 });
+
+export default TodoItem;

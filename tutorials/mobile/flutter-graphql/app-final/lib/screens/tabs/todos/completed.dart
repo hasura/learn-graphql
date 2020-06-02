@@ -21,9 +21,11 @@ class _CompletedState extends State<Completed> {
       children: <Widget>[
         Mutation(
           options: MutationOptions(
-              document: TodoFetch
-                  .addTodo // this is the mutation string you just created
-              ),
+            documentNode: gql(TodoFetch.addTodo),
+            onCompleted: (dynamic resultData) {
+              refetchQuery();
+            },
+          ),
           builder: (
             RunMutation runMutation,
             QueryResult result,
@@ -35,18 +37,16 @@ class _CompletedState extends State<Completed> {
               },
             );
           },
-          onCompleted: (dynamic resultData) {
-            refetchQuery();
-          },
         ),
         Expanded(
           child: Query(
             options: QueryOptions(
-              document: TodoFetch.fetchCompleted,
+              documentNode: gql(TodoFetch.fetchCompleted),
             ),
-            builder: (QueryResult result, {VoidCallback refetch}) {
-              if (result.errors != null) {
-                return Text(result.errors.toString());
+            builder: (QueryResult result,
+                {VoidCallback refetch, FetchMore fetchMore}) {
+              if (result.hasException) {
+                return Text(result.exception.toString());
               }
               if (result.loading) {
                 return Text('Loading');

@@ -5,18 +5,25 @@ import { GET_MY_TODOS } from './TodoPrivateList';
 import { 
   GetMyTodosQuery,
   RemoveTodoMutationFn,
-  Todos
+  Todos,
+  ToggleTodoMutation,
+  ToggleTodoMutationVariables
 } from '../../generated/graphql';
 
 interface TodoItemType {
   index: number,
-  todo: Partial<Todos>
+  todo: Pick<Todos, "id" | "title" | "is_completed">
 };
 
 const TOGGLE_TODO = gql`
   mutation toggleTodo ($id: Int!, $isCompleted: Boolean!) {
     update_todos(where: {id: {_eq: $id}}, _set: {is_completed: $isCompleted}) {
       affected_rows
+      returning {
+        id
+        title
+        is_completed
+      }
     }
   }
 `;
@@ -31,14 +38,14 @@ const REMOVE_TODO = gql`
 
 const TodoItem = ({index, todo}: TodoItemType) => {
 
-  const [todoUpdate] = useMutation(
+  const [todoUpdate] = useMutation<ToggleTodoMutation, ToggleTodoMutationVariables>(
     TOGGLE_TODO, 
     {
       update(cache, { data }) {
         const existingTodos = cache.readQuery<GetMyTodosQuery>({ query: GET_MY_TODOS });
         const newTodos = existingTodos!.todos.map(t => {
           if (t.id === todo.id) {
-            return({...t, is_completed: !t.is_completed});
+            return { ...t, ...data!.update_todos!.returning[0] };
           } else {
             return t;
           }
@@ -77,13 +84,16 @@ const TodoItem = ({index, todo}: TodoItemType) => {
     todoUpdate({
       variables: { id: todo.id, isCompleted: !todo.is_completed },
       optimisticResponse: {
-        __typename: "Mutation",
+        __typename: "mutation_root",
         update_todos: {
           __typename: "todos_mutation_response",
-          id: todo.id,
-          title: todo.title,
-          is_completed: todo.is_completed,
-          affected_rows: 1
+          affected_rows: 1,
+          returning: [{
+            __typename: "todos",
+            id: todo.id,
+            title: todo.title,
+            is_completed: !todo.is_completed,
+          }]
         }
       }
     });

@@ -4,10 +4,6 @@ metaTitle: "GraphQL Queries to fetch data | GraphQL React Native Apollo Tutorial
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/xyI6w3vL_vw"/>
-
 <a name="graphiql"></a>
 
 ## Try out GraphQL queries
@@ -19,7 +15,7 @@ any GraphQL API.
 
 When you connect GraphiQL to a GraphQL endpoint, it
 queries the server for its GraphQL schema and gives you a UI to browse
-and test queries, and that powers its amazing autocomplete!
+and test queries, and that powers its amazing autocomplete functionality!
 
 ![GraphiQL demo](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphiql.gif)
 
@@ -28,14 +24,14 @@ to use and integrate APIs in your app without requiring
 external documentation tools.
 
 You can access the GraphiQL for this realtime todo app tutorial here:
-[learn.hasura.io/graphql/graphiql?tutorial=react-native](https://learn.hasura.io/graphql/graphiql?tutorial=react-native)
+[hasura.io/learn/graphql/graphiql?tutorial=react-native](https://hasura.io/learn/graphql/graphiql?tutorial=react-native)
 
-When you work with a GraphQL API in a project you will almost always
+When you work with a GraphQL API in a project, you will almost always
 use a tool like GraphiQL to explore and test your GraphQL queries.
 
 ## Basic GraphQL query
 
-1. Open GraphiQL at: [learn.hasura.io/graphql/graphiql?tutorial=react-native](https://learn.hasura.io/graphql/graphiql?tutorial=react-native). 
+1. Open GraphiQL at: [hasura.io/learn/graphql/graphiql?tutorial=react-native](https://hasura.io/learn/graphql/graphiql?tutorial=react-native). 
    You'll have to login to get an auth token to query the API. In a real-world scenario
    your GraphQL APIs will be protected.
 2. You'll see a URL, and headers that contain the auth
@@ -53,11 +49,11 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 4. Hit `ctrl + enter` or `cmd + enter` (mac) or click on the ▶️ icon to run the GraphQL query
 5. On the right, you should see a list of users by their names that are in the system!
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL query string
 to the server at the given endpoint with the HTTP headers. The server then sends the response
-that you see on the right hand side.
+that you see on the right-hand side.
 
 ## Fetching "graphs"
 
@@ -66,11 +62,11 @@ This is what our API "schema" looks like:
 
 ![Schema](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/schema.png)
 
-As you can see, it is a "graph" like schema where all the 3 models are linked to each other.
+As you can see, it is a "graph"-like schema where all the 3 models are linked to each other.
 
 Let's try making queries that fetch different slices of our data from the overall "graph".
 
-### Fetch users and their todos
+### Fetch users and their todo
 
 This GraphQL query will fetch all the users and their publicly visible todos:
 
@@ -85,7 +81,7 @@ This GraphQL query will fetch all the users and their publicly visible todos:
  }
 ```
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 
 ### Fetch online users and their profile information
@@ -104,7 +100,7 @@ and their profile information (which is just their name for now):
  }
 ```
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 
 ## Adding parameters (arguments) to GraphQL queries
@@ -128,7 +124,7 @@ query {
 }
 ```
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 The most important bit to check here is `limit: 10`. GraphQL servers will provide a list of
 arguments that can be used in `()` next to specific fields. In our case, we are using
@@ -153,7 +149,7 @@ query {
 Notice that we are passing arguments to different fields. This GraphQL query reads as:
 > Fetch users (with limit 1), and their todos (ordered by descending creation time, and limited to 5).
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 <a name="query-variables"></a>
 
@@ -194,7 +190,7 @@ In addition to the query above, we send a variables object:
 
 Now instead of sending just the query to the GraphQL server, from our client
 we'll send both the query and the variables. The GraphQL server will use the
-variable in the right place in the query automatically for us!
+variable in the correct place in the query automatically for us!
 
 Let's try this out in GraphiQL:
 1. Head to GraphiQL
@@ -202,7 +198,7 @@ Let's try this out in GraphiQL:
 3. Scroll to the bottom of the page, where you see a smaller panel "Query Variables"
 4. Add the query variable as a JSON object
 
-<b><a href="https://learn.hasura.io/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Summary
 

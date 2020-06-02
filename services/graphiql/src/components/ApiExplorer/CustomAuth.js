@@ -58,8 +58,8 @@ class CustomAuth extends React.Component {
         password: '',
       });
       const decodedToken = jwtDecoder(response.token);
-      window.localStorage.setItem('@learn.hasura.io:graphiql-react-native-token', response.token);
-      window.localStorage.setItem('@learn.hasura.io:graphiql-react-native-exp', decodedToken.exp);
+      window.localStorage.setItem('@hasura.io/learn:graphiql-react-native-token', response.token);
+      window.localStorage.setItem('@hasura.io/learn:graphiql-react-native-exp', decodedToken.exp);
       window.location.replace(window.location.href);
     }
     const errorCallback = (e) => {

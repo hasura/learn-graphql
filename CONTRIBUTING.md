@@ -1,8 +1,8 @@
 # Contributing Guide
 
-*First*: if you feel insecure about how to start contributing, feel free to ask us on our [Discord channel](https://discordapp.com/invite/hasura), in the #contrib channel. You can also just go ahead with your contribution and we'll give you feedback. Don't worry - the worst that can happen is that you'll be politely asked to change something. We appreciate any contributions, and we don't want a wall of rules to stand in the way of that. 
+If you feel insecure about how to start contributing, feel free to ask us on our [Discord channel](https://discordapp.com/invite/hasura), in the #contrib channel. You can also just go ahead with your contribution and we'll give you feedback. Don't worry! - the worst that could happen is, you'll be politely asked to change something. We appreciate any contributions, and we don't want a wall of rules to stand in the way of that. 
 
-However, for those individuals who want a bit more guidance on the best way to contribute to the project, read on. This document will cover what we're looking for. By addressing the points below, the chances that we
+However, for those individuals who want a bit more guidance on the best way to contribute to the project, read on. This document covers what we're looking for. By addressing the points below, the chances that we
 can quickly merge or address your contributions will increase.
 
 ## Overview
@@ -13,19 +13,19 @@ can quickly merge or address your contributions will increase.
 
 Our goal is to keep our tutorial content and the apps associated with it comprehensive and updated. If you would like to help us in doing so, we are grateful for any kind of contribution:
 
-- Add new tutorials (please reach out to us if you have ideas to avoid duplicate work)
+- Add new tutorials (please reach out to us if you have ideas to avoid duplicate work).
 
-- Report missing content
+- Report missing content.
 
-- Fix errors in existing tutorials
+- Fix errors in existing tutorials.
 
-- Help us in updating the apps versions
+- Help us in updating the app's versions.
 
 ## Ways of contributing
 
 ### Reporting an Issue
 
-- Provide steps to reproduce the issue, including the tutorial that you are trying out.
+- Provide steps to reproduce an issue, including the tutorial that you are trying out.
 
 - Please include logs, if relevant.
 
@@ -33,7 +33,7 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 - Please make sure there is an issue associated with the work that you're doing.
 
-- If you're working on an issue, please comment that you are doing so to prevent duplicate work by others also.
+- If you're working on an issue, please mention that you are doing so to prevent duplicate work by others and also it prevents any conflicts in the pull request.
 
 - Squash your commits and refer to the issue using `fix #<issue-no>` or `close
   #<issue-no>` in the commit message, at the end.

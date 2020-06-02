@@ -1,6 +1,6 @@
 ---
 title: "Update todos - mutation"
-metaTitle: "Mutation to update todos | GraphQL React Apollo Tutorial"
+metaTitle: "Mutation to update todos | GraphQL React Apollo Components Tutorial"
 metaDescription: "GraphQL Mutation to update existing personal todos. Try the mutation in GraphiQL, passing the Authorization token to mark a todo as completed"
 ---
 
@@ -21,6 +21,6 @@ Let's define a graphql query to do a mutation into todos.
 ```
 You will also need to pass in the values for the variables.
 
-[Try](https://learn.hasura.io/graphql/graphiql) this mutation in GraphiQL against the application database to see what the response looks like.
+[Try](https://hasura.io/learn/graphql/graphiql) this mutation in GraphiQL against the application database to see what the response looks like.
 
 Let's now integrate this graphql mutation into our react app.

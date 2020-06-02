@@ -6,7 +6,7 @@ metaDescription: "A powerful and concise tutorial that will introduce you to Gra
 
 This course is a concise and powerful introduction to GraphQL for android developers.
 
-We’ve structured this course to cover fundamental concepts of both GraphQL and using GraphQL in Android, in the shortest amount of time possible. The course is light on opinions so that once you grok the fundamentals you can go on to choose your favourite tools and tailor your workflow.
+We’ve structured this course to cover fundamental concepts of both GraphQL and using GraphQL in Android, in the shortest amount of time possible. The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite tools and tailor your workflow.
 
 ## Key topics and takeways:
 - GraphQL vs REST
@@ -40,6 +40,6 @@ Less than 2 hours
 
 ## Other courses
 
-**Frontend**: GraphQL for: [Vue](https://learn.hasura.io/graphql/vue), [React Native](https://learn.hasura.io/graphql/react-native), [iOS](https://learn.hasura.io/graphql/ios)
+**Frontend**: GraphQL for: [Vue](https://hasura.io/learn/graphql/vue/introduction/), [React Native](https://hasura.io/learn/graphql/react-native/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/)
 
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://learn.hasura.io/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
+**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)

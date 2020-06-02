@@ -1,16 +1,17 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/android",
-		"siteUrl": "https://learn.hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"pathPrefix": "/learn/graphql/android",
+		"siteUrl": "https://hasura.io",
+		"gaTrackingId": "GTM-WBBW2LN",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-		"logoLink": "https://learn.hasura.io",
-		"title": "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/android'>/ android</a>",
+		"logoLink": "https://hasura.io/learn/",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/android/introduction/'>/ android</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for Android Developers by @HasuraHQ https://learn.hasura.io/graphql/android",
+		"tweetText": "Check out this GraphQL course for Android Developers by @HasuraHQ https://hasura.io/learn/graphql/android/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
@@ -25,21 +26,21 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/intro-to-graphql",
-    		"/setup",
-    		"/apollo-client",
-    		"/queries",
-    		"/mutations-variables",
-    		"/optimistic-update-mutations",
-    		"/subscriptions",
-    		"/realtime-feed",
-    		"/what-next"
-    		],
+			"/introduction/",
+    		"/intro-to-graphql/",
+    		"/setup/",
+    		"/apollo-client/",
+    		"/queries/",
+    		"/mutations-variables/",
+    		"/optimistic-update-mutations/",
+    		"/subscriptions/",
+    		"/realtime-feed/",
+    		"/what-next/"
+    	],
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://docs.hasura.io"
+			"link": "https://hasura.io/docs"
 			},
 			{
 			"text": "GraphQL Docs",

@@ -52,7 +52,7 @@ mutation {
 ```
 
 <!-- [//]: # TODO: -->
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Returning data after the mutation
 Notice that the data of the todo that is to be inserted is sent as
@@ -77,19 +77,19 @@ mutation {
 ```
 
 <!-- [//]: # TODO: -->
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-## Parametrise what you insert
+## Parameterize what you insert
 
-For mutations, we would almost always have to paramatrise the arguments! We
-would rarely, if ever, have a "hardcoded" mutation in our app. This is because
+For mutations, we would almost always have to parameterize the arguments! We
+would rarely have a "hardcoded" mutation in our app. This is because
 the arguments of what data to capture, how to modify or delete something is usually
 dependent on some user action.
 
-Now that we know how to parametrise using query variables, let's use that:
+Now that we know how to parameterize using query variables, let's use that:
 
 ```graphql
-# The parametrised GraphQL mutation
+# The parameterized GraphQL mutation
 mutation($todo: todos_insert_input!){
   insert_todos(objects: [$todo]) {
     returning {
@@ -109,7 +109,7 @@ mutation($todo: todos_insert_input!){
 ```
 
 <!-- [//]: # TODO: -->
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 We'll explore more mutations to update or delete data a little later.
 This is a good start to grokking mutations!
@@ -119,4 +119,4 @@ This is a good start to grokking mutations!
 - You can make basic GraphQL mutations
 - You can pass dynamic arguments/data to mutations with query variables
 
-Next, let's look at GraphQL subscriptions
+Next, let's look at GraphQL subscriptions.

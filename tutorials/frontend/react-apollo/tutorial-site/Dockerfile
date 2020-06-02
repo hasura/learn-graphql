@@ -1,13 +1,14 @@
-FROM node:buster
+FROM node:10.17-buster
 
 # update this line when gatsby-gitbook-starter repo changes
-RUN sh -c 'echo -e "Updated at: 2019-08-27 11:00:00 IST"'
+RUN sh -c 'echo -e "Updated at: 2020-05-08 17:00:00 IST"'
 
 # Install global dependencies
 RUN npm -g install gatsby-cli
 
-# clone gatsby-gitbook-starter
+# clone gatsby-gitbook-starter repo
 RUN git clone https://github.com/hasura/gatsby-gitbook-starter.git
+RUN cd gatsby-gitbook-starter && git checkout gitbook-theme
 
 # Create app directory
 WORKDIR /gatsby-gitbook-starter

@@ -4,16 +4,11 @@ metaTitle: "GraphQL Subscriptions for realtime data | GraphQL React Native Apoll
 metaDescription: "Try out GraphQL Subscription using GraphiQL. A GraphQL subscriptions example to fetch live data pushed over websockets "
 ---
 
-
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/n5zG7WdAYYI"/>
-
 The GraphQL specification allows for something called subscriptions that are like GraphQL queries
 but instead of returning data in one read, you get data pushed from the server.
 
-This is useful for your app to subscribe to "events" or "live results" from the backend, but
-while allowing you to control the "shape" of the event from your app.
+This is useful for your app to subscribe to "events" or "live results" from the backend,
+while also allowing you to control the "shape" of the event from your app.
 
 GraphQL subscriptions are a critical component of adding realtime or reactive features
 to your apps easily. GraphQL clients and servers that support subscriptions are great because
@@ -21,7 +16,7 @@ they allow you to build great experiences without having to deal with websocket 
 
 ## Make your first GraphQL subscription
 
-1. Step 1: Head to https://learn.hasura.io/graphql/graphiql?tutorial=react-native
+1. Step 1: Head to https://hasura.io/learn/graphql/graphiql?tutorial=react-native
 2. Step 2: Write this GraphQL query in the textarea:
 
 ```graphql

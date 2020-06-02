@@ -1,5 +1,5 @@
 ---
-title: "Course introduction"
+title: "Course Introduction"
 metaTitle: "Course Introduction | GraphQL Elm Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your Elm app, in the shortest amount of time possible."
 ---
@@ -42,6 +42,6 @@ Less than 2 hours
 
 ## Other courses
 
-**Frontend**: GraphQL for: [React](https://learn.hasura.io/graphql/react), [Vue](https://learn.hasura.io/graphql/vue), [React Native](https://learn.hasura.io/graphql/react-native), [iOS](https://learn.hasura.io/graphql/ios)
+**Frontend**: GraphQL for: [React](https://hasura.io/learn/graphql/react/introduction/), [Vue](https://hasura.io/learn/graphql/vue/introduction/), [React Native](https://hasura.io/learn/graphql/react-native/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/)
 
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://learn.hasura.io/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
+**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)

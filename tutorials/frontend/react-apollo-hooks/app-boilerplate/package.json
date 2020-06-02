@@ -1,0 +1,40 @@
+{
+  "name": "react-apollo-todo",
+  "version": "0.1.0",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "private": true,
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.2.3",
+    "bootstrap": "^4.3.1",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.10.2",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-dom": "^16.10.2",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "husky": "^1.0.0-rc.15",
+    "lint-staged": "^7.3.0",
+    "prettier": "1.14.3",
+    "react-scripts": "^2.1.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

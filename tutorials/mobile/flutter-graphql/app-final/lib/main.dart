@@ -3,7 +3,6 @@ import 'package:app_final/screens/login.dart';
 import 'package:app_final/screens/signup.dart';
 import 'package:app_final/screens/splash.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() => runApp(MyApp());
 

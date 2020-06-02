@@ -6,16 +6,12 @@ metaDescription: "You will learn how to configure GraphQL Subscriptions using Re
 
 import GithubLink from "../../src/GithubLink.js";
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/O7Wv2RCQvcc" />
-
 When we had initially set up Apollo, we used Apollo Boost to install the required dependencies. But subscriptions is an advanced use case which Apollo Boost does not support. So we have to install more dependencies to set up subscriptions.
 
 ### React Native Apollo Subscriptions Setup
 
 ```bash
-+ $ npm install apollo-link-ws subscriptions-transport-ws --save
+yarn add apollo-link-ws subscriptions-transport-ws
 ```
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.
@@ -35,14 +31,14 @@ Update the `makeApolloClient` function to integrate WebSocketLink.
 
   // create an apollo link instance, a network interface for apollo client
 -  const link = new HttpLink({
--    uri: `https://learn.hasura.io/graphql`,
+-    uri: `https://hasura.io/learn/graphql`,
 -    headers: {
 -      Authorization: `Bearer ${token}`
 -    }
 -  });
 
 + const link = new WebSocketLink({
-+   uri: `wss://learn.hasura.io/graphql`,
++   uri: `wss://hasura.io/learn/graphql`,
 +   options: {
 +     reconnect: true,
 +     connectionParams: {

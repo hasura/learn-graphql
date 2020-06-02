@@ -12,7 +12,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 ## Try out GraphQL queries
 
-For this tutorial we've set up a GraphQL API for you. The most common
+For this tutorial, we've set up a GraphQL API for you. The most common
 way to browse a GraphQL API is to use GraphiQL. GraphiQL is a tool
 built by Facebook, (pronounced "graphical") that makes it easy to explore
 any GraphQL API.
@@ -27,16 +27,16 @@ Tools like GraphiQL make GraphQL APIs really easy
 to use and integrate APIs in your app without requiring
 external documentation tools.
 
-You can access the GraphiQL for this realtime todo app tutorial here:
-[learn.hasura.io/graphql/graphiql](https://learn.hasura.io/graphql/graphiql)
+You can access the GraphiQL for this real-time todo app tutorial here:
+[hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql)
 
 When you work with a GraphQL API in a project you will almost always
 use a tool like GraphiQL to explore and test your GraphQL queries.
 
 ## Basic GraphQL query
 
-1. Open GraphiQL at: [learn.hasura.io/graphql/graphiql](https://learn.hasura.io/graphql/graphiql). 
-   You'll have to login to get an auth token to query the API. In a real-world scenario
+1. Open GraphiQL at: [hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql). 
+   You'll have to login to get an auth token to query the API. In a real-world scenario,
    your GraphQL APIs will be protected.
 2. You'll see a URL, and headers that contain the auth
    token that will be sent along with your GraphQL query.
@@ -53,11 +53,11 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 4. Hit `ctrl + enter` or `cmd + enter` (mac) or click on the ▶️ icon to run the GraphQL query
 5. On the right, you should see a list of users by their names that are in the system!
 
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL query string
 to the server at the given endpoint with the HTTP headers. The server then sends the response
-that you see on the right hand side.
+that you see on the right-hand side.
 
 ## Fetching "graphs"
 
@@ -85,7 +85,7 @@ This GraphQL query will fetch all the users and their publicly visible todos:
  }
 ```
 
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 
 ### Fetch online users and their profile information
@@ -104,7 +104,7 @@ and their profile information (which is just their name for now):
  }
 ```
 
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 
 ## Adding parameters (arguments) to GraphQL queries
@@ -128,7 +128,7 @@ query {
 }
 ```
 
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 The most important bit to check here is `limit: 10`. GraphQL servers will provide a list of
 arguments that can be used in `()` next to specific fields. In our case, we are using
@@ -153,7 +153,7 @@ query {
 Notice that we are passing arguments to different fields. This GraphQL query reads as:
 > Fetch users (with limit 1), and their todos (ordered by descending creation time, and limited to 5).
 
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 <a name="query-variables"></a>
 
@@ -192,8 +192,8 @@ In addition to the query above, we send a variables object:
 }
 ```
 
-Now instead of sending just the query to the GraphQL server, from our client
-we'll send both the query and the variables. The GraphQL server will use the
+Now instead of sending just the query to the GraphQL server,
+we'll send both the query and the variables from our client. The GraphQL server will use the
 variable in the right place in the query automatically for us!
 
 Let's try this out in GraphiQL:
@@ -202,7 +202,7 @@ Let's try this out in GraphiQL:
 3. Scroll to the bottom of the page, where you see a smaller panel "Query Variables"
 4. Add the query variable as a JSON object
 
-<b><a href="https://learn.hasura.io/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Summary
 

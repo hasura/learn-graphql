@@ -1,6 +1,6 @@
 ---
-title: "Course introduction"
-metaTitle: "Course Introduction | GraphQL React Apollo Tutorial"
+title: "Course Introduction"
+metaTitle: "Course Introduction | GraphQL React Apollo Components Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your React app with Apollo, in the shortest amount of time possible."
 ---
 
@@ -12,7 +12,7 @@ So, we put together a powerful and concise course that will introduce you to Gra
 
 We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
 
-## Key topics and takeways:
+## Key topics and takeaways:
 
 - GraphQL vs REST
 - GraphQL queries, mutations, subscriptions
@@ -25,7 +25,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 - Building a real-time feed with notifications using mutations and subscriptions
 
 ## What will we be building?
-We will be building a realtime todo app using authenticated GraphQL APIs.
+We will be building a realtime to-do app using authenticated GraphQL APIs.
 
 Try this deployed version of the app to see what we'll be building:
 https://learn-hasura-todo-app.netlify.com/
@@ -39,10 +39,10 @@ If you're new to React, we recommend going through this [official tutorial](http
 You need to have npm/yarn & node 8+ running.
 
 ## How long will this tutorial take?
-Less than 2 hours
+Less than 2 hours.
 
 ## Other courses
 
-**Frontend**: GraphQL for: [Vue](https://learn.hasura.io/graphql/vue), [React Native](https://learn.hasura.io/graphql/react-native), [iOS](https://learn.hasura.io/graphql/ios)
+**Frontend**: GraphQL for: [Vue](https://hasura.io/learn/graphql/vue/introduction/), [React Native](https://hasura.io/learn/graphql/react-native/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/)
 
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://learn.hasura.io/graphql/hasura) in 30 mins (ideal for frontend, backend or fullstack developers)
+**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)

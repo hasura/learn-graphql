@@ -1,22 +1,23 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/graphql/react-native",
-		"siteUrl": "https://learn.hasura.io",
-		"gaTrackingId": "UA-59768903-1"
+		"pathPrefix": "/learn/graphql/react-native",
+		"siteUrl": "https://hasura.io",
+		"gaTrackingId": "GTM-WBBW2LN",
+		"trailingSlash": true
 	},
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
-		"logoLink": "https://learn.hasura.io",
-		"title": "<a href='https://learn.hasura.io'>/ graphql </a><a href='https://learn.hasura.io/graphql/react-native'>/ react-native</a>",
+		"logoLink": "https://hasura.io/learn/",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/react-native/introduction/'>/ react-native</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this GraphQL course for React Native developers by @HasuraHQ https://learn.hasura.io/graphql/react-native",
+		"tweetText": "Check out this GraphQL course for React Native developers by @HasuraHQ https://hasura.io/learn/graphql/react-native/introduction/",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
 		}],
 		"search": {
-			"enabled": true,
+			"enabled": process.env.NODE_ENV !== 'development',
 			"indexName": "learn-react-native-apollo",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
@@ -25,23 +26,23 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction",
-    		"/intro-to-graphql",
-    		"/setup",
-    		"/apollo-client",
-    		"/queries",
-    		"/mutations",
-    		"/update-delete-mutations",
-        	"/load-older",
-    		"/subscriptions",
-    		"/realtime-feed",
-        	"/logout",
-    		"/what-next"
+			"/introduction/",
+    		"/intro-to-graphql/",
+    		"/setup/",
+    		"/apollo-client/",
+    		"/queries/",
+    		"/mutations/",
+    		"/update-delete-mutations/",
+        	"/load-older/",
+    		"/subscriptions/",
+    		"/realtime-feed/",
+        	"/logout/",
+    		"/what-next/"
     	],
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://docs.hasura.io"
+			"link": "https://hasura.io/docs"
 			},
 			{
 			"text": "GraphQL Docs",

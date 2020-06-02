@@ -5,154 +5,204 @@ metadata:
   namespace: default
 data:
   Caddyfile: |
-    learn.hasura.io {
+    learn.hasura.io 35.239.102.165:80 {
       tls {
         dns cloudflare
       }
       redir 301 {
-        /graphql/react/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react/react-boilerplate.zip
+        /learn/graphql/react/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react/boilerplate.zip
       }
 
       redir 301 {
-        /graphql/react-native/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react-native/react-native-boilerplate.zip
+        /learn/graphql/react-apollo-components/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react-apollo-components/boilerplate.zip
       }
 
       redir 301 {
-        /graphql/vue/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/vue/vue-boilerplate.zip
+        /learn/graphql/react-native/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/react-native/react-native-boilerplate.zip
       }
 
       redir 301 {
-        /graphql/ios/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/ios/ios-boilerplate.zip
+        /learn/graphql/vue/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/vue/vue-boilerplate.zip
       }
 
       redir 301 {
-        /graphql/android/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/android/android-boilerplate.zip
+        /learn/graphql/ios/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/ios/ios-boilerplate.zip
       }
 
       redir 301 {
-        /graphql/elm/elm-boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/elm/elm-boilerplate.zip
+        /learn/graphql/android/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/android/android-boilerplate.zip
       }
 
       redir 301 {
-        /graphql/reason-react-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/reason-react-apollo/boilerplate.zip
+        /learn/graphql/elm/elm-boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/elm/elm-boilerplate.zip
       }
 
       redir 301 {
-        /graphql/angular-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/angular-apollo/boilerplate.zip
+        /learn/graphql/reason-react-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/reason-react-apollo/boilerplate.zip
       }
 
       redir 301 {
-        /graphql/flutter-graphql/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/flutter-graphql/boilerplate.zip
+        /learn/graphql/angular-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/angular-apollo/boilerplate.zip
       }
 
       redir 301 {
-        /graphql/typescript-react-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/typescript-react-apollo/boilerplate.zip
+        /learn/graphql/flutter-graphql/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/flutter-graphql/boilerplate.zip
       }
 
       redir 301 {
-        /graphql/typescript-react-apollo/ /graphql/typescript-react-apollo/introduction
+        /learn/graphql/typescript-react-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/typescript-react-apollo/boilerplate.zip
       }
 
       redir 301 {
-        /graphql/angular-apollo/ /graphql/angular-apollo/introduction
+        /learn/graphql/nextjs-fullstack-serverless/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/nextjs-fullstack-serverless/boilerplate.zip
       }
 
       redir 301 {
-        /graphql/flutter-graphql/ /graphql/flutter-graphql/introduction
+        /learn/graphql/hasura-auth-slack/slack-backend.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/hasura-auth-slack/slack-backend.zip
       }
 
       redir 301 {
-        /graphql/reason-react-apollo/ /graphql/reason-react-apollo/introduction
+        /learn/graphql/nextjs-fullstack-serverless/hasura.zip https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-nextjs/hasura.zip
       }
 
       redir 301 {
-        /graphql/elm-graphql/ /graphql/elm-graphql/introduction
+        /learn/graphql/typescript-react-apollo/ /learn/graphql/typescript-react-apollo/introduction
       }
 
       redir 301 {
-        /graphql/react-native/ /graphql/react-native/introduction
+        /learn/graphql/angular-apollo/ /learn/graphql/angular-apollo/introduction
       }
 
       redir 301 {
-        /graphql/react/ /graphql/react/introduction
+        /learn/graphql/flutter-graphql/ /learn/graphql/flutter-graphql/introduction
       }
 
       redir 301 {
-        /graphql/vue/ /graphql/vue/introduction
+        /learn/graphql/reason-react-apollo/ /learn/graphql/reason-react-apollo/introduction
       }
 
       redir 301 {
-        /graphql/ios/ /graphql/ios/introduction
+        /learn/graphql/elm-graphql/ /learn/graphql/elm-graphql/introduction
       }
 
       redir 301 {
-        /graphql/android/ /graphql/android/introduction
+        /learn/graphql/react-native/ /learn/graphql/react-native/introduction
       }
 
       redir 301 {
-        /graphql/hasura/ /graphql/hasura/introduction
+        /learn/graphql/react-apollo-components/ /learn/graphql/react-apollo-components/introduction
       }
 
-      proxy / homepage
-
-      proxy /auth/webhook auth-webhook {
-        without /auth
+      redir 301 {
+        /learn/graphql/react/ /learn/graphql/react/introduction
       }
 
-      proxy /auth auth-jwt-server {
-        without /auth
+      redir 301 {
+        /learn/graphql/vue/ /learn/graphql/vue/introduction
       }
 
-      proxy /graphql/console hasura/console {
-        without /graphql/console
+      redir 301 {
+        /learn/graphql/ios/ /learn/graphql/ios/introduction
       }
 
-      proxy /graphql/v1alpha1/graphql hasura/v1alpha1/graphql {
-        without /graphql/v1alpha1/graphql
+      redir 301 {
+        /learn/graphql/android/ /learn/graphql/android/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/hasura-auth-slack/ /learn/graphql/hasura-auth-slack/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/hasura/ /learn/graphql/hasura/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/intro-graphql/ /learn/graphql/intro-graphql/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/unity/ /learn/graphql/unity/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/nextjs-fullstack-serverless/ /learn/graphql/nextjs-fullstack-serverless/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/hasura/ /learn/ja/graphql/hasura/introduction
+      }
+
+      proxy /learn/auth/webhook auth-webhook {
+        without /learn/auth
+      }
+
+      proxy /learn/auth auth-jwt-server {
+        without /learn/auth
+      }
+
+      proxy /learn/graphql/console hasura/console {
+        without /learn/graphql/console
+      }
+
+      proxy /learn/graphql/v1alpha1/graphql hasura/v1alpha1/graphql {
+        without /learn/graphql/v1alpha1/graphql
         websocket
       }
 
-      proxy /graphql/v1/graphql hasura/v1/graphql {
-        without /graphql/v1/graphql
+      proxy /learn/graphql/v1/graphql hasura/v1/graphql {
+        without /learn/graphql/v1/graphql
         websocket
       }
 
-      proxy /graphql/v1/query hasura/v1/query {
-        without /graphql/v1/query
+      proxy /learn/graphql/v1/query hasura/v1/query {
+        without /learn/graphql/v1/query
       }
 
-      proxy /graphql/v1/version hasura/v1/version {
-        without /graphql/v1/version
+      proxy /learn/graphql/v1/version hasura/v1/version {
+        without /learn/graphql/v1/version
       }
 
-      proxy /graphql/graphiql graphiql {
-        without /graphql/graphiql
+      proxy /learn/graphql/graphiql graphiql {
+        without /learn/graphql/graphiql
       }
 
-      proxy /graphql/hasura hasura-backend
+      proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
 
-      proxy /graphql/typescript-react-apollo typescript-react-apollo
+      proxy /learn/graphql/hasura hasura-backend
 
-      proxy /graphql/react-native react-native-apollo
+      proxy /learn/graphql/typescript-react-apollo typescript-react-apollo
 
-      proxy /graphql/react react-apollo
+      proxy /learn/graphql/react-native react-native-apollo
 
-      proxy /graphql/vue vue-apollo
+      proxy /learn/graphql/react-apollo-components react-apollo
 
-      proxy /graphql/ios ios-apollo
+      proxy /learn/graphql/react react-apollo-hooks
 
-      proxy /graphql/android android-apollo
+      proxy /learn/graphql/vue vue-apollo
 
-      proxy /graphql/elm-graphql elm-graphql
+      proxy /learn/graphql/ios ios-apollo
 
-      proxy /graphql/reason-react-apollo reason-react-apollo
+      proxy /learn/graphql/android android-apollo
 
-      proxy /graphql/angular-apollo angular-apollo
+      proxy /learn/graphql/elm-graphql elm-graphql
 
-      proxy /graphql/flutter-graphql flutter-graphql
+      proxy /learn/graphql/reason-react-apollo reason-react-apollo
 
-      proxy /graphql hasura/v1/graphql {
-        without /graphql
+      proxy /learn/graphql/angular-apollo angular-apollo
+
+      proxy /learn/graphql/flutter-graphql flutter-graphql
+
+      proxy /learn/graphql/intro-graphql intro-graphql
+
+      proxy /learn/graphql/unity unity
+
+      proxy /learn/graphql/nextjs-fullstack-serverless nextjs-fullstack-serverless
+
+      proxy /learn/ja/graphql/hasura hasura-backend-ja
+
+      proxy /learn/graphql hasura/v1/graphql {
+        without /learn/graphql
         websocket
       }
     }

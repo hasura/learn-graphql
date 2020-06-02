@@ -16,7 +16,7 @@ they allow you to build great experiences without having to deal with websocket 
 
 ## Make your first GraphQL subscription
 
-Step 1: Head to https://learn.hasura.io/graphql/graphiql
+Step 1: Head to https://hasura.io/learn/graphql/graphiql
 Step 2: Write this GraphQL query in the textarea:
 
 ```graphql

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial & boilerplate setup"
 metaTitle: "Todo app vue boilerplate setup | GraphQL Vue Apollo Tutorial"
-metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in Vue.js"
+metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working real-time app in Vue.js"
 ---
 
 import YoutubeEmbed from "../src/YoutubeEmbed.js";
@@ -9,11 +9,11 @@ import YoutubeEmbed from "../src/YoutubeEmbed.js";
 <YoutubeEmbed link="https://www.youtube.com/embed/JCOgZl-nNUg" />
 
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
-Our task will be convert the "static" UI into a working realtime app.
+Our task will be to convert the "static" UI into a working real-time app.
 
 ### Download and run the boilerplate
 
-1. Download the boilerplate at: https://learn.hasura.io/graphql/vue/boilerplate.zip
+1. Download the boilerplate at: https://hasura.io/learn/graphql/vue/boilerplate.zip
 2. Unzip and make sure you're in the `app-boilerplate` directory
 3. Install dependencies and run the "static" app
     - `npm install`
@@ -26,7 +26,7 @@ This is what you should see after the steps above:
 
 ### Load GraphiQL to play with your GraphQL APIs
 
-1. Head to https://learn.hasura.io/graphql/graphiql
+1. Head to https://hasura.io/learn/graphql/graphiql
 2. Log in (so that you can test the GraphQL APIs with a valid user token)
 
 This is what you should see after the steps above:

@@ -73,16 +73,16 @@ query AllTodos {
 }
 ```
 
-- Next thing that we need to add a schema to the project. To download the schema, you need to get your access token from graphiql `https://learn.hasura.io/graphql/graphiql`.
+- Next thing that we need to add a schema to the project. To download the schema, you need to get your access token from graphiql `https://hasura.io/learn/graphql/graphiql`.
 - Run this from your terminal to download the schema,
 
 ```bash
-apollo schema:download --endpoint=http://learn.hasura.io/graphql --header="Authorization: Bearer <token>"
+apollo schema:download --endpoint=http://hasura.io/learn/graphql --header="Authorization: Bearer <token>"
 ```
 
 - Place the downloaded schema.json in the same folder as your api.graphql
 
-Detailed instructions to download your schema using the apollo CLI [HERE](https://github.com/apollographql/apollo-tooling#apollo-schemadownload-output)
+Detailed instructions to download your schema using the apollo CLI [HERE](https://github.com/apollographql/apollo-tooling#apollo-clientdownload-schema-output)
 
 - We also need to add javax annotation processor for the generated code,
 
@@ -121,7 +121,7 @@ apollo {
 
 You can use the generated classes to make requests to your GraphQL API. Apollo includes an `ApolloClient` that allows you to edit networking options like pick the base url for your GraphQL Endpoint.
 
-In our project, we have the base url pointing to `https://learn.hasura.io/graphql/`
+In our project, we have the base url pointing to `https://hasura.io/learn/graphql/`
 
 There is also a #query && #mutation instance method on ApolloClient that can take as input any Query or Mutation that you have generated using Apollo. Create a Network.kt under network folder on the root of the project. `com.hasura.todo.Todo`
 
@@ -147,7 +147,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import java.text.ParseException
 import java.text.SimpleDateFormat
 
-private val GRAPHQL_ENDPOINT: String = "https://learn.hasura.io/graphql"
+private val GRAPHQL_ENDPOINT: String = "https://hasura.io/learn/graphql"
 private val SQL_CACHE_NAME = "hasuratodo"
 
 class Network {

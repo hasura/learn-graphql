@@ -1,6 +1,6 @@
 ---
 title: "Run mutation, update cache"
-metaTitle: "Apollo Mutation Component | GraphQL React Apollo Tutorial"
+metaTitle: "Apollo Mutation Component | GraphQL React Apollo Components Tutorial"
 metaDescription: "We will use the Apollo Client Mutation component from react-apollo in React app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
@@ -41,7 +41,7 @@ const TodoInput = ({isPublic=false}) => {
 };
 ```
 
-In the `<Mutation>` component defined above, the first argument of the render prop function is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations.html#render-prop)
+In the `<Mutation>` component defined above, the first argument of the render prop function is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/data/mutations/)
 
 The mutate function optionally takes variables, optimisticResponse, refetchQueries, and update; You are going to make use of the `update` function later.
 
@@ -169,7 +169,7 @@ Let's dissect what's happening in this code snippet.
 Our goals were simple:
 
 - Make a mutation to insert the new todo in the database.
-- Once the mutation is done, we need to update the cache to update the UI.
+- Once the mutation is done, update the cache to update the UI.
 
 The update function is used to update the cache after a mutation occurs.
 It receives the result of the mutation (data) and the current cache (store) as arguments. You will then use these arguments to manage your cache so that the UI will be up to date.
@@ -186,9 +186,9 @@ cache.writeQuery
 
 We have already done the mutation to the graphql server using the mutate function. Our goal was to update the UI. This is where writeQuery comes to the rescue. writeQuery will allow you to change data in your local cache, but it is important to remember that they will not change any data on your server (exactly what we need).
 
-  Any subscriber to the Apollo Client store will instantly see this update and render new UI accordingly.
+Any subscriber to the Apollo Client store will instantly see this update and render new UI accordingly.
 
-We concatenate our new todo from our mutation with the list of existing todos and write the query back to the cache with cache.writeQuery
+We concatenate our new todo from our mutation with the list of existing todos and write the query back to the cache with cache.writeQuery.
 
 Now, the TodoPrivateList component wrapped with the `Query` component will get the updated todo list as it is automatically subscribed to the store.
 

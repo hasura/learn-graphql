@@ -1,6 +1,6 @@
 ---
 title: Watching data - Subscriptions
-metaTitle: "GraphQL Subscriptions for realtime data | GraphQL React Apollo Tutorial"
+metaTitle: "GraphQL Subscriptions for realtime data | GraphQL React Apollo Components Tutorial"
 metaDescription: "Try out GraphQL Subscription using GraphiQL. A GraphQL subscriptions example to fetch live data pushed over websockets "
 ---
 
@@ -20,9 +20,8 @@ they allow you to build great experiences without having to deal with websocket 
 
 ## Make your first GraphQL subscription
 
-Step 1: Head to https://learn.hasura.io/graphql/graphiql
-Step 2: Write this GraphQL query in the textarea:
-
+1. Head to https://hasura.io/learn/graphql/graphiql
+2. Write this GraphQL query in the textarea:
 ```graphql
 subscription {
   online_users {
@@ -34,21 +33,19 @@ subscription {
   }
 }
 ```
-
-Step 3: Click on the play button.
+3. Click on the play button.
 
 Every time the set of online users change, you'll see the latest set on
 the response window on the right.
 
 ## How do GraphQL subscriptions work?
 
-GraphQL queries and mutations are strings sent to a POST endpoint. What is a GraphQL subscription? That can't happen over a POST endpoint, because a simple HTTP endpoint would just return the response and the connection would close.
+GraphQL queries and mutations are strings sent to a POST endpoint. Which endpoint does a GraphQL subscription use? It can't use the POST endpoint, because a simple HTTP endpoint would just return the response and the connection would close.
 
-A GraphQL subscription is a subscription query string sent to a websocket endpoint. And whenever data changes on the backend, new data is pushed over websockets from the server to the client.
+A GraphQL subscription is a subscription query string sent to a websocket endpoint. Whenever data changes on the backend, new data is pushed over websocket from the server to the client.
 
 ## Summary
 
-- You know how to make GraphQL subscriptions
+You now know how to make GraphQL subscriptions.
 
-Now that you're comfortable with the basics of using GraphQL, let's start
-integrating GraphQL APIs with an app!
+Now that you're comfortable with the basics of using GraphQL, let's start integrating GraphQL APIs with an app!

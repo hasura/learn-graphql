@@ -1,6 +1,6 @@
 ---
 title: "Handle loading/errors"
-metaTitle: "Apollo Query Component Error Handling | GraphQL React Apollo Tutorial"
+metaTitle: "Apollo Query Component Error Handling | GraphQL React Apollo Components Tutorial"
 metaDescription: "We will handle the GraphQL loading and error states in React app using the Apollo Query Component render props - loading and error "
 ---
 

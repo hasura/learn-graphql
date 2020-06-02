@@ -6,61 +6,42 @@ import {
   View,
   ScrollView
 } from 'react-native';
-
-import { Subscription } from 'react-apollo';
-import gql from 'graphql-tag';
 import CenterSpinner from './components/Util/CenterSpinner';
 import MenuButton from './components/Util/MenuButton';
+import {useSubscription} from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
-// GraphQL subscription to subscribe to online users
 const SUBSCRIBE_TO_ONLINE_USERS = gql`
-  subscription {
-    online_users(order_by: {user: {name: asc}}) {
-      user {
-        name
-        id
-      }
-      id
-    }
-  }
+ subscription {
+   online_users(order_by: {user: {name: asc}}) {
+     user {
+       name
+       id
+     }
+     id
+   }
+ }
 `; 
 
-export default class OnlineUsers extends React.Component {
+const OnlineUsers = () => {
 
-  static navigationOptions = ({ navigation }) => ({
-    headerTitle: 'Online Users',
-    headerLeft: (
-      <MenuButton onPress={navigation.toggleDrawer} /> 
-    )
-  }); 
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Subscription
-          subscription={SUBSCRIBE_TO_ONLINE_USERS}
-        >
-          {
-            ({data, loading, error}) => {
-              if (loading) { return <CenterSpinner />}
-              if (error) {
-                return <Text> Error </Text>
-              }
-              return (
-                <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-                <FlatList
-                  data={data.online_users}
-                  renderItem={({item}) => <UserItem item={item} />}
-                  keyExtractor={(item) => item.user.name}
-                />
-                </ScrollView>
-              )
-            }
-          }
-        </Subscription>
-      </View>
-    );
+  const { data, error, loading } = useSubscription(SUBSCRIBE_TO_ONLINE_USERS)
+  if (loading) { return <CenterSpinner />}
+  if (error) {
+    return <Text> Error </Text>
   }
+  return (
+    <View style={styles.container}>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+      <FlatList
+        data={data.online_users}
+        renderItem={({item}) => <UserItem item={item} />}
+        keyExtractor={(item) => item.user.name}
+      />
+      </ScrollView>
+    </View>
+  );
+
 }
 
 const UserItem = ({item}) => (
@@ -69,6 +50,14 @@ const UserItem = ({item}) => (
     <View style={styles.greenDot} />
   </View>
 )
+
+OnlineUsers.navigationOptions = ({ navigation }) => ({
+  headerTitle: 'Online Users',
+  headerLeft: (
+    <MenuButton onPress={navigation.toggleDrawer} /> 
+  )
+});
+
 
 const styles = StyleSheet.create({
   container: {
@@ -104,3 +93,5 @@ const styles = StyleSheet.create({
     width: 15
   }
 });
+
+export default OnlineUsers;

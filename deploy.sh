@@ -35,19 +35,6 @@ tutorials() {
         done;
 }
 
-# build homepage
-homepage() {
-    if [[ -d "services/homepage" ]]; then
-        cd "services/homepage"
-        echo "Building docker image for learn homepage"
-        #docker build -t hasura/learn-homepage:$GIT_HASH .
-        echo "Pushing docker image for learn homepage"
-        #docker push hasura/learn-homepage:$GIT_HASH
-        echo "Updating kubernetes deployment for learn homepage"
-        #kubectl set image deployment/homepage homepage=hasura/learn-homepage:$GIT_HASH
-    fi
-}
-
 # build auth
 authserver() {
     if [[ -d "services/backend/auth-server" ]]; then

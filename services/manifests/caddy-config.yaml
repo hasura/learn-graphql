@@ -133,8 +133,6 @@ data:
         /learn/ja/graphql/hasura/ /learn/ja/graphql/hasura/introduction
       }
 
-      proxy /learn homepage
-
       proxy /learn/auth/webhook auth-webhook {
         without /learn/auth
       }

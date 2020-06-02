@@ -1,5 +1,4 @@
 import 'package:app_final/data/online_fetch.dart';
-import 'package:app_final/data/online_list.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
@@ -25,6 +24,9 @@ class Online extends StatelessWidget {
             dynamic payload,
             dynamic error,
           }) {
+            if (error != null) {
+              print('Error ----> $error');
+            }
             if (payload != null) {
               return Expanded(
                 child: ListView.builder(

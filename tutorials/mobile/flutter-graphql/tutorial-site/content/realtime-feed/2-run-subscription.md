@@ -54,7 +54,7 @@ To add new public feed we need to run a mutation on press of our `Post` button i
 
 ```dart
 +       Mutation(
-+        options: MutationOptions(document: FeedFetch.addPublicTodo),
++        options: MutationOptions(documentNode: gql(FeedFetch.addPublicTodo)),
 +        builder: (
 +          RunMutation runMutation,
 +          QueryResult result,
@@ -106,6 +106,9 @@ Now wrap custom button i.e `New Notification` in subscription widget.
 +           dynamic payload,
 +           dynamic error,
 +         }) {
++           if (error != null) {
++              print('Error -----> $error');
++           }
 +           if (payload != null) {
 +             _newId = payload['todos'][0]['id'];
 +              if (_previousId != 0) {

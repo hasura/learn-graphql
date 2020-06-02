@@ -63,13 +63,13 @@ Now, inside `lib/screens/tabs/todos/all.dart` , lets wrap our ListView with Quer
 Expanded(
 +  child: Query(
 +           options: QueryOptions(
-+             document: TodoFetch.fetchAll,
++             documentNode: gql(TodoFetch.fetchAll),
 +             variables: {"is_public": false},
 +           ),
-+           builder: (QueryResult result, {VoidCallback refetch}) {
++           builder: (QueryResult result, {VoidCallback refetch, FetchMore fetchMore}) {
 +             refetchQuery = refetch;
-+             if (result.errors != null) {
-+               return Text(result.errors.toString());
++             if (result.hasException) {
++               return Text(result.exception.toString());
 +             }
 +             if (result.loading) {
 +               return Text('Loading');

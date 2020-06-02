@@ -21,7 +21,15 @@ class _ActiveState extends State<Active> {
     return Column(
       children: <Widget>[
         Mutation(
-          options: MutationOptions(document: TodoFetch.addTodo),
+          options: MutationOptions(
+            documentNode: gql(TodoFetch.addTodo),
+            update: (Cache cache, QueryResult result) {
+              return cache;
+            },
+            onCompleted: (dynamic resultData) {
+              refetchQuery();
+            },
+          ),
           builder: (
             RunMutation runMutation,
             QueryResult result,
@@ -33,22 +41,17 @@ class _ActiveState extends State<Active> {
               },
             );
           },
-          update: (Cache cache, QueryResult result) {
-            return cache;
-          },
-          onCompleted: (dynamic resultData) {
-            refetchQuery();
-          },
         ),
         Expanded(
           child: Query(
             options: QueryOptions(
-              document: TodoFetch.fetchActive,
+              documentNode: gql(TodoFetch.fetchActive),
             ),
-            builder: (QueryResult result, {VoidCallback refetch}) {
+            builder: (QueryResult result,
+                {VoidCallback refetch, FetchMore fetchMore}) {
               refetchQuery = refetch;
-              if (result.errors != null) {
-                return Text(result.errors.toString());
+              if (result.hasException) {
+                return Text(result.exception.toString());
               }
               if (result.loading) {
                 return Text('Loading');

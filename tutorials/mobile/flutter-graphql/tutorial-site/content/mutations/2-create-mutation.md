@@ -28,7 +28,15 @@ We will wrap the AddTask widget inside `lib/screens/tabs/todo/all.dart` with `Mu
 
 ```dart
 + Mutation(
-+         options: MutationOptions(document: TodoFetch.addTodo),
++         options: MutationOptions(
++           documentNode: gql(TodoFetch.addTodo),
++           update: (Cache cache, QueryResult result) {
++              return cache;
++            },
++            onCompleted: (dynamic resultData) {
++              refetchQuery();
++            },
++         ),
 +         builder: (
 +           RunMutation runMutation,
 +           QueryResult result,

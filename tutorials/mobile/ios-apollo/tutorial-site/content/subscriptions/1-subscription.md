@@ -17,7 +17,6 @@ Open `Todo/NetworkManager.swift` and update the following:
 ```swift
 import Foundation
 import Apollo
-+ import ApolloWebSocket
 
 class NetworkManager {
     static let shared = NetworkManager()
@@ -43,7 +42,7 @@ class NetworkManager {
 +            let splitNetworkTransport = SplitNetworkTransport(
 +                httpNetworkTransport: HTTPNetworkTransport(
 +                    url: endpointURL,
-+                    configuration: configuration
++                    session: URLSession(configuration: configuration)
 +                ),
 +                webSocketNetworkTransport: websocket
 +            )

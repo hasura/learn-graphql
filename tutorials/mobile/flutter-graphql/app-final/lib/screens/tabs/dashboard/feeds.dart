@@ -20,6 +20,7 @@ class _FeedsState extends State<Feeds> {
   static int _newId = 0;
   GraphQLClient _client;
   TextEditingController _controller = TextEditingController();
+  ScrollController scrollController;
 
   @override
   void initState() {
@@ -27,6 +28,7 @@ class _FeedsState extends State<Feeds> {
       _client = GraphQLProvider.of(context).value;
     });
     super.initState();
+    scrollController = ScrollController();
   }
 
   @override
@@ -114,6 +116,7 @@ class _FeedsState extends State<Feeds> {
               if (_newTodoCount != 0) {
                 return CustomButton(
                   onTap: () {
+                    scrollController.animateTo(0.0,curve: Curves.easeIn,duration: Duration(milliseconds: 300));
                     _client
                         .query(
                       QueryOptions(
@@ -147,6 +150,7 @@ class _FeedsState extends State<Feeds> {
         Expanded(
           child: ListView.builder(
             itemCount: feedList.list.length,
+            controller: scrollController,
             itemBuilder: (context, index) {
               return FeedTile(
                   username: feedList.list[index].username,

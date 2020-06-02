@@ -45,7 +45,7 @@ Here's what a typical GraphQL client setup and making a query would look like:
 
 // Setup a GraphQL client to use the endpoint
 
-const client = new client("https://myapi.com/graphql");
+const client = new Client("https://myapi.com/graphql");
 
 
 // Now, send your query as a string (Note that ` is used to create a multi-line

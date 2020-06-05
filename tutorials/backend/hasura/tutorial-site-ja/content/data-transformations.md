@@ -4,7 +4,6 @@ metaTitle: "Postgres のデータ変換 | Hasura GraphQL チュートリアル"
 metaDescription: "ビューとSQL関数を使って Postgres データ変換を活用し、アプリに必要なオンラインユーザーを見つけます"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/vunIhyeTaac" />
 

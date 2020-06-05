@@ -4,7 +4,6 @@ metaTitle: "Vue Apollo Error Handling | GraphQL Vue Apollo Tutorial"
 metaDescription: "We will handle the GraphQL loading and error states using the Vue Apollo properties and hooks - loading and error "
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/zF0SesqsGFg" />
 

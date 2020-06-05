@@ -4,7 +4,6 @@ metaTitle: "外部キーの作成 | Hasura GraphQL チュートリアル"
 metaDescription: "チュートリアルのこのパートでは Hasura コンソールを使用してテーブル列の外部キーを作成する方法について説明します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/5V7ghxVTQuY" />
 

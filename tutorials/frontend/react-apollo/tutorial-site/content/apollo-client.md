@@ -5,7 +5,6 @@ metaDescription: "You will learn how to configure Apollo Client in React by inst
 ---
 
 import GithubLink from "../src/GithubLink.js";
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/m3IAzTwoUUM" />
 

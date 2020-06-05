@@ -5,7 +5,6 @@ metaDescription: "We will use the Apollo Client Query component from react-apoll
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/60-y9jygWBA" />
 

@@ -4,7 +4,6 @@ metaTitle: "カスタムビジネスロジック | Hasura GraphQL チュート�
 metaDescription: "カスタムビジネスロジックは、Hasuraを使用して2つの方法で処理できます。 1つはカスタムGraphQLリゾルバーを作成してリモートスキーマとして追加する方法で、もう1つは変更(mutation)後に非同期にWebhookをトリガーする方法です"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/9t-qdjttcyQ" />
 

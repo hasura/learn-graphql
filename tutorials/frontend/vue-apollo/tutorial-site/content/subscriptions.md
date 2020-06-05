@@ -5,7 +5,6 @@ metaDescription: "GraphQL Mutation to update last seen of user to make them avai
 ---
 
 import GithubLink from "../src/GithubLink.js";
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/gbyHMbDtF-c" />
 

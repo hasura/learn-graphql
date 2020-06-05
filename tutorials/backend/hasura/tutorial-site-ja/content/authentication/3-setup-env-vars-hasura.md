@@ -4,7 +4,6 @@ metaTitle: "Auth0 で Hasura に接続 | Hasura GraphQL チュートリアル"
 metaDescription: "このチュートリアルでは Hasura を Auth0 アプリケーションに接続し HASURA_GRAPHQL_JWT_SECRET および HASURA_GRAPHQL_ADMIN_SECRET を使用してアプリを保護する方法を学びます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/86qWv1YU7jA" />
 

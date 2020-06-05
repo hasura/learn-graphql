@@ -4,7 +4,6 @@ metaTitle: "Query to fetch todo | GraphQL Vue Apollo Tutorial"
 metaDescription: "GraphQL Query to fetch personal todos. Try the query in GraphiQL, passing the Authorization token to get authenticated results"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/cNNLyGj1K_I" />
 

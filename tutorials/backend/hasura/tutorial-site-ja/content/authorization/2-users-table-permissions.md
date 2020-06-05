@@ -4,7 +4,6 @@ metaTitle: "users テーブルの権限の設定 | Hasura GraphQL チュート�
 metaDescription: "このチュートリアルでは Hasura コンソールを使用して、挿入、選択、更新、削除の操作を行うためのユーザーテーブルの権限を設定する方法について説明します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/vt7B3Fpa0qc" />
 

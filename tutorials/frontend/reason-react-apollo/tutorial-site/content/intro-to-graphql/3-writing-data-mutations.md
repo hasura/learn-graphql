@@ -6,7 +6,6 @@ metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation ex
 
 import {Link} from 'gatsby';
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 
 These are the concepts you should know before you attack mutations (haha):

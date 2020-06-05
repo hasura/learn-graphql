@@ -4,7 +4,6 @@ metaTitle: "リレーションシップの作成 | Hasura GraphQL チュート�
 metaDescription: "チュートリアルのこの部分では Hasura コンソールを使用して2つのテーブル間のリレーションシップを作成する方法について説明します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/D0QthrXu_Jc" />
 

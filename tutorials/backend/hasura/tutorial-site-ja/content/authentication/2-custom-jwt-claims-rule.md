@@ -4,7 +4,6 @@ metaTitle: "カスタム JWT クレームのルール | Hasura GraphQL チュー
 metaDescription: "JWT 内のカスタムクレームは、発信者の役割について Hasura に通知するために使用されます。これにより Hasura は 発信者が実行できることと実行できないことを決定するために必要な承認ルールを決定します。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/AAVn87dBOCU" />
 

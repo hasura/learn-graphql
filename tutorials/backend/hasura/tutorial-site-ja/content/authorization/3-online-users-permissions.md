@@ -4,7 +4,6 @@ metaTitle: "online_users ビューへの権限の設定 | Hasura GraphQL チュ�
 metaDescription: "このチュートリアルでは Hasura コンソールを使用して、online_usersビューに選択の操作の権限を設定する方法について説明します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/mmX5JRhT1-c" />
 

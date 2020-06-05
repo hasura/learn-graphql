@@ -4,7 +4,6 @@ metaTitle: "Hasura を Heroku にデプロイ | Hasura GraphQL チュートリ�
 metaDescription: "このチュートリアルでは、ワンクリックデプロイを使用してHerokuにHasura GraphQL Engineをデプロイし、Hasuraコンソールにアクセスする方法について説明します"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/yOVHEzUiH84" />
 

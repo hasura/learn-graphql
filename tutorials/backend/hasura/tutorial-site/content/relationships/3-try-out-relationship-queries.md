@@ -4,7 +4,6 @@ metaTitle: "Try out Relationship Queries | Hasura GraphQL Tutorial"
 metaDescription: "Explore GraphQL APIs for the table todos with simple queries and nested data using Hasura GraphQL Engine"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/0-UZahHSoGg" />
 

@@ -4,7 +4,6 @@ metaTitle: "Todo app react boilerplate setup | GraphQL React Apollo Components T
 metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in React.js"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/rzH_Xxv4d-A" />
 

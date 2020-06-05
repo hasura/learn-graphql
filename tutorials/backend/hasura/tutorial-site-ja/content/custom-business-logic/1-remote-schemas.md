@@ -4,7 +4,6 @@ metaTitle: "カスタムレゾルバーの記述 | Hasura GraphQL チュート�
 metaDescription: "このパートでは、カスタムリゾルバーを作成し、それを Hasura GraphQL エンジンのリモートスキーマとして追加する方法について説明します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/_d3sn_S6u-E" />
 

@@ -5,7 +5,6 @@ metaDescription: "We will use the Smart Query from vue-apollo. Each query in apo
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/kH2P4VPux24" />
 

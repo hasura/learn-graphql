@@ -3,7 +3,6 @@ title: "この後は?"
 metaTitle: "この後は? | Hasura GraphQL チュートリアル"
 ---
 
-import TwitterShare from './twitter-share';
 
 おめでとうございます！ コースを無事に修了しました。
 

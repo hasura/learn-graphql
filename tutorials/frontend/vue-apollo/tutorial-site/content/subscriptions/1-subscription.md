@@ -5,7 +5,6 @@ metaDescription: "You will learn how to configure GraphQL Subscriptions using Vu
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/ZujdsxSRt48" />
 

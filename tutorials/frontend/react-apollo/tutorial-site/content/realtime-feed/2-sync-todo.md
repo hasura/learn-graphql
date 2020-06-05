@@ -4,7 +4,6 @@ metaTitle: "Sync new todos in public feed | GraphQL React Apollo Components Tuto
 metaDescription: "You will learn how to sync new todos added by other people in the public feed by fetching older and newer data using GraphQL Queries"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/0_tCwIuoBaM" />
 

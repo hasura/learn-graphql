@@ -4,7 +4,6 @@ metaTitle: "Hasura の リレーションシップ | Hasura GraphQL チュート
 metaDescription: "チュートリアルのこのパートでは、オブジェクトのリレーションシップと配列のリレーションシップを使って、ネストされたオブジェクトクエリを作成する方法について説明します"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/82t_AjcAtdc" />
 

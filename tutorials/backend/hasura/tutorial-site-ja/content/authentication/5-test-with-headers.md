@@ -4,7 +4,6 @@ metaTitle: "Auth0 トークンのテスト | Hasura GraphQL チュートリア�
 metaDescription: "このチュートリアルでは Auth0 からトークンを取得し Authorization ヘッダーを使用して GraphQL クエリを実行することにより Hasura で Auth0 設定をテストする方法を学びます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/05-FWc14qi8" />
 

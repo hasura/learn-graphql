@@ -4,7 +4,6 @@ metaTitle: "Deploy Hasura to Heroku | GraphQL Unity Hasura Tutorial"
 metaDescription: "This tutorial covers how to deploy Hasura GraphQL Engine on Heroku using one-click deployment and access the Hasura Console"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/yOVHEzUiH84" />
 

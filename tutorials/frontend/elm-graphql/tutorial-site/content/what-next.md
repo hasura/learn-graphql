@@ -4,7 +4,6 @@ metaTitle: "What next? | GraphQL Elm Tutorial"
 metaDescription: "Learn what to do next with GraphQL, Elm and Backend with more community resources. Join our discord channel for support."
 ---
 
-import TwitterShare from "./twitter-share";
 
 Congratulations! You have successfully completed the course.
 

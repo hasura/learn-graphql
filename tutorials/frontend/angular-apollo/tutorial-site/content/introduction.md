@@ -4,7 +4,6 @@ metaTitle: "Course Introduction | GraphQL Angular Apollo Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your Angular app with Apollo, in the shortest amount of time possible."
 ---
 
-import CommunityAuthor from '../src/CommunityAuthor.js';
 
 GraphQL is becoming the new way to use APIs in modern web and mobile apps.
 

@@ -4,7 +4,6 @@ metaTitle: "GraphQL Mutations to insert data | GraphQL Vue Apollo Tutorial"
 metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation example with dynamic arguments and variables to insert data"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/9w4f8p8AqNs" />
 

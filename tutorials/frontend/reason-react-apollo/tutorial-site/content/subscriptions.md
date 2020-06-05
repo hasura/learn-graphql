@@ -5,7 +5,6 @@ metaDescription: "GraphQL Mutation to update last seen of user to make them avai
 ---
 
 import GithubLink from "../src/GithubLink.js";
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 We cruised through our GraphQL queries and mutations. We queried for todos, added a new todo, updated an existing todo, removed an existing todo.
 

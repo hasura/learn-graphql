@@ -5,7 +5,6 @@ metaDescription: "We will use the Apollo Mutation component from react-apollo as
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 Now let's do the integration part.
 

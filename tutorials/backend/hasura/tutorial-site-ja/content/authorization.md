@@ -4,7 +4,6 @@ metaTitle: "Hasura での承認 | Hasura GraphQL チュートリアル"
 metaDescription: "このチュートリアルでは、モデルにロールベースのアクセス制御ルールを定義することにより、Hasura GraphQL Engineで承認を行う方法について説明します"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/URMEgibHof0" />
 

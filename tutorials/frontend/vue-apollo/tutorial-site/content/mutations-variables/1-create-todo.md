@@ -4,7 +4,6 @@ metaTitle: "Mutation to create todos | GraphQL Vue Apollo Tutorial"
 metaDescription: "GraphQL Mutation to create new personal todos. Try the mutation in GraphiQL, passing the Authorization token to get authenticated results."
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/S6R2aQ3z2f4" />
 

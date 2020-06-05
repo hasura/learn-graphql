@@ -4,7 +4,6 @@ metaTitle: "Mutation to delete todos | GraphQL ReasonML React Apollo Tutorial"
 metaDescription: "GraphQL Mutation to delete existing personal todos. Try the mutation in GraphiQL, passing the Authorization token to delete a todo"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 In this part of the tutorial, you will learn how to remove existing todos by using GraphQL Mutations.
 

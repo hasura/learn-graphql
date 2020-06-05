@@ -4,7 +4,6 @@ metaTitle: "GraphQL APIs で users を試してみる | Hasura GraphQL チュー
 metaDescription: "Hasura GraphQL Engineによってクエリ、ミューテーション、サブスクリプションが自動的に生成されるテーブルユーザー向けのGraphQL APIを試してみる"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/ixSMUiWvKrM" />
 

@@ -4,7 +4,6 @@ metaTitle: "ビューから手動でリレーションシップを作成 | Hasur
 metaDescription: "このパートでは Hasura Console を使用して、ビューからテーブルへの手動でリレーションシップを作成する方法を学びます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/QuaNRk2c5KI" />
 

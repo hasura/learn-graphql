@@ -4,7 +4,6 @@ metaTitle: "todos テーブルの権限のセットアップ | Hasura GraphQL �
 metaDescription: "このチュートリアルでは、Hasuraコンソールを使用して、挿入、選択、更新、および削除操作のためのtodosテーブルの権限を設定する方法について説明します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/AM1KbJL0kTo" />
 

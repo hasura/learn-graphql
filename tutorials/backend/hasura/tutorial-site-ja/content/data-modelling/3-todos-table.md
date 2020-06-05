@@ -4,7 +4,6 @@ metaTitle: "todos テーブルの作成 | Hasura GraphQL チュートリアル"
 metaDescription: "Hasuraコンソールで Data タブに移動し、Create table をクリックして、todos テーブルを作成します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/u-5n4gKQQnw" />
 

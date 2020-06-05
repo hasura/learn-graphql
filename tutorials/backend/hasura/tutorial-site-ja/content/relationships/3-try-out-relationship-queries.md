@@ -4,7 +4,6 @@ metaTitle: "リレーションシップクエリを試す | Hasura GraphQL チ�
 metaDescription: "Hasura GraphQL エンジンを使用して、シンプルなクエリとネストされたデータを使用して todos テーブル用のGraphQL APIを試してみる"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/0-UZahHSoGg" />
 

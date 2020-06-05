@@ -4,7 +4,6 @@ metaTitle: "What next? | GraphQL Tutorial"
 metaDescription: "By now, you should have a good grasp of GraphQL concepts and terminologies to be able to get your hands dirty in trying out the Backend or Frontend."
 ---
 
-import TwitterShare from "./twitter-share";
 
 Congratulations! That brings us to the end of the GraphQL Tutorial. By now, you should have a good grasp of GraphQL concepts and terminologies to be able to get your hands dirty in trying out the Backend or Frontend.
 

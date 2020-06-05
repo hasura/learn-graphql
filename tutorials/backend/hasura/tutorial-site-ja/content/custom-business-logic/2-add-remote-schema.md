@@ -4,7 +4,6 @@ metaTitle: "リモートスキーマを追加 | Hasura GraphQL チュートリ�
 metaDescription: "このチュートリアルでは、コンソールを使用してHasura GraphQL エンジンにリモートスキーマを追加する方法を見ていきます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/01t4t2t4q1c" />
 

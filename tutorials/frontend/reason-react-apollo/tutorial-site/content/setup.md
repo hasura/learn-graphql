@@ -4,7 +4,6 @@ metaTitle: "Todo app boilerplate setup | GraphQL ReasonML React Apollo Tutorial"
 metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in ReasonReact"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
 Our task will be to convert the "static" UI into a working realtime app.

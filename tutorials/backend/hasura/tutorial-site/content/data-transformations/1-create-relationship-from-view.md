@@ -4,7 +4,6 @@ metaTitle: "Create Manual Relationship from View | Hasura GraphQL Tutorial"
 metaDescription: "In this part, we learn how to create a manual relationship from the view to the table using the Hasura Console"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/QuaNRk2c5KI" />
 

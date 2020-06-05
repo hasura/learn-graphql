@@ -4,7 +4,6 @@ metaTitle: "todos の GraphQL APIs を試す | Hasura GraphQL チュートリア
 metaDescription: "Hasura GraphQL エンジンによってクエリ、ミューテーション、サブスクリプションが自動的に生成される todos テーブルのGraphQL APIを試してみる"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/AflCqgGu-ms" />
 

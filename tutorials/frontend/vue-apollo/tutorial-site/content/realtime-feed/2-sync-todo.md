@@ -5,7 +5,6 @@ metaDescription: "You will learn how to sync new todos added by other people in 
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/S9zkRckfWCY" />
 

@@ -4,7 +4,6 @@ metaTitle: "GraphQL Queries to fetch data | GraphQL ReasonML React Apollo Tutori
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 
 <a name="graphiql"></a>

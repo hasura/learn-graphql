@@ -5,7 +5,6 @@ metaDescription: "We will use the Apollo Client's $apollo.mutate from vue-apollo
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/h4svDfN32s8" />
 

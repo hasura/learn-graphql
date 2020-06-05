@@ -4,7 +4,6 @@ metaTitle: "Apollo Mutation Component | GraphQL React Apollo Components Tutorial
 metaDescription: "We will use the Apollo Client Mutation component from react-apollo in React app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/ZgMblvlIg28" />
 

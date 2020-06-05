@@ -4,7 +4,6 @@ metaTitle: "Hasura を使った基本的なデータモデル | Hasura GraphQL �
 metaDescription: "このチュートリアルでは、Postgresで基本的なデータモデリングを行い、Hasura コンソールを使用してテーブルを作成する方法を説明します。"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/XURdIpvfp4M" />
 

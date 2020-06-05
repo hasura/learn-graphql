@@ -4,7 +4,6 @@ metaTitle: "ユーザとルールの同期 | Hasura GraphQL チュートリア�
 metaDescription: "このチュートリアルでは Auth0 のルールをセットアップして Auth0 のユーザーがデータベースのユーザーと同期できるようにする方法を学びます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/i5rMmXXcVsk" />
 

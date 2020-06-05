@@ -5,7 +5,6 @@ metaDescription: "Integrate React Apollo Subscription Component to watch for cha
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 So let's define the graphql subscription to be used.
 

@@ -4,7 +4,6 @@ metaTitle: "Sync Auth0 Users with Rules | Hasura GraphQL Tutorial"
 metaDescription: "In this part, you will learn to set up a rule in Auth0 which allows the users of Auth0 to be in sync with the users in our database"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/i5rMmXXcVsk" />
 

@@ -4,7 +4,6 @@ metaTitle: "イベントwebhookの記述 | Hasura GraphQL チュートリアル"
 metaDescription: "このチュートリアルでは、イベントWebhookを記述して、ミューテーション操作の後にそれらを非同期にトリガーする方法を見ていきます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/_6Sc5emXq5U" />
 

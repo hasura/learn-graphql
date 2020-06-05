@@ -5,7 +5,6 @@ metaDescription: "Integrate Vue Apollo Smart Subscription to watch for changes i
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/E5Is7bshZXM" />
 

@@ -4,7 +4,6 @@ metaTitle: "Authorization with Hasura | Hasura GraphQL Tutorial"
 metaDescription: "This part of the tutorial covers how to do Authorization in Hasura GraphQL Engine by defining role based access control rules for the models."
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/URMEgibHof0" />
 

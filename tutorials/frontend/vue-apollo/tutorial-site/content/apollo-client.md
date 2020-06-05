@@ -5,7 +5,6 @@ metaDescription: "You will learn how to configure Apollo Client in Vue by instal
 ---
 
 import GithubLink from "../src/GithubLink.js";
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/iph-ERuYx_Y" />
 

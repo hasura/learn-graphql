@@ -5,7 +5,6 @@ metaDescription: "We will see how to use Apollo Client Query component in Reason
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 In this section, we will implement GraphQL Queries and integrate with the UI.
 With Apollo Client, you can send queries in 2 different ways.

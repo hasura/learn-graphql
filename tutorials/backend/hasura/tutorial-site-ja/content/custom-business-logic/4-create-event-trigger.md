@@ -4,7 +4,6 @@ metaTitle: "イベントトリガーの追加 | Hasura GraphQL チュートリ�
 metaDescription: "このチュートリアルでは、コンソールを使用して Hasura GraphQL Engine にイベントトリガーを追加する方法について説明します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/BKOwSlEdLUY" />
 

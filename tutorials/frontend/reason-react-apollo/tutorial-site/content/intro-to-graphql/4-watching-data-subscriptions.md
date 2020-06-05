@@ -5,7 +5,6 @@ metaDescription: "Try out GraphQL Subscription using GraphiQL. A GraphQL subscri
 ---
 
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 The GraphQL specification allows for something called subscriptions that are like GraphQL queries
 but instead of returning data in one read, you get data pushed from the server.

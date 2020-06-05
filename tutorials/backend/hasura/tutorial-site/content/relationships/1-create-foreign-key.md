@@ -4,7 +4,6 @@ metaTitle: "Create Foreign Key | Hasura GraphQL Tutorial"
 metaDescription: "This part of the tutorial covers how to create Foreign key for a table column using Hasura console"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/5V7ghxVTQuY" />
 

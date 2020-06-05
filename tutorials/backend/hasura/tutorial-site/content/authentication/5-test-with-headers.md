@@ -4,7 +4,6 @@ metaTitle: "Test Auth0 JWT Token | Hasura GraphQL Tutorial"
 metaDescription: "In this part, you will learn to test the Auth0 setup with Hasura by getting the token from Auth0 and making GraphQL queries with the Authorization headers"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/05-FWc14qi8" />
 

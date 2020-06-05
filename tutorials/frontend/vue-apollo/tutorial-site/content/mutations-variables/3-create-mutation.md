@@ -5,7 +5,6 @@ metaDescription: "We will use the Apollo client mutation method $apollo.mutate f
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/qHPGWfpqQ3o" />
 

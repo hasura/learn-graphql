@@ -4,7 +4,6 @@ metaTitle: "Create Relationship | Hasura GraphQL Tutorial"
 metaDescription: "This part of the tutorial covers how to create relationship between two tables using Hasura console"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/D0QthrXu_Jc" />
 

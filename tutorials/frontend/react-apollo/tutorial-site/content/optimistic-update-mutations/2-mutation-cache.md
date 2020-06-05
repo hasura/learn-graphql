@@ -5,7 +5,6 @@ metaDescription: "We will use the Apollo client.mutate from withApollo HOC from 
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/lXIQxuSZ588" />
 

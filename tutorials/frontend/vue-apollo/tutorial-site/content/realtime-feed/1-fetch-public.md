@@ -5,7 +5,6 @@ metaDescription: "You will learn how to make use of GraphQL Subscriptions to get
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/ooy-5LzrvxM" />
 

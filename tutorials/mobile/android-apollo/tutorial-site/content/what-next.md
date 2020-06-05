@@ -4,7 +4,6 @@ metaTitle: "What next? | GraphQL Android Apollo Tutorial"
 metaDescription: "Learn what to do next with GraphQL, Android and Backend with more community resources. Join our discord channel for support."
 ---
 
-import TwitterShare from "./twitter-share";
 
 Congratulations! You have successfully completed the course.
 

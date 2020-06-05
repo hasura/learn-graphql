@@ -4,7 +4,6 @@ metaTitle: "users テーブルの作成 | Hasura GraphQL チュートリアル"
 metaDescription: "Hasuraコンソールで Data タブに移動し、Create table をクリックして、テーブルユーザーを作成します"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/YLRYrEgJRA0" />
 

@@ -4,7 +4,6 @@ metaTitle: "Auth0 アプリの作成 | Hasura GraphQL チュートリアル"
 metaDescription: "このチュートリアルでは、シングルページWebアプリケーションのダッシュボードを使用してAuth0アプリを作成する方法を学びます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/BXJk0wao42U" />
 

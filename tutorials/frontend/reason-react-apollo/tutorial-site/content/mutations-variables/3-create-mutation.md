@@ -4,7 +4,6 @@ metaTitle: "Apollo Mutation Component | GraphQL ReasonML React Apollo Tutorial"
 metaDescription: "We will see how to use the Apollo Client Mutation component in ReasonReact app as an example to insert new data and update cache locally using refetchQueries."
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 Now let's do the integration part.
 

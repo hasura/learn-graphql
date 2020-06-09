@@ -12,14 +12,13 @@ We are not going to use that approach here since we don't want public list UI to
 
 In the `TodoPublicListSubscription` component of the previous step, we only get the latest todo and not the existing list. We will now write a simple query to fetch the list of existing public todos.
 
-Start off by importing `useEffect` from  `react` and `useApolloClient` from `@apollo/react-hooks`
+Start off by importing `useEffect` from  `react` and `useApolloClient` from `@apollo/client`
 
 ```javascript
 - import React, { Fragment } from "react";
 + import React, { Fragment, useState, useEffect } from "react";
-- import { useSubscription } from "@apollo/react-hooks";
-+ import { useSubscription, useApolloClient } from "@apollo/react-hooks";
-import gql from 'graphql-tag';
+- import { useSubscription, gql } from "@apollo/client";
++ import { useSubscription, useApolloClient, gql } from "@apollo/client";
 
 import TaskItem from "./TaskItem";
 ```

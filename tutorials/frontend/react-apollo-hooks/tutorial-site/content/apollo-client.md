@@ -1,7 +1,7 @@
 ---
 title: "Set up a GraphQL client with Apollo"
 metaTitle: "Apollo Client GraphQL Setup | GraphQL React Apollo Hooks Tutorial"
-metaDescription: "You will learn how to configure Apollo Client in React by installing dependencies like apollo-boost @apollo/react-hooks apollo-link-ws"
+metaDescription: "You will learn how to configure Apollo Client in React by installing dependencies like @apollo/client and @apollo/link-ws"
 ---
 
 import GithubLink from "../src/GithubLink.js";
@@ -12,7 +12,7 @@ Apollo gives a neat abstraction layer and an interface to your GraphQL server. Y
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ npm install apollo-boost @apollo/react-hooks graphql
+$ npm install @apollo/client graphql
 ```
 
 ### Create Apollo Client Instance
@@ -28,10 +28,7 @@ import TodoPrivateWrapper from './Todo/TodoPrivateWrapper';
 import TodoPublicWrapper from './Todo/TodoPublicWrapper';
 import OnlineUsersWrapper from './OnlineUsers/OnlineUsersWrapper';
 
-+ import ApolloClient from 'apollo-client';
-+ import { InMemoryCache } from 'apollo-cache-inmemory';
-+ import { HttpLink } from 'apollo-link-http';
-+ import { ApolloProvider } from '@apollo/react-hooks';
++ import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from '@apollo/client';
 
 import { useAuth0 } from "./Auth/react-auth0-spa";
 
@@ -68,10 +65,7 @@ export default App;
 These are the required apollo dependencies to get started. Now let's define a function which will return apollo client with httplink and cache.
 
 ```javascript
-import ApolloClient from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from '@apollo/client';
 
 + const createApolloClient = (authToken) => {
 +  return new ApolloClient({

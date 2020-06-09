@@ -18,7 +18,7 @@ Open `src/components/Todo/TodoInput.js` and add the following code:
 
 ```javascript
 import React from 'react';
-+ import gql from 'graphql-tag';
++ import { gql } from "@apollo/client";
 
 + const ADD_TODO = gql `
 +  mutation ($todo: String!, $isPublic: Boolean!) {

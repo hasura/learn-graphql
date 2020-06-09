@@ -1,7 +1,7 @@
 ---
 title: "useQuery hook"
 metaTitle: "Apollo useQuery React hook | GraphQL React Apollo Hooks Tutorial"
-metaDescription: "We will use the Apollo Client useQuery React hook from @apollo/react-hooks to make GraphQL queries"
+metaDescription: "We will use the Apollo Client useQuery React hook from @apollo/client to make GraphQL queries"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -23,7 +23,7 @@ Open `src/components/Todo/TodoPrivateList.js` and add the following code:
 
 ```javascript
 import React, { useState, Fragment } from "react";
-+ import gql from 'graphql-tag';
++ import { gql } from '@apollo/client';
 
 import TodoItem from "./TodoItem";
 import TodoFilters from "./TodoFilters";
@@ -49,17 +49,16 @@ The query is now ready, let's integrate it with our react code.
 
 ```javascript
 
-+ import {useQuery} from '@apollo/react-hooks';
++ import { useQuery } from '@apollo/client';
 
 ```
 
-`useQuery` React hook is being imported from `@apollo/react-hooks`
+`useQuery` React hook is being imported from `@apollo/client`
 
 ```javascript
 
 import React, { Component, Fragment } from "react";
-import {useQuery} from '@apollo/react-hooks'
-import gql from 'graphql-tag';
+import { useQuery, gql } from "@apollo/client";
 
 import TodoItem from "./TodoItem";
 import TodoFilters from "./TodoFilters";
@@ -96,7 +95,7 @@ export default TodoPrivateList;
 
 Remember that we wrapped our App component with `<ApolloProvider>` and passed `client` as a prop. `useQuery` React hook is using the same client. 
 
-We are importing the `useQuery` React hook from `@apollo/react-hooks` and the graphql query we defined above to fetch the todo data.
+We are importing the `useQuery` React hook from `@apollo/client` and the graphql query we defined above to fetch the todo data.
 
 Let's remove the mock `todos` data which was used to populate sample data.
 

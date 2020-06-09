@@ -21,7 +21,7 @@ But but but...
 
 We need to tell the server that the user who is logged in is online. We have to poll our server to do a mutation which updates the `last_seen` timestamp value of the user.
 
-We have to make this change to see yourself online first. Remember that you are already logged in, registered your data in the server, but not updated your `last_seen` value.?
+We have to make this change to see yourself online first. Remember that you are already logged in, registered your data in the server, but not updated your `last_seen` value?
 
 The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's update some code to handle this. 
 
@@ -32,8 +32,7 @@ Open `src/components/OnlineUsers/OnlineUsersWrapper.js` and add the following im
 ```javascript
 - import React from "react";
 + import React, { useEffect, useState } from "react";
-+ import { useMutation } from "@apollo/react-hooks";
-+ import gql from "graphql-tag";
++ import { useMutation, gql } from "@apollo/client";
 ```
 
 In `useEffect`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.

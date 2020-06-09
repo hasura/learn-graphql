@@ -5,10 +5,8 @@ import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper";
 
-import ApolloClient from "apollo-client";
-import { WebSocketLink } from "apollo-link-ws";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { ApolloProvider } from "@apollo/react-hooks";
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { WebSocketLink } from "@apollo/link-ws";
 
 import { useAuth0 } from "./Auth/react-auth0-spa";
 

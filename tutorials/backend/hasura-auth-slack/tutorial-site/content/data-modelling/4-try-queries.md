@@ -24,6 +24,16 @@ Click on the `Play` button on the GraphiQL interface to execute the query.
 
 You should get a response looking something like this:
 
+```graphql
+{
+  "data": {
+    "insert_users": {
+      "affected_rows": 1
+    }
+  }
+}
+```
+
 Great! You have now consumed the mutation query for the `users` table that you just created. Easy isn't it?
 
 **Tip**: You can use the `Explorer` on the GraphiQL interface to generate the mutation in a few clicks. 

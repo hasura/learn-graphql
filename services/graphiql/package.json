@@ -38,9 +38,9 @@
     }
   },
   "dependencies": {
-    "apollo-link": "1.2.6",
-    "apollo-link-ws": "1.0.12",
-    "auth0-js": "9.13.2",
+    "apollo-link": "1.2.14",
+    "apollo-link-ws": "1.0.20",
+    "auth0-js": "9.8.2",
     "babel-polyfill": "6.26.0",
     "deep-equal": "1.0.1",
     "graphiql": "0.11.11",

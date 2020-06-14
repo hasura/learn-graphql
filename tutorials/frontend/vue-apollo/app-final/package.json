@@ -22,7 +22,7 @@
     "@vue/cli-plugin-babel": "3.11.0",
     "@vue/cli-plugin-eslint": "3.11.0",
     "@vue/cli-service": "3.11.0",
-    "@vue/eslint-config-prettier": "5.0.0",
+    "@vue/eslint-config-prettier": "5.1.0",
     "auth0-js": "9.11.3",
     "babel-eslint": "10.0.3",
     "graphql-tag": "2.10.3",

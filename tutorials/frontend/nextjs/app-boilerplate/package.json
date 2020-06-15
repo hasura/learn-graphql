@@ -10,7 +10,7 @@
     "@apollo/react-hooks": "3.1.5",
     "@apollo/react-ssr": "3.1.5",
     "@auth0/nextjs-auth0": "0.13.0",
-    "bootstrap": "3.4.1",
+    "bootstrap": "4.5.0",
     "dotenv": "8.2.0",
     "graphql": "14.6.0",
     "graphql-tag": "2.10.3",

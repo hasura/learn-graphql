@@ -14,7 +14,7 @@ Add the following rule to add our custom JWT claims under `hasura-jwt-claim`:
 ```javascript
 function (user, context, callback) {
   const namespace = "https://hasura.io/jwt/claims";
-  context.accessToken[namespace] = 
+  context.idToken[namespace] = 
     { 
       'x-hasura-default-role': 'user',
       // do some custom logic to decide allowed roles

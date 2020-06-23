@@ -9,7 +9,7 @@
     "@playlyfe/gql": "2.6.1",
     "apollo-boost": "0.4.9",
     "apollo-link-ws": "1.0.20",
-    "auth0-js": "9.10.1",
+    "auth0-js": "9.13.2",
     "bootstrap": "4.1.3",
     "graphql": "14.2.1",
     "moment": "2.22.2",

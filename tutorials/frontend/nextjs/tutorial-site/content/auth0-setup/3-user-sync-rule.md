@@ -28,7 +28,7 @@ function (user, context, callback) {
       url: url,
       headers: {'content-type' : 'application/json', 'x-hasura-admin-secret': admin_secret},
       body: JSON.stringify({
-        query: mutation,
+        query: query,
         variables: variables
       })
   }, function(error, response, body){

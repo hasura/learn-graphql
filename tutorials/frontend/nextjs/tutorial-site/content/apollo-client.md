@@ -308,7 +308,7 @@ import TodoPublicWrapper from "../components/Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "../components/OnlineUsers/OnlineUsersWrapper";
 
 import { useFetchUser } from '../lib/user'
-import { withApollo } from '../lib/withApollo'
++ import { withApollo } from '../lib/withApollo'
 
 const IndexPage = () => { 
   const { user, loading } = useFetchUser()

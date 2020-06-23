@@ -50,7 +50,7 @@
     "cosmiconfig": "5.2.0",
     "css-loader": "0.28.11",
     "dotenv": "5.0.1",
-    "elm": "0.19.0-bugfix6",
+    "elm": "0.19.0",
     "elm-hot-webpack-loader": "1.0.2",
     "elm-test": "0.19.1",
     "elm-webpack-loader": "5.0.0",

@@ -31,7 +31,7 @@
     "reason-react": "0.7.0"
   },
   "devDependencies": {
-    "bs-platform": "5.0.4",
+    "bs-platform": "5.2.1",
     "graphql_ppx": "0.2.8",
     "html-webpack-plugin": "3.2.0",
     "webpack": "4.32.2",

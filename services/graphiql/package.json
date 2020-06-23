@@ -42,7 +42,7 @@
     "apollo-link-ws": "1.0.20",
     "auth0-js": "9.8.2",
     "babel-polyfill": "6.26.0",
-    "deep-equal": "1.0.1",
+    "deep-equal": "1.1.1",
     "graphiql": "0.11.11",
     "graphiql-explorer": "0.3.7",
     "graphql": "14.2.1",

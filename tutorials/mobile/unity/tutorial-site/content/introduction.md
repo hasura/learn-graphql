@@ -27,6 +27,10 @@ Google PlayStore: https://play.google.com/store/apps/details?id=com.Gazuntype.Sh
 
 Apple AppStore: https://apps.apple.com/us/app/shooter-arena/id1506191296?ls=1
 
+You can also download a Windows version of the app from:
+
+Itch.io: https://gazuntype.itch.io/shooter-arena
+
 The rules of Shooter Arena are simple. 
 
 - There are two roles in each battle, `Shooter` and `Defender`.

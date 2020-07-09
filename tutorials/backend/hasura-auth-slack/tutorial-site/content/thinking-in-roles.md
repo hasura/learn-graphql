@@ -1,7 +1,7 @@
 ---
 title: "Thinking in Roles"
 metaTitle: "Thinking in Roles | Hasura Auth Slack Tutorial"
-metaDescription: ""
+metaDescription: "Role based access control in Hasura lets the server control what data is accessed by each user on the client. This can enforce granular restrictions on data access."
 ---
 
 In this part of the tutorial, we will look at how to model roles for the app.

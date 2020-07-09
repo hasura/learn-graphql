@@ -2,6 +2,7 @@
 title: Writing data - Mutations
 metaTitle: "GraphQL Mutations to insert data | GraphQL Vue Apollo Tutorial"
 metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation example with dynamic arguments and variables to insert data"
+canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-mutations/"
 ---
 
 

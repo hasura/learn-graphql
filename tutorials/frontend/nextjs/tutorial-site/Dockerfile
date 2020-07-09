@@ -8,7 +8,7 @@ RUN npm -g install gatsby-cli
 
 # clone gatsby-gitbook-starter repo
 RUN git clone https://github.com/hasura/gatsby-gitbook-starter.git
-RUN cd gatsby-gitbook-starter && git checkout gitbook-theme
+RUN cd gatsby-gitbook-starter && git checkout gitbook-theme-hasura-con
 
 # Create app directory
 WORKDIR /gatsby-gitbook-starter

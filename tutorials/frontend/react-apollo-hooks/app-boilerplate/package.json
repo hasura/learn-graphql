@@ -6,23 +6,23 @@
   },
   "private": true,
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.2.3",
-    "bootstrap": "^4.3.1",
-    "moment": "^2.22.2",
-    "prop-types": "^15.6.2",
-    "react": "^16.10.2",
-    "react-bootstrap": "^1.0.0-beta.14",
-    "react-dom": "^16.10.2",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1"
+    "@auth0/auth0-spa-js": "1.2.3",
+    "bootstrap": "4.3.1",
+    "moment": "2.22.2",
+    "prop-types": "15.6.2",
+    "react": "16.10.2",
+    "react-bootstrap": "1.0.0-beta.14",
+    "react-dom": "16.10.2",
+    "react-router": "5.0.1",
+    "react-router-dom": "5.0.1"
   },
   "devDependencies": {
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react-hooks": "^2.0.1",
-    "husky": "^1.0.0-rc.15",
-    "lint-staged": "^7.3.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-react-hooks": "2.0.1",
+    "husky": "1.1.0",
+    "lint-staged": "7.3.0",
     "prettier": "1.14.3",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",

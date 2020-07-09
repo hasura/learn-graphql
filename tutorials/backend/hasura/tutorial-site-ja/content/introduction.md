@@ -23,7 +23,7 @@ metaDescription: "Hasura GraphQL Engineを使用してGraphQLバックエンド�
 
 ## このコースで作るもの
 
-このコースではリアルタイムの ToDo アプリのバックエンドを構築します。フロントエンドの開発に興味があり GraphQL を初めて使用する場合は [GraphQL チュートリアル](https://hasura.io/learn) など様々なフロントエンドフレームワークの GraphQL チュートリアルを参照してください。
+このコースではリアルタイムの ToDo アプリのバックエンドを構築します。フロントエンドの開発に興味があり GraphQL を初めて使用する場合は [GraphQL チュートリアル](https://hasura.io/learn/) など様々なフロントエンドフレームワークの GraphQL チュートリアルを参照してください。
 
 このリンク先にデプロイされたバージョンを実際に試すことができ、バックエンドに必要な機能の確認ができます。
 https://learn-hasura-todo-app.netlify.com/

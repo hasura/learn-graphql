@@ -2,6 +2,7 @@
 title: Writing data - Mutations
 metaTitle: "GraphQL Mutations to insert data | GraphQL React Native Apollo Tutorial"
 metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation example with dynamic arguments and variables to insert data"
+canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-mutations/"
 ---
 
 import {Link} from 'gatsby';
@@ -87,7 +88,7 @@ Now that we know how to parametrise using query variables, let's use that:
 
 ```graphql
 # The parametrised GraphQL mutation
-mutation($todo: insert_todo_input!){
+mutation($todo: todos_insert_input!){
   insert_todos(objects: [$todo]) {
     returning {
       id

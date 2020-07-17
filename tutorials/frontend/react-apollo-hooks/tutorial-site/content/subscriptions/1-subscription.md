@@ -1,7 +1,7 @@
 ---
 title: "Subscription"
 metaTitle: "Set up GraphQL Subscriptions using Apollo Client | GraphQL React Apollo Hooks Tutorial"
-metaDescription: "You will learn how to configure GraphQL Subscriptions using React Apollo Client by installing dependencies like @apollo/link-ws and subscriptions-transport-ws. This will also have authorization token setup"
+metaDescription: "You will learn how to configure GraphQL Subscriptions using React Apollo Client by using @apollo/client and its dependency subscriptions-transport-ws. This will also have authorization token setup"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -11,7 +11,7 @@ When we had initially set up Apollo, we used Apollo Boost to install the require
 ### React Apollo Subscriptions Setup
 
 ```bash
-+ $ npm install @apollo/link-ws subscriptions-transport-ws --save
++ $ npm install subscriptions-transport-ws --save
 ```
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.
@@ -23,7 +23,7 @@ Open `src/components/App.js` and update the following imports:
 ```javascript
 - import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from '@apollo/client';
 + import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-+ import { WebSocketLink } from "@apollo/link-ws";
++ import { WebSocketLink } from "@apollo/client/link/ws";
 ```
 
 Update the createApolloClient function to integrate WebSocketLink.

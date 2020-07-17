@@ -1,7 +1,7 @@
 ---
 title: "Set up a GraphQL client with Apollo"
 metaTitle: "Apollo Client GraphQL Setup | GraphQL React Apollo Hooks Tutorial"
-metaDescription: "You will learn how to configure Apollo Client in React by installing dependencies like @apollo/client and @apollo/link-ws"
+metaDescription: "You will learn how to configure Apollo Client in React by installing @apollo/client"
 ---
 
 import GithubLink from "../src/GithubLink.js";

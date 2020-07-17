@@ -503,8 +503,6 @@ pre {
 }
 pre code {
   font-family: 'PT Mono';
-  display: flex;
-  flex-wrap: wrap;
   white-space: pre; /* CSS 2.0 */
   white-space: pre-wrap; /* CSS 2.1 */
   white-space: pre-line; /* CSS 3.0 */
@@ -513,6 +511,11 @@ pre code {
   white-space: -moz-pre-wrap; /* Mozilla */
   white-space: -hp-pre-wrap; /* HP Printers */
   word-wrap: break-word; /* IE 5+ */
+  display: inline-block;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  hyphens: auto;
 }
 h1+p, h2+p, h3+p, h4+p, h5+p, h6+p, ul li>:first-child, ol li>:first-child {
   margin-top: 0;

@@ -4,9 +4,7 @@ metaTitle: "Setup todos table permissions | Hasura GraphQL Tutorial"
 metaDescription: "This tutorial covers how to set up permissions for todos table for insert, select, update and delete operations using Hasura console"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/AM1KbJL0kTo" />
 
 Head over to the Permissions tab under `todos` table to add relevant permissions.
 

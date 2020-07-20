@@ -6,13 +6,7 @@ metaDescription: "Set up the Battle Complete Action"
 
 ### Hasura Set Up
 
-First off, we need to set up a couple of things before we can delve right in. 
-
-To use Hasura Actions, we have to ensure the version of Hasura is v.1.2.0 or above. Let's update to the latest version.
-
-Follow the instructions here: https://hasura.io/docs/1.0/graphql/manual/deployment/heroku/updating.html#heroku-update
-
-After successfully updating, let's head over to our `users` table to modify it a bit.
+Let's head over to our `users` table to modify it a bit.
 
 We shall be adding two columns:
 

@@ -10,9 +10,15 @@ First off, we need to do some set up.
 
 ### Config Variables
 
-Since we have deployed Hasura GraphQL Engine on Heroku, let's head to [Heroku dashboard](https://dashboard.heroku.com/apps) to configure the admin secret and JWT secret. 
+Since we have deployed Hasura GraphQL Engine on Hasura Cloud, let's head to [Hasura Cloud Dashboard](https://cloud.hasura.io) to configure the JWT secret. 
 
-Open the "Settings" page for your Heroku app, add a new Config Var called HASURA_GRAPHQL_JWT_SECRET, and copy and paste the code below into the value box.
+Open the Hasura Cloud dashboard and head to the "Env vars" page for your Hasura Cloud project:
+
+![Hasura ENV Config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-project-env-var.png)
+
+Click on `+ New Env Var` to add a new environment variable.
+
+Add a new Config Var called `HASURA_GRAPHQL_JWT_SECRET`, and copy and paste the json below into the value box.
 
 ```json
 {
@@ -21,21 +27,17 @@ Open the "Settings" page for your Heroku app, add a new Config Var called HASURA
 }
 ```
 
-Replace the key with any key you want but it must be at least 32 characters long.
+You should end up with something like the following:
 
-Next, create a new Config Var called HASURA_GRAPHQL_ADMIN_SECRET and enter a secret key to protect the GraphQL endpoint. (Imagine this as the password to your GraphQL server).
+Replace the key with any key you want but it must be at least 32 characters long.
 
 You should end up with something like the following:
 
-![Config Variables](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/config-vars.jpg)
+![JWT Secret ENV](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/jwt-secret-env.jpg)
 
 ### Permissions and Roles
 
-Next up, go to your Hasura console. Refresh it if it was already open. You'd be asked to pput in your admin secret to log in.
-
-In the `Request Headers` slot in the GraphiQL tab, add key `x-hasura-admin-secret` and set it to your secret. This would enable you to have admin privileges when using GraphiQL
-
-![x-hasura-admin-secret](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/admin-secret.jpg)
+Next up, go to your Hasura console. Refresh it if it was already open. You'd be asked to login to Hasura Cloud Dashboard.
 
 Next up, go to the `Data` tab and click the `users` table.
 

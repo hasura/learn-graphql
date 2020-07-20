@@ -4,8 +4,6 @@ metaTitle: "Connect Hasura with Auth0 | Next.js GraphQL Serverless Tutorial"
 metaDescription: "In this step we will configure Auth0 rules to specify Hasura specific custom claims."
 ---
 
-## Connect Hasura and Auth0
-
 In this part, you will learn how to connect Hasura with the Auth0 application that you just created in the previous step.
 
 We need to configure Hasura to use the Auth0 public keys. An easier way to generate the config for JWT is to use the following link - [https://hasura.io/jwt-config](https://hasura.io/jwt-config)
@@ -14,14 +12,18 @@ We need to configure Hasura to use the Auth0 public keys. An easier way to gener
 
 The generated configuration can be used as the value for environment variable `HASURA_GRAPHQL_JWT_SECRET`. 
 
-Since we have deployed Hasura GraphQL Engine on Heroku, let's head to Heroku dashboard to configure the admin secret and JWT secret.
+Open the Hasura Cloud dashboard and head to the "Env vars" page for your Hasura Cloud project:
 
-Open the "Settings" page for your Heroku app, add a new Config Var called `HASURA_GRAPHQL_JWT_SECRET`, and copy and paste the generate JWT configuration into the value box.
+![Hasura ENV Config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-project-env-var.png)
 
-Next, create a new Config Var called `HASURA_GRAPHQL_ADMIN_SECRET` and enter a secret key to protect the GraphQL endpoint. (Imagine this as the password to your GraphQL server).
+Click on `+ New Env Var` to add a new environment variable.
+
+Add a new Config Var called `HASURA_GRAPHQL_JWT_SECRET`, and copy and paste the generated JWT configuration into the value box.
 
 You should end up with something like the following:
 
-![Heroku ENV Config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/heroku-env-vars.png)
+![Add new env Cloud](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/add-env-cloud.png)
 
-Great! Now your Hasura GraphQL Engine is secured using Auth0.
+Click on `Add` and your environment variable will be applied to the project.
+
+Great! Now your Hasura instance is secured using Auth0.

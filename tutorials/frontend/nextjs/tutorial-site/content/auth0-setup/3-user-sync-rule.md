@@ -12,7 +12,7 @@ function (user, context, callback) {
   const nickname = user.nickname;
   
   const admin_secret = "xxxx";
-  const url = "https://learn-hasura-backend.herokuapp.com/v1/graphql";
+  const url = "https://ready-panda-91.hasura.app/v1/graphql";
   const query = `mutation($userId: String!, $nickname: String) {
     insert_users(objects: [{
       id: $userId, name: $nickname
@@ -44,9 +44,3 @@ Here we are making a simple request to make a mutation into `users` table.
 That’s it! This rule will now be triggered on every successful signup or login, and we insert or update the user data into our database using a Hasura GraphQL mutation.
 
 The above request performs a mutation on the users table with the `id` and `name` values.
-
-
-
-
-
-

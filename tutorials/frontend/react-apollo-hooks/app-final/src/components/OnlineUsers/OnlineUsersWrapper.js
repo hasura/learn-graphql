@@ -1,6 +1,5 @@
 import React, { useEffect, Fragment, useState } from "react";
-import { useMutation, useSubscription } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import { useMutation, useSubscription, gql } from "@apollo/client";
 
 import OnlineUser from "./OnlineUser";
 

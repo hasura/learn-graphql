@@ -1,7 +1,7 @@
 ---
 title: "Mutation and update cache"
 metaTitle: "Apollo client.mutate for GraphQL mutation update | GraphQL React Apollo Hooks Tutorial"
-metaDescription: "We will use the Apollo useMutation React hook from @apollo/react-hooks as an example to modify existing data and update cache locally using readQuery and writeQuery and handle optimisticResponse"
+metaDescription: "We will use the Apollo useMutation React hook from @apollo/client as an example to modify existing data and update cache locally using readQuery and writeQuery and handle optimisticResponse"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -9,7 +9,7 @@ import GithubLink from "../../src/GithubLink.js";
 Now let's do the integration part. Open `src/components/Todo/TodoItem.js` and add the following code below the other imports:
 
 ```javascript
-+ import gql from 'graphql-tag';
++ import { gql } from "@apollo/client";
 ```
 Let's define the graphql mutation to update the completed status of the todo
 
@@ -47,8 +47,7 @@ We need to use `useMutation` React hook to make the mutation.
 
 ```javascript
   import React from 'react';
-+ import { useMutation } from "@apollo/react-hooks";
-  import gql from 'graphql-tag';
++ import { useMutation, gql } from "@apollo/client";
 
   const TodoItem = ({index, todo}) => {
     const removeTodo = (e) => {

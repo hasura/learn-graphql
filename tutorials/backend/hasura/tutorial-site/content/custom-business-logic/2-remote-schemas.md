@@ -4,9 +4,7 @@ metaTitle: "Write custom resolvers | Hasura GraphQL Tutorial"
 metaDescription: "In this part, we will look at how to write custom resolvers and add it as a Remote schema in Hasura GraphQL Engine."
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/_d3sn_S6u-E" />
 
 Now we saw how the GraphQL API can be extended using Actions. We mentioned earlier that another way of customising the API graph is through a custom GraphQL server.
 

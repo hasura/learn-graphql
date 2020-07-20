@@ -1,9 +1,9 @@
 This app uses environment variables.
 
 ```
-REACT_APP_GRAPHQL_URL=https://hasura-todo-test.herokuapp.com/v1/graphql
+REACT_APP_GRAPHQL_URL=https://ready-panda-91.hasura.app/v1/graphql
 
-REACT_APP_REALTIME_GRAPHQL_URL=wss://hasura-todo-test.herokuapp.com/v1/graphql
+REACT_APP_REALTIME_GRAPHQL_URL=wss://ready-panda-91.hasura.app/v1/graphql
 
 REACT_APP_CALLBACK_URL=http://localhost:3000/callback
 

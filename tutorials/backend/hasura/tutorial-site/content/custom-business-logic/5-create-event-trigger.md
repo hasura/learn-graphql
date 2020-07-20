@@ -4,9 +4,7 @@ metaTitle: "Add Event Trigger | Hasura GraphQL Tutorial"
 metaDescription: "In this part, we will look at how to add an event trigger in Hasura GraphQL Engine using the console"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/BKOwSlEdLUY" />
 
 Event triggers can be created using the Hasura console.
 

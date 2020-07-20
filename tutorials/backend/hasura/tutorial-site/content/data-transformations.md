@@ -4,9 +4,7 @@ metaTitle: "Data Transformations in Postgres | Hasura GraphQL Tutorial"
 metaDescription: "We are going to leverage Postgres data transformations using Views and SQL Functions to find online users required for the app"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/vunIhyeTaac" />
 
 One of the realtime features of the todo app is to display the list of online users. We need a way to fetch this information based on the value of `last_seen` which tells when the user was last online.
 

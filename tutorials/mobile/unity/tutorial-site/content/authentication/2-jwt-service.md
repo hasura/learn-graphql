@@ -38,7 +38,7 @@ PRIVATE_KEY=JWTSecretMustBeAtLeast32CharactersLong!
 
 `SECRET` should be set to your Hasura admin secret
 `CLIENT_TOKEN` should be set to a phrase you want to use to authorize Unity.
-`PRIVATE_KEY` should be set to the HASURA_GRAPHQL_JWT_SECRET you set in Heroku.
+`PRIVATE_KEY` should be set to the HASURA_GRAPHQL_JWT_SECRET that's set for your Hasura Cloud project.
 
 ![env](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/env.jpg)
 

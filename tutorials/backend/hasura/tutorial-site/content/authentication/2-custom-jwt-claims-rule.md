@@ -4,9 +4,7 @@ metaTitle: "Rules for Custom JWT Claims | Hasura GraphQL Tutorial"
 metaDescription: "Custom Claims inside the JWT are used to tell Hasura about the role of the caller, so that Hasura may enforce the necessary authorization rules to decide what the caller can and cannot do."
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/AAVn87dBOCU" />
 
 [Custom claims](https://auth0.com/docs/scopes/current/custom-claims) inside the JWT are used to tell Hasura about the role of the caller, so that Hasura may enforce the necessary authorization rules to decide what the caller can and cannot do.
 In the Auth0 dashboard, navigate to [Rules](https://manage.auth0.com/#/rules). 

@@ -54,7 +54,7 @@ const resetTokenLink = onError(({ networkError }) => {
 
 const createHttpLink = (headers) => {
   const httpLink = new HttpLink({
-    uri: 'https://learn-hasura.herokuapp.com/v1/graphql',
+    uri: 'https://ready-panda-91.hasura.app/v1/graphql',
     credentials: 'include',
     headers, // auth token is fetched on the server side
     fetch,
@@ -64,7 +64,7 @@ const createHttpLink = (headers) => {
 
 const createWSLink = () => {
   return new WebSocketLink(
-    new SubscriptionClient('wss://learn-hasura.herokuapp.com/v1/graphql', {
+    new SubscriptionClient('wss://ready-panda-91.hasura.app/v1/graphql', {
       lazy: true,
       reconnect: true,
       connectionParams: async () => {
@@ -98,7 +98,7 @@ export default function createApolloClient(initialState, headers) {
 Let's try to understand what is happening here. 
 
 ### HttpLink and InMemoryCache
-We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running on Heroku. So don't forget to change the uri to match your Hasura instance in Heroku.
+We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running on Hasura Cloud. So don't forget to change the uri to match your Hasura instance in Hasura Cloud.
 
 At the end, we instantiate ApolloClient by passing in our HttpLink and a new instance of `InMemoryCache` (recommended caching solution). We are wrapping all of this in a function which will return the client. We are also determining the `ssrMode` and passing it to Apollo.
 

@@ -4,9 +4,7 @@ metaTitle: "Create table users | Hasura GraphQL Tutorial"
 metaDescription: "Lets create table users with Hasura console by heading to Data tab and clicking on Create table"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/YLRYrEgJRA0" />
 
 Let's get started by creating the table users.
 

@@ -1,4 +1,4 @@
-FROM node:8.9-alpine
+FROM node:8.17-alpine
 
 # Create app directory
 ENV GRAPHQL_ENDPOINT=https://hasura.io/learn/graphql

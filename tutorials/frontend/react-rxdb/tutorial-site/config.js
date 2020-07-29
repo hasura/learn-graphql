@@ -26,7 +26,8 @@ const config = {
 	},
 	"sidebar": {
 		"forcedNavOrder": [
-			"/introduction/"
+			"/introduction/",
+    		"/intro-to-offline-first/",
     	],
 		"links": [
 			{

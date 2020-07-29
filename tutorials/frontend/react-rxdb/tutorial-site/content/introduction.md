@@ -1,48 +1,45 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | GraphQL React Apollo Components Tutorial"
-metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your React app with Apollo, in the shortest amount of time possible."
+metaTitle: "Course Introduction | React + RxDB + Hasura tutorial"
+metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 
-GraphQL is becoming the new way to use APIs in modern web and mobile apps.
-
-However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of a new technology.
-
-So, we put together a powerful and concise course that will introduce you to GraphQL and integrating GraphQL into your frontend stack, in the shortest amount of time possible.
-
-We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
+In this course we will look at how to make a web app offline first using a client side database
+that is synced securely with Postgres.
+We'll be using two open-source tools, RxDB and Hasura to help set up the sync.
 
 ## Key topics and takeaways:
 
-- GraphQL vs REST
-- GraphQL queries, mutations, subscriptions
-- Setting up a GraphQL client with Apollo
-- Integrating GraphQL queries in your react app
-- Integrating GraphQL mutations with query variables to handle form input
-- Updating local state after a GraphQL mutation (form input) using Apollo cache
-- Optimistic updates to local state and UI after GraphQL mutations for a slick UX
-- Using subscriptions with subscription components
-- Building a real-time feed with notifications using mutations and subscriptions
+- What is an offline first app?
+- Using service workers to make code offline first
+- Using RxDB to make data offline first
+- Authentication & Authorization for offline first apps
+
 
 ## What will we be building?
-We will be building a realtime to-do app using authenticated GraphQL APIs.
+We will be building a realtime todo app using authenticated GraphQL APIs.
 
-Try this deployed version of the app to see what we'll be building:
-https://learn-hasura-todo-app.netlify.com/
+Try this deployed version of the app to see what we'll be building: https://rxdb-hasura-demo.netlify.app/
 
-## Will this course teach React concepts as well?
-No, we will be simulating a scenario where we already have a GraphQL API and the basic UI of a React app built. Our task in this scenario is to integrate the GraphQL APIs into our react app to build a complete and working app.
+### Try out the sync:
 
-If you're new to React, we recommend going through this [official tutorial](https://reactjs.org/tutorial/tutorial.html) and then coming back here!
+- Login to the app from two different browsers.
+- Create some todos in one and watch as they get synced to the other (Note: This might not work in a private window on firefox due to this bug).
+
+### Try out the offline-first:
+- On  browser 1: Simulate offline mode using the "Work offline" option under File menu on firefox or devtools on chrome.
+- On browser 1: Create/edit/delete todos in offline mode. You'll see that nothing has changed on browser 2.
+- On browser 1: Go back online. You'll see that browser 2 gets synced!
+
+You can also go offline and refresh the page and see that data is persisted offline too.
 
 ## What do I need to take this tutorial?
-You need to have npm/yarn & node 8+ running.
+You need to have npm/yarn & node 8+ running. We will also assume you are familiar with React, GraphQL and Hasura. If you are new to these we recommend going through these courses first:
+
+- [GraphQL Basics](https://hasura.io/learn/graphql/intro-graphql/introduction/)
+- [Hasura Basics](https://hasura.io/learn/graphql/hasura/introduction/)
+- [React + Apollo](https://hasura.io/learn/graphql/intro-graphql/introduction/)
+
 
 ## How long will this tutorial take?
 Less than 2 hours.
-
-## Other courses
-
-**Frontend**: GraphQL for: [Vue](https://hasura.io/learn/graphql/vue/introduction/), [React Native](https://hasura.io/learn/graphql/react-native/introduction/), [iOS](https://hasura.io/learn/graphql/ios/introduction/)
-
-**Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)

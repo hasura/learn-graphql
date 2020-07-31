@@ -19,7 +19,7 @@ Our task will be to convert the "static" UI into a working realtime app in Next.
 
 Copy the `.env.example` to `.env` and configure the values for Auth0.
 
-The `AUTH0_CLIENT_ID`, `AUTH0_DOMAIN`, `AUTH0_CLIENT_SECRET` are available in your Auth0 application settings and `SESSION_COOKIE_SECRET` can be any random string of at least 32 characters and it is used to encrypt the cookie.
+The `AUTH0_CLIENT_ID`, `AUTH0_DOMAIN`, `AUTH0_CLIENT_SECRET` are available in your Auth0 application settings and `SESSION_COOKIE_SECRET` can be any random string of at least 32 characters and it is used to encrypt the cookie. Enter the Identifier found from your Auth0 API settings to `AUTH0_AUDIENCE`.
 
 ```
 DOMAIN=http://localhost:3000

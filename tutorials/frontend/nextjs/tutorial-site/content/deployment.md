@@ -12,7 +12,7 @@ When deploying this example to `Vercel` you'll want to update the vercel.json co
     "env": {
       "DOMAIN": "my-website.com",
       "AUTH0_DOMAIN": "YOUR_AUTH0_DOMAIN",
-      "AUTH0_AUDIENCE: "hasura",
+      "AUTH0_AUDIENCE": "hasura",
       "AUTH0_CLIENT_ID": "YOUR_AUTH0_CLIENT_ID",
       "AUTH0_CLIENT_SECRET": "@auth0_client_secret",
       "REDIRECT_URI": "https://my-website.com/api/callback",

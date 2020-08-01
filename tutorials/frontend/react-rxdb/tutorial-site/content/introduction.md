@@ -15,7 +15,6 @@ We'll be using two open-source tools, RxDB and Hasura to help set up the sync.
 - Using RxDB to make data offline first
 - Authentication & Authorization for offline first apps
 
-
 ## What will we be building?
 We will be building a realtime todo app using authenticated GraphQL APIs.
 

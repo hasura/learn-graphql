@@ -27,7 +27,10 @@ const config = {
 	"sidebar": {
 		"forcedNavOrder": [
 			"/introduction/",
-    		"/intro-to-offline-first/",
+				"/intro-to-offline-first/",
+				"/hasura-setup/",
+				"/frontend-setup/",
+				"/syncing-rxdb-with-hasura/"
     	],
 		"links": [
 			{

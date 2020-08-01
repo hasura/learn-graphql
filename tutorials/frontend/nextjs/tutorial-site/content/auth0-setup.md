@@ -18,6 +18,15 @@ metaDescription: "The Auth integration will be done with Auth0. In this step we 
 
 This would be the URL of the frontend app which you will deploy later. You can ignore this, for now. You can always come back later and add the necessary URLs.
 
+### Set "authorization_code" Grant Type
+
+You will also need to add the "Authorization Code" Grant Type.
+
+1. Click "Show Advanced Settings" at the bottom of the application settings page.
+2. Click on the "Grant Types" tab.
+3. Check "Authorization Code".
+4. Save settings.
+
 ## Create Auth0 API
 
 We need to create an API on Auth0 so that we can make the accessToken a valid JWT.

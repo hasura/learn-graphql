@@ -4,9 +4,9 @@ metaTitle: "Course Introduction | React + RxDB + Hasura tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 
-In this course we will look at how to make a web app offline first using a client side database
+In this course, we will look at how to make a web app offline first using a client-side database
 that is synced securely with Postgres.
-We'll be using two open-source tools, RxDB and Hasura to help set up the sync.
+We'll be using two open-source tools, RxDB and Hasura to help set up the sync. We will be using Auth0 for Authentication though other tools like Firebase, AWS Cognito or AuthGuardian should also work perfectly well.
 
 ## Key topics and takeaways:
 
@@ -16,7 +16,7 @@ We'll be using two open-source tools, RxDB and Hasura to help set up the sync.
 - Authentication & Authorization for offline first apps
 
 ## What will we be building?
-We will be building a realtime todo app using authenticated GraphQL APIs.
+We will be building a realtime todo application using authenticated GraphQL APIs.
 
 Try this deployed version of the app to see what we'll be building: https://rxdb-hasura-demo.netlify.app/
 

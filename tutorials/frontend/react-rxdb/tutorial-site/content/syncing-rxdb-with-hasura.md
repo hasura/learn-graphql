@@ -14,7 +14,7 @@ One additional aspect is authentication. We need to pass the `JWT` we receive fr
 
 We will first look do the code changes and then go through each of the changes one by one.
 
-Open src/components/Database.js and add the following code:
+Open `src/components/Database.js` and add the following code:
 
 ```js
 import RxDBReplicationGraphQL from 'rxdb/plugins/replication-graphql';
@@ -145,8 +145,8 @@ export class GraphQLReplicator {
    
     setupGraphQLSubscription(auth, replicationState) {
         // Change this url to point to your hasura graphql url
-        const endpointUrl = 'wss://my-hasura-instance.hasura.app/v1/graphql';
-        const wsClient = new SubscriptionClient(endpointUrl, {
+        const endpointURL = 'wss://my-hasura-instance.hasura.app/v1/graphql';
+        const wsClient = new SubscriptionClient(endpointURL, {
             reconnect: true,
             connectionParams: {
                 headers: {
@@ -193,7 +193,9 @@ export class GraphQLReplicator {
 }
 ```
 
-Open src/components/AppWrapper.js and initialize graphqlReplicator in componentDidMount:
+Don't forget to update `syncURL` & `endpointURL` to point to the Hasura instance you have setup earlier.
+
+Open `src/components/AppWrapper.js` and initialize `graphqlReplicator` in `componentDidMount`:
 
 ```js
   async componentDidMount() {
@@ -207,7 +209,7 @@ Open src/components/AppWrapper.js and initialize graphqlReplicator in componentD
   }
 ```
 
-Finally in the same file restart graphqlReplicator whenever there is a change in the session:
+Finally in the same file restart `graphqlReplicator` whenever there is a change in the session:
 
 ```js
   setSession(authResult) {

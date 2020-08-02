@@ -6,11 +6,12 @@ metaDescription: "A powerful and concise tutorial that will show you how to buil
 
 ## Offline mode for the webapp
 
-To make our app work offline, we need to get the web assets to work offline. Create React App already has the required boilerplate for making an app offline using service workers.
+To make our app work offline, we need to get the web assets to work offline. Create React App already has the required boilerplate for [making an app offline](https://create-react-app.dev/docs/making-a-progressive-web-app/) using [service workers](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers#Service_workers_explained).
 
-Open index.js and change serviceWorker.unregister() to serviceWorker.register().
+Open `src/index.js` and change the line that says `serviceWorker.unregister()` to `serviceWorker.register()`.
 
 Once you do this, refresh the page, go offline and refresh again. You will see that the page loads despite there being no network connection!
+
 
 ## Authentication in offline mode
 

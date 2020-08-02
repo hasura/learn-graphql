@@ -8,22 +8,21 @@ We will be using two tables for our app. You can create these tables from the Ha
 
 ## Users
 
-The users table will contain two fields
+The `users` table will contain two fields
 
 - **auth0_id**: text primary key unique
 - **name**: text
 
-This table is auto populated by using an Auth0 hook every time a new user logs in. [Hasura introduction course](https://hasura.io/learn/graphql/hasura/introduction/) covers setting up Auth0 with Hasura.
-
 ## Todos
 
-The todos table will contain the following fields
+The `todos` table will contain the following fields
 
 - **id**: text primary key unique
 - **userId**: text
-- **createdAt**: timestamp
+- **text**: text
 - **isCompleted**: boolean
-- **deleted**: boolean
+- **deleted**: boolean; default: false
+- **createdAt**: timestamp with timezone, default: now()
 - **updatedAt**: timestamp with time zone, default: now()
 
 ## Permissions

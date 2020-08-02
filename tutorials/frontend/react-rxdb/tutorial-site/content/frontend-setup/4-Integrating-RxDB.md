@@ -6,7 +6,7 @@ metaDescription: "A powerful and concise tutorial that will show you how to buil
 
 ## Creating todos
 
-Open components/Todo/TodoInput.js. You will see an empty `addTodo` method in the `TodoInput` class. Change it as follows:
+Open `src/components/Todo/TodoInput.js`. You will see an empty `addTodo` method in the `TodoInput` class. Change it as follows:
 
 ```js
 addTodo(text) {
@@ -24,14 +24,14 @@ You can now create Todos from the UI. However they will not appear in the Todo l
 
 ## Loading Todos from RxDB
 
-Open src/components/TodoListWrapper.js. Add the following code to `TodoListWrapper` class:
+Open `src/components/TodoListWrapper.js` and add the following code to `TodoListWrapper` class:
 
 ```js
 
 class TodoListWrapper extends Component {
   ...
 
-  async componentDidMount() {
+  componentDidMount() {
     this.props.db.todos.find()
                 .sort('createdAt').$.subscribe(todos => {
         if (!todos) {
@@ -51,7 +51,7 @@ In the above code we are providing RxDB with a callback function to be called wh
 
 ### Marking a todo as completed
 
-Open components/Todo/TodoItem.js. You will see an empty toggleTodo function. Change it as follows:
+Open `src/components/Todo/TodoItem.js`. You will see an empty toggleTodo function. Change it as follows:
 
 ```js
 const toggleTodo = () => {
@@ -69,7 +69,7 @@ Note that when we update a todo RxDB will automatically re-run the callback func
 
 ### Deleting a todo
 
-In the same file change the removeTodo function as follows:
+In the same file change the `removeTodo` function as follows:
 
 ```js
 const removeTodo = (e) => {
@@ -82,7 +82,7 @@ const removeTodo = (e) => {
 
 ### Clearing completed todos
 
-Open src/components/Todo/TodoList.js and change the empty `clearCompleted` method as show below:
+Open `src/components/Todo/TodoList.js` and change the empty `clearCompleted` method as show below:
 
 ```js
 clearCompleted() {

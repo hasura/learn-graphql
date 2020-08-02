@@ -1,25 +1,26 @@
 ---
-title: "Intro to Offline first"
-metaTitle: "Intro to Offline first | React + RxDB + Hasura tutorial"
-metaDescription: "What is Offline first? Offline first is an application development paradigm where developers ensure that the functionality of an app is unaffected by intermittent lack of a network connection"
+title: "Intro to Offline First"
+metaTitle: "Intro to Offline First | React + RxDB + Hasura tutorial"
+metaDescription: "What is Offline First? Offline First is an application development paradigm where developers ensure that the functionality of an app is unaffected by intermittent lack of a network connection"
 ---
 
-## What is Offline first?
-Offline first is an application development paradigm where developers ensure that the functionality of an app is unaffected by intermittent lack of a network connection. In addition offline first usually implies the ability to sync data between multiple devices.
+## What is Offline First?
+Offline First is an application development paradigm where developers ensure that the functionality of an app is unaffected by intermittent lack of a network connection. Offline First also usually implies the ability to sync data between multiple devices.
 
-## Why Offline first?
+## Why Offline First?
 
-Mobile networks are frequently flaky. In addition people use mobile & web apps on the move. If your app did not have the ability to work well offline, every time your user took a subway or a plane or an Uber your app will potentially lose connectivity leading to a frustrating user experience.
+Mobile networks are frequently flaky. Especially since people use mobile & web apps on the move. If your app coult not work well offline, every time your user took a subway or a plane or an Uber your app will potentially lose connectivity leading to a frustrating user experience.
 
-## What is required for making an app offline first?
+## What is required for making an app offline First?
 
-To make an app truly offline first, we primarily need to do two things:
-Any code and assets used should be available offline
-Any data changes should be made locally first and then synced to the cloud.
+To make an app truly offline First, we primarily need to do two things:
+
+- Any code and assets used should be available offline
+- Any data changes should be made locally First and then synced to the cloud.
 
 ## Architecture
 
-Checkout this diagram below to understand how a typical offline first app would work.
+Checkout this diagram below to understand how a typical offline First app would work.
 
 ![Architecture](https://hasura.io/blog/content/images/2020/02/Screenshot-from-2020-02-08-14-24-02.png)
 

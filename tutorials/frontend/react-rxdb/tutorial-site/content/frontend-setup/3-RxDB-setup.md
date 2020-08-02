@@ -96,7 +96,7 @@ export const createDb = async () => {
 ```
 
 The above code initializes RxDB and the todos collection with the schema we created above.
-RxDB has various adapters that it can use to store data. In this tutorial we use `pouchdb-adapter-idb` which is pouchdb running on top of indexDB. You can learn more about adapters over [here](https://rxdb.info/adapters.html)
+RxDB has various adapters that it can use to store data. In this tutorial we use `pouchdb-adapter-idb` which is PouchDB running on top of IndexDB. You can learn more about adapters over [here](https://rxdb.info/adapters.html)
 
 Once RxDB is initialized, you'll be able to play around with RxDB from the devtools console in your browser, Open the webconsole on the browser and try the following:
 
@@ -120,7 +120,8 @@ This should output something like this:
     isCompleted: false,
     createdAt: "2019-12-31T16:31:24.541Z",
     updatedAt: "2019-12-31T16:31:24.541Z",
-    ...
+    userId: "google-oauth2|117035715025033185506",
+    _rev: "1-648021ff54ae3ed8cc2e27982e08b44c"
 }
 ```
 

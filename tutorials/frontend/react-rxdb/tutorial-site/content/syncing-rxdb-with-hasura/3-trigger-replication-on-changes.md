@@ -9,9 +9,9 @@ By default RxDB will periodically sync from the remote GraphQL source. This time
 ```js
 setupGraphQLSubscription(auth, replicationState) {
     // Change this url to point to your hasura graphql url
-    const endpointUrl = 'wss://my-hasura-instance.hasura.app/v1/graphql'; 
+    const endpointURL = 'wss://my-hasura-instance.hasura.app/v1/graphql'; 
     
-    const wsClient = new SubscriptionClient(endpointUrl, {
+    const wsClient = new SubscriptionClient(endpointURL, {
         reconnect: true,
         connectionParams: {
             headers: {

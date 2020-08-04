@@ -10,7 +10,7 @@ const config = {
 		"logoLink": "https://hasura.io/learn/",
 		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/react-apollo-components/introduction/'>/ react</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
-		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
+		"helpUrl": "https://hasura.io/discord",
 		"tweetText": "Check out this GraphQL course for React developers by @HasuraHQ https://hasura.io/learn/graphql/react-apollo-components/introduction/",
 		"links": [{
 			"text": "hasura.io",

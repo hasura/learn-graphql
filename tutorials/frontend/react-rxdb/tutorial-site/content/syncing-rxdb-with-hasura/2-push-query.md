@@ -1,6 +1,6 @@
 ---
 title: "Push Query for RxDB"
-metaTitle: "Push Query for RxDB | React + RxDB + Hasura tutorial"
+metaTitle: "Push Query for RxDB | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 

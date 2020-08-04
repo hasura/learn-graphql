@@ -1,10 +1,10 @@
 ---
-title: "Tying it to togehter"
-metaTitle: "Tying it together | React + RxDB + Hasura tutorial"
+title: "Tying it to together"
+metaTitle: "Tying it together | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 
-The only thing left is to understand is how does authenticaiton work? We need to do three things with respect to authentication:
+The only thing left is to understand is how does authentication work? We need to do three things with respect to authentication:
 
 1. Pass the JWT token from Auth0 to Hasura while firing the pull & push query
 2. Pass the JWT token from Auth0 to Hasura while setting up the GraphQL subscription

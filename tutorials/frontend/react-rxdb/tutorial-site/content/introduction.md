@@ -1,6 +1,6 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | React + RxDB + Hasura tutorial"
+metaTitle: "Course Introduction | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 

@@ -66,6 +66,10 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/react-rxdb-offline-first/ /learn/graphql/react-rxdb-offline-first/introduction
+      }
+
+      redir 301 {
         /learn/graphql/typescript-react-apollo/ /learn/graphql/typescript-react-apollo/introduction
       }
 
@@ -170,6 +174,8 @@ data:
       proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
 
       proxy /learn/graphql/hasura hasura-backend
+
+      proxy /learn/graphql/react-rxdb-offline-first react-rxdb
 
       proxy /learn/graphql/typescript-react-apollo typescript-react-apollo
 

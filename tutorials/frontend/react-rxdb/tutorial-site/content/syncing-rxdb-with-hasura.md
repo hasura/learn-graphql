@@ -1,6 +1,6 @@
 ---
 title: "Syncing RxDB with Hasura"
-metaTitle: "Syncing RxDB with Hasura | React + RxDB + Hasura tutorial"
+metaTitle: "Syncing RxDB with Hasura | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 

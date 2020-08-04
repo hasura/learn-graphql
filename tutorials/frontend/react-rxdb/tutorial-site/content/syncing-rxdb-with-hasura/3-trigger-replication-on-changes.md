@@ -1,6 +1,6 @@
 ---
 title: "Trigger replication on changes"
-metaTitle: "Trigger replication on changes | React + RxDB + Hasura tutorial"
+metaTitle: "Trigger replication on changes | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 

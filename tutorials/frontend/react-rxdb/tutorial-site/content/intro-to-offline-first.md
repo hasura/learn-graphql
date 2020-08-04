@@ -1,6 +1,6 @@
 ---
 title: "Intro to Offline First"
-metaTitle: "Intro to Offline First | React + RxDB + Hasura tutorial"
+metaTitle: "Intro to Offline First | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "What is Offline First? Offline First is an application development paradigm where developers ensure that the functionality of an app is unaffected by intermittent lack of a network connection"
 ---
 

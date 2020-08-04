@@ -1,6 +1,6 @@
 ---
 title: "Database Schema"
-metaTitle: "Setup Database schema| React + RxDB + Hasura tutorial"
+metaTitle: "Setup Database schema| React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 

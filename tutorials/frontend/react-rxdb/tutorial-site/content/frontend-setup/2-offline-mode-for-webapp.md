@@ -1,6 +1,6 @@
 ---
 title: "Offline mode for the webapp"
-metaTitle: "Offline mode for the webapp | React + RxDB + Hasura tutorial"
+metaTitle: "Offline mode for the webapp | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 

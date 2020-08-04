@@ -1,6 +1,6 @@
 ---
 title: "Boilerplate Setup"
-metaTitle: "Clone and run the boilerplate | React + RxDB + Hasura tutorial"
+metaTitle: "Clone and run the boilerplate | React + RxDB + Hasura GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
 ---
 

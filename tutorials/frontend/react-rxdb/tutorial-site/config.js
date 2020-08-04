@@ -1,6 +1,6 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/learn/graphql/react-apollo-components",
+		"pathPrefix": "/learn/graphql/react-rxdb-offline-first",
 		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "GTM-WBBW2LN",
 		"trailingSlash": true
@@ -8,16 +8,16 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/offline-first/introduction'>/ offline-first </a>",
+		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/react-rxdb-offline-first/introduction/'>/ react-rxdb </a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
-		"helpUrl": "https://discordapp.com/invite/vBPpJkS",
-		"tweetText": "Check out this Offline first course for React developers by @HasuraHQ https://hasura.io/learn/graphql/offline-first/introduction",
+		"helpUrl": "https://hasura.io/discord",
+		"tweetText": "Check out this Offline first course for React developers by @HasuraHQ https://hasura.io/learn/graphql/react-rxdb-offline-first/introduction",
 		"links": [{
 			"text": "hasura.io",
 			"link": "https://hasura.io"
 		}],
 		"search": {
-			"enabled": true,
+			"enabled": false,
 			"indexName": "learn-react-rxdb",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
@@ -27,10 +27,11 @@ const config = {
 	"sidebar": {
 		"forcedNavOrder": [
 			"/introduction/",
-				"/intro-to-offline-first/",
-				"/hasura-setup/",
-				"/frontend-setup/",
-				"/syncing-rxdb-with-hasura/"
+			"/intro-to-offline-first/",
+			"/hasura-setup/",
+			"/frontend-setup/",
+			"/syncing-rxdb-with-hasura/",
+			"/what-next/"
     	],
 		"links": [
 			{
@@ -46,11 +47,11 @@ const config = {
 		"ignoreIndex": true
 	},
 	"siteMetadata": {
-		"title": "2 hour course on offline first for React developers | Hasura",
-		"description": "A concise and powerful tutorial that covers fundamental concepts of Offline first and implementing offline first in a React App using RxDB",
-		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-react.png",
-		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/react-apollo/tutorial-site/content",
-		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/react-favicon.png"
+		"title": "2 hour course on building offline first for React developers | Hasura",
+		"description": "A concise and powerful tutorial that covers fundamental concepts of Offline first and implementing offline first in a React App using RxDB and Hasura GraphQL",
+		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-react-rxdb.png",
+		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/react-rxdb/tutorial-site/content",
+		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react-rxdb/rxdb-favicon.png"
 	},
 };
 

@@ -15,6 +15,9 @@ There are three different tutorial series:
 - [Typescript](https://hasura.io/learn/graphql/typescript-react-apollo/introduction/)
 - [Elm](https://hasura.io/learn/graphql/elm-graphql/introduction/)
 - [ReasonML](https://hasura.io/learn/graphql/reason-react-apollo/introduction/)
+- [Unity](https://hasura.io/learn/graphql/unity/introduction/)
+- [Next.js](https://hasura.io/learn/graphql/nextjs-fullstack-serverless/introduction/)
+- [RxDB](https://hasura.io/learn/graphql/react-rxdb-offline-first/introduction/)
 
 #### Mobile
 
@@ -26,6 +29,7 @@ There are three different tutorial series:
 #### Backend
 
 - [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/)
+- [Auth with Hasura](https://hasura.io/learn/graphql/hasura-auth-slack/introduction/)
 - Postgres Basics (coming soon)
 
 ## Contributing

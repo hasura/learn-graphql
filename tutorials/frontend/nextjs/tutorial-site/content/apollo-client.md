@@ -19,7 +19,7 @@ $ yarn add apollo-boost @apollo/react-hooks graphql apollo-link-ws subscriptions
 
 Now let's look at creating the Apollo Client Instance for the app. apollo-boost would have installed various dependencies that are used here.
 
-Open `lib/apolloClient.js` and write the following code
+Create a file called `apolloClient.js` inside the `lib` folder and write the following code
 
 ```javascript
 import fetch from 'isomorphic-unfetch'

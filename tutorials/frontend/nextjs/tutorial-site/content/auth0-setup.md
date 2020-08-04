@@ -33,3 +33,13 @@ Let's say the name is `hasura` and the identifier is `https://hasura.io/learn`.
 We can let the signing algorithm to be as it is. (RS256)
 
 Click on Create once you are done.
+
+## Add Callback URL
+
+We will need to add a callback URL to the Application Settings to be able to allow the Next.js API route to be called.
+
+Add `http://localhost:3000/api/callback` to the list of Allowed Callback URLs.
+
+![Add callback URL](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-nextjs/add-callback-url.png).
+
+Also make sure to add `http://localhost:3000` to the list of Allowed Logout URLs.

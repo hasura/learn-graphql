@@ -15,11 +15,24 @@ function (user, context, callback) {
   
   const admin_secret = "xxxx";
   const url = "https://ready-panda-91.hasura.app/v1/graphql";
+  const query = `mutation($userId: String!, $nickname: String) {
+    insert_users(objects: [{
+      id: $userId, name: $nickname
+    }], on_conflict: {constraint: users_pkey, update_columns: [last_seen, name]}
+    ) {
+      affected_rows
+    }
+  }`
+
+  const variables = { "userId": userId, "nickname": nickname };
 
   request.post({
+      url: url,
       headers: {'content-type' : 'application/json', 'x-hasura-admin-secret': admin_secret},
-      url:   url,
-      body:    `{\"query\":\"mutation($userId: String!, $nickname: String) {\\n          insert_users(\\n            objects: [{ id: $userId, name: $nickname }]\\n            on_conflict: {\\n              constraint: users_pkey\\n              update_columns: [last_seen, name]\\n            }\\n          ) {\\n            affected_rows\\n          }\\n        }\",\"variables\":{\"userId\":\"${userId}\",\"nickname\":\"${nickname}\"}}`
+      body: JSON.stringify({
+        query: query,
+        variables: variables
+      })
   }, function(error, response, body){
        console.log(body);
        callback(null, user, context);

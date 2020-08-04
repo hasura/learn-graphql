@@ -24,7 +24,7 @@ The `AUTH0_CLIENT_ID`, `AUTH0_DOMAIN`, `AUTH0_CLIENT_SECRET` are available in yo
 ```
 DOMAIN=http://localhost:3000
 AUTH0_CLIENT_ID=
-AUTH0_AUDIENCE=hasura
+AUTH0_AUDIENCE=https://hasura.io/learn
 AUTH0_DOMAIN=
 AUTH0_CLIENT_SECRET=
 REDIRECT_URI=http://localhost:3000/api/callback

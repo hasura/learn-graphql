@@ -16,7 +16,7 @@ We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/intro
 ## Join Discord for Support
 We have a Discord Channel for those who are new to GraphQL. Please post your queries or feedback regarding this course. It is a pretty active channel.
 
-Here's the [invite link](https://discordapp.com/invite/vBPpJkS) to join discord.
+Here's the [invite link](https://hasura.io/discord) to join discord.
 
 ## More sample apps
 We have a bunch of sample apps created using Hasura GraphQL Engine with different frameworks.

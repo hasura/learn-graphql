@@ -12,7 +12,7 @@ import TwitterShare from './twitter-share';
 ## サポートのためにDiscordに参加する
 GraphQL を初めて使う人のための Hasura の Discord Channel があります。 このコースに関する質問やフィードバックを投稿してください。 かなりアクティブなチャンネルです。
 
-こちらの [招待リンク](https://discordapp.com/invite/vBPpJkS) からDiscord Channelに参加してください。日本語でディスカッションや質問できるチャネルもあります#general-japanese。
+こちらの [招待リンク](https://hasura.io/discord) からDiscord Channelに参加してください。日本語でディスカッションや質問できるチャネルもあります#general-japanese。
 
 ## フロントエンドコースを受講する
 先ほど作成したのと同じバックエンドを使用して、React、Vueなどのお気に入りのフロントエンドフレームワークのコースがあります。

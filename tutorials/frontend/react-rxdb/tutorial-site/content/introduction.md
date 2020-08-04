@@ -37,7 +37,7 @@ You need to have npm/yarn & node 8+ running. We will also assume you are familia
 
 - [GraphQL Basics](https://hasura.io/learn/graphql/intro-graphql/introduction/)
 - [Hasura Basics](https://hasura.io/learn/graphql/hasura/introduction/)
-- [React + Apollo](https://hasura.io/learn/graphql/intro-graphql/introduction/)
+- [React + Apollo](https://hasura.io/learn/graphql/react/introduction/)
 
 
 ## How long will this tutorial take?

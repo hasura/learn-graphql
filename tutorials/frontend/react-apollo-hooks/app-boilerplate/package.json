@@ -2,7 +2,7 @@
   "name": "react-apollo-todo",
   "version": "0.1.0",
   "engines": {
-    "node": "8.9.1"
+    "node": "8.17.0"
   },
   "private": true,
   "dependencies": {

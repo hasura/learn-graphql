@@ -1,7 +1,7 @@
 ---
 title: "Tying it to together"
 metaTitle: "Tying it together | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "The only thing left is to understand is how does authentication work? We need to do three things with respect to authentication which revolves around JWT token"
 ---
 
 The only thing left is to understand is how does authentication work? We need to do three things with respect to authentication:

@@ -1,7 +1,7 @@
 ---
 title: "What Next?"
 metaTitle: "What Next? | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "Congratulations! You have successfully completed the course."
 ---
 
 import TwitterShare from './twitter-share';

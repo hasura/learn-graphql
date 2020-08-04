@@ -1,7 +1,7 @@
 ---
 title: "Hasura Setup"
 metaTitle: "Hasura Setup | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "In this step, we will look at the different steps required for setting up for Hasura backend to make it ready for frontend integration"
 ---
 
 The first thing we need to do is to setup the backend and create the database schema using Hasura.

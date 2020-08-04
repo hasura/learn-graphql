@@ -1,7 +1,7 @@
 ---
 title: "Syncing RxDB with Hasura"
 metaTitle: "Syncing RxDB with Hasura | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "We can setup sync between Hasura and RxDB using the builtin RxDBReplicationGraphQL plugin."
 ---
 
 We can setup sync between Hasura and RxDB using the builtin `RxDBReplicationGraphQL` plugin. Using this plugin involves three steps

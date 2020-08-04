@@ -1,7 +1,7 @@
 ---
 title: "RxDB setup"
 metaTitle: "RxDB setup| React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "In this part of the tutorial, we will look at how to add RxDB dependency and configure it in the app by creating a schema"
 ---
 
 ## Add RxDB dependency

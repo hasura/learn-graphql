@@ -1,7 +1,7 @@
 ---
 title: "Database Schema"
 metaTitle: "Setup Database schema| React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "In this step, we will create the tables, relationships and permissions required for the app"
 ---
 
 We will be using two tables for our app. You can create these tables from the Hasura console.
@@ -29,5 +29,4 @@ The `todos` table will contain the following fields
 
 A user should be able to create, select, update and delete only todos belonging to him. This can be enforced by setting permissions as shown below:
 
-![Permissions](https://i.ibb.co/kH87TV2/Screenshot-from-2020-07-29-16-00-36.png)
-
+![Permissions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react-rxdb/todos-permission.png)

@@ -1,7 +1,7 @@
 ---
 title: "Pull Query for RxDB"
 metaTitle: "Pull Query for RxDB | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "We will look at the pull query for RxDB"
 ---
 
 The pull query is as follows:
@@ -64,4 +64,4 @@ Now A will not fetch the change at t2 because it queries only for changes that h
 
 Luckily an updated_at column that will auto update on every change is part of Hasura’s frequently used columns list:
 
-![Hasura updated_at column](https://lh6.googleusercontent.com/tRuXeg5iFMIgvPXbR-qy5ulTIqX_k2Vqlqai9-2E0MnEb4L2pkjInXLQlquZbixoXD1-alrpZuTSB6GajeM-RpAcCuWG_V5v1z7ikernmibPCSYNDMmF5xCelkgUFrT4C15CdJ3t)
+![Hasura updated_at column](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react-rxdb/add-new-column-created-at.png)

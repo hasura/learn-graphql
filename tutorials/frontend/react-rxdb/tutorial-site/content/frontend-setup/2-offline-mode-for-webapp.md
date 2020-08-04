@@ -1,7 +1,7 @@
 ---
 title: "Offline mode for the webapp"
 metaTitle: "Offline mode for the webapp | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "To make our app work offline, we need to get the web assets to work offline. We will make use of Create React App service worker to enable this."
 ---
 
 ## Offline mode for the webapp

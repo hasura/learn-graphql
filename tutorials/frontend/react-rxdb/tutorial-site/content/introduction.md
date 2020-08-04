@@ -1,7 +1,7 @@
 ---
 title: "Course Introduction"
 metaTitle: "Course Introduction | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with React, RxDB and Hasura GraphQL."
 ---
 
 In this course, we will look at how to make a web app offline first using a client-side database

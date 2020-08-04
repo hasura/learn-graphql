@@ -1,7 +1,7 @@
 ---
 title: "Deploy Hasura"
 metaTitle: "Deploy Hasura to Hasura Cloud | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will show you how to build an offline first app with RxDB and Hasura."
+metaDescription: "In this step, learn how to deploy Hasura to Hasura Cloud using Postgres add-on from Postgres"
 ---
 
 Let's start by deploying Hasura.

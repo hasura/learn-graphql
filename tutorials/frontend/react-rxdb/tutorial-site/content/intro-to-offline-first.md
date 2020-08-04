@@ -22,7 +22,7 @@ To make an app truly offline First, we primarily need to do two things:
 
 Checkout this diagram below to understand how a typical offline First app would work.
 
-![Architecture](https://hasura.io/blog/content/images/2020/02/Screenshot-from-2020-02-08-14-24-02.png)
+![Architecture](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react-rxdb/architecture.png)
 
 As shown in the above diagram all changes and reads on the front end are made from a local database. The local database is then synced with the backend service. In this tutorial we use RxDB as the local database.
 
@@ -30,4 +30,3 @@ As shown in the above diagram all changes and reads on the front end are made fr
 RxDB is a reactive NoSQL database for Javascript applications. Reactive programming is a paradigm where you can not only query for the current but also subscribe to any future changes to the query results. This eliminates the need to periodically poll for state changes to update the UI. Instead we simply provide RxDB with a callback function to be called whenever there is a change and update the UI accordingly.
 
 You can learn more about RxDB from the [official docs](https://rxdb.info/)
-

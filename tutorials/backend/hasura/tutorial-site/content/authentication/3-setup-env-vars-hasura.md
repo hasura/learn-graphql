@@ -4,15 +4,15 @@ metaTitle: "Connect Hasura with Auth0 | Hasura GraphQL Tutorial"
 metaDescription: "In this part, you will learn how to connect Hasura with the Auth0 application and secure your app with HASURA_GRAPHQL_JWT_SECRET"
 ---
 
-
-
 In this part, you will learn how to connect Hasura with the Auth0 application that you just created in the previous step.
 
-We need to configure Hasura to use the Auth0 public keys. An easier way to generate the config for JWT is to use the following link - [https://hasura.io/jwt-config](https://hasura.io/jwt-config)
+Before we do that, we need to secure our endpoint with an admin secret. Right now, the endpoint is open and anybody can query and manage the data. [Read docs](https://hasura.io/docs/cloud/1.0/manual/projects/secure.html#adding-an-admin-secret) on how to add an admin secret to a Hasura Cloud project.
+
+Once an admin secret is added, we need to configure Hasura to use the Auth0 public keys. An easier way to generate the config for JWT is to use the following link - [https://hasura.io/jwt-config](https://hasura.io/jwt-config)
 
 ![jwt-config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/generate-jwt-config.png)
 
-The generated configuration can be used as the value for environment variable `HASURA_GRAPHQL_JWT_SECRET`. 
+The generated configuration can be used as the value for environment variable `HASURA_GRAPHQL_JWT_SECRET`.
 
 Open the Hasura Cloud dashboard and head to the "Env vars" page for your Hasura Cloud project:
 
@@ -29,7 +29,3 @@ You should end up with something like the following:
 Click on `Add` and your environment variable will be applied to the project.
 
 Great! Now your Hasura instance is secured using Auth0.
-
-
-
-

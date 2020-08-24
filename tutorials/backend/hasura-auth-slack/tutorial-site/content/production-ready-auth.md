@@ -10,7 +10,7 @@ The Allow-list is a list of safe queries (GraphQL queries, mutations or subscrip
 
 You can enable Allow Lists via environment variable called `HASURA_GRAPHQL_ENABLE_ALLOWLIST`.
 
-![Allow list env config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-auth/allow-list-env-config.png)
+![Allow list env config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-auth/enable-allowlist-env.png)
 
 In the Slack app we have a number of queries and mutations that can be listed down and only those can be allowed to be executed by the server.
 

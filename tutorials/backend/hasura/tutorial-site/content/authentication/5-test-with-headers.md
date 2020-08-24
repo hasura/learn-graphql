@@ -4,33 +4,55 @@ metaTitle: "Test Auth0 JWT Token | Hasura GraphQL Tutorial"
 metaDescription: "In this part, you will learn to test the Auth0 setup with Hasura by getting the token from Auth0 and making GraphQL queries with the Authorization headers"
 ---
 
+Hasura is configured to be used with Auth0. Now let's test this setup by getting the access token from Auth0 and making GraphQL queries with the Authorization headers to see if the permissions are applied.
 
+To get a JWT token for testing, we will setup an extension on Auth0.
 
-Hasura is configured to be used with Auth0. Now let's test this setup by getting the token from Auth0 and making GraphQL queries with the Authorization headers to see if the permissions are applied.
+1.Install the [Authentication API Debugger Extension](https://auth0.com/docs/extensions/authentication-api-debugger-extension). This will allow us to configure and generate an access token.
 
-To get a JWT token for testing,
+To install this extension:
 
-1. Copy this URL - `https://auth0-domain.auth0.com/login?client=client_id&protocol=oauth2&response_type=token%20id_token&redirect_uri=callback_uri&scope=openid%20profile` and update the URL as given below:
+Navigate to the [Extensions](https://manage.auth0.com/#/extensions) page of the [Auth0 Dashboard](https://manage.auth0.com/#), 
 
-- Replace auth0-domain with the one we created in the previous steps.
-- Replace client_id with Auth0 application's client_id.
-- Replace callback_uri with `http://localhost:3000/callback` for testing. You don't need anything to run on localhost:3000 for this to work.
+![Auth0 Extension Debugger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-extensions-debugger.png)
 
-Make sure http://localhost:3000/callback has been added under Allowed Callback URLs in the Auth0 app settings.
+Click the Auth0 Authentication API Debugger box. The Install Extension window opens. Click Install.
 
-2. Now try entering the updated URL in the browser. It should take you to the Auth0 login screen.
+2.Authorize the extension
 
-**Note**: In case logging in gives an error mentioning OIDC-conformant clients, try disabling OIDC Conformant setting (https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant) under Advanced Settings -> OAuth.
+Once the extension is installed, you can click on it under the `Installed Extensions` tab. The URL will look similar to `https://<auth0-domain>.<region>.webtask.run/auth0-authentication-api-debugger`
 
-2. After successfully logging in, you will be redirected to https://localhost:3000/callback#xxxxxxxx&id_token=yyyyyyy. This page will be a 404, unless you are running some other server on that port locally.
+It will prompt you to login using the Sign In with Auth0 UI. Make sure to login using the credentials used to create the Auth0 account initially. This step is to basically authorize the usage of extension and allowing it access to read client details of the app.
 
-3. We care only about the URL parameters. Extract the `id_token` value from this URL. This is the JWT.
+![Authorize Auth0 App](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authorize-auth0-app.png)
 
-![jwt-token-auth0-url](https://graphql-engine-cdn.hasura.io/img/id_token-jwt-url.png)
+Once you have authorized the app, you should see the Debugger page.
 
-4. Test this JWT in [jwt.io](https://jwt.io) debugger.
+3.Configure the Auth0 application
+
+In the API debugger page, select the name of the Application that you created earlier in the tutorial.
+
+![Auth0 API Debugger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authentication-api-debugger.png)
+
+Now, copy the Callback URL mentioned there and add it to your application settings Callback URL.
+
+4.Set the audience
+
+Switch to the OAuth2 / OIDC tab next to Configuration and scroll down below to configure the Audience value.
+
+![Auth0 Audience](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/configure-audience.png)
+
+Enter the Audience value as `https://hasura.io/learn` and toggle the `Use Audience` option next to it.
+If you remember, we created an API with the above audience value in one of the previous steps.
+
+5.Click on OAuth2 / OIDC Login button under User Flows. This will prompt you to login as a user. Signup on this UI with any account and once you login successfully, you will be taken back to the Authentication debugger page with the JSON response printed.
+
+![Authentication Debugger Access Token](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authentication-debugger-access-token.png)
+
+In the Hash Fragment section, you will be able to see the `access_token` key in the object.
+
+5.Test the JWT
 
 The debugger should give you the decoded payload that contains the JWT claims that have been configured for Hasura under the key `https://hasura.io/jwt/claims`. Now inside this object, the role information will be available under `x-hasura-role` key and the user-id information will be available under `x-hasura-user-id` key.
 
-
-
+From now on, you will be able to use this access_token for making authenticated requests. In the Hasura Console GraphiQL tab, you can add a header `Authorization: Bearer <access_token>` for making such requests.

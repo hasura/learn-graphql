@@ -4,8 +4,6 @@ metaTitle: "Create Auth0 App | Hasura GraphQL Tutorial"
 metaDescription: "In this part, we will learn how to create Auth0 app using the dashboard for a Single Page Web Application."
 ---
 
-
-
 1. Navigate to the [Auth0 Dashboard](https://manage.auth0.com/)
 2. Signup / Login to the account
 3. Create a new tenant.
@@ -14,7 +12,18 @@ metaDescription: "In this part, we will learn how to create Auth0 app using the 
 
 ![Create Auth0 App](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-app.png)
 
-6. In the settings of the application, we will add appropriate (e.g: http://localhost:3000/callback) URLs as Allowed Callback URLs and Allowed Web Origins. We can also add domain specific URLs as well for the app to work. (e.g: https://myapp.com/callback). 
+## Create Auth0 API
 
-This would be the URL of the frontend app which you will deploy later. You can ignore this, for now. You can always come back later and add the necessary URLs.
+We need to create an API on Auth0 so that we can make the `accessToken` a valid JWT. Click on the `APIs` section on the left sidebar and click on `+ Create API` button.
 
+![Create Auth0 API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-api-create.png)
+
+Now in the pop-up that appears, give the name of the API and the identifier. We can technically give any value.
+
+Let's say the name is `hasura` and the identifier is `https://hasura.io/learn`.
+
+![Auth0 API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-api-audience.png)
+
+We can let the signing algorithm to be as it is. (RS256)
+
+Click on Create once you are done.

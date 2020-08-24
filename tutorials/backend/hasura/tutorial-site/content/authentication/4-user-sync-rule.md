@@ -22,7 +22,7 @@ function (user, context, callback) {
     ) {
       affected_rows
     }
-  }`
+  }`;
 
   const variables = { "userId": userId, "nickname": nickname };
 

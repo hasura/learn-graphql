@@ -27,6 +27,6 @@ The `todos` table will contain the following fields
 
 ## Permissions
 
-A user should be able to create, select, update and delete only todos belonging to him. This can be enforced by setting permissions as shown below:
+A user is able to create, select, update and delete only todos that belong to them. This can be enforced by setting permissions as shown below:
 
 ![Permissions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react-rxdb/todos-permission.png)

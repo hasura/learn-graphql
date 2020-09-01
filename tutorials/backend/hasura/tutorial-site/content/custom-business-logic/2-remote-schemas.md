@@ -50,7 +50,7 @@ const resolvers = {
     auth0: (parent, args, context) => {
       // read the authorization header sent from the client
       const authHeaders = context.headers.authorization || '';
-      const token = authHeaders.replce('Bearer ', '');
+      const token = authHeaders.replace('Bearer ', '');
 
       // decode the token to find the user_id
       try {

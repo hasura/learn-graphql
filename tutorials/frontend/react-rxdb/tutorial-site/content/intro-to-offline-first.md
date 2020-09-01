@@ -9,7 +9,7 @@ Offline First is an application development paradigm where developers ensure tha
 
 ## Why Offline First?
 
-Mobile networks are frequently flaky. Especially since people use mobile & web apps on the move. If your app coult not work well offline, every time your user took a subway or a plane or an Uber your app will potentially lose connectivity leading to a frustrating user experience.
+Mobile networks are frequently flaky. Especially since people use mobile & web apps on the move. If your app does not work well offline, every time your user took a subway or a plane or an Uber your app will potentially lose connectivity leading to a frustrating user experience.
 
 ## What is required for making an app offline First?
 

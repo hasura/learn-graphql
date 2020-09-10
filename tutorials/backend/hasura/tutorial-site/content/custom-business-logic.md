@@ -28,7 +28,7 @@ Remote Schemas
 
 Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema. 
 
-![Remote schema architecture](https://hasura.io/docs/1.0/_images/remote-schemas-arch1.png)
+![Remote schema architecture](https://hasura.io/docs/1.0/_images/remote-schema-arch1.png)
 
 If you are choosing between Actions and Remote Schemas, here's something to keep in mind:
 - Use Remote Schemas if you have a GraphQL server or if you're comfortable building one yourself. 

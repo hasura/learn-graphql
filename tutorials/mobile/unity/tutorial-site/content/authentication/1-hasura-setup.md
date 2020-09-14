@@ -33,7 +33,7 @@ Replace the key with any key you want but it must be at least 32 characters long
 
 You should end up with something like the following:
 
-![JWT Secret ENV](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/jwt-secret-env.jpg)
+![JWT Secret ENV](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/authentication/jwt-secret-env.png)
 
 ### Permissions and Roles
 

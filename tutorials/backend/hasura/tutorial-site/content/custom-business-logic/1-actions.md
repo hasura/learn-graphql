@@ -15,7 +15,7 @@ Hasura can then merge this REST API with the existing auto-generated GraphQL sch
 ## Creating an action
 On the Hasura Console, head to the `Actions` tab and Click on `Create` to create a new action. 
 
-![Action definition](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-definition.png)
+![Action definition](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-definition.png)
 
 ### Action definition
 
@@ -43,7 +43,7 @@ All three fields are of type String. Note that `auth0_profile` is an object type
 
 We will change the Handler URL later once we write our REST API and deploy it on a public endpoint.
 
-![Create Action](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-action.png)
+![Create Action](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-action.png)
 
 Click on `Create` once you are done configuring the above fields.
 
@@ -55,7 +55,7 @@ Head to the `Codegen` tab to quickly get started with boilerplate code :)
 
 Click on `Try on Glitch` to deploy a server. Glitch is a platform to build and deploy apps (Node.js) and is a quick way to test and iterate code on the cloud.
 
-![Action codegen](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-codegen-tab.png)
+![Action codegen](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-codegen-tab.png)
 
 Now replace the contents of `src/server.js` with the following:
 
@@ -122,7 +122,7 @@ In your Glitch app source code, modify the `.env` file to enter the
 
 values appropriately. The AUTH0_MANAGEMENT_API_TOKEN can be obtained from the Auth0 project.
 
-![Auth0 Management API](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-management-api.png)
+![Auth0 Management API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-management-api.png)
 
 Congrats! You have written and deployed your first Hasura Action to extend the Graph.
 
@@ -130,13 +130,13 @@ Congrats! You have written and deployed your first Hasura Action to extend the G
 
 Now to query the newly added type, we need to give Permissions to the `user` role for this query type. Head to the `Permissions` tab of the newly created Action and configure access for the role user.
 
-![Action permission](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-permission.png)
+![Action permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-permission.png)
 
 Alright, now how do we query this newly added API?
 
 First, we need to update the webhook url for the Action. Copy the deployed app URL from Glitch and add that as the webhook handler. Don't forget to add the route `/auth0` along with the Glitch app URL.
 
-![Action Handler](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-handler-update.png)
+![Action Handler](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-handler-update.png)
 
 Now head to GraphiQL and try out the following query:
 

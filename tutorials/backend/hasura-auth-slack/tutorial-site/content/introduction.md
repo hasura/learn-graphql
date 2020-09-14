@@ -30,7 +30,7 @@ We will be building the backend of a basic Slack clone, setting up permissions s
 
 ## What do I need to take this tutorial?
 
-- Hasura CLI ([Docs](https://hasura.io/docs/1.0/graphql/manual/hasura-cli/install-hasura-cli.html))
+- Hasura CLI ([Docs](https://hasura.io/docs/1.0/graphql/core/hasura-cli/install-hasura-cli.html))
 - Node.js 8+ installed to setup the Auth Server later.
 
 We've kept this course light on developer workflows and

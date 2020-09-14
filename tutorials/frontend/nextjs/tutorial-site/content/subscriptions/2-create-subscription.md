@@ -10,7 +10,7 @@ So let's define the graphql subscription to be used.
 
 Open `components/OnlineUsers/OnlineUsersWrapper.js` and add the following code, below the other imports.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/nextjs/app-final/src/components/OnlineUsers/OnlineUsersWrapper.js" text="components/OnlineUsers/OnlineUsersWrapper.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/nextjs/app-final/components/OnlineUsers/OnlineUsersWrapper.js" text="components/OnlineUsers/OnlineUsersWrapper.js" />
 
 ```javascript
 - import React, { useEffect, useState } from "react";

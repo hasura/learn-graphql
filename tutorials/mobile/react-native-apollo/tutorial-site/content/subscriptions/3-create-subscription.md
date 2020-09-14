@@ -10,7 +10,7 @@ So let's define the graphql subscription to be used.
 
 Open `src/screens/UsersScreen.js` and add the following code, below the other imports
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/UserScreen.js" text="UserScreen.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/react-native-apollo/app-final/src/screens/UsersScreen.js" text="UserScreen.js" />
 
 ```javascript
 import {useSubscription} from '@apollo/react-hooks';

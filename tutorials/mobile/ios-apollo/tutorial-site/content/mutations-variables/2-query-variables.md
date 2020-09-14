@@ -14,7 +14,7 @@ So let's define the graphql mutation to be used.
 
 Open `Todo/TodoVC.swift` and add the following code at the end of file:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/Todovc.swift" text="Todo/Todovc.swift" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/mobile/ios-apollo/app-final/Todo/TodoVC.swift" text="Todo/TodoVC.swift" />
 
 ```swift
 // Add Todo to Cloud

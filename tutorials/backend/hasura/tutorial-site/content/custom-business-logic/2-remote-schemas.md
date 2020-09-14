@@ -25,60 +25,68 @@ const fetch = require('node-fetch');
 
 const typeDefs = gql`
   type auth0_profile {
-      email: String
-      picture: String
-    }
+    email: String
+    picture: String
+  }
 
-    type Query {
-      auth0: auth0_profile
-    }
+  type Query {
+    auth0: auth0_profile
+  }
 `;
 
-function getProfileInfo(user_id){
-    const headers = {'Authorization': 'Bearer '+process.env.AUTH0_MANAGEMENT_API_TOKEN};
-    console.log(headers);
-    return fetch('https://' + process.env.AUTH0_DOMAIN + '/api/v2/users/'+user_id,{ headers: headers})
-        .then(response => response.json())
+function getProfileInfo(user_id) {
+  const headers = {
+    Authorization: `Bearer ${process.env.AUTH0_MANAGEMENT_API_TOKEN}`,
+  };
+  console.log(headers);
+
+  return fetch(`https://${process.env.AUTH0_DOMAIN}/api/v2/users/${user_id}`, {
+    headers,
+  });
 }
 
-
 const resolvers = {
-    Query: {
-        auth0: (parent, args, context) => {
-          // read the authorization header sent from the client
-          const authHeaders = context.headers.authorization || '';
-          const token = authHeaders.replace('Bearer ', '');
-          // decode the token to find the user_id
-          try {
-            if (!token) {
-              return 'Authorization token is missing!';
-            }
-            const decoded = jwt.decode(token);
-            const user_id = decoded.sub;
-            // make a rest api call to auth0
-            return getProfileInfo(user_id).then( function(resp) {
-              console.log(resp);
-              if (!resp) {
-                return null;
-              }
-              return {email: resp.email, picture: resp.picture};
-            });
-          } catch(e) {
-            console.log(e);
-            return null;
-          }
+  Query: {
+    auth0: (parent, args, context) => {
+      // read the authorization header sent from the client
+      const authHeaders = context.headers.authorization || '';
+      const token = authHeaders.replace('Bearer ', '');
+
+      // decode the token to find the user_id
+      try {
+        if (!token) {
+          return 'Authorization token is missing!';
         }
+
+        const decoded = jwt.decode(token);
+        const user_id = decoded.sub;
+
+        // make a rest api call to auth0
+        return getProfileInfo(user_id)
+          .then((resp) => resp.json())
+          .then((resp) => {
+            console.log(resp);
+            if (!resp) {
+              return null;
+            }
+
+            return { email: resp.email, picture: resp.picture };
+          });
+      } catch (e) {
+        console.log(e);
+        return null;
+      }
     },
+  },
 };
 
-const context = ({req}) => {
-  return {headers: req.headers};
+const context = ({ req }) => {
+  return { headers: req.headers };
 };
 
-const schema = new ApolloServer({ typeDefs, resolvers, context});
-
-schema.listen({ port: process.env.PORT}).then(({ url }) => {
-    console.log(`schema ready at ${url}`);
+const schema = new ApolloServer({ typeDefs, resolvers, context });
+schema.listen({ port: process.env.PORT }).then(({ url }) => {
+  console.log(`schema ready at ${url}`);
 });
 
 ```
@@ -93,6 +101,7 @@ In the server above, let's breakdown what's happening:
 
 **Note**
 Most of the code written is very similar to the REST API code we wrote in the previous section for Actions. Here we are using Apollo Server to write a custom GraphQL server from scratch.
+If you have created `auth0` Action from `Creating Actions` part, then Action will collide with auth0 Remote schema. To solve this you can remove Action to be able to create Remote schema or rename `auth0` and `auth0_profile` types.
 
 ## Deploy 
 

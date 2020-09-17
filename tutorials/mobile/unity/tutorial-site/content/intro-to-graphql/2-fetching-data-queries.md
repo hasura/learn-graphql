@@ -1,6 +1,6 @@
 ---
 title: Fetching data - Queries
-metaTitle: "GraphQL Queries to fetch data | GraphQL Android Apollo Tutorial"
+metaTitle: "GraphQL Queries to fetch data | GraphQL Unity Hasura Tutorial"
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-queries/"
 ---

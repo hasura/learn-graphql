@@ -1,7 +1,7 @@
 ---
 title: "Load more todos integration"
-metaTitle: "GraphQL Query to load older todos | GraphQL React Native Apollo Tutorial"
-metaDescription: "You will learn the GraphQL query to be made to load older todos with parameters and arguments."
+metaTitle: "Load more todos integration | GraphQL React Native Apollo Tutorial"
+metaDescription: "In this step, you will do the integration for load more todos with the GraphQL query and Apollo setup."
 ---
 
 import GithubLink from "../../src/GithubLink.js";

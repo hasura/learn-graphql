@@ -1,6 +1,6 @@
 ---
 title: "Create Subscription and Render Result"
-metaTitle: "Apollo Subscription Method | GraphQL Angular Apollo Tutorial"
+metaTitle: "Create Subscription and Render Result | GraphQL Angular Apollo Tutorial"
 metaDescription: "Integrate Angular Apollo Subscription Method to watch for changes in realtime data. We use GraphQL subscriptions as an example to get live data in the Angulart app"
 ---
 

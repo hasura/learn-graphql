@@ -13,7 +13,7 @@ In case you are wondering what to do next, you have the following options:
 ## Join Discord for Support
 We have a Discord Channel for those who are new to GraphQL. Please post your queries or feedback regarding this course. It is a pretty active channel.
 
-Here's the [invite link](https://hasura.io/discord) to join discord.
+Here's the [invite link](https://discord.com/invite/hasura) to join discord.
 
 ## Take the frontend course
 We have courses for your favorite frontend frameworks like React, Vue etc using the same backend that you just created.

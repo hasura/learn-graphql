@@ -23,7 +23,7 @@ We have a bunch of frontend courses based on the framework of your choice.
 ## Join Discord for Support
 We have a Discord Channel for those who are new to GraphQL. Please post your queries or feedback regarding this course. It is a pretty active channel.
 
-Here's the [invite link](https://hasura.io/discord) to join Discord.
+Here's the [invite link](https://discord.com/invite/hasura) to join Discord.
 
 ## More sample apps
 We have a bunch of sample apps created using React, Apollo Client and Hasura GraphQL Engine.

@@ -46,6 +46,7 @@ To do this create a file named `client.dart` inside `lib/config` folder and add 
 +   );
 +
 +   static final Link link = authLink.concat(httpLink).concat(websocketLink);
++   static String _token;
 +
 +   static ValueNotifier<GraphQLClient> initailizeClient(String token) {
 +     _token = token;

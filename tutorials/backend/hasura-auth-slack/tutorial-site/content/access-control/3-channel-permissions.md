@@ -28,7 +28,7 @@ The expanded valid boolean expression of the above statement looks like this:
 
 ### Column level select
 
-After filtering out the rows that a user is supposed to acccess, we need to filter out which fields they are allowed to read. Since there is no sensitive data that needs to be restricted to only a certain type of user, we give permission to select for all columns.
+After filtering out the rows that a user is supposed to access, we need to filter out which fields they are allowed to read. Since there is no sensitive data that needs to be restricted to only a certain type of user, we give permission to select for all columns.
 
 We are done with read access. Let's move on to write access which lets a user to either create, update or delete a channel.
 

@@ -44,7 +44,7 @@ The expanded valid boolean expression of the above statement looks like this:
 
 ### Column level select
 
-After filtering out the rows that a user is supposed to acccess, we need to filter out which fields they are allowed to read. Apart from the `password` field, every column in the `users` table is accessible by any authenticated user, since there is no sensitive data that needs to be restricted to only the user.
+After filtering out the rows that a user is supposed to access, we need to filter out which fields they are allowed to read. Apart from the `password` field, every column in the `users` table is accessible by any authenticated user, since there is no sensitive data that needs to be restricted to only the user.
 
 ![Users Column permissions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-auth/slack-users-select-columns.png)
 
@@ -53,7 +53,7 @@ We are done with read access. Let's move on to write access which lets a user to
 ## Insert permission
 
 Are the users of the app allowed to directly insert into `users` table?
-No. A user signs up on the app which goes through the auth server which deals with user registration, validation, triggering welcome email and so on. Hence the auth server with access to admin role will insert the record into the `users` table post validation and generating the right token. We can skip defining permisisons for the user role's insert operation.
+No. A user signs up on the app which goes through the auth server which deals with user registration, validation, triggering welcome email and so on. Hence the auth server with access to admin role will insert the record into the `users` table post validation and generating the right token. We can skip defining permissions for the user role's insert operation.
 
 ## Update permission
 

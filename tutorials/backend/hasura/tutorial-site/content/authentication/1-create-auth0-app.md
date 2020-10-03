@@ -1,20 +1,20 @@
 ---
 title: "Create Auth0 App"
 metaTitle: "Create Auth0 App | Hasura GraphQL Tutorial"
-metaDescription: "In this part, we will learn how to create Auth0 app using the dashboard for a Single Page Web Application."
+metaDescription: "In this part, we will learn how to create an Auth0 app using the dashboard for a Single Page Web Application."
 ---
 
 1. Navigate to the [Auth0 Dashboard](https://manage.auth0.com/)
 2. Signup / Login to the account
 3. Create a new tenant.
 4. Click on the `Applications` menu option on the left and then click the `+ Create Application` button.
-5. In the Create Application window, set a name for your application and select `Single Page Web Applications`. (Assuming the frontend app will be an SPA built on react/vue etc)
+5. In the Create Application window, set a name for your application and select `Single Page Web Applications`. (Assuming the frontend app will be a SPA built on react/vue etc)
 
 ![Create Auth0 App](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-app.png)
 
 ## Create Auth0 API
 
-We need to create an API on Auth0 so that we can make the `accessToken` a valid JWT. Click on the `APIs` section on the left sidebar and click on `+ Create API` button.
+We need to create an API on Auth0 so that we can make the `accessToken` a valid JWT. Click on the `APIs` section on the left sidebar and click on the `+ Create API` button.
 
 ![Create Auth0 API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-api-create.png)
 

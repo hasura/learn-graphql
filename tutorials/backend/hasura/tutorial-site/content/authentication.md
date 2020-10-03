@@ -10,6 +10,6 @@ The realtime todo app needs to be protected by a login interface. We are going t
 
 **Note**: Auth0 has a free plan for up to 7000 active users.
 
-The basic idea is that, whenever a user authenticates with Auth0, the client app receives a token which can be sent in the `Authorization` headers of all GraphQL requests. Hasura GraphQL Engine would verify if the token is valid and allow the user to perform appropriate queries.
+The basic idea is that, whenever a user authenticates with Auth0, the client app receives a token that can be sent in the `Authorization` headers of all GraphQL requests. Hasura GraphQL Engine would verify if the token is valid and allow the user to perform appropriate queries.
 
 Let's get started!

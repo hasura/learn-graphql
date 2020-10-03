@@ -6,7 +6,7 @@ metaDescription: "This part of the tutorial covers how to create Foreign key for
 
 
 
-In the `todos` table, the value of `user_id` column must be ideally present in the `id` column of `users` table. Otherwise it would result in inconsistent data.
+In the `todos` table, the value of `user_id` column must be ideally present in the `id` column of `users` table. Otherwise, it would result in inconsistent data.
 
 Postgres allows you to define foreign key constraint to enforce this condition.
 

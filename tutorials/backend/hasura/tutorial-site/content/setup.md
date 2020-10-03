@@ -14,7 +14,7 @@ Click on the following button to create a new project on Hasura Cloud:
 
 <a href="https://cloud.hasura.io" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
 
-**Note**: It is free to signup and no credit-card is required.
+**Note**: It is free to signup and no credit card is required.
 
 Once you register and sign in, you should see the following welcome screen:
 
@@ -30,7 +30,7 @@ Click on `Try a free database with Heroku` button. After logging in to Heroku, H
 
 ![Hasura Cloud Heroku Configuration](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-heroku-setup.png)
 
-Once the database URL is fetched, you can click on `Create Project` button to deploy an instance of Hasura. Once the project is created, it might take a few seconds to initialise.
+Once the database URL is fetched, you can click on `Create Project` button to deploy an instance of Hasura. Once the project is created, it might take a few seconds to initialize.
 
 ## Hasura Console
 

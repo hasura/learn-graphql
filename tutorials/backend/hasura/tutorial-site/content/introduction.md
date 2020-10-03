@@ -1,12 +1,12 @@
 ---
 title: "Course Introduction"
 metaTitle: "Course Introduction | Hasura GraphQL Tutorial"
-metaDescription: "A powerful and concise tutorial that will introduce you to setting up a GraphQL backend with Hasura GraphQL Engine in the shortest amount of time possible."
+metaDescription: "A powerful and concise tutorial that will introduce you to set up a GraphQL backend with Hasura GraphQL Engine in the shortest amount of time possible."
 ---
 
-This course is a super fast introduction to setting up a GraphQL backend with Hasura.
+This course is a super-fast introduction to setting up a GraphQL backend with Hasura.
 
-In 30 mins, you will setup a Powerful, Scalable Realtime GraphQL Backend complete with Queries, Mutations, and Subscriptions. You will also learn how Hasura helps you integrate custom business logic (in any programming language), both as custom GraphQL APIs that you write yourself, and as Event Triggers that run asynchronously and are triggered by database events.
+In 30 mins, you will set up a Powerful, Scalable Realtime GraphQL Backend complete with Queries, Mutations, and Subscriptions. You will also learn how Hasura helps you integrate custom business logic (in any programming language), both as custom GraphQL APIs that you write yourself, and as Event Triggers that run asynchronously and are triggered by database events.
 
 ## What will I learn?
 
@@ -34,7 +34,7 @@ Just your browser!
 
 However, be assured that everything you do via the browser
 in this tutorial can be done via code, can be version controlled and
-can work with any programming language you choose on the server side.
+can work with any programming language you choose on the server-side.
 
 We've kept this course light on developer workflows and
 environment choices so that you can focus on the key concepts and

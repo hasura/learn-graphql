@@ -6,7 +6,7 @@ metaDescription: "In this part, you will learn to test the Auth0 setup with Hasu
 
 Hasura is configured to be used with Auth0. Now let's test this setup by getting the access token from Auth0 and making GraphQL queries with the Authorization headers to see if the permissions are applied.
 
-To get a JWT token for testing, we will setup an extension on Auth0.
+To get a JWT token for testing, we will set up an extension on Auth0.
 
 1.Install the [Authentication API Debugger Extension](https://auth0.com/docs/extensions/authentication-api-debugger-extension). This will allow us to configure and generate an access token.
 

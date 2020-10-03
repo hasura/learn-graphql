@@ -59,7 +59,7 @@ No. A user signs up on the app which goes through the auth server which deals wi
 
 Who is allowed to update the existing data in `users` table?
 
-As an authenticated user of the app, i should be able to update ONLY my own personal data.
+As an authenticated user of the app, I should be able to update ONLY my own personal data.
 
 ### Row level update
 

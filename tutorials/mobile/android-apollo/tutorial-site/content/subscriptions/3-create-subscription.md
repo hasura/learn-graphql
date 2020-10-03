@@ -58,7 +58,7 @@ Open `OnlineFragment.kt` and update following code,
 +    }
 ```
 
-Now, we will update the UI with the results from this subscrition. Update the `onCreate` with the `subscribeOnlineUsers` function invocation:
+Now, we will update the UI with the results from this subscription. Update the `onCreate` with the `subscribeOnlineUsers` function invocation:
 
 ```kotlin
      override fun onCreate(savedInstanceState: Bundle?) {

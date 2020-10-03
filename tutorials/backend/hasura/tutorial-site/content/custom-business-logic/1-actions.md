@@ -19,7 +19,7 @@ On the Hasura Console, head to the `Actions` tab and Click on `Create` to create
 
 ### Action definition
 
-We will need to define our Action and the type of action. Since we are just reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments (none in this case) and the response type of the action (`auth0_profile` in this case).
+We will need to define our Action and the type of action. Since we are only reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments (none in this case) and the response type of the action (`auth0_profile` in this case).
 
 ```
 type Query {
@@ -49,7 +49,7 @@ Click on `Create` once you are done configuring the above fields.
 
 ## Write a REST API
 
-Now that the Action has been created, let's write a REST API in a simple Node.js Express app that can later be configured for this Action. 
+Now that the Action has been created, let's write a REST API in a Node.js Express app that can later be configured for this Action. 
 
 Head to the `Codegen` tab to quickly get started with boilerplate code :) 
 

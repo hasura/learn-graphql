@@ -28,7 +28,7 @@ You should get a response looking something like this:
 
 ![User Mutation](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-mutation-user.png)
 
-Great! You have now consumed the mutation query for the `users` table that you just created. Easy isn't it?
+Great! You have now consumed the mutation query for the `users` table that you just created.
 
 **Tip**: You can use the `Explorer` on the GraphiQL interface to generate the mutation in a few clicks. 
 
@@ -54,7 +54,7 @@ Note that some columns like `created_at` have default values, even though you di
 
 ## Subscription
 
-Let's run a simple subscription query over `users` table to watch for changes to the table.
+Let's run a subscription query over `users` table to watch for changes to the table.
 
 ```graphql
 subscription {

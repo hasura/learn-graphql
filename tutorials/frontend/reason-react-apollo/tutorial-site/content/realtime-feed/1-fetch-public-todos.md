@@ -194,7 +194,7 @@ module GetOlderTodos = [%graphql
 ];
 ```
 
-This query takes the `lastId` as an arguemnt and fetches 10 todos who have `id` less than the provided `lastId`.
+This query takes the `lastId` as an argument and fetches 10 todos who have `id` less than the provided `lastId`.
 
 Lets go back to `src/todo/TodoPublicList.re` and write a function that looks at the `lastId` from the local state and uses the above query to append the older todos to the array of existing todos.
 

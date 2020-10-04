@@ -52,7 +52,7 @@ updateLastSeen authToken updateQuery =
 Configure subscriptions and update `getInitialEvent` to initiate a subscription connection via ports. The subscription in this case will remain active as long as apollo client connection is live.
 
 Here is what it is doing:
-  1) Initiate a subscription a connection on page load/successfull login
+  1) Initiate a subscription a connection on page load/successful login
   2) Configure elm subscription to listen to any changes from the javascript side.
 
 ```

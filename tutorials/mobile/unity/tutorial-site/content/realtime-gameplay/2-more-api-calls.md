@@ -224,7 +224,7 @@ We shall call this function every time the `Shooter` hits a target.
 
 #### UpdateDefendedTargets
 
-This is a simple function to update the `defendedTargets` column of our battle in the backend. It takes in a `bool complete` to signifty if the `Defender`'s turn is complete hereby signifying the end of the game.
+This is a simple function to update the `defendedTargets` column of our battle in the backend. It takes in a `bool complete` to signify if the `Defender`'s turn is complete hereby signifying the end of the game.
 
 If `bool complete` is true, it also sets the `gameComplete` column of our battle to true.
 
@@ -246,7 +246,7 @@ The `ProcessBattle()` function checks the state of our `battle` object and does 
 
 - if `battle.attackComplete` is `true`, it means the `Shooter`'s turn is over and it fires the `OnDefenderTurn()` event which triggers the `Defender`'s turn. It also sets the `Defender`'s time to `battle.timeTaken` + 5.
 - if `battle.gameComplete` is `true`, it means the `Defender`'s turn is over and the game is over. It deletes the battle, unsubscribes from the subscription and fires the `OnGameComplete()` event which triggers the game over screen.
-- it calls the `ProcessShots()` functon which shall be explained below.
+- it calls the `ProcessShots()` function which shall be explained below.
 
 #### void ProcessShots
 

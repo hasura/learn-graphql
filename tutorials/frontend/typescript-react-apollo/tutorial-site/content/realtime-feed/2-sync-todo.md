@@ -155,7 +155,7 @@ Let's handle that in `useEffect` hook.
 
 We are also handling the error case above.
 
-Finally, let's remove the dummy initial state for todos and set inital state for todos to be an empty array `[]`.
+Finally, let's remove the dummy initial state for todos and set initial state for todos to be an empty array `[]`.
 
 ```javascript
 

@@ -63,4 +63,4 @@ Lets add this in our `updateTaskCompleteStatus` action handler,
     }
 ```
 
-We already have the `getMyTodosQueryLocal` which queries the data from local cache and udpates the list.
+We already have the `getMyTodosQueryLocal` which queries the data from local cache and updates the list.

@@ -68,7 +68,7 @@ Let's modify leading widget i.e Inkwell.
 +           },
 ```
 
-The above code isn't using `toggleIsCompleted` callback but it's using `toggleDocument`, `toggleRunMutaion` to pass mutation query and mutation variable repectively, So define them in constructor of `TodoItemTile` widget itself and remove `toggleIsCompleted` callback function from constructor. Pass your toggle mutation query and toggle variable document in the widget from screens i.e `all.dart` , `active.dart` and `completed.dart`.
+The above code isn't using `toggleIsCompleted` callback but it's using `toggleDocument`, `toggleRunMutaion` to pass mutation query and mutation variable respectively, So define them in constructor of `TodoItemTile` widget itself and remove `toggleIsCompleted` callback function from constructor. Pass your toggle mutation query and toggle variable document in the widget from screens i.e `all.dart` , `active.dart` and `completed.dart`.
 
 ```dart
 class TodoItemTile extends StatelessWidget {

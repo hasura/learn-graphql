@@ -62,7 +62,7 @@ To do this create a file named `client.dart` inside `lib/config` folder and add 
 + }
 ```
 
-In the above code we are creating `httpLink`, `authLink` and `websocketLink` and concatinating them to variable type `Link` link. In function named `initailizeClient` we are configuring our `client` using `GraphQLClient` widget provided by package itself and returning a instance of type `ValueNotifier<GraphQLClient>`.
+In the above code we are creating `httpLink`, `authLink` and `websocketLink` and concatenating them to variable type `Link` link. In function named `initailizeClient` we are configuring our `client` using `GraphQLClient` widget provided by package itself and returning a instance of type `ValueNotifier<GraphQLClient>`.
 
 Now, to add GraphQL provider to our app we have to wrap our parent widget (i.e. `DefaultTabController` inside lib/screens/dashboard.dart) with `GraphQLProvider` widget. `GraphQLProvider` takes `client` and `child` as parameter and we already created a function (`initailizeClient`) which is returning `client`. To do this modify your dashboard.dart as follows
 

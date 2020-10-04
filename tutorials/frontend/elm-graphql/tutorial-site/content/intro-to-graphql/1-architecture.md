@@ -36,7 +36,7 @@ client to reduce the boilerplate in making API calls and handling responses, you
 can choose a GraphQL client to make writing GraphQL queries, sending them and
 handling responses much easier.
 
-Now the tricker part is how do we send a GraphQL query from an elm app? The most hacky way
+Now the trickier part is how do we send a GraphQL query from an elm app? The most hacky way
 would be to construct a Graphql query using a multiline string and use 
 [elm/http](https://package.elm-lang.org/packages/elm/http/latest/Http#post) to transmit the query and 
 receive the response. You will quickly run into following problems ☹

@@ -314,7 +314,7 @@ If the player is the joiner of the battle, data is returned when the creator con
 
 #### void ReceiveBattleData
 
-This functions is called every time our subscription returns data from the backend. That is, it is called every time a change is made to the `battle` row we subcribed to.
+This functions is called every time our subscription returns data from the backend. That is, it is called every time a change is made to the `battle` row we subscribed to.
 
 The function also has the data received within `subscriptionDataReceived` and this is deserialized into our `battle` variable so that our `battle` variable always reflects the current state of the battles row in our database.
 
@@ -322,7 +322,7 @@ The contents of this function performs the flow chart in our [Matchmaking](../ma
 
 #### void StartWaiting()
 
-This is used to wait for a particular time. If a battle isn't confirmed by then, it closes the subsription and resets the menu.
+This is used to wait for a particular time. If a battle isn't confirmed by then, it closes the subscription and resets the menu.
 
 ### Event Listening
 

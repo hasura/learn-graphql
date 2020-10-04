@@ -5,10 +5,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class App {
-  @Output('logout') logout: EventEmitter<any> = new EventEmitter();
+  @Output() logout: EventEmitter<any> = new EventEmitter();
 
   logoutHandler(item: any) {
-      this.logout.emit(item);
+    this.logout.emit(item);
   }
-  
 }

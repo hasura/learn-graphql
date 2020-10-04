@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
-import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpClientModule  } from "@angular/common/http";
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpClientModule } from '@angular/common/http';
 import { WebSocketLink } from 'apollo-link-ws';
 import { ApolloClient } from 'apollo-client';
 
@@ -24,7 +24,7 @@ import { TodoPrivateList } from './Todo/TodoPrivateList';
 import { TodoPrivateWrapper } from './Todo/TodoPrivateWrapper';
 import { TodoPublicList } from './Todo/TodoPublicList';
 import { TodoPublicWrapper } from './Todo/TodoPublicWrapper';
-import { Header} from './Header';
+import { Header } from './Header';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { Header} from './Header';
     TodoPublicList,
     TodoPublicWrapper,
     App,
-    Header
+    Header,
   ],
   imports: [
     BrowserModule,
@@ -51,29 +51,30 @@ import { Header} from './Header';
     HttpClientModule,
     FormsModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
   ],
-  providers: [{
-    provide: APOLLO_OPTIONS,
-    useFactory: () => {
-      return new ApolloClient({
-        cache: new InMemoryCache(),
-        link:  new WebSocketLink({
-          uri: 'wss://hasura.io/learn/graphql',
-          options: {
-            reconnect: true,
-            connectionParams: {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-          }}
-        })
-      })
+  providers: [
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: () => {
+        return new ApolloClient({
+          cache: new InMemoryCache(),
+          link: new WebSocketLink({
+            uri: 'wss://hasura.io/learn/graphql',
+            options: {
+              reconnect: true,
+              connectionParams: {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+              },
+            },
+          }),
+        });
+      },
+      deps: [HttpLink],
     },
-    deps: [HttpLink]
-  }],
-  bootstrap: [Auth0Wrapper]
+  ],
+  bootstrap: [Auth0Wrapper],
 })
-export class AppModule { 
-
-}
+export class AppModule {}

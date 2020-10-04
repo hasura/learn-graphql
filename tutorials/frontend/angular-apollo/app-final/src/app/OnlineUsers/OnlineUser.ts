@@ -1,10 +1,9 @@
-import { Component, Input } from '@angular/core'; 
+import { Component, Input } from '@angular/core';
 
-@Component({  
-    selector: 'OnlineUser',  
-    templateUrl: './OnlineUser.template.html',  
-  }) 
-
+@Component({
+  selector: 'OnlineUser',
+  templateUrl: './OnlineUser.template.html',
+})
 export class OnlineUser {
-    @Input('user') user: any;  
+  @Input() user: any;
 }

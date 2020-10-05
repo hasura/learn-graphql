@@ -77,7 +77,7 @@ query AllTodos {
 - Run this from your terminal to download the schema,
 
 ```bash
-apollo schema:download --endpoint=http://hasura.io/learn/graphql --header="Authorization: Bearer <token>"
+apollo schema:download --endpoint=https://hasura.io/learn/graphql/graphiql --header="Authorization: Bearer <token>"
 ```
 
 - Place the downloaded schema.json in the same folder as your api.graphql

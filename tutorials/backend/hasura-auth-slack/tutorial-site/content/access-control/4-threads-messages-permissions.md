@@ -76,7 +76,7 @@ The above condition translates to the following expression:
 
 ### Column level update
 
-The user can only update the `message` column in `channel_message` table.
+The user can only update the `message` column in `channel_thread_message` table.
 
 ## Delete permission
 

@@ -108,7 +108,7 @@ Now that we have the `mutate` function in our scope, let us call this function i
 +}>
 ```
 
-Afte this, if you type a todo and press enter, you can see the mutation in the network request being sent in your browser's dev tools. Look at the `mutate` function closely. We are calling it by passing the variables with an optional labelled argument called `~variables`.
+After this, if you type a todo and press enter, you can see the mutation in the network request being sent in your browser's dev tools. Look at the `mutate` function closely. We are calling it by passing the variables with an optional labelled argument called `~variables`.
 
 But the UI does not get updated unless you refresh the page. To update the UI after every mutation, we want to use another optional argument of the `mutate` function called `refetchQueries`. Lets use it as follows:
 

@@ -48,7 +48,7 @@ Now let's do the integration part. Open `Todo/TodoVC.swift` and add the followin
 +    }
 ```
 
-We are upadting our local cache with this `addTodoMutationLocal` function. You can also check the data in your local store which will be in the same shape as you have defined for your queries. This enables you to make fetch calls to the server or just the local cache as your need be. Plus, there are optimistic updates that you can do to your UI that we will learn later.
+We are updating our local cache with this `addTodoMutationLocal` function. You can also check the data in your local store which will be in the same shape as you have defined for your queries. This enables you to make fetch calls to the server or just the local cache as your need be. Plus, there are optimistic updates that you can do to your UI that we will learn later.
 
 Now let's handle the Keyboard Done press for this mutation.
 

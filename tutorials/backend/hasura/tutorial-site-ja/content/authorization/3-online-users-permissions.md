@@ -8,7 +8,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/mmX5JRhT1-c" />
 
-`online_users` ビューの下の Permissons タブに移動して、関連する権限を追加します。
+`online_users` ビューの下の Permissions タブに移動して、関連する権限を追加します。
 
 ## 選択の権限
 

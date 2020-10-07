@@ -12,7 +12,7 @@ Let's say you have an API to fetch a user's profile and their address. In a typi
 
 ![GraphQL API example](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/rest-api.png)
 
-The core of REST API revolves around resources. Resources are identified by URLs and request type (GET, POST etc)
+The core of REST API revolves around resources. Resources are identified by URLs and request type (GET, POST etc.).
 
 If your API server was a GraphQL server instead, this is what your API calls would look like:
 
@@ -50,7 +50,7 @@ We're changing the way we think about API calls. Instead of making different API
 
 As you can see in the example above, GraphQL queries look very neat and easy to
 read! This is because the query is the "shape" of the final JSON data you desire.
-This is one of the key-reasons that makes GraphQL a joy to work with!
+This is one of the key reasons that makes GraphQL a joy to work with!
 
 ## GraphQL benefits
 
@@ -73,7 +73,7 @@ Here's a quick chart to show you the GraphQL analogs of typical REST-ish terms:
 In REST APIs, there isn't a concept of a schema or type system.
 On the other hand, GraphQL has a strong type system to define what the API looks like. A schema is defined with fields mapped to types and serves as a contract between the client and the server.
 
-This schema contract lets the frontend and backend developers to work independently with a guarantee that the data requirements are met. In REST API's though there's no strict contract, following OpenAPI spec will get you closer to GraphQL in terms of documentation. Community tooling around OpenAPI spec gives an idea about the various endpoints and data payloads for the REST APIs.
+This schema contract lets the frontend and backend developers to work independently with a guarantee that the data requirements are met. In REST APIs though there's no strict contract, following the OpenAPI spec will get you closer to GraphQL in terms of documentation. Community tooling around the OpenAPI spec gives an idea about the various endpoints and data payloads for the REST APIs.
 
 ### HTTP Status Codes
 
@@ -87,7 +87,7 @@ Every GraphQL request, success or error should return a 200. This is a visible d
 
 With REST APIs, errors can be anything other than 200 and the client handling the error should take care of the different codes that are possible.
 
-With GraphQL, any valid response(both data and errors) should be 200. Errors are handled as part of the response body under a special `errors` object and the client side tooling will help in handling it better.
+With GraphQL, any valid response (both data and errors) should be 200. Errors are handled as part of the response body under a special `errors` object and the client side tooling will help in handling it better.
 
 #### Monitoring
 
@@ -98,7 +98,7 @@ With REST APIs and proper HTTP status codes, a simple health check on a given en
 With REST APIs, all the GET endpoints can be cached at the server side or using a CDN. They can be cached by the browser as well and bookmarked by the client for frequent invocations.
 GraphQL doesn't follow the HTTP spec and is served over a single endpoint, usually (/graphql). Hence the queries cannot be cached in the same way as REST APIs. 
 
-However caching on the client side is better than REST because of the tooling. Some of the clients implementing caching layer (Apollo Client, URQL) makes use of GraphQL's schema and type system using Introspection to allow them to maintain a cache on the client side.
+However caching on the client side is better than REST because of the tooling. Some of the clients implementing caching layer (Apollo Client, URQL) make use of GraphQL's schema and type system using Introspection to allow them to maintain a cache on the client side.
 
 We will learn more about Introspection in the coming sections.
 

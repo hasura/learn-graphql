@@ -1,5 +1,5 @@
 # [hasura.io/learn](https://hasura.io/learn/)
-<a href="docs/contributing.md" alt="Hacktoberfest"><img src="https://badgen.net/badge/hacktoberfest/friendly/pink" /></a>
+<a href="https://github.com/hasura/learn-graphql/blob/master/CONTRIBUTING.md" alt="Hacktoberfest"><img src="https://badgen.net/badge/hacktoberfest/friendly/pink" /></a>
 [![hasura.io/learn website](https://img.shields.io/badge/docs-haura.io-blue.svg)](https://hasura.io/learn/)
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 <a href="https://github.com/hasura/learn-graphql/blob/master/LICENSE" alt="License"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>

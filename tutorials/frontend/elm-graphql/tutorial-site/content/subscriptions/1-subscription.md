@@ -253,4 +253,4 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 ```
 
-Awesome! You have completed basic implementations of a GraphQL Query, Mutation and Subscriptions. Easy isn't it?
+Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.

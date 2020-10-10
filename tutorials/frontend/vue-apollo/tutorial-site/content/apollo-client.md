@@ -67,7 +67,7 @@ Open `src/main.js` and add the following code to create an ApolloClient instance
 
 ```
 
-These are the required apollo dependencies to get started. We have also written a simple utility to get token information to construct the headers.
+These are the required apollo dependencies to get started. We have also written a utility to get token information to construct the headers.
 
 ### Install VueApollo Plugin
 

@@ -25,7 +25,7 @@ Now under column insert permissions, select the `title` and `is_public` columns.
 
 Finally under column presets, select `user_id` from `from session variable` mapping to `X-HASURA-USER-ID`.
 
-**Note:** Session variables are key-value pairs returned from the authentication service for each request. When a user makes a request, the session token maps to a `USER-ID`. This `USER-ID` can be used in a permission to show that inserts into a table are only allowed if the `user_id` column has a value equal to that of `USER-ID`, the session variable.
+**Note:** Session variables are key-value pairs returned from the authentication service for each request. When a user makes a request, the session token maps to a `USER-ID`. This `USER-ID` can be used in permission to show that inserts into a table are only allowed if the `user_id` column has a value equal to that of `USER-ID`, the session variable.
 
 Click on `Save Permissions`.
 

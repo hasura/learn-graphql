@@ -6,20 +6,20 @@ metaDescription: "In this part, we will look at how to write an Action to extend
 
 Let's take the first use-case of fetching profile information from Auth0.
 
-Ideally you would want to maintain a single GraphQL endpoint for all your data requirements.
+Ideally, you would want to maintain a single GraphQL endpoint for all your data requirements.
 
 To handle the use-case of fetching Auth0 profile information, we will write a REST API in a custom Node.js server. This could be written in any language/framework, but we are sticking to Node.js for this example.
 
 Hasura can then merge this REST API with the existing auto-generated GraphQL schema and the client will be able to query everything using the single GraphQL endpoint.
 
 ## Creating an action
-On the Hasura Console, head to the `Actions` tab and Click on `Create` to create a new action. 
+On the Hasura Console, head to the `Actions` tab and click on `Create` to create a new action. 
 
 ![Action definition](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-definition.png)
 
 ### Action definition
 
-We will need to define our Action and the type of action. Since we are just reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments (none in this case) and the response type of the action (`auth0_profile` in this case).
+We will need to define our Action and the type of action. Since we are only reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments (none in this case), and the response type of the action (`auth0_profile` in this case).
 
 ```
 type Query {
@@ -29,7 +29,7 @@ type Query {
 
 ### Types definition
 
-We defined that the response type of the action is `auth0_profile`. So what do we want in return from the Auth0 API? We want the `id`, `email` and `picture` fields which aren't stored on our database so far.
+We defined that the response type of the action is `auth0_profile`. So what do we want in return from the Auth0 API? We want the `id`, `email`, and `picture` fields that aren't stored on our database so far.
 
 ```
 type auth0_profile {
@@ -39,7 +39,7 @@ type auth0_profile {
 }
 ```
 
-All three fields are of type String. Note that `auth0_profile` is an object type which has 3 keys (id, email and picture) and we are returning this object in our response.
+All three fields are of type String. Note that `auth0_profile` is an object type that has 3 keys (id, email, and picture) and we are returning this object in our response.
 
 We will change the Handler URL later once we write our REST API and deploy it on a public endpoint.
 
@@ -153,5 +153,5 @@ Remember the JWT token that we got after configuring Auth0 and testing it out? H
 
 **Note**: You need to pass in the right header values. You can pass in the Authorization header with the correct token and your Node.js server will receive the appropriate `x-hasura-user-id` value from the session variables for the API to work as expected.
 
-That's it! You have now extended the built-in GraphQL API with your own custom code.
+That's it! You have now extended the built-in GraphQL API with your custom code.
 

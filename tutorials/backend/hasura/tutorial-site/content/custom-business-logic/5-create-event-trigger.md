@@ -24,9 +24,9 @@ To test this, we need to insert a new row into users table.
 
 Head to Console -> Data -> users -> Insert Row and insert a new row.
 
-Now head to Events tab and click on `send_email` event to browse the processed events.
+Now head to the Events tab and click on `send_email` event to browse the processed events.
 
 ![Test event trigger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/test-event-trigger.png)
 
-Now everytime a new row is inserted into `users` table this event would be invoked.
+Now, every time a new row is inserted into `users` table - this event would be invoked.
 

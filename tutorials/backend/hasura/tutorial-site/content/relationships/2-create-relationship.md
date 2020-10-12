@@ -1,7 +1,7 @@
 ---
 title: "Create Relationship"
 metaTitle: "Create Relationship | Hasura GraphQL Tutorial"
-metaDescription: "This part of the tutorial covers how to create relationship between two tables using Hasura console"
+metaDescription: "This part of the tutorial covers how to create a relationship between two tables using Hasura console"
 ---
 
 

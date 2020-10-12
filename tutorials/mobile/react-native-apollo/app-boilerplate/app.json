@@ -4,7 +4,6 @@
     "slug": "learn-react-native",
     "description": "A React Native Todo app with GraphQL",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",

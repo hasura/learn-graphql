@@ -28,7 +28,7 @@ export default class Auth extends React.Component {
     isKeyboardOpen: false
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.keyboardShowCallback);
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.keyboardHideCallback);
   }

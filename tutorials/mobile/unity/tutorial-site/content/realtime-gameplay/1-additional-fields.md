@@ -27,12 +27,12 @@ Let's go through the columns to see their use.
 
 - `seed`: this is a random number that's assigned to the battle when it is created. This shall be used to set the Random state in Unity so that both players get the same set of targets.
 - `hitTargets`: this is an array of integers that shall be updated every time the `Shooter` hits a target. Each target has an index and this is what is added to the array. It allows the `Defender`'s game instance know exactly which targets the `Shooter` shot.
-- `defendedTargets`: this is an array of integers that shall be updated every time the `Defender` deactivates a target. Each target has an index and this is what is added to the array. It allows the `Shooter`'s game instance know exactly whicch targets the `Defender` deactivates.
+- `defendedTargets`: this is an array of integers that shall be updated every time the `Defender` deactivates a target. Each target has an index and this is what is added to the array. It allows the `Shooter`'s game instance know exactly which targets the `Defender` deactivates.
 - `attackComplete`: this is a flag that is set to `true` when the `Shooter` completes their turn. The `Shooter`'s turn is complete when they run out of bullets. This flag allows the `Defender`'s game know when to start the `Defender`'s turn.
-- `gameComplete`: this is a flag that is seet to `truw` when the `Defender` completes their turn. The `Defender`'s turn is over when their time is up or they successfully deactivate all the targets. This flag signifies the end of the battle.
+- `gameComplete`: this is a flag that is set to `truw` when the `Defender` completes their turn. The `Defender`'s turn is over when their time is up or they successfully deactivate all the targets. This flag signifies the end of the battle.
 - `timeTaken`: this number value is set after the `Shooter` completes their turn. It is set to the amount of time the `Shooter` uses.
 - `shooterMisses`: this is an integer that is increased by 1 every time the `Shooter` misses a target. We shall use this to simulate the `Shooter`'s  shooting on the `Defender`'s game.
-- `defenderMisses`: this is an integer that is increased by 1 every time the `Defender` misses a tartet. We shall use this to simulate the `Defender`'s shooting on the `Shooter`'s  game.
+- `defenderMisses`: this is an integer that is increased by 1 every time the `Defender` misses a target. We shall use this to simulate the `Defender`'s shooting on the `Shooter`'s  game.
 
 ### Update Api Reference
  

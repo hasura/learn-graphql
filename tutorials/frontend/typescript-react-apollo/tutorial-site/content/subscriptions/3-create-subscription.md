@@ -189,4 +189,4 @@ And now open `src/components/OnlineUsers/OnlineUser.tsx`
 
 ```
 
-Awesome! You have completed basic implementations of a GraphQL Query, Mutation and Subscriptions. Easy isn't it?
+Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.

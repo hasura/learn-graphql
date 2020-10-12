@@ -10,7 +10,7 @@ This is done by authentication.
 
 For this tutorial, we're going to have a very simple authentication process. For other purposes, this might not be ideal and proper auth services should be utilized like [Auth0](https://auth0.com/), [Firebase](https://firebase.google.com/docs/auth) or a custom backend.
 
-Interfacing Unity with these services is a tutorial in itself so for this, we're going to use a simple GraphQL service I created and hosted on [Glitch](https://glitch.com/)
+Interfacing Unity with these services is a tutorial in itself so for this, we're going to use a GraphQL service I created and hosted on [Glitch](https://glitch.com/)
 
 You'll clone this service and add in your own project secrets!
 

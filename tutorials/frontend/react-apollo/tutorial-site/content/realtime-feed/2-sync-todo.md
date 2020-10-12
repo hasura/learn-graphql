@@ -14,7 +14,7 @@ Remember that previously we updated the cache using the cache API and the UI got
 
 We are not going to use that approach here since we don't want public list UI to be automatically updated.
 
-In the Subscription component of the previous step, we only get the latest todo and not the existing list. We will now write a simple query to fetch the list of existing public todos.
+In the Subscription component of the previous step, we only get the latest todo and not the existing list. We will now write a query to fetch the list of existing public todos.
 
 Start off by wrapping the existing component with `withApollo` HOC to get access to the `client` prop to make queries.
 

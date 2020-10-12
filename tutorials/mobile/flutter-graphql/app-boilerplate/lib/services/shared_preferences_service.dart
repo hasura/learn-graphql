@@ -5,7 +5,7 @@ class SharedPreferenceService {
 
   Future<bool> getSharedPreferencesInstance() async {
     _prefs = await SharedPreferences.getInstance().catchError((e) {
-      print("shared prefrences error : $e");
+      print("shared preferences error : $e");
       return false;
     });
     return true;

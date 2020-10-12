@@ -152,7 +152,7 @@ When you execute `apollo.fetch`, Apollo will deliver results in the completion h
 
 `data`: An object containing the result of your GraphQL query. This will contain our actual data from the server. In our case, it will be the todo data.
 
-You can read more about reponse format and error handling [here](https://graphql.github.io/graphql-spec/)
+You can read more about response format and error handling [here](https://graphql.github.io/graphql-spec/)
 
 Using the `data` object, we are parsing the results from the server. In our query, `data` object has an array `todos` which can be mapped to render each `TodoCell` in our todoTable.
 

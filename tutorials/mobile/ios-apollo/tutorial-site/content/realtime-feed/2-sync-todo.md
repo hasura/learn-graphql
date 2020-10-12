@@ -6,7 +6,7 @@ metaDescription: "You will learn how to sync new todos added by other people in 
 
 Once a new todo is entered in a public list, it needs to appear in the UI. Instead of automatically displaying the todo in the UI, we use a Feed like Notification banner which appears whenever a new todo is received.
 
-In the Subscription component of the previous step, we only get the latest todo id not the complete todo. We will now write a simple query to fetch the list of public todos based on id.
+In the Subscription component of the previous step, we only get the latest todo id not the complete todo. We will now write a query to fetch the list of public todos based on id.
 
 Start off by writing a graphql query which takes in id as query variable.
 

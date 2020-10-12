@@ -10,7 +10,7 @@ Remember that previously we updated the cache using the cache API and the UI got
 
 We are not going to use that approach here since we don't want public list UI to be automatically updated.
 
-In the `TodoPublicListSubscription` component of the previous step, we only get the latest todo and not the existing list. We will now write a simple query to fetch the list of existing public todos.
+In the `TodoPublicListSubscription` component of the previous step, we only get the latest todo and not the existing list. We will now write a query to fetch the list of existing public todos.
 
 Start off by importing `useEffect` from  `react` and `useApolloClient` from `@apollo/client`
 

@@ -39,7 +39,7 @@ function (user, context, callback) {
 ```
 
 **Note**: Modify `x-hasura-admin-secret` and `url` parameters appropriately according to your app.
-Here we are making a simple request to make a mutation into `users` table.
+Here we are making a request to make a mutation into `users` table.
 
 That’s it! This rule will now be triggered on every successful signup or login, and we insert or update the user data into our database using a Hasura GraphQL mutation.
 

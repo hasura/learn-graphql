@@ -1,7 +1,7 @@
 ---
 title: "Create Subscription and Render Result"
 metaTitle: "Create Subscription and Render Result | GraphQL Angular Apollo Tutorial"
-metaDescription: "Integrate Angular Apollo Subscription Method to watch for changes in realtime data. We use GraphQL subscriptions as an example to get live data in the Angulart app"
+metaDescription: "Integrate Angular Apollo Subscription Method to watch for changes in realtime data. We use GraphQL subscriptions as an example to get live data in the Angular app"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -92,4 +92,4 @@ We are using the `apollo.subscribe` method  which gives fields (similar to `watc
 
 Refresh your angular app and see yourself online! Don't be surprised; There could be other users online as well.
 
-Awesome! You have completed basic implementations of a GraphQL Query, Mutation and Subscriptions. Easy isn't it?
+Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.

@@ -52,7 +52,7 @@ Note that some columns like `is_public`, `is_completed` have default values, eve
 
 ## Subscription
 
-Let's run a simple subscription query over `todos` table to watch for changes to the table. In the above graphql query, replace `query` with `subscription`
+Let's run a subscription query over `todos` table to watch for changes to the table. In the above graphql query, replace `query` with `subscription`
 
 ```graphql
 subscription {

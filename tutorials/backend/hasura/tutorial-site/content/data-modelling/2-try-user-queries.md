@@ -54,7 +54,7 @@ Note that some columns like `created_at` have default values, even though you di
 
 ## Subscription
 
-Let's run a simple subscription query over `users` table to watch for changes to the table.
+Let's run a subscription query over `users` table to watch for changes to the table.
 
 ```graphql
 subscription {

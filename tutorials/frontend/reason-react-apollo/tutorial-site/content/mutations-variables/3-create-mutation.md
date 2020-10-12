@@ -142,6 +142,6 @@ event => {
 }
 ```
 
-The `mutate` function returns a promise. We are simply clearing off the textbox when the promise gets resolved i.e. when the mutation is successful.
+The `mutate` function returns a promise. We are clearing off the textbox when the promise gets resolved i.e. when the mutation is successful.
 
 Awesome! You have used your first Mutation component to fire a mutation.

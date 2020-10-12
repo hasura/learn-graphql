@@ -216,7 +216,7 @@ Let's break them down.
 
 #### void UpdateHitTargets
 
-This is a simple function to update the `hitTargets` column of our battle in the backend. It takes in a `bool complete` to signify if the `Shooter`'s turn is complete.
+This function updates the `hitTargets` column of our battle in the backend. It takes in a `bool complete` to signify if the `Shooter`'s turn is complete.
 
 If `bool complete` is true, it also sets the `attackComplete` column of our battle to true. Else, it sets it as fault.
 
@@ -224,7 +224,7 @@ We shall call this function every time the `Shooter` hits a target.
 
 #### UpdateDefendedTargets
 
-This is a simple function to update the `defendedTargets` column of our battle in the backend. It takes in a `bool complete` to signify if the `Defender`'s turn is complete hereby signifying the end of the game.
+This function updates the `defendedTargets` column of our battle in the backend. It takes in a `bool complete` to signify if the `Defender`'s turn is complete hereby signifying the end of the game.
 
 If `bool complete` is true, it also sets the `gameComplete` column of our battle to true.
 
@@ -232,7 +232,7 @@ We shall call this function every time the `Defender` deactivates a target.
 
 #### void UpdateMiss
 
-This is a simple function used to increase the value in column `shooterMisses` or `defenderMisses` when either the `Shooter` or `Defender` misses a target.
+This function is used to increase the value in column `shooterMisses` or `defenderMisses` when either the `Shooter` or `Defender` misses a target.
 
 #### void ProcessBattle
 

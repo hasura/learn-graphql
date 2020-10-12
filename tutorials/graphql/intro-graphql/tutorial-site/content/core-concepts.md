@@ -7,7 +7,7 @@ metaDescription: "Learn about the core concepts of GraphQL - document, operation
 GraphQL introduces a new set of concepts for someone coming from a REST API background. In this section, we will look at the core concepts of GraphQL from a client/frontend perspective.
 
 ## GraphQL document 
-The content of a GraphQL request string is called the GraphQL document. This is a simple example of a document:
+The content of a GraphQL request string is called the GraphQL document. This is an example of a document:
 
 ```graphql
 {
@@ -29,7 +29,7 @@ A GraphQL operation can be of type
 
 A GraphQL document can contain one or more of these operations (i.e multiple queries/mutations/subscriptions).
 
-Let's look at a simple example of a GraphQL document with an operation:
+Let's look at an example of a GraphQL document with an operation:
 
 ```graphql
 query {
@@ -108,7 +108,7 @@ The author field accepts an argument `limit` to limit the number of results retu
 
 GraphQL queries can be parameterized with variables for reuse and easy construction of queries on the client-side.
 
-In the simple example above, assume the limit parameter is configurable by the user viewing the page, then it would be easier to pass a variable to the field argument.
+In the example above, assume the limit parameter is configurable by the user viewing the page, then it would be easier to pass a variable to the field argument.
 
 ```
 query ($limit: Int) {

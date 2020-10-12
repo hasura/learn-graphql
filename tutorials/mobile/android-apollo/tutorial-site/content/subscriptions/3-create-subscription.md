@@ -99,4 +99,4 @@ We are using the `apolloClient.subscribe` which gives callback with onFailure, o
 
 Re-run your android app and see yourself online! Don't be surprised; There could be other users online as well.
 
-Awesome! You have completed basic implementations of a GraphQL Query, Mutation and Subscriptions. Easy isn't it?
+Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.

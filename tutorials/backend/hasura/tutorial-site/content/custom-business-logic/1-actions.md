@@ -49,7 +49,7 @@ Click on `Create` once you are done configuring the above fields.
 
 ## Write a REST API
 
-Now that the Action has been created, let's write a REST API in a simple Node.js Express app that can later be configured for this Action. 
+Now that the Action has been created, let's write a REST API in a Node.js Express app that can later be configured for this Action. 
 
 Head to the `Codegen` tab to quickly get started with boilerplate code :) 
 

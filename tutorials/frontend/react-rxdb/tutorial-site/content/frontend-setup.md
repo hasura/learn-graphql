@@ -6,7 +6,7 @@ metaDescription: "In this part of the tutorial, we will look at how to setup fro
 
 Now that Hasura is up and running, let us focus on getting the front end working with RxDB as well.
 
-We will work on the following pieces to boostrap our frontend
+We will work on the following pieces to bootstrap our frontend
 
 - Download boilerplate code
 - Configure offline mode for the web app

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core'; 
+import { Component } from '@angular/core';
 
-@Component({  
-    selector: 'TodoPrivateWrapper',  
-    templateUrl: './TodoPrivateWrapper.template.html',  
-  }) 
+@Component({
+  selector: 'TodoPrivateWrapper',
+  templateUrl: './TodoPrivateWrapper.template.html',
+})
 
 export class TodoPrivateWrapper {
 }

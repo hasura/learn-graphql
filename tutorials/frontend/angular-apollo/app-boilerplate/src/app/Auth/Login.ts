@@ -1,15 +1,15 @@
-import { Component, Output, EventEmitter } from '@angular/core'; 
+import { Component, Output, EventEmitter } from '@angular/core';
 
-@Component({  
-    selector: 'Login',  
-    templateUrl: './Login.template.html',  
-})  
+@Component({
+  selector: 'Login',
+  templateUrl: './Login.template.html',
+})
 
 export class Login {
-    @Output('loginHandler') loginHandler: EventEmitter<any> = new EventEmitter();
+  @Output() loginHandler: EventEmitter<any> = new EventEmitter();
 
-    loginHandlerWrapper(item: any) {
-        this.loginHandler.emit(item);
-    }
-} 
+  loginHandlerWrapper(item: any) {
+    this.loginHandler.emit(item);
+  }
+}
 

@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Apollo, gql } from 'apollo-angular';
 
 const SUBSCRIBE_TO_ONLINE_USERS = gql`
   subscription getOnlineUsers {
@@ -14,6 +13,17 @@ const SUBSCRIBE_TO_ONLINE_USERS = gql`
   }
 `;
 
+// type for SUBSCRIBE_TO_ONLINE_USERS subscription
+interface User {
+  id: number;
+  user: {
+    name: string
+  };
+}
+interface GetOnlineUsersSub {
+  online_users: User[];
+}
+
 @Component({
   selector: 'OnlineUsersWrapper',
   templateUrl: './OnlineUsersWrapper.template.html',
@@ -25,19 +35,19 @@ export class OnlineUsersWrapper implements OnInit, OnDestroy {
 
   private querySubscription: Subscription;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) { }
 
   ngOnInit() {
     this.onlineIndicator = setInterval(() => this.updateLastSeen(), 30000);
     this.querySubscription = this.apollo
-      .subscribe({
+      .subscribe<GetOnlineUsersSub>({
         query: SUBSCRIBE_TO_ONLINE_USERS,
       })
       .subscribe(
-        ({ data, loading }) => {
+        ({ data }) => {
           if (data) {
             const users = data.online_users;
-            this.loading = loading;
+            this.loading = false;
             this.onlineUsers = [];
             users.forEach((u) => {
               this.onlineUsers.push(u.user);

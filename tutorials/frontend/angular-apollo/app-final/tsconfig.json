@@ -18,7 +18,8 @@
       "es2018",
       "dom",
       "esnext.asynciterable"
-    ]
+    ],
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

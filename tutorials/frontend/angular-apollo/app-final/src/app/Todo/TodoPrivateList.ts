@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Apollo, gql } from 'apollo-angular';
 
 export const GET_MY_TODOS = gql`
   query getMyTodos {
@@ -17,6 +16,18 @@ export const GET_MY_TODOS = gql`
   }
 `;
 
+// types for Todos Response
+interface Todo {
+  id: number;
+  title: string;
+  created_at: Date;
+  is_completed: Date;
+}
+
+interface GetMyTodosResponse {
+  todos: Todo[];
+}
+
 @Component({
   selector: 'TodoPrivateList',
   templateUrl: './TodoPrivateList.template.html',
@@ -30,11 +41,11 @@ export class TodoPrivateList implements OnInit, OnDestroy {
 
   private querySubscription: Subscription;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) { }
 
   ngOnInit() {
     this.querySubscription = this.apollo
-      .watchQuery<any>({
+      .watchQuery<GetMyTodosResponse>({
         query: GET_MY_TODOS,
       })
       .valueChanges.subscribe(({ data, loading }) => {

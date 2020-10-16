@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Component, Input } from '@angular/core';
+import { Apollo, gql } from 'apollo-angular';
 
 import { GET_MY_TODOS } from './TodoPrivateList';
 
@@ -43,12 +42,12 @@ export class TodoInput {
   todoInput: any = '';
   loading = true;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) { }
 
   addTodo(e) {
     e.preventDefault();
     this.apollo
-      .mutate({
+      .mutate<InsertTodoResult>({
         mutation: ADD_TODO,
         variables: {
           todo: this.todoInput,
@@ -63,8 +62,7 @@ export class TodoInput {
             query: GET_MY_TODOS,
           });
 
-          // need to convert data to InsertTodoResult to avoid issue in typescript compiling.
-          const newTodo = (data as InsertTodoResult).insert_todos.returning[0];
+          const newTodo = data.insert_todos.returning[0];
           cache.writeQuery({
             query: GET_MY_TODOS,
             data: { todos: [newTodo, ...existingTodos.todos] },

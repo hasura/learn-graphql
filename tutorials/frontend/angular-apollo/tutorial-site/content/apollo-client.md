@@ -1,7 +1,7 @@
 ---
 title: "Set up a GraphQL client with Apollo"
 metaTitle: "Apollo Client GraphQL Setup | GraphQL Angular Apollo Tutorial"
-metaDescription: "You will learn how to configure Apollo Client in Angular by installing dependencies like apollo-angular, apollo-client, apollo-link-http, apollo-cache-inmemory"
+metaDescription: "You will learn how to configure Apollo Client in Angular by installing dependencies like apollo-angular, @apollo/client"
 ---
 
 import GithubLink from "../src/GithubLink.js";
@@ -12,7 +12,7 @@ Apollo gives a neat abstraction layer and an interface to your GraphQL server. Y
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ npm install --save apollo-client apollo-angular apollo-cache-inmemory apollo-link apollo-angular-link-http graphql graphql-tag
+$ npm install apollo-angular @apollo/client graphql
 ```
 
 ### Create Apollo Client Instance
@@ -25,30 +25,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core'
 
-+ import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
-+ import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
-+ import { InMemoryCache } from "apollo-cache-inmemory";
 + import { HttpClientModule  } from "@angular/common/http";
-+ import { ApolloClient } from 'apollo-client';
-
++ import { APOLLO_OPTIONS } from "apollo-angular";
++ import { HttpLink } from 'apollo-angular/http';
++ import { InMemoryCache } from '@apollo/client/core';
 ```
 
 These are the required apollo dependencies to get started. Now let's define a provider which will return apollo client with httplink and cache.
 
 ```typescript
-
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-+    HttpClientModule,
-+    ApolloModule,
-+    HttpLinkModule
++   HttpClientModule
   ],
   providers: [{
 +    provide: APOLLO_OPTIONS,
-+    useFactory: (httpLink) => {
-+      return new ApolloClient({
++    useFactory: (httpLink: HttpLink) => {
++      return {
 +        cache: new InMemoryCache(),
 +        link:  httpLink.create({
 +          uri: 'https://hasura.io/learn/graphql',
@@ -56,16 +51,16 @@ These are the required apollo dependencies to get started. Now let's define a pr
 +              Authorization: `Bearer ${localStorage.getItem('token')}`
 +            }
 +        })
-+      })
++      };
 +    },
 +    deps: [HttpLink]
   }]
-```  
+```
 
-Let's try to understand what is happening here. 
+Let's try to understand what is happening here.
 
 ### HttpLink and InMemoryCache
 We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at `https://hasura.io/learn/graphql`
 
-At the end, we instantiate ApolloClient by passing in our HttpLink and a new instance of `InMemoryCache` (recommended caching solution). We are wrapping all of this in a function which will return the client.
+At the end, we return ApolloClient by passing in our HttpLink and a new instance of `InMemoryCache` (recommended caching solution). We are wrapping all of this in a function which will return the client.
 

@@ -4,11 +4,11 @@ metaTitle: "Apollo Mutate Method | GraphQL Angular Apollo Tutorial"
 metaDescription: "We will use the Apollo Client Mutate method from apollo-angular in Angular app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
-### Apollo Angular Mutate Method 
+### Apollo Angular Mutate Method
 Now let's do the integration part. Open `src/app/Todo/TodoInput.ts` and add the following code below the other imports:
 
 ```typescript
-import { Apollo } from 'apollo-angular';
+import { Apollo, gql } from 'apollo-angular';
 ```
 
 `Apollo` is being imported from `apollo-angular` and the graphql query we defined above to fetch the todo data.
@@ -16,23 +16,40 @@ import { Apollo } from 'apollo-angular';
 Now, we will add the mutate method passing our graphql mutation constant that we imported. Add the following code:
 
 ```typescript
+// type for a returning Todo from ADD_TODO mutation
++ interface Todo {
++   id: number;
++   title: string;
++   created_at: Date;
++   is_completed: boolean;
++ }
++
++ // type for the full result of ADD_TODO mutation
++ interface InsertTodoResult {
++   insert_todos: {
++     affected_rows: number;
++     returning: Todo[];
++   };
++ }
+...
+
 export class TodoInput {
-    @Input('isPublic') isPublic: any = false;
+    @Input() isPublic: any = false;
   + todoInput: any= '';
-  + loading: boolean = true;
-    
+  + loading = true;
+
   + constructor(private apollo: Apollo) {}
 
     addTodo(e) {
       e.preventDefault();
-  +    this.apollo.mutate({
+  +    this.apollo.mutate<InsertTodoResult>({
   +      mutation: ADD_TODO,
   +      variables: {
   +        todo: this.todoInput,
-  +        isPublic: this.isPublic 
+  +        isPublic: this.isPublic
   +      },
-  +    }).subscribe(({ data, loading }) => {
-  +      this.loading = loading;
+  +    }).subscribe(({ data }) => {
+  +      this.loading = false;
   +      this.todoInput = '';
   +    },(error) => {
   +      console.log('there was an error sending the query', error);
@@ -47,11 +64,11 @@ Now let's handle the form submit and input value to invoke the mutation.
 
 ```html
   <form class="formInput" (submit)="addTodo($event)">
-    <input 
+    <input
       class="input"
       placeholder="What needs to be done?"
 +      [(ngModel)]="todoInput"
-+      [ngModelOptions]="{standalone: true}" 
++      [ngModelOptions]="{standalone: true}"
     />
     <i class="inputMarker fa fa-angle-right"></i>
   </form>
@@ -79,12 +96,12 @@ addTodo(e) {
         mutation: ADD_TODO,
         variables: {
           todo: this.todoInput,
-          isPublic: this.isPublic 
+          isPublic: this.isPublic
         },
       +  update: (cache, {data}) => {
-          
+
       +    if(this.isPublic) return null;
-      +    
+      +
       +    const existingTodos : any = cache.readQuery({
       +      query: GET_MY_TODOS
       +    });
@@ -95,9 +112,9 @@ addTodo(e) {
       +      data: {todos: [newTodo, ...existingTodos.todos]}
       +    });
         },
-        
-      }).subscribe(({ data, loading }) => {
-        this.loading = loading;
+
+      }).subscribe(({ data }) => {
+        this.loading = false;
         this.todoInput = '';
         console.log('got data ', data);
       },(error) => {

@@ -12,7 +12,7 @@ With Apollo Client, you can send queries in 2 different ways.
 1. Using the query method.
 2. Using the watchQuery method. (Recommended)
 
-### Apollo watchQuery Method 
+### Apollo watchQuery Method
 query method returns an Observable that emits a result, just once. watchQuery also does the same, except it can emit multiple results. (The GraphQL query itself is still only sent once, but the watchQuery observable can also update if, for example, another query causes the object to be updated within Apollo Client's global cache.)
 
 Great! Now let's define the graphql query to be used:
@@ -23,10 +23,10 @@ Open `src/app/Todo/TodoPrivateList.ts` and add the following code:
 
 ```typescript
 import { Component, OnInit, Input } from '@angular/core';
++ import { Apollo, gql } from 'apollo-angular';
 
 import {TodoItem} from "./TodoItem";
 import {TodoFilters} from "./TodoFilters";
-+ import gql from 'graphql-tag';
 
 + const GET_MY_TODOS = gql`
 +  query getMyTodos {
@@ -41,7 +41,7 @@ import {TodoFilters} from "./TodoFilters";
 
 We have now written the graphql query as a typescript constant using the `gql` parser function. This function is used to parse the plain string as a graphql query.
 
-What does this query do? 
+What does this query do?
 ------------------------
 The query fetches `todos` with a simple condition; `is_public` must be false. We sort the todos descending by its `created_at` time according to the schema. We specify which fields we need for the todos node.
 
@@ -49,7 +49,7 @@ The query is now ready, let's integrate it with our angular code.
 
 ```typescript
 
-+ import { Apollo } from 'apollo-angular';
++ import { Apollo, gql } from 'apollo-angular';
 ```
 
 `Apollo` is being imported from `apollo-angular`
@@ -57,11 +57,10 @@ The query is now ready, let's integrate it with our angular code.
 ```typescript
 
 import { Component, OnInit  } from '@angular/core';
+import { Apollo, gql } from 'apollo-angular';
 
-import {TodoItem} from "./TodoItem";
-import {TodoFilters} from "./TodoFilters";
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { TodoItem } from "./TodoItem";
+import { TodoFilters } from "./TodoFilters";
 
 export const GET_MY_TODOS = gql`
   query getMyTodos {
@@ -73,50 +72,61 @@ export const GET_MY_TODOS = gql`
   }
  }`;
 
-@Component({  
-    selector: 'TodoPrivateList',  
-    templateUrl: './TodoPrivateList.template.html'
-  }) 
++ // types for Todos Response
++ interface Todo {
++   id: number;
++   title: string;
++   created_at: Date;
++   is_completed: Date;
++ }
++
++ interface GetMyTodosResponse {
++   todos: Todo[];
++ }
 
+@Component({
+  selector: 'TodoPrivateList',
+  templateUrl: './TodoPrivateList.template.html'
+})
 export class TodoPrivateList implements OnInit {
-    
-filter = "all";
-clearInProgress= false;
-todos: [
-        {
-          id: "1",
-          title: "This is private todo 1",
-          is_completed: true,
-          is_public: false
-        },
-        {
-          id: "2",
-          title: "This is private todo 2",
-          is_completed: false,
-          is_public: false
-        }
-       ];
-filteredTodos: any;
-+ loading: boolean = true;
+
+  filter = "all";
+  clearInProgress= false;
+  todos: [
+    {
+      id: "1",
+      title: "This is private todo 1",
+      is_completed: true,
+      is_public: false
+    },
+    {
+      id: "2",
+      title: "This is private todo 2",
+      is_completed: false,
+      is_public: false
+    }
+  ];
+  filteredTodos: any;
++ loading = true;
 
 + constructor(private apollo: Apollo) {}
 
 + ngOnInit() {
-+   this.apollo.watchQuery<any>({
++   this.apollo.watchQuery<GetMyTodosResponse>({
 +    query: GET_MY_TODOS
 +  })
 +   .valueChanges
 +   .subscribe(({ data, loading }) => {
 +      this.loading = loading;
 +      this.todos = data.todos;
-+      this.filteredTodos = this.todos; 
++      this.filteredTodos = this.todos;
 +  });
 + }
 
-filterResults($event) { 
-  ... 
+filterResults($event) {
+  ...
 }
- 
+
 clearCompleted() {}
 
 }
@@ -130,37 +140,36 @@ Let's remove the mock `todos` data which was used to populate sample data.
 ```typescript
 
 export class TodoPrivateList implements OnInit {
-    
-filter = "all";
-clearInProgress= false;
-todos= [
--        {
--          id: "1",
--          title: "This is private todo 1",
--          is_completed: true,
--          is_public: false
--        },
--        {
--          id: "2",
--          title: "This is private todo 2",
--          is_completed: false,
--          is_public: false
--        }
-        ]
-filteredTodos: any;
-loading: boolean = true;
+  filter = "all";
+  clearInProgress= false;
+  todos= [
+-   {
+-     id: "1",
+-     title: "This is private todo 1",
+-     is_completed: true,
+-     is_public: false
+-   },
+-   {
+-     id: "2",
+-     title: "This is private todo 2",
+-     is_completed: false,
+-     is_public: false
+-   }
+  ]
+  filteredTodos: any;
+  loading = true;
 
-constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) {}
 
-ngOnInit() {
-  ...
-}
+  ngOnInit() {
+    ...
+  }
 
-filterResults($event) { 
-  ... 
-}
- 
-clearCompleted() {}
+  filterResults($event) {
+    ...
+  }
+
+  clearCompleted() {}
 
 }
 

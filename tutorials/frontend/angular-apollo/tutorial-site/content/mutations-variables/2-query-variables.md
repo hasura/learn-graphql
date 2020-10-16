@@ -18,7 +18,7 @@ Open `src/app/Todo/TodoInput.ts` and add the following code:
 
 ```typescript
 import { Component, OnInit, Input } from '@angular/core';
-+ import gql from 'graphql-tag';
++ import { gql } from 'apollo-angular';
 
 + const ADD_TODO = gql `
 +  mutation ($todo: String!, $isPublic: Boolean!) {
@@ -34,10 +34,10 @@ import { Component, OnInit, Input } from '@angular/core';
 +  }
 + `;
 
-@Component({  
-    selector: 'TodoInput',  
-    templateUrl: './TodoInput.template.html',  
-  }) 
+@Component({
+  selector: 'TodoInput',
+  templateUrl: './TodoInput.template.html',
+})
 
 export class TodoInput {
   ...

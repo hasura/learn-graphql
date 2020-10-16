@@ -23,20 +23,20 @@ We need to tell the server that the user who is logged in is online. We have to 
 
 We have to make this change to see yourself online first. Remember that you are already logged in, registered your data in the server, but not updated your `last_seen` value.?
 
-The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's update some code to handle this. 
+The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's update some code to handle this.
 
 Open `src/app/OnlineUsers/OnlineUsersWrapper.ts` and add the following imports and set the client prop in the constructor
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/angular-apollo/app-final/src/app/OnlineUsers/OnlineUsersWrapper.ts" text="src/app/OnlineUsers/OnlineUsersWrapper.ts" />
 
 ```typescript
-+ import gql from "graphql-tag";
-+ import { Apollo } from 'apollo-angular';
++ import { Apollo, gql } from 'apollo-angular';
+
 export class OnlineUsersWrapper {
-    onlineUsers = [
-        { name: "someUser1" },
-        { name: "someUser2" }
-      ]
+   onlineUsers = [
+     { name: "someUser1" },
+     { name: "someUser2" }
+   ];
 
 +    constructor(private apollo: Apollo) {}
 ```
@@ -48,9 +48,9 @@ export class OnlineUsersWrapper implements OnInit {
       onlineUsers = [
         { name: "someUser1" },
         { name: "someUser2" }
-      ]
+      ];
 
-+      onlineIndicator: any;
++     onlineIndicator: any;
 
       constructor(private apollo: Apollo) {}
 
@@ -83,13 +83,13 @@ export class OnlineUsersWrapper implements OnInit {
 +        this.apollo.mutate({
 +          mutation: UPDATE_LASTSEEN_MUTATION,
 +          variables: {now: (new Date()).toISOString()}
-+        }).subscribe(({ data, loading }) => {
++        }).subscribe(({ data }) => {
 +          console.log('got data ', data);
 +        },(error) => {
 +          console.log('there was an error sending the query', error);
 +        });
 +      }
-   
+
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: "Subscription"
 metaTitle: "Set up GraphQL Subscriptions using Apollo Client | GraphQL Angular Apollo Tutorial"
-metaDescription: "You will learn how to configure GraphQL Subscriptions using Angular Apollo Client by installing dependencies like apollo-link-ws, subscriptions-transport-ws. This will also have authorization token setup"
+metaDescription: "You will learn how to configure GraphQL Subscriptions using Angular Apollo Client by installing dependencies like subscriptions-transport-ws. This will also have authorization token setup"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -21,7 +21,7 @@ Open `src/app/app.module.ts` and update the following imports:
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/angular-apollo/app-final/src/app/app.module.ts" text="src/app/app.module.ts" />
 
 ```typescript
-+ import { WebSocketLink } from 'apollo-link-ws';
++ import { WebSocketLink } from '@apollo/client/link/ws';
 ```
 
 Update to integrate WebSocketLink.
@@ -31,22 +31,22 @@ Update to integrate WebSocketLink.
 providers: [{
     provide: APOLLO_OPTIONS,
     useFactory: () => {
-      return new ApolloClient({
-    cache: new InMemoryCache(),    
--   link:  httpLink.create({
-+   link: new WebSocketLink({
--     uri: 'https://hasura.io/learn/graphql',
-+     uri: 'wss://hasura.io/learn/graphql',
-+     options: {
-+       reconnect: true,
-+       connectionParams: {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-+       }
-+     }
-    })
-    })
+      return {
+        cache: new InMemoryCache(),
+-       link:  httpLink.create({
++       link: new WebSocketLink({
+-          uri: 'https://hasura.io/learn/graphql',
++          uri: 'wss://hasura.io/learn/graphql',
++          options: {
++            reconnect: true,
++            connectionParams: {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
++            }
++          }
+        })
+      };
     },
     deps: [HttpLink]
   }],

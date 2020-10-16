@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Apollo, gql } from 'apollo-angular';
 
 // Run a subscription to get the latest public todo
 const NOTIFY_NEW_PUBLIC_TODOS = gql`
@@ -16,6 +15,16 @@ const NOTIFY_NEW_PUBLIC_TODOS = gql`
     }
   }
 `;
+
+// Type for new public todos
+interface Todo {
+  id: number;
+  created_at: Date;
+}
+
+interface NewPublicTodos {
+  todos: Todo[];
+}
 
 @Component({
   selector: 'TodoPublicList',
@@ -33,7 +42,7 @@ export class TodoPublicList implements OnInit, OnDestroy {
   private newTodosQuerySubscription: Subscription;
   private notifyNewTodosQuerySubscription: Subscription;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) { }
 
   ngOnInit() {
     this.getNotifications();
@@ -41,12 +50,12 @@ export class TodoPublicList implements OnInit, OnDestroy {
 
   getNotifications() {
     this.notifyNewTodosQuerySubscription = this.apollo
-      .subscribe({
+      .subscribe<NewPublicTodos>({
         query: NOTIFY_NEW_PUBLIC_TODOS,
       })
       .subscribe(
-        ({ data, loading }) => {
-          this.loading = loading;
+        ({ data }) => {
+          this.loading = false;
           if (data) {
             const latestTodo = data.todos.length ? data.todos[0] : null;
             this.olderTodosAvailable = latestTodo ? true : false;
@@ -89,7 +98,7 @@ export class TodoPublicList implements OnInit, OnDestroy {
         variables: { latestVisibleId: this.todos[0].id },
       })
       .valueChanges.subscribe(
-        ({ data, loading }) => {
+        ({ data }) => {
           const todosData: any = data;
           if (todosData) {
             this.newestTodoId = todosData.todos[0].id;
@@ -127,7 +136,7 @@ export class TodoPublicList implements OnInit, OnDestroy {
         variables: { oldestTodoId: this.oldestTodoId },
       })
       .valueChanges.subscribe(
-        ({ data, loading }) => {
+        ({ data }) => {
           const todosData: any = data;
           if (todosData) {
             if (todosData.todos.length) {

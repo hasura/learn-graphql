@@ -17,7 +17,7 @@ import { TodoPrivateList } from './Todo/TodoPrivateList';
 import { TodoPrivateWrapper } from './Todo/TodoPrivateWrapper';
 import { TodoPublicList } from './Todo/TodoPublicList';
 import { TodoPublicWrapper } from './Todo/TodoPublicWrapper';
-import { Header} from './Header';
+import { Header } from './Header';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { Header} from './Header';
     Header
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule
   ],
   providers: [],

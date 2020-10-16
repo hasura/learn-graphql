@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Apollo, gql } from 'apollo-angular';
 
 import { GET_MY_TODOS } from './TodoPrivateList';
 
@@ -30,7 +29,7 @@ const REMOVE_TODO = gql`
 export class TodoItem {
   @Input() todo: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) { }
 
   removeTodo(e) {
     e.preventDefault();

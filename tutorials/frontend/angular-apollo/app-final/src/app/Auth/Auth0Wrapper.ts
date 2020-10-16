@@ -39,7 +39,7 @@ export class Auth0Wrapper implements OnInit {
         alert(`Error: ${err.error} - ${err.errorDescription}`);
       }
     });
-  };
+  }
 
   getAccessToken() {
     return this.accessToken;

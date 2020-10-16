@@ -9,7 +9,7 @@ import GithubLink from "../../src/GithubLink.js";
 Now let's do the integration part. Open `src/app/Todo/TodoItem.ts` and add the following code below the other imports:
 
 ```typescript
-+ import gql from 'graphql-tag';
++ import { Apollo, gql } from 'apollo-angular';
 ```
 Let's define the graphql mutation to update the completed status of the todo
 
@@ -17,7 +17,7 @@ Let's define the graphql mutation to update the completed status of the todo
 
 ```typescript
 import { Component, Input } from '@angular/core';
-import gql from 'graphql-tag';
+import { Apollo, gql } from 'apollo-angular';
 
 +  const TOGGLE_TODO = gql`
 +    mutation toggleTodo ($id: Int!, $isCompleted: Boolean!) {
@@ -35,12 +35,11 @@ We need to call `apollo.mutate` to make the mutation.
 
 ```typescript
   import { Component, Input } from '@angular/core';
-+ import { Apollo } from 'apollo-angular'; 
-  import gql from 'graphql-tag';
++ import { Apollo,gql } from 'apollo-angular';
 
   export class TodoItem {
-    @Input('todo') todo: any;
-    
+    @Input() todo: any;
+
 +   constructor(private apollo: Apollo) {}
     ...
   }
@@ -53,7 +52,7 @@ We already have the onChange handler toggleTodo for the input. Let's update the 
 +    this.apollo.mutate({
 +          mutation: TOGGLE_TODO,
 +          variables: {id: this.todo.id, isCompleted: !this.todo.is_completed},
-+        }).subscribe(({ data, loading }) => {
++        }).subscribe(({ data }) => {
 +          console.log('got data', data);
 +        },(error) => {
 +          console.log('there was an error sending the query', error);
@@ -65,36 +64,35 @@ The above code will just make a mutation, updating the todo's is_completed prope
 To update the cache, we will be using the `update` function again to modify the cache. We need to fetch the current list of todos from the cache before modifying it. So let's import the query.
 
 ```typescript
-+ import {GET_MY_TODOS} from './TodoPrivateList';
++ import { GET_MY_TODOS } from './TodoPrivateList';
 ```
 Now let's add the code for `update` function.
 
 ```typescript
   toggleTodo() {
-        this.apollo.mutate({
-          mutation: TOGGLE_TODO,
-          variables: {id: this.todo.id, isCompleted: !this.todo.is_completed},
-+         update: (cache) => {
-+            const existingTodos : any = cache.readQuery({ query: GET_MY_TODOS });
-+            const newTodos = existingTodos.todos.map(t => {
-+              if (t.id === this.todo.id) {
-+                return({...t, is_completed: !t.is_completed});
-+              } else {
-+                return t;
-+              }
-+            });
-+            cache.writeQuery({
-+              query: GET_MY_TODOS,
-+              data: {todos: newTodos}
-+            });
-+          },
-        }).subscribe(({ data, loading }) => {
-          console.log('got data', data);
-        },(error) => {
-          console.log('there was an error sending the query', error);
-        });
-      };
-
+    this.apollo.mutate({
+      mutation: TOGGLE_TODO,
+      variables: { id: this.todo.id, isCompleted: !this.todo.is_completed },
++       update: (cache) => {
++          const existingTodos : any = cache.readQuery({ query: GET_MY_TODOS });
++          const newTodos = existingTodos.todos.map(t => {
++            if (t.id === this.todo.id) {
++              return { ...t, is_completed: !t.is_completed };
++            } else {
++              return t;
++            }
++          });
++          cache.writeQuery({
++            query: GET_MY_TODOS,
++            data: {todos: newTodos}
++          });
++        },
+    }).subscribe(({ data }) => {
+      console.log('got data', data);
+    },(error) => {
+      console.log('there was an error sending the query', error);
+    });
+  }
 ```
 
 We are fetching the existing todos from the cache using `cache.readQuery` and updating the is_completed value for the todo that has been updated.

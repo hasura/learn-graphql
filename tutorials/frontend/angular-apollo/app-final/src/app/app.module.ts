@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
-import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpClientModule } from '@angular/common/http';
-import { WebSocketLink } from 'apollo-link-ws';
-import { ApolloClient } from 'apollo-client';
+
+import { APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
+import { InMemoryCache } from '@apollo/client/core';
+import { WebSocketLink } from '@apollo/client/link/ws';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { App } from './App';
@@ -49,15 +50,13 @@ import { Header } from './Header';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ApolloModule,
-    HttpLinkModule,
+    FormsModule
   ],
   providers: [
     {
       provide: APOLLO_OPTIONS,
       useFactory: () => {
-        return new ApolloClient({
+        return {
           cache: new InMemoryCache(),
           link: new WebSocketLink({
             uri: 'wss://hasura.io/learn/graphql',
@@ -70,11 +69,11 @@ import { Header } from './Header';
               },
             },
           }),
-        });
+        };
       },
       deps: [HttpLink],
     },
   ],
   bootstrap: [Auth0Wrapper],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,10 +1,10 @@
 ---
 title: "Trigger replication on changes"
 metaTitle: "Trigger replication on changes | React + RxDB + Hasura GraphQL Tutorial"
-metaDescription: "By default RxDB will periodically sync from the remote GraphQL source. This time interval for the sync to be triggered can be set by using the liveInterval paramter."
+metaDescription: "By default RxDB will periodically sync from the remote GraphQL source. This time interval for the sync to be triggered can be set by using the liveInterval parameter."
 ---
 
-By default RxDB will periodically sync from the remote GraphQL source. This time interval for the sync to be triggered can be set by using the `liveInterval` paramter. In this example we have set it to 10 minutes. However, we can also use a GraphQL subscription so that Hasura notifies us as soon as there is a change and trigger replication manually. This is done by the `setupGraphQLSubscription` method of the `GraphQLReplicator` class. 
+By default RxDB will periodically sync from the remote GraphQL source. This time interval for the sync to be triggered can be set by using the `liveInterval` parameter. In this example we have set it to 10 minutes. However, we can also use a GraphQL subscription so that Hasura notifies us as soon as there is a change and trigger replication manually. This is done by the `setupGraphQLSubscription` method of the `GraphQLReplicator` class. 
 
 ```js
 setupGraphQLSubscription(auth, replicationState) {

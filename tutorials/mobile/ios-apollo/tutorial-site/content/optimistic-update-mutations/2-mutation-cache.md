@@ -47,7 +47,7 @@ Lets also, add the function for adding the mutation to the local cache,
     
 ```
 
-We need to modify our `todoQueryCloud` to `todoQueryWacther` to watch for changes in a particular query on the local cache. To make sure, it is intialized properly and discarded we need to update our `viewWillAppear` and `viewWillDisapper`:
+We need to modify our `todoQueryCloud` to `todoQueryWacther` to watch for changes in a particular query on the local cache. To make sure, it is initialized properly and discarded we need to update our `viewWillAppear` and `viewWillDisapper`:
 
 ```swift
     // Todo Query Watcher from local cache

@@ -79,14 +79,14 @@ mutation {
 <!-- [//]: # TODO: -->
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-## Parametrise what you insert
+## Parameterise what you insert
 
 For mutations, we would almost always have to paramatrise the arguments! We
 would rarely, if ever, have a "hardcoded" mutation in our app. This is because
 the arguments of what data to capture, how to modify or delete something is usually
 dependent on some user action.
 
-Now that we know how to parametrise using query variables, let's use that:
+Now that we know how to parameterise using query variables, let's use that:
 
 ```graphql
 # The parametrised GraphQL mutation

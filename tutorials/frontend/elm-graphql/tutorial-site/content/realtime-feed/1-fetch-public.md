@@ -6,7 +6,7 @@ metaDescription: "You will learn how to make use of GraphQL Subscriptions to get
 
 import GithubLink from "../../src/GithubLink.js";
 
-Lets setup ports to subscribe to public todo data and fetch the initial list of public todo list the user will see after successfull login.
+Lets setup ports to subscribe to public todo data and fetch the initial list of public todo list the user will see after successful login.
 
 Open `src/Main.elm` and add the following code:
 

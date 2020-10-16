@@ -11,7 +11,7 @@ Apollo gives a neat abstraction layer and an interface to your GraphQL server. Y
 ## Android Apollo Installation
 Let's get started by adding apollo client & peer graphql dependenices to the project:
 
-- The latest gradle plugin version is [ ![Download](https://api.bintray.com/packages/apollographql/android/apollo-gradle-plugin/images/download.svg) ](https://bintray.com/apollographql/android/apollo-gradle-plugin/_latestVersion). We will use the latest snapshot.
+- The latest gradle plugin version is [![Download](https://api.bintray.com/packages/apollographql/android/apollo-gradle-plugin/images/download.svg)](https://bintray.com/apollographql/android/apollo-gradle-plugin/_latestVersion). We will use the latest snapshot.
 - To use this plugin, add the dependency to your projects build.gradle file
 
 ```groovy
@@ -77,7 +77,7 @@ query AllTodos {
 - Run this from your terminal to download the schema,
 
 ```bash
-apollo schema:download --endpoint=http://hasura.io/learn/graphql --header="Authorization: Bearer <token>"
+apollo schema:download --endpoint=https://hasura.io/learn/graphql/graphiql --header="Authorization: Bearer <token>"
 ```
 
 - Place the downloaded schema.json in the same folder as your api.graphql

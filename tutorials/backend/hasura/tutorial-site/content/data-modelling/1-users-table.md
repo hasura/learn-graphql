@@ -1,7 +1,7 @@
 ---
 title: "Create table users"
 metaTitle: "Create table users | Hasura GraphQL Tutorial"
-metaDescription: "Lets create table users with Hasura console by heading to Data tab and clicking on Create table"
+metaDescription: "Let's create table users with Hasura console by heading to Data tab and clicking on Create table"
 ---
 
 

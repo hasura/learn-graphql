@@ -10,7 +10,7 @@ Remember that previously we updated the cache using the cache API and the UI got
 
 We are not going to use that approach here since we don't want public list UI to be automatically updated.
 
-In the Subscription component of the previous step, we only get the latest todo and not the existing list. We will now write a simple query to fetch the list of existing public todos.
+In the Subscription component of the previous step, we only get the latest todo and not the existing list. We will now write a query to fetch the list of existing public todos.
 
 Start off by importing the `useApolloClient` hook to get access to the `client` prop to make queries manually.
 
@@ -155,7 +155,7 @@ Let's handle that in `useEffect` hook.
 
 We are also handling the error case above.
 
-Finally, let's remove the dummy initial state for todos and set inital state for todos to be an empty array `[]`.
+Finally, let's remove the dummy initial state for todos and set initial state for todos to be an empty array `[]`.
 
 ```javascript
 

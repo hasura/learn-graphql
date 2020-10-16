@@ -30,6 +30,6 @@ private fun addTodoMutationCloud(title: String) {
 
 ## What does this mutation do?
 
-The mutation inserts into `todos` table with the `$title` variable being passed as one query variable. We are logging the result to see the reponse from the server.
+The mutation inserts into `todos` table with the `$title` variable being passed as one query variable. We are logging the result to see the response from the server.
 
 Awesome! We have defined our first graphql mutation.

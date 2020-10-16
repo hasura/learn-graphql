@@ -5,7 +5,7 @@ metaDescription: "The GraphQL backend is already ready. The task is to convert t
 ---
 
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
-Our task will be convert the "static" UI into a working realtime app.
+Our task will be to convert the "static" UI into a working realtime app.
 
 ### Download and run the boilerplate
 
@@ -25,6 +25,6 @@ After you login, you should get something like this:
 1. Head to [https://hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql?tutorial=react-native)
 2. Log in (so that you can test the GraphQL APIs with a valid user token)
 
-This is what you should see after the steps above:
+This is what you should see after following the steps above:
 
 ![GraphiQL after login](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphiql-after-login.png)

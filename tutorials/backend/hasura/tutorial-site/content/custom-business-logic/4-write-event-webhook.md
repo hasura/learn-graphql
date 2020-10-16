@@ -85,7 +85,7 @@ After remixing to your own project on Glitch, modify the `.env` file to enter th
 
 values appropriately.
 
-Additionally you should also configure the sender and receiver address using 
+Additionally, you should also configure the sender and receiver address using 
 - `SENDER_ADDRESS` 
 - `RECEIVER_ADDRESS` 
 

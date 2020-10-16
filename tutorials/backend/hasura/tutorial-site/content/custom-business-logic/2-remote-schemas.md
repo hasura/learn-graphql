@@ -6,11 +6,11 @@ metaDescription: "In this part, we will look at how to write custom resolvers an
 
 
 
-Now we saw how the GraphQL API can be extended using Actions. We mentioned earlier that another way of customising the API graph is through a custom GraphQL server.
+Now we saw how the GraphQL API can be extended using Actions. We mentioned earlier that another way of customizing the API graph is through a custom GraphQL server.
 
 Let's take the same use-case of fetching profile information from Auth0.
 
-Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. To handle the use-case of fetching Auth0 profile information, we will write custom resolvers in a custom GraphQL server. Hasura can then merge this custom GraphQL server with the existing auto-generated schema. 
+Hasura can merge remote GraphQL schemas and provide a unified GraphQL API. To handle the use-case of fetching Auth0 profile information, we will write custom resolvers in a custom GraphQL server. Hasura can then merge this custom GraphQL server with the existing auto-generated schema. 
 
 This custom GraphQL server is the `Remote Schema`.
 
@@ -96,8 +96,8 @@ In the server above, let's breakdown what's happening:
 - We define the GraphQL types for `auth0_profile` and `Query`. 
 - And then we write a custom resolver for Query type `auth0`, where we parse the `Authorization` headers to get the token. 
 - We then decode the token using the `jsonwebtoken` library's `jwt` method. This gives the user_id required to fetch auth0 profile information.
-- We make a request to the [Auth0's Management API](https://auth0.com/docs/api/management/v2/create-m2m-app), passing in the token and the user_id to get details about this user.
-- Once we get a response, we return back the object `{email: resp.email, picture: resp.picture}` as response. Else, we return `null`.
+- We request the [Auth0's Management API](https://auth0.com/docs/api/management/v2/create-m2m-app), passing in the token and the user_id to get details about this user.
+- Once we get a response, we return the object `{email: resp.email, picture: resp.picture}` as a response. Else, we return `null`.
 
 **Note**
 Most of the code written is very similar to the REST API code we wrote in the previous section for Actions. Here we are using Apollo Server to write a custom GraphQL server from scratch.

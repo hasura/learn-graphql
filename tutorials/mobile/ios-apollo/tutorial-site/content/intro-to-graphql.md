@@ -73,7 +73,7 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
   app.
 - **Self-documenting**: Every GraphQL API conforms to a "schema" which is the graph
   data model and what kinds of queries a client can make. This allows the community
-  to build lots of cool tools to explore & visualise your API or create IDE plugins
+  to build lots of cool tools to explore & visualize your API or create IDE plugins
   that autocomplete your GraphQL queries and even do "codegen". We'll understand this
   in more detail later!
 

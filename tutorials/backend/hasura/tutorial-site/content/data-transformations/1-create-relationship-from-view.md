@@ -10,10 +10,10 @@ Now that the view has been created, we need a way to be able to fetch user infor
 
 Head to Console -> Data -> online_users -> Relationships page.
 
-Add new relationship by choosing the relationship type to be `Object Relationship`. Enter the relationship name as `user`.
-Select the configuration for current column as `id` and the remote table would be `users` and the remote column would be `id` again.
+Add a new relationship by choosing the relationship type to be `Object Relationship`. Enter the relationship name as `user`.
+Select the configuration for the current column as `id` and the remote table would be `users` and the remote column would be `id` again.
 
-We are just mapping current view's id column to users table's id column to create the relationship.
+We are mapping the current view's id column to users table's id column to create the relationship.
 
 ![create relationship from view](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-relationship-view.png)
 

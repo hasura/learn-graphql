@@ -32,9 +32,9 @@ Open `Todo/OnlineVC.swift` and update following code,
     
 ```
 
-We are creating a `Cancellable` varibale and the assing apollo.subscribe graphql subscription we defined above to fetch the online user data.
+We are creating a `Cancellable` variable, and the assing apollo.subscribe graphql subscription we defined above to fetch the online user data.
 
-Now, we will update the UI with the results from this subscrition. Update the following in the `subscribeOnlineUsers` function:
+Now, we will update the UI with the results from this subscription. Update the following in the `subscribeOnlineUsers` function:
 
 ```swift
  // Subscribe for Online users
@@ -61,8 +61,8 @@ Now that we have the real data, let's remove the mock online users in `onlineUse
 How does this work?
 -------------------
 
-We are using the `Apollo.subscribe#subscription` which gives cancellable with GraphQLReseultSet (similar to `query` and `mutation`). The `result` object gives the result of the realtime data for the query we have made.
+We are using the `Apollo.subscribe#subscription` which gives cancellable with GraphQLResultSet (similar to `query` and `mutation`). The `result` object gives the result of the realtime data for the query we have made.
 
 Re-run your ios app and see yourself online! Don't be surprised; There could be other users online as well.
 
-Awesome! You have completed basic implementations of a GraphQL Query, Mutation and Subscriptions. Easy isn't it?
+Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.

@@ -14,14 +14,17 @@ We will explore the fundamentals of GraphQL and what makes it especially suitabl
 
 ## Key topics and takeaways:
 
-- Introduction to GraphQL
-- Core Concepts
-- GraphQL vs REST, a comparison
-- Queries
-- Mutations
-- Subscriptions
-- GraphQL Server and Architecture
-- GraphQL Clients
+- [Introduction to GraphQL](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/introduction.md)
+- [What is GraphQL](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/what-is-graphql.md)
+- [Core Concepts](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/core-concepts.md)
+- [GraphQL vs REST, a comparison](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/graphql-vs-rest.md)
+- [Queries](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/graphql-queries.md)
+- [Mutations](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/graphql-mutations.md)
+- [Subscriptions](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/graphql-subscriptions.md)
+- [GraphQL Server and Architecture](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/graphql-server.md)
+- [GraphQL Clients](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/graphql-client.md)
+- [GraphQL Introspection](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/introspection.md)
+- [What Next](https://github.com/hasura/learn-graphql/blob/master/tutorials/graphql/intro-graphql/tutorial-site/content/what-next.md)
 
 ## How long will this tutorial take?
 Less than an hour

@@ -18,7 +18,7 @@ With Apollo Client, you can send queries in 2 different ways.
 ### Apollo Query Component
 The recommended method is to use the render prop method, where you will just pass your GraphQL query as prop and `<Query />` component will fetch the data automatically and will present it in the component's render prop function.
 
-Great! Now let's define the graphql query to be used:
+Great! Now let's define the GraphQL query to be used:
 
 Open `src/components/Todo/TodoPrivateList.js` and add the following code:
 
@@ -42,7 +42,7 @@ import TodoFilters from "./TodoFilters";
 + }`;
 ```
 
-We have now written the graphql query as a javascript constant using the `gql` parser function. This function is used to parse the plain string as a graphql query.
+We have now written the GraphQL query as a javascript constant using the `gql` parser function. This function is used to parse string into a GraphQL query.
 
 What does this query do? 
 ------------------------
@@ -102,7 +102,7 @@ export default TodoPrivateList;
 
 Remember that we wrapped our App component with `<ApolloProvider>` and passed `client` as a prop. We are using the same client prop to send it down to the components.
 
-We are importing the `Query` component from `react-apollo` and the graphql query we defined above to fetch the todo data.
+We are importing the `Query` component from `react-apollo` and the GraphQL query we defined above to fetch the todo data.
 
 Let's remove the mock `todos` data which was used to populate sample data.
 
@@ -184,9 +184,9 @@ Finally, update the exports to render the function returning the `<Query>` compo
 + export {GET_MY_TODOS};
 ```
 
-Then, we wrap the new functional component with `Query` passing our graphql query.
+Then, we wrap the new functional component with `Query` passing our GraphQL query.
 
-Woot! You have written your first GraphQL integration with React. Easy isn't it?
+Woot! We have written our first GraphQL integration with React. Easy isn't it?
 
 How does this work?
 -------------------

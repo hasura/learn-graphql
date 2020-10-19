@@ -12,7 +12,7 @@ The fastest way to try out Hasura is via Hasura Cloud. [Hasura Cloud](https://ha
 
 Click on the following button to create a new project on Hasura Cloud:
 
-<a href="https://cloud.hasura.io" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
+<a href="https://cloud.hasura.io/?pg=learn-hasura-auth&plcmt=body&tech=default" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
 
 **Note**: It is free to signup and no credit-card is required.
 

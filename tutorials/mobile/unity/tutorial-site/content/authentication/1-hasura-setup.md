@@ -10,7 +10,7 @@ First off, we need to do some set up.
 
 ### Config Variables
 
-Since we have deployed Hasura GraphQL Engine on Hasura Cloud, let's head to [Hasura Cloud Dashboard](https://cloud.hasura.io) to configure the JWT secret. 
+Since we have deployed Hasura GraphQL Engine on Hasura Cloud, let's head to [Hasura Cloud Dashboard](https://cloud.hasura.io/?pg=learn-unity&plcmt=body&tech=default) to configure the JWT secret. 
 
 Open the Hasura Cloud dashboard and head to the "Env vars" page for your Hasura Cloud project:
 

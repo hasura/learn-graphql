@@ -8,7 +8,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/e66SASjCncY" />
 
-The first graphql query that you will write is to fetch personal todos. You will need to load the todo data from the database which belongs to the logged in user. Let's define a graphql query to fetch the required data.
+The first GraphQL query that we create will fetch personal todos. We will load the data from the database which belongs to the logged in user. Let's define a GraphQL query to fetch the required data.
 
 ```graphql
 query getMyTodos {
@@ -25,6 +25,6 @@ query getMyTodos {
 
 **Note**: You need to pass the `Authorization: Bearer <token>` header before querying to get the results. The token is auto-filled in the UI after logging in via Auth0.
 
-This query is the actual graphql query that we will be using in our react app and hence test this out to make sure it works as expected.
+This is the actual GraphQL query that we will be using in our react app so test it out to and make sure it works as expected.
 
-Let's now integrate this graphql query into our react app.
+Let's now integrate this GraphQL query into our react app.

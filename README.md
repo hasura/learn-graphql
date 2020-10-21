@@ -1,4 +1,6 @@
 # [hasura.io/learn](https://hasura.io/learn/)
+Real world GraphQL tutorials for frontend developers with deadlines!
+With these open-source community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.
 
 #### What is GraphQL?
 
@@ -7,10 +9,6 @@ For more information, please visit the below links:
 - [What is GraphQL?](https://www.youtube.com/watch?v=VjXb3PRL9WI&ab_channel=LevelUpTuts)
 - [GraphQL vs REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
 - [5 Common GraphQL Questions](https://www.howtographql.com/advanced/5-common-questions/)
-
-
-Real world GraphQL tutorials for frontend developers with deadlines!
-With these open-source community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.
 
 ![learn graphql banner](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-banner.png)
 

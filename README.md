@@ -1,9 +1,13 @@
 # [hasura.io/learn](https://hasura.io/learn/)
 
+#Hasura is a software technology company that builds developer tooling products, including open source tools, backend as a service (BaaS) and platform as a service (PaaS) products. The Hasura GraphQL Engine provides GraphQL APIs over new or existing Postgres databases.
+Instant realtime GraphQL APIs!
+you can connect Hasura to your database & data sources (GraphQL, REST & 3rd party API) and get a unified data access layer instantly.Hasura gives you instant GraphQL APIs on your data sources.
+
 Real world GraphQL tutorials for frontend developers with deadlines!
 With these open-source community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.
 
-![learn graphql banner](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-banner.png)
+![learn graphql banner very easily](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-banner.png)
 
 There are three different tutorial series:
 

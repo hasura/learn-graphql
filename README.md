@@ -1,11 +1,11 @@
 # [hasura.io/learn](https://hasura.io/learn/)
 
-Real world GraphQL tutorials for frontend developers with deadlines!
-With these open-source community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.
+Real world GraphQL tutorials for front end developers with deadlines!
+With these open-source community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in two hours.
 
 ![learn graphql banner](https://storage.googleapis.com/graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-banner.png)
 
-There are three different tutorial series:
+There are 3 different tutorial series :
 
 #### Frontend
 
@@ -34,7 +34,7 @@ There are three different tutorial series:
 
 ## Contributing
 
-Check out our [contributing guide](CONTRIBUTING.md) for more details.
+Checkout our [contributing guide](CONTRIBUTING.md) for more details.
 
 ## License
 This project is licensed under the MIT License - read [LICENSE](LICENSE) file for details.

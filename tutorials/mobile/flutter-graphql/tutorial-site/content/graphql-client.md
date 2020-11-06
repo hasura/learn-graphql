@@ -6,16 +6,16 @@ metaDescription: "You will learn how to configure GraphQL Package in Flutter by 
 
 graphql_flutter plugin gives a neat abstraction layer and an interface to your GraphQL server. You don't need to worry about constructing your queries with request body, headers and options, that you might have done with `http` or `dio` say. You can directly write queries and mutations in GraphQL and they will automatically be sent to your server via your client instance.
 
-To setup graphql_flutter,Add `graphql_flutter: ^1.0.1` dependency to your `pubspec.yaml`
+To setup graphql_flutter,Add `graphql_flutter: ^3.0.1` dependency to your `pubspec.yaml`
 
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.12.0+2
-  toast: ^0.1.3
-  shared_preferences: ^0.5.3+1
-+ graphql_flutter: 1.0.1
+  http: ^0.12.1
+  toast: ^0.1.5
+  shared_preferences: ^0.5.7+3
++ graphql_flutter: ^3.0.1
 ```
 
 Lets first create GraphQl client which we will need to configure our app. Our app requires both http link for queries, mutations and websocket link for subscriptions.

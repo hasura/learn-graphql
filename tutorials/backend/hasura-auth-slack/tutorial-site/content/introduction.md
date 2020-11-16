@@ -6,7 +6,7 @@ metaDescription: "A powerful and concise tutorial that will introduce you to set
 
 This course is a super fast introduction to model and think about Auth with Hasura GraphQL.
 
-In 30 mins, you will setup a powerful, realtime and secure GraphQL Backend for Slack Clone.
+In 30 minutes, you will setup a powerful, realtime and secure GraphQL Backend for a Slack clone.
 
 ## Pre-requisites
 
@@ -39,4 +39,4 @@ go on to set up your favorite tools and workflows.
 
 ## How long will this tutorial take?
 
-Around 45 mins.
+Around 30 minutes.

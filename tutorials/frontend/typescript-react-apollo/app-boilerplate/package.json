@@ -2,7 +2,7 @@
   "name": "typescript-react-apollo-boilerplate",
   "version": "0.1.0",
   "dependencies": {
-    "@auth0/auth0-spa-js": "1.2.3",
+    "@auth0/auth0-spa-js": "1.13.4",
     "moment": "2.24.0",
     "prop-types": "15.7.2",
     "react": "16.9.0",

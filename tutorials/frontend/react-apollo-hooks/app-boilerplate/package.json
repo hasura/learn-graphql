@@ -17,7 +17,7 @@
     "react-router-dom": "5.0.1"
   },
   "devDependencies": {
-    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-prettier": "3.2.0",
     "eslint-plugin-react-hooks": "2.0.1",
     "husky": "1.1.0",
     "lint-staged": "7.3.0",

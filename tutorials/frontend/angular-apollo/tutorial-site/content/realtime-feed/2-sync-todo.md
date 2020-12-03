@@ -77,7 +77,7 @@ Update the `loadOlder` method to the following:
 +      variables: {oldestTodoId: this.oldestTodoId}
 +    })
 +    .valueChanges
-+    .subscribe(({ data, loading }) => {
++    .subscribe(({ data }) => {
 +      const todosData : any = data;
 +      if(todosData) {
 +        if (todosData.todos.length) {

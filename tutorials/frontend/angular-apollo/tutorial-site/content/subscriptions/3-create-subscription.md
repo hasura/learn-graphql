@@ -16,8 +16,7 @@ Now, we will add the `apollo.subscribe` method to get live online users.
 
 ```typescript
 import { Component, OnInit  } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Apollo, gql } from 'apollo-angular';
 
 import {OnlineUser} from "./OnlineUser"
 
@@ -31,42 +30,52 @@ import {OnlineUser} from "./OnlineUser"
 +  }
 + }`
 
-@Component({  
-    selector: 'OnlineUsersWrapper',  
-    templateUrl: './OnlineUsersWrapper.template.html',  
-  }) 
++ // type for SUBSCRIBE_TO_ONLINE_USERS subscription
++ interface User {
++   id: number;
++   user: {
++     name: string
++   };
++ }
++ interface GetOnlineUsersSub {
++   online_users: User[];
++ }
+
+@Component({
+    selector: 'OnlineUsersWrapper',
+    templateUrl: './OnlineUsersWrapper.template.html',
+  })
 
 export class OnlineUsersWrapper implements OnInit {
-    onlineUsers = [
-        { name: "someUser1" },
-        { name: "someUser2" }
-      ];
-    onlineIndicator: any;
-+    loading: boolean = true;
-      
-      constructor(private apollo: Apollo) {}
-
-      ngOnInit(){
-        this.onlineIndicator = setInterval(() => this.updateLastSeen(), 30000);
-+        this.apollo.subscribe({
-+          query: SUBSCRIBE_TO_ONLINE_USERS,
-+        }).subscribe(({ data, loading }) => {
-+          if(data) {
-+            const users = data.online_users;
-+            this.loading = loading;
-+            this.onlineUsers = [];
-+              users.forEach((u, index) => {
-+                this.onlineUsers.push(u.user)
-+              })
-+          }
-+          console.log('got data ', data);
-+        },(error) => {
-+          console.log('there was an error sending the query', error);
-+        }); 
-      }
-      updateLastSeen() {
-        ...
-      }
+  onlineUsers = [
+      { name: "someUser1" },
+      { name: "someUser2" }
+    ];
+  onlineIndicator: any;
++ loading = true;
+  constructor(private apollo: Apollo) {}
+  ngOnInit(){
+    this.onlineIndicator = setInterval(() => this.updateLastSeen(), 30000);
++   this.apollo.subscribe<GetOnlineUsersSub>({
++     query: SUBSCRIBE_TO_ONLINE_USERS,
++   }).subscribe(({ data }) => {
++     if(data) {
++       const users = data.online_users;
++       this.loading = false;
++       this.onlineUsers = [];
++         users.forEach((u, index) => {
++           this.onlineUsers.push(u.user)
++         })
++     }
++     console.log('got data ', data);
++   },
++   (error) => {
++       console.log('there was an error sending the query', error);
++   });
+  }
+  updateLastSeen() {
+    ...
+  }
 }
 ```
 
@@ -77,12 +86,12 @@ export class OnlineUsersWrapper implements OnInit {
     onlineUsers = [
 -        { name: "someUser1" },
 -        { name: "someUser2" }
-      ];
+    ];
     onlineIndicator: any;
-    loading: boolean = true;
+    loading = true;
 
   ...
-}      
+}
 ```
 
 How does this work?

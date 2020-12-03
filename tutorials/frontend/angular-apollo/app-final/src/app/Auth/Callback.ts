@@ -1,11 +1,7 @@
-  
-import { Component } from '@angular/core'; 
+import { Component } from '@angular/core';
 
-@Component({  
-    selector: 'Callback',  
-    templateUrl: './Callback.template.html'  
-  })  
-
-export class Callback {
-
-}
+@Component({
+  selector: 'Callback',
+  templateUrl: './Callback.template.html',
+})
+export class Callback {}

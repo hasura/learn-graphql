@@ -1,12 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core'; 
+import { Component, OnInit, Input } from '@angular/core';
 import auth0 from 'auth0-js';
 
-import {AUTH_CONFIG} from './auth0-variables';
+import { AUTH_CONFIG } from './auth0-variables';
 
-@Component({  
-  selector: 'Auth0Wrapper',  
-  templateUrl: './Auth0Wrapper.template.html',  
-})  
+@Component({
+  selector: 'Auth0Wrapper',
+  templateUrl: './Auth0Wrapper.template.html',
+})
 
 export class Auth0Wrapper implements OnInit {
   auth0 = new auth0.WebAuth({
@@ -17,11 +17,11 @@ export class Auth0Wrapper implements OnInit {
     responseType: 'token id_token',
     scope: 'openid profile'
   });
-  isAuthenticated:any = false;// This can be true, false, 'loading'
+  isAuthenticated: any = false;// This can be true, false, 'loading'
   idToken = null;
   accessToken;
   expiresAt;
-  @Input('location') location: any;
+  @Input() location: any;
 
   constructor() {
   }
@@ -31,7 +31,7 @@ export class Auth0Wrapper implements OnInit {
   }
 
   handleAuthentication = () => {
-    this.isAuthenticated= 'loading';
+    this.isAuthenticated = 'loading';
 
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
@@ -71,13 +71,13 @@ export class Auth0Wrapper implements OnInit {
     this.isAuthenticated = 'loading';
 
     this.auth0.checkSession({}, (err, authResult) => {
-       if (authResult && authResult.accessToken && authResult.idToken) {
-         this.setSession(authResult);
-       } else if (err) {
-         this.logout();
-         console.log(err);
-         alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
-       }
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        this.setSession(authResult);
+      } else if (err) {
+        this.logout();
+        console.log(err);
+        alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+      }
     });
   }
 
@@ -99,7 +99,7 @@ export class Auth0Wrapper implements OnInit {
     this.idToken = null;
   }
 
-  isExpired () {
+  isExpired() {
     // Check whether the current time is past the
     // access token's expiry time
     let expiresAt = this.expiresAt;
@@ -115,7 +115,7 @@ export class Auth0Wrapper implements OnInit {
     }
 
     // On first load, check if we are already logged in and get the idTokens and things
-    if(localStorage.getItem('isLoggedIn') === 'true') {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
       this.renewSession();
       return;
     }

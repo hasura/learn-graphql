@@ -14,7 +14,7 @@ Open `src/app/Todo/TodoPublicList.ts` and add the following imports.
 
 ```typescript
 import { Component, OnInit, Input } from '@angular/core';
-+ import gql from 'graphql-tag';
++ import { gql } from 'apollo-angular';
 
 ```
 
@@ -22,7 +22,7 @@ Now let's define the subscription query to get notified about new public todos
 
 ```typescript
 import { Component, OnInit, Input } from '@angular/core';
-import gql from 'graphql-tag';
+import { gql } from 'apollo-angular';
 
 + // Run a subscription to get the latest public todo
 + const NOTIFY_NEW_PUBLIC_TODOS = gql`
@@ -34,14 +34,23 @@ import gql from 'graphql-tag';
 +  }
 + `;
 
++ // Type for new public todos
++ interface Todo {
++   id: number;
++   created_at: Date;
++ }
++
++ interface NewPublicTodos {
++   todos: Todo[];
++ }
 ```
 
 `Apollo` is being imported from `apollo-angular`
 
 ```typescript
 import { Component, OnInit, Input } from '@angular/core';
-+ import { Apollo } from 'apollo-angular'
-import gql from 'graphql-tag';
++ import { Apollo, gql } from 'apollo-angular'
+
 ```
 
 What does the Subscription do?
@@ -99,10 +108,10 @@ export class TodoPublicList implements OnInit {
 +      }
 
 +      getNotifications() {
-+        this.apollo.subscribe({
++        this.apollo.subscribe<NewPublicTodos>({
 +          query: NOTIFY_NEW_PUBLIC_TODOS,
-+        }).subscribe(({ data, loading }) => {
-+          this.loading = loading;
++        }).subscribe(({ data }) => {
++          this.loading = false;
 +          if(data) {
 +            const latestTodo = data.todos.length ? data.todos[0] : null;
 +            this.olderTodosAvailable = latestTodo? true: false;

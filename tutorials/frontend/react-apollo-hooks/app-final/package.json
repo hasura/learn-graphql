@@ -17,7 +17,7 @@
     "react-dom": "16.10.2",
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
-    "subscriptions-transport-ws": "^0.9.17"
+    "subscriptions-transport-ws": "0.9.17"
   },
   "devDependencies": {
     "eslint-plugin-prettier": "3.1.0",

@@ -9,12 +9,12 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "3.1.5",
-    "@expo/vector-icons": "^10.0.0",
+    "@expo/vector-icons": "10.2.1",
     "apollo-cache-inmemory": "1.6.6",
     "apollo-client": "2.6.10",
     "apollo-link-http": "1.5.17",
     "apollo-link-ws": "1.0.20",
-    "expo": "^39.0.0",
+    "expo": "39.0.3",
     "graphql": "14.5.8",
     "graphql-tag": "2.10.3",
     "jwt-decode": "2.2.0",
@@ -22,10 +22,10 @@
     "react-apollo": "3.1.5",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
-    "react-native-gesture-handler": "~1.7.0",
-    "react-native-reanimated": "~1.13.0",
+    "react-native-gesture-handler": "1.7.0",
+    "react-native-reanimated": "1.13.1",
     "react-native-vector-icons": "6.6.0",
-    "react-native-web": "~0.13.7",
+    "react-native-web": "0.13.18",
     "react-navigation": "4.0.10",
     "react-navigation-drawer": "2.3.3",
     "react-navigation-stack": "1.10.3",
@@ -33,7 +33,7 @@
     "subscriptions-transport-ws": "0.9.16"
   },
   "devDependencies": {
-    "babel-preset-expo": "^8.3.0"
+    "babel-preset-expo": "8.3.0"
   },
   "private": true
 }

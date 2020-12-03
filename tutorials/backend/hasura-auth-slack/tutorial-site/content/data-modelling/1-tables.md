@@ -20,9 +20,9 @@ Slack app has workspaces where users can join. It is managed by the owner and th
 
 - `workspace`, `workspace_member` and `workspace_user_type`
 
-Each workspace can have channels scoped to a specific topic of discussion having subset of members from the workspace. Members of the channel can post messages to the channel that everyone can see.
-
 ## Channel
+
+Each workspace can have channels scoped to a specific topic of discussion having subset of members from the workspace. Members of the channel can post messages to the channel that everyone can see.
 
 - `channel`, `channel_member`, `channel_thread` and `channel_thread_message`
 

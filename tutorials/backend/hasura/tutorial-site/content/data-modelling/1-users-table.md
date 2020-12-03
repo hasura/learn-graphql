@@ -1,12 +1,12 @@
 ---
-title: "Create table users"
-metaTitle: "Create table users | Hasura GraphQL Tutorial"
-metaDescription: "Let's create table users with Hasura console by heading to Data tab and clicking on Create table"
+title: "Create users table"
+metaTitle: "Create users table | Hasura GraphQL Tutorial"
+metaDescription: "Let's create users table with Hasura console by heading to Data tab and clicking on Create table"
 ---
 
 
 
-Let's get started by creating the table users.
+Let's get started by creating the `users` table.
 
 The `users` table will have the following columns:
 
@@ -15,7 +15,7 @@ The `users` table will have the following columns:
 - `created_at` (type timestamp and default now())
 - `last_seen` (type timestamp and nullable)
 
-The columns are mostly self-explanatory. The `last_seen` column is used to store the latest timestamp of when the user was online.
+The columns are associated with properties of users. The `last_seen` column is used to store the latest timestamp of when the user was online.
 
 In the Hasura Console, head over to the `Data` tab section and click on `Create Table`. Enter the values for creating the table as mentioned above.
 

@@ -1,12 +1,12 @@
 ---
-title: "Create table todos"
-metaTitle: "Create table todos | Hasura GraphQL Tutorial"
-metaDescription: "Let's create table todos with Hasura console by heading to Data tab and clicking on Create table"
+title: "Create todos table"
+metaTitle: "Create todos table | Hasura GraphQL Tutorial"
+metaDescription: "Let's create todos table with Hasura console by heading to Data tab and clicking on Create table"
 ---
 
 
 
-Now let's move on to creating the other model `todos`
+Now let's move on to creating the other model: `todos`
 
 The `todos` table will have the following columns:
 
@@ -17,9 +17,9 @@ The `todos` table will have the following columns:
 - `created_at` (type timestamp and default now())
 - `user_id` (type text) 
 
-The columns are mostly self-explanatory.
+The columns are associated with properties of todo items.
 
-In the Hasura Console, head over to the `Data` tab section and click on `Create Table`. Enter the values for creating the table as mentioned above.
+In the Hasura Console, head over to the `DATA` tab section and click on `Create Table`. Enter the values for creating the table as mentioned above.
 
 ![Create table users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-table-todos.png)
 

@@ -10,7 +10,7 @@ Now that the view has been created, we need a way to be able to fetch user infor
 
 Head to Console -> Data -> online_users -> Relationships page.
 
-Add a new relationship by choosing the relationship type to be `Object Relationship`. Enter the relationship name as `user`.
+Add a new relationship manually by choosing the relationship type to be `Object Relationship`. Enter the relationship name as `user`.
 Select the configuration for the current column as `id` and the remote table would be `users` and the remote column would be `id` again.
 
 We are mapping the current view's id column to users table's id column to create the relationship.

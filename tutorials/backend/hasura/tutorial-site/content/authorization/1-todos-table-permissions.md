@@ -11,7 +11,7 @@ Head over to the Permissions tab under `todos` table to add relevant permissions
 ## Insert permission
 
 - In the enter new role textbox, type in “user”
-- click on edit (pencil) icon for “insert” permissions. This would open up a section below which lets you configure custom checks and allow columns.
+- Click on edit (pencil) icon for “insert” permissions. This would open up a section below, which lets you configure custom checks and allow columns.
 - In the custom check, choose the following condition
 ```json
 {"user_id":{"_eq":"X-Hasura-User-Id"}}

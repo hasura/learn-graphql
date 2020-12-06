@@ -47,3 +47,9 @@ It should look something like this:
 ![Hasura Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console.png)
 
 Great! You have now deployed Hasura and have the admin console ready to get started!
+
+## CORS Settings
+
+For this tutorial since we will be runing the front end server locally we need to configure Hasura's CORS settings as follows:
+
+![Hasura CORS Settings](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cors-settings.png)

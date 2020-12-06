@@ -9,14 +9,15 @@ metaDescription: "In this part of the tutorial, we will look at how to add RxDB 
 Open package.json and add the following line under the dependencies section
 
 ```js
- "rxdb": "^8.7.4"
+ "rxdb": "^8.7.4",
+ "pouchdb-adapter-idb": "^7.1.1",
 ```
 
-Now run npm install
+Now run npm install & restart the server
 
 ## Create RxDB schema
 
-The next step is to create a schema for RxDB to understand. Create a file src/components/Schema.js
+The next step is to create a schema for RxDB to understand. Create a file `src/components/Schema.js`
 with the following contents
 
 ```js
@@ -58,7 +59,7 @@ The above code tells RxDB what all fields will be present in a todo item. You ca
 
 ## Initialize RxDB
 
-Create a file src/components/Database.js with the following contents:
+Create a file `src/components/Database.js` with the following contents:
 
 ```js
 import RxDB from 'rxdb';
@@ -95,10 +96,96 @@ export const createDb = async () => {
 };
 ```
 
+
 The above code initializes RxDB and the todos collection with the schema we created above.
+
 RxDB has various adapters that it can use to store data. In this tutorial we use `pouchdb-adapter-idb` which is PouchDB running on top of IndexDB. You can learn more about adapters over [here](https://rxdb.info/adapters.html)
 
-Once RxDB is initialized, you'll be able to play around with RxDB from the devtools console in your browser, Open the webconsole on the browser and try the following:
+Once RxDB is initialized, you'll be able to play around with RxDB from the devtools console in your browser.
+
+
+To use RxDB in the app first change `src/components/AppWrapper.js` to include Database.js
+
+```js
+import * as Database from './Database';
+import Loading from './Loading'; // We will use this to show a loader while RxDB initializes
+```
+
+Now initialize RxDB in `componentDidMount` and modify the `render` method in the same file:
+
+```js
+    // Mark the function as Async
+    async componentDidMount() {
+        const db = await Database.createDb()
+
+        this.setState({ db });
+
+        //Leave the rest of the function unchanged
+    }
+
+    ...
+
+    render() {
+    const location = this.props.location;
+    const isCallbackPage = location && location.pathname.startsWith('/callback');
+
+    if (!this.isLoggedIn() && !isCallbackPage) {
+        return (<Login loginHandler={this.login} />);
+    }
+
+    // Add this if statement
+    if(!this.state.db) {
+        return <Loading />
+    }
+
+    // Pass db in props to the App
+    return (<App
+        auth={{ userId: this.userId }}
+        logoutHandler={this.logout}
+        db={this.state.db}
+    />);
+}
+```
+
+Now change `src/components/App.js` to use the `db` prop:
+
+```js
+
+// Add the db parameter to props
+const App = ({auth, db, logoutHandler}) => {
+  
+  return (
+    <div>
+      <Header logoutHandler={logoutHandler} />
+      <div className="todo-list">
+
+        {/* Pass on the db parameter to TodoListWrapper */}
+        <TodoListWrapper auth={auth} db={db} />
+      </div>
+    </div>
+  );
+};
+```
+
+Similarly change `src/components/Todo/TodoListWrapper.js` file to pass the `db` prop down to the `TodoInput` & `TodoList`:
+
+```js
+
+  render() {
+    return (
+      <div className="todoWrapper">
+        <div className="sectionHeader"> Todos </div>
+
+        {/* Pass db to TodoInput & TodoList */}
+        <TodoInput auth={this.props.auth} db={this.props.db} />
+
+        <TodoList todos={this.state.todos} db={this.props.db} auth={this.props.auth} />
+      </div>
+    );
+  }
+```
+
+Now that RxDb is setup, open the webconsole on the browser and try the following:
 
 ```js
 > window.db.todos.insert({

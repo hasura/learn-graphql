@@ -16,7 +16,15 @@ $ npm install
 $ npm start
 ```
 
-Now update the configuration in `src/components/auth0-variables.js` to match your auth0 domain settings. 
+Now update the configuration in `src/components/auth0-variables.js` to match your auth0 domain settings:
+
+```js
+export const AUTH_CONFIG = {
+  domain: '<auth0-domain>',
+  clientId: '<auth0-client-id>',
+  callbackUrl: 'http://localhost:3000/callback'
+};
+```
 
 At this point, you will be able to login, and see an empty todo list, but you won’t be able to add any todos. That is because the functionality required to add a todo to a store, fetch todos from the store, etc has been left unimplemented in the boilerplate.
 

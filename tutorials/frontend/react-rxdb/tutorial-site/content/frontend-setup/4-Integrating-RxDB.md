@@ -9,6 +9,9 @@ metaDescription: "We will now integrate RxDB in the app by creating and loading 
 Open `src/components/Todo/TodoInput.js`. You will see an empty `addTodo` method in the `TodoInput` class. Change it as follows:
 
 ```js
+// Add this import at the top of the file:
+import uuidv4 from 'uuid/v4';
+
 addTodo(text) {
   this.props.db.todos.insert({
     id: uuidv4(),
@@ -18,6 +21,12 @@ addTodo(text) {
     userId: this.props.auth.userId
   });
 }
+```
+
+Also add the uuid package to `package.json` under the dependencies section:
+
+```js
+"uuid": "^3.3.3"
 ```
 
 You can now create Todos from the UI. However they will not appear in the Todo list yet. For that we need to load todos from RxDB as well

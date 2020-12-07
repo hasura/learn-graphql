@@ -126,25 +126,25 @@ Now initialize RxDB in `componentDidMount` and modify the `render` method in the
     ...
 
     render() {
-    const location = this.props.location;
-    const isCallbackPage = location && location.pathname.startsWith('/callback');
+        const location = this.props.location;
+        const isCallbackPage = location && location.pathname.startsWith('/callback');
 
-    if (!this.isLoggedIn() && !isCallbackPage) {
-        return (<Login loginHandler={this.login} />);
+        if (!this.isLoggedIn() && !isCallbackPage) {
+            return (<Login loginHandler={this.login} />);
+        }
+
+        // Add this if statement
+        if(!this.state.db) {
+            return <Loading />
+        }
+
+        // Pass db in props to the App
+        return (<App
+            auth={{ userId: this.userId }}
+            logoutHandler={this.logout}
+            db={this.state.db}
+        />);
     }
-
-    // Add this if statement
-    if(!this.state.db) {
-        return <Loading />
-    }
-
-    // Pass db in props to the App
-    return (<App
-        auth={{ userId: this.userId }}
-        logoutHandler={this.logout}
-        db={this.state.db}
-    />);
-}
 ```
 
 Now change `src/components/App.js` to use the `db` prop:

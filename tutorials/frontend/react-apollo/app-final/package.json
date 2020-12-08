@@ -6,7 +6,7 @@
   },
   "private": true,
   "dependencies": {
-    "@playlyfe/gql": "2.6.1",
+    "@playlyfe/gql": "2.6.2",
     "apollo-boost": "0.4.9",
     "apollo-link-ws": "1.0.20",
     "auth0-js": "9.13.2",

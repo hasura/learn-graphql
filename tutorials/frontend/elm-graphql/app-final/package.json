@@ -47,7 +47,7 @@
     "chalk": "2.4.2",
     "clean-webpack-plugin": "0.1.19",
     "connect-history-api-fallback": "1.6.0",
-    "cosmiconfig": "5.2.0",
+    "cosmiconfig": "5.2.1",
     "css-loader": "0.28.11",
     "dotenv": "5.0.1",
     "elm": "0.19.0-bugfix6",

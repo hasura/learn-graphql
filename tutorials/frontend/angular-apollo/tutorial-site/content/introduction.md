@@ -49,7 +49,15 @@ Less than 2 hours
 
 **Backend**: [Building a realtime GraphQL backend with Hasura](https://hasura.io/learn/graphql/hasura/introduction/) in 30 mins (ideal for frontend, backend or fullstack developers)
 
-## About the community author
+## About the community authors
+
+<CommunityAuthor 
+    name="Hiren Chauhan"
+    imageUrl="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-angular/hiren_chauhan.png"
+    twitterUrl="https://twitter.com/__hiren"
+    githubUrl="https://github.com/hirenchauhan2"
+    description="A full-stack javascript developer who is passionate about javascript and its ecosystem. Loves contributing to open source projects to help the community grow!"
+/>
 
 <CommunityAuthor 
     name="Apoorv Vardhan"
@@ -58,3 +66,4 @@ Less than 2 hours
     githubUrl="https://github.com/vardhanapoorv"
     description="Loves to try out and build new things!"
 />
+

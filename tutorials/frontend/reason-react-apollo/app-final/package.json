@@ -23,7 +23,7 @@
     "auth0-js": "9.13.2",
     "bs-react-bootstrap": "0.1.0",
     "graphql": "14.3.1",
-    "graphql-tag": "2.10.3",
+    "graphql-tag": "2.11.0",
     "react": "16.8.6",
     "react-apollo": "2.5.8",
     "react-dom": "16.8.6",

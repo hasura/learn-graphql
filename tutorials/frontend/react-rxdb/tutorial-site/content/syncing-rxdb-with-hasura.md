@@ -17,10 +17,11 @@ We will first look do the code changes and then go through each of the changes o
 Open `src/components/Database.js` and add the following code:
 
 ```js
+//Add these imports at the top of the file
 import RxDBReplicationGraphQL from 'rxdb/plugins/replication-graphql';
-
 import { SubscriptionClient } from 'subscriptions-transport-ws';
 
+//Add this line along with the other RxDB.plugin lines
 RxDB.plugin(RxDBReplicationGraphQL);
 
 // Replace the below with the url to your hasura GraphQL API
@@ -194,6 +195,13 @@ export class GraphQLReplicator {
 ```
 
 Don't forget to update `syncURL` & `endpointURL` to point to the Hasura instance you have setup earlier.
+
+Add the packages `subscriptions-transport-ws` and `graphql` to `package.json`
+
+```js
+    "subscriptions-transport-ws": "^0.9.16",
+    "graphql": "^14.5.8"
+```
 
 Open `src/components/AppWrapper.js` and initialize `graphqlReplicator` in `componentDidMount`:
 

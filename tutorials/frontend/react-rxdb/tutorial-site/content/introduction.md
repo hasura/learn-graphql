@@ -23,7 +23,7 @@ Try this deployed version of the app to see what we'll be building: https://rxdb
 ### Try out the sync:
 
 - Login to the app from two different browsers.
-- Create some todos in one and watch as they get synced to the other (Note: This might not work in a private window on firefox due to this bug).
+- Create some todos in one and watch as they get synced to the other (Note: This might not work in a private window on firefox due to this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=781982)).
 
 ### Try out the offline-first:
 - On  browser 1: Simulate offline mode using the "Work offline" option under File menu on firefox or devtools on chrome.

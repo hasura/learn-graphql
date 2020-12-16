@@ -51,6 +51,15 @@ const OnlineUsersWrapper = () => {
 +       clearInterval(onlineIndicator);
 +     };
 + }, []);
+
+...
+
+  const onlineUsers = [{ name: "someUser1" }, { name: "someUser2" }];
+
+- const onlineUsersList = [];
+  onlineUsers.forEach((user, index) => {
+    onlineUsersList.push(<OnlineUser key={index} index={index} user={user} />);
+  });
 ```
 
 Now let's write the definition of the `updateLastSeen`.
@@ -71,21 +80,21 @@ const OnlineUsersWrapper = () => {
     };
   }, []);
 
- + const UPDATE_LASTSEEN_MUTATION = gql`
- +   mutation updateLastSeen($now: timestamptz!) {
- +     update_users(where: {}, _set: { last_seen: $now }) {
- +       affected_rows
- +     }
- +   }
- + `;
- + const [updateLastSeenMutation] = useMutation(UPDATE_LASTSEEN_MUTATION);
++ const UPDATE_LASTSEEN_MUTATION = gql`
++   mutation updateLastSeen($now: timestamptz!) {
++     update_users(where: {}, _set: { last_seen: $now }) {
++       affected_rows
++     }
++   }
++ `;
++ const [updateLastSeenMutation] = useMutation(UPDATE_LASTSEEN_MUTATION);
 
- + const updateLastSeen = () => {
- +   // Use the apollo client to run a mutation to update the last_seen value
- +   updateLastSeenMutation({
- +     variables: { now: new Date().toISOString() }
- +   });
- + };
++ const updateLastSeen = () => {
++   // Use the apollo client to run a mutation to update the last_seen value
++   updateLastSeenMutation({
++     variables: { now: new Date().toISOString() }
++   });
++ };
 ```
 
 Again, we are making use of `useMutation` React hook to update the `users` table of the database.

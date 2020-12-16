@@ -47,6 +47,7 @@ We need to use `useMutation` React hook to make the mutation.
 
 ```javascript
   import React from 'react';
+- import { gql } from "@apollo/client";
 + import { useMutation, gql } from "@apollo/client";
 
   const TodoItem = ({index, todo}) => {

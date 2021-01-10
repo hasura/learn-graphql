@@ -80,7 +80,7 @@ const getProfileInfo = (user_id) => {
 app.post('/auth0', async (req, res) => {
 
   // get request input
-  const { session_variables } = req.body;
+  const session_variables = req.body;
   
   const user_id = session_variables['x-hasura-user-id'];
   // make a rest api call to auth0

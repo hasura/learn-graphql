@@ -8,7 +8,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/01t4t2t4q1c" />
 
-カスタムリゾルバを作成し Glitch にデプロイしました。GraphQL エンドポイントの準備ができました。。それを Hasura にリモートスキーマとして追加しましょう。
+カスタムリゾルバを作成し Glitch にデプロイしました。GraphQL エンドポイントの準備ができました。それを Hasura にリモートスキーマとして追加しましょう。
 
 ## 追加
 

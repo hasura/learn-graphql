@@ -12,7 +12,7 @@ Apollo gives a neat abstraction layer and an interface to your GraphQL server. Y
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ yarn add apollo-boost @apollo/react-hooks graphql apollo-link-ws subscriptions-transport-ws
+$ yarn add apollo-boost @apollo/react-hooks graphql apollo-link-ws subscriptions-transport-ws isomorphic-unfetch
 ```
 
 ### Create Apollo Client Instance

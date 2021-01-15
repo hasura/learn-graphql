@@ -1,0 +1,28 @@
+---
+title: "Migrations and Metadata"
+metaTitle: "Migrations and Metadata | Hasura GraphQL Advanced Tutorial"
+metaDescription: ""
+---
+
+In this section, we will look at how to manage database migrations and Hasura metadata in a local dev environment setup.
+
+Hasura needs two components to (re)create a GraphQL API.
+
+- Database schema
+- Metadata
+
+The database schema can either be of an existing database or created from scratch. The metadata will describe the GraphQL API and the various components of Hasura like the permissions, events, actions and remote schemas.
+
+Hasura doesn't automatically create the GraphQL API for the entire database. We will need to specify which tables/views/functions need to be exposed via GraphQL and this information will be part of metadata.
+
+We will use the slack clone database schema for this demo. But before that, let's run Hasura on local dev environment.
+
+## Running Hasura via docker-compose
+
+The simplest setup to run Hasura locally is to use the docker-compose setup to run both graphql-engine and postgres docker containers.
+
+Head to the docs to [set up Hasura locally using docker-compose](https://hasura.io/docs/1.0/graphql/core/getting-started/docker-simple.html#step-1-get-the-docker-compose-file).
+
+Once you have set up Hasura locally, you should be able to access the console at `http://localhost:8080`.
+
+-----> Insert console image here

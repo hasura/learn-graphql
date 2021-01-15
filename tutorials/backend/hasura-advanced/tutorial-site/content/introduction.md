@@ -1,0 +1,27 @@
+---
+title: "Course Introduction"
+metaTitle: "Course Introduction | Hasura GraphQL Advanced Tutorial"
+metaDescription: ""
+---
+
+This course is meant to be taken by users of Hasura who want to optimise their application for production use cases. If you are new to Hasura, head to the [Hasura Basics](https://hasura.io/learn/graphql/hasura/introduction/) tutorial to get a fair idea of setting up Hasura and leveraging the fundamental features before diving into this tutorial.
+
+## What will I learn?
+
+This course will dive into some advanced topics and walk you through on using different Hasura Cloud features to go to production. You will learn how Hasura Cloud helps you go to production with advanced security and reliability features. The topics covered are:
+
+1. Migrations and Metadata
+2. Optimizing for Performance
+3. Enhancing Security
+4. Improving Reliability
+5. Debugging
+
+## What do I need to take this tutorial?
+
+A local instance of Hasura will be used for some of the demos and hence `docker / docker-compose` is a pre-requisite. And ofcourse your browser for managing the Hasura Cloud project. However, be assured that everything you do via the browser in this tutorial can be done via code, can be version controlled, if required.
+
+We will be using the Hasura CLI for learning about the migrations and metadata workflow but we will do this during that exercise.
+
+## How long will this tutorial take?
+
+We expect this to take about an hour.

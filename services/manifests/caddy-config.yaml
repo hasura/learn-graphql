@@ -118,6 +118,10 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/hasura-advanced/ /learn/graphql/hasura-advanced/introduction
+      }
+
+      redir 301 {
         /learn/graphql/hasura/ /learn/graphql/hasura/introduction
       }
 
@@ -172,6 +176,8 @@ data:
       }
 
       proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
+
+      proxy /learn/graphql/hasura-advanced hasura-advanced
 
       proxy /learn/graphql/hasura hasura-backend
 

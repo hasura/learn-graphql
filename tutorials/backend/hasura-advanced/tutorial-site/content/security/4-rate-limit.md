@@ -13,11 +13,11 @@ This could be implemented by
 
 ## Configuring an API limit
 
-Hasura Cloud let's you configure API limits in the Pro tab. Head to the `API Limits` page on the `Pro` tab of the Console. Click on `Configure` to start specifying a rule.
+Hasura Cloud let's you configure API limits in the Pro/Monitoring tab. Head to the `API Limits` page on the `Pro` tab of the Console. Click on `Configure` to start specifying a rule.
 
 ### Rate limits
 
-Restricts number of GraphQL operations per minute. This uses a sliding window approach. This means whenever Hasura Pro receives a request, it will count the rate of that client starting from the current time to last one minute.
+Restricts number of GraphQL operations per minute. This uses a sliding window approach. This means whenever Hasura receives a request, it will count the rate of that client starting from the current time to last one minute.
 
 You can configure the number of operations to let's say 100. The next step is to configure it based on some unique parameter. This could be based on IP address or session variables like `x-hasura-*`.
 

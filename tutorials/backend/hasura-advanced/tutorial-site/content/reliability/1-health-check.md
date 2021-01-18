@@ -1,6 +1,6 @@
 ---
-title: "Health Check Monitoring"
-metaTitle: "Health Check Monitoring | Hasura GraphQL Advanced Tutorial"
+title: "Health Check"
+metaTitle: "Health Check | Hasura GraphQL Advanced Tutorial"
 metaDescription: ""
 ---
 

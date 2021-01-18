@@ -1,6 +1,6 @@
 ---
-title: "GraphQL Data Response Caching"
-metaTitle: "GraphQL Data Response Caching | Hasura GraphQL Advanced Tutorial"
+title: "GraphQL Response Caching"
+metaTitle: "GraphQL Response Caching | Hasura GraphQL Advanced Tutorial"
 metaDescription: ""
 ---
 
@@ -14,7 +14,7 @@ Now, some queries are more frequently accessed than others. Typically, there cou
 
 Hasura Cloud provides support for caching query responses. When queried with the cache configuration, Hasura Cloud ensures that the response data is cached to improve response time.
 
-**Note**: GraphQL Data Caching is enabled for `Standard` tier Cloud projects with a cache size of upto 100 MB.
+**Note**: GraphQL Response Caching is enabled for `Standard` tier Cloud projects with a cache size of upto 100 MB.
 
 ## How does caching work?
 

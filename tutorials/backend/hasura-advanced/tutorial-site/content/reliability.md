@@ -11,4 +11,4 @@ We will look into the following:
 - Monitoring and Distributed Tracing
 - Observability
 - Regression Testing
-- Availability
+- High Availability

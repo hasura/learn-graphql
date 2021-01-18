@@ -47,6 +47,8 @@ Now, try refreshing the Hasura Console on the Cloud project and see if the datab
 
 As we keep changing the schema locally, we can keep applying the above two commands to apply the same changes to the staging environment.
 
+**Note**: You can also create a project on Hasura Cloud for development. All the steps required to sync between dev and staging would remain the same. Typically, the webhook URL handlers need to be exposed to a public endpoint that Hasura Cloud can access and hence they cannot be `localhost` urls. We recommend using something like `ngrok` to expose a local server running for Actions/Remote Schemas/Events to a publicly accessible endpoint.
+
 ## Squashing Migrations
 
 As we keep changing the database, the migration directory gets noisy with too many files created in the dev iteration process. Once a feature is fixed, you might want to combine and squash all the migration files related to it into a single file. This can be achieved using the squash command of the Hasura CLI. Execute the following command:

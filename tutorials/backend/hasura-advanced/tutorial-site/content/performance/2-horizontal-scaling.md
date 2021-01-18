@@ -1,6 +1,6 @@
 ---
-title: "Scaling"
-metaTitle: "Scaling | Hasura GraphQL Advanced Tutorial"
+title: "Horizontal Scaling"
+metaTitle: "Horizontal Scaling | Hasura GraphQL Advanced Tutorial"
 metaDescription: ""
 ---
 
@@ -44,8 +44,4 @@ Make sure to replace the database credentials appropriately.
 
 Hasura Cloud takes care of automatic routing for queries, subscriptions and mutations across master and read-replicas.
 
-## Vertical Scaling with multiple Hasura Instances
-
-Multiple instances of Hasura can be run against the same database.
-
-Do note that this is taken care in Hasura Cloud automatically.
+Multiple instances of Hasura can be run against the same database. Do note that this is taken care in Hasura Cloud automatically.

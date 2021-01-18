@@ -29,3 +29,5 @@ This would apply the migration files present in the `migrations` directory, foll
 Now head to `http://localhost:9695/console/data` (the Data tab) to see the list of untracked tables. These are the tables that were part of the SQL file used in the initial migration.
 
 If you are looking to reset migration, follow this blog post [Resetting Hasura Migrations](https://hasura.io/blog/resetting-hasura-migrations/)
+
+**Note**: Using Hasura's migration system is optional. In case you are comfortable or familiar using other database migration tooling, you can continue to use that to manage your database schema. To disable Hasura's migration, you can do so via the Console served by the CLI. Head to to the Data -> Migrations tab and switch off the toggle `Allow Postgres schema changes via console`.

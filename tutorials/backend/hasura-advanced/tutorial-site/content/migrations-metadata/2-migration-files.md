@@ -10,7 +10,7 @@ More importantly, migration files are generated automatically by the Console UI,
 
 Of course, the UI is not the only way to generate migration files, albeit convenient. The `hasura` CLI lets you create migration files manually. That's the option we are going to use below to initialise our schema for this tutorial.
 
-Download the SQL file and execute the following command.
+[Download the SQL file](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/backend/hasura-advanced/sql/slack-backend.sql) and execute the following command.
 
 ```bash
 hasura migrate create --sql-from-file `/path/to/schema.sql`

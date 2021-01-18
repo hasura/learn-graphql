@@ -8,6 +8,8 @@ In addition to managing migration files, Hasura has metadata that needs to be ma
 
 The metadata file can be later imported to another Hasura instance to get the same configuration (provided the database schema exists). You can also manually edit the metadata file to add more objects to it and then use it to update the instance.
 
+In the Data tab of the console, click on `Track All` to track all tables and then their relationships too.
+
 Metadata can be exported with the following command:
 
 ```bash

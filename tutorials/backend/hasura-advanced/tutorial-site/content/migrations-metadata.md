@@ -25,4 +25,4 @@ Head to the docs to [set up Hasura locally using docker-compose](https://hasura.
 
 Once you have set up Hasura locally, you should be able to access the console at `http://localhost:8080`.
 
------> Insert console image here
+![Hasura Console OSS](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-advanced/hasura-console-oss-local.png)

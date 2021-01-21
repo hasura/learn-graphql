@@ -13,7 +13,7 @@ Of course, the UI is not the only way to generate migration files, albeit conven
 [Download the SQL file](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/backend/hasura-advanced/sql/slack-schema.sql) and execute the following command.
 
 ```bash
-hasura migrate create --sql-from-file `/path/to/schema.sql`
+hasura migrate create init --sql-from-file `/path/to/schema.sql`
 ```
 
 Update the path to the SQL file appropriately. This would create a migration file with the contents of the above SQL file. Check the newly created migration files in the `migrations` directory of your hasura project.

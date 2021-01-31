@@ -50,9 +50,6 @@ We will wrap the AddTask widget inside `lib/screens/tabs/todo/all.dart` with `Mu
 -           ),
 +           );
 +         },
-+         onCompleted: (dynamic resultData) {
-+           refetchQuery();
-+         },
 +       ),
 ```
 

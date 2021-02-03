@@ -6,7 +6,7 @@ port module Main exposing (main)
 
 import Array
 import Browser
-import Html exposing (Html, a, button, div, form, h1, i, img, input, label, li, nav, p, span, text, ul)
+import Html exposing (Html, Attribute, a, button, div, form, h1, i, img, input, label, li, nav, p, span, text, ul)
 import Html.Attributes
     exposing
         ( checked
@@ -21,10 +21,10 @@ import Html.Attributes
         , type_
         , value
         )
-import Html.Events exposing (onClick, onInput)
+import Html.Events exposing (onClick, onInput, keyCode, on)
 import Html.Keyed as Keyed
 import Http
-import Json.Decode exposing (Decoder, field, int, string)
+import Json.Decode as Decode exposing (Decoder, field, int, string)
 import Json.Encode as Encode
 import RemoteData exposing (RemoteData)
 
@@ -43,7 +43,7 @@ signup_url =
 login_url : String
 login_url =
     "https://hasura.io/learn/auth/login"
-
+    
 
 
 {- -}
@@ -62,7 +62,7 @@ main =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    gotStoredToken GotStoredToken
 
 
 
@@ -277,6 +277,7 @@ type Msg
     | GotLoginResponse LoginResponseParser
     | GotSignupResponse SignupResponseParser
     | ClearAuthToken
+    | GotStoredToken String
 
 
 
@@ -295,7 +296,7 @@ loginDataEncoder authData =
 
 decodeLogin : Decoder LoginResponseData
 decodeLogin =
-    Json.Decode.map LoginResponseData
+    Decode.map LoginResponseData
         (field "token" string)
 
 
@@ -316,20 +317,22 @@ signupDataEncoder authData =
 
 decodeSignup : Decoder SignupResponseData
 decodeSignup =
-    Json.Decode.map SignupResponseData
+    Decode.map SignupResponseData
         (field "id" string)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        GotStoredToken token ->
+            updateAuthData (\authData -> { authData | authToken = token }) model Cmd.none
         ClearAuthToken ->
-            updateAuthData (\authData -> { authData | authToken = "" }) model Cmd.none
+            updateAuthData (\authData -> { authData | authToken = "" }) model ( removeTokenFromStarage "" )
 
         GotLoginResponse data ->
             case data of
                 RemoteData.Success d ->
-                    updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model Cmd.none
+                    updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model ( storeToken d.token )
 
                 RemoteData.Failure err ->
                     updateAuthFormData (\authForm -> { authForm | isRequestInProgress = False, requestError = "Unable to authenticate you" }) model Cmd.none
@@ -636,8 +639,8 @@ textInput val p onChange =
         ]
 
 
-passwordInput : String -> (String -> Msg) -> Html Msg
-passwordInput val onChange =
+passwordInput : String -> (String -> Msg) -> Msg -> Html Msg
+passwordInput val onChange onEnterMsg =
     div [ class "authentication_input" ]
         [ input
             [ class "form-control input-lg"
@@ -645,6 +648,7 @@ passwordInput val onChange =
             , type_ "password"
             , value val
             , onInput onChange
+            , onEnter onEnterMsg
             ]
             []
         ]
@@ -697,7 +701,7 @@ loginView authData isRequestInProgress reqErr isSignupSuccess =
                     ]
                 , form []
                     [ textInput authData.username "Email" EnteredUsername
-                    , passwordInput authData.password EnteredPassword
+                    , passwordInput authData.password EnteredPassword MakeLoginRequest
                     , actionButton "Sign in" isRequestInProgress MakeLoginRequest
                     , div [ class "error_auth_response" ] <|
                         case String.length reqErr of
@@ -725,7 +729,7 @@ signupView authData isRequestInProgress reqErr =
                     ]
                 , form []
                     [ textInput authData.username "Email" EnteredUsername
-                    , passwordInput authData.password EnteredPassword
+                    , passwordInput authData.password EnteredPassword MakeSignupRequest
                     , actionButton "Sign up" isRequestInProgress MakeSignupRequest
                     , text reqErr
                     ]
@@ -834,3 +838,19 @@ view model =
             _ ->
                 [ viewTodoSection model
                 ]
+
+onEnter : Msg -> Attribute Msg
+onEnter msg =
+    let
+        isEnter code =
+            if code == 13 then
+                Decode.succeed msg
+            else
+                Decode.fail "not ENTER"
+    in
+        on "keydown" (Decode.andThen isEnter keyCode)
+
+
+port storeToken : String -> Cmd msg
+port removeTokenFromStarage : String -> Cmd msg
+port gotStoredToken : ( String -> msg ) -> Sub msg

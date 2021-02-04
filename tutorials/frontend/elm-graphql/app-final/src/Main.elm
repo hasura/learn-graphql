@@ -57,6 +57,7 @@ import Hasura.Mutation as Mutation
         , insert_todos
         , UpdateTodosOptionalArguments
         , UpdateTodosRequiredArguments
+        , DeleteTodosRequiredArguments
         )
 import Hasura.Object.Todos_mutation_response as TodosMutation
 
@@ -142,6 +143,9 @@ type alias TodoData =
     RemoteData (Graphql.Http.Error Todos) Todos
 
 type alias UpdateTodoItemResponse =
+    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
+
+type alias DeleteTodo =
     RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
 
 
@@ -433,6 +437,37 @@ updateTodoList mutation authToken =
         (RemoteData.fromResult >> UpdateTodo)
 
 
+deleteSingleTodo : Int -> SelectionSet (Maybe MutationResponse) RootMutation
+deleteSingleTodo todoId =
+    Mutation.delete_todos (setTodoListDeleteWhere todoId) mutationResponseSelection
+
+
+setTodoListDeleteWhere : Int -> DeleteTodosRequiredArguments
+setTodoListDeleteWhere todoId =
+    DeleteTodosRequiredArguments
+        (buildTodos_bool_exp
+            (\args ->
+                { args
+                    | id = Present (setTodoListValueForId todoId)
+                }
+            )
+        )
+
+
+delResponseSelection : SelectionSet MutationResponse Hasura.Object.Todos_mutation_response
+delResponseSelection =
+    SelectionSet.map MutationResponse
+        TodosMutation.affected_rows
+
+
+deleteSingleTodoItem : SelectionSet (Maybe MutationResponse) RootMutation -> String -> Cmd Msg
+deleteSingleTodoItem mutation authToken =
+    makeGraphQLMutation
+        authToken
+        mutation
+        (RemoteData.fromResult >> TodoDeleted)
+
+
 ---- UPDATE ----
 
 
@@ -453,6 +488,8 @@ type Msg
     | InsertPrivateTodoResponse (GraphQLResponse MaybeMutationResponse)
     | MarkCompleted Int Bool
     | UpdateTodo UpdateTodoItemResponse
+    | DelTodo Int
+    | TodoDeleted DeleteTodo
 
 
 
@@ -593,6 +630,18 @@ update msg model =
            , fetchPrivateTodos model.authData.authToken
            )
 
+        DelTodo id ->
+           let
+               deleteObj =
+                   deleteSingleTodo id
+           in
+           ( model, deleteSingleTodoItem deleteObj model.authData.authToken )
+        
+        TodoDeleted _ ->
+           ( model
+           , fetchPrivateTodos model.authData.authToken
+           )
+
 
 {-
    Helper funcs
@@ -640,7 +689,7 @@ viewListItem todo =
             ]
             [ div [] [ text todo.title ]
             ]
-        , button [ class "closeBtn" ]
+        , button [ class "closeBtn", onClick (DelTodo todo.id) ]
             [ text "x"
             ]
         ]

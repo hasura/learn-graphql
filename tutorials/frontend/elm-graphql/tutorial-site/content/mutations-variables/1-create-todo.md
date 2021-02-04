@@ -100,6 +100,8 @@ import Html.Events
     exposing
         ( onClick
         , onInput
+        , keyCode
+        , on
 +       , onSubmit
         )
 ```

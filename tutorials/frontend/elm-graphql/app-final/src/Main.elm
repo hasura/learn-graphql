@@ -4,11 +4,10 @@ port module Main exposing (main)
    Graphql-elm imports
 -}
 
-import Array
 import Browser
-import GraphQLClient exposing (makeGraphQLQuery)
+import GraphQLClient exposing (makeGraphQLMutation, makeGraphQLQuery)
 import Graphql.Http
-import Graphql.Operation exposing (RootQuery)
+import Graphql.Operation exposing (RootMutation, RootQuery)
 import Graphql.OptionalArgument as OptionalArgument exposing (OptionalArgument(..))
 import Graphql.SelectionSet as SelectionSet exposing (SelectionSet)
 import Hasura.Enum.Order_by exposing (Order_by(..))
@@ -16,9 +15,11 @@ import Hasura.InputObject
     exposing
         ( Boolean_comparison_exp
         , Todos_bool_exp
+        , Todos_insert_input
         , Todos_order_by
         , buildBoolean_comparison_exp
         , buildTodos_bool_exp
+        , buildTodos_insert_input
         , buildTodos_order_by
         )   
 import Hasura.Object
@@ -40,12 +41,18 @@ import Html.Attributes
         , type_
         , value
         )
-import Html.Events exposing (onClick, onInput, keyCode, on)
+import Html.Events exposing (onClick, onInput, keyCode, on, onSubmit)
 import Html.Keyed as Keyed
 import Http
 import Json.Decode as Decode exposing (Decoder, field, int, string)
 import Json.Encode as Encode
 import RemoteData exposing (RemoteData)
+import Hasura.Mutation as Mutation
+    exposing
+        ( InsertTodosRequiredArguments
+        , insert_todos
+        )
+import Hasura.Object.Todos_mutation_response as TodosMutation
 
 
 
@@ -115,6 +122,16 @@ type alias OnlineUser =
     , user : User
     }
 
+type alias MutationResponse =
+    { affected_rows : Int
+    }
+
+type alias MaybeMutationResponse =
+    Maybe MutationResponse
+
+type GraphQLResponse decodesTo
+    = GraphQLResponse (RemoteData (Graphql.Http.Error decodesTo) decodesTo)
+
 type alias TodoData =
     RemoteData (Graphql.Http.Error Todos) Todos
 
@@ -123,6 +140,7 @@ type alias PrivateTodo =
     { todos : TodoData
     , visibility : String
     , newTodo : String
+    , mutateTodo : GraphQLResponse MaybeMutationResponse
     }
 
 
@@ -245,6 +263,7 @@ initializePrivateTodo =
     { todos = RemoteData.Loading
     , visibility = "All"
     , newTodo = ""
+    , mutateTodo = GraphQLResponse RemoteData.NotAsked
     }
 
 
@@ -305,6 +324,28 @@ fetchPrivateTodos authToken =
     makeGraphQLQuery authToken
         fetchPrivateTodosQuery
         (RemoteData.fromResult >> FetchPrivateDataSuccess)
+insertTodoObjects : String -> Bool -> Todos_insert_input
+insertTodoObjects newTodo isPublic =
+    buildTodos_insert_input
+        (\args ->
+            { args
+                | title = Present newTodo
+                , is_public = Present isPublic
+            }
+        )
+insertArgs : String -> Bool -> InsertTodosRequiredArguments
+insertArgs newTodo isPublic =
+    InsertTodosRequiredArguments [ insertTodoObjects newTodo isPublic ]
+getTodoListInsertObject : String -> Bool -> SelectionSet (Maybe MutationResponse) RootMutation
+getTodoListInsertObject newTodo isPublic =
+    insert_todos identity (insertArgs newTodo isPublic) mutationResponseSelection
+mutationResponseSelection : SelectionSet MutationResponse Hasura.Object.Todos_mutation_response
+mutationResponseSelection =
+    SelectionSet.map MutationResponse
+        TodosMutation.affected_rows
+makeMutation : SelectionSet (Maybe MutationResponse) RootMutation -> String -> Cmd Msg
+makeMutation mutation authToken =
+    makeGraphQLMutation authToken mutation (RemoteData.fromResult >> GraphQLResponse >> InsertPrivateTodoResponse)
 
 
 
@@ -323,6 +364,9 @@ type Msg
     | ClearAuthToken
     | GotStoredToken String
     | FetchPrivateDataSuccess TodoData
+    | InsertPrivateTodo
+    | UpdateNewTodo String
+    | InsertPrivateTodoResponse (GraphQLResponse MaybeMutationResponse)
 
 
 
@@ -433,6 +477,23 @@ update msg model =
 
         FetchPrivateDataSuccess response ->
            updatePrivateData (\privateData -> { privateData | todos = response }) model Cmd.none
+
+        InsertPrivateTodoResponse response ->
+           updatePrivateData (\privateData -> { privateData | mutateTodo = response, newTodo = "" }) model (fetchPrivateTodos model.authData.authToken)
+
+        InsertPrivateTodo ->
+           case String.length model.privateData.newTodo of
+               0 ->
+                   ( model, Cmd.none )
+               _ ->
+                   let
+                       mutationObj =
+                           getTodoListInsertObject model.privateData.newTodo False
+                   in
+                   updatePrivateData (\privateData -> { privateData | mutateTodo = GraphQLResponse RemoteData.Loading }) model (makeMutation mutationObj model.authData.authToken)
+
+        UpdateNewTodo newTodo ->
+           updatePrivateData (\privateData -> { privateData | newTodo = newTodo }) model Cmd.none
 
 
 
@@ -584,6 +645,26 @@ renderTodos privateData =
                 [ text "Error loading todos" ]
 
 
+handleMutationTodo : GraphQLResponse MaybeMutationResponse -> List (Html msg)
+handleMutationTodo (GraphQLResponse mutationTodo) =
+    case mutationTodo of
+        RemoteData.NotAsked ->
+            [ text "" ]
+        RemoteData.Success todos ->
+            [ text "" ]
+        RemoteData.Loading ->
+            [ i [ class "fa fa-spinner fa-spin" ] []
+            ]
+        RemoteData.Failure err ->
+            [ text "Error Mutating data:" ]
+
+
+todoMutation : GraphQLResponse MaybeMutationResponse -> Html msg
+todoMutation mutateTodo =
+    span [ class "mutation_loader" ] <|
+        handleMutationTodo mutateTodo
+
+
 personalTodos : PrivateTodo -> Html Msg
 personalTodos privateData =
     div [ class "col-xs-12 col-md-6 sliderMenu p-30" ]
@@ -591,10 +672,11 @@ personalTodos privateData =
             [ div [ class "sectionHeader" ]
                 [ text "Personal todos"
                 ]
-            , form [ class "formInput" ]
-                [ input [ class "input", placeholder "What needs to be done?" ]
+            , form [ class "formInput", onSubmit InsertPrivateTodo ]
+                [ input [ class "input", placeholder "What needs to be done?", onInput UpdateNewTodo, value privateData.newTodo ]
                     []
                 , i [ class "inputMarker fa fa-angle-right" ] []
+                , todoMutation privateData.mutateTodo
                 ]
             , renderTodos privateData
             ]

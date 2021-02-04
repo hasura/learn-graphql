@@ -38,13 +38,13 @@ Open `src/Main.elm` and add the following code:
 import Hasura.InputObject
     exposing
         ( Boolean_comparison_exp
-+       , Integer_comparison_exp
++       , Int_comparison_exp
         , Todos_bool_exp
         , Todos_insert_input
 +       , Todos_set_input
         , Todos_order_by
         , buildBoolean_comparison_exp
-+       , buildInteger_comparison_exp
++       , buildInt_comparison_exp
         , buildTodos_bool_exp
         , buildTodos_insert_input
         , buildTodos_order_by
@@ -92,9 +92,9 @@ makeMutation mutation authToken =
 +    }
 +
 +
-+setTodoListValueForId : Int -> Integer_comparison_exp
++setTodoListValueForId : Int -> Int_comparison_exp
 +setTodoListValueForId todoId =
-+    buildInteger_comparison_exp
++    buildInt_comparison_exp
 +        (\args ->
 +            { args
 +                | eq_ = Present todoId

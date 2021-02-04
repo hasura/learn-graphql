@@ -14,14 +14,18 @@ import Hasura.Enum.Order_by exposing (Order_by(..))
 import Hasura.InputObject
     exposing
         ( Boolean_comparison_exp
+        , Int_comparison_exp
         , Todos_bool_exp
         , Todos_insert_input
+        , Todos_set_input
         , Todos_order_by
         , buildBoolean_comparison_exp
+        , buildInt_comparison_exp
         , buildTodos_bool_exp
         , buildTodos_insert_input
         , buildTodos_order_by
-        )   
+        , buildTodos_set_input
+        )
 import Hasura.Object
 import Hasura.Object.Todos as Todos
 import Hasura.Object.Users as Users
@@ -51,6 +55,8 @@ import Hasura.Mutation as Mutation
     exposing
         ( InsertTodosRequiredArguments
         , insert_todos
+        , UpdateTodosOptionalArguments
+        , UpdateTodosRequiredArguments
         )
 import Hasura.Object.Todos_mutation_response as TodosMutation
 
@@ -134,6 +140,9 @@ type GraphQLResponse decodesTo
 
 type alias TodoData =
     RemoteData (Graphql.Http.Error Todos) Todos
+
+type alias UpdateTodoItemResponse =
+    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
 
 
 type alias PrivateTodo =
@@ -295,19 +304,29 @@ init =
 orderByCreatedAt : Order_by -> OptionalArgument (List Todos_order_by)
 orderByCreatedAt order =
     Present <| [ buildTodos_order_by (\args -> { args | created_at = OptionalArgument.Present order }) ]
+
+
 equalToBoolean : Bool -> OptionalArgument Boolean_comparison_exp
 equalToBoolean isPublic =
     Present <| buildBoolean_comparison_exp (\args -> { args | eq_ = OptionalArgument.Present isPublic })
+
+
 whereIsPublic : Bool -> OptionalArgument Todos_bool_exp
 whereIsPublic isPublic =
     Present <| buildTodos_bool_exp (\args -> { args | is_public = equalToBoolean isPublic })
+
+
 todoListOptionalArgument : TodosOptionalArguments -> TodosOptionalArguments
 todoListOptionalArgument optionalArgs =
     { optionalArgs | where_ = whereIsPublic False, order_by = orderByCreatedAt Desc }
+
+
 selectUser : SelectionSet User Hasura.Object.Users
 selectUser =
     SelectionSet.map User
         Users.name
+
+
 todoListSelection : SelectionSet Todo Hasura.Object.Todos
 todoListSelection =
     SelectionSet.map5 Todo
@@ -316,14 +335,20 @@ todoListSelection =
         Todos.is_completed
         Todos.title
         (Todos.user selectUser)
+
+
 fetchPrivateTodosQuery : SelectionSet Todos RootQuery
 fetchPrivateTodosQuery =
     Query.todos todoListOptionalArgument todoListSelection
+
+
 fetchPrivateTodos : String -> Cmd Msg
 fetchPrivateTodos authToken =
     makeGraphQLQuery authToken
         fetchPrivateTodosQuery
         (RemoteData.fromResult >> FetchPrivateDataSuccess)
+
+
 insertTodoObjects : String -> Bool -> Todos_insert_input
 insertTodoObjects newTodo isPublic =
     buildTodos_insert_input
@@ -333,20 +358,79 @@ insertTodoObjects newTodo isPublic =
                 , is_public = Present isPublic
             }
         )
+
+
 insertArgs : String -> Bool -> InsertTodosRequiredArguments
 insertArgs newTodo isPublic =
     InsertTodosRequiredArguments [ insertTodoObjects newTodo isPublic ]
+
+
 getTodoListInsertObject : String -> Bool -> SelectionSet (Maybe MutationResponse) RootMutation
 getTodoListInsertObject newTodo isPublic =
     insert_todos identity (insertArgs newTodo isPublic) mutationResponseSelection
+
+
 mutationResponseSelection : SelectionSet MutationResponse Hasura.Object.Todos_mutation_response
 mutationResponseSelection =
     SelectionSet.map MutationResponse
         TodosMutation.affected_rows
+
+
 makeMutation : SelectionSet (Maybe MutationResponse) RootMutation -> String -> Cmd Msg
 makeMutation mutation authToken =
     makeGraphQLMutation authToken mutation (RemoteData.fromResult >> GraphQLResponse >> InsertPrivateTodoResponse)
 
+
+updateTodoStatus : Int -> Bool -> SelectionSet (Maybe MutationResponse) RootMutation
+updateTodoStatus todoId status =
+    Mutation.update_todos (setTodoListUpdateArgs status) (setTodoListUpdateWhere todoId) mutationResponseSelection
+
+
+setTodoListSetArg : Bool -> Todos_set_input
+setTodoListSetArg status =
+    buildTodos_set_input
+        (\args ->
+            { args
+                | is_completed = OptionalArgument.Present status
+            }
+        )
+
+
+setTodoListUpdateArgs : Bool -> UpdateTodosOptionalArguments -> UpdateTodosOptionalArguments
+setTodoListUpdateArgs status optionalArgs =
+    { optionalArgs
+        | set_ = Present (setTodoListSetArg status)
+    }
+
+
+setTodoListValueForId : Int -> Int_comparison_exp
+setTodoListValueForId todoId =
+    buildInt_comparison_exp
+        (\args ->
+            { args
+                | eq_ = Present todoId
+            }
+        )
+
+
+setTodoListUpdateWhere : Int -> UpdateTodosRequiredArguments
+setTodoListUpdateWhere todoId =
+    UpdateTodosRequiredArguments
+        (buildTodos_bool_exp
+            (\args ->
+                { args
+                    | id = Present (setTodoListValueForId todoId)
+                }
+            )
+        )
+
+
+updateTodoList : SelectionSet (Maybe MutationResponse) RootMutation -> String -> Cmd Msg
+updateTodoList mutation authToken =
+    makeGraphQLMutation
+        authToken
+        mutation
+        (RemoteData.fromResult >> UpdateTodo)
 
 
 ---- UPDATE ----
@@ -367,6 +451,8 @@ type Msg
     | InsertPrivateTodo
     | UpdateNewTodo String
     | InsertPrivateTodoResponse (GraphQLResponse MaybeMutationResponse)
+    | MarkCompleted Int Bool
+    | UpdateTodo UpdateTodoItemResponse
 
 
 
@@ -495,6 +581,17 @@ update msg model =
         UpdateNewTodo newTodo ->
            updatePrivateData (\privateData -> { privateData | newTodo = newTodo }) model Cmd.none
 
+        MarkCompleted id completed ->
+           let
+               updateObj =
+                   updateTodoStatus id (not completed)
+           in
+           ( model, updateTodoList updateObj model.authData.authToken )
+        
+        UpdateTodo _ ->
+           ( model
+           , fetchPrivateTodos model.authData.authToken
+           )
 
 
 {-
@@ -531,7 +628,7 @@ viewListItem todo =
     li []
         [ div [ class "view" ]
             [ div [ class "round" ]
-                [ input [ checked todo.is_completed, type_ "checkbox", id (String.fromInt todo.id) ] []
+                [ input [ checked todo.is_completed, type_ "checkbox", id (String.fromInt todo.id), onClick (MarkCompleted todo.id todo.is_completed) ] []
                 , label [ for (String.fromInt todo.id) ] []
                 ]
             ]

@@ -6,6 +6,25 @@ port module Main exposing (main)
 
 import Array
 import Browser
+import GraphQLClient exposing (makeGraphQLQuery)
+import Graphql.Http
+import Graphql.Operation exposing (RootQuery)
+import Graphql.OptionalArgument as OptionalArgument exposing (OptionalArgument(..))
+import Graphql.SelectionSet as SelectionSet exposing (SelectionSet)
+import Hasura.Enum.Order_by exposing (Order_by(..))
+import Hasura.InputObject
+    exposing
+        ( Boolean_comparison_exp
+        , Todos_bool_exp
+        , Todos_order_by
+        , buildBoolean_comparison_exp
+        , buildTodos_bool_exp
+        , buildTodos_order_by
+        )   
+import Hasura.Object
+import Hasura.Object.Todos as Todos
+import Hasura.Object.Users as Users
+import Hasura.Query as Query exposing (TodosOptionalArguments)
 import Html exposing (Html, Attribute, a, button, div, form, h1, i, img, input, label, li, nav, p, span, text, ul)
 import Html.Attributes
     exposing
@@ -96,9 +115,12 @@ type alias OnlineUser =
     , user : User
     }
 
+type alias TodoData =
+    RemoteData (Graphql.Http.Error Todos) Todos
+
 
 type alias PrivateTodo =
-    { todos : Todos
+    { todos : TodoData
     , visibility : String
     , newTodo : String
     }
@@ -188,11 +210,6 @@ publicSeedIds =
     [ 1, 2, 3, 4 ]
 
 
-todoPrivatePlaceholder : String
-todoPrivatePlaceholder =
-    "This is private todo"
-
-
 todoPublicPlaceholder : String
 todoPublicPlaceholder =
     "This is public todo"
@@ -201,20 +218,6 @@ todoPublicPlaceholder =
 generateUser : Int -> User
 generateUser id =
     User ("someUser" ++ String.fromInt id)
-
-
-generateTodo : String -> Int -> Todo
-generateTodo placeholder id =
-    let
-        isCompleted =
-            id == 1
-    in
-    Todo id ("User" ++ String.fromInt id) isCompleted (placeholder ++ " " ++ String.fromInt id) (generateUser id)
-
-
-privateTodos : Todos
-privateTodos =
-    List.map (generateTodo todoPrivatePlaceholder) seedIds
 
 
 generatePublicTodo : String -> Int -> Todo
@@ -239,7 +242,7 @@ getOnlineUsers =
 
 initializePrivateTodo : PrivateTodo
 initializePrivateTodo =
-    { todos = privateTodos
+    { todos = RemoteData.Loading
     , visibility = "All"
     , newTodo = ""
     }
@@ -256,11 +259,52 @@ initialize =
     }
 
 
+getInitialEvent : String -> Cmd Msg
+getInitialEvent authToken =
+    Cmd.batch
+        [ fetchPrivateTodos authToken
+        ]
+
+
 init : ( Model, Cmd Msg )
 init =
     ( initialize
     , Cmd.none
     )
+
+---- Application logic and variables ----
+orderByCreatedAt : Order_by -> OptionalArgument (List Todos_order_by)
+orderByCreatedAt order =
+    Present <| [ buildTodos_order_by (\args -> { args | created_at = OptionalArgument.Present order }) ]
+equalToBoolean : Bool -> OptionalArgument Boolean_comparison_exp
+equalToBoolean isPublic =
+    Present <| buildBoolean_comparison_exp (\args -> { args | eq_ = OptionalArgument.Present isPublic })
+whereIsPublic : Bool -> OptionalArgument Todos_bool_exp
+whereIsPublic isPublic =
+    Present <| buildTodos_bool_exp (\args -> { args | is_public = equalToBoolean isPublic })
+todoListOptionalArgument : TodosOptionalArguments -> TodosOptionalArguments
+todoListOptionalArgument optionalArgs =
+    { optionalArgs | where_ = whereIsPublic False, order_by = orderByCreatedAt Desc }
+selectUser : SelectionSet User Hasura.Object.Users
+selectUser =
+    SelectionSet.map User
+        Users.name
+todoListSelection : SelectionSet Todo Hasura.Object.Todos
+todoListSelection =
+    SelectionSet.map5 Todo
+        Todos.id
+        Todos.user_id
+        Todos.is_completed
+        Todos.title
+        (Todos.user selectUser)
+fetchPrivateTodosQuery : SelectionSet Todos RootQuery
+fetchPrivateTodosQuery =
+    Query.todos todoListOptionalArgument todoListSelection
+fetchPrivateTodos : String -> Cmd Msg
+fetchPrivateTodos authToken =
+    makeGraphQLQuery authToken
+        fetchPrivateTodosQuery
+        (RemoteData.fromResult >> FetchPrivateDataSuccess)
 
 
 
@@ -278,6 +322,7 @@ type Msg
     | GotSignupResponse SignupResponseParser
     | ClearAuthToken
     | GotStoredToken String
+    | FetchPrivateDataSuccess TodoData
 
 
 
@@ -332,7 +377,8 @@ update msg model =
         GotLoginResponse data ->
             case data of
                 RemoteData.Success d ->
-                    updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model ( storeToken d.token )
+                    -- updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model ( storeToken d.token )
+                    updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model ( Cmd.batch [ storeToken d.token, getInitialEvent d.token ] )
 
                 RemoteData.Failure err ->
                     updateAuthFormData (\authForm -> { authForm | isRequestInProgress = False, requestError = "Unable to authenticate you" }) model Cmd.none
@@ -385,11 +431,19 @@ update msg model =
         EnteredUsername name ->
             updateAuthData (\authData -> { authData | username = name }) model Cmd.none
 
+        FetchPrivateDataSuccess response ->
+           updatePrivateData (\privateData -> { privateData | todos = response }) model Cmd.none
+
 
 
 {-
    Helper funcs
 -}
+
+
+updatePrivateData : (PrivateTodo -> PrivateTodo) -> Model -> Cmd Msg -> ( Model, Cmd Msg )
+updatePrivateData transform model cmd =
+    ( { model | privateData = transform model.privateData }, cmd )
 
 
 updateAuthAndFormData : (AuthForm -> AuthForm) -> (AuthData -> AuthData) -> Model -> Cmd Msg -> ( Model, Cmd Msg )
@@ -516,8 +570,18 @@ footerList todos visibility =
 
 renderTodos : PrivateTodo -> Html Msg
 renderTodos privateData =
-    div [ class "tasks_wrapper" ]
-        [ todoListWrapper privateData.visibility privateData.todos ]
+    div [ class "tasks_wrapper" ] <|
+        case privateData.todos of
+            RemoteData.NotAsked ->
+                [ text "" ]
+            RemoteData.Success todos ->
+                [ todoListWrapper privateData.visibility todos ]
+            RemoteData.Loading ->
+                [ span [ class "loading_text" ]
+                    [ text "Loading todos ..." ]
+                ]
+            RemoteData.Failure err ->
+                [ text "Error loading todos" ]
 
 
 personalTodos : PrivateTodo -> Html Msg

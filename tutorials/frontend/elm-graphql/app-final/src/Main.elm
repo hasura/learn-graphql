@@ -148,6 +148,9 @@ type alias UpdateTodoItemResponse =
 type alias DeleteTodo =
     RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
 
+type alias AllDeleted =
+    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
+
 
 type alias PrivateTodo =
     { todos : TodoData
@@ -468,6 +471,47 @@ deleteSingleTodoItem mutation authToken =
         (RemoteData.fromResult >> TodoDeleted)
 
 
+deleteAllCompletedTodo : SelectionSet (Maybe MutationResponse) RootMutation
+deleteAllCompletedTodo =
+    Mutation.delete_todos (setTodoListDeleteAllCompletedWhere True) mutationResponseSelection
+
+
+setTodoListValueForTodoStatus : Bool -> Boolean_comparison_exp
+setTodoListValueForTodoStatus status =
+    buildBoolean_comparison_exp
+        (\args ->
+            { args
+                | eq_ = Present status
+            }
+        )
+
+
+setTodoListDeleteAllCompletedWhere : Bool -> DeleteTodosRequiredArguments
+setTodoListDeleteAllCompletedWhere status =
+    DeleteTodosRequiredArguments
+        (buildTodos_bool_exp
+            (\args ->
+                { args
+                    | is_completed = Present (setTodoListValueForTodoStatus status)
+                }
+            )
+        )
+
+
+delAllResponseSelection : SelectionSet MutationResponse Hasura.Object.Todos_mutation_response
+delAllResponseSelection =
+    SelectionSet.map MutationResponse
+        TodosMutation.affected_rows
+
+
+deleteAllCompletedItems : SelectionSet (Maybe MutationResponse) RootMutation -> String -> Cmd Msg
+deleteAllCompletedItems mutation authToken =
+    makeGraphQLMutation
+        authToken
+        mutation
+        (RemoteData.fromResult >> AllCompletedItemsDeleted)
+
+
 ---- UPDATE ----
 
 
@@ -490,6 +534,8 @@ type Msg
     | UpdateTodo UpdateTodoItemResponse
     | DelTodo Int
     | TodoDeleted DeleteTodo
+    | AllCompletedItemsDeleted AllDeleted
+    | DeleteAllCompletedItems
 
 
 
@@ -642,6 +688,14 @@ update msg model =
            , fetchPrivateTodos model.authData.authToken
            )
 
+        DeleteAllCompletedItems ->
+           ( model, deleteAllCompletedItems deleteAllCompletedTodo model.authData.authToken )
+        
+        AllCompletedItemsDeleted _ ->
+           ( model
+           , fetchPrivateTodos model.authData.authToken
+           )
+
 
 {-
    Helper funcs
@@ -753,7 +807,7 @@ footerActionBtns visibility =
 
 clearButton : Html Msg
 clearButton =
-    button [ class "clearComp" ]
+    button [ class "clearComp", onClick DeleteAllCompletedItems ]
         [ text "Clear completed"
         ]
 

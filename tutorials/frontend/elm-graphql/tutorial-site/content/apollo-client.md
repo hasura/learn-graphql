@@ -14,7 +14,7 @@ Lets configure our ApolloClient
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ npm install --save apollo-client apollo-link-http apollo-cache-inmemory apollo-link-http apollo-link-ws subscriptions-transport-ws graphql graphql-tag
+$ npm install --save apollo-client apollo-link-ws apollo-cache-inmemory graphql-tag
 ```
 
 ### Create Apollo Client Instance

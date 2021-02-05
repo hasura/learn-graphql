@@ -583,7 +583,7 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         GotStoredToken token ->
-            updateAuthData (\authData -> { authData | authToken = token }) model Cmd.none
+            updateAuthData (\authData -> { authData | authToken = token }) model ( if token == "" then Cmd.none else getInitialEvent token )
         ClearAuthToken ->
             updateAuthData (\authData -> { authData | authToken = "" }) model ( removeTokenFromStarage "" )
 

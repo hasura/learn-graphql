@@ -37,8 +37,9 @@ Open `package.json` and add the following script:
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "elm make src/Main.elm --output public/app.js --optimize && uglifyjs public/app.js --compress 'pure_funcs=\"F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9\",pure_getters=true,keep_fargs=false,unsafe_comps=true,unsafe=true,passes=2' --output=public/app.js && uglifyjs public/app.js --mangle --output=public/app.js",
-+   "start": "cd public && elm-live ../src/Main.elm --port=8081 --host=localhost --open --pushstate --start-page=index.html -- --output=app.js --debug",
+    "build": "npm run browserify && elm make src/Main.elm --output public/app.js --optimize && uglifyjs public/app.js --compress 'pure_funcs=\"F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9\",pure_getters=true,keep_fargs=false,unsafe_comps=true,unsafe=true,passes=2' --output=public/app.js && uglifyjs public/app.js --mangle --output=public/app.js",
+    "start": "npm run browserify && cd public && elm-live ../src/Main.elm --port=8081 --host=localhost --open --pushstate --start-page=index.html -- --output=app.js --debug",
+    "browserify": "browserify public/index.js -o public/bundle.js",
 +   "generate-elm-types": "elm-graphql https://hasura.io/learn/graphql --base Hasura"
   },
   "author": "",

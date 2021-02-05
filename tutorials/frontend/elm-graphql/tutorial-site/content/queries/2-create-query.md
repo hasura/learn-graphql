@@ -320,9 +320,13 @@ init =
     )
 ```
 
-Lets modify our `GotLoginResponse` message handler to invoke `getInitialEvent` function to fetch users private todo list
+Lets modify our `GotLoginResponse` and `GotStoredToken` messages handlers to invoke `getInitialEvent` function to fetch users private todo list
 
 ```
+
+GotStoredToken token ->
+-   updateAuthData (\authData -> { authData | authToken = token }) model Cmd.none
++   updateAuthData (\authData -> { authData | authToken = token }) model ( if token == "" then Cmd.none else getInitialEvent token )
 
 GotLoginResponse data ->
     case data of

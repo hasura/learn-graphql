@@ -16,3 +16,4 @@ node_modules
 
 # Compiled .js
 app.js
+bundle.js

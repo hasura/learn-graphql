@@ -30,17 +30,12 @@ Open `src/Main.elm` and configure the following ports
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/elm-graphql/app-final/src/Main.elm" text="src/Main.elm" />
 
 ```
-main : Program () Model Msg                                                                                                                          
-main =
-    Browser.element
-        { view = view
-        , init = \_ -> init
-        , update = update
-        , subscriptions = subscriptions
-        }
+port storeToken : String -> Cmd msg
+port removeTokenFromStarage : String -> Cmd msg
+port gotStoredToken : ( String -> msg ) -> Sub msg
 
 +port createSubscriptionToOnlineUsers : ( String, String ) -> Cmd msg
-+port gotOnlineUsers : (Json.Decode.Value -> msg) -> Sub msg
++port gotOnlineUsers : (Decode.Value -> msg) -> Sub msg
 ```
 
 What we have done here is we have created two ports - one to send information from elm and one to receive information from js.
@@ -50,42 +45,21 @@ Lets setup a timer on the elm side which will invoke a function every 30 seconds
 ```
 
 -- Imports --
-import Iso8601
-import Time
++import Iso8601
++import Time
 
 -- Subscriptions --
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-- 	Sub.none
-+   case String.length model.authData.authToken of
+-   gotStoredToken GotStoredToken
++   Sub.batch <|
++       [ gotStoredToken GotStoredToken ] ++
++       ( case String.length model.authData.authToken of
 +       0 ->
-+           Sub.none
-
++           []
 +       _ ->
-+           Sub.batch
-+               [ Time.every 30000 Tick
-+               ]
-
--- Msg --
-
-type Msg = 
-	{- Rest of the messages -}
-+	| Tick Time.Posix
-
-update msg model =
-	case msg of
-		{- Rest -}
-+   Tick newTime ->
-+       let
-+           currentIsoTime =
-+               Iso8601.fromTime newTime
-+
-+           {-
-+              Perform an action
-+           -}
-+       in
-+       ( model, Cmd.none )
++               [ Time.every 30000 Tick ] )
 
 ```
 

@@ -68,7 +68,7 @@ Here is what it is doing:
 +    }
 
 +type alias OnlineUsersData =
-+    RemoteData Json.Decode.Error OnlineUsers
++    RemoteData Decode.Error OnlineUsers
 
 
 type alias Model =
@@ -153,7 +153,7 @@ type Msg
     | DeleteAllCompletedItems
     | Tick Time.Posix
     | UpdateLastSeen UpdateLastSeenResponse
-+   | GotOnlineUsers Json.Decode.Value
++   | GotOnlineUsers Decode.Value
 ```
 
 
@@ -168,7 +168,7 @@ type Msg
 +       GotOnlineUsers data ->
 +           let
 +               remoteData =
-+                   Json.Decode.decodeValue (onlineUsersSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
++                   Decode.decodeValue (onlineUsersSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
 +           in
 +           ( { model | online_users = remoteData }, Cmd.none )
 
@@ -229,9 +229,10 @@ Open `src/index.js` and add the following code:
 
 ```
 document.addEventListener("DOMContentLoaded", function() {
-  var app = Elm.Main.init({
-    node: document.getElementById("root")
-  });
+  var app = Elm.Main.init({node: document.getElementById("root")});
+
+  // ports
+
 + app.ports.createSubscriptionToOnlineUsers.subscribe(function(data) {
 +   /* Initiate subscription request */
 +   var [ data, authToken ] = data;

@@ -80,6 +80,10 @@ import Array
    Constants
 -}
 
+failMsg : String
+failMsg =
+    "Something went wrong, check network tab for details"
+
 
 signup_url : String
 signup_url =
@@ -268,6 +272,8 @@ type alias Model =
     , online_users : OnlineUsersData
     , authData : AuthData
     , authForm : AuthForm
+    , publicTodoInsertStatus : Operation
+    , publicTodoLoadingStatus : Bool
     }
 
 
@@ -288,6 +294,8 @@ initialize =
     , publicTodoInfo = PublicTodoData [] 0 0 0 True
     , authData = AuthData "" "" "" ""
     , authForm = AuthForm Login False False ""
+    , publicTodoInsertStatus = NotYetInitiated
+    , publicTodoLoadingStatus = False
     }
 
 
@@ -637,6 +645,144 @@ makeRequest query authToken =
         (RemoteData.fromResult >> FetchPublicDataSuccess)
 
 
+gtLastTodoId : Int -> OptionalArgument Int_comparison_exp
+gtLastTodoId id =
+    Present
+        (buildInt_comparison_exp
+            (\args ->
+                { args
+                    | gt_ = Present id
+                }
+            )
+        )
+
+
+newPublicTodosWhere : Int -> OptionalArgument Todos_bool_exp
+newPublicTodosWhere id =
+    Present
+        (buildTodos_bool_exp
+            (\args ->
+                { args
+                    | id = gtLastTodoId id
+                    , is_public = equalToBoolean True
+                }
+            )
+        )
+
+
+{-
+   Generates argument as below
+   ```
+    order_by : [
+      {
+        created_at: desc
+      }
+    ],
+     where_ : {
+       id: {
+         _gt: <id>
+       },
+       is_public: {
+         _eq: True
+       }
+     }
+   ```
+-}
+
+
+newPublicTodoListQueryOptionalArgs : Int -> TodosOptionalArguments -> TodosOptionalArguments
+newPublicTodoListQueryOptionalArgs id optionalArgs =
+    { optionalArgs | where_ = newPublicTodosWhere id, order_by = orderByCreatedAt Desc }
+
+
+newTodoQuery : Int -> SelectionSet Todos RootQuery
+newTodoQuery id =
+    Query.todos (newPublicTodoListQueryOptionalArgs id) todoListSelectionWithUser
+
+
+loadNewTodos : SelectionSet Todos RootQuery -> String -> Cmd Msg
+loadNewTodos q authToken =
+    makeGraphQLQuery authToken q (RemoteData.fromResult >> FetchNewTodoDataSuccess)
+
+
+ltLastTodoId : Int -> OptionalArgument Int_comparison_exp
+ltLastTodoId id =
+    Present
+        (buildInt_comparison_exp
+            (\args ->
+                { args
+                    | lt_ = Present id
+                }
+            )
+        )
+
+
+oldPublicTodosWhere : Int -> OptionalArgument Todos_bool_exp
+oldPublicTodosWhere id =
+    Present
+        (buildTodos_bool_exp
+            (\args ->
+                { args
+                    | id = ltLastTodoId id
+                    , is_public = equalToBoolean True
+                }
+            )
+        )
+
+
+oldPublicTodoListQueryOptionalArgs : Int -> TodosOptionalArguments -> TodosOptionalArguments
+oldPublicTodoListQueryOptionalArgs id optionalArgs =
+    { optionalArgs | where_ = oldPublicTodosWhere id, order_by = orderByCreatedAt Desc, limit = OptionalArgument.Present 7 }
+
+
+oldTodoQuery : Int -> SelectionSet Todos RootQuery
+oldTodoQuery id =
+    Query.todos (oldPublicTodoListQueryOptionalArgs id) todoListSelectionWithUser
+
+
+loadOldTodos : SelectionSet Todos RootQuery -> String -> Cmd Msg
+loadOldTodos q authToken =
+    makeGraphQLQuery authToken q (RemoteData.fromResult >> FetchOldTodoDataSuccess)
+
+
+{-
+   Insert into public todos
+-}
+
+
+getPublicTodoInsertObj : String -> SelectionSet (Maybe MutationResponse) RootMutation
+getPublicTodoInsertObj newPublicTodo =
+    Mutation.insert_todos identity (insertPublicTodoArgs newPublicTodo) publicTodoMutateResponseSelection
+
+
+insertPublicTodoObjects : String -> Todos_insert_input
+insertPublicTodoObjects newPublicTodo =
+    buildTodos_insert_input
+        (\args ->
+            { args
+                | title = Present newPublicTodo
+                , is_public = Present True
+            }
+        )
+
+
+insertPublicTodoArgs : String -> InsertTodosRequiredArguments
+insertPublicTodoArgs newPublicTodo =
+    InsertTodosRequiredArguments [ insertPublicTodoObjects newPublicTodo ]
+
+
+publicTodoMutateResponseSelection : SelectionSet MutationResponse Hasura.Object.Todos_mutation_response
+publicTodoMutateResponseSelection =
+    SelectionSet.map MutationResponse
+        TodosMutation.affected_rows
+
+
+insertPublicTodo : SelectionSet (Maybe MutationResponse) RootMutation -> String -> Cmd Msg
+insertPublicTodo mutation authToken =
+    makeGraphQLMutation
+        authToken
+        mutation
+        (RemoteData.fromResult >> GraphQLResponse >> InsertPublicTodoResponse)
 
 
 
@@ -669,6 +815,13 @@ type Msg
     | GotOnlineUsers Decode.Value
     | RecentPublicTodoReceived Decode.Value
     | FetchPublicDataSuccess PublicDataFetched
+    | FetchNewTodoDataSuccess PublicDataFetched
+    | FetchOldTodoDataSuccess PublicDataFetched
+    | FetchNewPublicTodos
+    | FetchOldPublicTodos
+    | InsertPublicTodo
+    | UpdatePublicNewTodo String
+    | InsertPublicTodoResponse (GraphQLResponse MaybeMutationResponse)
 
 
 
@@ -915,11 +1068,103 @@ update msg model =
                 _ ->
                     ( model, Cmd.none )
 
+        FetchNewPublicTodos ->
+           let
+               newQuery =
+                   newTodoQuery model.publicTodoInfo.currentLastTodoId
+           in
+           ( model, loadNewTodos newQuery model.authData.authToken )
+
+        FetchOldPublicTodos ->
+           let
+               oldQuery =
+                   oldTodoQuery model.publicTodoInfo.oldestTodoId
+           in
+           ( model, loadOldTodos oldQuery model.authData.authToken )
+
+        FetchOldTodoDataSuccess response ->
+           case response of
+               RemoteData.Success successData ->
+                   case List.length successData of
+                       0 ->
+                           updatePublicTodoData
+                               (\publicTodoInfo -> { publicTodoInfo | oldTodosAvailable = False })
+                               model
+                               Cmd.none
+                       _ ->
+                           let
+                               oldestTodo =
+                                   Array.get 0 (Array.fromList (List.foldl (::) [] successData))
+                           in
+                           case oldestTodo of
+                               Just item ->
+                                   updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = List.append publicTodoInfo.todos successData, oldestTodoId = item.id }) model Cmd.none
+                               Nothing ->
+                                   ( model, Cmd.none )
+               _ ->
+                   ( model, Cmd.none )
+
+        FetchNewTodoDataSuccess response ->
+           case response of
+               RemoteData.Success successData ->
+                   case List.length successData of
+                       0 ->
+                           ( model, Cmd.none )
+                       _ ->
+                           let
+                               newestTodo =
+                                   Array.get 0 (Array.fromList successData)
+                           in
+                           case newestTodo of
+                               Just item ->
+                                   updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = List.append successData publicTodoInfo.todos, currentLastTodoId = item.id, newTodoCount = 0 }) model Cmd.none
+                               Nothing ->
+                                   ( model, Cmd.none )
+               _ ->
+                   ( model, Cmd.none )
+
+        InsertPublicTodo ->
+            case String.length model.publicTodoInsert of
+                0 ->
+                    ( model, Cmd.none )
+
+                _ ->
+                    let
+                        mutationObj =
+                            getPublicTodoInsertObj model.publicTodoInsert
+                    in
+                    ( { model | publicTodoInsertStatus = OnGoing }, insertPublicTodo mutationObj model.authData.authToken )
+
+        UpdatePublicNewTodo newPublicTodo ->
+            ( { model | publicTodoInsert = newPublicTodo }, Cmd.none )
+
+        InsertPublicTodoResponse publicTodoInsertResponse ->
+            let
+                responseBody =
+                    retrieveGraphQLResponseBody publicTodoInsertResponse
+            in
+            case responseBody of
+                RemoteData.Success response ->
+                    ( { model | publicTodoInsertStatus = NotYetInitiated, publicTodoInsert = "" }, Cmd.none )
+
+                RemoteData.Failure failureResp ->
+                    ( { model | publicTodoInsertStatus = OperationFailed failMsg }, Cmd.none )
+
+                RemoteData.NotAsked ->
+                    ( model, Cmd.none )
+
+                RemoteData.Loading ->
+                    ( model, Cmd.none )
+
 
 
 {-
    Helper funcs
 -}
+
+retrieveGraphQLResponseBody : GraphQLResponse decodesTo -> RemoteData (Graphql.Http.Error decodesTo) decodesTo
+retrieveGraphQLResponseBody (GraphQLResponse value) =
+    value
 
 
 updatePublicTodoData : (PublicTodoData -> PublicTodoData) -> Model -> Cmd Msg -> ( Model, Cmd Msg )
@@ -1132,7 +1377,7 @@ loadLatestPublicTodo count =
             nothing
 
         _ ->
-            div [ class "loadMoreSection" ]
+            div [ class "loadMoreSection", onClick FetchNewPublicTodos ]
                 [ text ("New tasks have arrived! (" ++ String.fromInt count ++ ")")
                 ]
 
@@ -1141,7 +1386,7 @@ loadOldPublicTodos : Bool -> Html Msg
 loadOldPublicTodos oldTodosAvailable =
     case oldTodosAvailable of
         True ->
-            div [ class "loadMoreSection" ]
+            div [ class "loadMoreSection", onClick FetchOldPublicTodos  ]
                 [ text "Load older tasks"
                 ]
 
@@ -1179,6 +1424,22 @@ publicViewKeyedListItem todo =
     ( String.fromInt todo.id, publicViewListItem todo )
 
 
+publicTodoInsertStatus : Operation -> Html msg
+publicTodoInsertStatus status =
+    span [ class "mutation_loader" ] <|
+        case status of
+            NotYetInitiated ->
+                [ text "" ]
+
+            OnGoing ->
+                [ i [ class "fa fa-spinner fa-spin" ] []
+                ]
+
+            OperationFailed error ->
+                [ i [ title error, class "fas fa-exclamation-triangle" ] []
+                ]
+
+
 publicTodos : Model -> Html Msg
 publicTodos model =
     div [ class "col-xs-12 col-md-6 sliderMenu p-30 bg-gray border-right" ]
@@ -1186,10 +1447,11 @@ publicTodos model =
             [ div [ class "sectionHeader" ]
                 [ text "Public feed (realtime)"
                 ]
-            , form [ class "formInput" ]
-                [ input [ class "input", placeholder "What needs to be done?", value model.publicTodoInsert ]
+            , form [ class "formInput", onSubmit InsertPublicTodo ]
+                [ input [ class "input", placeholder "What needs to be done?", value model.publicTodoInsert, onInput UpdatePublicNewTodo ]
                     []
                 , i [ class "inputMarker fa fa-angle-right" ] []
+                , publicTodoInsertStatus model.publicTodoInsertStatus
                 ]
             , publicTodoListWrapper model.publicTodoInfo
             ]

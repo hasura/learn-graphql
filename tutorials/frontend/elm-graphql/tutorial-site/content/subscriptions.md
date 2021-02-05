@@ -71,14 +71,14 @@ Now let's write the definition of the `updateLastSeen`.
 import Hasura.InputObject
     exposing
         ( Boolean_comparison_exp
-        , Integer_comparison_exp
+        , Int_comparison_exp
         , Todos_bool_exp
         , Todos_insert_input
         , Todos_order_by
         , Todos_set_input
 +       , Users_set_input
         , buildBoolean_comparison_exp
-        , buildInteger_comparison_exp
+        , buildInt_comparison_exp
         , buildTodos_bool_exp
         , buildTodos_insert_input
         , buildTodos_order_by

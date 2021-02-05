@@ -72,6 +72,7 @@ import Json.Decode as Decode exposing (Decoder, field, int, string)
 import Json.Encode as Encode
 import RemoteData exposing (RemoteData)
 import Time
+import Array
 
 
 
@@ -114,7 +115,8 @@ subscriptions model =
                         []
 
                     _ ->
-                        [ gotOnlineUsers GotOnlineUsers
+                        [ gotRecentPublicTodoItem RecentPublicTodoReceived
+                        , gotOnlineUsers GotOnlineUsers
                         , Time.every 30000 Tick
                         ]
                )
@@ -154,6 +156,10 @@ type alias OnlineUser =
 
 type alias OnlineUsersData =
     RemoteData Decode.Error OnlineUsers
+
+
+type alias PublicDataFetched =
+    RemoteData (Graphql.Http.Error Todos) Todos
 
 
 type alias MutationResponse =
@@ -265,42 +271,6 @@ type alias Model =
     }
 
 
-
-{-
-   Initial seed data
--}
-
-
-seedIds : List Int
-seedIds =
-    [ 1, 2 ]
-
-
-publicSeedIds : List Int
-publicSeedIds =
-    [ 1, 2, 3, 4 ]
-
-
-todoPublicPlaceholder : String
-todoPublicPlaceholder =
-    "This is public todo"
-
-
-generateUser : Int -> User
-generateUser id =
-    User ("someUser" ++ String.fromInt id)
-
-
-generatePublicTodo : String -> Int -> Todo
-generatePublicTodo placeholder id =
-    Todo id ("User" ++ String.fromInt id) False (placeholder ++ " " ++ String.fromInt id) (generateUser id)
-
-
-getPublicTodos : Todos
-getPublicTodos =
-    List.map (generatePublicTodo todoPublicPlaceholder) publicSeedIds
-
-
 initializePrivateTodo : PrivateTodo
 initializePrivateTodo =
     { todos = RemoteData.Loading
@@ -315,7 +285,7 @@ initialize =
     { privateData = initializePrivateTodo
     , online_users = RemoteData.NotAsked
     , publicTodoInsert = ""
-    , publicTodoInfo = PublicTodoData getPublicTodos 0 1 0 True
+    , publicTodoInfo = PublicTodoData [] 0 0 0 True
     , authData = AuthData "" "" "" ""
     , authForm = AuthForm Login False False ""
     }
@@ -325,6 +295,7 @@ getInitialEvent : String -> Cmd Msg
 getInitialEvent authToken =
     Cmd.batch
         [ fetchPrivateTodos authToken
+        , createSubscriptionToPublicTodos ( publicListSubscription |> Graphql.Document.serializeSubscription, authToken )
         , createSubscriptionToOnlineUsers ( onlineUsersSubscription |> Graphql.Document.serializeSubscription, authToken )
         ]
 
@@ -598,6 +569,76 @@ onlineUsersSelection =
         (OnlineUser.user selectUser)
 
 
+publicTodoListSubscriptionOptionalArgument : TodosOptionalArguments -> TodosOptionalArguments
+publicTodoListSubscriptionOptionalArgument optionalArgs =
+    { optionalArgs | where_ = whereIsPublic True, order_by = orderByCreatedAt Desc, limit = OptionalArgument.Present 1 }
+
+
+publicListSubscription : SelectionSet Todos RootSubscription
+publicListSubscription =
+    Subscription.todos publicTodoListSubscriptionOptionalArgument todoListSelection
+
+
+publicTodoListQueryLimit : Int -> OptionalArgument Int
+publicTodoListQueryLimit limit =
+    Present limit
+
+
+lteLastTodoId : Int -> OptionalArgument Int_comparison_exp
+lteLastTodoId id =
+    Present
+        (buildInt_comparison_exp
+            (\args ->
+                { args
+                    | lte_ = Present id
+                }
+            )
+        )
+
+
+publicTodoListOffsetWhere : Int -> OptionalArgument Todos_bool_exp
+publicTodoListOffsetWhere id =
+    Present
+        (buildTodos_bool_exp
+            (\args ->
+                { args
+                    | id = lteLastTodoId id
+                    , is_public = equalToBoolean True
+                }
+            )
+        )
+
+
+publicTodoListQueryOptionalArgs : Int -> Int -> TodosOptionalArguments -> TodosOptionalArguments
+publicTodoListQueryOptionalArgs id limit optionalArgs =
+    { optionalArgs | where_ = publicTodoListOffsetWhere id, order_by = orderByCreatedAt Desc, limit = publicTodoListQueryLimit limit }
+
+
+todoListSelectionWithUser : SelectionSet Todo Hasura.Object.Todos
+todoListSelectionWithUser =
+    SelectionSet.map5 Todo
+        Todos.id
+        Todos.user_id
+        Todos.is_completed
+        Todos.title
+        (Todos.user selectUser)
+
+
+loadPublicTodoList : Int -> SelectionSet Todos RootQuery
+loadPublicTodoList id =
+    Query.todos (publicTodoListQueryOptionalArgs id 7) todoListSelectionWithUser
+
+
+makeRequest : SelectionSet Todos RootQuery -> String -> Cmd Msg
+makeRequest query authToken =
+    makeGraphQLQuery
+        authToken
+        query
+        (RemoteData.fromResult >> FetchPublicDataSuccess)
+
+
+
+
 
 ---- UPDATE ----
 
@@ -626,6 +667,8 @@ type Msg
     | Tick Time.Posix
     | UpdateLastSeen UpdateLastSeenResponse
     | GotOnlineUsers Decode.Value
+    | RecentPublicTodoReceived Decode.Value
+    | FetchPublicDataSuccess PublicDataFetched
 
 
 
@@ -819,11 +862,69 @@ update msg model =
             in
             ( { model | online_users = remoteData }, Cmd.none )
 
+        RecentPublicTodoReceived data ->
+           let
+               remoteData =
+                   Decode.decodeValue (publicListSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
+           in
+           case remoteData of
+               RemoteData.Success recentData ->
+                   case List.length recentData > 0 of
+                       True ->
+                           case Array.get 0 (Array.fromList recentData) of
+                               Just recDat ->
+                                   case model.publicTodoInfo.oldestTodoId of
+                                       0 ->
+                                           let
+                                               queryObj =
+                                                   loadPublicTodoList recDat.id
+                                           in
+                                           updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | currentLastTodoId = recDat.id }) model (makeRequest queryObj model.authData.authToken)
+                                       _ ->
+                                           let
+                                               updatedNewTodoCount =
+                                                   model.publicTodoInfo.newTodoCount + 1
+                                           in
+                                           case model.publicTodoInfo.currentLastTodoId >= recDat.id of
+                                               True ->
+                                                   ( model, Cmd.none )
+                                               False ->
+                                                   updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | newTodoCount = updatedNewTodoCount }) model Cmd.none
+                               Nothing ->
+                                   ( model, Cmd.none )
+                       False ->
+                           ( model, Cmd.none )
+               _ ->
+                   ( model, Cmd.none )
+        FetchPublicDataSuccess response ->
+            case response of
+                RemoteData.Success successData ->
+                    case List.length successData of
+                        0 ->
+                            ( model, Cmd.none )
+                        _ ->
+                            let
+                                oldestTodo =
+                                    Array.get 0 (Array.fromList (List.foldl (::) [] successData))
+                            in
+                            case oldestTodo of
+                                Just item ->
+                                    updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = successData, oldestTodoId = item.id }) model Cmd.none
+                                Nothing ->
+                                    ( model, Cmd.none )
+                _ ->
+                    ( model, Cmd.none )
+
 
 
 {-
    Helper funcs
 -}
+
+
+updatePublicTodoData : (PublicTodoData -> PublicTodoData) -> Model -> Cmd Msg -> ( Model, Cmd Msg )
+updatePublicTodoData transform model cmd =
+    ( { model | publicTodoInfo = transform model.publicTodoInfo }, cmd )
 
 
 updatePrivateData : (PrivateTodo -> PrivateTodo) -> Model -> Cmd Msg -> ( Model, Cmd Msg )
@@ -1354,3 +1455,6 @@ port createSubscriptionToOnlineUsers : ( String, String ) -> Cmd msg
 
 
 port gotOnlineUsers : (Decode.Value -> msg) -> Sub msg
+
+port createSubscriptionToPublicTodos : ( String, String ) -> Cmd msg
+port gotRecentPublicTodoItem : (Decode.Value -> msg) -> Sub msg

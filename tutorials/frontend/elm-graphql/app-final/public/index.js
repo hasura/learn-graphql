@@ -59,4 +59,24 @@ document.addEventListener("DOMContentLoaded", function() {
           });
         }
     });
+
+    app.ports.createSubscriptionToPublicTodos.subscribe(function(data) {
+        /* Initiate subscription request */
+        var [ data, authToken ] = data;
+        if (authToken.length > 0) {
+          // app.ports.creatingSubscriptionToTasks.send(1);
+          getClient(authToken).subscribe({
+            query: gql`${data}`,
+            variables: {}
+          }).subscribe({
+            next(resp) {
+              app.ports.gotRecentPublicTodoItem.send(resp);
+            },
+            error(err) {
+              console.log('error is');
+              console.log(err);
+            }
+          });
+        }
+      });
 })

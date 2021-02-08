@@ -10,8 +10,7 @@ We cruised through our GraphQL queries and mutations. We queried for todos, adde
 
 Now let's get to the exciting part.
 
-GraphQL Subscriptions
----------------------
+## GraphQL Subscriptions
 
 We have a section of UI which displays the list of online users. So far we have made queries to fetch data and display them on the UI. But typically online users data is dynamic.
 
@@ -23,7 +22,7 @@ We need to tell the server that the user who is logged in is online. We have to 
 
 We have to make this change to see yourself online first. Remember that you are already logged in, registered your data in the server, but not updated your `last_seen` value.?
 
-The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated the user. So let's update some code to handle this. 
+The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated the user. So let's update some code to handle this.
 
 Open `src/components/OnlineUsers/OnlineUsersWrapper.tsx` and add the following imports.
 
@@ -31,17 +30,18 @@ Open `src/components/OnlineUsers/OnlineUsersWrapper.tsx` and add the following i
 
 ```javascript
 
-+ import React from "react";
-+ import gql from "graphql-tag";
+  import React from "react";
++ import { gql } from "@apollo/client";
   import OnlineUser from "./OnlineUser";
 
 ```
+
 Now let's define the GraphQL mutation to update the last seen time of the user.
 
 ```javascript
 
   import React from "react";
-  import gql from "graphql-tag";
+  import { gql } from "@apollo/client";
   import OnlineUser from "./OnlineUser";
 
 + const UPDATE_LASTSEEN_MUTATION=gql`
@@ -59,8 +59,8 @@ As we did in previous steps, we will pass the above mutation to `useMutation` ho
 ```javascript
 
   import React from "react";
-  import gql from "graphql-tag";
-+ import { useMutation } from "@apollo/react-hooks";
+- import { gql } from "@apollo/client";
++ import { gql, useMutation } from "@apollo/client";
   ...
   const OnlineUsersWrapper = () => {
 
@@ -78,7 +78,7 @@ In `useEffect`, we will create a `setInterval` to update the `last_seen` of the 
   const OnlineUsersWrapper = () => {
 
     const [updateLastSeen] = useMutation(UPDATE_LASTSEEN_MUTATION);
-    
+
 +   useEffect(() => {
 +     const onlineIndicator = setInterval(() => updateLastSeen({variables: { now: (new Date()).toISOString()}}), 30000);
 +     return () => clearInterval(onlineIndicator);

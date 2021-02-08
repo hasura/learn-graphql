@@ -10,12 +10,11 @@ The auto-generated type definitions are available at `src/generated/graphql.tsx`
 
 ```javascript
   import React, { Fragment, useState } from "react";
-  import gql from "graphql-tag";
-  import { useQuery } from "@apollo/react-hooks";
+  import { gql, useMutation } from "@apollo/client"
   import TodoItem from "./TodoItem";
   import TodoFilters from "./TodoFilters";
 
-+ import { 
++ import {
 +   GetMyTodosQuery,
 + } from '../../generated/graphql';
 
@@ -41,7 +40,7 @@ We also have `Todo` type manually defined in the app boilerplate before the Grap
 
 ```javascript
 
-  import { 
+  import {
 -   GetMyTodosQuery
 +   GetMyTodosQuery,
 +   Todos
@@ -136,8 +135,3 @@ Again let's update the `TodoFilters` component as well which imports the `TodoIt
 ```
 
 Note that here we are importing `GetMyTodosQuery` and getting the type of `todos` property using `GetMyTodosQuery["todos"]`. Here `todos` is an array where as previously we were defining type for a single todo.
-
-
-
-
-

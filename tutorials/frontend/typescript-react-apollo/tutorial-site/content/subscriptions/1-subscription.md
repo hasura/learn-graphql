@@ -11,7 +11,7 @@ When we had initially set up Apollo, we installed the required dependencies for 
 ### React Apollo Subscriptions Setup
 
 ```bash
-$ yarn add apollo-link-ws subscriptions-transport-ws
+$ yarn add subscriptions-transport-ws
 ```
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.
@@ -21,11 +21,10 @@ Open `src/components/App.tsx` and update the following imports:
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/typescript-react-apollo/app-final/src/components/App.tsx" text="src/components/App.tsx" />
 
 ```javascript
-  import ApolloClient from 'apollo-client';
   import { InMemoryCache } from 'apollo-cache-inmemory';
-- import { HttpLink } from 'apollo-link-http';
-+ import { WebSocketLink } from 'apollo-link-ws';
-  import { ApolloProvider } from '@apollo/react-hooks';
+- import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from "@apollo/client";
++ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
++ import { WebSocketLink } from "@apollo/client/link/ws";
 ```
 
 Update the createApolloClient function to integrate WebSocketLink.

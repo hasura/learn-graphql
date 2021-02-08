@@ -16,8 +16,8 @@ Open `src/components/OnlineUsers/OnlineUsersWrapper.tsx` and add the following c
 
   import React, { useEffect } from "react";
   import gql from "graphql-tag";
-- import { useMutation } from "@apollo/react-hooks";
-+ import { useMutation, useSubscription } from "@apollo/react-hooks";
+- import { gql, useMutation } from "@apollo/client";
++ import { gql, useMutation, useSubscription } from "@apollo/client";
 
   import OnlineUser from "./OnlineUser";
 
@@ -102,15 +102,13 @@ Now that we have the real data, let's remove the mock online user state and hand
 
 ```
 
-How does this work?
--------------------
+## How does this work?
 
 We are using the `useSubscription` hook which gives a result object. The `data` key gives the result of the realtime data for the query we have made.
 
 Refresh your react app and see yourself online! Don't be surprised; There could be other users online as well.
 
-Mapping Types
--------------
+## Mapping Types
 
 We need type definitions for the mutation and subscription requests made in this component.
 
@@ -144,7 +142,7 @@ Finally, we will remove the explicit usage of `any` by importing the types of `O
 
 - import { UpdateLastSeenMutation, GetOnlineUsersSubscription } from '../../generated/graphql';
 + import { UpdateLastSeenMutation, GetOnlineUsersSubscription, Online_Users } from '../../generated/graphql';
-  
+
   ...
   ...
 

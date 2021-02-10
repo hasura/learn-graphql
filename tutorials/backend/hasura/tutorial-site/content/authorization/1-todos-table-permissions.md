@@ -47,11 +47,11 @@ Click on `Save Permissions`
 
 ## Update permission
 
-Now click on edit icon for "update" permissions. In the custom check, choose `With same custom checks as insert`.
+Now click on edit icon for "update" permissions. In the pre-update custom check, choose `With same custom checks as insert`.
 
 And under column update permissions, select the `is_completed` column.
 
-![Todos update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-update-permission.png)
+![Todos update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-update-permission-pre-update.png)
 
 Click on `Save Permissions` once done.
 

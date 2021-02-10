@@ -149,7 +149,7 @@ query {
 }
 ```
 
-Remember the JWT token that we got after configuring Auth0 and testing it out? Here you also need to pass in the `Authorization` header with the same JWT token to get the right data.
+Remember the JWT token that we got after [configuring Auth0 and testing it out](https://hasura.io/learn/graphql/hasura/authentication/5-test-with-headers/)? Here you also need to pass in the `Authorization` header with the same JWT token to get the right data.
 
 In GraphiQL, uncheck the `hasura-collaborator-token` header, create a new one called `Authorization` and paste this in the value `Bearer eyJhb.....`.
 

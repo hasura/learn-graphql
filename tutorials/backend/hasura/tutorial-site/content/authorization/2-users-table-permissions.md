@@ -21,7 +21,7 @@ Click on `Save Permissions`
 
 ## Update permission
 
-The user who is logged in should be able to modify only his own record. So let’s set that permission now. 
+The user who is logged in should be able to modify only their own record. So let’s set that permission now.
 
 In the Row update permission, under custom check, choose the following condition.
 

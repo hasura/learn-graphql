@@ -40,9 +40,11 @@ To do this create a file named `client.dart` inside `lib/config` folder and add 
 +       config: SocketClientConfig(
 +       autoReconnect: true,
 +       inactivityTimeout: Duration(seconds: 30),
-+       initPayload: {
-+        'headers': {'Authorization': _token},
-+       },
++       initPayload: () async {
+          return {
+            'headers': {'Authorization': _token},
+          };
+        },
 +     ),
 +   );
 +

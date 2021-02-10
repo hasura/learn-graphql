@@ -33,7 +33,7 @@ Also, add `reason-apollo` and `graphql_ppx` to the `bs-dependencies` and `ppx_fl
   ],
   "ppx-flags": [
     "graphql_ppx/ppx"
-  ]  
+  ]
 }
 ```
 
@@ -41,12 +41,20 @@ Finally, you need a `graphql_schema.json` in the root of your project so that th
 
 1. Go to https://hasura.io/learn/graphql/graphiql and login
 2. Copy the JWT from headers:
-  ![graphiql-jwt-copy](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-reason-react-apollo/graphiql-jwt-copy.png)
-3. Run this command from the root of your project:
+   ![graphiql-jwt-copy](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-reason-react-apollo/graphiql-jwt-copy.png)
+3. Install Apollo CLI globally:
 
-  ```js
-  npx send-introspection-query https://hasura.io/learn/graphql --headers "Authorization: Bearer <JWT>"
-  ```
+```js
+npm install -g apollo
+```
+
+4. Run this command from the root of your project:
+
+```js
+apollo schema:download --endpoint=https://hasura.io/learn/graphql --header "Authorization: Bearer <JWT>"
+```
+
+5. Rename schema.json to graphql_schema.json
 
 ## Setup
 
@@ -55,7 +63,7 @@ Create a file called `src/ApolloClient.re` and create an instance of Apollo Clie
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/reason-react-apollo/app-final/src/ApolloClient.re" text="ApolloClient.re" />
 
 ```js
-// in memory cache for caching GraphQL data 
+// in memory cache for caching GraphQL data
 let cache = ApolloInMemoryCache.createInMemoryCache();
 
 // apollo link instance as a network interface for apollo client
@@ -81,8 +89,7 @@ let instance = ReasonApollo.createApolloClient(~link, ~cache, ());
 [@bs.module] external gql: ReasonApolloTypes.gql = "graphql-tag";
 ```
 
-
-Let's try to understand what is happening here. 
+Let's try to understand what is happening here.
 
 We are creating an `HttpLink` to connect ApolloClient with the GraphQL server. As you know already, our GraphQL server is running at `https://hasura.io/learn/graphql`. We are also configuring the headers with the JWT token from the local storage.
 

@@ -1,7 +1,7 @@
 FROM node:10.17-buster
 
 # update this line when gatsby-gitbook-starter repo changes
-RUN sh -c 'echo -e "Updated at: 2020-12-04 17:00:00 IST"'
+RUN sh -c 'echo -e "Updated at: 2021-02-11 20:00:00 IST"'
 
 # Install global dependencies
 RUN npm -g install gatsby-cli

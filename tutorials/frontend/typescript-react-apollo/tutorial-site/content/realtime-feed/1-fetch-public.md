@@ -13,8 +13,7 @@ Open `src/components/Todo/TodoPublicList.tsx` and add the following imports.
 ```javascript
 
   import React, { Fragment, useState, useRef } from "react";
-+ import { useSubscription } from "@apollo/react-hooks";
-+ import gql from "graphql-tag";
++ import { gql, useSubscription } from "@apollo/client";
   import TaskItem from "./TaskItem";
 
 ```
@@ -24,8 +23,7 @@ Now let's define the subscription query to get notified about new public todos. 
 ```javascript
 
   import React, { Fragment, useState, useRef } from "react";
-  import { useSubscription } from "@apollo/react-hooks";
-  import gql from "graphql-tag";
+  import { gql, useSubscription } from "@apollo/client";
   import TaskItem from "./TaskItem";
   ...
   const TodoPublicList = (props: publicListProps) => {
@@ -63,8 +61,7 @@ Now let's define the subscription query to get notified about new public todos. 
 
 ```
 
-What does the Subscription do?
------------------------------
+## What does the Subscription do?
 
 The query fetches `todos` with a simple condition; `is_public` must be true. We also limit the number of todos to 1, since we would just like to get notified whenever a new todo comes in.
 We sort the todos by its latest created_at time according to the schema. We specify which fields we need for the todos node.

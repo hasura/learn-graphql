@@ -6,8 +6,8 @@ metaDescription: "An Example of passing variables in GraphQL context and usage o
 
 import GithubLink from "../../src/GithubLink.js";
 
-What is a variable in GraphQL context?
--------------------------------------
+## What is a variable in GraphQL context?
+
 GraphQL has a first-class way to factor dynamic values out of the query, and pass them as a separate dictionary. These values are called variables. In our case, we are defining the object to be inserted as a mutation.
 
 So let's define the graphql mutation to be used.
@@ -19,7 +19,7 @@ Open `src/components/Todo/TodoInput.tsx` and add the following code:
 ```javascript
 
   import * as React from 'react';
-+ import gql from 'graphql-tag';
++ import { gql } from "@apollo/client";
 + const ADD_TODO = gql `
 +   mutation insert_todos($todo: String!, $isPublic: Boolean!) {
 +     insert_todos(objects: {title: $todo, is_public: $isPublic}) {
@@ -55,8 +55,8 @@ Open `src/components/Todo/TodoInput.tsx` and add the following code:
 
 ```
 
-What does this mutation do?
----------------------------
+## What does this mutation do?
+
 The mutation inserts into `todos` table with the $todo and $isPublic variables being passed.
 
 Awesome! We have defined our first graphql mutation.

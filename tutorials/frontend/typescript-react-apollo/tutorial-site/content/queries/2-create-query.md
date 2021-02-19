@@ -14,6 +14,7 @@ With Apollo Client, you can send queries in 3 different ways.
 3. Using the `useQuery` hook. (Recommended)
 
 ### Apollo useQuery Hook
+
 The recommended method is to use the `useQuery` hook, where you will just wrap your GraphQL query to the `gql` function and will fetch the data automatically and will give a result object containing data, loading and error properties.
 
 Great! Now let's define the graphql query to be used:
@@ -24,11 +25,11 @@ Open `src/components/Todo/TodoPrivateList.tsx` and add the following code:
 
 ```javascript
   import React, { Fragment, useState } from "react";
-+ import gql from 'graphql-tag';
++ import { gql } from "@apollo/client";
   import TodoItem from "./TodoItem";
   import TodoFilters from "./TodoFilters";
 
-+ const GET_MY_TODOS = gql`
++ export const GET_MY_TODOS = gql`
 +  query getMyTodos {
 +    todos(where: { is_public: { _eq: false} }, order_by: { created_at: desc }) {
 +      id
@@ -51,8 +52,8 @@ The query is now ready, let's integrate it with our react code.
 
 ```javascript
   import React, { Fragment, useState } from "react";
-  import gql from 'graphql-tag';
-+ import { useQuery } from "@apollo/react-hooks";
+- import { gql } from "@apollo/client";
++ import { gql, useQuery } from "@apollo/client";
 
 ```
 
@@ -60,12 +61,11 @@ The query is now ready, let's integrate it with our react code.
 
 ```javascript
   import React, { Fragment, useState } from "react";
-  import gql from "graphql-tag";
-  import { useQuery } from "@apollo/react-hooks";
+  import { gql, useQuery } from "@apollo/client";
   import TodoItem from "./TodoItem";
   import TodoFilters from "./TodoFilters";
 
-  const GET_MY_TODOS = gql`
+  export const GET_MY_TODOS = gql`
     query getMyTodos {
       todos(where: { is_public: { _eq: false} }, order_by: { created_at: desc }) {
         id
@@ -91,7 +91,7 @@ The query is now ready, let's integrate it with our react code.
     ...
     const clearCompleted = () => {
     };
-    
+
 +   if(loading) {
 +     return (<div>Loading...</div>);
 +   }
@@ -154,8 +154,7 @@ Let's remove the mock `todos` data which was used to populate sample data.
 
 Woot! You have written your first GraphQL integration with React and Typescript. Easy isn't it?
 
-How does this work?
--------------------
+## How does this work?
 
 The `useQuery` hook returned a result object containing the following:
 

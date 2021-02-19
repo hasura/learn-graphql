@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
-import gql from "graphql-tag";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { gql, useMutation, useQuery } from "@apollo/client";
 
 import TodoItem from "./TodoItem";
 import TodoFilters from "./TodoFilters";

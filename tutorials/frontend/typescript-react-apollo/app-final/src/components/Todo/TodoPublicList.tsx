@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useRef, useEffect } from "react";
-import { useSubscription, useApolloClient } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import { gql, useApolloClient, useSubscription } from "@apollo/client"
 import TaskItem from "./TaskItem";
 
 import {

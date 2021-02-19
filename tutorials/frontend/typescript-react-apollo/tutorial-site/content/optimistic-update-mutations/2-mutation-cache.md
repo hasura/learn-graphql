@@ -10,15 +10,16 @@ Now let's do the integration part. Open `src/components/Todo/TodoItem.tsx` and a
 
 ```javascript
   import * as React from 'react';
-+ import gql from 'graphql-tag';
++ import { gql } from "@apollo/client";
   import { Todos } from '../../generated/graphql';
 ```
+
 Let's define the graphql mutation to update the completed status of the todo
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/typescript-react-apollo/app-final/src/components/Todo/TodoItem.tsx" text="src/components/Todo/TodoItem.tsx" />
 
 ```javascript
-  
+
   interface TodoItemType {
     index: number,
     todo: Pick<Todos, "id" | "title" | "is_completed">
@@ -40,13 +41,14 @@ Let's define the graphql mutation to update the completed status of the todo
 ```
 
 ### Apollo useMutation Hook
+
 We need to use the `useMutation` hook to make the mutation. So let's import it.
 
 ```javascript
 
   import * as React from 'react';
-  import gql from 'graphql-tag';
-+ import { useMutation } from '@apollo/react-hooks';
+  import { gql } from "@apollo/client";
++ import { gql, useMutation } from "@apollo/client";
   import { Todos } from '../../generated/graphql';
 
 ```
@@ -93,11 +95,11 @@ To update the cache, we will be using the `update` function again to modify the 
 ```javascript
 
   import * as React from 'react';
-  import gql from 'graphql-tag';
-  import { useMutation } from '@apollo/react-hooks';
+  import { gql, useMutation } from "@apollo/client";
 + import { GET_MY_TODOS } from './TodoPrivateList';
 
 ```
+
 Now let's add the code for `update` function.
 
 ```javascript
@@ -106,7 +108,7 @@ Now let's add the code for `update` function.
 
 -   const [todoUpdate] = useMutation(TOGGLE_TODO);
 +   const [todoUpdate] = useMutation(
-+     TOGGLE_TODO, 
++     TOGGLE_TODO,
 +     {
 +       update(cache, { data }) {
 +         const existingTodos : any = cache.readQuery({ query: GET_MY_TODOS });
@@ -147,9 +149,9 @@ Now let's add it to both readQuery and writeQuery.
 
 ```javascript
 
-- const [todoUpdate] = useMutation<ToggleTodoMutation, ToggleTodoMutationVariables>(
+- const [todoUpdate] = useMutation(
 + const [todoUpdate] = useMutation<ToggleTodoMutation, ToggleTodoMutationVariables>(
-     TOGGLE_TODO, 
+     TOGGLE_TODO,
      {
        update(cache, { data }) {
          const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
@@ -170,7 +172,3 @@ Now let's add it to both readQuery and writeQuery.
      }
    );
 ```
-
-
-
-

@@ -17,8 +17,8 @@ Start off by importing the `useApolloClient` hook to get access to the `client` 
 ```javascript
 
   import React, { Fragment, useState, useEffect, useRef } from "react";
-- import { useSubscription } from "@apollo/react-hooks";
-+ import { useSubscription, useApolloClient } from "@apollo/react-hooks";
+- import { gql, useSubscription } from "@apollo/client";
++ import { gql, useApolloClient, useSubscription } from "@apollo/client";
   ...
   const TodoPublicList = (props: publicListProps) => {
     const [olderTodosAvailable] = useState(props.latestTodo ? true : false)
@@ -130,7 +130,7 @@ Try adding a new todo in the public feed and notice that it will not show up on 
 
 This happens because we haven't yet implemented a way to show the newly added todo to the feed.
 
-Let's handle that in `useEffect` hook. 
+Let's handle that in `useEffect` hook.
 
 ```javascript
   useEffect(() => {

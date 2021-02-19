@@ -1,6 +1,5 @@
 import * as React from 'react';
-import gql from 'graphql-tag';
-import { useMutation } from '@apollo/react-hooks';
+import { gql, useMutation } from "@apollo/client";
 import { GET_MY_TODOS } from './TodoPrivateList';
 import { 
   GetMyTodosQuery,

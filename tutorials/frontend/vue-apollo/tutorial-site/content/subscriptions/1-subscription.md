@@ -49,7 +49,7 @@ Update the link by removing HttpLink and adding a WebSocketLink function to inte
       const headers = {};
       const token = window.localStorage.getItem('apollo-token');
       if (token) {
-        headers.authorization = `Bearer ${token}`;
+        headers.Authorization = `Bearer ${token}`;
       }
       return headers;
     };

@@ -52,7 +52,7 @@ This `seed` column is used by both the `Shooter` and `Defender` to randomly spaw
 
 Now we need a couple of functions to update our `battles` row when things happen in the game like the `Shooter` missing or hitting a target. 
 
-Remember the flow we described in [Realtime Gameplay Overview](../realtime-gameplay.md)
+Remember the flow we described in [Realtime Gameplay Overview](https://hasura.io/learn/graphql/unity/realtime-gameplay/)
 
 Copy and past the code below into your `GameData.cs` script and I'll explain each function briefly
 

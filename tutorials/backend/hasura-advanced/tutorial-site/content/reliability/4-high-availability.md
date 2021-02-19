@@ -1,7 +1,7 @@
 ---
 title: "High Availability"
 metaTitle: "High Availability | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "The GraphQL API served by Hasura should be continously operational and any single points of failure should be eliminated for a reliable application infrastructure."
 ---
 
 The GraphQL API served by Hasura should be continously operational and any single points of failure should be eliminated for a reliable application infrastructure. Fundamentally there are two aspects to the GraphQL API being consumed; availability of Postgres database and availability of Hasura.

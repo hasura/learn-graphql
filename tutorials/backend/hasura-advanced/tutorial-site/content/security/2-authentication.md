@@ -1,7 +1,7 @@
 ---
 title: "Authentication and Authorization"
 metaTitle: "Authentication and Authorization | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Authentication with Hasura can be implemented using JWT, webhooks and unauthenticated public access. Authorization with Hasura can be implemented using role based permissions."
 ---
 
 Authentication with Hasura can be implemented using

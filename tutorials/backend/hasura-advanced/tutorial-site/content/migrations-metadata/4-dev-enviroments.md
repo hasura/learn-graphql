@@ -1,7 +1,7 @@
 ---
 title: "Dev Environments"
 metaTitle: "Dev Environments | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Hasura can be used in different environments starting from local development, staging and production with the use of migrations and metadata."
 ---
 
 ## Local Development

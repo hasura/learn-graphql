@@ -1,7 +1,7 @@
 ---
 title: "Migrations and Metadata"
 metaTitle: "Migrations and Metadata | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will look at how to manage database migrations and Hasura metadata in a local dev environment setup and learn about database schema and metadata config"
 ---
 
 In this section, we will look at how to manage database migrations and Hasura metadata in a local dev environment setup.

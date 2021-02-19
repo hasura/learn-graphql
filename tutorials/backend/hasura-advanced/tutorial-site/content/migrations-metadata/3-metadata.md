@@ -1,7 +1,7 @@
 ---
 title: "Managing Metadata"
 metaTitle: "Managing Metadata | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "In addition to managing migration files, Hasura has metadata that needs to be maintained and version controlled too."
 ---
 
 In addition to managing migration files, Hasura has metadata that needs to be maintained and version controlled too. Migration files are created primarily for actions performed towards updating the `database schema`. On the other hand, metadata files are updated whenever an action is performed on the console, like tracking tables/views/functions, creating relationships, configuring permissions, creating event triggers and remote schemas, etc. can be exported as a JSON/yaml metadata file which can be version controlled.

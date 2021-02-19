@@ -1,10 +1,10 @@
 ---
 title: "Dev Mode"
 metaTitle: "Dev Mode | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "In local dev with custom code written, you may want to see the exact details of the webhook call for the custom code handler like Hasura Actions."
 ---
 
-In local dev with custom code written, you may want to see the exact details of the webhook call for the custom code handler like Actions.
+In local dev with custom code written, you may want to see the exact details of the webhook call for the custom code handler like Hasura Actions.
 
 ## Enable Dev Mode
 

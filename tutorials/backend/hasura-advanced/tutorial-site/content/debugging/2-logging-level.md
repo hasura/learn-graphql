@@ -1,7 +1,7 @@
 ---
 title: "Logging Level"
 metaTitle: "Logging Level | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Hasura server outputs structured logs for your GraphQL API that can be configured to output different log levels from http-log, websocket-log, webhook-log"
 ---
 
 Earlier in the tutorial, we ran a docker-compose setup for hasura/graphql-engine and postgres. Accessing the server logs can be done using `docker logs` command followed by the container id of Hasura. This would output the graphql-engine logs for your local instance. If you would like to debug a Hasura Cloud Project, you can head to the `Pro/Monitoring` tab on the Hasura Console.

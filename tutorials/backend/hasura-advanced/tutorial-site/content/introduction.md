@@ -1,7 +1,7 @@
 ---
 title: "Course Introduction"
 metaTitle: "Course Introduction | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "An advanced tutorial for Hasura users who want to optimise their application for production use cases, learning about migrations, metadata, optimizing performance, enhancing security, improving reliability and debugging."
 ---
 
 This course is meant to be taken by users of Hasura who want to optimise their application for production use cases. If you are new to Hasura, head to the [Hasura Basics](https://hasura.io/learn/graphql/hasura/introduction/) tutorial to get a fair idea of setting up Hasura and leveraging the fundamental features before diving into this tutorial.

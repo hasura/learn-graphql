@@ -1,7 +1,7 @@
 ---
 title: "Observability"
 metaTitle: "Observability | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Observability means you can answer any questions about what’s happening on the inside of the system just by observing metrics from outside of the system"
 ---
 
 Observability means you can answer any questions about what’s happening on the inside of the system just by observing metrics from outside of the system.

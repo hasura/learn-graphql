@@ -1,7 +1,7 @@
 ---
 title: "Timeouts"
 metaTitle: "Timeouts | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "The other attack vector is to make a query which takes a really long time to execute. There are broadly two types of timeouts: Database Timeout and HTTP Timeout"
 ---
 
 The other attack vector is to make a query which takes a really long time to execute. There are broadly two types of timeouts:

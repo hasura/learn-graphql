@@ -1,7 +1,7 @@
 ---
 title: "Managing migration files"
 metaTitle: "Managing migration files | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Hasura comes with a built-in migration system to manage the database schema. Managing the database schema to perform incremental, reversible updates that are version controlled is a critical component for apps running in production."
 ---
 
 Managing the database schema to perform incremental, reversible updates that are version controlled is a critical component for apps running in production. Hasura comes with a built-in migration system to manage the database schema.

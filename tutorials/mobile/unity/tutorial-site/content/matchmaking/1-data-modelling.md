@@ -54,7 +54,7 @@ Let us go through these columns to understand why they're important for matchmak
 - `shooter_lastseen`: last time the shooter was seen in the battle. This is used to confirm if the Shooter disconnects from the game.
 - `defender_lastseen`: last time the defender was seen in the battle. This is used to confirm if the Defender disconnects from the game.
 
-If you recall the flow chat in [Matchmaking Overview](../matchmaking.md), the necessity for the `shooterReady` and `defenderReady` flags is apparent.
+If you recall the flow chat in [Matchmaking Overview](https://hasura.io/learn/graphql/unity/matchmaking/), the necessity for the `shooterReady` and `defenderReady` flags is apparent.
 
 ### Connect Battles with Users
 

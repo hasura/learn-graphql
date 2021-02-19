@@ -1,7 +1,7 @@
 ---
 title: "Health Check"
 metaTitle: "Health Check | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Hasura gives a health check endpoint to monitor the status of the GraphQL API. This is available under `/healthz` endpoint for all Hasura projects (including the OSS GraphQL Engine)."
 ---
 
 Hasura gives a health check endpoint to monitor the status of the GraphQL API. This is available under `/healthz` endpoint for all Hasura projects (including the OSS GraphQL Engine).

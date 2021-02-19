@@ -1,7 +1,7 @@
 ---
 title: "Response Limiting"
 metaTitle: "Response Limiting | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "We can restrict how much data can be accessed in a single request through response limits. On top of rate limiting, response limiting is important to not create a database bottleneck"
 ---
 
 Once you have configured API limits, you also have the luxury of limiting the number of rows returned, and access to aggregation queries on top of this.

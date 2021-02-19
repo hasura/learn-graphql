@@ -1,7 +1,7 @@
 ---
 title: "Performance"
 metaTitle: "Performance | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will look at optimizing Hasura for performance. In some scenarios, the bottleneck is at the database level. In some, it is at the infrastructure level."
 ---
 
 In this section, we will look at optimizing Hasura for performance. In some scenarios, the bottleneck is at the database level. In some, it is at the infrastructure level.

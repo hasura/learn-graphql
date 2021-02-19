@@ -1,7 +1,7 @@
 ---
 title: "Horizontal Scaling"
 metaTitle: "Horizontal Scaling | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Hasura Cloud lets you scale your applications automatically without having to think about the number of instances, cores, memory, thresholds etc."
 ---
 
 Hasura Cloud lets you scale your applications automatically without having to think about the number of instances, cores, memory, thresholds etc. You can keep increasing your number of concurrent users and the number of API calls and Hasura Cloud will figure out the optimizations automagically. But you could have a bottleneck at the database level which is when you might want to scale the database.

@@ -1,7 +1,7 @@
 ---
 title: "Regression Testing"
 metaTitle: "Regression Testing | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Regression tests ensure continued support for operations required by your frontend apps or users"
 ---
 
 Regression tests ensure continued support for operations required by your frontend apps or users i.e. validating changes to the GraphQL schema (schema integrity) against these operations to ensure that there are no breaking changes or regressions in your GraphQL API.

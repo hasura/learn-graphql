@@ -1,7 +1,7 @@
 ---
 title: "Hasura CLI"
 metaTitle: "Hasura CLI | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "We will make use of Hasura CLI to manage the project locally. Start with an empty folder and execute the following command"
 ---
 
 ## Install Hasura CLI

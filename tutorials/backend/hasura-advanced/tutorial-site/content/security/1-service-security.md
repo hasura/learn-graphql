@@ -1,7 +1,7 @@
 ---
 title: "Service Level Security"
 metaTitle: "Service Level Security | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Hasura allows access to be determined on a service level. There are various configurations that can be done to secure data access at multiple layers. We will look at each of them now."
 ---
 
 Hasura allows access to be determined on a service level. There are various configurations that can be done to secure data access at multiple layers. We will look at each of them now.

@@ -1,7 +1,7 @@
 ---
 title: "Analyzing Query Plans"
 metaTitle: "Analyzing Query Plans | Hasura GraphQL Advanced Tutorial"
-metaDescription: ""
+metaDescription: "Postgres has great tooling to understand how slow a query runs. You can execute a simple SQL statement using `EXPLAIN` to ask the database why a particular query is taking long."
 ---
 
 Postgres has great tooling to understand how slow a query runs. You can execute a simple SQL statement using `EXPLAIN` to ask the database why a particular query is taking long. For example, in our slack model, we can make the following query in the `SQL` tab of the `Data` page of the console:

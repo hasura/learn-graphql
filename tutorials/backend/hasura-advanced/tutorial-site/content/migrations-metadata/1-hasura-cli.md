@@ -6,7 +6,7 @@ metaDescription: "We will make use of Hasura CLI to manage the project locally. 
 
 ## Install Hasura CLI
 
-Depending on the platform, [install Hasura CLI](https://hasura.io/docs/1.0/graphql/core/hasura-cli/install-hasura-cli.html) by following the steps in docs.
+Depending on the platform, [install Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html) by following the steps in docs.
 
 We will make use of Hasura CLI to manage the project locally. Start with an empty folder and execute the following command:
 

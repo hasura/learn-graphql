@@ -88,7 +88,7 @@ Ensure `Track this` is selected and click `Run`
 
 This View displays only `Online Battles`, meaning open battles that no opponent has joined. 
 
-We'll use this view to first check if there are existing open battles before creating an open battle. (in accordance with the flow chat in [Matchmaking Overview](../matchmaking.md))
+We'll use this view to first check if there are existing open battles before creating an open battle. (in accordance with the flow chat in [Matchmaking Overview](https://hasura.io/learn/graphql/unity/matchmaking/))
 
 ### Create Old Battles View
 

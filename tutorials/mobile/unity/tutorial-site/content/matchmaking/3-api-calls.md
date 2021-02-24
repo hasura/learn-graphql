@@ -318,7 +318,7 @@ This functions is called every time our subscription returns data from the backe
 
 The function also has the data received within `subscriptionDataReceived` and this is deserialized into our `battle` variable so that our `battle` variable always reflects the current state of the battles row in our database.
 
-The contents of this function performs the flow chart in our [Matchmaking](../matchmaking.md)
+The contents of this function performs the flow chart in our [Matchmaking](https://hasura.io/learn/graphql/unity/matchmaking/)
 
 #### void StartWaiting()
 

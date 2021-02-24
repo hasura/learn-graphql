@@ -14,7 +14,7 @@ Auth0 からプロファイル情報を取得する最初のユースケース�
 
 Hasura には、リモートの GraphQL スキーマをマージして、統合された GraphQL API を提供する機能があります。Auth0 プロファイル情報を取得するユースケースを処理するために、カスタム GraphQL サーバーにカスタムリゾルバーを記述します。Hasura はこのカスタム GraphQL サーバーを既存の自動で生成されたスキーマとマージできます。このカスタム GraphQL サーバーが `Remote Schema` です。
 
-![Remote schema アーキテクチャ](https://hasura.io/docs/1.0/_images/remote-schemas-arch1.png)
+![Remote schema アーキテクチャ](https://hasura.io/docs/latest/_images/remote-schemas-arch1.png)
 
 ## GraphQL カスタムリゾルバーを記述する
 それでは、後で Hasura の GraphQL API にマージできるカスタムリゾルバーを作成しましょう。

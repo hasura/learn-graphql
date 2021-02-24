@@ -30,6 +30,7 @@ There are three different tutorial series:
 
 - [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/)
 - [Auth with Hasura](https://hasura.io/learn/graphql/hasura-auth-slack/introduction/)
+- [Advanced Hasura](https://hasura.io/learn/graphql/advanced-hasura/introduction/)
 - Postgres Basics (coming soon)
 
 #### GraphQL Basics

@@ -13,7 +13,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 ユーザーが Auth0 を使用してアプリに登録すると、新しいデータを `users` テーブルに挿入してユーザーデータの同期を維持します。ミューテーションを作成するためにサインアップ中に作成した Auth0 ルールを覚えていますか？
 
 これはテーブル `users` に対する `insert` 操作です。
-各イベントのペイロードは[こちら](https://hasura.io/docs/1.0/graphql/core/event-triggers/payload.html#json-payload)に記載されています
+各イベントのペイロードは[こちら](https://hasura.io/docs/latest/graphql/core/event-triggers/payload.html#json-payload)に記載されています
 
 次に、この挿入操作をキャプチャしてイベントをトリガーします。
 

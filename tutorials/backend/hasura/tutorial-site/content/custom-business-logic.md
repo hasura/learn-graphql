@@ -13,9 +13,9 @@ Custom business logic can be handled in a few flexible ways in Hasura:
 Actions (Recommended)
 ---------------------
 
-[Actions](https://hasura.io/docs/1.0/graphql/core/actions/index.html) are a way to extend Hasura’s schema with custom business logic using custom queries and mutations. Actions can be added to Hasura to handle various use cases such as data validation, data enrichment from external sources and any other complex business logic.
+[Actions](https://hasura.io/docs/latest/graphql/core/actions/index.html) are a way to extend Hasura’s schema with custom business logic using custom queries and mutations. Actions can be added to Hasura to handle various use cases such as data validation, data enrichment from external sources and any other complex business logic.
 
-![Actions architecture](https://hasura.io/docs/1.0/_images/actions-arch1.png)
+![Actions architecture](https://hasura.io/docs/latest/_images/actions-arch1.png)
 
 Actions can be either a Query or a Mutation. 
 
@@ -28,7 +28,7 @@ Remote Schemas
 
 Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema. 
 
-![Remote schema architecture](https://hasura.io/docs/1.0/_images/remote-schema-arch1.png)
+![Remote schema architecture](https://hasura.io/docs/latest/_images/remote-schema-arch1.png)
 
 If you are choosing between Actions and Remote Schemas, here's something to keep in mind:
 - Use Remote Schemas if you have a GraphQL server or if you're comfortable building one yourself. 

@@ -15,11 +15,11 @@ Open `src/Main.elm` and add the following code:
 ```
 
 port createSubscriptionToOnlineUsers : ( String, String ) -> Cmd msg
-port gotOnlineUsers : (Json.Decode.Value -> msg) -> Sub msg
+port gotOnlineUsers : (Decode.Value -> msg) -> Sub msg
 
 +port createSubscriptionToPublicTodos : ( String, String ) -> Cmd msg
 +
-+port gotRecentPublicTodoItem : (Json.Decode.Value -> msg) -> Sub msg
++port gotRecentPublicTodoItem : (Decode.Value -> msg) -> Sub msg
 ```
 
 We are creating two more ports to query latest public todo.
@@ -50,10 +50,10 @@ onlineUsersSelection =
 +    Present limit
 +
 +
-+lteLastTodoId : Int -> OptionalArgument Integer_comparison_exp
++lteLastTodoId : Int -> OptionalArgument Int_comparison_exp
 +lteLastTodoId id =
 +    Present
-+        (buildInteger_comparison_exp
++        (buildInt_comparison_exp
 +            (\args ->
 +                { args
 +                    | lte_ = Present id
@@ -107,6 +107,11 @@ onlineUsersSelection =
 ### Add/Update Data Types
 
 ```
+type alias OnlineUsersData =
+    RemoteData Decode.Error OnlineUsers
+
++type alias PublicDataFetched =
++    RemoteData (Graphql.Http.Error Todos) Todos
 
 
 initialize : Model
@@ -172,15 +177,20 @@ type Msg
     | DeleteAllCompletedItems
     | Tick Time.Posix
     | UpdateLastSeen UpdateLastSeenResponse
-    | GotOnlineUsers Json.Decode.Value
-+   | RecentPublicTodoReceived Json.Decode.Value
-+		| FetchPublicDataSuccess PublicDataFetched
+    | GotOnlineUsers Decode.Value
++   | RecentPublicTodoReceived Decode.Value
++	| FetchPublicDataSuccess PublicDataFetched
 ```
 
 
 ### Handle new Msg types in update
 
 ```
+
+-- Imports --
++import Array
+
+-- Update --
         UpdateLastSeen _ ->
             ( model
             , Cmd.none
@@ -189,14 +199,14 @@ type Msg
         GotOnlineUsers data ->
             let
                 remoteData =
-                    Json.Decode.decodeValue (onlineUsersSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
+                    Decode.decodeValue (onlineUsersSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
             in
             ( { model | online_users = remoteData }, Cmd.none )
 
 +       RecentPublicTodoReceived data ->
 +           let
 +               remoteData =
-+                   Json.Decode.decodeValue (publicListSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
++                   Decode.decodeValue (publicListSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
 +           in
 +           case remoteData of
 +               RemoteData.Success recentData ->
@@ -296,34 +306,34 @@ document.addEventListener("DOMContentLoaded", function() {
 ### Remove dummy values
 
 ```
-+ seedIds : List Int
-+ seedIds =
-+     [ 1, 2 ]
-+ 
-+ 
-+ publicSeedIds : List Int
-+ publicSeedIds =
-+     [ 1, 2, 3, 4 ]
-+ 
-+ 
-+ todoPublicPlaceholder : String
-+ todoPublicPlaceholder =
-+     "This is public todo"
-+ 
-+ 
-+ generateUser : Int -> User
-+ generateUser id =
-+     User ("someUser" ++ String.fromInt id)
-+ 
-+ 
-+ generatePublicTodo : String -> Int -> Todo
-+ generatePublicTodo placeholder id =
-+     Todo id ("User" ++ String.fromInt id) False (placeholder ++ " " ++ String.fromInt id) (generateUser id)
-+ 
-+ 
-+ getPublicTodos : Todos
-+ getPublicTodos =
-+     List.map (generatePublicTodo todoPublicPlaceholder) publicSeedIds
+- seedIds : List Int
+- seedIds =
+-     [ 1, 2 ]
+- 
+- 
+- publicSeedIds : List Int
+- publicSeedIds =
+-     [ 1, 2, 3, 4 ]
+- 
+- 
+- todoPublicPlaceholder : String
+- todoPublicPlaceholder =
+-     "This is public todo"
+- 
+- 
+- generateUser : Int -> User
+- generateUser id =
+-     User ("someUser" ++ String.fromInt id)
+- 
+- 
+- generatePublicTodo : String -> Int -> Todo
+- generatePublicTodo placeholder id =
+-     Todo id ("User" ++ String.fromInt id) False (placeholder ++ " " ++ String.fromInt id) (generateUser id)
+- 
+- 
+- getPublicTodos : Todos
+- getPublicTodos =
+-     List.map (generatePublicTodo todoPublicPlaceholder) publicSeedIds
 
 ```
 

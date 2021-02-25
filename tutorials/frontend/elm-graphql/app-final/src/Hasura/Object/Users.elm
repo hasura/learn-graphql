@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Object.Users exposing (TodosOptionalArguments, id, name, todos)
+module Hasura.Object.Users exposing (..)
 
 import Graphql.Internal.Builder.Argument as Argument exposing (Argument)
 import Graphql.Internal.Builder.Object as Object
@@ -48,7 +48,10 @@ type alias TodosOptionalArguments =
   - where\_ - filter the rows returned
 
 -}
-todos : (TodosOptionalArguments -> TodosOptionalArguments) -> SelectionSet decodesTo Hasura.Object.Todos -> SelectionSet (List decodesTo) Hasura.Object.Users
+todos :
+    (TodosOptionalArguments -> TodosOptionalArguments)
+    -> SelectionSet decodesTo Hasura.Object.Todos
+    -> SelectionSet (List decodesTo) Hasura.Object.Users
 todos fillInOptionals object_ =
     let
         filledInOptionals =

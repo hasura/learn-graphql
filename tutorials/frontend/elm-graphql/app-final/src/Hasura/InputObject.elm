@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.InputObject exposing (Boolean_comparison_exp, Boolean_comparison_expOptionalFields, Integer_comparison_exp, Integer_comparison_expOptionalFields, Online_users_bool_exp(..), Online_users_bool_expOptionalFields, Online_users_bool_expRaw, Online_users_order_by, Online_users_order_byOptionalFields, Text_comparison_exp, Text_comparison_expOptionalFields, Timestamptz_comparison_exp, Timestamptz_comparison_expOptionalFields, Todos_arr_rel_insert_input, Todos_arr_rel_insert_inputOptionalFields, Todos_arr_rel_insert_inputRequiredFields, Todos_bool_exp(..), Todos_bool_expOptionalFields, Todos_bool_expRaw, Todos_insert_input, Todos_insert_inputOptionalFields, Todos_obj_rel_insert_input, Todos_obj_rel_insert_inputOptionalFields, Todos_obj_rel_insert_inputRequiredFields, Todos_on_conflict, Todos_on_conflictRequiredFields, Todos_order_by, Todos_order_byOptionalFields, Todos_set_input, Todos_set_inputOptionalFields, Users_bool_exp(..), Users_bool_expOptionalFields, Users_bool_expRaw, Users_on_conflict, Users_on_conflictRequiredFields, Users_order_by, Users_order_byOptionalFields, Users_set_input, Users_set_inputOptionalFields, buildBoolean_comparison_exp, buildInteger_comparison_exp, buildOnline_users_bool_exp, buildOnline_users_order_by, buildText_comparison_exp, buildTimestamptz_comparison_exp, buildTodos_arr_rel_insert_input, buildTodos_bool_exp, buildTodos_insert_input, buildTodos_obj_rel_insert_input, buildTodos_on_conflict, buildTodos_order_by, buildTodos_set_input, buildUsers_bool_exp, buildUsers_on_conflict, buildUsers_order_by, buildUsers_set_input, encodeBoolean_comparison_exp, encodeInteger_comparison_exp, encodeOnline_users_bool_exp, encodeOnline_users_order_by, encodeText_comparison_exp, encodeTimestamptz_comparison_exp, encodeTodos_arr_rel_insert_input, encodeTodos_bool_exp, encodeTodos_insert_input, encodeTodos_obj_rel_insert_input, encodeTodos_on_conflict, encodeTodos_order_by, encodeTodos_set_input, encodeUsers_bool_exp, encodeUsers_on_conflict, encodeUsers_order_by, encodeUsers_set_input)
+module Hasura.InputObject exposing (..)
 
 import Graphql.Internal.Builder.Argument as Argument exposing (Argument)
 import Graphql.Internal.Builder.Object as Object
@@ -22,7 +22,9 @@ import Hasura.Union
 import Json.Decode as Decode
 
 
-buildBoolean_comparison_exp : (Boolean_comparison_expOptionalFields -> Boolean_comparison_expOptionalFields) -> Boolean_comparison_exp
+buildBoolean_comparison_exp :
+    (Boolean_comparison_expOptionalFields -> Boolean_comparison_expOptionalFields)
+    -> Boolean_comparison_exp
 buildBoolean_comparison_exp fillOptionals =
     let
         optionals =
@@ -36,12 +38,12 @@ type alias Boolean_comparison_expOptionalFields =
     { eq_ : OptionalArgument Bool
     , gt_ : OptionalArgument Bool
     , gte_ : OptionalArgument Bool
-    , in_ : OptionalArgument (List (Maybe Bool))
+    , in_ : OptionalArgument (List Bool)
     , is_null_ : OptionalArgument Bool
     , lt_ : OptionalArgument Bool
     , lte_ : OptionalArgument Bool
     , neq_ : OptionalArgument Bool
-    , nin_ : OptionalArgument (List (Maybe Bool))
+    , nin_ : OptionalArgument (List Bool)
     }
 
 
@@ -51,12 +53,12 @@ type alias Boolean_comparison_exp =
     { eq_ : OptionalArgument Bool
     , gt_ : OptionalArgument Bool
     , gte_ : OptionalArgument Bool
-    , in_ : OptionalArgument (List (Maybe Bool))
+    , in_ : OptionalArgument (List Bool)
     , is_null_ : OptionalArgument Bool
     , lt_ : OptionalArgument Bool
     , lte_ : OptionalArgument Bool
     , neq_ : OptionalArgument Bool
-    , nin_ : OptionalArgument (List (Maybe Bool))
+    , nin_ : OptionalArgument (List Bool)
     }
 
 
@@ -65,11 +67,13 @@ type alias Boolean_comparison_exp =
 encodeBoolean_comparison_exp : Boolean_comparison_exp -> Value
 encodeBoolean_comparison_exp input =
     Encode.maybeObject
-        [ ( "_eq", Encode.bool |> Encode.optional input.eq_ ), ( "_gt", Encode.bool |> Encode.optional input.gt_ ), ( "_gte", Encode.bool |> Encode.optional input.gte_ ), ( "_in", (Encode.bool |> Encode.maybe |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_lt", Encode.bool |> Encode.optional input.lt_ ), ( "_lte", Encode.bool |> Encode.optional input.lte_ ), ( "_neq", Encode.bool |> Encode.optional input.neq_ ), ( "_nin", (Encode.bool |> Encode.maybe |> Encode.list) |> Encode.optional input.nin_ ) ]
+        [ ( "_eq", Encode.bool |> Encode.optional input.eq_ ), ( "_gt", Encode.bool |> Encode.optional input.gt_ ), ( "_gte", Encode.bool |> Encode.optional input.gte_ ), ( "_in", (Encode.bool |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_lt", Encode.bool |> Encode.optional input.lt_ ), ( "_lte", Encode.bool |> Encode.optional input.lte_ ), ( "_neq", Encode.bool |> Encode.optional input.neq_ ), ( "_nin", (Encode.bool |> Encode.list) |> Encode.optional input.nin_ ) ]
 
 
-buildInteger_comparison_exp : (Integer_comparison_expOptionalFields -> Integer_comparison_expOptionalFields) -> Integer_comparison_exp
-buildInteger_comparison_exp fillOptionals =
+buildInt_comparison_exp :
+    (Int_comparison_expOptionalFields -> Int_comparison_expOptionalFields)
+    -> Int_comparison_exp
+buildInt_comparison_exp fillOptionals =
     let
         optionals =
             fillOptionals
@@ -78,43 +82,45 @@ buildInteger_comparison_exp fillOptionals =
     { eq_ = optionals.eq_, gt_ = optionals.gt_, gte_ = optionals.gte_, in_ = optionals.in_, is_null_ = optionals.is_null_, lt_ = optionals.lt_, lte_ = optionals.lte_, neq_ = optionals.neq_, nin_ = optionals.nin_ }
 
 
-type alias Integer_comparison_expOptionalFields =
+type alias Int_comparison_expOptionalFields =
     { eq_ : OptionalArgument Int
     , gt_ : OptionalArgument Int
     , gte_ : OptionalArgument Int
-    , in_ : OptionalArgument (List (Maybe Int))
+    , in_ : OptionalArgument (List Int)
     , is_null_ : OptionalArgument Bool
     , lt_ : OptionalArgument Int
     , lte_ : OptionalArgument Int
     , neq_ : OptionalArgument Int
-    , nin_ : OptionalArgument (List (Maybe Int))
+    , nin_ : OptionalArgument (List Int)
     }
 
 
-{-| Type for the Integer\_comparison\_exp input object.
+{-| Type for the Int\_comparison\_exp input object.
 -}
-type alias Integer_comparison_exp =
+type alias Int_comparison_exp =
     { eq_ : OptionalArgument Int
     , gt_ : OptionalArgument Int
     , gte_ : OptionalArgument Int
-    , in_ : OptionalArgument (List (Maybe Int))
+    , in_ : OptionalArgument (List Int)
     , is_null_ : OptionalArgument Bool
     , lt_ : OptionalArgument Int
     , lte_ : OptionalArgument Int
     , neq_ : OptionalArgument Int
-    , nin_ : OptionalArgument (List (Maybe Int))
+    , nin_ : OptionalArgument (List Int)
     }
 
 
-{-| Encode a Integer\_comparison\_exp into a value that can be used as an argument.
+{-| Encode a Int\_comparison\_exp into a value that can be used as an argument.
 -}
-encodeInteger_comparison_exp : Integer_comparison_exp -> Value
-encodeInteger_comparison_exp input =
+encodeInt_comparison_exp : Int_comparison_exp -> Value
+encodeInt_comparison_exp input =
     Encode.maybeObject
-        [ ( "_eq", Encode.int |> Encode.optional input.eq_ ), ( "_gt", Encode.int |> Encode.optional input.gt_ ), ( "_gte", Encode.int |> Encode.optional input.gte_ ), ( "_in", (Encode.int |> Encode.maybe |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_lt", Encode.int |> Encode.optional input.lt_ ), ( "_lte", Encode.int |> Encode.optional input.lte_ ), ( "_neq", Encode.int |> Encode.optional input.neq_ ), ( "_nin", (Encode.int |> Encode.maybe |> Encode.list) |> Encode.optional input.nin_ ) ]
+        [ ( "_eq", Encode.int |> Encode.optional input.eq_ ), ( "_gt", Encode.int |> Encode.optional input.gt_ ), ( "_gte", Encode.int |> Encode.optional input.gte_ ), ( "_in", (Encode.int |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_lt", Encode.int |> Encode.optional input.lt_ ), ( "_lte", Encode.int |> Encode.optional input.lte_ ), ( "_neq", Encode.int |> Encode.optional input.neq_ ), ( "_nin", (Encode.int |> Encode.list) |> Encode.optional input.nin_ ) ]
 
 
-buildOnline_users_bool_exp : (Online_users_bool_expOptionalFields -> Online_users_bool_expOptionalFields) -> Online_users_bool_exp
+buildOnline_users_bool_exp :
+    (Online_users_bool_expOptionalFields -> Online_users_bool_expOptionalFields)
+    -> Online_users_bool_exp
 buildOnline_users_bool_exp fillOptionals =
     let
         optionals =
@@ -128,7 +134,7 @@ type alias Online_users_bool_expOptionalFields =
     { and_ : OptionalArgument (List (Maybe Online_users_bool_exp))
     , not_ : OptionalArgument Online_users_bool_exp
     , or_ : OptionalArgument (List (Maybe Online_users_bool_exp))
-    , id : OptionalArgument Text_comparison_exp
+    , id : OptionalArgument String_comparison_exp
     , last_seen : OptionalArgument Timestamptz_comparison_exp
     , user : OptionalArgument Users_bool_exp
     }
@@ -143,7 +149,7 @@ type alias Online_users_bool_expRaw =
     { and_ : OptionalArgument (List (Maybe Online_users_bool_exp))
     , not_ : OptionalArgument Online_users_bool_exp
     , or_ : OptionalArgument (List (Maybe Online_users_bool_exp))
-    , id : OptionalArgument Text_comparison_exp
+    , id : OptionalArgument String_comparison_exp
     , last_seen : OptionalArgument Timestamptz_comparison_exp
     , user : OptionalArgument Users_bool_exp
     }
@@ -160,10 +166,12 @@ type Online_users_bool_exp
 encodeOnline_users_bool_exp : Online_users_bool_exp -> Value
 encodeOnline_users_bool_exp (Online_users_bool_exp input) =
     Encode.maybeObject
-        [ ( "_and", (encodeOnline_users_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.and_ ), ( "_not", encodeOnline_users_bool_exp |> Encode.optional input.not_ ), ( "_or", (encodeOnline_users_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.or_ ), ( "id", encodeText_comparison_exp |> Encode.optional input.id ), ( "last_seen", encodeTimestamptz_comparison_exp |> Encode.optional input.last_seen ), ( "user", encodeUsers_bool_exp |> Encode.optional input.user ) ]
+        [ ( "_and", (encodeOnline_users_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.and_ ), ( "_not", encodeOnline_users_bool_exp |> Encode.optional input.not_ ), ( "_or", (encodeOnline_users_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.or_ ), ( "id", encodeString_comparison_exp |> Encode.optional input.id ), ( "last_seen", encodeTimestamptz_comparison_exp |> Encode.optional input.last_seen ), ( "user", encodeUsers_bool_exp |> Encode.optional input.user ) ]
 
 
-buildOnline_users_order_by : (Online_users_order_byOptionalFields -> Online_users_order_byOptionalFields) -> Online_users_order_by
+buildOnline_users_order_by :
+    (Online_users_order_byOptionalFields -> Online_users_order_byOptionalFields)
+    -> Online_users_order_by
 buildOnline_users_order_by fillOptionals =
     let
         optionals =
@@ -197,8 +205,10 @@ encodeOnline_users_order_by input =
         [ ( "id", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.id ), ( "last_seen", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.last_seen ), ( "user", encodeUsers_order_by |> Encode.optional input.user ) ]
 
 
-buildText_comparison_exp : (Text_comparison_expOptionalFields -> Text_comparison_expOptionalFields) -> Text_comparison_exp
-buildText_comparison_exp fillOptionals =
+buildString_comparison_exp :
+    (String_comparison_expOptionalFields -> String_comparison_expOptionalFields)
+    -> String_comparison_exp
+buildString_comparison_exp fillOptionals =
     let
         optionals =
             fillOptionals
@@ -207,55 +217,57 @@ buildText_comparison_exp fillOptionals =
     { eq_ = optionals.eq_, gt_ = optionals.gt_, gte_ = optionals.gte_, ilike_ = optionals.ilike_, in_ = optionals.in_, is_null_ = optionals.is_null_, like_ = optionals.like_, lt_ = optionals.lt_, lte_ = optionals.lte_, neq_ = optionals.neq_, nilike_ = optionals.nilike_, nin_ = optionals.nin_, nlike_ = optionals.nlike_, nsimilar_ = optionals.nsimilar_, similar_ = optionals.similar_ }
 
 
-type alias Text_comparison_expOptionalFields =
+type alias String_comparison_expOptionalFields =
     { eq_ : OptionalArgument String
     , gt_ : OptionalArgument String
     , gte_ : OptionalArgument String
     , ilike_ : OptionalArgument String
-    , in_ : OptionalArgument (List (Maybe String))
+    , in_ : OptionalArgument (List String)
     , is_null_ : OptionalArgument Bool
     , like_ : OptionalArgument String
     , lt_ : OptionalArgument String
     , lte_ : OptionalArgument String
     , neq_ : OptionalArgument String
     , nilike_ : OptionalArgument String
-    , nin_ : OptionalArgument (List (Maybe String))
+    , nin_ : OptionalArgument (List String)
     , nlike_ : OptionalArgument String
     , nsimilar_ : OptionalArgument String
     , similar_ : OptionalArgument String
     }
 
 
-{-| Type for the Text\_comparison\_exp input object.
+{-| Type for the String\_comparison\_exp input object.
 -}
-type alias Text_comparison_exp =
+type alias String_comparison_exp =
     { eq_ : OptionalArgument String
     , gt_ : OptionalArgument String
     , gte_ : OptionalArgument String
     , ilike_ : OptionalArgument String
-    , in_ : OptionalArgument (List (Maybe String))
+    , in_ : OptionalArgument (List String)
     , is_null_ : OptionalArgument Bool
     , like_ : OptionalArgument String
     , lt_ : OptionalArgument String
     , lte_ : OptionalArgument String
     , neq_ : OptionalArgument String
     , nilike_ : OptionalArgument String
-    , nin_ : OptionalArgument (List (Maybe String))
+    , nin_ : OptionalArgument (List String)
     , nlike_ : OptionalArgument String
     , nsimilar_ : OptionalArgument String
     , similar_ : OptionalArgument String
     }
 
 
-{-| Encode a Text\_comparison\_exp into a value that can be used as an argument.
+{-| Encode a String\_comparison\_exp into a value that can be used as an argument.
 -}
-encodeText_comparison_exp : Text_comparison_exp -> Value
-encodeText_comparison_exp input =
+encodeString_comparison_exp : String_comparison_exp -> Value
+encodeString_comparison_exp input =
     Encode.maybeObject
-        [ ( "_eq", Encode.string |> Encode.optional input.eq_ ), ( "_gt", Encode.string |> Encode.optional input.gt_ ), ( "_gte", Encode.string |> Encode.optional input.gte_ ), ( "_ilike", Encode.string |> Encode.optional input.ilike_ ), ( "_in", (Encode.string |> Encode.maybe |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_like", Encode.string |> Encode.optional input.like_ ), ( "_lt", Encode.string |> Encode.optional input.lt_ ), ( "_lte", Encode.string |> Encode.optional input.lte_ ), ( "_neq", Encode.string |> Encode.optional input.neq_ ), ( "_nilike", Encode.string |> Encode.optional input.nilike_ ), ( "_nin", (Encode.string |> Encode.maybe |> Encode.list) |> Encode.optional input.nin_ ), ( "_nlike", Encode.string |> Encode.optional input.nlike_ ), ( "_nsimilar", Encode.string |> Encode.optional input.nsimilar_ ), ( "_similar", Encode.string |> Encode.optional input.similar_ ) ]
+        [ ( "_eq", Encode.string |> Encode.optional input.eq_ ), ( "_gt", Encode.string |> Encode.optional input.gt_ ), ( "_gte", Encode.string |> Encode.optional input.gte_ ), ( "_ilike", Encode.string |> Encode.optional input.ilike_ ), ( "_in", (Encode.string |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_like", Encode.string |> Encode.optional input.like_ ), ( "_lt", Encode.string |> Encode.optional input.lt_ ), ( "_lte", Encode.string |> Encode.optional input.lte_ ), ( "_neq", Encode.string |> Encode.optional input.neq_ ), ( "_nilike", Encode.string |> Encode.optional input.nilike_ ), ( "_nin", (Encode.string |> Encode.list) |> Encode.optional input.nin_ ), ( "_nlike", Encode.string |> Encode.optional input.nlike_ ), ( "_nsimilar", Encode.string |> Encode.optional input.nsimilar_ ), ( "_similar", Encode.string |> Encode.optional input.similar_ ) ]
 
 
-buildTimestamptz_comparison_exp : (Timestamptz_comparison_expOptionalFields -> Timestamptz_comparison_expOptionalFields) -> Timestamptz_comparison_exp
+buildTimestamptz_comparison_exp :
+    (Timestamptz_comparison_expOptionalFields -> Timestamptz_comparison_expOptionalFields)
+    -> Timestamptz_comparison_exp
 buildTimestamptz_comparison_exp fillOptionals =
     let
         optionals =
@@ -269,12 +281,12 @@ type alias Timestamptz_comparison_expOptionalFields =
     { eq_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , gt_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , gte_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
-    , in_ : OptionalArgument (List (Maybe Hasura.ScalarCodecs.Timestamptz))
+    , in_ : OptionalArgument (List Hasura.ScalarCodecs.Timestamptz)
     , is_null_ : OptionalArgument Bool
     , lt_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , lte_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , neq_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
-    , nin_ : OptionalArgument (List (Maybe Hasura.ScalarCodecs.Timestamptz))
+    , nin_ : OptionalArgument (List Hasura.ScalarCodecs.Timestamptz)
     }
 
 
@@ -284,12 +296,12 @@ type alias Timestamptz_comparison_exp =
     { eq_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , gt_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , gte_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
-    , in_ : OptionalArgument (List (Maybe Hasura.ScalarCodecs.Timestamptz))
+    , in_ : OptionalArgument (List Hasura.ScalarCodecs.Timestamptz)
     , is_null_ : OptionalArgument Bool
     , lt_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , lte_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
     , neq_ : OptionalArgument Hasura.ScalarCodecs.Timestamptz
-    , nin_ : OptionalArgument (List (Maybe Hasura.ScalarCodecs.Timestamptz))
+    , nin_ : OptionalArgument (List Hasura.ScalarCodecs.Timestamptz)
     }
 
 
@@ -298,17 +310,20 @@ type alias Timestamptz_comparison_exp =
 encodeTimestamptz_comparison_exp : Timestamptz_comparison_exp -> Value
 encodeTimestamptz_comparison_exp input =
     Encode.maybeObject
-        [ ( "_eq", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.eq_ ), ( "_gt", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.gt_ ), ( "_gte", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.gte_ ), ( "_in", ((Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.maybe |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_lt", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.lt_ ), ( "_lte", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.lte_ ), ( "_neq", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.neq_ ), ( "_nin", ((Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.maybe |> Encode.list) |> Encode.optional input.nin_ ) ]
+        [ ( "_eq", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.eq_ ), ( "_gt", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.gt_ ), ( "_gte", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.gte_ ), ( "_in", ((Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.list) |> Encode.optional input.in_ ), ( "_is_null", Encode.bool |> Encode.optional input.is_null_ ), ( "_lt", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.lt_ ), ( "_lte", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.lte_ ), ( "_neq", (Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.optional input.neq_ ), ( "_nin", ((Hasura.ScalarCodecs.codecs |> Hasura.Scalar.unwrapEncoder .codecTimestamptz) |> Encode.list) |> Encode.optional input.nin_ ) ]
 
 
-buildTodos_arr_rel_insert_input : Todos_arr_rel_insert_inputRequiredFields -> (Todos_arr_rel_insert_inputOptionalFields -> Todos_arr_rel_insert_inputOptionalFields) -> Todos_arr_rel_insert_input
+buildTodos_arr_rel_insert_input :
+    Todos_arr_rel_insert_inputRequiredFields
+    -> (Todos_arr_rel_insert_inputOptionalFields -> Todos_arr_rel_insert_inputOptionalFields)
+    -> Todos_arr_rel_insert_input
 buildTodos_arr_rel_insert_input required fillOptionals =
     let
         optionals =
             fillOptionals
                 { on_conflict = Absent }
     in
-    { data = required.data, on_conflict = optionals.on_conflict }
+    Todos_arr_rel_insert_input { data = required.data, on_conflict = optionals.on_conflict }
 
 
 type alias Todos_arr_rel_insert_inputRequiredFields =
@@ -319,23 +334,34 @@ type alias Todos_arr_rel_insert_inputOptionalFields =
     { on_conflict : OptionalArgument Todos_on_conflict }
 
 
-{-| Type for the Todos\_arr\_rel\_insert\_input input object.
+{-| Type alias for the `Todos_arr_rel_insert_input` attributes. Note that this type
+needs to use the `Todos_arr_rel_insert_input` type (not just a plain type alias) because it has
+references to itself either directly (recursive) or indirectly (circular). See
+<https://github.com/dillonkearns/elm-graphql/issues/33>.
 -}
-type alias Todos_arr_rel_insert_input =
+type alias Todos_arr_rel_insert_inputRaw =
     { data : List Todos_insert_input
     , on_conflict : OptionalArgument Todos_on_conflict
     }
 
 
+{-| Type for the Todos\_arr\_rel\_insert\_input input object.
+-}
+type Todos_arr_rel_insert_input
+    = Todos_arr_rel_insert_input Todos_arr_rel_insert_inputRaw
+
+
 {-| Encode a Todos\_arr\_rel\_insert\_input into a value that can be used as an argument.
 -}
 encodeTodos_arr_rel_insert_input : Todos_arr_rel_insert_input -> Value
-encodeTodos_arr_rel_insert_input input =
+encodeTodos_arr_rel_insert_input (Todos_arr_rel_insert_input input) =
     Encode.maybeObject
         [ ( "data", (encodeTodos_insert_input |> Encode.list) input.data |> Just ), ( "on_conflict", encodeTodos_on_conflict |> Encode.optional input.on_conflict ) ]
 
 
-buildTodos_bool_exp : (Todos_bool_expOptionalFields -> Todos_bool_expOptionalFields) -> Todos_bool_exp
+buildTodos_bool_exp :
+    (Todos_bool_expOptionalFields -> Todos_bool_expOptionalFields)
+    -> Todos_bool_exp
 buildTodos_bool_exp fillOptionals =
     let
         optionals =
@@ -350,12 +376,12 @@ type alias Todos_bool_expOptionalFields =
     , not_ : OptionalArgument Todos_bool_exp
     , or_ : OptionalArgument (List (Maybe Todos_bool_exp))
     , created_at : OptionalArgument Timestamptz_comparison_exp
-    , id : OptionalArgument Integer_comparison_exp
+    , id : OptionalArgument Int_comparison_exp
     , is_completed : OptionalArgument Boolean_comparison_exp
     , is_public : OptionalArgument Boolean_comparison_exp
-    , title : OptionalArgument Text_comparison_exp
+    , title : OptionalArgument String_comparison_exp
     , user : OptionalArgument Users_bool_exp
-    , user_id : OptionalArgument Text_comparison_exp
+    , user_id : OptionalArgument String_comparison_exp
     }
 
 
@@ -369,12 +395,12 @@ type alias Todos_bool_expRaw =
     , not_ : OptionalArgument Todos_bool_exp
     , or_ : OptionalArgument (List (Maybe Todos_bool_exp))
     , created_at : OptionalArgument Timestamptz_comparison_exp
-    , id : OptionalArgument Integer_comparison_exp
+    , id : OptionalArgument Int_comparison_exp
     , is_completed : OptionalArgument Boolean_comparison_exp
     , is_public : OptionalArgument Boolean_comparison_exp
-    , title : OptionalArgument Text_comparison_exp
+    , title : OptionalArgument String_comparison_exp
     , user : OptionalArgument Users_bool_exp
-    , user_id : OptionalArgument Text_comparison_exp
+    , user_id : OptionalArgument String_comparison_exp
     }
 
 
@@ -389,10 +415,12 @@ type Todos_bool_exp
 encodeTodos_bool_exp : Todos_bool_exp -> Value
 encodeTodos_bool_exp (Todos_bool_exp input) =
     Encode.maybeObject
-        [ ( "_and", (encodeTodos_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.and_ ), ( "_not", encodeTodos_bool_exp |> Encode.optional input.not_ ), ( "_or", (encodeTodos_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.or_ ), ( "created_at", encodeTimestamptz_comparison_exp |> Encode.optional input.created_at ), ( "id", encodeInteger_comparison_exp |> Encode.optional input.id ), ( "is_completed", encodeBoolean_comparison_exp |> Encode.optional input.is_completed ), ( "is_public", encodeBoolean_comparison_exp |> Encode.optional input.is_public ), ( "title", encodeText_comparison_exp |> Encode.optional input.title ), ( "user", encodeUsers_bool_exp |> Encode.optional input.user ), ( "user_id", encodeText_comparison_exp |> Encode.optional input.user_id ) ]
+        [ ( "_and", (encodeTodos_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.and_ ), ( "_not", encodeTodos_bool_exp |> Encode.optional input.not_ ), ( "_or", (encodeTodos_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.or_ ), ( "created_at", encodeTimestamptz_comparison_exp |> Encode.optional input.created_at ), ( "id", encodeInt_comparison_exp |> Encode.optional input.id ), ( "is_completed", encodeBoolean_comparison_exp |> Encode.optional input.is_completed ), ( "is_public", encodeBoolean_comparison_exp |> Encode.optional input.is_public ), ( "title", encodeString_comparison_exp |> Encode.optional input.title ), ( "user", encodeUsers_bool_exp |> Encode.optional input.user ), ( "user_id", encodeString_comparison_exp |> Encode.optional input.user_id ) ]
 
 
-buildTodos_insert_input : (Todos_insert_inputOptionalFields -> Todos_insert_inputOptionalFields) -> Todos_insert_input
+buildTodos_insert_input :
+    (Todos_insert_inputOptionalFields -> Todos_insert_inputOptionalFields)
+    -> Todos_insert_input
 buildTodos_insert_input fillOptionals =
     let
         optionals =
@@ -424,14 +452,17 @@ encodeTodos_insert_input input =
         [ ( "is_public", Encode.bool |> Encode.optional input.is_public ), ( "title", Encode.string |> Encode.optional input.title ) ]
 
 
-buildTodos_obj_rel_insert_input : Todos_obj_rel_insert_inputRequiredFields -> (Todos_obj_rel_insert_inputOptionalFields -> Todos_obj_rel_insert_inputOptionalFields) -> Todos_obj_rel_insert_input
+buildTodos_obj_rel_insert_input :
+    Todos_obj_rel_insert_inputRequiredFields
+    -> (Todos_obj_rel_insert_inputOptionalFields -> Todos_obj_rel_insert_inputOptionalFields)
+    -> Todos_obj_rel_insert_input
 buildTodos_obj_rel_insert_input required fillOptionals =
     let
         optionals =
             fillOptionals
                 { on_conflict = Absent }
     in
-    { data = required.data, on_conflict = optionals.on_conflict }
+    Todos_obj_rel_insert_input { data = required.data, on_conflict = optionals.on_conflict }
 
 
 type alias Todos_obj_rel_insert_inputRequiredFields =
@@ -442,25 +473,42 @@ type alias Todos_obj_rel_insert_inputOptionalFields =
     { on_conflict : OptionalArgument Todos_on_conflict }
 
 
-{-| Type for the Todos\_obj\_rel\_insert\_input input object.
+{-| Type alias for the `Todos_obj_rel_insert_input` attributes. Note that this type
+needs to use the `Todos_obj_rel_insert_input` type (not just a plain type alias) because it has
+references to itself either directly (recursive) or indirectly (circular). See
+<https://github.com/dillonkearns/elm-graphql/issues/33>.
 -}
-type alias Todos_obj_rel_insert_input =
+type alias Todos_obj_rel_insert_inputRaw =
     { data : Todos_insert_input
     , on_conflict : OptionalArgument Todos_on_conflict
     }
 
 
+{-| Type for the Todos\_obj\_rel\_insert\_input input object.
+-}
+type Todos_obj_rel_insert_input
+    = Todos_obj_rel_insert_input Todos_obj_rel_insert_inputRaw
+
+
 {-| Encode a Todos\_obj\_rel\_insert\_input into a value that can be used as an argument.
 -}
 encodeTodos_obj_rel_insert_input : Todos_obj_rel_insert_input -> Value
-encodeTodos_obj_rel_insert_input input =
+encodeTodos_obj_rel_insert_input (Todos_obj_rel_insert_input input) =
     Encode.maybeObject
         [ ( "data", encodeTodos_insert_input input.data |> Just ), ( "on_conflict", encodeTodos_on_conflict |> Encode.optional input.on_conflict ) ]
 
 
-buildTodos_on_conflict : Todos_on_conflictRequiredFields -> Todos_on_conflict
-buildTodos_on_conflict required =
-    { constraint = required.constraint, update_columns = required.update_columns }
+buildTodos_on_conflict :
+    Todos_on_conflictRequiredFields
+    -> (Todos_on_conflictOptionalFields -> Todos_on_conflictOptionalFields)
+    -> Todos_on_conflict
+buildTodos_on_conflict required fillOptionals =
+    let
+        optionals =
+            fillOptionals
+                { where_ = Absent }
+    in
+    Todos_on_conflict { constraint = required.constraint, update_columns = required.update_columns, where_ = optionals.where_ }
 
 
 type alias Todos_on_conflictRequiredFields =
@@ -469,23 +517,39 @@ type alias Todos_on_conflictRequiredFields =
     }
 
 
-{-| Type for the Todos\_on\_conflict input object.
+type alias Todos_on_conflictOptionalFields =
+    { where_ : OptionalArgument Todos_bool_exp }
+
+
+{-| Type alias for the `Todos_on_conflict` attributes. Note that this type
+needs to use the `Todos_on_conflict` type (not just a plain type alias) because it has
+references to itself either directly (recursive) or indirectly (circular). See
+<https://github.com/dillonkearns/elm-graphql/issues/33>.
 -}
-type alias Todos_on_conflict =
+type alias Todos_on_conflictRaw =
     { constraint : Hasura.Enum.Todos_constraint.Todos_constraint
     , update_columns : List Hasura.Enum.Todos_update_column.Todos_update_column
+    , where_ : OptionalArgument Todos_bool_exp
     }
+
+
+{-| Type for the Todos\_on\_conflict input object.
+-}
+type Todos_on_conflict
+    = Todos_on_conflict Todos_on_conflictRaw
 
 
 {-| Encode a Todos\_on\_conflict into a value that can be used as an argument.
 -}
 encodeTodos_on_conflict : Todos_on_conflict -> Value
-encodeTodos_on_conflict input =
+encodeTodos_on_conflict (Todos_on_conflict input) =
     Encode.maybeObject
-        [ ( "constraint", Encode.enum Hasura.Enum.Todos_constraint.toString input.constraint |> Just ), ( "update_columns", (Encode.enum Hasura.Enum.Todos_update_column.toString |> Encode.list) input.update_columns |> Just ) ]
+        [ ( "constraint", Encode.enum Hasura.Enum.Todos_constraint.toString input.constraint |> Just ), ( "update_columns", (Encode.enum Hasura.Enum.Todos_update_column.toString |> Encode.list) input.update_columns |> Just ), ( "where", encodeTodos_bool_exp |> Encode.optional input.where_ ) ]
 
 
-buildTodos_order_by : (Todos_order_byOptionalFields -> Todos_order_byOptionalFields) -> Todos_order_by
+buildTodos_order_by :
+    (Todos_order_byOptionalFields -> Todos_order_byOptionalFields)
+    -> Todos_order_by
 buildTodos_order_by fillOptionals =
     let
         optionals =
@@ -527,7 +591,34 @@ encodeTodos_order_by input =
         [ ( "created_at", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.created_at ), ( "id", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.id ), ( "is_completed", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.is_completed ), ( "is_public", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.is_public ), ( "title", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.title ), ( "user", encodeUsers_order_by |> Encode.optional input.user ), ( "user_id", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.user_id ) ]
 
 
-buildTodos_set_input : (Todos_set_inputOptionalFields -> Todos_set_inputOptionalFields) -> Todos_set_input
+buildTodos_pk_columns_input :
+    Todos_pk_columns_inputRequiredFields
+    -> Todos_pk_columns_input
+buildTodos_pk_columns_input required =
+    { id = required.id }
+
+
+type alias Todos_pk_columns_inputRequiredFields =
+    { id : Int }
+
+
+{-| Type for the Todos\_pk\_columns\_input input object.
+-}
+type alias Todos_pk_columns_input =
+    { id : Int }
+
+
+{-| Encode a Todos\_pk\_columns\_input into a value that can be used as an argument.
+-}
+encodeTodos_pk_columns_input : Todos_pk_columns_input -> Value
+encodeTodos_pk_columns_input input =
+    Encode.maybeObject
+        [ ( "id", Encode.int input.id |> Just ) ]
+
+
+buildTodos_set_input :
+    (Todos_set_inputOptionalFields -> Todos_set_inputOptionalFields)
+    -> Todos_set_input
 buildTodos_set_input fillOptionals =
     let
         optionals =
@@ -559,7 +650,9 @@ encodeTodos_set_input input =
         [ ( "is_completed", Encode.bool |> Encode.optional input.is_completed ), ( "title", Encode.string |> Encode.optional input.title ) ]
 
 
-buildUsers_bool_exp : (Users_bool_expOptionalFields -> Users_bool_expOptionalFields) -> Users_bool_exp
+buildUsers_bool_exp :
+    (Users_bool_expOptionalFields -> Users_bool_expOptionalFields)
+    -> Users_bool_exp
 buildUsers_bool_exp fillOptionals =
     let
         optionals =
@@ -573,8 +666,8 @@ type alias Users_bool_expOptionalFields =
     { and_ : OptionalArgument (List (Maybe Users_bool_exp))
     , not_ : OptionalArgument Users_bool_exp
     , or_ : OptionalArgument (List (Maybe Users_bool_exp))
-    , id : OptionalArgument Text_comparison_exp
-    , name : OptionalArgument Text_comparison_exp
+    , id : OptionalArgument String_comparison_exp
+    , name : OptionalArgument String_comparison_exp
     , todos : OptionalArgument Todos_bool_exp
     }
 
@@ -588,8 +681,8 @@ type alias Users_bool_expRaw =
     { and_ : OptionalArgument (List (Maybe Users_bool_exp))
     , not_ : OptionalArgument Users_bool_exp
     , or_ : OptionalArgument (List (Maybe Users_bool_exp))
-    , id : OptionalArgument Text_comparison_exp
-    , name : OptionalArgument Text_comparison_exp
+    , id : OptionalArgument String_comparison_exp
+    , name : OptionalArgument String_comparison_exp
     , todos : OptionalArgument Todos_bool_exp
     }
 
@@ -605,12 +698,20 @@ type Users_bool_exp
 encodeUsers_bool_exp : Users_bool_exp -> Value
 encodeUsers_bool_exp (Users_bool_exp input) =
     Encode.maybeObject
-        [ ( "_and", (encodeUsers_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.and_ ), ( "_not", encodeUsers_bool_exp |> Encode.optional input.not_ ), ( "_or", (encodeUsers_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.or_ ), ( "id", encodeText_comparison_exp |> Encode.optional input.id ), ( "name", encodeText_comparison_exp |> Encode.optional input.name ), ( "todos", encodeTodos_bool_exp |> Encode.optional input.todos ) ]
+        [ ( "_and", (encodeUsers_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.and_ ), ( "_not", encodeUsers_bool_exp |> Encode.optional input.not_ ), ( "_or", (encodeUsers_bool_exp |> Encode.maybe |> Encode.list) |> Encode.optional input.or_ ), ( "id", encodeString_comparison_exp |> Encode.optional input.id ), ( "name", encodeString_comparison_exp |> Encode.optional input.name ), ( "todos", encodeTodos_bool_exp |> Encode.optional input.todos ) ]
 
 
-buildUsers_on_conflict : Users_on_conflictRequiredFields -> Users_on_conflict
-buildUsers_on_conflict required =
-    { constraint = required.constraint, update_columns = required.update_columns }
+buildUsers_on_conflict :
+    Users_on_conflictRequiredFields
+    -> (Users_on_conflictOptionalFields -> Users_on_conflictOptionalFields)
+    -> Users_on_conflict
+buildUsers_on_conflict required fillOptionals =
+    let
+        optionals =
+            fillOptionals
+                { where_ = Absent }
+    in
+    Users_on_conflict { constraint = required.constraint, update_columns = required.update_columns, where_ = optionals.where_ }
 
 
 type alias Users_on_conflictRequiredFields =
@@ -619,23 +720,39 @@ type alias Users_on_conflictRequiredFields =
     }
 
 
-{-| Type for the Users\_on\_conflict input object.
+type alias Users_on_conflictOptionalFields =
+    { where_ : OptionalArgument Users_bool_exp }
+
+
+{-| Type alias for the `Users_on_conflict` attributes. Note that this type
+needs to use the `Users_on_conflict` type (not just a plain type alias) because it has
+references to itself either directly (recursive) or indirectly (circular). See
+<https://github.com/dillonkearns/elm-graphql/issues/33>.
 -}
-type alias Users_on_conflict =
+type alias Users_on_conflictRaw =
     { constraint : Hasura.Enum.Users_constraint.Users_constraint
     , update_columns : List Hasura.Enum.Users_update_column.Users_update_column
+    , where_ : OptionalArgument Users_bool_exp
     }
+
+
+{-| Type for the Users\_on\_conflict input object.
+-}
+type Users_on_conflict
+    = Users_on_conflict Users_on_conflictRaw
 
 
 {-| Encode a Users\_on\_conflict into a value that can be used as an argument.
 -}
 encodeUsers_on_conflict : Users_on_conflict -> Value
-encodeUsers_on_conflict input =
+encodeUsers_on_conflict (Users_on_conflict input) =
     Encode.maybeObject
-        [ ( "constraint", Encode.enum Hasura.Enum.Users_constraint.toString input.constraint |> Just ), ( "update_columns", (Encode.enum Hasura.Enum.Users_update_column.toString |> Encode.list) input.update_columns |> Just ) ]
+        [ ( "constraint", Encode.enum Hasura.Enum.Users_constraint.toString input.constraint |> Just ), ( "update_columns", (Encode.enum Hasura.Enum.Users_update_column.toString |> Encode.list) input.update_columns |> Just ), ( "where", encodeUsers_bool_exp |> Encode.optional input.where_ ) ]
 
 
-buildUsers_order_by : (Users_order_byOptionalFields -> Users_order_byOptionalFields) -> Users_order_by
+buildUsers_order_by :
+    (Users_order_byOptionalFields -> Users_order_byOptionalFields)
+    -> Users_order_by
 buildUsers_order_by fillOptionals =
     let
         optionals =
@@ -667,7 +784,34 @@ encodeUsers_order_by input =
         [ ( "id", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.id ), ( "name", Encode.enum Hasura.Enum.Order_by.toString |> Encode.optional input.name ) ]
 
 
-buildUsers_set_input : (Users_set_inputOptionalFields -> Users_set_inputOptionalFields) -> Users_set_input
+buildUsers_pk_columns_input :
+    Users_pk_columns_inputRequiredFields
+    -> Users_pk_columns_input
+buildUsers_pk_columns_input required =
+    { id = required.id }
+
+
+type alias Users_pk_columns_inputRequiredFields =
+    { id : String }
+
+
+{-| Type for the Users\_pk\_columns\_input input object.
+-}
+type alias Users_pk_columns_input =
+    { id : String }
+
+
+{-| Encode a Users\_pk\_columns\_input into a value that can be used as an argument.
+-}
+encodeUsers_pk_columns_input : Users_pk_columns_input -> Value
+encodeUsers_pk_columns_input input =
+    Encode.maybeObject
+        [ ( "id", Encode.string input.id |> Just ) ]
+
+
+buildUsers_set_input :
+    (Users_set_inputOptionalFields -> Users_set_inputOptionalFields)
+    -> Users_set_input
 buildUsers_set_input fillOptionals =
     let
         optionals =

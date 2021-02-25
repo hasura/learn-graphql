@@ -4,7 +4,6 @@ port module Main exposing (main)
    Graphql-elm imports
 -}
 
-import Array
 import Browser
 import GraphQLClient exposing (makeGraphQLMutation, makeGraphQLQuery)
 import Graphql.Document
@@ -16,14 +15,14 @@ import Hasura.Enum.Order_by exposing (Order_by(..))
 import Hasura.InputObject
     exposing
         ( Boolean_comparison_exp
-        , Integer_comparison_exp
+        , Int_comparison_exp
         , Todos_bool_exp
         , Todos_insert_input
         , Todos_order_by
         , Todos_set_input
         , Users_set_input
         , buildBoolean_comparison_exp
-        , buildInteger_comparison_exp
+        , buildInt_comparison_exp
         , buildTodos_bool_exp
         , buildTodos_insert_input
         , buildTodos_order_by
@@ -50,7 +49,7 @@ import Hasura.Object.Users_mutation_response as UsersMutation
 import Hasura.Query as Query exposing (TodosOptionalArguments)
 import Hasura.Scalar as Timestamptz exposing (Timestamptz(..))
 import Hasura.Subscription as Subscription
-import Html exposing (Html, a, button, div, form, h1, i, img, input, label, li, nav, p, span, text, ul)
+import Html exposing (Attribute, Html, a, button, div, form, h1, i, img, input, label, li, nav, p, span, text, ul)
 import Html.Attributes
     exposing
         ( checked
@@ -65,26 +64,21 @@ import Html.Attributes
         , type_
         , value
         )
-import Html.Events
-    exposing
-        ( onClick
-        , onInput
-        , onSubmit
-        )
+import Html.Events exposing (keyCode, on, onClick, onInput, onSubmit)
 import Html.Keyed as Keyed
 import Http
 import Iso8601
-import Json.Decode exposing (Decoder, field, int, string)
+import Json.Decode as Decode exposing (Decoder, field, int, string)
 import Json.Encode as Encode
 import RemoteData exposing (RemoteData)
 import Time
+import Array
 
 
 
 {-
    Constants
 -}
-
 
 failMsg : String
 failMsg =
@@ -116,34 +110,20 @@ main =
         }
 
 
-
----- Ports ----
-
-
-port createSubscriptionToOnlineUsers : ( String, String ) -> Cmd msg
-
-
-port gotOnlineUsers : (Json.Decode.Value -> msg) -> Sub msg
-
-
-port createSubscriptionToPublicTodos : ( String, String ) -> Cmd msg
-
-
-port gotRecentPublicTodoItem : (Json.Decode.Value -> msg) -> Sub msg
-
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    case String.length model.authData.authToken of
-        0 ->
-            Sub.none
+    Sub.batch <|
+        [ gotStoredToken GotStoredToken ]
+            ++ (case String.length model.authData.authToken of
+                    0 ->
+                        []
 
-        _ ->
-            Sub.batch
-                [ gotRecentPublicTodoItem RecentPublicTodoReceived
-                , gotOnlineUsers GotOnlineUsers
-                , Time.every 30000 Tick
-                ]
+                    _ ->
+                        [ gotRecentPublicTodoItem RecentPublicTodoReceived
+                        , gotOnlineUsers GotOnlineUsers
+                        , Time.every 30000 Tick
+                        ]
+               )
 
 
 
@@ -178,6 +158,14 @@ type alias OnlineUser =
     }
 
 
+type alias OnlineUsersData =
+    RemoteData Decode.Error OnlineUsers
+
+
+type alias PublicDataFetched =
+    RemoteData (Graphql.Http.Error Todos) Todos
+
+
 type alias MutationResponse =
     { affected_rows : Int
     }
@@ -189,6 +177,26 @@ type alias MaybeMutationResponse =
 
 type GraphQLResponse decodesTo
     = GraphQLResponse (RemoteData (Graphql.Http.Error decodesTo) decodesTo)
+
+
+type alias TodoData =
+    RemoteData (Graphql.Http.Error Todos) Todos
+
+
+type alias UpdateTodoItemResponse =
+    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
+
+
+type alias DeleteTodo =
+    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
+
+
+type alias AllDeleted =
+    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
+
+
+type alias UpdateLastSeenResponse =
+    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
 
 
 type alias PrivateTodo =
@@ -255,34 +263,6 @@ type alias SignupResponseData =
 type DisplayForm
     = Login
     | Signup
-
-
-type alias TodoData =
-    RemoteData (Graphql.Http.Error Todos) Todos
-
-
-type alias UpdateTodoItemResponse =
-    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
-
-
-type alias DeleteTodo =
-    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
-
-
-type alias AllDeleted =
-    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
-
-
-type alias UpdateLastSeenResponse =
-    RemoteData (Graphql.Http.Error (Maybe MutationResponse)) (Maybe MutationResponse)
-
-
-type alias OnlineUsersData =
-    RemoteData Json.Decode.Error OnlineUsers
-
-
-type alias PublicDataFetched =
-    RemoteData (Graphql.Http.Error Todos) Todos
 
 
 type alias Model =
@@ -387,12 +367,6 @@ fetchPrivateTodos authToken =
         (RemoteData.fromResult >> FetchPrivateDataSuccess)
 
 
-
-{-
-   Insert private todo
--}
-
-
 insertTodoObjects : String -> Bool -> Todos_insert_input
 insertTodoObjects newTodo isPublic =
     buildTodos_insert_input
@@ -425,12 +399,6 @@ makeMutation mutation authToken =
     makeGraphQLMutation authToken mutation (RemoteData.fromResult >> GraphQLResponse >> InsertPrivateTodoResponse)
 
 
-
-{-
-   Update todo
--}
-
-
 updateTodoStatus : Int -> Bool -> SelectionSet (Maybe MutationResponse) RootMutation
 updateTodoStatus todoId status =
     Mutation.update_todos (setTodoListUpdateArgs status) (setTodoListUpdateWhere todoId) mutationResponseSelection
@@ -453,9 +421,9 @@ setTodoListUpdateArgs status optionalArgs =
     }
 
 
-setTodoListValueForId : Int -> Integer_comparison_exp
+setTodoListValueForId : Int -> Int_comparison_exp
 setTodoListValueForId todoId =
-    buildInteger_comparison_exp
+    buildInt_comparison_exp
         (\args ->
             { args
                 | eq_ = Present todoId
@@ -481,12 +449,6 @@ updateTodoList mutation authToken =
         authToken
         mutation
         (RemoteData.fromResult >> UpdateTodo)
-
-
-
-{-
-   Delete todo
--}
 
 
 deleteSingleTodo : Int -> SelectionSet (Maybe MutationResponse) RootMutation
@@ -518,12 +480,6 @@ deleteSingleTodoItem mutation authToken =
         authToken
         mutation
         (RemoteData.fromResult >> TodoDeleted)
-
-
-
-{-
-   Delete all completed tasks
--}
 
 
 deleteAllCompletedTodo : SelectionSet (Maybe MutationResponse) RootMutation
@@ -565,12 +521,6 @@ deleteAllCompletedItems mutation authToken =
         authToken
         mutation
         (RemoteData.fromResult >> AllCompletedItemsDeleted)
-
-
-
-{-
-   Update user last_seen
--}
 
 
 updateUserSetArg : String -> Users_set_input
@@ -615,12 +565,6 @@ updateLastSeen authToken updateQuery =
         (RemoteData.fromResult >> UpdateLastSeen)
 
 
-
-{-
-   Subscribe to active users
--}
-
-
 onlineUsersSubscription : SelectionSet OnlineUsers RootSubscription
 onlineUsersSubscription =
     Subscription.online_users identity onlineUsersSelection
@@ -633,12 +577,6 @@ onlineUsersSelection =
         (OnlineUser.user selectUser)
 
 
-
-{-
-   Subscription query to fetch recent todos
--}
-
-
 publicTodoListSubscriptionOptionalArgument : TodosOptionalArguments -> TodosOptionalArguments
 publicTodoListSubscriptionOptionalArgument optionalArgs =
     { optionalArgs | where_ = whereIsPublic True, order_by = orderByCreatedAt Desc, limit = OptionalArgument.Present 1 }
@@ -649,37 +587,15 @@ publicListSubscription =
     Subscription.todos publicTodoListSubscriptionOptionalArgument todoListSelection
 
 
-
-{-
-   Generates argument as below
-   ```
-    limit: <value>,
-    order_by : [
-      {
-        created_at: desc
-      }
-    ],
-     where_ : {
-       id: {
-         _lte: <id>
-       },
-       is_public: {
-         _eq: True
-       }
-     }
-   ```
--}
-
-
 publicTodoListQueryLimit : Int -> OptionalArgument Int
 publicTodoListQueryLimit limit =
     Present limit
 
 
-lteLastTodoId : Int -> OptionalArgument Integer_comparison_exp
+lteLastTodoId : Int -> OptionalArgument Int_comparison_exp
 lteLastTodoId id =
     Present
-        (buildInteger_comparison_exp
+        (buildInt_comparison_exp
             (\args ->
                 { args
                     | lte_ = Present id
@@ -729,16 +645,10 @@ makeRequest query authToken =
         (RemoteData.fromResult >> FetchPublicDataSuccess)
 
 
-
-{-
-   Fetching new todos
--}
-
-
-gtLastTodoId : Int -> OptionalArgument Integer_comparison_exp
+gtLastTodoId : Int -> OptionalArgument Int_comparison_exp
 gtLastTodoId id =
     Present
-        (buildInteger_comparison_exp
+        (buildInt_comparison_exp
             (\args ->
                 { args
                     | gt_ = Present id
@@ -758,7 +668,6 @@ newPublicTodosWhere id =
                 }
             )
         )
-
 
 
 {-
@@ -796,10 +705,10 @@ loadNewTodos q authToken =
     makeGraphQLQuery authToken q (RemoteData.fromResult >> FetchNewTodoDataSuccess)
 
 
-ltLastTodoId : Int -> OptionalArgument Integer_comparison_exp
+ltLastTodoId : Int -> OptionalArgument Int_comparison_exp
 ltLastTodoId id =
     Present
-        (buildInteger_comparison_exp
+        (buildInt_comparison_exp
             (\args ->
                 { args
                     | lt_ = Present id
@@ -834,7 +743,6 @@ oldTodoQuery id =
 loadOldTodos : SelectionSet Todos RootQuery -> String -> Cmd Msg
 loadOldTodos q authToken =
     makeGraphQLQuery authToken q (RemoteData.fromResult >> FetchOldTodoDataSuccess)
-
 
 
 {-
@@ -891,11 +799,11 @@ type Msg
     | GotLoginResponse LoginResponseParser
     | GotSignupResponse SignupResponseParser
     | ClearAuthToken
+    | GotStoredToken String
     | FetchPrivateDataSuccess TodoData
     | InsertPrivateTodo
     | UpdateNewTodo String
     | InsertPrivateTodoResponse (GraphQLResponse MaybeMutationResponse)
-    | UpdateVisibility String
     | MarkCompleted Int Bool
     | UpdateTodo UpdateTodoItemResponse
     | DelTodo Int
@@ -904,8 +812,8 @@ type Msg
     | DeleteAllCompletedItems
     | Tick Time.Posix
     | UpdateLastSeen UpdateLastSeenResponse
-    | GotOnlineUsers Json.Decode.Value
-    | RecentPublicTodoReceived Json.Decode.Value
+    | GotOnlineUsers Decode.Value
+    | RecentPublicTodoReceived Decode.Value
     | FetchPublicDataSuccess PublicDataFetched
     | FetchNewTodoDataSuccess PublicDataFetched
     | FetchOldTodoDataSuccess PublicDataFetched
@@ -932,7 +840,7 @@ loginDataEncoder authData =
 
 decodeLogin : Decoder LoginResponseData
 decodeLogin =
-    Json.Decode.map LoginResponseData
+    Decode.map LoginResponseData
         (field "token" string)
 
 
@@ -953,20 +861,31 @@ signupDataEncoder authData =
 
 decodeSignup : Decoder SignupResponseData
 decodeSignup =
-    Json.Decode.map SignupResponseData
+    Decode.map SignupResponseData
         (field "id" string)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        GotStoredToken token ->
+            updateAuthData (\authData -> { authData | authToken = token })
+                model
+                (if token == "" then
+                    Cmd.none
+
+                 else
+                    getInitialEvent token
+                )
+
         ClearAuthToken ->
-            updateAuthData (\authData -> { authData | authToken = "" }) model Cmd.none
+            updateAuthData (\authData -> { authData | authToken = "" }) model (removeTokenFromStarage "")
 
         GotLoginResponse data ->
             case data of
                 RemoteData.Success d ->
-                    updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model (getInitialEvent d.token)
+                    -- updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model ( storeToken d.token )
+                    updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model (Cmd.batch [ storeToken d.token, getInitialEvent d.token ])
 
                 RemoteData.Failure err ->
                     updateAuthFormData (\authForm -> { authForm | isRequestInProgress = False, requestError = "Unable to authenticate you" }) model Cmd.none
@@ -1040,9 +959,6 @@ update msg model =
         UpdateNewTodo newTodo ->
             updatePrivateData (\privateData -> { privateData | newTodo = newTodo }) model Cmd.none
 
-        UpdateVisibility visibility ->
-            updatePrivateData (\privateData -> { privateData | visibility = visibility }) model Cmd.none
-
         MarkCompleted id completed ->
             let
                 updateObj =
@@ -1095,57 +1011,50 @@ update msg model =
         GotOnlineUsers data ->
             let
                 remoteData =
-                    Json.Decode.decodeValue (onlineUsersSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
+                    Decode.decodeValue (onlineUsersSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
             in
             ( { model | online_users = remoteData }, Cmd.none )
 
         RecentPublicTodoReceived data ->
-            let
-                remoteData =
-                    Json.Decode.decodeValue (publicListSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
-            in
-            case remoteData of
-                RemoteData.Success recentData ->
-                    case List.length recentData > 0 of
-                        True ->
-                            case Array.get 0 (Array.fromList recentData) of
-                                Just recDat ->
-                                    case model.publicTodoInfo.oldestTodoId of
-                                        0 ->
-                                            let
-                                                queryObj =
-                                                    loadPublicTodoList recDat.id
-                                            in
-                                            updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | currentLastTodoId = recDat.id }) model (makeRequest queryObj model.authData.authToken)
-
-                                        _ ->
-                                            let
-                                                updatedNewTodoCount =
-                                                    model.publicTodoInfo.newTodoCount + 1
-                                            in
-                                            case model.publicTodoInfo.currentLastTodoId >= recDat.id of
-                                                True ->
-                                                    ( model, Cmd.none )
-
-                                                False ->
-                                                    updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | newTodoCount = updatedNewTodoCount }) model Cmd.none
-
-                                Nothing ->
-                                    ( model, Cmd.none )
-
-                        False ->
-                            ( model, Cmd.none )
-
-                _ ->
-                    ( model, Cmd.none )
-
+           let
+               remoteData =
+                   Decode.decodeValue (publicListSubscription |> Graphql.Document.decoder) data |> RemoteData.fromResult
+           in
+           case remoteData of
+               RemoteData.Success recentData ->
+                   case List.length recentData > 0 of
+                       True ->
+                           case Array.get 0 (Array.fromList recentData) of
+                               Just recDat ->
+                                   case model.publicTodoInfo.oldestTodoId of
+                                       0 ->
+                                           let
+                                               queryObj =
+                                                   loadPublicTodoList recDat.id
+                                           in
+                                           updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | currentLastTodoId = recDat.id }) model (makeRequest queryObj model.authData.authToken)
+                                       _ ->
+                                           let
+                                               updatedNewTodoCount =
+                                                   model.publicTodoInfo.newTodoCount + 1
+                                           in
+                                           case model.publicTodoInfo.currentLastTodoId >= recDat.id of
+                                               True ->
+                                                   ( model, Cmd.none )
+                                               False ->
+                                                   updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | newTodoCount = updatedNewTodoCount }) model Cmd.none
+                               Nothing ->
+                                   ( model, Cmd.none )
+                       False ->
+                           ( model, Cmd.none )
+               _ ->
+                   ( model, Cmd.none )
         FetchPublicDataSuccess response ->
             case response of
                 RemoteData.Success successData ->
                     case List.length successData of
                         0 ->
                             ( model, Cmd.none )
-
                         _ ->
                             let
                                 oldestTodo =
@@ -1154,73 +1063,65 @@ update msg model =
                             case oldestTodo of
                                 Just item ->
                                     updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = successData, oldestTodoId = item.id }) model Cmd.none
-
                                 Nothing ->
                                     ( model, Cmd.none )
-
                 _ ->
                     ( model, Cmd.none )
 
         FetchNewPublicTodos ->
-            let
-                newQuery =
-                    newTodoQuery model.publicTodoInfo.currentLastTodoId
-            in
-            ( model, loadNewTodos newQuery model.authData.authToken )
+           let
+               newQuery =
+                   newTodoQuery model.publicTodoInfo.currentLastTodoId
+           in
+           ( model, loadNewTodos newQuery model.authData.authToken )
 
         FetchOldPublicTodos ->
-            let
-                oldQuery =
-                    oldTodoQuery model.publicTodoInfo.oldestTodoId
-            in
-            ( model, loadOldTodos oldQuery model.authData.authToken )
+           let
+               oldQuery =
+                   oldTodoQuery model.publicTodoInfo.oldestTodoId
+           in
+           ( model, loadOldTodos oldQuery model.authData.authToken )
 
         FetchOldTodoDataSuccess response ->
-            case response of
-                RemoteData.Success successData ->
-                    case List.length successData of
-                        0 ->
-                            updatePublicTodoData
-                                (\publicTodoInfo -> { publicTodoInfo | oldTodosAvailable = False })
-                                model
-                                Cmd.none
-
-                        _ ->
-                            let
-                                oldestTodo =
-                                    Array.get 0 (Array.fromList (List.foldl (::) [] successData))
-                            in
-                            case oldestTodo of
-                                Just item ->
-                                    updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = List.append publicTodoInfo.todos successData, oldestTodoId = item.id }) model Cmd.none
-
-                                Nothing ->
-                                    ( model, Cmd.none )
-
-                _ ->
-                    ( model, Cmd.none )
+           case response of
+               RemoteData.Success successData ->
+                   case List.length successData of
+                       0 ->
+                           updatePublicTodoData
+                               (\publicTodoInfo -> { publicTodoInfo | oldTodosAvailable = False })
+                               model
+                               Cmd.none
+                       _ ->
+                           let
+                               oldestTodo =
+                                   Array.get 0 (Array.fromList (List.foldl (::) [] successData))
+                           in
+                           case oldestTodo of
+                               Just item ->
+                                   updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = List.append publicTodoInfo.todos successData, oldestTodoId = item.id }) model Cmd.none
+                               Nothing ->
+                                   ( model, Cmd.none )
+               _ ->
+                   ( model, Cmd.none )
 
         FetchNewTodoDataSuccess response ->
-            case response of
-                RemoteData.Success successData ->
-                    case List.length successData of
-                        0 ->
-                            ( model, Cmd.none )
-
-                        _ ->
-                            let
-                                newestTodo =
-                                    Array.get 0 (Array.fromList successData)
-                            in
-                            case newestTodo of
-                                Just item ->
-                                    updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = List.append successData publicTodoInfo.todos, currentLastTodoId = item.id, newTodoCount = 0 }) model Cmd.none
-
-                                Nothing ->
-                                    ( model, Cmd.none )
-
-                _ ->
-                    ( model, Cmd.none )
+           case response of
+               RemoteData.Success successData ->
+                   case List.length successData of
+                       0 ->
+                           ( model, Cmd.none )
+                       _ ->
+                           let
+                               newestTodo =
+                                   Array.get 0 (Array.fromList successData)
+                           in
+                           case newestTodo of
+                               Just item ->
+                                   updatePublicTodoData (\publicTodoInfo -> { publicTodoInfo | todos = List.append successData publicTodoInfo.todos, currentLastTodoId = item.id, newTodoCount = 0 }) model Cmd.none
+                               Nothing ->
+                                   ( model, Cmd.none )
+               _ ->
+                   ( model, Cmd.none )
 
         InsertPublicTodo ->
             case String.length model.publicTodoInsert of
@@ -1260,7 +1161,6 @@ update msg model =
 {-
    Helper funcs
 -}
-
 
 retrieveGraphQLResponseBody : GraphQLResponse decodesTo -> RemoteData (Graphql.Http.Error decodesTo) decodesTo
 retrieveGraphQLResponseBody (GraphQLResponse value) =
@@ -1351,7 +1251,7 @@ todoListWrapper visibility todos =
 renderActionBtn : String -> String -> Html Msg
 renderActionBtn classVal value =
     li []
-        [ a [ class classVal, onClick (UpdateVisibility value) ]
+        [ a [ class classVal ]
             [ text value
             ]
         ]
@@ -1486,7 +1386,7 @@ loadOldPublicTodos : Bool -> Html Msg
 loadOldPublicTodos oldTodosAvailable =
     case oldTodosAvailable of
         True ->
-            div [ class "loadMoreSection", onClick FetchOldPublicTodos ]
+            div [ class "loadMoreSection", onClick FetchOldPublicTodos  ]
                 [ text "Load older tasks"
                 ]
 
@@ -1578,8 +1478,8 @@ textInput val p onChange =
         ]
 
 
-passwordInput : String -> (String -> Msg) -> Html Msg
-passwordInput val onChange =
+passwordInput : String -> (String -> Msg) -> Msg -> Html Msg
+passwordInput val onChange onEnterMsg =
     div [ class "authentication_input" ]
         [ input
             [ class "form-control input-lg"
@@ -1587,6 +1487,7 @@ passwordInput val onChange =
             , type_ "password"
             , value val
             , onInput onChange
+            , onEnter onEnterMsg
             ]
             []
         ]
@@ -1639,7 +1540,7 @@ loginView authData isRequestInProgress reqErr isSignupSuccess =
                     ]
                 , form []
                     [ textInput authData.username "Email" EnteredUsername
-                    , passwordInput authData.password EnteredPassword
+                    , passwordInput authData.password EnteredPassword MakeLoginRequest
                     , actionButton "Sign in" isRequestInProgress MakeLoginRequest
                     , div [ class "error_auth_response" ] <|
                         case String.length reqErr of
@@ -1667,7 +1568,7 @@ signupView authData isRequestInProgress reqErr =
                     ]
                 , form []
                     [ textInput authData.username "Email" EnteredUsername
-                    , passwordInput authData.password EnteredPassword
+                    , passwordInput authData.password EnteredPassword MakeSignupRequest
                     , actionButton "Sign up" isRequestInProgress MakeSignupRequest
                     , text reqErr
                     ]
@@ -1709,7 +1610,6 @@ getOnlineUsersCount onlineUsers =
     case onlineUsers of
         RemoteData.Success data ->
             List.length data
-
         _ ->
             0
 
@@ -1719,9 +1619,8 @@ generateOnlineUsersList onlineUser =
     case onlineUser of
         RemoteData.Success d ->
             List.map viewOnlineUser d
-
         _ ->
-            [ text "" ]
+            [ text "" ]   
 
 
 viewUserName : String -> Html msg
@@ -1739,7 +1638,6 @@ viewOnlineUser onlineUser =
     case onlineUser.user of
         Just user ->
             viewUserName user.name
-
         Nothing ->
             text ""
 
@@ -1791,3 +1689,34 @@ view model =
             _ ->
                 [ viewTodoSection model
                 ]
+
+
+onEnter : Msg -> Attribute Msg
+onEnter msg =
+    let
+        isEnter code =
+            if code == 13 then
+                Decode.succeed msg
+
+            else
+                Decode.fail "not ENTER"
+    in
+    on "keydown" (Decode.andThen isEnter keyCode)
+
+
+port storeToken : String -> Cmd msg
+
+
+port removeTokenFromStarage : String -> Cmd msg
+
+
+port gotStoredToken : (String -> msg) -> Sub msg
+
+
+port createSubscriptionToOnlineUsers : ( String, String ) -> Cmd msg
+
+
+port gotOnlineUsers : (Decode.Value -> msg) -> Sub msg
+
+port createSubscriptionToPublicTodos : ( String, String ) -> Cmd msg
+port gotRecentPublicTodoItem : (Decode.Value -> msg) -> Sub msg

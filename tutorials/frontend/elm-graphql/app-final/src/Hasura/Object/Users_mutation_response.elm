@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Object.Users_mutation_response exposing (affected_rows, returning)
+module Hasura.Object.Users_mutation_response exposing (..)
 
 import Graphql.Internal.Builder.Argument as Argument exposing (Argument)
 import Graphql.Internal.Builder.Object as Object
@@ -28,6 +28,8 @@ affected_rows =
 
 {-| data of the affected rows by the mutation
 -}
-returning : SelectionSet decodesTo Hasura.Object.Users -> SelectionSet (List decodesTo) Hasura.Object.Users_mutation_response
+returning :
+    SelectionSet decodesTo Hasura.Object.Users
+    -> SelectionSet (List decodesTo) Hasura.Object.Users_mutation_response
 returning object_ =
     Object.selectionForCompositeField "returning" [] object_ (identity >> Decode.list)

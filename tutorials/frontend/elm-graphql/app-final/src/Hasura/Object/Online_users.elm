@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Object.Online_users exposing (id, last_seen, user)
+module Hasura.Object.Online_users exposing (..)
 
 import Graphql.Internal.Builder.Argument as Argument exposing (Argument)
 import Graphql.Internal.Builder.Object as Object
@@ -31,6 +31,8 @@ last_seen =
 
 {-| An object relationship
 -}
-user : SelectionSet decodesTo Hasura.Object.Users -> SelectionSet (Maybe decodesTo) Hasura.Object.Online_users
+user :
+    SelectionSet decodesTo Hasura.Object.Users
+    -> SelectionSet (Maybe decodesTo) Hasura.Object.Online_users
 user object_ =
     Object.selectionForCompositeField "user" [] object_ (identity >> Decode.nullable)

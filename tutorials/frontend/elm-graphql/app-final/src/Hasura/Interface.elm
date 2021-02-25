@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Interface exposing (placeholder)
+module Hasura.Interface exposing (..)
 
 
 placeholder : String

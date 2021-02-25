@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Enum.Todos_update_column exposing (Todos_update_column(..), decoder, fromString, list, toString)
+module Hasura.Enum.Todos_update_column exposing (..)
 
 import Json.Decode as Decode exposing (Decoder)
 
@@ -40,7 +40,7 @@ decoder =
             )
 
 
-{-| Convert from the union type representating the Enum to a string that the GraphQL server will recognize.
+{-| Convert from the union type representing the Enum to a string that the GraphQL server will recognize.
 -}
 toString : Todos_update_column -> String
 toString enum =

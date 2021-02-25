@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.ScalarCodecs exposing (Id, Timestamptz, codecs)
+module Hasura.ScalarCodecs exposing (..)
 
 import Hasura.Scalar exposing (defaultCodecs)
 import Json.Decode as Decode exposing (Decoder)

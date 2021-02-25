@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Union exposing (placeholder)
+module Hasura.Union exposing (..)
 
 
 placeholder : String

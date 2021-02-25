@@ -1,14 +1,7 @@
 module GraphQLClient exposing (makeGraphQLMutation, makeGraphQLQuery)
-
 import Graphql.Http
 import Graphql.Operation exposing (RootMutation, RootQuery)
 import Graphql.SelectionSet as SelectionSet exposing (SelectionSet)
-
-
-
-{-
-   GraphQL client
--}
 
 
 graphql_url : String

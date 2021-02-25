@@ -6,7 +6,7 @@ metaDescription: "Learn what to do next with GraphQL, Elm and Backend with more 
 
 import TwitterShare from "./twitter-share";
 
-Congratulations! You have successfully completed the course.
+Congratulations! You have successfully completed the course. As an exercise, you may want to implement creating public todos. You can refer to the final version of the app [here](https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/elm-graphql/app-final/src/Main.elm).
 
 In case you are wondering what to do next, you have the following options:
 

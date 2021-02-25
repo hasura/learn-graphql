@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Object.Todos exposing (created_at, id, is_completed, is_public, title, user, user_id)
+module Hasura.Object.Todos exposing (..)
 
 import Graphql.Internal.Builder.Argument as Argument exposing (Argument)
 import Graphql.Internal.Builder.Object as Object
@@ -46,7 +46,9 @@ title =
 
 {-| An object relationship
 -}
-user : SelectionSet decodesTo Hasura.Object.Users -> SelectionSet decodesTo Hasura.Object.Todos
+user :
+    SelectionSet decodesTo Hasura.Object.Users
+    -> SelectionSet decodesTo Hasura.Object.Todos
 user object_ =
     Object.selectionForCompositeField "user" [] object_ identity
 

@@ -320,15 +320,19 @@ init =
     )
 ```
 
-Lets modify our `GotLoginResponse` message handler to invoke `getInitialEvent` function to fetch users private todo list
+Lets modify our `GotLoginResponse` and `GotStoredToken` messages handlers to invoke `getInitialEvent` function to fetch users private todo list
 
 ```
+
+GotStoredToken token ->
+-   updateAuthData (\authData -> { authData | authToken = token }) model Cmd.none
++   updateAuthData (\authData -> { authData | authToken = token }) model ( if token == "" then Cmd.none else getInitialEvent token )
 
 GotLoginResponse data ->
     case data of
         RemoteData.Success d ->
--         updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model Cmd.none
-+         updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model (getInitialEvent d.token)
+-         updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model ( storeToken d.token )
++         updateAuthAndFormData (\authForm -> { authForm | isRequestInProgress = False, isSignupSuccess = False }) (\authData -> { authData | authToken = d.token }) model ( Cmd.batch [ storeToken d.token, getInitialEvent d.token ] )
 
         RemoteData.Failure err ->
             updateAuthFormData (\authForm -> { authForm | isRequestInProgress = False, requestError = "Unable to authenticate you" }) model Cmd.none

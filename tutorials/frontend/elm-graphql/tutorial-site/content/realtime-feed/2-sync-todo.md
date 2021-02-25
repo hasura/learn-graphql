@@ -22,10 +22,10 @@ makeRequest query authToken =
         query
         (RemoteData.fromResult >> FetchPublicDataSuccess)
 
-+gtLastTodoId : Int -> OptionalArgument Integer_comparison_exp
++gtLastTodoId : Int -> OptionalArgument Int_comparison_exp
 +gtLastTodoId id =
 +    Present
-+        (buildInteger_comparison_exp
++        (buildInt_comparison_exp
 +            (\args ->
 +                { args
 +                    | gt_ = Present id
@@ -83,10 +83,10 @@ makeRequest query authToken =
 +    makeGraphQLQuery authToken q (RemoteData.fromResult >> FetchNewTodoDataSuccess)
 +
 +
-+ltLastTodoId : Int -> OptionalArgument Integer_comparison_exp
++ltLastTodoId : Int -> OptionalArgument Int_comparison_exp
 +ltLastTodoId id =
 +    Present
-+        (buildInteger_comparison_exp
++        (buildInt_comparison_exp
 +            (\args ->
 +                { args
 +                    | lt_ = Present id
@@ -152,8 +152,8 @@ type Msg
     | DeleteAllCompletedItems
     | Tick Time.Posix
     | UpdateLastSeen UpdateLastSeenResponse
-    | GotOnlineUsers Json.Decode.Value
-    | RecentPublicTodoReceived Json.Decode.Value
+    | GotOnlineUsers Decode.Value
+    | RecentPublicTodoReceived Decode.Value
  		| FetchPublicDataSuccess PublicDataFetched
 +   | FetchNewTodoDataSuccess PublicDataFetched
 +   | FetchOldTodoDataSuccess PublicDataFetched

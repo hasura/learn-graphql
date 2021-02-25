@@ -2,7 +2,7 @@
 -- https://github.com/dillonkearns/elm-graphql
 
 
-module Hasura.Object exposing (Online_users(..), Todos(..), Todos_mutation_response(..), Users(..), Users_mutation_response(..))
+module Hasura.Object exposing (..)
 
 
 type Online_users

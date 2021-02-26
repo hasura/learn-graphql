@@ -21,7 +21,7 @@ Here's the [invite link](https://discord.com/invite/hasura) to join discord.
 ## More boilerplates
 We have a bunch of sample apps created using Vue, Apollo Client, and Hasura GraphQL Engine.
 
-Check out the [vue-graphql](https://hasura.io/vue-graphql) page to get a taste of how real-time GraphQL and Auth work with Hasura. We also have boilerplates to help you get started quickly with Vue and Apollo.
+Check out the [vue-graphql](https://hasura.io/vue-graphql/) page to get a taste of how real-time GraphQL and Auth work with Hasura. We also have boilerplates to help you get started quickly with Vue and Apollo.
 
 ## Spread the word!
 Liked the course? 

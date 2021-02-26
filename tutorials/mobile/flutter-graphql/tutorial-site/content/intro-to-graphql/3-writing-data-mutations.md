@@ -9,7 +9,7 @@ import {Link} from 'gatsby';
 
 These are the concepts you should know before you attack mutations (haha):
 
-- <Link to="/intro-to-graphql/2-fetching-data-queries#graphiql">Using GraphiQL</Link>
+- <Link to="/intro-to-graphql/2-fetching-data-queries/#tryoutgraphqlqueries">Using GraphiQL</Link>
 - <Link to="/intro-to-graphql/2-fetching-data-queries#graphql-query-variables">Using query variables</Link>
 
 Now, let's get started with seeing how we can use GraphQL to "write" data.

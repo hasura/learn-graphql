@@ -6,7 +6,7 @@ metaDescription: "Hasura comes with a built-in migration system to manage the da
 
 Managing the database schema to perform incremental, reversible updates that are version controlled is a critical component for apps running in production. Hasura comes with a built-in migration system to manage the database schema.
 
-More importantly, migration files are generated automatically by the Console UI, when served through the CLI. This makes it easy to make changes to the schema like creating tables, columns, functions, views by simply using the UI. Read more about the [architecture of how Hasura built the UI to autogenerate database migrations](https://hasura.io/blog/building-a-ui-for-postgresql-database-migrations).
+More importantly, migration files are generated automatically by the Console UI, when served through the CLI. This makes it easy to make changes to the schema like creating tables, columns, functions, views by simply using the UI. Read more about the [architecture of how Hasura built the UI to autogenerate database migrations](https://hasura.io/blog/building-a-ui-for-postgresql-database-migrations/).
 
 Of course, the UI is not the only way to generate migration files, albeit convenient. The `hasura` CLI lets you create migration files manually. That's the option we are going to use below to initialise our schema for this tutorial.
 

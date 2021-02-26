@@ -69,7 +69,7 @@ To ensure that the `defender_id` column points to an actual `users` row, we add 
 Then head over to the `Relationships` tab and add the relationship between shooter_id, defender_id and users. These will be the suggested relationships based on foreign keys.
 ![Relationships](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-unity/matchmaking/relationships.jpg)
 
-To make things easier and cleaner, we shall create two [Views](https://hasura.io/learn/graphql/hasura/data-transformations) `OnlineBattles` and `OldBattles`.
+To make things easier and cleaner, we shall create two [Views](https://hasura.io/learn/graphql/hasura/data-transformations/) `OnlineBattles` and `OldBattles`.
 
 ### Create Online Battles View
 

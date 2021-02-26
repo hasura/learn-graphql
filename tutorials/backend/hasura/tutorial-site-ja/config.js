@@ -13,7 +13,7 @@ const config = {
 		"helpUrl": "https://discord.com/invite/hasura",
 		"tweetText": "@HasuraHQ https://hasura.io/learn/ja/graphql/hasura/introduction/によるフロントエンド開発者向けのこのHasura GraphQLバックエンドコースの紹介をご覧ください。",
 		"links": [{
-			"text": "hasura.io",
+			"text": "Hasura Home",
 			"link": "https://hasura.io"
 		}],
 		"search": {
@@ -39,11 +39,11 @@ const config = {
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://hasura.io/docs"
+			"link": "https://hasura.io/docs/latest/graphql/core/index.html"
 			},
 			{
-			"text": "GraphQL Docs",
-			"link": "https://graphql.org/learn"
+			"text": "GraphQL API",
+			"link": "https://hasura.io/graphql/"
 			}
 		]
 	},

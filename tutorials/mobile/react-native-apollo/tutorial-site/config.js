@@ -13,7 +13,7 @@ const config = {
 		"helpUrl": "https://discord.com/invite/hasura",
 		"tweetText": "Check out this GraphQL course for React Native developers by @HasuraHQ https://hasura.io/learn/graphql/react-native/introduction/",
 		"links": [{
-			"text": "hasura.io",
+			"text": "Hasura Home",
 			"link": "https://hasura.io"
 		}],
 		"search": {
@@ -42,11 +42,11 @@ const config = {
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://hasura.io/docs"
+			"link": "https://hasura.io/docs/latest/graphql/core/index.html"
 			},
 			{
-			"text": "GraphQL Docs",
-			"link": "https://graphql.org/learn"
+			"text": "GraphQL API",
+			"link": "https://hasura.io/graphql/"
 			}
 		],
 		"frontline": false,

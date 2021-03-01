@@ -41,6 +41,37 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 
 - Rebase master with your branch before submitting a pull request.
 
+## Steps for contributing
+
+We use the [fork-and-branch git workflow](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/).
+
+- [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the repo and clone it:
+  ```bash
+  git clone https://github.com/<your-username>/learn-graphql
+  ```
+- Navigate to the `learn-graphql` folder via the command line:
+  ```bash
+  cd learn-graphql
+  ```
+- Checkout a new branch:
+  ```
+  git checkout -b <new-branch-name>
+  ```
+- Make the required code changes.
+- Track your changes:
+  ```
+  git add . 
+  ```
+- Commit your changes. Follow the [guidelines for commit messages](#commit-messages).
+  ```
+  git commit -m "Relevant message"
+  ```
+- Push the committed changes in your feature branch to your remote repo:
+  ```
+  git push -u origin <your_branch_name>
+  ```
+- [Create a new Pull Request](https://guides.github.com/activities/hello-world/#pr) in this repository.
+
 ## Commit messages
 
 - The first line should be a summary of the changes, not exceeding 50
@@ -53,3 +84,5 @@ Our goal is to keep our tutorial content and the apps associated with it compreh
 - Don't capitalize the first letter of the summary line.
 
 - Don't add a period/dot (.) at the end of the summary line.
+
+(Credits: Some sections are adapted from https://github.com/smaranjitghose/awesome-portfolio-websites/blob/master/CONTRIBUTING.md)

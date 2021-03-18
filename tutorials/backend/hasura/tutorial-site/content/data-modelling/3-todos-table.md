@@ -19,6 +19,8 @@ The `todos` table will have the following columns:
 
 The columns are associated with properties of todo items.
 
+Remember to set the id column to the primary key.
+
 In the Hasura Console, head over to the `DATA` tab section and click on `Create Table`. Enter the values for creating the table as mentioned above.
 
 ![Create table users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-table-todos.png)

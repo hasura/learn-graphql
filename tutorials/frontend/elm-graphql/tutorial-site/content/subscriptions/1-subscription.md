@@ -221,11 +221,11 @@ type Msg
 
 ```
 
-Add port integration to index.js
+Add port integration to Main.
 
-Open `src/index.js` and add the following code:
+Open `src/Main.elm` and add the following code:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/elm-graphql/app-final/src/index.js" text="src/index.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/elm-graphql/app-final/src/Main.elm" text="src/Main.elm" />
 
 ```
 document.addEventListener("DOMContentLoaded", function() {

@@ -1,4 +1,4 @@
-FROM node:10.17-buster
+FROM node:12.13.0
 
 # update this line when gatsby-gitbook-starter repo changes
 RUN sh -c 'echo -e "Updated at: 2021-02-22 17:00:00 IST"'

@@ -18,13 +18,30 @@ Click on the following button to create a new project on Hasura Cloud:
 
 <a href="https://cloud.hasura.io/?pg=learn-hasura-backend&plcmt=body&tech=default" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
 
-Once you register and sign in, you should see the following welcome screen:
+Once you register and sign in, you should see the following welcome screen and a new Hasura project will be created automatically for you:
 
 ![Hasura Cloud Welcome Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-welcome.png)
 
-Hasura requires a Postgres database to start with. We can make use of Heroku's free Postgres database tier to set this up.
+Once the project is initialised, you can click on `Launch Console` button on the pop up screen. If you already have a Hasura Cloud account before, you can manually create a new project by clicking on the `+ New Project` action at the top, followed by `Launch Console`.
 
-Click on `Try a free database with Heroku` button. After logging in to Heroku, Hasura Cloud will perform the following for you:
+## Hasura Console
+
+This will open up Hasura Console for your project. It should look something like this:
+
+![Hasura Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console.png)
+
+The next step is to connect the database to Hasura. We can make use of Heroku's free Postgres database tier to set this up. Head to the `Data` tab on the Console and click on `Connect Database`.
+
+We have two options to connect a database:
+
+- Connect an existing database
+- Create Heroku Database (Free)
+
+To quickstart this process, we are going to create a new Postgres DB from scratch using Heroku Postgres. Click on `Create Heroku Database (Free)` tab. In this tab, you now have an option to click on the `Create Database` button. Note that it is free to create an account on Heroku.
+
+![Create Heroku Database](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-heroku-database.png)
+
+After logging in to Heroku and clicking on `Create Database`, Hasura Cloud will perform the following for you:
 
 - Create an app on Heroku
 - Install Postgres Add-on
@@ -32,15 +49,15 @@ Click on `Try a free database with Heroku` button. After logging in to Heroku, H
 
 ![Hasura Cloud Heroku Configuration](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-heroku-setup.png)
 
-Once the database URL is fetched, you can click on `Create Project` button to deploy an instance of Hasura. Once the project is created, it might take a few seconds to initialize. Open the Hasura console by clicking on the `Launch Console` button to open the console.
+It will take a few seconds to connect to Heroku Postgres and initialise. Once the connection is established, you will be taken to the Data Manager page on the Console, listing the database that we just connected.
 
 Now copy the project URL that looks like `https://myproject.hasura.app`. (replace `myproject` with your hasura project name).
 
 Head back to the terminal, on to the Hasura project directory. Execute the following command:
 
 ```bash
-hasura migrate apply --endpoint https://myproject.hasura.app
-hasura metadata apply --endpoint https://myproject.hasura.app
+hasura migrate apply --endpoint https://myproject.hasura.app --admin-secret xxxxx --database-name default
+hasura metadata apply --endpoint https://myproject.hasura.app --admin-secret xxxxx
 ```
 
 Now, try refreshing the Hasura Console on the Cloud project and see if the database schema is reflecting there. Essentially we have replicated the schema and metadata on to a new Hasura instance and new Postgres database.
@@ -54,7 +71,7 @@ As we keep changing the schema locally, we can keep applying the above two comma
 As we keep changing the database, the migration directory gets noisy with too many files created in the dev iteration process. Once a feature is fixed, you might want to combine and squash all the migration files related to it into a single file. This can be achieved using the squash command of the Hasura CLI. Execute the following command:
 
 ```bash
-hasura migrate squash --name "squashed-migration" --from 123 --endpoint https://myproject.hasura.app
+hasura migrate squash --name "squashed-migration" --from 123 --database-name default --endpoint https://myproject.hasura.app
 ```
 
 and replace the value for `--from` appropriately.

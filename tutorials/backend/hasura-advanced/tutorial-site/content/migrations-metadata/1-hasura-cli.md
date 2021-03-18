@@ -23,16 +23,16 @@ This will create a new project structure locally under the given directory (`has
 │   ├── actions.yaml
 │   ├── allow_list.yaml
 │   ├── cron_triggers.yaml
-│   ├── functions.yaml
+│   ├── databases
+│   │   └── databases.yaml
 │   ├── query_collections.yaml
 │   ├── remote_schemas.yaml
-│   ├── tables.yaml
 │   └── version.yaml
 ├── migrations
 └── seeds
 ```
 
-The `migrations` and `seeds` directories are initally empty. The `metadata` directory contains a bunch of yaml files each describing different parts of the GraphQL API, like the tables, functions, actions, remote schemas etc.
+The `migrations` and `seeds` directories are initally empty. The `metadata` directory contains a bunch of yaml files each describing different parts of the GraphQL API, like the actions, remote schemas and the different databases that are connected to this project along with their tables and functions etc.
 
 Since you have Hasura running locally via docker-compose, run the following command
 

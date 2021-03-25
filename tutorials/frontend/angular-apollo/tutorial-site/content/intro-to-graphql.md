@@ -9,7 +9,7 @@ GraphQL is a specification for how to talk to an API. It's typically used over H
 
 GraphQL is designed for developers of web/mobile apps (HTTP clients) to be able to make API calls to fetch the data they need from their backend APIs conveniently.
 
-## GraphQL vs REST: an example
+## [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/): an example
 Let's say you have an API to fetch a user's profile and their address. In a typical REST scenario, this is what the request/response would look like:
 
 ![GraphQL API example](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/rest-api.png)

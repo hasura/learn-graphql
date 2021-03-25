@@ -13,7 +13,7 @@ Open package.json and add the following line under the dependencies section
  "pouchdb-adapter-idb": "^7.1.1",
 ```
 
-Now run npm install & restart the server
+Now RUN npm ci & restart the server
 
 ## Create RxDB schema
 

@@ -16,7 +16,7 @@ WORKDIR /gatsby-gitbook-starter
 RUN cd /gatsby-gitbook-starter
 
 # Install dependencies
-RUN npm install
+RUN npm ci
 
 # Remove already existing dummy content
 RUN rm -R content

@@ -6,7 +6,7 @@ metaDescription: "GraphQL vs REST. A comparison of GraphQL and REST APIs, highli
 
 GraphQL is often touted as an alternative to REST APIs. In this section, we will look at the key differences between GraphQL and REST with an example and also look at how they both can co-exist and complement each other.
 
-## [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/): an example
+## GraphQL vs REST: an example
 
 Let's say you have an API to fetch a user's profile and their address. In a typical REST scenario, this is what the request/response would look like:
 

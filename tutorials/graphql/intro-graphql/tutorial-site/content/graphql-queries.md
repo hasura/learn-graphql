@@ -164,7 +164,7 @@ var limit = getMaxTodosFromUserInput();
 var query = "query { todos (limit: " + limit.toString() + ") {id title} }";
 ```
 
-Thankfully, we don't ever have to do this! GraphQL variables are extra variables
+Thankfully, we don't ever have to do this! [GraphQL variables](https://hasura.io/learn/graphql/react/mutations-variables/2-query-variables/) are extra variables
 that you can send in a query so that the "arguments" can be provided dynamically!
 
 ## Fetch $limit number of todos

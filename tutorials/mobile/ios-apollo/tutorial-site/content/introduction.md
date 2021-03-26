@@ -14,7 +14,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 
 ## Key topics and takeaways:
 
-- GraphQL vs REST
+- [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions
 - Setting up a GraphQL client with Apollo
 - Integrating GraphQL queries in your iOS app

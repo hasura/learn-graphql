@@ -16,7 +16,7 @@ to your apps easily. GraphQL clients and servers that support subscriptions allo
 
 `Step 1:` Head to https://hasura.io/learn/graphql/graphiql
 
-`Step 2:` Write this GraphQL query in the textarea:
+`Step 2:` Write this [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) in the textarea:
 
 ```graphql
 subscription {

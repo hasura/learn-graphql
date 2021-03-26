@@ -17,7 +17,7 @@ Let's get started by installing apollo client & peer graphql dependencies:
 $ npm install --save apollo-client react-apollo reason-apollo apollo-cache-inmemory apollo-link-http graphql graphql-tag
 ```
 
-You also need to add a helper package called `graphql_ppx` to the dev dependencies to handle GraphQL query and mutation types elegantly.
+You also need to add a helper package called `graphql_ppx` to the dev dependencies to handle [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) and mutation types elegantly.
 
 ```bash
 npm install --save-dev graphql_ppx

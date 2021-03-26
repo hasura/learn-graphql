@@ -4,7 +4,7 @@ metaTitle: "GraphQL Response Caching | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Hasura GraphQL Engine (OSS) supports Query Caching where the internal representation of the fully qualified GraphQL AST is cached."
 ---
 
-Hasura GraphQL Engine (OSS) supports Query Caching where the internal representation of the fully qualified GraphQL AST is cached. When a GraphQL query is made, the generated SQL is a prepared statement with the right session variables hitting the database. These prepared statements help in making queries fast. Read more about [Query Caching](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance.html)
+Hasura GraphQL Engine (OSS) supports Query Caching where the internal representation of the fully qualified GraphQL AST is cached. When a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) is made, the generated SQL is a prepared statement with the right session variables hitting the database. These prepared statements help in making queries fast. Read more about [Query Caching](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance.html)
 
 Now, some queries are more frequently accessed than others. Typically, there could be latency and slow response times due to the
 
@@ -20,7 +20,7 @@ Hasura Cloud provides support for caching query responses. When queried with the
 
 Hasura has metadata about the data models across data sources, and the authorization rules at the application level. This helps Hasura to provide end to end application caching.
 
-A GraphQL query’s response can be cached only if the following conditions hold:
+A [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/)’s response can be cached only if the following conditions hold:
 
 - The query does not make use of remote schemas or remote joins
 - The query and any related user permissions do not make use of session variables

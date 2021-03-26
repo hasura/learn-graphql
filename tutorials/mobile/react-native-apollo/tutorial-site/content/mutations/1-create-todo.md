@@ -7,7 +7,7 @@ metaDescription: "GraphQL Mutation to create new personal todos. Try the mutatio
 
 In this part of the tutorial, you will learn how to create new todos by using GraphQL Mutations.
 
-Let's define a graphql query to do a mutation into todos.
+Let's define a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) to do a mutation into todos.
 
 ```graphql
   mutation ($text: String!, $isPublic: Boolean){

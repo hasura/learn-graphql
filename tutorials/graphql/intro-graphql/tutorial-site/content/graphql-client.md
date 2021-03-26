@@ -54,7 +54,7 @@ Popular GraphQL Clients in the community are [Apollo Client](https://github.com/
 
 ## Fluent GraphQL Clients
 
-When you are writing GraphQL queries or mutations using a client, you would notice that it is just a raw string with its own syntax. This string is usually parsed into a valid GraphQL query using external libraries. 
+When you are writing GraphQL queries or mutations using a client, you would notice that it is just a raw string with its own syntax. This string is usually parsed into a valid [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) using external libraries. 
 
 With fluent GraphQL clients, you can write these queries as objects. Fluent APIs aim to make code more readable via method chaining by returning this or self from each method. Fluent GraphQL clients allow you to write your query as an object, which they then convert to a string query behind the scenes. 
 

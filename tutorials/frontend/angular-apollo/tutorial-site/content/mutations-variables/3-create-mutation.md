@@ -11,7 +11,7 @@ Now let's do the integration part. Open `src/app/Todo/TodoInput.ts` and add the 
 import { Apollo, gql } from 'apollo-angular';
 ```
 
-`Apollo` is being imported from `apollo-angular` and the graphql query we defined above to fetch the todo data.
+`Apollo` is being imported from `apollo-angular` and the [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) we defined above to fetch the todo data.
 
 Now, we will add the mutate method passing our graphql mutation constant that we imported. Add the following code:
 

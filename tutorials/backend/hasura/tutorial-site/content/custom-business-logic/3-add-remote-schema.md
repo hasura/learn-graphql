@@ -21,7 +21,7 @@ Select `Forward all headers from the client` and click on `Add Remote Schema`.
 
 ## Try it out
 
-Head to the Console GraphiQL tab and explore the following GraphQL query.
+Head to the Console GraphiQL tab and explore the following [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/).
 
 ```graphql
 query {

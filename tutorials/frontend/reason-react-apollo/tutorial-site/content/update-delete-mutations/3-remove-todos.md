@@ -8,7 +8,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 In this part of the tutorial, you will learn how to remove existing todos by using GraphQL Mutations.
 
-Let's define a graphql query to do a mutation into todos.
+Let's define a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) to do a mutation into todos.
 
 ```graphql
 mutation removeTodo ($id: Int!) {

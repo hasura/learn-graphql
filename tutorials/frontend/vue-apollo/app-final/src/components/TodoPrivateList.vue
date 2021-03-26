@@ -107,7 +107,7 @@ export default {
   },
   apollo: {
     todos: {
-      // graphql query
+      // [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/)
       query: GET_MY_TODOS,
       error(error) {
         this.error = JSON.stringify(error.message);

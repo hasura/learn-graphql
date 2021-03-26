@@ -9,7 +9,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 <YoutubeEmbed link="https://www.youtube.com/embed/Kero00_8bfk" />
 
-Let's define the graphql query to be used:
+Let's define the [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) to be used:
 
 Open `src/components/Todo/TodoPublicList.js` and add the following imports.
 

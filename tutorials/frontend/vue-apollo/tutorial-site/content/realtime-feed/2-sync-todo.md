@@ -17,7 +17,7 @@ We are not going to use that approach here since we don't want public list UI to
 
 In the Subscription query of the previous step, we only get the latest todo and not the existing list. We will now write a query to fetch the list of existing public todos.
 
-Let's define the graphql query to fetch the list of existing public todos.
+Let's define the [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) to fetch the list of existing public todos.
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/TodoPublicList.vue" text="src/components/TodoPublicList.vue" />
 

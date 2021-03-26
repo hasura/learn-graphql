@@ -254,4 +254,4 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 ```
 
-Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.
+Awesome! You have completed implementations of a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/), Mutation and Subscriptions.

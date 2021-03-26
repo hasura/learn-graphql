@@ -52,7 +52,7 @@ Note that some columns like `is_public`, `is_completed` have default values, eve
 
 ## Subscription
 
-Let's run a subscription query over `todos` table to watch for changes to the table. In the above GraphQL query, replace `query` with `subscription`
+Let's run a subscription query over `todos` table to watch for changes to the table. In the above [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/), replace `query` with `subscription`
 
 ```graphql
 subscription {

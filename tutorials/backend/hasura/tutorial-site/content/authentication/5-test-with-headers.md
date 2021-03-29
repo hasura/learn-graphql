@@ -34,7 +34,7 @@ In the API debugger page, select the name of the Application that you created ea
 
 ![Auth0 API Debugger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authentication-api-debugger.png)
 
-Now, copy the Callback URL mentioned there and add it to your application settings Callback URL.
+Now, copy the Callback URL mentioned there. Go to your Auth0 Applications page, go into settings for your app, and add the URL to the 'Allowed Callback URLs'.
 
 4.Set the audience
 
@@ -45,7 +45,7 @@ Switch to the OAuth2 / OIDC tab next to Configuration and scroll down below to c
 Enter the Audience value as `https://hasura.io/learn` and toggle the `Use Audience` option next to it.
 If you remember, we created an API with the above audience value in one of the previous steps.
 
-5.Click on OAuth2 / OIDC Login button under User Flows. This will prompt you to login as a user. Signup on this UI with any account and once you login successfully, you will be taken back to the Authentication debugger page with the JSON response printed.
+5.Go back to the extensions settings for Auth0 Authentication API Debugger. Click on OAuth2 / OIDC Login button under User Flows. This will prompt you to login as a user. Signup on this UI with any account and once you login successfully, you will be taken back to the Authentication debugger page with the JSON response printed.
 
 ![Authentication Debugger Access Token](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authentication-debugger-access-token.png)
 

@@ -77,7 +77,7 @@ export const GET_MY_TODOS = gql`
 +   id: number;
 +   title: string;
 +   created_at: Date;
-+   is_completed: Date;
++   is_completed: boolean;
 + }
 +
 + interface GetMyTodosResponse {

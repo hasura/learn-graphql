@@ -49,7 +49,7 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 「update(更新)」権限の編集アイコンをクリックします。 カスタムチェックで `With same custom checks as insert` を選択します。
 
-カラムの更新権限の下で、`id` カラムと `is_completed` カラムを選択します。
+カラムの更新権限の下で、`is_completed` カラムを選択します。
 
 ![Todos update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-update-permission.png)
 

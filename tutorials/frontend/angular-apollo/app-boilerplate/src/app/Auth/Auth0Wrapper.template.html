@@ -1,5 +1,5 @@
 <Callback *ngIf="isAuthenticated == 'loading'"></Callback>
-<Login *ngIf="!isAuthenticated" (loginHandler)="login($event)"></Login>
+<Login *ngIf="!isAuthenticated" (loginHandler)="login()"></Login>
 
 <App *ngIf="isAuthenticated === true" (logout)="logout()"></App>
 

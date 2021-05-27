@@ -1,6 +1,6 @@
 import React from "react";
 
-import OnlineUser from "./OnlineUser";
+import OnlineUser from "./OnlineUser.bs";
 
 const OnlineUsersWrapper = () => {
   const onlineUsers = [{ name: "someUser1" }, { name: "someUser2" }];

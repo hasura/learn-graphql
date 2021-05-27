@@ -80,3 +80,9 @@ typings/
 .dynamodb/
 
 .idea/
+
+# Rescript build output
+.bsb.lock
+.merlin
+lib
+*.bs.js

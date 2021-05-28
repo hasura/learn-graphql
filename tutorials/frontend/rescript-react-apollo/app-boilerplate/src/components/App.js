@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./Header";
 import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
-import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper";
+import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper.bs";
 
 import { useAuth0 } from "./Auth/react-auth0-spa";
 

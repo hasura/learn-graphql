@@ -1,6 +1,9 @@
-@react.component
-let make = () => {
-  <div> {React.string("Hello World")} </div>
-}
+type user = {name: string}
 
-let default = make
+@react.component
+let make = (~user) => {
+  <div className="userInfo">
+    <div className="userImg"> <i className="far fa-user" /> </div>
+    <div className="userName"> {React.string(user.name)} </div>
+  </div>
+}

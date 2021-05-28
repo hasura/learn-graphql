@@ -1,6 +1,6 @@
 import React from "react";
 
-import TodoInput from "./TodoInput";
+import TodoInput from "./TodoInput.bs";
 import TodoPrivateList from "./TodoPrivateList";
 
 const TodoPrivateWrapper = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
-import LogoutBtn from "./Auth/LogoutBtn";
+import LogoutBtn from "./Auth/LogoutBtn.bs";
 
 const Header = ({ logoutHandler }) => (
   <Navbar className="justify-content-between">

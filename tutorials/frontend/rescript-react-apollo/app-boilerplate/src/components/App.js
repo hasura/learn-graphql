@@ -5,7 +5,7 @@ import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper.bs";
 
-import { useAuth0 } from "./Auth/react-auth0-spa";
+import { useAuth0 } from "./Auth/Auth0Context.bs";
 
 const App = ({ idToken }) => {
   const { loading, logout } = useAuth0();

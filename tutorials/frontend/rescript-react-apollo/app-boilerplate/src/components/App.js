@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "./Header";
+import Header from "./Header.bs";
 import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper.bs";

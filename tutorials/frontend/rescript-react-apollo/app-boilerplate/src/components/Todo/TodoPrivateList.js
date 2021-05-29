@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 
 import TodoItem from "./TodoItem.bs";
-import TodoFilters from "./TodoFilters";
+import TodoFilters from "./TodoFilters.bs";
 
 const TodoPrivateList = (props) => {
   const [state, setState] = useState({

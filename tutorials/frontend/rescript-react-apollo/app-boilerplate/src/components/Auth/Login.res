@@ -1,5 +1,6 @@
 open ReactBootstrap
 
+@react.component
 let make = () => {
   let {loading, loginWithRedirect} = Auth0Context.useAuth0()
   if loading {

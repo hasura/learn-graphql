@@ -4,6 +4,7 @@ type todo = {
   title: string,
 }
 
+@react.component
 let make = (~todo) => {
   let removeTodo = e => {
     ReactEvent.Mouse.preventDefault(e)

@@ -1,5 +1,6 @@
 open ReactBootstrap
 
+@react.component
 let make = (~logoutHandler) =>
   <Navbar className="justify-content-between">
     <Navbar.Brand> {"GraphQL Tutorial App"->React.string} </Navbar.Brand>

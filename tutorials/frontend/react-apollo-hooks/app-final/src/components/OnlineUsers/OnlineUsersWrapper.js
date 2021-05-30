@@ -8,9 +8,9 @@ const OnlineUsersWrapper = () => {
   let onlineUsersList;
 
   useEffect(() => {
-    // Every 30s, run a mutation to tell the backend that you're online
+    // Every 20s, run a mutation to tell the backend that you're online
     updateLastSeen();
-    setOnlineIndicator(setInterval(() => updateLastSeen(), 30000));
+    setOnlineIndicator(setInterval(() => updateLastSeen(), 20000));
 
     return () => {
       // Clean up

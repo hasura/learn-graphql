@@ -55,8 +55,8 @@ export class OnlineUsersWrapper implements OnInit {
       constructor(private apollo: Apollo) {}
 
 +      ngOnInit(){
-+        // Every 30s, run a mutation to tell the backend that you're online
-+        this.onlineIndicator = setInterval(() => this.updateLastSeen(), 30000);
++        // Every 20s, run a mutation to tell the backend that you're online
++        this.onlineIndicator = setInterval(() => this.updateLastSeen(), 20000);
 +      }
 
 ```
@@ -68,8 +68,8 @@ export class OnlineUsersWrapper implements OnInit {
       ...
 
       ngOnInit(){
-        // Every 30s, run a mutation to tell the backend that you're online
-        this.onlineIndicator = setInterval(() => this.updateLastSeen(), 30000);
+        // Every 20s, run a mutation to tell the backend that you're online
+        this.onlineIndicator = setInterval(() => this.updateLastSeen(), 20000);
      }
 
 +     updateLastSeen() {

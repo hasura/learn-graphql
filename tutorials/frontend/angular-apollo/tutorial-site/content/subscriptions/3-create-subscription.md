@@ -55,7 +55,7 @@ export class OnlineUsersWrapper implements OnInit {
 + loading = true;
   constructor(private apollo: Apollo) {}
   ngOnInit(){
-    this.onlineIndicator = setInterval(() => this.updateLastSeen(), 30000);
+    this.onlineIndicator = setInterval(() => this.updateLastSeen(), 20000);
 +   this.apollo.subscribe<GetOnlineUsersSub>({
 +     query: SUBSCRIBE_TO_ONLINE_USERS,
 +   }).subscribe(({ data }) => {

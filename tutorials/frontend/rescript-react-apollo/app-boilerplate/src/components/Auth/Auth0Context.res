@@ -1,13 +1,23 @@
 module Auth0Context = {
   type auth0ContextValues = {
+    isAuthenticated: bool,
     loading: bool,
+    popupOpen: bool,
+    user: unit,
     loginWithRedirect: unit => unit,
     logout: unit => unit,
+    // loginWithPopup: unit => unit,
+    // handleRedirectCallback: unit => unit,
   }
   let defaultContextValue = {
-    loading: false,
+    isAuthenticated: false,
+    loading: true,
+    popupOpen: false,
+    user: (),
     loginWithRedirect: () => (),
     logout: () => (),
+    // loginWithPopup: () => (),
+    // handleRedirectCallback: () => (),
   }
   let context = React.createContext(defaultContextValue)
 

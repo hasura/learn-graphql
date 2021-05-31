@@ -2,10 +2,12 @@ module Auth0Context = {
   type auth0ContextValues = {
     loading: bool,
     loginWithRedirect: unit => unit,
+    logout: unit => unit,
   }
   let defaultContextValue = {
     loading: false,
     loginWithRedirect: () => (),
+    logout: () => (),
   }
   let context = React.createContext(defaultContextValue)
 

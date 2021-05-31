@@ -2,6 +2,7 @@ type todo = {
   id: string,
   is_completed: bool,
   title: string,
+  is_public: bool,
 }
 
 @react.component

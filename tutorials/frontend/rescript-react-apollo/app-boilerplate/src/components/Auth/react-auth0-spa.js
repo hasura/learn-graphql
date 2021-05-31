@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
 import Callback from "./Callback.bs";
 import Login from "./Login.bs";
-import App from "../App";
+import App from "../App.bs";
 import { Auth0Context } from "./Auth0Context.bs";
 
 const DEFAULT_REDIRECT_CALLBACK = () =>

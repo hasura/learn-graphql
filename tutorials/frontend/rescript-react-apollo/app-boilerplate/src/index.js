@@ -5,7 +5,7 @@ import { Route, Router } from "react-router-dom";
 import "./styles/App.css";
 
 import { Auth0Provider } from "./components/Auth/react-auth0-spa";
-import history from "./utils/history";
+import history from "./utils/history.bs";
 import { authConfig } from "./components/Auth/auth0Variables.bs";
 
 const onRedirectCallback = (appState) => {

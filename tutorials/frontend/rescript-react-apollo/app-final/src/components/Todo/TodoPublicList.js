@@ -1,13 +1,13 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useSubscription, useApolloClient, gql } from "@apollo/client";
-import TaskItem from "./TaskItem";
+import TaskItem from "./TaskItem.bs";
 
-const TodoPublicList = props => {
+const TodoPublicList = (props) => {
   const [state, setState] = useState({
     olderTodosAvailable: props.latestTodo ? true : false,
     newTodosCount: 0,
     error: false,
-    todos: []
+    todos: [],
   });
 
   let numTodos = state.todos.length;
@@ -31,7 +31,7 @@ const TodoPublicList = props => {
   useEffect(
     () => {
       if (props.latestTodo && props.latestTodo.id > newestTodoId) {
-        setState(prevState => {
+        setState((prevState) => {
           return { ...prevState, newTodosCount: prevState.newTodosCount + 1 };
         });
         newestTodoId = props.latestTodo.id;
@@ -60,22 +60,22 @@ const TodoPublicList = props => {
 
     const { error, data } = await client.query({
       query: GET_OLD_PUBLIC_TODOS,
-      variables: { oldestTodoId: oldestTodoId }
+      variables: { oldestTodoId: oldestTodoId },
     });
 
     if (data.todos.length) {
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, todos: [...prevState.todos, ...data.todos] };
       });
       oldestTodoId = data.todos[data.todos.length - 1].id;
     } else {
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, olderTodosAvailable: false };
       });
     }
     if (error) {
       console.error(error);
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, error: true };
       });
     }
@@ -101,23 +101,23 @@ const TodoPublicList = props => {
     const { error, data } = await client.query({
       query: GET_NEW_PUBLIC_TODOS,
       variables: {
-        latestVisibleId: state.todos.length ? state.todos[0].id : null
-      }
+        latestVisibleId: state.todos.length ? state.todos[0].id : null,
+      },
     });
 
     if (data) {
-      setState(prevState => {
+      setState((prevState) => {
         return {
           ...prevState,
           todos: [...data.todos, ...prevState.todos],
-          newTodosCount: 0
+          newTodosCount: 0,
         };
       });
       newestTodoId = data.todos[0].id;
     }
     if (error) {
       console.error(error);
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, error: true };
       });
     }

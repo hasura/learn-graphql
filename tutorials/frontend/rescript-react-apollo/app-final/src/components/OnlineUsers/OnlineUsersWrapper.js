@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment, useState } from "react";
 import { useMutation, useSubscription, gql } from "@apollo/client";
 
-import OnlineUser from "./OnlineUser";
+import OnlineUser from "./OnlineUser.bs";
 
 const OnlineUsersWrapper = () => {
   const [onlineIndicator, setOnlineIndicator] = useState(0);
@@ -30,7 +30,7 @@ const OnlineUsersWrapper = () => {
   const updateLastSeen = () => {
     // Use the apollo client to run a mutation to update the last_seen value
     updateLastSeenMutation({
-      variables: { now: new Date().toISOString() }
+      variables: { now: new Date().toISOString() },
     });
   };
 
@@ -55,7 +55,7 @@ const OnlineUsersWrapper = () => {
     return <span>Error!</span>;
   }
   if (data) {
-    onlineUsersList = data.online_users.map(u => (
+    onlineUsersList = data.online_users.map((u) => (
       <OnlineUser key={u.id} user={u.user} />
     ));
   }

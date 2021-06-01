@@ -1,9 +1,11 @@
+type user = {name: string}
+
 type todo = {
   id: string,
   title: string,
   is_completed: bool,
   is_public: bool,
-  user: OnlineUser.user,
+  user: user,
 }
 
 @react.component

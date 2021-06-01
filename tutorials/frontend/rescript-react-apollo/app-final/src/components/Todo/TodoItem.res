@@ -1,24 +1,3 @@
-type todo = {
-  id: int,
-  is_completed: bool,
-  title: string,
-  is_public: bool,
-}
-
-module TodosQuery = %graphql(`
-  query {
-    todos(
-      where: { is_public: { _eq: false } }
-      order_by: [{ created_at: desc }]
-    ) {
-      id
-      title
-      created_at
-      is_completed
-    }
-  }
-`)
-
 module RemoveTodoMutation = %graphql(`
     mutation removeTodo($id: Int!) {
       delete_todos(where: { id: { _eq: $id } }) {
@@ -39,7 +18,7 @@ module ToggleTodoMutation = %graphql(`
   `)
 
 @react.component
-let make = (~todo) => {
+let make = (~todo: TodosQuery.Inner.t_todos) => {
   let todosResult = TodosQuery.use()
   let (removeTodoMutate, removeTodoResult) = RemoveTodoMutation.use()
   let (toggleTodoMutate, toggleTodoResult) = ToggleTodoMutation.use()
@@ -59,14 +38,14 @@ let make = (~todo) => {
   let toggleTodo = e => {
     switch todosResult {
     | {data: Some({todos})} => {
-        let matchedTodo = Js.Array2.find(todos, t => t.id == todo.id)
-        switch matchedTodo {
-        | Some(t1) =>
+        let matchedTodoOrNone = Js.Array2.find(todos, t => t.id == todo.id)
+        switch matchedTodoOrNone {
+        | Some(matchedTodo) =>
           toggleTodoMutate(
             ~refetchQueries=[TodosQuery.refetchQueryDescription()],
             {
               id: todo.id,
-              isCompleted: !t1.is_completed,
+              isCompleted: !matchedTodo.is_completed,
             },
           )->ignore
         | None => ()

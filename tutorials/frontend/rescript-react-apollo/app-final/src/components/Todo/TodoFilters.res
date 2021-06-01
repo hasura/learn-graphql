@@ -1,5 +1,10 @@
 @react.component
-let make = (~todos: array<TaskItem.todo>, ~currentFilter, ~filterResultsFn, ~clearCompletedFn) => {
+let make = (
+  ~todos: array<TodosQuery.Inner.t_todos>,
+  ~currentFilter,
+  ~filterResultsFn,
+  ~clearCompletedFn,
+) => {
   let filterResultsHandler = filter => {
     e => {
       filterResultsFn(filter)

@@ -1,17 +1,3 @@
-module TodosQuery = %graphql(`
-  query {
-    todos(
-      where: { is_public: { _eq: false } }
-      order_by: [{ created_at: desc }]
-    ) {
-      id
-      title
-      created_at
-      is_completed
-    }
-  }
-`)
-
 module AddTodoMutation = %graphql(`
   mutation($todo: String!, $isPublic: Boolean!) {
     insert_todos(objects: [{ title: $todo, is_public: $isPublic }]) {

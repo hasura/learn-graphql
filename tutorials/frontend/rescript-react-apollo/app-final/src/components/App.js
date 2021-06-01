@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "./Header.bs";
 import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper.bs";
-import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
+import TodoPublicWrapper from "./Todo/TodoPublicWrapper.bs";
 import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper.bs";
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";

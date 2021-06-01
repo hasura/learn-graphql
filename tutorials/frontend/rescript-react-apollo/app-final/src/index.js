@@ -6,9 +6,9 @@ import "./styles/App.css";
 
 import { Auth0Provider } from "./components/Auth/react-auth0-spa";
 import history from "./utils/history";
-import { AUTH_CONFIG } from "./components/Auth/auth0-variables";
+import { authConfig } from "./components/Auth/Auth0Variables.bs";
 
-const onRedirectCallback = appState => {
+const onRedirectCallback = (appState) => {
   history.push(
     appState && appState.targetUrl
       ? appState.targetUrl
@@ -20,11 +20,11 @@ const mainRoutes = (
   <Router history={history}>
     <Route
       path="/"
-      render={props => (
+      render={(props) => (
         <Auth0Provider
-          domain={AUTH_CONFIG.domain}
-          client_id={AUTH_CONFIG.clientId}
-          redirect_uri={AUTH_CONFIG.callbackUrl}
+          domain={authConfig.domain}
+          client_id={authConfig.clientId}
+          redirect_uri={authConfig.callbackUrl}
           onRedirectCallback={onRedirectCallback}
         />
       )}

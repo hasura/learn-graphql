@@ -4,10 +4,10 @@ import { Route, Router } from "react-router-dom";
 
 import "./styles/App.css";
 import { createBrowserHistory } from "history";
-const history = createBrowserHistory();
 
 import { Auth0Provider } from "./components/Auth/react-auth0-spa";
 import { authConfig } from "./components/Auth/Auth0Variables.bs";
+const history = createBrowserHistory();
 
 const onRedirectCallback = (appState) => {
   history.push(

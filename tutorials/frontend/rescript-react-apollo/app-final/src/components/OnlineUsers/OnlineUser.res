@@ -7,3 +7,5 @@ let make = (~user) => {
     <div className="userName"> {React.string(user.name)} </div>
   </div>
 }
+
+let default = make

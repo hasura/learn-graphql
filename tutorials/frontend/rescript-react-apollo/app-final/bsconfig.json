@@ -15,5 +15,14 @@
   "suffix": ".bs.js",
   "reason": { "react-jsx": 3 },
   "ppx-flags": ["@reasonml-community/graphql-ppx/ppx"],
-  "bs-dependencies": ["@rescript/react", "@reasonml-community/graphql-ppx"]
+  "bs-dependencies": ["@rescript/react", "rescript-apollo-client", "@reasonml-community/graphql-ppx"],
+  "graphql": {
+    "apolloMode": true,
+    "extendMutation": "ApolloClient.GraphQL_PPX.ExtendMutation",
+    "extendQuery": "ApolloClient.GraphQL_PPX.ExtendQuery",
+    "extendSubscription": "ApolloClient.GraphQL_PPX.ExtendSubscription",
+    "templateTagReturnType": "ApolloClient.GraphQL_PPX.templateTagReturnType",
+    "templateTagImport": "gql",
+    "templateTagLocation": "@apollo/client"
+  }
 }

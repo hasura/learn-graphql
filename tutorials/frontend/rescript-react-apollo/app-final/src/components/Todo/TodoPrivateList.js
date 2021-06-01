@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from "react";
 import { useQuery, useMutation, gql } from "@apollo/client";
 
-import TodoItem from "./TodoItem";
-import TodoFilters from "./TodoFilters";
+import TodoItem from "./TodoItem.bs";
+import TodoFilters from "./TodoFilters.bs";
 
 const GET_MY_TODOS = gql`
   query getMyTodos {
     todos(
       where: { is_public: { _eq: false } }
-      order_by: { created_at: desc }
+      order_by: [{ created_at: desc }]
     ) {
       id
       title
@@ -29,16 +29,16 @@ const CLEAR_COMPLETED = gql`
   }
 `;
 
-const TodoPrivateList = props => {
+const TodoPrivateList = (props) => {
   const [state, setState] = useState({
     filter: "all",
-    clearInProgress: false
+    clearInProgress: false,
   });
 
-  const filterResults = filter => {
+  const filterResults = (filter) => {
     setState({
       ...state,
-      filter: filter
+      filter: filter,
     });
   };
 
@@ -49,9 +49,9 @@ const TodoPrivateList = props => {
       optimisticResponse: true,
       update: (cache, { data }) => {
         const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
-        const newTodos = existingTodos.todos.filter(t => !t.is_completed);
+        const newTodos = existingTodos.todos.filter((t) => !t.is_completed);
         cache.writeQuery({ query: GET_MY_TODOS, data: { todos: newTodos } });
-      }
+      },
     });
   };
 
@@ -59,9 +59,9 @@ const TodoPrivateList = props => {
 
   let filteredTodos = todos;
   if (state.filter === "active") {
-    filteredTodos = todos.filter(todo => todo.is_completed !== true);
+    filteredTodos = todos.filter((todo) => todo.is_completed !== true);
   } else if (state.filter === "completed") {
-    filteredTodos = todos.filter(todo => todo.is_completed === true);
+    filteredTodos = todos.filter((todo) => todo.is_completed === true);
   }
 
   const todoList = [];

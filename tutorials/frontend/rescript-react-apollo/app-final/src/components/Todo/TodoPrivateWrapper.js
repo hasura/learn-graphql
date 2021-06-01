@@ -1,6 +1,6 @@
 import React from "react";
 
-import TodoInput from "./TodoInput";
+import TodoInput from "./TodoInput.bs";
 import TodoPrivateList from "./TodoPrivateList";
 
 const TodoPrivateWrapper = () => {
@@ -8,7 +8,7 @@ const TodoPrivateWrapper = () => {
     <div className="todoWrapper">
       <div className="sectionHeader">Personal todos</div>
 
-      <TodoInput />
+      <TodoInput isPublic={false} />
       <TodoPrivateList />
     </div>
   );

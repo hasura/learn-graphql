@@ -15,7 +15,7 @@ module AddTodoMutation = %graphql(`
 @react.component
 let make = (~isPublic=false) => {
   let (todoInput, setTodoInput) = React.useState(_ => "")
-  let (mutate, result) = AddTodoMutation.use()
+  let (mutate, _result) = AddTodoMutation.use()
 
   let resetInput = () => {
     setTodoInput(_ => "")
@@ -25,7 +25,8 @@ let make = (~isPublic=false) => {
     className="formInput"
     onSubmit={e => {
       ReactEvent.Form.preventDefault(e)
-      mutate(~update=(cache, {data}) => {
+      mutate(~update=(_cache, {data}) => {
+        Js.log(data)
         resetInput()
       }, ~refetchQueries=[
         TodosQuery.refetchQueryDescription(),

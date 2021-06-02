@@ -11,7 +11,10 @@ let make = () => {
 
       <div className="todoListWrapper"> <ul> {React.array(todoList)} </ul> </div>
     }
-  | {error} => <div> {React.string("Error!")} </div>
+  | {error} => {
+      Js.log(error)
+      <div> {React.string("Error!")} </div>
+    }
   }
 }
 

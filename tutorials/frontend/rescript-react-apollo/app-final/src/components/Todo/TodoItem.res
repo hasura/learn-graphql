@@ -20,8 +20,8 @@ module ToggleTodoMutation = %graphql(`
 @react.component
 let make = (~todo: TodosQuery.Inner.t_todos) => {
   let todosResult = TodosQuery.use()
-  let (removeTodoMutate, removeTodoResult) = RemoveTodoMutation.use()
-  let (toggleTodoMutate, toggleTodoResult) = ToggleTodoMutation.use()
+  let (removeTodoMutate, _removeTodoResult) = RemoveTodoMutation.use()
+  let (toggleTodoMutate, _toggleTodoResult) = ToggleTodoMutation.use()
 
   let removeTodo = e => {
     ReactEvent.Mouse.preventDefault(e)
@@ -35,7 +35,7 @@ let make = (~todo: TodosQuery.Inner.t_todos) => {
     removeTodoMutate(~refetchQueries=[TodosQuery.refetchQueryDescription()], {id: todo.id})->ignore
   }
 
-  let toggleTodo = e => {
+  let toggleTodo = _e => {
     switch todosResult {
     | {data: Some({todos})} => {
         let matchedTodoOrNone = Js.Array2.find(todos, t => t.id == todo.id)

@@ -22,7 +22,7 @@ module ClearCompletedMutation = %graphql(`
 @react.component
 let make = () => {
   let todosResult = TodosQuery.use()
-  let (clearCompletedTodos, clearCompletedTodosResult) = ClearCompletedMutation.use()
+  let (clearCompletedTodos, _clearCompletedTodosResult) = ClearCompletedMutation.use()
   let (state, setState) = React.useState(_ => initialState)
 
   let filterResults = filter => {
@@ -32,7 +32,7 @@ let make = () => {
     })
   }
 
-  let clearCompleted = e =>
+  let clearCompleted = _e =>
     clearCompletedTodos(~refetchQueries=[TodosQuery.refetchQueryDescription()], ())->ignore
   switch todosResult {
   | {loading: true} => <div> {React.string("Loading...")} </div>
@@ -57,7 +57,10 @@ let make = () => {
         />
       </React.Fragment>
     }
-  | {error} => <div> {React.string("Error!")} </div>
+  | {error} => {
+      Js.log(error)
+      <div> {React.string("Error!")} </div>
+    }
   }
 }
 

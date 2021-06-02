@@ -19,40 +19,43 @@ module ToggleTodoMutation = %graphql(`
 
 @react.component
 let make = (~todo: TodosQuery.Inner.t_todos) => {
-  let todosResult = TodosQuery.use()
   let (removeTodoMutate, _removeTodoResult) = RemoveTodoMutation.use()
   let (toggleTodoMutate, _toggleTodoResult) = ToggleTodoMutation.use()
 
   let removeTodo = e => {
     ReactEvent.Mouse.preventDefault(e)
     ReactEvent.Mouse.stopPropagation(e)
-    // removeTodoMutate(~update=(cache, {data, error}) => {
-    //   Js.log("update start")
-    //   let existingTodos = cache.readQuery(~query=module(TodosQuery), ())
-    //   Js.log("update end")
-    //   Js.log(existingTodos)
-    // }, ~refetchQueries=[TodosQuery.refetchQueryDescription()], {id: todo.id})->ignore
     removeTodoMutate(~refetchQueries=[TodosQuery.refetchQueryDescription()], {id: todo.id})->ignore
   }
 
   let toggleTodo = _e => {
-    switch todosResult {
-    | {data: Some({todos})} => {
-        let matchedTodoOrNone = Js.Array2.find(todos, t => t.id == todo.id)
-        switch matchedTodoOrNone {
-        | Some(matchedTodo) =>
-          toggleTodoMutate(
-            ~refetchQueries=[TodosQuery.refetchQueryDescription()],
-            {
-              id: todo.id,
-              isCompleted: !matchedTodo.is_completed,
-            },
-          )->ignore
+    toggleTodoMutate(
+      ~update=({readQuery, writeQuery}, {data}) => {
+        Js.log2("update", data)
+        let existingTodos = readQuery(~query=module(TodosQuery), ())
+        switch existingTodos {
+        | Some(todos1) =>
+          switch todos1 {
+          | Ok({todos}) => {
+              let newTodos = Js.Array2.map(todos, t => {
+                if t.id == todo.id {
+                  {...t, is_completed: !t.is_completed}
+                } else {
+                  t
+                }
+              })
+              let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+            }
+          | _ => ()
+          }
         | None => ()
         }
-      }
-    | _ => ()
-    }
+      },
+      {
+        id: todo.id,
+        isCompleted: !todo.is_completed,
+      },
+    )->ignore
   }
 
   <li>

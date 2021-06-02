@@ -8,6 +8,7 @@
   "dependencies": {
     "@apollo/client": "3.3.4",
     "@auth0/auth0-spa-js": "1.2.3",
+    "@reasonml-community/graphql-ppx": "^1.2.0",
     "@rescript/react": "^0.10.3",
     "bootstrap": "4.3.1",
     "graphql": "15.1.0",

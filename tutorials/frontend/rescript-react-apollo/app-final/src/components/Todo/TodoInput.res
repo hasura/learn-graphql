@@ -20,7 +20,11 @@ let make = (~isPublic=false) => {
   let resetInput = () => {
     setTodoInput(_ => "")
   }
-
+  let refetchQuery = if isPublic {
+    PublicTodosQuery.refetchQueryDescription()
+  } else {
+    TodosQuery.refetchQueryDescription()
+  }
   <form
     className="formInput"
     onSubmit={e => {
@@ -28,9 +32,7 @@ let make = (~isPublic=false) => {
       mutate(~update=(_cache, {data}) => {
         Js.log(data)
         resetInput()
-      }, ~refetchQueries=[
-        TodosQuery.refetchQueryDescription(),
-      ], {todo: todoInput, isPublic: isPublic})->ignore
+      }, ~refetchQueries=[refetchQuery], {todo: todoInput, isPublic: isPublic})->ignore
       Js.log("end")
     }}>
     <input

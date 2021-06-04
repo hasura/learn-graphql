@@ -1,6 +1,6 @@
 ---
 title: "Data Modelling"
-metaTitle: "Data Modelling | Hasura GraphQL Tutorial"
+metaTitle: "Data Modelling | PostgreSQL Tutorial"
 metaDescription: ""
 ---
 

@@ -1,13 +1,12 @@
 ---
-title: ""
-metaTitle: ""
+title: "Setup and Installation"
+metaTitle: "PostgreSQL Installation and Setup | PostgreSQL Tutorial"
 metaDescription: ""
 ---
 
-psql is an interactive terminal program provided by PostgreSQL. It allows you to interact with the PostgreSQL database server such as executing SQL statements and managing database objects.
+In this section, we will learn how to setup Postgres locally and on Cloud.
 
-psql is a command line shell for interacting with PostgreSQL.
-
-The following steps show you how to connect to the PostgreSQL database server via the psql program:
-
-First, launch the psql program and connect to the PostgreSQL Database Server using the postgres user:
+- Setup postgres (locally using docker or deploy on heroku)
+- Learn about Connection string
+- use psql to connect and try out commands
+- Demo schema with data and Import using psql

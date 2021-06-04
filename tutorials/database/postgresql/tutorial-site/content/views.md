@@ -1,6 +1,6 @@
 ---
-title: "Postgres Views"
-metaTitle: "Postgres Views"
+title: "PostgreSQL Views"
+metaTitle: "PostgreSQL Views | PostgreSQL Tutorial"
 metaDescription: ""
 ---
 

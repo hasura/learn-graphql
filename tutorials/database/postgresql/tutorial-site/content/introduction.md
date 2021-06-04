@@ -1,53 +1,26 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | PostgreSQL"
+metaTitle: "Course Introduction | PostgreSQL Tutorial"
 metaDescription: ""
 ---
 
-This course is a super-fast introduction to setting up PostgreSQL.
+This course is a super-fast introduction to learning about key concepts of PostgreSQL and setting it up for app development.
 
 ## What will I learn?
 
 This course will help you understand the different Postgres features, when and how to use them, and
 is an ideal starting point before diving into advanced topics.
 
-1. Intro to PostgreSQL
-    a. SQL
-    b. Relations (one-one, one-many, many-many)
-    c. Core Concepts
-2. Database
-    a. Schema
-    b. Tables, columns (data-types), primary keys
-    c. Relations & Joins
-    d. Constraints
-3. Data Modelling
-4. Installation
-    a. Setup postgres (locally or deploy on heroku)
-    b. Connection string
-    c. use psql to connect and try out commands
-    d. Demo schema with data
-    e. Import using psql
-5. Try it out
-    a. Simple select, insert, update, delete statements.
-    b. where, order_by, limit, offset
-6. Create and Alter Statements
-    a. Create and alter tables
-    b. Alter columns, primary keys
-    c. Sequences and increments
-    d. Constraints
-7. Postgres Views
-    a. Data transformation with views
-8. Postgres Triggers
-    - When to use triggers?
-    - What is a trigger and how it works
-    - Examples of triggers
-9. Joins
-    a. Getting related data from two tables
-10. Advanced
-    a. Handling Date and Time
-    b. Transactions
-    c. Indexes
-    d. Backup/restore
+- Intro to PostgreSQL
+- Database Core Concepts
+- Data Modelling
+- Setup and Installation
+- Try out SQL Statements
+- Create and Alter Statements
+- Postgres Views
+- Postgres Triggers
+- Joins
+- Advanced
 
 ## What do I need to take this tutorial?
 

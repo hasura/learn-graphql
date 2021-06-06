@@ -29,11 +29,44 @@ let make = (~isPublic=false) => {
     className="formInput"
     onSubmit={e => {
       ReactEvent.Form.preventDefault(e)
-      mutate(~update=(_cache, {data}) => {
-        Js.log(data)
+      mutate(~update=({readQuery, writeQuery}, {data}) => {
+        if !isPublic {
+          switch data {
+          | Some({insert_todos}) =>
+            switch insert_todos {
+            | Some({returning}) =>
+              let newTodo: TodosQuery.t_todos = {
+                __typename: returning[0].__typename,
+                id: returning[0].id,
+                title: returning[0].title,
+                created_at: returning[0].created_at,
+                is_completed: returning[0].is_completed,
+              }
+              let existingTodosResponse = readQuery(~query=module(TodosQuery), ())
+              switch existingTodosResponse {
+              | Some(todosResult) =>
+                switch todosResult {
+                | Ok({todos}) => {
+                    let newTodos = Js.Array2.concat([newTodo], todos)
+                    let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+                  }
+                | _ => ()
+                }
+              | None => ()
+              }
+            | None => ()
+            }
+          | None => ()
+          }
+        } else {
+          ()
+        }
+      }, ~refetchQueries=[
+        refetchQuery,
+      ], {todo: todoInput, isPublic: isPublic})->Js.Promise.then_(res => {
         resetInput()
-      }, ~refetchQueries=[refetchQuery], {todo: todoInput, isPublic: isPublic})->ignore
-      Js.log("end")
+        Js.Promise.resolve(res)
+      }, _)->ignore
     }}>
     <input
       className="input"

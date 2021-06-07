@@ -36,7 +36,7 @@ let make = () => {
 
 ## How does this work?
 
-Since `OnlineUsersSubscription` is a GraphQL mutation query, `OnlineUsersSubscription.use()` uses `useMutation` React hook of Apollo. We are using the `useSubscription` React hook which returns properties (similar to `useQuery` and `useMutation` React hooks). The `data` property gives the result of the realtime data for the query we have made.
+Since `OnlineUsersSubscription` is a GraphQL mutation query, `OnlineUsersSubscription.use()` uses `useSubscription` React hook of Apollo. We are using the `useSubscription` React hook which returns properties (similar to `useQuery` and `useMutation` React hooks). The `data` property gives the result of the realtime data for the query we have made.
 
 Refresh your react app and see yourself online! Don't be surprised; There could be other users online as well.
 

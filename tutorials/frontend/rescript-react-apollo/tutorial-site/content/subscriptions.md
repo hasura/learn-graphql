@@ -24,7 +24,7 @@ We have to make this change to see yourself online first. Remember that you are 
 
 The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's update some code to handle this.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/OnlineUsers/OnlineUsersWrapper.js" text="src/components/OnlineUsers/OnlineUsersWrapper.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/rescript-react-apollo/app-final/src/components/OnlineUsers/OnlineUsersWrapper.res" text="src/components/OnlineUsers/OnlineUsersWrapper.res" />
 
 In `useEffect`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.
 

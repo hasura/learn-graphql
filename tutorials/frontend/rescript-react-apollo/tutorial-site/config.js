@@ -22,7 +22,7 @@ const config = {
     ],
     search: {
       enabled: true,
-      indexName: "learn-react-apollo-hooks",
+      indexName: "learn-rescript-react-apollo",
       algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
       algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
@@ -58,9 +58,9 @@ const config = {
     description:
       "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in React with Apollo Hooks",
     ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-react-apollo-hooks.png",
+      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-rescript-react-apollo.png",
     docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/react-apollo-hooks/tutorial-site/content",
+      "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/rescript-react-apollo/tutorial-site/content",
     favicon:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/react-favicon.png",
   },

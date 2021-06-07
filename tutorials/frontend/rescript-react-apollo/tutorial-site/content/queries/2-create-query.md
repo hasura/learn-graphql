@@ -28,7 +28,7 @@ let make = %graphql(`
 
 `%graphql` is a GraphQL primitive from graphql-ppx. In addition to creating a query that you can pass to the client, it will also generate the types of the data that we get back from the GraphQL server.
 
-We created a separate module for this query to reuse this query in multiple places.
+We created a separate module for this query to reuse it in multiple places.
 
 We can intergate the GraphQL query in a React component as follows
 

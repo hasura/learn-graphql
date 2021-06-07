@@ -1,6 +1,6 @@
 ---
 title: "Subscriptions to show online users"
-metaTitle: "Update last seen of user with Mutation | GraphQL React Apollo Hooks Tutorial"
+metaTitle: "Update last seen of user with Mutation | ReScript React Apollo Tutorial"
 metaDescription: "GraphQL Mutation to update last seen of user to make them available online. Use setInterval to trigger mutation every few seconds "
 ---
 
@@ -10,8 +10,7 @@ We cruised through our GraphQL queries and mutations. We queried for todos, adde
 
 Now let's get to the exciting part.
 
-GraphQL Subscriptions
----------------------
+## GraphQL Subscriptions
 
 We have a section of UI which displays the list of online users. So far we have made queries to fetch data and display them on the UI. But typically online users data is dynamic.
 
@@ -23,69 +22,51 @@ We need to tell the server that the user who is logged in is online. We have to 
 
 We have to make this change to see yourself online first. Remember that you are already logged in, registered your data in the server, but not updated your `last_seen` value?
 
-The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's update some code to handle this. 
-
-Open `src/components/OnlineUsers/OnlineUsersWrapper.js` and add the following imports
+The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's update some code to handle this.
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/OnlineUsers/OnlineUsersWrapper.js" text="src/components/OnlineUsers/OnlineUsersWrapper.js" />
 
-```javascript
-- import React from "react";
-+ import React, { useEffect, useState } from "react";
-+ import { useMutation, gql } from "@apollo/client";
-```
-
 In `useEffect`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.
 
-```javascript
-const OnlineUsersWrapper = () => {
-+  const [onlineIndicator, setOnlineIndicator] = useState(0);
-+  let onlineUsersList;
-+  useEffect(() => {
-+     // Every 30s, run a mutation to tell the backend that you're online
-+     updateLastSeen();
-+     setOnlineIndicator(setInterval(() => updateLastSeen(), 30000));
-+ 
-+     return () => {
-+       // Clean up
-+       clearInterval(onlineIndicator);
-+     };
-+ }, []);
+```
+@react.component
+let make = () => {
+  React.useEffect1(() => {
+    // Every 30s, run a mutation to tell the backend that you're online
+    updateLastSeen()
+    let timerId = Js.Global.setInterval(updateLastSeen, 30000)
+    Some(() => Js.Global.clearInterval(timerId))
+  }, [])
+}
 ```
 
 Now let's write the definition of the `updateLastSeen`.
 
-```javascript
-const OnlineUsersWrapper = () => {
-  const [onlineIndicator, setOnlineIndicator] = useState(0);
-  let onlineUsersList;
+```
+module UpdateLastSeenMutation = %graphql(`
+    mutation updateLastSeen {
+      update_users(where: {}, _set: { last_seen: "now()" }) {
+        affected_rows
+      }
+    }
+  `)
 
-  useEffect(() => {
+@react.component
+let make = () => {
+  let (updateLastSeenMutation, _) = UpdateLastSeenMutation.use()
+
+  let updateLastSeen = () => {
+    // Use the apollo client to run a mutation to update the last_seen value
+    updateLastSeenMutation()->ignore
+  }
+
+  React.useEffect1(() => {
     // Every 30s, run a mutation to tell the backend that you're online
-    updateLastSeen();
-    setOnlineIndicator(setInterval(() => updateLastSeen(), 30000));
-
-    return () => {
-      // Clean up
-      clearInterval(onlineIndicator);
-    };
-  }, []);
-
-+ const UPDATE_LASTSEEN_MUTATION = gql`
-+   mutation updateLastSeen($now: timestamptz!) {
-+     update_users(where: {}, _set: { last_seen: $now }) {
-+       affected_rows
-+     }
-+   }
-+ `;
-+ const [updateLastSeenMutation] = useMutation(UPDATE_LASTSEEN_MUTATION);
-
-+ const updateLastSeen = () => {
-+   // Use the apollo client to run a mutation to update the last_seen value
-+   updateLastSeenMutation({
-+     variables: { now: new Date().toISOString() }
-+   });
-+ };
+    updateLastSeen()
+    let timerId = Js.Global.setInterval(updateLastSeen, 30000)
+    Some(() => Js.Global.clearInterval(timerId))
+  }, [])
+}
 ```
 
 Again, we are making use of `useMutation` React hook to update the `users` table of the database.

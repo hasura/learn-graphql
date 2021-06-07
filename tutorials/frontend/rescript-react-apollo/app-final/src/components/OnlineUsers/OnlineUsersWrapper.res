@@ -8,7 +8,6 @@ module UpdateLastSeenMutation = %graphql(`
 
 @react.component
 let make = () => {
-  // let (onlineIndicator, setOnlineIndicator) = React.useState(_ => 0)
   let (updateLastSeenMutation, _) = UpdateLastSeenMutation.use()
   let onlineUsersResult = OnlineUser.OnlineUsersSubscription.use()
 

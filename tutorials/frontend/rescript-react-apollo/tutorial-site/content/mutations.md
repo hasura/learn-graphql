@@ -1,6 +1,6 @@
 ---
 title: "Mutations & Query variables"
-metaTitle: "Integrate Mutations with Query Variables | GraphQL React Apollo Hooks Tutorial"
+metaTitle: "Integrate Mutations with Query Variables | ReScript React Apollo Tutorial"
 metaDescription: "Integrate GraphQL Mutations to create new personal todos using the useMutation React hook and handle loading and error states"
 ---
 

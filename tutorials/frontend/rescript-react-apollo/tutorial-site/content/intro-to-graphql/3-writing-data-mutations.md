@@ -1,6 +1,6 @@
 ---
 title: Writing data - Mutations
-metaTitle: "GraphQL Mutations to insert data | GraphQL React Apollo Hooks Tutorial"
+metaTitle: "GraphQL Mutations to insert data | ReScript React Apollo Tutorial"
 metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation example with dynamic arguments and variables to insert data"
 canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-mutations/"
 ---
@@ -8,6 +8,7 @@ canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-mutations/"
 import {Link} from "gatsby";
 
 These are the concepts you should know before you attack mutations (haha):
+
 - <Link to="/intro-to-graphql/2-fetching-data-queries/#tryoutgraphqlqueries">Using GraphiQL</Link>
 - <Link to="/intro-to-graphql/2-fetching-data-queries/#graphqlvariables:passingargumentstoyourqueriesdynamically">Using query variables</Link>
 
@@ -17,19 +18,20 @@ of your backend "mutating" or changing, just like typical `'POST'`,
 `'PUT'`, `'PATCH'`, `'DELETE'` APIs.
 
 ## Basic mutations
+
 Since we're using Hasura for our GraphQL API, we get mutations for
 inserts, updates or deletes that we can use in our app.
 
 Let's try these mutations out in the context of a todo app to see
 what mutations look like. Mutations that you get from another GraphQL
-service, say if your API team has built their own,  might be different.
+service, say if your API team has built their own, might be different.
 
 ### Create a todo
 
 Let's make an API call to create a todo. As you would have guessed, this
 will be a critical portion of our todo app. 😉
 
-> **Protip**: Now let's say we don't know what the name of the mutation to 
+> **Protip**: Now let's say we don't know what the name of the mutation to
 > create a todo. GraphiQL to the rescue!
 > Head to GraphiQL and on the right, click on the "docs" tab.
 > Type "todo" there and you'll see a list of GraphQL queries and types
@@ -40,7 +42,7 @@ The mutation to create todos is titled `insert_todos`.
 
 ```graphql
 mutation {
-  insert_todos(objects: [{title: "new todo"}]) {
+  insert_todos(objects: [{ title: "new todo" }]) {
     returning {
       id
     }
@@ -49,9 +51,11 @@ mutation {
 ```
 
 <!-- [//]: # TODO: -->
+
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Returning data after the mutation
+
 Notice that the data of the todo that is to be inserted is sent as
 an argument to the `insert_todos` mutation. But the "fields" of the mutation
 specify the shape of the _response_ that you want from the server.
@@ -61,7 +65,7 @@ as a response:
 
 ```graphql
 mutation {
-  insert_todos(objects: [{title: "new todo"}]) {
+  insert_todos(objects: [{ title: "new todo" }]) {
     returning {
       id
       title
@@ -74,6 +78,7 @@ mutation {
 ```
 
 <!-- [//]: # TODO: -->
+
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Parameterise what you insert
@@ -87,7 +92,7 @@ Now that we know how to parameterise using query variables, let's use that:
 
 ```graphql
 # The parameterised GraphQL mutation
-mutation($todo: todos_insert_input!){
+mutation ($todo: todos_insert_input!) {
   insert_todos(objects: [$todo]) {
     returning {
       id
@@ -106,6 +111,7 @@ mutation($todo: todos_insert_input!){
 ```
 
 <!-- [//]: # TODO: -->
+
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 We'll explore more mutations to update or delete data a little later.

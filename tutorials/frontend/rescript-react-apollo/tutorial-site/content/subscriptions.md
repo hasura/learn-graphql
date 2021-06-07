@@ -28,7 +28,7 @@ The goal is to update every few seconds from the client that you are online. Ide
 
 In `useEffect`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.
 
-```
+```reason
 @react.component
 let make = () => {
   React.useEffect1(() => {
@@ -42,7 +42,7 @@ let make = () => {
 
 Now let's write the definition of the `updateLastSeen`.
 
-```
+```reason
 module UpdateLastSeenMutation = %graphql(`
     mutation updateLastSeen {
       update_users(where: {}, _set: { last_seen: "now()" }) {

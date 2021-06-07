@@ -21,7 +21,7 @@ module ToggleTodoMutation = %graphql(`
 
 Let's integrate ToggleTodoMutation query into TodoItem component.
 
-```
+```reason
 @react.component
 let make = (~todo: TodosQuery.Inner.t_todos) => {
   let (toggleTodoMutate, _toggleTodoResult) = ToggleTodoMutation.use()

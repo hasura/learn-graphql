@@ -1,15 +1,17 @@
 ---
 title: "Intro to GraphQL"
-metaTitle: "Intro to GraphQL | GraphQL React Apollo Hooks Tutorial"
+metaTitle: "Intro to GraphQL | ReScript React Apollo Tutorial"
 metaDescription: "What is GraphQL? GraphQL is a specification for how to talk to an API. This part also covers GraphQL vs REST with an example and takes you over benefits of GraphQL"
 ---
 
 ## What is GraphQL?
+
 GraphQL is a specification for how to talk to an API. It's typically used over HTTP where the key idea is to `POST` a "query" to an HTTP endpoint, instead of hitting different HTTP endpoints for different resources.
 
 GraphQL is designed for developers of web/mobile apps (HTTP clients) to be able to make API calls to fetch the data they need from their backend APIs conveniently.
 
 ## GraphQL vs REST: an example
+
 Let's say you have an API to fetch a user's profile and their address. In a typical REST scenario, this is what the request/response would look like:
 
 ![GraphQL API example](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/rest-api.png)
@@ -46,6 +48,7 @@ query {           |   {
 We're changing the way we think about API calls. Instead of making different API
 calls to different URLs to fetch data, we're making ad-hoc queries to a "single
 URL endpoint" that returns data based on the query.
+
 - Instead of 'GET'ing a resource you 'POST' a query that describes what data you
   want.
 - You think of the data your API returns as a "graph", this allows you to make
@@ -69,7 +72,7 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
 - **Lesser communication with API developers**: Sometimes to fetch the exact data
   you need, especially if you need to fetch more data and want to avoid multiple API
   calls, you will need to ask your API developers to build a new API. With GraphQL,
-  your work is *independent* of the API team! This allows you to work faster on your
+  your work is _independent_ of the API team! This allows you to work faster on your
   app.
 - **Self-documenting**: Every GraphQL API conforms to a "schema" which is the graph
   data model and what kinds of queries a client can make. This allows the community
@@ -79,9 +82,9 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
 
 Here's a quick chart to show you the GraphQL analogs of typical REST-ish terms:
 
-| Requirement | REST | GraphQL |
-| :-- | :-- | :-- |
-| Fetching data objects | GET | query |
-| Writing data | POST | mutation |
-| Updating/deleting data | PUT/PATCH/DELETE | mutation |
-| Watching/subscribing to data | - | subscription |
+| Requirement                  | REST             | GraphQL      |
+| :--------------------------- | :--------------- | :----------- |
+| Fetching data objects        | GET              | query        |
+| Writing data                 | POST             | mutation     |
+| Updating/deleting data       | PUT/PATCH/DELETE | mutation     |
+| Watching/subscribing to data | -                | subscription |

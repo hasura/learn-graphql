@@ -1,6 +1,6 @@
 ---
 title: "Optimistic UI updates after mutations"
-metaTitle: "Optimistic UI updates after mutations | GraphQL React Apollo Hooks Tutorial"
+metaTitle: "Optimistic UI updates after mutations | ReScript React Apollo Tutorial"
 metaDescription: "We will use the Apollo Client Optimistic Response to perform UI updates after a GraphQL mutation in the React app"
 ---
 

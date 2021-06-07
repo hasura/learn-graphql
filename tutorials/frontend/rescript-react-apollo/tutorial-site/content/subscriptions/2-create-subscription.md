@@ -6,7 +6,7 @@ metaDescription: "Integrate React Apollo useSubscription hook to watch for chang
 
 let's create a ReScript module for online users subscription query
 
-```
+```reason
 module OnlineUsersSubscription = %graphql(`
   subscription getOnlineUsers {
     online_users(order_by: [{ user: { name: asc } }]) {
@@ -21,7 +21,7 @@ module OnlineUsersSubscription = %graphql(`
 
 We can integrate the subscription query in react query as shown below.
 
-```
+```reason
 @react.component
 let make = () => {
   let onlineUsersResult = OnlineUsersSubscription.use()

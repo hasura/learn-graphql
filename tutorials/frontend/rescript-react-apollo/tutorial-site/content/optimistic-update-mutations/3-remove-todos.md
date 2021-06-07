@@ -1,6 +1,6 @@
 ---
 title: "Remove todos - mutation"
-metaTitle: "Mutation to delete todos | GraphQL React Apollo Hooks Tutorial"
+metaTitle: "Mutation to delete todos | ReScript React Apollo Tutorial"
 metaDescription: "GraphQL Mutation to delete existing personal todos. Try the mutation in GraphiQL, passing the Authorization token to delete a todo"
 ---
 
@@ -9,8 +9,8 @@ In this part of the tutorial, you will learn how to remove existing todos by usi
 Let's define a graphql query to do a mutation into todos.
 
 ```graphql
-mutation removeTodo ($id: Int!) {
-  delete_todos(where: {id: {_eq: $id}}) {
+mutation removeTodo($id: Int!) {
+  delete_todos(where: { id: { _eq: $id } }) {
     affected_rows
   }
 }

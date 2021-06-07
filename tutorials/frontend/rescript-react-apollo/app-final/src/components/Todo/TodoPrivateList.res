@@ -33,7 +33,21 @@ let make = () => {
   }
 
   let clearCompleted = _e =>
-    clearCompletedTodos(~refetchQueries=[TodosQuery.refetchQueryDescription()], ())->ignore
+    clearCompletedTodos(~update=({readQuery, writeQuery}, {data: _data}) => {
+      let existingTodos = readQuery(~query=module(TodosQuery), ())
+      switch existingTodos {
+      | Some(todosResult) =>
+        switch todosResult {
+        | Ok({todos}) => {
+            let newTodos = Js.Array2.filter(todos, t => !t.is_completed)
+            let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+          }
+        | _ => ()
+        }
+      | None => ()
+      }
+    }, ())->ignore
+
   switch todosResult {
   | {loading: true} => <div> {React.string("Loading...")} </div>
   | {data: Some({todos}), error: None} => {

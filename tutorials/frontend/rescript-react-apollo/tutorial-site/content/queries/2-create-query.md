@@ -10,7 +10,7 @@ In this section, we will implement GraphQL Queries and integrate with the react 
 
 Create a new file with name TodosQuery.res and add the following code to create a todos query ReScript module.
 
-```graphql
+```reason
 let make = %graphql(`
   query {
     todos(
@@ -32,7 +32,7 @@ We created a separate module for this query to reuse this query in multiple plac
 
 We can intergate the GraphQL query in a React component as follows
 
-```
+```reason
 @react.component
 let make = () => {
   let todosResult = TodosQuery.use()

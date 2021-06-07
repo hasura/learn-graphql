@@ -8,7 +8,7 @@ As we saw in the previous step, Apollo returned a result object with properties 
 
 Now let's go back to the `useQuery` React hook that you wrote in the previous step.
 
-```
+```reason
 @react.component
 let make = () => {
   let todosResult = TodosQuery.use()

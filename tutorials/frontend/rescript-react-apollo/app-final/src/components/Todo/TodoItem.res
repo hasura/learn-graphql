@@ -25,17 +25,29 @@ let make = (~todo: TodosQuery.Inner.t_todos) => {
   let removeTodo = e => {
     ReactEvent.Mouse.preventDefault(e)
     ReactEvent.Mouse.stopPropagation(e)
-    removeTodoMutate(~refetchQueries=[TodosQuery.refetchQueryDescription()], {id: todo.id})->ignore
+    removeTodoMutate(~update=({readQuery, writeQuery}, {data: _data}) => {
+      let existingTodos = readQuery(~query=module(TodosQuery), ())
+      switch existingTodos {
+      | Some(todosResult) =>
+        switch todosResult {
+        | Ok({todos}) => {
+            let newTodos = Js.Array2.filter(todos, t => t.id !== todo.id)
+            let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+          }
+        | _ => ()
+        }
+      | None => ()
+      }
+    }, {id: todo.id})->ignore
   }
 
   let toggleTodo = _e => {
     toggleTodoMutate(
-      ~update=({readQuery, writeQuery}, {data}) => {
-        Js.log2("update", data)
+      ~update=({readQuery, writeQuery}, {data: _data}) => {
         let existingTodos = readQuery(~query=module(TodosQuery), ())
         switch existingTodos {
-        | Some(todos1) =>
-          switch todos1 {
+        | Some(todosResult) =>
+          switch todosResult {
           | Ok({todos}) => {
               let newTodos = Js.Array2.map(todos, t => {
                 if t.id == todo.id {

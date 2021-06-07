@@ -6,7 +6,7 @@ metaDescription: "We will use the Apollo Client useMutation from @apollo/client 
 
 let's create a ReScirpt module for create todo mutation in `src/components/Todo/TodoInput.res` with the following code
 
-```
+```reason
 module AddTodoMutation = %graphql(`
   mutation($todo: String!, $isPublic: Boolean!) {
     insert_todos(objects: [{ title: $todo, is_public: $isPublic }]) {
@@ -22,7 +22,7 @@ module AddTodoMutation = %graphql(`
 `)
 ```
 
-```
+```reason
 @react.component
 let make = (~isPublic=false) => {
   let (todoInput, setTodoInput) = React.useState(_ => "")
@@ -58,7 +58,7 @@ Since `AddTodoMutation` is a GraphQL mutation query, `AddTodoMutation.use()` use
 
 In the above component, mutate function is called with variables only. This will execute the mutation and change the data on server but it doesn't update Apollo cache. To update Apollo cache, we should also pass update option to mutate function in addition to variables as shown in the code below.
 
-```
+```reason
 @react.component
 let make = (~isPublic=false) => {
   let (todoInput, setTodoInput) = React.useState(_ => "")
@@ -122,7 +122,7 @@ let make = (~isPublic=false) => {
 
 ReScript enforces us to handle all possible cases with pattern matching. For example, data in the update method may or mayn't have insert_todos properties based on the query. So we have to handle both the cases with pattern matching as shown below
 
-```
+```reason
 switch data {
   | Some({insert_todos}) => // logic to handle insert_todos
   | None => // logic to handle None

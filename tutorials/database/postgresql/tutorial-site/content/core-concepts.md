@@ -4,7 +4,7 @@ metaTitle: "Core Concepts | PostgreSQL Tutorial"
 metaDescription: ""
 ---
 
-In this section, we will look at the fundamentals of SQL database and learn the core concepts.
+In this section, we will look at the fundamentals of SQL database and learn the core concepts. Some of the them include
 
 - Schema
 - Tables

@@ -28,14 +28,14 @@ const config = {
 		"forcedNavOrder": [
 			"/introduction/",
 			"/what-is-postgresql/",
-			"/core-concepts/",
-    		"/data-modelling/",
     		"/installation/",
-    		"/try-it-out/",
-    		"/create-alter/",
+			"/core-concepts/",
+    		"/create-alter-drop-ddl/",
+    		"/querying-inserting-dml/",
     		"/views/",
     		"/triggers/",
-    		"/joins/",
+			"/functions-stored-procedures/",
+			"/performance/",
     		"/advanced/",
     		"/what-next/"
     	],
@@ -53,7 +53,7 @@ const config = {
 	"siteMetadata": {
 		"title": "Introduction to PostgreSQL database for developers | Hasura",
 		"description": "A concise and powerful tutorial that covers fundamental concepts of PostgreSQL instantly and how to leverage it with Hasura",
-		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura.png",
+		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-postgresql.png",
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/database/postgresql/tutorial-site/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
 	},

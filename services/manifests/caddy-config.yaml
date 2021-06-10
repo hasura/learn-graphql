@@ -42,6 +42,10 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/rescript-react-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/rescript-react-apollo/boilerplate.zip
+      }
+
+      redir 301 {
         /learn/graphql/angular-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/angular-apollo/boilerplate.zip
       }
 
@@ -83,6 +87,10 @@ data:
 
       redir 301 {
         /learn/graphql/reason-react-apollo/ /learn/graphql/reason-react-apollo/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/rescript-react-apollo/ /learn/graphql/rescript-react-apollo/introduction
       }
 
       redir 301 {
@@ -200,6 +208,8 @@ data:
       proxy /learn/graphql/elm-graphql elm-graphql
 
       proxy /learn/graphql/reason-react-apollo reason-react-apollo
+
+      proxy /learn/graphql/rescript-react-apollo rescript-react-apollo
 
       proxy /learn/graphql/angular-apollo angular-apollo
 

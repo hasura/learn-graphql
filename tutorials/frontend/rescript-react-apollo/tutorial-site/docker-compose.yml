@@ -4,7 +4,7 @@ services:
     build: .
     restart: always
     ports: 
-      - 8080:8080
+      - 9090:8080
     volumes:
       - ./content:/gatsby-gitbook-starter/content
       - ./config.js:/gatsby-gitbook-starter/config.js 

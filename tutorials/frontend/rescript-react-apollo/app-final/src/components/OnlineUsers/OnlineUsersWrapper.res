@@ -19,7 +19,7 @@ let make = () => {
   React.useEffect1(() => {
     // Every 30s, run a mutation to tell the backend that you're online
     updateLastSeen()
-    let timerId = Js.Global.setInterval(updateLastSeen, 30000)
+    let timerId = Js.Global.setInterval(updateLastSeen, 20000)
     Some(() => Js.Global.clearInterval(timerId))
   }, [])
 

@@ -1,6 +1,6 @@
 const config = {
   gatsby: {
-    pathPrefix: "/learn/graphql/rescript",
+    pathPrefix: "/learn/graphql/rescript-react-apollo",
     siteUrl: "https://hasura.io",
     gaTrackingId: "GTM-WBBW2LN",
     trailingSlash: true,
@@ -9,11 +9,11 @@ const config = {
     logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
     logoLink: "https://hasura.io/learn/",
     title:
-      "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/rescript/introduction/'>/ react</a>",
+      "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/rescript-react-apollo/introduction/'>/ react</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:
-      "Check out this GraphQL course for React developers by @HasuraHQ https://hasura.io/learn/graphql/rescript/introduction/",
+      "Check out this GraphQL course for ReScript developers by @HasuraHQ https://hasura.io/learn/graphql/rescript-react-apollo/introduction/",
     links: [
       {
         text: "Hasura Home",
@@ -21,7 +21,7 @@ const config = {
       },
     ],
     search: {
-      enabled: true,
+      enabled: false,
       indexName: "learn-rescript-react-apollo",
       algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
@@ -54,15 +54,15 @@ const config = {
     ignoreIndex: true,
   },
   siteMetadata: {
-    title: "2 hour GraphQL Apollo course for React developers | Hasura",
+    title: "2 hour GraphQL Apollo course for ReScript React developers | Hasura",
     description:
-      "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in React with Apollo Hooks",
+      "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in ReScript with Apollo Hooks",
     ogImage:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-rescript-react-apollo.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/rescript-react-apollo/tutorial-site/content",
     favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/react-favicon.png",
+      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-rescript-react-apollo/rescript-favicon.png",
   },
 };
 

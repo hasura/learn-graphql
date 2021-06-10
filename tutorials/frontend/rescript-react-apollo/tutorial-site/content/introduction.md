@@ -59,6 +59,7 @@ Less than 2 hours
 
 <CommunityAuthor 
     name="Kiran Abburi"
+    imageUrl="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-rescript-react-apollo/kiran-rescript-community-author.jpeg"
     twitterUrl="https://twitter.com/kiran_abburi"
     githubUrl="https://github.com/akiran"
     description="Consultant"

@@ -14,7 +14,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 
 ## Key topics and takeways:
 
-- GraphQL vs REST
+- [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions
 - Generating GraphQL types using [elm-graphql](https://github.com/dillonkearns/elm-graphql/)
 - Integrating GraphQL queries in your elm app

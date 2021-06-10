@@ -2,7 +2,7 @@
 
 ### Frontend
 
-- GraphQL vs REST 
+- [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/) 
 - GraphQL Queries, Mutations, Subscriptions
 - Setting up a GraphQL Client with Apollo
 - Integrating GraphQL Queries in the App

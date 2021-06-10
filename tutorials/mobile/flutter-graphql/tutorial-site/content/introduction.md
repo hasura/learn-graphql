@@ -16,7 +16,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 
 ## Key topics and takeways:
 
-- GraphQL vs REST
+- [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions
 - Setting up a GraphQL client
 - Integrating GraphQL queries in your flutter app

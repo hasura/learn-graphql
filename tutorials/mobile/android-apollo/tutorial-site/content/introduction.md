@@ -9,7 +9,7 @@ This course is a concise and powerful introduction to GraphQL for android develo
 We’ve structured this course to cover fundamental concepts of both GraphQL and using GraphQL in Android, in the shortest amount of time possible. The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite tools and tailor your workflow.
 
 ## Key topics and takeways:
-- GraphQL vs REST
+- [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions
 - Setting up a GraphQL client with Apollo
 - Integrating GraphQL queries in your android app

@@ -8,7 +8,7 @@ Hasura Cloud lets you scale your applications automatically without having to th
 
 ## Horizontal Scaling of Postgres
 
-Hasura Cloud can load balance queries and subscriptions across read replicas while sending all mutations and metadata API calls to the master. To perform horizatal scaling,
+Hasura Cloud can load balance queries and subscriptions across read replicas while sending all mutations and metadata API calls to the master. To perform horizontal scaling,
 
 - Create read-replicas of your postgres instances
 - Configure routing, connection pooling, and load balancing

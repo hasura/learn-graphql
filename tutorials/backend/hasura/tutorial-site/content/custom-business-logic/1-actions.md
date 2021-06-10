@@ -151,7 +151,7 @@ query {
 
 Remember the JWT token that we got after [configuring Auth0 and testing it out](https://hasura.io/learn/graphql/hasura/authentication/5-test-with-headers/)? Here you also need to pass in the `Authorization` header with the same JWT token to get the right data.
 
-In GraphiQL, uncheck the `hasura-collaborator-token` header, create a new one called `Authorization` and paste this in the value `Bearer eyJhb.....`.
+In GraphiQL, uncheck the `x-hasura-admin-secret` header, create a new one called `Authorization` and paste this in the value `Bearer eyJhb.....`.
 
 **Note**: You need to pass in the right header values. You can pass in the Authorization header with the correct token and your Node.js server will receive the appropriate `x-hasura-user-id` value from the session variables for the API to work as expected.
 

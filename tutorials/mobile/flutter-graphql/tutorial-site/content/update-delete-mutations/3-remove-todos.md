@@ -6,7 +6,7 @@ metaDescription: "GraphQL Mutation to delete existing personal todos. Try the mu
 
 In this part of the tutorial, you will learn how to remove existing todos by using GraphQL Mutations.
 
-Let's define a GraphQL query to do a mutation in todos.
+Let's define a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) to do a mutation in todos.
 
 ```graphql
 mutation delete($id:Int!) {

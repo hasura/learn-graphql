@@ -12,7 +12,7 @@ Lets add functionality to the loadMoreSections
 
 ### Construct GraphQL Queries
 
-Lets construct the GraphQL query for the above two operations
+Lets construct the [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) for the above two operations
 
 ```
 makeRequest : SelectionSet Todos RootQuery -> String -> Cmd Msg

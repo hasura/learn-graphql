@@ -33,7 +33,7 @@ Now let's go back to the `todoQueryCloud` function that you wrote in the previou
 When this function is executed in the `viewWillAppear`, we handle the completion of it from the `error` or `result` objects.
 
 ### Error state in Apollo iOS
-Now, the query could also end up in an `error` state due to various reasons. Sometimes the graphql query could be wrong, or the server isn't responding. Whatever may be the reason, the user facing UI should show something to convey that an error has occurred. Here we are checking if there was a error, was that because of an invalid token? And if so, we trigger logout and send the user to login screen.
+Now, the query could also end up in an `error` state due to various reasons. Sometimes the [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) could be wrong, or the server isn't responding. Whatever may be the reason, the user facing UI should show something to convey that an error has occurred. Here we are checking if there was a error, was that because of an invalid token? And if so, we trigger logout and send the user to login screen.
 In this error state, typically you can send these error messages to third-party services to track what went wrong.
 
 All said and done, these are two important states that need to be handled inside your component. What you have written above is basic, but sufficient for this tutorial.

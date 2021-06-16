@@ -6,7 +6,7 @@ metaDescription: "You will learn how to make use of GraphQL Subscriptions to get
 
 import GithubLink from '../../src/GithubLink.js'
 
-Let's define the graphql query to be used:
+Let's define the [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) to be used:
 
 Open `Todo/FeedVC.swift` and add the following variable and initialize in `viewWillAppear` and `viewWillDisappear`.
 

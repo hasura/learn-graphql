@@ -83,4 +83,4 @@ Replace the component's body with this code.
 
 Refresh your app and see yourself online! Don't be surprised; There could be other users online as well.
 
-Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.
+Awesome! You have completed implementations of a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/), Mutation and Subscriptions.

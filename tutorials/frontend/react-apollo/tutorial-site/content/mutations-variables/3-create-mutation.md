@@ -15,7 +15,7 @@ Now let's do the integration part. Open `src/components/Todo/TodoInput.js` and a
 import { Mutation } from "react-apollo";
 ```
 
-We are importing the `Mutation` component from `react-apollo` and the graphql query we defined above to fetch the todo data.
+We are importing the `Mutation` component from `react-apollo` and the [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) we defined above to fetch the todo data.
 
 Now, we will wrap the component with `Mutation` passing our graphql mutation constant that we imported. Add the following code:
 

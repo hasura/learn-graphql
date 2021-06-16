@@ -6,7 +6,7 @@ metaDescription: "You will learn how to sync new todos added by other people in 
 
 In the previous section, we detected if there are new todos in the database and showed a banner saying `New todos have arrived`. Now, we need to write an onClick handler of that banner that would fetch the todos newer than the latest visible todo and append it to the todos array in the state.
 
-Lets first define a GraphQL query that takes this `latestVisibleId` as an argument and fetches all the tasks that have `id` greater than this `latestVisibleId`. Go to `src/GraphQLQueries.re` and add the following code at the bottom:
+Lets first define a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) that takes this `latestVisibleId` as an argument and fetches all the tasks that have `id` greater than this `latestVisibleId`. Go to `src/GraphQLQueries.re` and add the following code at the bottom:
 
 ```js
 module GetNewPublicTodos = [%graphql

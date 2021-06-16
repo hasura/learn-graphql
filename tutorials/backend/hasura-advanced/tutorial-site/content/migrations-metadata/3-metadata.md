@@ -57,7 +57,7 @@ This will export the metadata as yaml and update the right files in the `metadat
 - `inherited_roles.yaml` - This contains the definition for all inherited roles.
 - `query_collections.yaml` - Queries can be grouped inside a collection. This file contains such groups.
 - `remote_schemas.yaml` - Metadata about all the Remote Schemas added including information about the GraphQL endpoint and optional headers.
-- `rest_endpoints.yaml` - Metadata of all the RESTified endpoints that are created for a given GraphQL query.
+- `rest_endpoints.yaml` - Metadata of all the RESTified endpoints that are created for a given [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/).
 - `version.yaml` - Version of the metadata being used. Currently it is version 3.
 
 In our slack schema, we have the `tables` directory populated with all the postgres tables and the role based permissions for the same. As we keep changing the schema and modify metadata related to it, these files would be updated automatically.

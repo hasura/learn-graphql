@@ -6,7 +6,7 @@ metaDescription: "We can setup sync between Hasura and RxDB using the builtin Rx
 
 We can setup sync between Hasura and RxDB using the builtin `RxDBReplicationGraphQL` plugin. Using this plugin involves three steps
 
-1. Setup a GraphQL query for plugin to use to pull changes from Hasura
+1. Setup a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) for plugin to use to pull changes from Hasura
 2. Setup a GraphQL mutation for the plugin to use for local pushing changes to Hasura
 3. Setup a GraphQL subscription handler to trigger sync from Hasura to the local db as soon as there is a change.
 

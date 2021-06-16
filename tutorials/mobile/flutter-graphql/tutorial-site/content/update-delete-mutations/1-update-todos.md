@@ -6,7 +6,7 @@ metaDescription: "GraphQL Mutation to update existing personal todos. Try the mu
 
 In this part of the tutorial, you will learn how to mark an existing todo as completed by using GraphQL Mutations.
 
-Let's define a GraphQL query to do a mutation into todos.
+Let's define a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/) to do a mutation into todos.
 
 ```graphql
   mutation toggleTodo($id:Int!, $isCompleted: Boolean!) {

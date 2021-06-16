@@ -99,4 +99,4 @@ We are using the `apollo` object to define the subscription query, which functio
 
 Refresh your vue app and see yourself online! Don't be surprised ;) There could be other users online as well.
 
-Awesome! You have completed basic implementations of a GraphQL Query, Mutation and Subscription. Easy isn't it?
+Awesome! You have completed basic implementations of a [GraphQL Query](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/), Mutation and Subscription. Easy isn't it?

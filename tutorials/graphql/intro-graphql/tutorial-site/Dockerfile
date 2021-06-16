@@ -1,7 +1,7 @@
 FROM node:14.16.0
 
 # update this line when gatsby-gitbook-starter repo changes
-RUN sh -c 'echo -e "Updated at: 2021-03-25 21:00:00 IST"'
+RUN sh -c 'echo -e "Updated at: 2021-06-16 15:00:00 IST"'
 
 # Install global dependencies
 RUN npm -g install gatsby-cli

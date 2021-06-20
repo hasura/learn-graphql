@@ -5,7 +5,6 @@
 
 <div class="todoWrapper">
   <div class="sectionHeader">Public feed (realtime)</div>
-
   <TodoInput />
   <TodoPublicList />
 </div>

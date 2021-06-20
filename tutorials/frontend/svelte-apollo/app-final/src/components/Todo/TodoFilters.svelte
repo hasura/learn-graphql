@@ -41,5 +41,5 @@
     </li>
   </ul>
 
-  <button onClick={clearCompleted} class="clearComp"> Clear completed </button>
+  <button on:click={clearCompleted} class="clearComp"> Clear completed </button>
 </div>

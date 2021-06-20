@@ -1,46 +1,41 @@
 <script>
+  import { gql } from "@apollo/client";
+  import { query, subscribe, mutation } from "svelte-apollo";
   import TodoFilters from "./TodoFilters.svelte";
   import TodoItem from "./TodoItem.svelte";
+  import {GET_MY_TODOS} from "./queries"
   let currentFilter = "all";
-  let todos = [
-    {
-      id: "1",
-      title: "This is private todo 1",
-      is_completed: true,
-      is_public: false,
-    },
-    {
-      id: "2",
-      title: "This is private todo 2",
-      is_completed: false,
-      is_public: false,
-    },
-  ];
+
+  const todos = query(GET_MY_TODOS);
 
   function filterResults(filter) {
     currentFilter = filter;
   }
   function clearCompleted() {}
 
-  function getVisibleTodos(todos, currentFilter) {
-    if (currentFilter === "active") {
-      return todos.filter((todo) => !todo.is_completed);
-    } else if (currentFilter === "completed") {
-      return todos.filter((todo) => todo.is_completed);
-    }
-    return todos;
-  }
+  // function getVisibleTodos(todos, currentFilter) {
+  //   if (currentFilter === "active") {
+  //     return todos.filter((todo) => !todo.is_completed);
+  //   } else if (currentFilter === "completed") {
+  //     return todos.filter((todo) => todo.is_completed);
+  //   }
+  //   return todos;
+  // }
 
-  $: visibleTodos = getVisibleTodos(todos, currentFilter);
+  // $: visibleTodos = getVisibleTodos(todos, currentFilter);
 </script>
 
-<div>
-  <div class="todoListWrapper">
-    <ul>
-      {#each visibleTodos as todo (todo.id)}
-        <TodoItem {todo} />
-      {/each}
-    </ul>
+{#if $todos.loading}
+  <div>Loading...</div>
+{:else if $todos.data}
+  <div>
+    <div class="todoListWrapper">
+      <ul>
+        {#each $todos.data.todos as todo (todo.id)}
+          <TodoItem {todo} />
+        {/each}
+      </ul>
+    </div>
+    <!-- <TodoFilters {todos} {currentFilter} {filterResults} {clearCompleted} /> -->
   </div>
-  <TodoFilters {todos} {currentFilter} {filterResults} {clearCompleted} />
-</div>
+{/if}

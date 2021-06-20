@@ -6,33 +6,10 @@ import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
 import image from "@rollup/plugin-image";
 import serve from "rollup-plugin-serve";
+import replace from "rollup-plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
-
-// function serve() {
-//   let server;
-
-//   function toExit() {
-//     if (server) server.kill(0);
-//   }
-
-//   return {
-//     writeBundle() {
-//       if (server) return;
-//       server = require("child_process").spawn(
-//         "npm",
-//         ["run", "start", "--", "--dev"],
-//         {
-//           stdio: ["ignore", "inherit", "inherit"],
-//           shell: true,
-//         }
-//       );
-
-//       process.on("SIGTERM", toExit);
-//       process.on("exit", toExit);
-//     },
-//   };
-// }
+const env = process.env.NODE_ENV || "development";
 
 export default {
   input: "src/main.js",
@@ -64,6 +41,9 @@ export default {
       dedupe: ["svelte"],
     }),
     commonjs(),
+    replace({
+      "process.env.NODE_ENV": JSON.stringify(env),
+    }),
 
     // In dev mode, call `npm run start` once
     // the bundle has been generated

@@ -12,7 +12,7 @@
   let loading = true;
   let isAuthenticated = false;
   let user;
-  let idToken;
+  let authToken;
   let auth0Client;
 
   const onRedirectCallback = () =>
@@ -31,7 +31,7 @@
     if (isAuthenticated) {
       user = await auth0Client.getUser();
       const idTokenClaims = await auth0Client.getIdTokenClaims();
-      idToken = idTokenClaims.__raw;
+      authToken = idTokenClaims.__raw;
     }
 
     loading = false;
@@ -53,5 +53,5 @@
 {:else if !isAuthenticated}
   <Login />
 {:else}
-  <TodoApp />
+  <TodoApp {authToken} />
 {/if}

@@ -1,11 +1,13 @@
 <script>
-  export let authToken;
-  import { setClient } from "svelte-apollo";
   import Header from "./Header.svelte";
   import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper.svelte";
   import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper.svelte";
   import TodoPublicWrapper from "./Todo/TodoPublicWrapper.svelte";
+  import { setClient } from "svelte-apollo";
   import { createApolloClient } from "../apollo";
+
+  export let authToken;
+
   const client = createApolloClient(authToken);
   setClient(client);
 </script>

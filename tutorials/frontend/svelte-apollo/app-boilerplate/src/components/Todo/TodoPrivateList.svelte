@@ -22,7 +22,7 @@
   }
   function clearCompleted() {}
 
-  function getVisibleTodos(todos, currentFilter) {
+  function getFilteredTodos(todos, currentFilter) {
     if (currentFilter === "active") {
       return todos.filter((todo) => !todo.is_completed);
     } else if (currentFilter === "completed") {
@@ -31,13 +31,13 @@
     return todos;
   }
 
-  $: visibleTodos = getVisibleTodos(todos, currentFilter);
+  $: filteredTodos = getFilteredTodos(todos, currentFilter);
 </script>
 
 <div>
   <div class="todoListWrapper">
     <ul>
-      {#each visibleTodos as todo (todo.id)}
+      {#each filteredTodos as todo (todo.id)}
         <TodoItem {todo} />
       {/each}
     </ul>

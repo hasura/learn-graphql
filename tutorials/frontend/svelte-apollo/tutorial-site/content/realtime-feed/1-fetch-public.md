@@ -10,7 +10,7 @@ Let's define the graphql query to be used:
 
 Open `src/components/Todo/TodoPublicList.js` and add the following imports.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/Todo/TodoPublicList.js" text="src/components/Todo/TodoPublicList.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/Todo/TodoPublicList.js" text="src/components/Todo/TodoPublicList.js" />
 
 ```javascript
 import React, { useState, Fragment } from 'react';

@@ -12,7 +12,7 @@
     currentFilter = filter;
   }
 
-  function getVisibleTodos(todos, currentFilter) {
+  function getFilteredTodos(todos, currentFilter) {
     if (currentFilter === "active") {
       return todos.filter((todo) => !todo.is_completed);
     } else if (currentFilter === "completed") {
@@ -21,8 +21,8 @@
     return todos;
   }
 
-  $: visibleTodos = $todos.data
-    ? getVisibleTodos($todos.data.todos, currentFilter)
+  $: filteredTodos = $todos.data
+    ? getFilteredTodos($todos.data.todos, currentFilter)
     : [];
 
   const CLEAR_COMPLETED = gql`
@@ -51,11 +51,13 @@
 
 {#if $todos.loading}
   <div>Loading...</div>
+{:else if $todos.error}
+  <div>Error!</div>
 {:else if $todos.data}
   <div>
     <div class="todoListWrapper">
       <ul>
-        {#each visibleTodos as todo (todo.id)}
+        {#each filteredTodos as todo (todo.id)}
           <TodoItem {todo} />
         {/each}
       </ul>

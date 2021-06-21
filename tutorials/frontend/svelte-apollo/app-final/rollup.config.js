@@ -6,10 +6,10 @@ import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
 import image from "@rollup/plugin-image";
 import serve from "rollup-plugin-serve";
-import replace from "rollup-plugin-replace";
+import replace from "@rollup/plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
-const env = process.env.NODE_ENV || "development";
+const env = production ? "production" : "development";
 
 export default {
   input: "src/main.js",

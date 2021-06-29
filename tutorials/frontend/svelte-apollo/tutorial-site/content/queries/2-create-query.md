@@ -1,5 +1,5 @@
 ---
-title: "useQuery hook"
+title: "Apollo Query"
 metaTitle: "Apollo useQuery React hook | Svelte Apollo Tutorial"
 metaDescription: "We will use the Apollo Client useQuery React hook from @apollo/client to make GraphQL queries"
 ---
@@ -8,11 +8,9 @@ import GithubLink from "../../src/GithubLink.js";
 
 In this section, we will implement GraphQL Queries and integrate with the svelte UI.
 
-### query with Apollo
+### Apollo Query
 
-The recommended method is to use the `useQuery` React hook, where you will just pass your GraphQL query and `useQuery` React hook will fetch the data automatically.
-
-Great! Now let's define the graphql query to be used:
+let's define the graphql query to be used:
 
 Open `src/components/Todo/TodoPrivateList.svelte` and add the following code:
 
@@ -50,7 +48,6 @@ The query is now ready, let's integrate it with our svelte code.
 `query` function is being imported from `svelte-apollo`
 
 ```javascript
-import React, { Component, Fragment } from "react";
 import { gql } from "@apollo/client";
 import { query } from "svelte-apollo";
 

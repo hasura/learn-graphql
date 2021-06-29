@@ -12,12 +12,12 @@ GraphQL has a first-class way to factor dynamic values out of the query, and pas
 
 So let's define the graphql mutation to be used.
 
-Open `src/components/Todo/TodoInput.js` and add the following code:
+Open `src/components/Todo/TodoInput.svelte` and add the following code:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/Todo/TodoInput.js" text="src/components/Todo/TodoInput.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/Todo/TodoInput.svelte" text="src/components/Todo/TodoInput.svelte" />
 
 ```javascript
-import React from 'react';
+<script>
 + import { gql } from "@apollo/client";
 
 + const ADD_TODO = gql `
@@ -33,22 +33,16 @@ import React from 'react';
 +    }
 +  }
 + `;
+</script>
 
-const TodoInput = ({isPublic=false}) => {
-  return (
-    <form className="formInput" onSubmit={(e) => {
-      e.preventDefault();
-    }}>
-      <input
-        className="input"
-        placeholder="What needs to be done?"
-      />
-      <i className="inputMarker fa fa-angle-right" />
-    </form>
-  );
-};
-
-export default TodoInput;
+<form class="formInput" on:submit|preventDefault={addTodo}>
+  <input
+    class="input"
+    placeholder="What needs to be done?"
+    bind:value={todoInput}
+  />
+  <i class="inputMarker fa fa-angle-right" />
+</form>
 ```
 
 ## What does this mutation do?

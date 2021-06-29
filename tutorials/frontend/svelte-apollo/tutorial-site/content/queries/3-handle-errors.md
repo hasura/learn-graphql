@@ -1,6 +1,6 @@
 ---
 title: "Handle loading/errors"
-metaTitle: "Apollo useQuery React hook Error Handling | Svelte Apollo Tutorial"
+metaTitle: "Apollo Query Error Handling | Svelte Apollo Tutorial"
 metaDescription: "We will handle the GraphQL loading and error states in React app using the Apollo useQuery React hook properties - loading and error "
 ---
 

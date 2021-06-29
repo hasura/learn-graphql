@@ -1,31 +1,21 @@
 ---
-title: "useMutation Hook, Update Cache"
-metaTitle: "Apollo useMutation React hook | Svelte Apollo Tutorial"
+title: "Apollo Mutation"
+metaTitle: "Apollo Mutation | Svelte Apollo Tutorial"
 metaDescription: "We will use the Apollo Client useMutation from @apollo/client in React app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
-### Apollo useMutation React hook
+### Apollo Mutation
 
-Now let's do the integration part. Open `src/components/Todo/TodoInput.js` and add the following code below the other imports:
+Now let's do the integration part. Open `src/components/Todo/TodoInput.svelte` and add the following code below the other imports:
 
 ```javascript
-import { useMutation } from "@apollo/client";
+import { mutation } from "svelte-apollo";
 ```
 
-We are importing the `useMutation` React hook from `@apollo/client` and the graphql query we defined above to fetch the todo data.
-
-Now, we will use the `useMutation` React hook passing our graphql mutation constant that we imported. Add the following code:
+Import the `mutation` function from `svelte-apollo` and pass the mutation query we wrote earlier
 
 ```javascript
-const TodoInput = ({isPublic=false}) => {
-
-+ const [addTodo] = useMutation(ADD_TODO);
-
-return (
-  ...
-)
-
-};
+const addTodoMutation = mutation(ADD_TODO);
 ```
 
 In the `useMutation` React hook defined above, the first argument of the result tuple is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations/#result).

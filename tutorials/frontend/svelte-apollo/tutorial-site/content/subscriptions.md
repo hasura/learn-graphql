@@ -24,51 +24,40 @@ We have to make this change to see yourself online first. Remember that you are 
 
 The goal is to update every few seconds from the client that you are online. Ideally you should do this after you have successfully authenticated with Auth0. So let's update some code to handle this.
 
-Open `src/components/OnlineUsers/OnlineUsersWrapper.js` and add the following imports
+Open `src/components/OnlineUsers/OnlineUsersWrapper.svelte` and add the following imports
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/OnlineUsers/OnlineUsersWrapper.js" text="src/components/OnlineUsers/OnlineUsersWrapper.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/OnlineUsers/OnlineUsersWrapper.svelte" text="src/components/OnlineUsers/OnlineUsersWrapper.svelte" />
 
 ```javascript
-- import React from "react";
-+ import React, { useEffect, useState } from "react";
-+ import { useMutation, gql } from "@apollo/client";
++ import { onMount, onDestroy } from "svelte";
++ import { gql } from "@apollo/client";
++ import { subscribe, mutation } from "svelte-apollo";
 ```
 
-In `useEffect`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.
+we will create a `setInterval` to update the last_seen of the user every 30 seconds in `onMount` life cycle method and we will clear interval in `onDestroy` life cycle method.
 
 ```javascript
-const OnlineUsersWrapper = () => {
-+  const [onlineIndicator, setOnlineIndicator] = useState(0);
-+  let onlineUsersList;
-+  useEffect(() => {
-+     // Every 20s, run a mutation to tell the backend that you're online
-+     updateLastSeen();
-+     setOnlineIndicator(setInterval(() => updateLastSeen(), 20000));
++  const updateLastSeen = async () => {
++    // Use the apollo client to run a mutation to update the last_seen value
++    await updateLastSeenMutation({
++      variables: { now: new Date().toISOString() },
++    });
++  };
 +
-+     return () => {
-+       // Clean up
-+       clearInterval(onlineIndicator);
-+     };
-+ }, []);
++  onMount(async () => {
++    // Every 20s, run a mutation to tell the backend that you're online
++    await updateLastSeen();
++    onlineIndicator = setInterval(async () => await updateLastSeen(), 20000);
++  });
++
++  onDestroy(() => {
++    clearInterval(onlineIndicator);
++  });
 ```
 
 Now let's write the definition of the `updateLastSeen`.
 
 ```javascript
-const OnlineUsersWrapper = () => {
-  const [onlineIndicator, setOnlineIndicator] = useState(0);
-  let onlineUsersList;
-
-  useEffect(() => {
-    // Every 20s, run a mutation to tell the backend that you're online
-    updateLastSeen();
-    setOnlineIndicator(setInterval(() => updateLastSeen(), 20000));
-
-    return () => {
-      // Clean up
-      clearInterval(onlineIndicator);
-    };
-  }, []);
 
 + const UPDATE_LASTSEEN_MUTATION = gql`
 +   mutation updateLastSeen($now: timestamptz!) {
@@ -77,16 +66,16 @@ const OnlineUsersWrapper = () => {
 +     }
 +   }
 + `;
-+ const [updateLastSeenMutation] = useMutation(UPDATE_LASTSEEN_MUTATION);
++ const updateLastSeenMutation = mutation(UPDATE_LASTSEEN_MUTATION);
 
-+ const updateLastSeen = () => {
-+   // Use the apollo client to run a mutation to update the last_seen value
-+   updateLastSeenMutation({
-+     variables: { now: new Date().toISOString() }
-+   });
-+ };
+  const updateLastSeen = async () => {
+    // Use the apollo client to run a mutation to update the last_seen value
+    await updateLastSeenMutation({
+      variables: { now: new Date().toISOString() },
+    });
+  };
 ```
 
-Again, we are making use of `useMutation` React hook to update the `users` table of the database.
+We are calling mutation function with mutation query to create `updateLastSeenMutation` mutate function which is called with variables inside `updateLastSeen`.
 
 Great! Now the metadata about whether the user is online will be available in the backend. Let's now do the integration to display realtime data of online users.

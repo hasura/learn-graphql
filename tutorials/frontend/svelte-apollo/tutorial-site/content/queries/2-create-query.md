@@ -1,7 +1,7 @@
 ---
 title: "Apollo Query"
-metaTitle: "Apollo useQuery React hook | Svelte Apollo Tutorial"
-metaDescription: "We will use the Apollo Client useQuery React hook from @apollo/client to make GraphQL queries"
+metaTitle: "Svelte Apollo query | Svelte Apollo Tutorial"
+metaDescription: "We will use the query function from Svelte Apollo Client to make GraphQL queries"
 ---
 
 import GithubLink from "../../src/GithubLink.js";

@@ -1,7 +1,7 @@
 ---
 title: "Handle loading/errors"
 metaTitle: "Apollo Query Error Handling | Svelte Apollo Tutorial"
-metaDescription: "We will handle the GraphQL loading and error states in React app using the Apollo useQuery React hook properties - loading and error "
+metaDescription: "We will handle the GraphQL loading and error states in Svelte app using the Svelte Apollo query result properties - loading and error "
 ---
 
 As we saw in the previous step, Apollo returned a result store with properties . Among them `loading` and `error` are common ones that you will need to handle in your app.

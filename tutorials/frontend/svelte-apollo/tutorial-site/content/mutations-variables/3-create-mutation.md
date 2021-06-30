@@ -1,7 +1,7 @@
 ---
 title: "Apollo Mutation"
 metaTitle: "Apollo Mutation | Svelte Apollo Tutorial"
-metaDescription: "We will use the Apollo Client useMutation from @apollo/client in React app as an example to insert new data and update cache locally using readQuery and writeQuery."
+metaDescription: "We will use the mutation from Svelte Apollo in Svelte app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
 ### Apollo Mutation
@@ -74,7 +74,7 @@ We are passing `addTodo` function to our form submit handler.
 
 The mutation has been integrated and the new todos will be inserted into the database. But the UI doesn't know that a new todo has been added. We need a way to tell Apollo Client to update the query for the list of todos.
 
-### Apollo React Mutation Update
+### Apollo Mutation Update
 
 The `update` function comes in handy to update the cache for this mutation. It comes with utility functions such as `readQuery` and `writeQuery` that helps in reading from and writing to the cache.
 

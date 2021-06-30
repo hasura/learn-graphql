@@ -1,14 +1,14 @@
 ---
 title: "Subscription"
 metaTitle: "Set up GraphQL Subscriptions using Apollo Client | Svelte Apollo Tutorial"
-metaDescription: "You will learn how to configure GraphQL Subscriptions using React Apollo Client by using @apollo/client and its dependency subscriptions-transport-ws. This will also have authorization token setup"
+metaDescription: "You will learn how to configure GraphQL Subscriptions using Svelte Apollo Client by using @apollo/client and its dependency subscriptions-transport-ws. This will also have authorization token setup"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
 
 We need one more dependency to setup subscriptions. Let's install it.
 
-### React Apollo Subscriptions Setup
+### Apollo Subscriptions Setup
 
 ```bash
 + $ npm install subscriptions-transport-ws --save

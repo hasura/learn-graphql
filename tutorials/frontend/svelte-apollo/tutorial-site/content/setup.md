@@ -1,6 +1,6 @@
 ---
 title: "Tutorial & boilerplate setup"
-metaTitle: "Todo app react boilerplate setup | Svelte Apollo Tutorial"
+metaTitle: "Todo app svelte boilerplate setup | Svelte Apollo Tutorial"
 metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in Svelte"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Query Variables"
 metaTitle: "Passing GraphQL Variables in Queries | Svelte Apollo Tutorial"
-metaDescription: "An Example of passing variables in GraphQL context and usage of Apollo GraphQL Mutation variables in React app."
+metaDescription: "An Example of passing variables in GraphQL context and usage of Apollo GraphQL Mutation variables in Svelte app."
 ---
 
 import GithubLink from "../../src/GithubLink.js";

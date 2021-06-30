@@ -12,114 +12,171 @@ We are not going to use that approach here since we don't want public list UI to
 
 In the `TodoPublicListSubscription` component of the previous step, we only get the latest todo and not the existing list. We will now write a query to fetch the list of existing public todos.
 
-Start off by importing `useEffect` from `react` and `useApolloClient` from `@apollo/client`
+let's update the `TodoPublicList` component with query to fetch todos
 
-```javascript
-- import React, { Fragment } from "react";
-+ import React, { Fragment, useState, useEffect } from "react";
-- import { useSubscription, gql } from "@apollo/client";
-+ import { useSubscription, useApolloClient, gql } from "@apollo/client";
+```
++  const GET_OLD_PUBLIC_TODOS = gql`
++    query getOldPublicTodos($oldestTodoId: Int!) {
++      todos(
++        where: { is_public: { _eq: true }, id: { _lt: $oldestTodoId } }
++        limit: 7
++        order_by: { created_at: desc }
++      ) {
++        id
++        title
++        created_at
++        user {
++          name
++        }
++      }
++    }
++  `;
 
-import TaskItem from "./TaskItem";
 ```
 
-Now that we have access to the client, let's update the `TodoPublicList` component
+This query will fetch first 7 public todos with id < oldestTodoId.
+Add below code to fetch first 7 todos on first mount of TodoPublicList component.
 
-```javascript
-const TodoPublicList = props => {
--    const state = {
-+    const [state, setState] = useState({
--     olderTodosAvailable: true,
-+     olderTodosAvailable: props.latestTodo ? true : false,
--     newTodosCount: 1,
-+     newTodosCount: 0,
-      todos: [
--       {
--         id: "1",
--         title: "This is public todo 1",
--         user: {
--           name: "someUser1"
--         }
--       },
--       {
--         id: "2",
--         title: "This is public todo 2",
--         is_completed: false,
--         is_public: true,
--         user: {
--           name: "someUser2"
--         }
--       },
--       {
--         id: "3",
--         title: "This is public todo 3",
--         user: {
--           name: "someUser3"
--         }
--       },
--       {
--         id: "4",
--         title: "This is public todo 4",
--         user: {
--           name: "someUser4"
--         }
--       }
-      ],
-+     error: false
--   };
-+   });
-
-+  let numTodos = state.todos.length;
-+  let oldestTodoId = numTodos
-+    ? state.todos[numTodos - 1].id
-+    : props.latestTodo
-+      ? props.latestTodo.id + 1
-+      : 0;
-+  let newestTodoId = numTodos
-+    ? state.todos[0].id
-+    : props.latestTodo
-+      ? props.latestTodo.id
-+      : 0;
+```
++ function getInitialQueryVariables() {
++   return { oldestTodoId: latestTodo ? latestTodo.id + 1 : 0 };
++ }
 +
-+  const client = useApolloClient();
-
-  }
-
-  const loadNew = () => {};
-
-  const loadOlder = () => {};
-
-  ...
-}
++  const todos = query(GET_OLD_PUBLIC_TODOS, {
++    variables: getInitialQueryVariables(),
++  });
 ```
 
-Let's populate initial state by fetching the existing list of todos in `useEffect`
+Add the below code to render todos
 
 ```javascript
-const TodoPublicList = props => {
-  ...
++ {#if $todos.loading}
++ <div>Loading...</div>
++ {:else if $todos.error}
++ <div>Error!</div>
++ {:else if $todos.data}
++ <div class="todoListWrapper">
++     <ul>
++       {#each $todos.data.todos as todo (todo.id)}
++         <TaskItem {todo} />
++       {/each}
++     </ul>
++ </div>
++ {/if}
+```
 
-  const client = useApolloClient();
+We will use `fetchMore` feature of Apollo to fetch older todos or any new todos created after first load.
+We should update the Apollo cache with the todos recevied from fetchMore requests by implementing updateQuery method. To update Apollo cache we need values of variables used in first query load. We can store initialVariables in state with onMount life cycle method as shown below
 
-+  useEffect(() => {
-+    loadOlder();
-+  }, []);
+```
++ onMount(() => {
++   initialVariables = getInitialQueryVariables();
++ });
+```
 
-  const loadNew = () => {};
+Let's add a button to load older todos
 
-  const loadOlder = () => {}
+```javascript
+{#if $todos.loading}
+  <div>Loading...</div>
+{:else if $todos.error}
+  <div>Error!</div>
+{:else if $todos.data}
+  <div class="todoListWrapper">
+    <ul>
+      {#each $todos.data.todos as todo (todo.id)}
+        <TaskItem {todo} />
+      {/each}
+    </ul>
 
-  ...
-}
++    <div class="loadMoreSection" on:click={loadOlder}>
++      {olderTodosAvailable ? "Load older tasks" : "No more public tasks!"}
++    </div>
+  </div>
+{/if}
 ```
 
 Update the `loadOlder` method to the following:
 
 ```javascript
-  const loadOlder = async () => {
-+    const GET_OLD_PUBLIC_TODOS = gql`
-+      query getOldPublicTodos ($oldestTodoId: Int!) {
-+        todos (where: { is_public: { _eq: true}, id: {_lt: $oldestTodoId}}, limit: 7, order_by: { created_at: desc }) {
++  const loadOlder = () => {̵
++    let numTodos = $todos.data && $todos.data.todos && $todos.data.todos.length;
++    let oldestTodoId = numTodos
++      ? $todos.data.todos[numTodos - 1].id
++      : latestTodo
++      ? latestTodo.id + 1
++      : 0;
++    todos.fetchMore({
++      query: GET_OLD_PUBLIC_TODOS,
++      variables: { oldestTodoId },
++      updateQuery: (previousTodos, { fetchMoreResult: { todos } }) => {
++        client.writeQuery({
++          query: GET_OLD_PUBLIC_TODOS,
++          variables: initialVariables,
++          data: { todos: [...previousTodos.todos, ...todos] },
++        });
++      },
++    });
++  };
+```
+
+`fetchMore` method will fetch more data according to the query passed to it. In this case, 7 older todos are fetched. Older todos fetched are appended to the previous todos and updated in the cache with
+`writeQuery` method. As mentioned before, initialVariables store in the state should be passed as variables to `writeQuery` method.
+
+Next, let's show a message when new public todos are created
+
+```
+{#if $todos.loading}
+  <div>Loading...</div>
+{:else if $todos.error}
+  <div>Error!</div>
+{:else if $todos.data}
+  <div class="todoListWrapper">
++    {#if newTodosCount > 0}
++      <div class="loadMoreSection" on:click={loadNew}>
++        New tasks have arrived! ({newTodosCount.toString()})
++      </div>
++    {/if}
+
+    <ul>
+      {#each $todos.data.todos as todo (todo.id)}
+        <TaskItem {todo} />
+      {/each}
+    </ul>
+
+    <div class="loadMoreSection" on:click={loadOlder}>
+      {olderTodosAvailable ? "Load older tasks" : "No more public tasks!"}
+    </div>
+  </div>
+{/if}
+```
+
+`latestTodo` passed as a prop to this component changes whenever there is a new todo. So we can know the number of new todos created by keeping track of changes in latestTodos. We can accomplish this with below code
+
+```javascript
++  let previousLatestTodo;
++  let newTodosCount = 0;
++  $: {
++    if (previousLatestTodo && previousLatestTodo.id !== latestTodo.id) {
++      newTodosCount += 1;
++    }
++    previousLatestTodo = latestTodo;
++  }
+```
+
+Whenever latestTodo changes, codeblock after $: is executed and `newTodosCount` is incremented.
+
+We need to fetch new todos when "New tasks have arrived!" message is clicked.
+Let's implement `loadNew` function by adding below code
+
+```javascript
++  const loadNew = () => {
++    const GET_NEW_PUBLIC_TODOS = gql`
++      query getNewPublicTodos($latestVisibleId: Int) {
++        todos(
++          where: { is_public: { _eq: true }, id: { _gt: $latestVisibleId } }
++          order_by: { created_at: desc }
++        ) {
 +          id
 +          title
 +          created_at
@@ -127,101 +184,28 @@ Update the `loadOlder` method to the following:
 +            name
 +          }
 +        }
-+      }`;
-+
-+   const { error, data } = await client.query({
-+      query: GET_OLD_PUBLIC_TODOS,
-+      variables: { oldestTodoId: oldestTodoId }
-+    });
-+
-+    if (data.todos.length) {
-+      setState(prevState => {
-+        return { ...prevState, todos: [...prevState.todos, ...data.todos] };
-+      });
-+      oldestTodoId = data.todos[data.todos.length - 1].id;
-+    } else {
-+      setState(prevState => {
-+        return { ...prevState, olderTodosAvailable: false };
-+      });
-+    }
-+    if (error) {
-+      console.error(error);
-+      setState(prevState => {
-+        return { ...prevState, error: true };
-+      });
-+    }
-+ }
-```
-
-We are defining a query to fetch older public todos and making a `client.query` call to get the data from the database. Once we get the data, we update the `todos` state to re-render the UI with the available list of public todos.
-
-Try adding a new todo in the public feed and notice that it will not show up on the UI. Now refresh the page to see the added todo.
-
-This happens because we haven't yet implemented a way to show the newly added todo to the feed.
-
-Let's handle that in `useEffect` for on update
-
-```javascript
-  useEffect(() => {
-    loadOlder();
-  }, []);
-
-+  useEffect(
-+    () => {
-+      if (props.latestTodo && props.latestTodo.id > newestTodoId) {
-+        setState(prevState => {
-+          return { ...prevState, newTodosCount: prevState.newTodosCount + 1 };
-+        });
-+        newestTodoId = props.latestTodo.id;
 +      }
-+    },
-+    [props.latestTodo]
-+  );
-```
-
-Now try adding a new todo to the public feed and you will see the notification appearing saying that a new task has arrived.
-
-Great! We still have one functionality left. When a new task arrives on the public feed and when the user clicks on the New tasks section, we should make a query to re-fetch the todos that are not present on our current public feed.
-
-Update `loadNew()` method with the following code
-
-```javascript
-  const loadNew = async () => {
-+   const GET_NEW_PUBLIC_TODOS = gql`
-+     query getNewPublicTodos ($latestVisibleId: Int!) {
-+       todos(where: { is_public: { _eq: true}, id: {_gt: $latestVisibleId}}, order_by: { created_at: desc }) {
-+         id
-+         title
-+         created_at
-+         user {
-+           name
-+         }
-+       }
-+     }
-+   `;
-+
-+   const { error, data } = await client.query({
++    `;
++    let numTodos = $todos.data && $todos.data.todos && $todos.data.todos.length;
++    let newestTodoId = numTodos
++      ? $todos.data.todos[0].id
++      : latestTodo
++      ? latestTodo.id
++      : 0;
++    todos.fetchMore({
 +      query: GET_NEW_PUBLIC_TODOS,
-+      variables: {
-+        latestVisibleId: state.todos.length ? state.todos[0].id : null
-+      }
++      variables: { latestVisibleId: newestTodoId },
++      updateQuery: (previousTodos, { fetchMoreResult: { todos } }) => {
++        client.writeQuery({
++          query: GET_OLD_PUBLIC_TODOS,
++          variables: initialVariables,
++          data: { todos: [...todos, ...previousTodos.todos] },
++        });
++        newTodosCount = 0;
++      },
 +    });
-
-+    if (data) {
-+      setState(prevState => {
-+        return {
-+          ...prevState,
-+          todos: [...data.todos, ...prevState.todos],
-+          newTodosCount: 0
-+        };
-+      });
-+      newestTodoId = data.todos[0].id;
-+    }
-+    if (error) {
-+      console.error(error);
-+      setState(prevState => {
-+        return { ...prevState, error: true };
-+      });
-+    }
-  }
++  };
 ```
+
+Query inside this function is to fetch new todos with id > latestVisibleId. `fetchMore` fetches the new todos.
+New todos fetched are prepended to the previous todos and updated in the cache with `writeQuery` method.

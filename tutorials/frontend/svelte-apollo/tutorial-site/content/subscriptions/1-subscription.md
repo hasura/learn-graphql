@@ -16,15 +16,9 @@ We need one more dependency to setup subscriptions. Let's install it.
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.
 
-Open `src/components/App.js` and update the following imports:
+Open `src/apollo.js` and update the following imports:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/App.js" text="src/components/App.js" />
-
-```javascript
-- import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from '@apollo/client';
-+ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-+ import { WebSocketLink } from "@apollo/client/link/ws";
-```
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/apollo.js" text="src/apollo.js" />
 
 Update the createApolloClient function to integrate WebSocketLink.
 

@@ -8,88 +8,52 @@ import GithubLink from "../../src/GithubLink.js";
 
 So let's define the graphql subscription to be used.
 
-Open `src/components/OnlineUsers/OnlineUsersWrapper.js` and add the following code, below the other imports
+Open `src/components/OnlineUsers/OnlineUsersWrapper.svelte` and add the following code, below the other imports
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/OnlineUsers/OnlineUsersWrapper.js" text="src/components/OnlineUsers/OnlineUsersWrapper.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/OnlineUsers/OnlineUsersWrapper.svelte" text="src/components/OnlineUsers/OnlineUsersWrapper.svelte" />
 
-```javascript
-- import React, { useEffect, useState } from "react";
-+ import React, { useEffect, Fragment, useState } from "react";
-- import { useMutation, gql } from "@apollo/client";
-+ import { useMutation, useSubscription, gql } from "@apollo/client";
+```
+<script>
+  import OnlineUser from "./OnlineUser.svelte";
++  import { gql } from "@apollo/client";
++  import { subscribe, mutation } from "svelte-apollo";
+
++  const onlineUsers = subscribe(gql`
++    subscription getOnlineUsers {
++      online_users(order_by: { user: { name: asc } }) {
++        id
++        user {
++          name
++        }
++      }
++    }
++  `);
+
+</script>
 ```
 
-We are importing the `useSubscription` React hook from `@apollo/client` and the graphql subscription query we defined above to fetch the online user data.
+We are importing the `subscribe` function from `svelte-apollo` and passing the graphql subscription query to it.
+`subscribe` function returns subscription query results store. You can reference a store value by prefixing the store name with $. So subscription query results can be accessed with $onlineUsers
 
-Now, we will use the `useSubscription` React hook passing the subscription query:
+Add the below code to renders online users
 
-```javascript
-+ const { loading, error, data } = useSubscription(
-+     gql`
-+       subscription getOnlineUsers {
-+         online_users(order_by: { user: { name: asc } }) {
-+           id
-+           user {
-+             name
-+           }
-+         }
-+       }
-+     `
-+   );
-+
-+   if (loading) {
-+     return <span>Loading...</span>;
-+   }
-+   if (error) {
-+     console.error(error);
-+     return <span>Error!</span>;
-+   }
-+   if (data) {
-+     onlineUsersList = data.online_users.map(u => (
-+       <OnlineUser key={u.id} user={u.user} />
-+     ));
-+   }
-+
-+   return (
-+     <div className="onlineUsersWrapper">
-+       <Fragment>
-+         <div className="sliderHeader">
-+           Online users - {onlineUsersList.length}
-+         </div>
-+         {onlineUsersList}
-+       </Fragment>
+```javacript
++ {#if $onlineUsers.loading}
++   <div>loading ...</div>
++ {:else if $onlineUsers.error}
++   <div>Error!</div>
++ {:else if $onlineUsers.data}
++   <div class="onlineUsersWrapper">
++     <div class="sliderHeader">
++       Online users - {$onlineUsers.data.online_users.length}
 +     </div>
-+   );
-+ };
-
-export default OnlineUsersWrapper;
-
++     {#each $onlineUsers.data.online_users as u (u.id)}
++       <OnlineUser user={u.user} />
++     {/each}
++   </div>
++ {/if}
 ```
 
-Now that we have the real data, let's remove the mock online user state
-
-```javascript
-const OnlineUsersWrapper = () => {
--  const onlineUsers = [{ name: "someUser1" }, { name: "someUser2" }];
--
--  const onlineUsersList = [];
--  onlineUsers.forEach((user, index) => {
--    onlineUsersList.push(<OnlineUser key={index} index={index} user={user} />);
--  });
--
--  return (
--    <div className="onlineUsersWrapper">
--      <div className="sliderHeader">Online users - {onlineUsers.length}</div>
--      {onlineUsersList}
--    </div>
--  );
-};
-```
-
-## How does this work?
-
-We are using the `useSubscription` React hook which returns properties (similar to `useQuery` and `useMutation` React hooks). The `data` property gives the result of the realtime data for the query we have made.
-
-Refresh your react app and see yourself online! Don't be surprised; There could be other users online as well.
+Refresh your svelte app and see yourself online! Don't be surprised; There could be other users online as well.
 
 Awesome! You have completed implementations of a GraphQL Query, Mutation and Subscriptions.

@@ -44,17 +44,23 @@
   });
 </script>
 
-{#if $onlineUsers.loading}
-  <div>loading ...</div>
++ {#if $onlineUsers.loading}
+  + <div>loading ...</div>
+  +
 {:else if $onlineUsers.error}
-  <div>Error!</div>
+  + <div>Error!</div>
+  +
 {:else if $onlineUsers.data}
-  <div class="onlineUsersWrapper">
-    <div class="sliderHeader">
-      Online users - {$onlineUsers.data.online_users.length}
+  + <div class="onlineUsersWrapper">
+    + <div class="sliderHeader">
+      + Online users - {$onlineUsers.data.online_users.length}
+      +
     </div>
-    {#each $onlineUsers.data.online_users as u (u.id)}
-      <OnlineUser user={u.user} />
+    + {#each $onlineUsers.data.online_users as u (u.id)}
+      + <OnlineUser user={u.user} />
+      +
     {/each}
+    +
   </div>
+  +
 {/if}

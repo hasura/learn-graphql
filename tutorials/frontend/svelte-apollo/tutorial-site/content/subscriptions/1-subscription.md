@@ -6,7 +6,7 @@ metaDescription: "You will learn how to configure GraphQL Subscriptions using Re
 
 import GithubLink from "../../src/GithubLink.js";
 
-When we had initially set up Apollo, we used Apollo Boost to install the required dependencies. But subscriptions is an advanced use case which Apollo Boost does not support. So we have to install more dependencies to set up subscriptions.
+We need one more dependency to setup subscriptions. Let's install it.
 
 ### React Apollo Subscriptions Setup
 
@@ -28,25 +28,53 @@ Open `src/components/App.js` and update the following imports:
 
 Update the createApolloClient function to integrate WebSocketLink.
 
-```javascript
-const createApolloClient = (authToken) => {
-  return new ApolloClient({
--   link: new HttpLink({
-+   link: new WebSocketLink({
--     uri: 'https://hasura.io/learn/graphql',
-+     uri: 'wss://hasura.io/learn/graphql',
-+     options: {
-+       reconnect: true,
-+       connectionParams: {
-          headers: {
-            Authorization: `Bearer ${authToken}`
-          }
-+       }
-+     }
-    }),
-    cache: new InMemoryCache(),
+```
+import { split, HttpLink, InMemoryCache, ApolloClient } from "@apollo/client";
+import { getMainDefinition } from "@apollo/client/utilities";
+import { WebSocketLink } from "@apollo/client/link/ws";
+
+export function createApolloClient(authToken) {
+  const headers = {
+    Authorization: `Bearer ${authToken}`,
+  };
+
+  const httpLink = new HttpLink({
+    uri: "https://hasura.io/learn/graphql",
+    headers,
   });
-};
+
++  const wsLink = new WebSocketLink({
++    uri: "wss://hasura.io/learn/graphql",
++    options: {
++      reconnect: true,
++      connectionParams: {
++        headers,
++      },
++    },
++  });
++
++  const link = split(
++    ({ query }) => {
++      const definition = getMainDefinition(query);
++      return (
++        definition.kind === "OperationDefinition" &&
++        definition.operation === "subscription"
++      );
++    },
++    wsLink,
++    httpLink
++  );
+
+  const cache = new InMemoryCache();
+
+  const client = new ApolloClient({
+    link,
+    cache,
+  });
+
+  return client;
+}
+
 ```
 
-Note that we are replacing HttpLink with WebSocketLink and hence all GraphQL queries go through a single websocket connection.
+split is used to choose WebSocketLink for subscription queries and HttpLink for queries and mutations.

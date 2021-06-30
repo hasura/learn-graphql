@@ -39,7 +39,6 @@ Open `src/components/Todo/TodoInput.svelte` and add the following code:
   <input
     class="input"
     placeholder="What needs to be done?"
-    bind:value={todoInput}
   />
   <i class="inputMarker fa fa-angle-right" />
 </form>

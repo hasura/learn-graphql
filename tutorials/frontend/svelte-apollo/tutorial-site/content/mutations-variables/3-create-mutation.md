@@ -18,67 +18,59 @@ Import the `mutation` function from `svelte-apollo` and pass the mutation query 
 const addTodoMutation = mutation(ADD_TODO);
 ```
 
-In the `useMutation` React hook defined above, the first argument of the result tuple is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations/#result).
+When `mutation` is called with mutation query it return a mutate function. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations/#result).
 
 The mutate function optionally takes variables, optimisticResponse, refetchQueries, and update; You are going to make use of the `update` function later.
 
-We need to handle the change event so that when the user types something on the input box, we update the state.
-
-We are going to make use of `useState` hook for this.
+Let's define a state variable to store the value user types into the input field.
 
 ```javascript
-- import React from 'react';
-+ import React, {useState} from 'react';
++ let todoInput = "";
+
 ```
 
-We will initialise the state and add an `onChange` handler to update the state.
+Let's bind the input value to `todoInput` to update state when user types into input field.
 
 ```javascript
-const TodoInput = ({isPublic = false}) => {
-+  const [todoInput, setTodoInput] = useState('');
-
-   const [addTodo] = useMutation(ADD_TODO);
-
-   return (
-           <form className="formInput" onSubmit={(e) => {
-             e.preventDefault();
-           }}>
-             <input
-               className="input"
-               placeholder="What needs to be done?"
-+              value={todoInput}
-+              onChange={e => (setTodoInput(e.target.value))}
-             />
-             <i className="inputMarker fa fa-angle-right" />
-           </form>
-         );
-};
+  <form class="formInput" on:submit|preventDefault={addTodo}>
+    <input
+      class="input"
+      placeholder="What needs to be done?"
++     bind:value={todoInput}
+    />
+    <i class="inputMarker fa fa-angle-right" />
+  </form>
 ```
 
 Now let's handle the form submit to invoke the mutation.
 
-```javascript
-return (
-  <form
-    className="formInput"
-    onSubmit={(e) => {
-      e.preventDefault();
-      +addTodo({ variables: { todo: todoInput, isPublic } });
-    }}
-  >
+```
++ <form class="formInput" on:submit|preventDefault={addTodo}>
     <input
-      className="input"
+      class="input"
       placeholder="What needs to be done?"
-      value={todoInput}
-      onChange={(e) => setTodoInput(e.target.value)}
+      bind:value={todoInput}
     />
-    <i className="inputMarker fa fa-angle-right" />
+    <i class="inputMarker fa fa-angle-right" />
   </form>
-);
 ```
 
-We are passing the mutate function (`addTodo`) to our form submit handler.
-The mutate function's first argument would be the mutation query's options, such as variables etc. We are now passing the variables required for the mutation.
+We are passing `addTodo` function to our form submit handler.
+
+```javascript
++  async function addTodo() {
++    try {
++      await addTodoMutation({
++        variables: { todo: todoInput, isPublic },
++      });
++      todoInput = "";
++    } catch (error) {
++      // TODO
++    }
++  }
+```
+
+`addTodoMutation` mutate function created earlier is called with variables in the `addTodo` submit handler
 
 The mutation has been integrated and the new todos will be inserted into the database. But the UI doesn't know that a new todo has been added. We need a way to tell Apollo Client to update the query for the list of todos.
 
@@ -86,30 +78,32 @@ The mutation has been integrated and the new todos will be inserted into the dat
 
 The `update` function comes in handy to update the cache for this mutation. It comes with utility functions such as `readQuery` and `writeQuery` that helps in reading from and writing to the cache.
 
-Let's implement `update` for the above mutation.
-
-We pass the update function as an option to `useMutation`.
-
 ```javascript
--    const [addTodo] = useMutation(ADD_TODO);
-+    const [addTodo] = useMutation(ADD_TODO, {update: updateCache});
+  async function addTodo() {
+    try {
+      await addTodoMutation({
+        variables: { todo: todoInput, isPublic },
++        update: updateCache,
+      });
+      todoInput = "";
+    } catch (error) {
+      // TODO
+    }
+  }
 ```
+
+Let's implement `updateCache` for the above mutation.
 
 We need to fetch the current list of todos from the cache. So let's import the query that we used in the previous steps.
 
 ```javascript
-import { GET_MY_TODOS } from "./TodoPrivateList";
+import { GET_MY_TODOS } from "./queries";
 ```
 
 Let's define the updateCache function to read and write to cache.
 
 ```javascript
-const TodoInput = ({isPublic = false}) => {
-  let input;
-
-  const [todoInput, setTodoInput] = useState('');
-
-+  const updateCache = (cache, {data}) => {
++  const updateCache = (cache, { data }) => {
 +    // If this is for the public feed, do nothing
 +    if (isPublic) {
 +      return null;
@@ -117,23 +111,16 @@ const TodoInput = ({isPublic = false}) => {
 +
 +    // Fetch the todos from the cache
 +    const existingTodos = cache.readQuery({
-+      query: GET_MY_TODOS
++      query: GET_MY_TODOS,
 +    });
 +
 +    // Add the new todo to the cache
 +    const newTodo = data.insert_todos.returning[0];
 +    cache.writeQuery({
 +      query: GET_MY_TODOS,
-+      data: {todos: [newTodo, ...existingTodos.todos]}
++      data: { todos: [newTodo, ...existingTodos.todos] },
 +    });
 +  };
-
-  const [addTodo] = useMutation(ADD_TODO, {update: updateCache});
-
-   return (
-    ...
-   );
-};
 ```
 
 Let's dissect what's happening in this code snippet.
@@ -160,41 +147,6 @@ Any subscriber to the Apollo Client store will instantly see this update and ren
 
 We concatenate our new todo from our mutation with the list of existing todos and write the query back to the cache with cache.writeQuery
 
-Now, the TodoPrivateList component using the `useQuery` React hook will get the updated todo list as it is automatically subscribed to the store.
+Now, the TodoPrivateList component using the `query` will get the updated todo list as it is automatically subscribed to the store.
 
 Great! That was actually easy :)
-
-Let's wrap this by adding a function to clear the input value once the mutation is successful.
-
-```javascript
--  const [addTodo] = useMutation(ADD_TODO, {update: updateCache});
-+  const [addTodo] = useMutation(ADD_TODO, {
-+    update: updateCache,
-+    onCompleted: resetInput
-+  });
-```
-
-We pass a function called `resetInput` to the `onCompleted` option which will be called once the mutation is completed. The function definition looks like this:
-
-```javascript
-const TodoInput = ({isPublic = false}) => {
-  const [todoInput, setTodoInput] = useState('');
-
-  const updateCache = (cache, {data}) => {
-    ...
-  };
-
-+  const resetInput = () => {
-+    setTodoInput('');
-+  };
-
-  const [addTodo] = useMutation(ADD_TODO, {
-    update: updateCache,
-    onCompleted: resetInput
-  });
-
-  return (
-    ...
-  );
-}
-```

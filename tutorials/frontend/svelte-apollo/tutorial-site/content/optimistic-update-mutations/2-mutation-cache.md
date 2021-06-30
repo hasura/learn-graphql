@@ -6,7 +6,7 @@ metaDescription: "We will use the Apollo useMutation React hook from @apollo/cli
 
 import GithubLink from "../../src/GithubLink.js";
 
-Now let's do the integration part. Open `src/components/Todo/TodoItem.js` and add the following code below the other imports:
+Now let's do the integration part. Open `src/components/Todo/TodoItem.svelte` and add the following code below the other imports:
 
 ```javascript
 + import { gql } from "@apollo/client";
@@ -14,15 +14,10 @@ Now let's do the integration part. Open `src/components/Todo/TodoItem.js` and ad
 
 Let's define the graphql mutation to update the completed status of the todo
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/Todo/TodoItem.js" text="src/components/Todo/TodoItem.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/Todo/TodoItem.svelte" text="src/components/Todo/TodoItem.svelte" />
 
 ```javascript
-const TodoItem = ({index, todo}) => {
-
-  const removeTodo = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
+  import { gql } from "@apollo/client";
 
 +  const TOGGLE_TODO = gql`
 +    mutation toggleTodo ($id: Int!, $isCompleted: Boolean!) {
@@ -33,32 +28,17 @@ const TodoItem = ({index, todo}) => {
 +  `;
 
   const toggleTodo = () => {};
-
-  return (
-    ...
-  );
-};
-
-export default TodoItem;
-
 ```
 
-### Apollo useMutation React hook
+### Apollo Mutation
 
-We need to use `useMutation` React hook to make the mutation.
+We need to use `mutation` function from `apollo-svelte` to make the mutate function.
 
 ```javascript
-  import React from 'react';
-- import { gql } from "@apollo/client";
-+ import { useMutation, gql } from "@apollo/client";
+  import { gql } from "@apollo/client";
++ import { mutation } from "svelte-apollo";
 
-  const TodoItem = ({index, todo}) => {
-    const removeTodo = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-    };
-
-    const TOGGLE_TODO = gql`
+  const TOGGLE_TODO = gql`
     mutation toggleTodo($id: Int!, $isCompleted: Boolean!) {
       update_todos(
         where: { id: { _eq: $id } }
@@ -69,14 +49,8 @@ We need to use `useMutation` React hook to make the mutation.
     }
   `;
 
-+ const [toggleTodoMutation] = useMutation(TOGGLE_TODO);
++  const toggleTodoMutation = mutation(TOGGLE_TODO);
 
-  return (
-    ...
-  );
- };
-
- export default TodoItem;
 ```
 
 We already have the onChange handler toggleTodo for the input. Let's update the function to make a use of `toggleTodoMutation` mutate function.
@@ -94,7 +68,7 @@ The above code will just make a mutation, updating the todo's is_completed prope
 To update the cache, we will be using the `update` function again to modify the cache. We need to fetch the current list of todos from the cache before modifying it. So let's import the query.
 
 ```javascript
-+ import {GET_MY_TODOS} from './TodoPrivateList';
++ import {GET_MY_TODOS} from './queries';
 ```
 
 Now let's add the code for `update` function.

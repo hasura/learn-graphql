@@ -4,7 +4,8 @@ metaTitle: "PostgreSQL CREATE Statements | PostgreSQL Tutorial"
 metaDescription: ""
 ---
 
-If you went through the `psql` section of the tutorial, you might have executed some of these commands.
+The `CREATE` statements are used to declaratively create tables, views, functions etc.
+If you went through the `psql` section of the tutorial, you might have executed some of these commands:
 
 ## Example of PostgreSQL CREATE DATABASE
 
@@ -14,7 +15,7 @@ In order to create a new database in Postgres, you can run the following stateme
 CREATE DATABASE myapp;
 ```
 
-We can verify the above command by executing the following:
+We can verify the above command by executing the following in `psql` interface.
 
 ```sql
 \l

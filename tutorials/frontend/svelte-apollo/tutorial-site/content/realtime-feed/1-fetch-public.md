@@ -1,6 +1,6 @@
 ---
 title: "Fetch public todos - subscription"
-metaTitle: "Fetch public todos using Subscription | Svelte Apollo Tutorial"
+metaTitle: "Fetch public todos using Subscription | Svelte Apollo GraphQL Tutorial"
 metaDescription: "You will learn how to make use of GraphQL Subscriptions to get notified whenever a new todo comes in Svelte App"
 ---
 

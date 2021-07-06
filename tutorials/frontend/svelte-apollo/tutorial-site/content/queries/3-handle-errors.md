@@ -1,6 +1,6 @@
 ---
 title: "Handle loading/errors"
-metaTitle: "Apollo Query Error Handling | Svelte Apollo Tutorial"
+metaTitle: "Apollo Query Error Handling | Svelte Apollo GraphQL Tutorial"
 metaDescription: "We will handle the GraphQL loading and error states in Svelte app using the Svelte Apollo query result properties - loading and error "
 ---
 

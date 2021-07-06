@@ -1,6 +1,6 @@
 ---
 title: "Apollo Query"
-metaTitle: "Svelte Apollo query | Svelte Apollo Tutorial"
+metaTitle: "Svelte Apollo query | Svelte Apollo GraphQL Tutorial"
 metaDescription: "We will use the query function from Svelte Apollo Client to make GraphQL queries"
 ---
 

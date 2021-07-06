@@ -1,6 +1,6 @@
 ---
 title: Watching data - Subscriptions
-metaTitle: "GraphQL Subscriptions for realtime data | Svelte Apollo Tutorial"
+metaTitle: "GraphQL Subscriptions for realtime data | Svelte Apollo GraphQL Tutorial"
 metaDescription: "Try out GraphQL Subscription using GraphiQL. A GraphQL subscriptions example to fetch live data pushed over websockets "
 canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-subscriptions/"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Set up a GraphQL client with Apollo"
-metaTitle: "Apollo Client GraphQL Setup | Svelte Apollo Tutorial"
+metaTitle: "Apollo Client GraphQL Setup | Svelte Apollo GraphQL Tutorial"
 metaDescription: "You will learn how to configure Apollo Client in Svelte by installing @apollo/client"
 ---
 

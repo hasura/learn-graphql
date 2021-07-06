@@ -1,6 +1,6 @@
 ---
 title: "Update todos - mutation"
-metaTitle: "Mutation to update todos | Svelte Apollo Tutorial"
+metaTitle: "Mutation to update todos | Svelte Apollo GraphQL Tutorial"
 metaDescription: "GraphQL Mutation to update existing personal todos. Try the mutation in GraphiQL, passing the Authorization token to mark a todo as completed"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Realtime Feed"
-metaTitle: "Realtime Public Todo Feed | Svelte Apollo Tutorial"
+metaTitle: "Realtime Public Todo Feed | Svelte Apollo GraphQL Tutorial"
 metaDescription: "You will learn how to make a realtime feed that captures public todos added by other people."
 ---
 

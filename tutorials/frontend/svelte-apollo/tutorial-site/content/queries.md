@@ -1,6 +1,6 @@
 ---
 title: "Queries"
-metaTitle: "Integrate Queries | Svelte Apollo Tutorial"
+metaTitle: "Integrate Queries | Svelte Apollo GraphQL Tutorial"
 metaDescription: "Integrate GraphQL Queries in Svelte app to fetch personal todo data and handle loading or error state."
 ---
 

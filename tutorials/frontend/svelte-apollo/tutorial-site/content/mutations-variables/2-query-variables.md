@@ -1,6 +1,6 @@
 ---
 title: "Query Variables"
-metaTitle: "Passing GraphQL Variables in Queries | Svelte Apollo Tutorial"
+metaTitle: "Passing GraphQL Variables in Queries | Svelte Apollo GraphQL Tutorial"
 metaDescription: "An Example of passing variables in GraphQL context and usage of Apollo GraphQL Mutation variables in Svelte app."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "What next?"
-metaTitle: "What next? | Svelte Apollo Tutorial"
+metaTitle: "What next? | Svelte Apollo GraphQL Tutorial"
 metaDescription: "Learn what to do next with GraphQL, Svelte and Backend with more community resources. Join our discord channel for support."
 ---
 

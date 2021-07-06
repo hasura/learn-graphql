@@ -1,6 +1,6 @@
 ---
 title: "Mutation and update cache"
-metaTitle: "Apollo client.mutate for GraphQL mutation update | Svelte Apollo Tutorial"
+metaTitle: "Apollo client.mutate for GraphQL mutation update | Svelte Apollo GraphQL Tutorial"
 metaDescription: "We will use the mutation from Svelte Apollo client as an example to modify existing data and update cache locally using readQuery and writeQuery and handle optimisticResponse"
 ---
 

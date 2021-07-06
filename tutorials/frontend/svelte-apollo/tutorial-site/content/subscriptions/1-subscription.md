@@ -1,6 +1,6 @@
 ---
 title: "Subscription"
-metaTitle: "Set up GraphQL Subscriptions using Apollo Client | Svelte Apollo Tutorial"
+metaTitle: "Set up GraphQL Subscriptions using Apollo Client | Svelte Apollo GraphQL Tutorial"
 metaDescription: "You will learn how to configure GraphQL Subscriptions using Svelte Apollo Client by using @apollo/client and its dependency subscriptions-transport-ws. This will also have authorization token setup"
 ---
 

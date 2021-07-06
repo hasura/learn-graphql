@@ -1,6 +1,6 @@
 ---
 title: "Mutations & Query variables"
-metaTitle: "Integrate Mutations with Query Variables | Svelte Apollo Tutorial"
+metaTitle: "Integrate Mutations with Query Variables | Svelte Apollo GraphQL Tutorial"
 metaDescription: "Integrate GraphQL Mutations to create new personal todos using the Apollo Mutation and handle loading and error states"
 ---
 

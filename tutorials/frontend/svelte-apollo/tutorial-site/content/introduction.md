@@ -1,6 +1,6 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | Svelte Apollo Tutorial"
+metaTitle: "Course Introduction | Svelte Apollo GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your Svelte app with Apollo, in the shortest amount of time possible."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Apollo Mutation"
-metaTitle: "Apollo Mutation | Svelte Apollo Tutorial"
+metaTitle: "Apollo Mutation | Svelte Apollo GraphQL Tutorial"
 metaDescription: "We will use the mutation from Svelte Apollo in Svelte app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 

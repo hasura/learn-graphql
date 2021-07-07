@@ -46,6 +46,10 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/svelte-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/svelte-apollo/boilerplate.zip
+      }
+
+      redir 301 {
         /learn/graphql/angular-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/angular-apollo/boilerplate.zip
       }
 
@@ -95,6 +99,10 @@ data:
 
       redir 301 {
         /learn/graphql/rescript-react-apollo/ /learn/graphql/rescript-react-apollo/introduction
+      }
+
+      redir 301 {
+        /learn/graphql/svelte-apollo/ /learn/graphql/svelte-apollo/introduction
       }
 
       redir 301 {
@@ -216,6 +224,8 @@ data:
       proxy /learn/graphql/reason-react-apollo reason-react-apollo
 
       proxy /learn/graphql/rescript-react-apollo rescript-react-apollo
+
+      proxy /learn/graphql/svelte-apollo svelte-apollo
 
       proxy /learn/graphql/angular-apollo angular-apollo
 

@@ -36,7 +36,6 @@ const config = {
     		"/triggers/",
 			"/functions-stored-procedures/",
 			"/performance/",
-    		"/advanced/",
     		"/what-next/"
     	],
 		"links": [

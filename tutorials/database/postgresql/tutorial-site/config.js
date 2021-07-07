@@ -28,15 +28,14 @@ const config = {
 		"forcedNavOrder": [
 			"/introduction/",
 			"/what-is-postgresql/",
-    		"/installation/",
+    			"/installation/",
 			"/core-concepts/",
-    		"/create-alter-drop-ddl/",
-    		"/querying-inserting-dml/",
-    		"/views/",
-    		"/triggers/",
-			"/functions-stored-procedures/",
+    			"/create-alter-drop-ddl/",
+    			"/querying-inserting-dml/",
+    			"/views/",
+    			"/triggers/",
 			"/performance/",
-    		"/what-next/"
+    			"/what-next/"
     	],
 		"links": [
 			{

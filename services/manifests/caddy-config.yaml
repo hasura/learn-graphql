@@ -74,6 +74,10 @@ data:
       }
 
       redir 301 {
+        /learn/database/postgresql/ /learn/database/postgresql/introduction
+      }
+
+      redir 301 {
         /learn/graphql/react-rxdb-offline-first/ /learn/graphql/react-rxdb-offline-first/introduction
       }
 
@@ -190,6 +194,8 @@ data:
       proxy /learn/graphql/graphiql graphiql {
         without /learn/graphql/graphiql
       }
+
+      proxy /learn/database/postgresql database-postgresql
 
       proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
 

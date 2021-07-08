@@ -15,22 +15,37 @@ query ($latestVisibleId: Int!) {
 `)
 
 @react.component
-let make = (~latestTodo: NotifyNewPublicTodosSubscription.Inner.t_todos) => {
+let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>) => {
   let (newTodosCount, setNewTodosCount) = React.useState(() => 0)
-  let (oldestTodoId, _) = React.useState(() => latestTodo.id + 1)
+  let (oldestTodoId, _) = React.useState(() => {
+    switch latestTodo {
+    | Some(todo) => todo.id + 1
+    | None => 0
+    }
+  })
 
   let todosResult = PublicTodosQuery.use({
     oldestTodoId: Js.Option.some(oldestTodoId),
     latestVisibleId: None,
   })
-  let olderTodosAvailable = true // Todo: need to implement conditional
+  let olderTodosAvailable = switch latestTodo {
+  | Some(_) => true
+  | None => false
+  }
   let ref = React.useRef(latestTodo)
 
   React.useEffect1(() => {
-    if ref.current.id !== latestTodo.id {
+    switch (latestTodo, ref.current) {
+    | (Some(todo), Some(prevTodo)) =>
+      if prevTodo.id !== todo.id {
+        setNewTodosCount(prevNewTodosCount => prevNewTodosCount + 1)
+      } else {
+        ()
+      }
+    | (Some(_), None)
+    | (None, Some(_)) =>
       setNewTodosCount(prevNewTodosCount => prevNewTodosCount + 1)
-    } else {
-      ()
+    | (None, None) => ()
     }
     ref.current = latestTodo
     None
@@ -40,7 +55,13 @@ let make = (~latestTodo: NotifyNewPublicTodosSubscription.Inner.t_todos) => {
   | {loading: true} => <div> {React.string("Loading...")} </div>
   | {data: Some({todos}), error: None, fetchMore} => {
       let loadNew = _e => {
-        let newestTodoId = todos[0].id
+        let newestTodoId =
+          Js.Array.length(todos) > 0
+            ? todos[0].id
+            : switch latestTodo {
+              | Some(todo) => todo.id
+              | None => 0
+              }
 
         fetchMore(
           ~updateQuery=(previousData, {fetchMoreResult}) => {
@@ -60,8 +81,13 @@ let make = (~latestTodo: NotifyNewPublicTodosSubscription.Inner.t_todos) => {
         )->ignore
       }
       let loadOlder = _e => {
-        let oldTodo = todos[Js.Array2.length(todos) - 1]
-        let oldTodoId = oldTodo.id
+        let oldTodoId =
+          Js.Array.length(todos) > 0
+            ? todos[Js.Array2.length(todos) - 1].id
+            : switch latestTodo {
+              | Some(todo) => todo.id + 1
+              | None => 0
+              }
 
         fetchMore(~updateQuery=(previousData, {fetchMoreResult}) => {
           switch fetchMoreResult {
@@ -72,6 +98,7 @@ let make = (~latestTodo: NotifyNewPublicTodosSubscription.Inner.t_todos) => {
           }
         }, ~variables={oldestTodoId: Js.Option.some(oldTodoId), latestVisibleId: None}, ())->ignore
       }
+
       let todoList = Js.Array2.mapi(todos, (todo, index) =>
         <TaskItem key={Js.Int.toString(index)} todo={todo} />
       )

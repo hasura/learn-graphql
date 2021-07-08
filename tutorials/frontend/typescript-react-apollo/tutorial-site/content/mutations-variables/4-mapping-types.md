@@ -13,7 +13,7 @@ As we learnt in the previous section, the auto-generated type definitions are av
   import gql from 'graphql-tag';
   import { useMutation } from "@apollo/react-hooks";
   import { GET_MY_TODOS } from './TodoPrivateList';
-+ import { GetMyTodosQuery, Insert_TodosMutation, Insert_TodosMutationVariables } from '../../generated/graphql';
++ import { GetMyTodosQuery, Mutation_Root } from "../../generated/graphql";
 
 ```
 
@@ -24,7 +24,7 @@ Now let's add this to `useMutation`:
   const TodoInput = ({isPublic=false}) => {
     const [todoInput, setTodoInput] = React.useState('');
 -   const [addTodo] = useMutation(ADD_TODO);
-+   const [addTodo] = useMutation<Insert_TodosMutation, Insert_TodosMutationVariables>(ADD_TODO);
++   const [addTodo] = useMutation<Mutation_Root, Record<string, any>>(ADD_TODO);
     return (
 
 ```

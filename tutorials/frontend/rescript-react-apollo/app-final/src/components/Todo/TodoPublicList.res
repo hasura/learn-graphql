@@ -1,7 +1,8 @@
 @react.component
 let make = (~latestTodo: NotifyNewPublicTodosSubscription.Inner.t_todos) => {
   let (newTodosCount, setNewTodosCount) = React.useState(() => 0)
-  let oldestTodoId = latestTodo.id + 1
+  let (oldestTodoId, _) = React.useState(() => latestTodo.id + 1)
+
   let todosResult = PublicTodosQuery.use({oldestTodoId: oldestTodoId})
   let olderTodosAvailable = true // Todo: need to implement conditional
   let ref = React.useRef(latestTodo)

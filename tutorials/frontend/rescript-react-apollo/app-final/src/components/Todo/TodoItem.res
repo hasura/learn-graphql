@@ -43,7 +43,18 @@ let make = (~todo: TodosQuery.Inner.t_todos) => {
 
   let toggleTodo = _e => {
     toggleTodoMutate(
+      ~optimisticResponse=_variables => {
+        update_todos: Js.Option.some(
+          (
+            {
+              affected_rows: 1,
+              __typename: "todos_mutation_response",
+            }: ToggleTodoMutation.ToggleTodoMutation_inner.t_update_todos
+          ),
+        ),
+      },
       ~update=({readQuery, writeQuery}, {data: _data}) => {
+        Js.log2("update", _data)
         let existingTodos = readQuery(~query=module(TodosQuery), ())
         switch existingTodos {
         | Some(todosResult) =>

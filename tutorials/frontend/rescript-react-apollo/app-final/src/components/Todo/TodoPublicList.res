@@ -1,5 +1,5 @@
 @react.component
-let make = () => {
+let make = (~latestTodo: NotifyNewPublicTodosSubscription.Inner.t_todos) => {
   let todosResult = PublicTodosQuery.use()
 
   switch todosResult {

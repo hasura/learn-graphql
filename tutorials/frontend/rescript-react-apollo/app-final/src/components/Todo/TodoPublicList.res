@@ -1,19 +1,3 @@
-module GetNewPublicTodos = %graphql(`
-query ($latestVisibleId: Int!) {
-  todos(
-    where: { is_public: { _eq: true }, id: { _gt: $latestVisibleId } }
-    order_by: [{ created_at: desc }]
-  ) {
-    id
-    title
-    created_at
-    user {
-      name
-    }
-  }
-}
-`)
-
 @react.component
 let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>) => {
   let (newTodosCount, setNewTodosCount) = React.useState(() => 0)
@@ -25,8 +9,9 @@ let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>)
   })
 
   let todosResult = PublicTodosQuery.use({
-    oldestTodoId: Js.Option.some(oldestTodoId),
-    latestVisibleId: None,
+    before: Js.Option.some(oldestTodoId),
+    after: None,
+    limit: Js.Option.some(7),
   })
   let olderTodosAvailable = switch latestTodo {
   | Some(_) => true
@@ -74,8 +59,9 @@ let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>)
             }
           },
           ~variables={
-            latestVisibleId: Js.Option.some(newestTodoId),
-            oldestTodoId: None,
+            after: Js.Option.some(newestTodoId),
+            before: None,
+            limit: None,
           },
           (),
         )->ignore
@@ -89,14 +75,22 @@ let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>)
               | None => 0
               }
 
-        fetchMore(~updateQuery=(previousData, {fetchMoreResult}) => {
-          switch fetchMoreResult {
-          | Some({todos: newTodos}) => {
-              todos: Belt.Array.concat(todos, newTodos),
+        fetchMore(
+          ~updateQuery=(previousData, {fetchMoreResult}) => {
+            switch fetchMoreResult {
+            | Some({todos: newTodos}) => {
+                todos: Belt.Array.concat(todos, newTodos),
+              }
+            | None => previousData
             }
-          | None => previousData
-          }
-        }, ~variables={oldestTodoId: Js.Option.some(oldTodoId), latestVisibleId: None}, ())->ignore
+          },
+          ~variables={
+            before: Js.Option.some(oldTodoId),
+            after: None,
+            limit: Js.Option.some(7),
+          },
+          (),
+        )->ignore
       }
 
       let todoList = Js.Array2.mapi(todos, (todo, index) =>

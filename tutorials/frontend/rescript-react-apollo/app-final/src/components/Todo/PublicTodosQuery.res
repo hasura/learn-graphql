@@ -1,8 +1,8 @@
 let make = %graphql(`
-  query ($oldestTodoId: Int, $latestVisibleId: Int ) {
+  query ($before: Int, $after: Int, $limit: Int ) {
     todos(
-      where: { is_public: { _eq: true }, id: { _lt: $oldestTodoId, _gt: $latestVisibleId  } }
-      limit: 7
+      where: { is_public: { _eq: true }, id: { _lt: $before, _gt: $after  } }
+      limit: $limit
       order_by: [{ created_at: desc }]
     ) {
       id

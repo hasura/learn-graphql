@@ -6,8 +6,6 @@ metaDescription: "We will handle the GraphQL loading and error states in React a
 
 As we saw in the previous step, Apollo returned a result object with properties . Among them `loading` and `error` are common ones that you will need to handle in your app.
 
-Now let's go back to the `useQuery` React hook that you wrote in the previous step.
-
 ```reason
 @react.component
 let make = () => {

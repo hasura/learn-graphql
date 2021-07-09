@@ -13,7 +13,7 @@ Apollo gives a neat abstraction layer and an interface to your GraphQL server. Y
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ npm install @apollo/client graphql
+$ npm install @apollo/client graphql rescript-apollo-client
 ```
 
 Open `src/components/App.res` and add the following code to create apollo client and App component.

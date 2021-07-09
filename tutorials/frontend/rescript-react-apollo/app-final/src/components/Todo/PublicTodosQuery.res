@@ -1,5 +1,5 @@
 let make = %graphql(`
-  query ($before: Int, $after: Int, $limit: Int ) {
+  query ($before: Int, $after: Int, $limit: Int) {
     todos(
       where: { is_public: { _eq: true }, id: { _lt: $before, _gt: $after  } }
       limit: $limit

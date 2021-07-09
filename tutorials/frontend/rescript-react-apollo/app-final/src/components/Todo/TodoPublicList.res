@@ -1,7 +1,7 @@
 @react.component
 let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>) => {
   let (newTodosCount, setNewTodosCount) = React.useState(() => 0)
-  let (oldestTodoId, _) = React.useState(() => {
+  let (initialTodoId, _) = React.useState(() => {
     switch latestTodo {
     | Some(todo) => todo.id + 1
     | None => 0
@@ -9,7 +9,7 @@ let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>)
   })
 
   let todosResult = PublicTodosQuery.use({
-    before: Js.Option.some(oldestTodoId),
+    before: Js.Option.some(initialTodoId),
     after: None,
     limit: Js.Option.some(7),
   })

@@ -128,7 +128,7 @@ let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>)
 
 ```
 
-Logic inside this `useEffect` increment `newTodosCount` state whenever there is a change in latestTodo, which happen new task arrives.
+Logic inside this `useEffect` increment `newTodosCount` state whenever there is a change in latestTodo, which happen when new task arrives.
 
 Now try adding a new todo to the public feed and you will see the notification appearing saying that a new task has arrived.
 

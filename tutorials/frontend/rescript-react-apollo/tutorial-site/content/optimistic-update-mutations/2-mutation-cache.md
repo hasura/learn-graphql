@@ -99,3 +99,48 @@ let toggleTodo = _e => {
 We are fetching the existing todos from the cache using `cache.readQuery` and updating the is_completed value for the todo that has been updated.
 
 Finally we are writing the updated todo list to the cache using `cache.writeQuery`.
+
+This updates the cache, but it does only after receiving response from GraphQL server. This might add noticable delay for UI updates. We can use `optimisticResponse` feature of Apollo to update cache immediately after sending GraphQL request, so that the user can see UI update immediately.
+
+When we pass `optimisticResponse` argument to mutate function update function is executed twice. It is excuted first time immediately after GraphQL request is sent which optimistic response object as data. It is executed second time after GraphQL response is received.
+
+```reason
+  let toggleTodo = _e => {
+    toggleTodoMutate(
++      ~optimisticResponse=_variables => {
++        update_todos: Js.Option.some(
++          (
++            {
++              affected_rows: 1,
++              __typename: "todos_mutation_response",
++            }: ToggleTodoMutation.ToggleTodoMutation_inner.t_update_todos
++          ),
++        ),
++      },
+      ~update=({readQuery, writeQuery}, {data: _data}) => {
+        let existingTodos = readQuery(~query=module(TodosQuery), ())
+        switch existingTodos {
+        | Some(todosResult) =>
+          switch todosResult {
+          | Ok({todos}) => {
+              let newTodos = Js.Array2.map(todos, t => {
+                if t.id == todo.id {
+                  {...t, is_completed: !t.is_completed}
+                } else {
+                  t
+                }
+              })
+              let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+            }
+          | _ => ()
+          }
+        | None => ()
+        }
+      },
+      {
+        id: todo.id,
+        isCompleted: !todo.is_completed,
+      },
+    )->ignore
+  }
+```

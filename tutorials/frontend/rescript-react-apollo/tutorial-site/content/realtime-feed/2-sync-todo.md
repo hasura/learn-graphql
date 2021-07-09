@@ -12,148 +12,89 @@ We are not going to use that approach here since we don't want public list UI to
 
 In the `TodoPublicListSubscription` component of the previous step, we only get the latest todo and not the existing list. We will now write a query to fetch the list of existing public todos.
 
-Start off by importing `useEffect` from `react` and `useApolloClient` from `@apollo/client`
+Create a new file with name `src/components/Todo/PublicTodosQuery.res` and the following query
 
-```javascript
-- import React, { Fragment } from "react";
-+ import React, { Fragment, useState, useEffect } from "react";
-- import { useSubscription, gql } from "@apollo/client";
-+ import { useSubscription, useApolloClient, gql } from "@apollo/client";
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/Todo/PublicTodosQuery.res" text="src/components/Todo/PublicTodosQuery.res" />
 
-import TaskItem from "./TaskItem";
-```
-
-Now that we have access to the client, let's update the `TodoPublicList` component
-
-```javascript
-const TodoPublicList = props => {
--    const state = {
-+    const [state, setState] = useState({
--     olderTodosAvailable: true,
-+     olderTodosAvailable: props.latestTodo ? true : false,
--     newTodosCount: 1,
-+     newTodosCount: 0,
-      todos: [
--       {
--         id: "1",
--         title: "This is public todo 1",
--         user: {
--           name: "someUser1"
--         }
--       },
--       {
--         id: "2",
--         title: "This is public todo 2",
--         is_completed: false,
--         is_public: true,
--         user: {
--           name: "someUser2"
--         }
--       },
--       {
--         id: "3",
--         title: "This is public todo 3",
--         user: {
--           name: "someUser3"
--         }
--       },
--       {
--         id: "4",
--         title: "This is public todo 4",
--         user: {
--           name: "someUser4"
--         }
--       }
-      ],
-+     error: false
--   };
-+   });
-
-+  let numTodos = state.todos.length;
-+  let oldestTodoId = numTodos
-+    ? state.todos[numTodos - 1].id
-+    : props.latestTodo
-+      ? props.latestTodo.id + 1
-+      : 0;
-+  let newestTodoId = numTodos
-+    ? state.todos[0].id
-+    : props.latestTodo
-+      ? props.latestTodo.id
-+      : 0;
-+
-+  const client = useApolloClient();
-
+```reason
+let make = %graphql(`
+  query ($before: Int, $after: Int, $limit: Int) {
+    todos(
+      where: { is_public: { _eq: true }, id: { _lt: $before, _gt: $after  } }
+      limit: $limit
+      order_by: [{ created_at: desc }]
+    ) {
+      id
+      title
+      created_at
+      is_completed
+      user {
+        name
+      }
+    }
   }
+`)
+```
 
-  const loadNew = () => {};
+This query will help us fetch the todos and paginate the todo list. We can fetch todos older than certain todo id by passing it as before variable to the query. We can fetch todos newer than certain todo id by passing it as after variable to the query.
 
-  const loadOlder = () => {};
+let's update the `TodoPublicList` component to fetch todos with the query written above
+
+```reason
+@react.component
+let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>) => {
+
++  let (initialTodoId, _) = React.useState(() => {
++    switch latestTodo {
++    | Some(todo) => todo.id + 1
++    | None => 0
++    }
++  })
+
++  let todosResult = PublicTodosQuery.use({
++    before: Js.Option.some(initialTodoId),
++    after: None,
++    limit: Js.Option.some(7),
++  })
 
   ...
 }
 ```
 
-Let's populate initial state by fetching the existing list of todos in `useEffect`
-
-```javascript
-const TodoPublicList = props => {
-  ...
-
-  const client = useApolloClient();
-
-+  useEffect(() => {
-+    loadOlder();
-+  }, []);
-
-  const loadNew = () => {};
-
-  const loadOlder = () => {}
-
-  ...
-}
-```
+`initialTodoId` is computed based on `lastestTodo` prop on mount of `TodoPublicList` component. This passed as before variable along with limit = 7 variable to `PublicTodosQuery` to fetch the first 7 todos. Subsequent todos are fetched with `loadOlder` and `loadNew` functions.
 
 Update the `loadOlder` method to the following:
 
-```javascript
-  const loadOlder = async () => {
-+    const GET_OLD_PUBLIC_TODOS = gql`
-+      query getOldPublicTodos ($oldestTodoId: Int!) {
-+        todos (where: { is_public: { _eq: true}, id: {_lt: $oldestTodoId}}, limit: 7, order_by: { created_at: desc }) {
-+          id
-+          title
-+          created_at
-+          user {
-+            name
-+          }
-+        }
-+      }`;
-+
-+   const { error, data } = await client.query({
-+      query: GET_OLD_PUBLIC_TODOS,
-+      variables: { oldestTodoId: oldestTodoId }
-+    });
-+
-+    if (data.todos.length) {
-+      setState(prevState => {
-+        return { ...prevState, todos: [...prevState.todos, ...data.todos] };
-+      });
-+      oldestTodoId = data.todos[data.todos.length - 1].id;
-+    } else {
-+      setState(prevState => {
-+        return { ...prevState, olderTodosAvailable: false };
-+      });
-+    }
-+    if (error) {
-+      console.error(error);
-+      setState(prevState => {
-+        return { ...prevState, error: true };
-+      });
-+    }
-+ }
+```
+let loadOlder = _e => {
+  let oldTodoId =
+    Js.Array.length(todos) > 0
+      ? todos[Js.Array2.length(todos) - 1].id
+      : switch latestTodo {
+        | Some(todo) => todo.id + 1
+        | None => 0
+        }
+
+  fetchMore(
+    ~updateQuery=(previousData, {fetchMoreResult}) => {
+      switch fetchMoreResult {
+      | Some({todos: newTodos}) => {
+          todos: Belt.Array.concat(todos, newTodos),
+        }
+      | None => previousData
+      }
+    },
+    ~variables={
+      before: Js.Option.some(oldTodoId),
+      after: None,
+      limit: Js.Option.some(7),
+    },
+    (),
+  )->ignore
+}
 ```
 
-We are defining a query to fetch older public todos and making a `client.query` call to get the data from the database. Once we get the data, we update the `todos` state to re-render the UI with the available list of public todos.
+When "Load older todos" button is clicked, `loadOlder` function is called. It fetches 7 todos before `oldTodoId` and appends it to existing todos.
 
 Try adding a new todo in the public feed and notice that it will not show up on the UI. Now refresh the page to see the added todo.
 
@@ -161,23 +102,33 @@ This happens because we haven't yet implemented a way to show the newly added to
 
 Let's handle that in `useEffect` for on update
 
-```javascript
-  useEffect(() => {
-    loadOlder();
-  }, []);
-
-+  useEffect(
-+    () => {
-+      if (props.latestTodo && props.latestTodo.id > newestTodoId) {
-+        setState(prevState => {
-+          return { ...prevState, newTodosCount: prevState.newTodosCount + 1 };
-+        });
-+        newestTodoId = props.latestTodo.id;
-+      }
-+    },
-+    [props.latestTodo]
-+  );
 ```
+@react.component
+let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>) => {
+  let (newTodosCount, setNewTodosCount) = React.useState(() => 0)
+
++  React.useEffect1(() => {
++    switch (latestTodo, ref.current) {
++    | (Some(todo), Some(prevTodo)) =>
++      if prevTodo.id !== todo.id {
++        setNewTodosCount(prevNewTodosCount => prevNewTodosCount + 1)
++      } else {
++        ()
++      }
++    | (Some(_), None)
++    | (None, Some(_)) =>
++      setNewTodosCount(prevNewTodosCount => prevNewTodosCount + 1)
++    | (None, None) => ()
++    }
++    ref.current = latestTodo
++    None
++  }, [latestTodo])
+
+...
+
+```
+
+Logic inside this `useEffect` increment `newTodosCount` state whenever there is a change in latestTodo, which happen new task arrives.
 
 Now try adding a new todo to the public feed and you will see the notification appearing saying that a new task has arrived.
 
@@ -185,43 +136,34 @@ Great! We still have one functionality left. When a new task arrives on the publ
 
 Update `loadNew()` method with the following code
 
-```javascript
-  const loadNew = async () => {
-+   const GET_NEW_PUBLIC_TODOS = gql`
-+     query getNewPublicTodos ($latestVisibleId: Int!) {
-+       todos(where: { is_public: { _eq: true}, id: {_gt: $latestVisibleId}}, order_by: { created_at: desc }) {
-+         id
-+         title
-+         created_at
-+         user {
-+           name
-+         }
-+       }
-+     }
-+   `;
-+
-+   const { error, data } = await client.query({
-+      query: GET_NEW_PUBLIC_TODOS,
-+      variables: {
-+        latestVisibleId: state.todos.length ? state.todos[0].id : null
-+      }
-+    });
+```reason
+let loadNew = _e => {
+  let newestTodoId =
+    Js.Array.length(todos) > 0
+      ? todos[0].id
+      : switch latestTodo {
+        | Some(todo) => todo.id
+        | None => 0
+        }
 
-+    if (data) {
-+      setState(prevState => {
-+        return {
-+          ...prevState,
-+          todos: [...data.todos, ...prevState.todos],
-+          newTodosCount: 0
-+        };
-+      });
-+      newestTodoId = data.todos[0].id;
-+    }
-+    if (error) {
-+      console.error(error);
-+      setState(prevState => {
-+        return { ...prevState, error: true };
-+      });
-+    }
-  }
+  fetchMore(
+    ~updateQuery=(previousData, {fetchMoreResult}) => {
+      setNewTodosCount(_ => 0)
+      switch fetchMoreResult {
+      | Some({todos: newTodos}) => {
+          todos: Belt.Array.concat(newTodos, todos),
+        }
+      | None => previousData
+      }
+    },
+    ~variables={
+      after: Js.Option.some(newestTodoId),
+      before: None,
+      limit: None,
+    },
+    (),
+  )->ignore
+}
 ```
+
+This method fetches all new todos after `newestTodoId` by using fetchMore api of Apollo.

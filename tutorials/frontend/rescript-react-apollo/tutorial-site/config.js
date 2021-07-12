@@ -34,6 +34,7 @@ const config = {
       "/intro-to-graphql/",
       "/setup/",
       "/apollo-client/",
+      "/graphql-ppx/",
       "/queries/",
       "/mutations/",
       "/optimistic-update-mutations/",

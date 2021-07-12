@@ -14,7 +14,7 @@ In the `TodoPublicListSubscription` component of the previous step, we only get 
 
 Create a new file with name `src/components/Todo/PublicTodosQuery.res` and the following query
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/Todo/PublicTodosQuery.res" text="src/components/Todo/PublicTodosQuery.res" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/rescript-react-apollo/app-final/src/components/Todo/PublicTodosQuery.res" text="src/components/Todo/PublicTodosQuery.res" />
 
 ```reason
 let make = %graphql(`

@@ -10,7 +10,7 @@ Now let's define the subscription query to get notified about new public todos
 
 Create a new file with name `src/components/Todo/NotifyNewPublicTodosSubscription.res` and add the following query.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/Todo/NotifyNewPublicTodosSubscription.res" text="src/components/Todo/NotifyNewPublicTodosSubscription.res" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/rescript-react-apollo/app-final/src/components/Todo/NotifyNewPublicTodosSubscription.res" text="src/components/Todo/NotifyNewPublicTodosSubscription.res" />
 
 ```reason
 let make = %graphql(`
@@ -43,7 +43,7 @@ Now let's create a React components that uses this subscription query.
 
 Create a file with name `src/components/Todo/TodoPublicListSubscription.res` and add the following code.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/react-apollo-hooks/app-final/src/components/Todo/TodoPublicListSubscription.res" text="src/components/Todo/TodoPublicListSubscription.res" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/rescript-react-apollo/app-final/src/components/Todo/TodoPublicListSubscription.res" text="src/components/Todo/TodoPublicListSubscription.res" />
 
 ```reason
 @react.component

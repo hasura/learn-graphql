@@ -46,7 +46,7 @@ data:
       }
 
       redir 301 {
-        /learn/graphql/svelte-apollo/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/svelte-apollo/boilerplate.zip
+        /learn/graphql/svelte/boilerplate.zip https://graphql-engine-cdn.hasura.io/learn-hasura/boilerplates/svelte-apollo/boilerplate.zip
       }
 
       redir 301 {

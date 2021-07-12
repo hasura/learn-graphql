@@ -4,8 +4,7 @@ metaTitle: "Todo app react boilerplate setup | ReScript React Apollo Tutorial"
 metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in React.js"
 ---
 
-For this tutorial, the GraphQL backend and the basic app UI is already ready.
-Our task will be to convert the "static" UI into a working realtime app.
+For this tutorial, the GraphQL backend and the basic app UI built with ReScript React is already ready. Our task will be to convert the "static" UI into a working realtime app.
 
 ### Download and run the boilerplate
 

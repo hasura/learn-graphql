@@ -34,10 +34,12 @@ const config = {
       "/intro-to-graphql/",
       "/setup/",
       "/apollo-client/",
+      "/graphql-ppx/",
       "/queries/",
       "/mutations/",
       "/optimistic-update-mutations/",
       "/subscriptions/",
+      "/realtime-feed/",
       "/what-next/",
     ],
     links: [
@@ -54,7 +56,8 @@ const config = {
     ignoreIndex: true,
   },
   siteMetadata: {
-    title: "2 hour GraphQL Apollo course for ReScript React developers | Hasura",
+    title:
+      "2 hour GraphQL Apollo course for ReScript React developers | Hasura",
     description:
       "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in ReScript with Apollo Hooks",
     ogImage:

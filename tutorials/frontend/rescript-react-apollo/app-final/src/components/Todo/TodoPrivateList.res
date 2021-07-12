@@ -33,20 +33,33 @@ let make = () => {
   }
 
   let clearCompleted = _e =>
-    clearCompletedTodos(~update=({readQuery, writeQuery}, {data: _data}) => {
-      let existingTodos = readQuery(~query=module(TodosQuery), ())
-      switch existingTodos {
-      | Some(todosResult) =>
-        switch todosResult {
-        | Ok({todos}) => {
-            let newTodos = Js.Array2.filter(todos, t => !t.is_completed)
-            let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+    clearCompletedTodos(
+      ~optimisticResponse=_variables => {
+        delete_todos: Js.Option.some(
+          (
+            {
+              affected_rows: 1,
+              __typename: "todos_mutation_response",
+            }: ClearCompletedMutation.ClearCompletedMutation_inner.t_delete_todos
+          ),
+        ),
+      },
+      ~update=({readQuery, writeQuery}, {data: _data}) => {
+        let existingTodos = readQuery(~query=module(TodosQuery), ())
+        switch existingTodos {
+        | Some(todosResult) =>
+          switch todosResult {
+          | Ok({todos}) => {
+              let newTodos = Js.Array2.filter(todos, t => !t.is_completed)
+              let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+            }
+          | _ => ()
           }
-        | _ => ()
+        | None => ()
         }
-      | None => ()
-      }
-    }, ())->ignore
+      },
+      (),
+    )->ignore
 
   switch todosResult {
   | {loading: true} => <div> {React.string("Loading...")} </div>

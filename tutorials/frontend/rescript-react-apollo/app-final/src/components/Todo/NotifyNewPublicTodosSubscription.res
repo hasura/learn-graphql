@@ -1,8 +1,8 @@
 let make = %graphql(`
-  query ($before: Int, $after: Int, $limit: Int) {
+  subscription {
     todos(
-      where: { is_public: { _eq: true }, id: { _lt: $before, _gt: $after  } }
-      limit: $limit
+      where: { is_public: { _eq: true } }
+      limit: 1
       order_by: [{ created_at: desc }]
     ) {
       id

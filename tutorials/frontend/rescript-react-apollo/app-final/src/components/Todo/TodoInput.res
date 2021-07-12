@@ -20,11 +20,11 @@ let make = (~isPublic=false) => {
   let resetInput = () => {
     setTodoInput(_ => "")
   }
-  let refetchQuery = if isPublic {
-    PublicTodosQuery.refetchQueryDescription()
-  } else {
-    TodosQuery.refetchQueryDescription()
-  }
+  // let refetchQuery = if isPublic {
+  //   PublicTodosQuery.refetchQueryDescription()
+  // } else {
+  //   TodosQuery.refetchQueryDescription()
+  // }
   <form
     className="formInput"
     onSubmit={e => {
@@ -61,9 +61,7 @@ let make = (~isPublic=false) => {
         } else {
           ()
         }
-      }, ~refetchQueries=[
-        refetchQuery,
-      ], {todo: todoInput, isPublic: isPublic})->Js.Promise.then_(res => {
+      }, {todo: todoInput, isPublic: isPublic})->Js.Promise.then_(res => {
         resetInput()
         Js.Promise.resolve(res)
       }, _)->ignore

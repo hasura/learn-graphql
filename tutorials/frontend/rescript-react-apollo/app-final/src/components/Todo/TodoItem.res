@@ -25,24 +25,47 @@ let make = (~todo: TodosQuery.Inner.t_todos) => {
   let removeTodo = e => {
     ReactEvent.Mouse.preventDefault(e)
     ReactEvent.Mouse.stopPropagation(e)
-    removeTodoMutate(~update=({readQuery, writeQuery}, {data: _data}) => {
-      let existingTodos = readQuery(~query=module(TodosQuery), ())
-      switch existingTodos {
-      | Some(todosResult) =>
-        switch todosResult {
-        | Ok({todos}) => {
-            let newTodos = Js.Array2.filter(todos, t => t.id !== todo.id)
-            let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+    removeTodoMutate(
+      ~optimisticResponse=_variables => {
+        delete_todos: Js.Option.some(
+          (
+            {
+              affected_rows: 1,
+              __typename: "todos_mutation_response",
+            }: RemoveTodoMutation.RemoveTodoMutation_inner.t_delete_todos
+          ),
+        ),
+      },
+      ~update=({readQuery, writeQuery}, {data: _data}) => {
+        let existingTodos = readQuery(~query=module(TodosQuery), ())
+        switch existingTodos {
+        | Some(todosResult) =>
+          switch todosResult {
+          | Ok({todos}) => {
+              let newTodos = Js.Array2.filter(todos, t => t.id !== todo.id)
+              let _ = writeQuery(~query=module(TodosQuery), ~data={todos: newTodos}, ())
+            }
+          | _ => ()
           }
-        | _ => ()
+        | None => ()
         }
-      | None => ()
-      }
-    }, {id: todo.id})->ignore
+      },
+      {id: todo.id},
+    )->ignore
   }
 
   let toggleTodo = _e => {
     toggleTodoMutate(
+      ~optimisticResponse=_variables => {
+        update_todos: Js.Option.some(
+          (
+            {
+              affected_rows: 1,
+              __typename: "todos_mutation_response",
+            }: ToggleTodoMutation.ToggleTodoMutation_inner.t_update_todos
+          ),
+        ),
+      },
       ~update=({readQuery, writeQuery}, {data: _data}) => {
         let existingTodos = readQuery(~query=module(TodosQuery), ())
         switch existingTodos {

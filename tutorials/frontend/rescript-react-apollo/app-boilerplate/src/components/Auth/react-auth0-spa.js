@@ -5,14 +5,10 @@ import Login from "./Login.bs";
 import App from "../App.bs";
 import { Auth0Context } from "./Auth0Context.bs";
 
-const DEFAULT_REDIRECT_CALLBACK = () =>
+const onRedirectCallback = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
 
-export const Auth0Provider = ({
-  children,
-  onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
-  ...initOptions
-}) => {
+export const Auth0Provider = ({ children, ...initOptions }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState();
   const [auth0Client, setAuth0] = useState();

@@ -6,6 +6,12 @@ let createApolloClient = authToken => {
     "Authorization": `Bearer ${authToken}`,
   }
 
+  let httpLink = ApolloClient.Link.HttpLink.make(
+    ~uri=_ => "https://hasura.io/learn/graphql",
+    ~headers=Obj.magic(headers),
+    (),
+  )
+
   let wsLink = {
     open ApolloClient.Link.WebSocketLink
     make(
@@ -19,6 +25,14 @@ let createApolloClient = authToken => {
     )
   }
 
+  let terminatingLink = ApolloClient.Link.split(~test=({query}) => {
+    let definition = ApolloClient.Utilities.getOperationDefinition(query)
+    switch definition {
+    | Some({kind, operation}) => kind === "OperationDefinition" && operation === "subscription"
+    | None => false
+    }
+  }, ~whenTrue=wsLink, ~whenFalse=httpLink)
+
   let client = {
     open ApolloClient
     make(
@@ -28,7 +42,7 @@ let createApolloClient = authToken => {
         ~mutate=DefaultMutateOptions.make(~awaitRefetchQueries=true, ()),
         (),
       ),
-      ~link=wsLink,
+      ~link=terminatingLink,
       (),
     )
   }

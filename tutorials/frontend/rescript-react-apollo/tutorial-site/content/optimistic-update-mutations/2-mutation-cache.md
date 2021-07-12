@@ -100,7 +100,7 @@ We are fetching the existing todos from the cache using `cache.readQuery` and up
 
 Finally we are writing the updated todo list to the cache using `cache.writeQuery`.
 
-This updates the cache, but it does only after receiving response from GraphQL server. This might add noticable delay for UI updates. We can use `optimisticResponse` feature of Apollo to update cache immediately after sending GraphQL request, so that the user can see UI update immediately.
+This updates the cache, but it does only after receiving response from GraphQL server. This might add noticable delay for UI updates. To avoid this problem we can use `optimisticResponse` feature of Apollo to update cache immediately after sending GraphQL request, so that the user can see UI update immediately.
 
 When we pass `optimisticResponse` argument to mutate function update function is executed twice. It is excuted first time immediately after GraphQL request is sent which optimistic response object as data. It is executed second time after GraphQL response is received.
 

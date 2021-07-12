@@ -10,6 +10,8 @@ In this section, we will implement GraphQL Queries and integrate with the react 
 
 Create a new file with name TodosQuery.res and add the following code to create a todos query ReScript module.
 
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/rescript-react-apollo/app-final/src/components/Todo/TodosQuery.res" text="src/components/Todo/TodosQuery.res" />
+
 ```reason
 let make = %graphql(`
   query {

@@ -6,6 +6,8 @@ metaDescription: "We will use the Apollo Client useMutation from @apollo/client 
 
 let's create a ReScirpt module for create todo mutation in `src/components/Todo/TodoInput.res` with the following code
 
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/rescript-react-apollo/app-final/src/components/Todo/TodoInput.res" text="src/components/Todo/TodoInput.res" />
+
 ```reason
 module AddTodoMutation = %graphql(`
   mutation($todo: String!, $isPublic: Boolean!) {

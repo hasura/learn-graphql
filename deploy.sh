@@ -25,6 +25,9 @@ tutorials() {
                         if [ $current_tutorial = "nextjs" ]; then
                             current_tutorial="nextjs-fullstack-serverless"
                         fi
+                        if [ $current_tutorial = "postgresql" ]; then
+                            current_tutorial="database-postgresql"
+                        fi
                         cd "tutorial-site"
                         echo "hasura/$current_tutorial:$GIT_HASH"
                         echo "Building docker image"

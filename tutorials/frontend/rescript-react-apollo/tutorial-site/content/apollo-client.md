@@ -6,15 +6,24 @@ metaDescription: "You will learn how to configure Apollo Client in React by inst
 
 import GithubLink from "../src/GithubLink.js";
 
+Hope you got the app-boilerplate code up and running. We will use Apollo as GraphQL client in this tutorial.
+
 Apollo gives a neat abstraction layer and an interface to your GraphQL server. You don't need to worry about constructing your queries with request body, headers and options, that you might have done with `axios` or `fetch` say. You can directly write queries and mutations in GraphQL and they will automatically be sent to your server via your apollo client instance.
 
-### React Apollo Hooks Installation
+### React Apollo Installation
 
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ npm install @apollo/client graphql rescript-apollo-client
+$ npm install @apollo/client graphql rescript-apollo-client @reasonml-community/graphql-ppx subscriptions-transport-ws
 ```
+
+### What are these dependencies?
+
+- `@apollo/client` is a GraphQL client library
+- `graphql` package contains core utilities which are used by other graphql libraries
+- `rescript-apollo-client` contains ReScript bindings for the Apollo Client
+- `@reasonml-community/graphql-ppx`
 
 Open `src/components/App.res` and add the following code to create apollo client and App component.
 

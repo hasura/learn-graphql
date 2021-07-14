@@ -6,9 +6,9 @@ const config = {
 		"trailingSlash": true
 	},
 	"header": {
-		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
+		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-nextjs/nextjs-favicon.png",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/nextjs-fullstack-serverless/introduction/'>/ nextjs</a>",
+		"title": "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/nextjs-fullstack-serverless/introduction/'>/ nextjs</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
 		"tweetText": "Check out this GraphQL course for React developers by @HasuraHQ https://hasura.io/learn/graphql/nextjs-fullstack-serverless/introduction/",
@@ -58,7 +58,7 @@ const config = {
 		"description": "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in Next.js with Apollo, Hasura and Serverless",
 		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-nextjs-fullstack-serverless.png",
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/nextjs/tutorial-site/content",
-		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-nextjs/nextjs-favicon.png"
+		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
 };
 

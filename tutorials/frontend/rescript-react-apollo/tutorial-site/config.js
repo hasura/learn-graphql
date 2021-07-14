@@ -6,10 +6,10 @@ const config = {
     trailingSlash: true,
   },
   header: {
-    logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
+    logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-rescript-react-apollo/rescript-favicon.png",
     logoLink: "https://hasura.io/learn/",
     title:
-      "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/rescript-react-apollo/introduction/'>/ react</a>",
+      "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/rescript-react-apollo/introduction/'>/ react</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:
@@ -65,7 +65,7 @@ const config = {
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/rescript-react-apollo/tutorial-site/content",
     favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-rescript-react-apollo/rescript-favicon.png",
+      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },
 };
 

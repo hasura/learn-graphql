@@ -6,9 +6,9 @@ const config = {
 		"trailingSlash": true
 	},
 	"header": {
-		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
+		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-typescript-react-apollo/typescript-favicon.png",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/typescript-react-apollo/introduction/'>/ typescript-react-apollo</a>",
+		"title": "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/typescript-react-apollo/introduction/'>/ typescript-react-apollo</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
 		"tweetText": "Check out this GraphQL course for React, Typescript developers by @HasuraHQ https://hasura.io/learn/graphql/typescript-react-apollo/introduction/",
@@ -56,7 +56,7 @@ const config = {
 		"description": "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in React + Typescript",
 		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-typescript-react-apollo.png",
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/typescript-react-apollo/tutorial-site/content",
-		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-typescript-react-apollo/typescript-favicon.png"
+		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
 };
 

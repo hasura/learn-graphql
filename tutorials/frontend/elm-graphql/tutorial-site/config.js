@@ -6,9 +6,9 @@ const config = {
 		"trailingSlash": true
 	},
 	"header": {
-		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
+		"logo": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-elm/favicon.ico",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/elm-graphql/introduction/'>/ elm-graphql</a>",
+		"title": "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/elm-graphql/introduction/'>/ elm-graphql</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
 		"tweetText": "Check out this GraphQL course for Elm developers by @HasuraHQ https://hasura.io/learn/graphql/elm-graphql/introduction/",
@@ -55,7 +55,7 @@ const config = {
 		"description": "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in Elm",
 		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-elm.jpg",
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/elm-graphql/tutorial-site/content",
-    	"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-elm/favicon.ico"
+    		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
 };
 

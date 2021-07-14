@@ -6,9 +6,9 @@ const config = {
       "trailingSlash": true
     },
     header: {
-      logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/logo.png",
+      logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-flutter/flutter-favicon.png",
       logoLink: "https://hasura.io/learn/",
-      title: "<a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/flutter-graphql/introduction/'>/ flutter</a>",
+      title: "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/flutter-graphql/introduction/'>/ flutter</a>",
       githubUrl: "https://github.com/hasura/learn-graphql",
       helpUrl: "https://discord.com/invite/hasura",
       tweetText: "Check out this GraphQL course for Flutter developers by @HasuraHQ https://hasura.io/learn/graphql/flutter-graphql/introduction/",
@@ -62,7 +62,7 @@ const config = {
       docsLocation:
         "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/flutter-graphql/tutorial-site/content",
       favicon:
-        "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-flutter/flutter-favicon.png"
+        ""
     }
 };
 

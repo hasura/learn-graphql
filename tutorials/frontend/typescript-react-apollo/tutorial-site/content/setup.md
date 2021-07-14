@@ -28,3 +28,17 @@ This is what you should see after the steps above:
 This is what you should see after the steps above:
 
 ![GraphiQL after login](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphiql-after-login.png)
+
+### GraphQL Endpoint
+
+We are going to make use of `https://hasura.io/learn/graphql` endpoint for making our GraphQL requests in the tutorial.
+
+Now, if you want to run your own version of the above GraphQL endpoint, you can do so by following the Hasura Backend tutorial
+
+- Deploy Hasura Cloud
+
+<a href="https://cloud.hasura.io/?pg=learn-react&plcmt=body&tech=default" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
+
+- Set up Hasura Backend
+
+Head to [Hasura Backend Tutorial](https://hasura.io/learn/graphql/hasura/setup/#hasuraconsole) and get started with creating your own version.

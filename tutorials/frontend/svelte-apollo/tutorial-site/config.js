@@ -16,8 +16,8 @@ const config = {
       "Check out this GraphQL course for Svelte developers by @HasuraHQ https://hasura.io/learn/graphql/svelte-apollo/introduction/",
     links: [
       {
-        text: "Hasura Home",
-        link: "https://hasura.io",
+        text: "",
+        link: "",
       },
     ],
     search: {

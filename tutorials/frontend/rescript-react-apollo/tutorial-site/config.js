@@ -16,8 +16,8 @@ const config = {
       "Check out this GraphQL course for ReScript developers by @HasuraHQ https://hasura.io/learn/graphql/rescript-react-apollo/introduction/",
     links: [
       {
-        text: "Hasura Home",
-        link: "https://hasura.io",
+        text: "",
+        link: "",
       },
     ],
     search: {

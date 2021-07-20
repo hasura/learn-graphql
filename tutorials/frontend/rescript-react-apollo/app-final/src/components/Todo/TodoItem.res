@@ -27,7 +27,7 @@ let make = (~todo: TodosQuery.Inner.t_todos) => {
     ReactEvent.Mouse.stopPropagation(e)
     removeTodoMutate(
       ~optimisticResponse=_variables => {
-        delete_todos: Js.Option.some(
+        delete_todos: Some(
           (
             {
               affected_rows: 1,
@@ -57,7 +57,7 @@ let make = (~todo: TodosQuery.Inner.t_todos) => {
   let toggleTodo = _e => {
     toggleTodoMutate(
       ~optimisticResponse=_variables => {
-        update_todos: Js.Option.some(
+        update_todos: Some(
           (
             {
               affected_rows: 1,

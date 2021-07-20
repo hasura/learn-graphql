@@ -52,9 +52,9 @@ let make = (~latestTodo: option<NotifyNewPublicTodosSubscription.Inner.t_todos>)
 +  })
 
 +  let todosResult = PublicTodosQuery.use({
-+    before: Js.Option.some(initialTodoId),
++    before: Some(initialTodoId),
 +    after: None,
-+    limit: Js.Option.some(7),
++    limit: Some(7),
 +  })
 
   ...
@@ -85,9 +85,9 @@ let loadOlder = _e => {
       }
     },
     ~variables={
-      before: Js.Option.some(oldTodoId),
+      before: Some(oldTodoId),
       after: None,
-      limit: Js.Option.some(7),
+      limit: Some(7),
     },
     (),
   )->ignore
@@ -157,7 +157,7 @@ let loadNew = _e => {
       }
     },
     ~variables={
-      after: Js.Option.some(newestTodoId),
+      after: Some(newestTodoId),
       before: None,
       limit: None,
     },

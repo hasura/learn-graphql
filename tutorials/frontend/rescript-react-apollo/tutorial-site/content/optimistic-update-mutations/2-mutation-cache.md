@@ -108,7 +108,7 @@ When we pass `optimisticResponse` argument to mutate function update function is
   let toggleTodo = _e => {
     toggleTodoMutate(
 +      ~optimisticResponse=_variables => {
-+        update_todos: Js.Option.some(
++        update_todos: Some(
 +          (
 +            {
 +              affected_rows: 1,

@@ -4,7 +4,7 @@ const TwitterShare = () => {
   return (
     <React.Fragment>
       <a
-        href="https://twitter.com/intent/tweet?&text=I just completed this GraphQL course for Svelte developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/svelte/introduction/"
+        href="https://twitter.com/intent/tweet?&text=I just completed this GraphQL course for Svelte developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/svelte-apollo/introduction/"
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -71,7 +71,7 @@ const GET_MY_TODOS = gql`
 + const todos = query(GET_MY_TODOS);
 ```
 
-query fetches the data and returns result values as readable store. We can access the fetched data using.
+query fetches the data and returns a readable store of result values. In this case, we can access the query results using `$todos`.
 
 Let's remove the mock `todos` data which was used to populate sample data and use the data fetched with graphql query.
 

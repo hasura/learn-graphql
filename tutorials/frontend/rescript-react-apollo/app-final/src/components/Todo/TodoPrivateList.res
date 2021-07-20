@@ -35,7 +35,7 @@ let make = () => {
   let clearCompleted = _e =>
     clearCompletedTodos(
       ~optimisticResponse=_variables => {
-        delete_todos: Js.Option.some(
+        delete_todos: Some(
           (
             {
               affected_rows: 1,

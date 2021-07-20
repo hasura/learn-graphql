@@ -6,13 +6,11 @@ metaDescription: "A powerful and concise tutorial that will introduce you to Gra
 
 import CommunityAuthor from '../src/CommunityAuthor.js';
 
-GraphQL is becoming the new way to use APIs in modern web and mobile apps.
+GraphQL is becoming the new way to use APIs in modern web and mobile apps. Svelte is a framework for building fast user interfaces.
 
-However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of a new technology.
+Curious to learn how to integrate GraphQL in a svelte app? Then this course is for you.
 
-So, we put together a powerful and concise course that will introduce you to GraphQL and integrating GraphQL into your frontend stack, in the shortest amount of time possible.
-
-We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
+We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! and learn how to build apps with GraphQL and Svelte.
 
 ## Key topics and takeways:
 
@@ -23,7 +21,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 - Integrating GraphQL mutations with query variables to handle form input
 - Updating local state after a GraphQL mutation (form input) using Apollo cache
 - Optimistic updates to local state and UI after GraphQL mutations for a slick UX
-- Integrating GraphQL subscriptions
+- Integrating GraphQL subscriptions in your svelte app
 - Building a real-time feed with notifications using mutations and subscriptions
 
 ## What will we be building?

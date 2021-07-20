@@ -20,7 +20,7 @@ $ npm install svelte-apollo @apollo/client graphql --save
 
 Open `src/components/TodoApp.svelte` and add the following imports at the top:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-app/app-final/src/components/TodoApp.svelte" text="src/components/TodoApp.svelte" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/TodoApp.svelte" text="src/components/TodoApp.svelte" />
 
 ```javascript
 <script>

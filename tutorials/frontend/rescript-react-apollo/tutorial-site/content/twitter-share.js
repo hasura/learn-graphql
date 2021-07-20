@@ -4,7 +4,7 @@ const TwitterShare = () => {
   return (
     <React.Fragment>
       <a
-        href="https://twitter.com/intent/tweet?&text=I just completed this GraphQL course for React developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/rescript/introduction/"
+        href="https://twitter.com/intent/tweet?&text=I just completed this GraphQL course for React developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/rescript-react-apollo/introduction/"
         target="_blank"
         rel="noopener noreferrer"
       >

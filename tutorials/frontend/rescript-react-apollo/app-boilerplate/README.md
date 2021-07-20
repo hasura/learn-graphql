@@ -1,6 +1,6 @@
 ## Tutorial
 
-- [React & Rescript](https://hasura.io/learn/graphql/rescript/introduction)
+- [React & Rescript](https://hasura.io/learn/graphql/rescript-react-apollo/introduction/)
 - [Hasura GraphQL Endpoint](https://hasura.io/learn/graphql)
 
 ## Tech stack

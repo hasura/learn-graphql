@@ -17,9 +17,8 @@ is an ideal starting point before diving into advanced topics.
 2. Postgres power: Use the power of Postgres to make efficient data transformations so that we don't have to do them in code
 3. Authorization: Setup authorization so that app users can only run operations on data that they should be allowed to
 4. Authentication: Integrate a JWT based auth provider (using Auth0) with Hasura
-3. Remote schemas: Add a custom GraphQL resolver to create an API for fetching data that is not in the database
-4. Event triggers: Run business logic on the backend when there are database events
-
+5. Remote schemas: Add a custom GraphQL resolver to create an API for fetching data that is not in the database
+6. Event triggers: Run business logic on the backend when there are database events
 
 ## What will we be building?
 
@@ -41,4 +40,9 @@ environment choices so that you can focus on the key concepts and
 go on to set up your favorite tools and workflows.
 
 ## How long will this tutorial take?
+
 Less than 30 mins.
+
+## Additonal Resources
+
+[Watch this video guide](https://hasura.io/events/webinar/get-started-with-hasura/?pg=learn&plcmt=body&cta=getting-started&tech=) on how to get started with Hasura.

@@ -13,8 +13,8 @@ const config = {
 		"helpUrl": "https://discord.com/invite/hasura",
 		"tweetText": "Check out this Introduction to GraphQL course for Fullstack developers by @HasuraHQ https://hasura.io/learn/graphql/intro-graphql/introduction/",
 		"links": [{
-			"text": "Hasura Home",
-			"link": "https://hasura.io"
+			"text": "",
+			"link": ""
 		}],
 		"search": {
 			"enabled": true,

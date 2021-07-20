@@ -1,6 +1,6 @@
 ## Tutorial
 
-- [Svelte](https://hasura.io/learn/graphql/svelte/introduction)
+- [Svelte](https://hasura.io/learn/graphql/svelte-apollo/introduction)
 - [Hasura GraphQL Endpoint](https://hasura.io/learn/graphql)
 
 ## Tech stack

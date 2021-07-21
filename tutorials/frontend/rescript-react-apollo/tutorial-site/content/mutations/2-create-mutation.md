@@ -1,6 +1,6 @@
 ---
 title: "useMutation Hook, Update Cache"
-metaTitle: "Apollo useMutation React hook | ReScript React Apollo Tutorial"
+metaTitle: "Apollo useMutation React hook | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "We will use the Apollo Client useMutation from @apollo/client in React app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | ReScript React Apollo Tutorial"
+metaTitle: "Course Introduction | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to GraphQL and integrating GraphQL into your ReScript React app with Apollo, in the shortest amount of time possible."
 ---
 

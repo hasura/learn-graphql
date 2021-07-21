@@ -1,6 +1,6 @@
 ---
 title: "Mutation and update cache"
-metaTitle: "Apollo client.mutate for GraphQL mutation update | ReScript React Apollo Tutorial"
+metaTitle: "Apollo client.mutate for GraphQL mutation update | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "We will use the Apollo useMutation React hook from @apollo/client as an example to modify existing data and update cache locally using readQuery and writeQuery and handle optimisticResponse"
 ---
 

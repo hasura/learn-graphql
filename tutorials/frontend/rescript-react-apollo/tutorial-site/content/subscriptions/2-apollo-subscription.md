@@ -1,6 +1,6 @@
 ---
 title: "Apollo useSubscription React hook"
-metaTitle: "Apollo useSubscription React hook | ReScript React Apollo Tutorial"
+metaTitle: "Apollo useSubscription React hook | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "The easiest way to bring live data to your UI is using the useSubscription React hook from Apollo React-Hooks."
 ---
 

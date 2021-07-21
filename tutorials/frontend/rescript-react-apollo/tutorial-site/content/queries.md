@@ -1,6 +1,6 @@
 ---
 title: "Queries"
-metaTitle: "Integrate Queries | ReScript React Apollo Tutorial"
+metaTitle: "Integrate Queries | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "Integrate GraphQL Queries in React app to fetch personal todo data and handle loading or error state."
 ---
 

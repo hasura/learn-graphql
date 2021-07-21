@@ -1,6 +1,6 @@
 ---
 title: "Tutorial & boilerplate setup"
-metaTitle: "Todo app react boilerplate setup | ReScript React Apollo Tutorial"
+metaTitle: "Todo app react boilerplate setup | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working realtime app in React.js"
 ---
 

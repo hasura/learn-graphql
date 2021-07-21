@@ -1,6 +1,6 @@
 ---
 title: Watching data - Subscriptions
-metaTitle: "GraphQL Subscriptions for realtime data | ReScript React Apollo Tutorial"
+metaTitle: "GraphQL Subscriptions for realtime data | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "Try out GraphQL Subscription using GraphiQL. A GraphQL subscriptions example to fetch live data pushed over websockets "
 canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-subscriptions/"
 ---

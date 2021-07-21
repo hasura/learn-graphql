@@ -1,6 +1,6 @@
 ---
 title: "Set up a GraphQL client with Apollo"
-metaTitle: "Apollo Client GraphQL Setup | ReScript React Apollo Tutorial"
+metaTitle: "Apollo Client GraphQL Setup | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "You will learn how to configure Apollo Client in React by installing @apollo/client"
 ---
 

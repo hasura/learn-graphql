@@ -1,6 +1,6 @@
 ---
 title: "Create Subscription and Render Result"
-metaTitle: "Create Subscription and Render Result | ReScript React Apollo Tutorial"
+metaTitle: "Create Subscription and Render Result | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "Integrate React Apollo useSubscription hook to watch for changes in realtime data. We use GraphQL subscriptions as an example to get live data in the React app"
 ---
 

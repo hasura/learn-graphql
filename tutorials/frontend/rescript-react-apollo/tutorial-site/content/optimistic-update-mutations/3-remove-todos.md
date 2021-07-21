@@ -1,6 +1,6 @@
 ---
 title: "Remove todos - mutation"
-metaTitle: "Mutation to delete todos | ReScript React Apollo Tutorial"
+metaTitle: "Mutation to delete todos | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "GraphQL Mutation to delete existing personal todos. Try the mutation in GraphiQL, passing the Authorization token to delete a todo"
 ---
 

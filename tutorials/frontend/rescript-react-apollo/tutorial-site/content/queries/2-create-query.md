@@ -1,6 +1,6 @@
 ---
 title: "useQuery hook"
-metaTitle: "Apollo useQuery React hook | ReScript React Apollo Tutorial"
+metaTitle: "Apollo useQuery React hook | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "We will use the Apollo Client useQuery React hook from @apollo/client to make GraphQL queries"
 ---
 

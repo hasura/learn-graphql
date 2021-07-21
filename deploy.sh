@@ -35,7 +35,7 @@ tutorials() {
                         echo "Pushing docker image"
                         #docker push hasura/$current_tutorial:$GIT_HASH
                         echo "Updating kubernetes deployment"
-                        #kubectl set image deployment $current_tutorial $current_tutorial=hasura/$current_tutorial:$GIT_HASH
+                        kubectl set image deployment $current_tutorial $current_tutorial=hasura/$current_tutorial:$GIT_HASH
                     fi
                 done;
         done;

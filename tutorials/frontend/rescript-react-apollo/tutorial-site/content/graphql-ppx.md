@@ -1,6 +1,6 @@
 ---
 title: "Set up GraphQL PPX"
-metaTitle: "GraphQL PPX setup | ReScript React Apollo Tutorial"
+metaTitle: "GraphQL PPX setup | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "You will learn how to configure GraphQL PPX"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Sync new todos"
-metaTitle: "Sync new todos in public feed | ReScript React Apollo Tutorial"
+metaTitle: "Sync new todos in public feed | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "You will learn how to sync new todos added by other people in the public feed by fetching older and newer data using GraphQL Queries"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Fetch todos - query"
-metaTitle: "Query to fetch todo | ReScript React Apollo Tutorial"
+metaTitle: "Query to fetch todo | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "GraphQL Query to fetch personal todos. Try the query in GraphiQL, passing the Authorization token to get authenticated results"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Architecture"
-metaTitle: "GraphQL Architecture | ReScript React Apollo Tutorial"
+metaTitle: "GraphQL Architecture | ReScript React Apollo GraphQL Tutorial"
 metaDescription: "Learn about the architecture of GraphQL, GraphQL over HTTP, the client server model with an example of http request"
 canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/what-is-graphql/"
 ---

@@ -35,6 +35,7 @@ There are different tutorial series:
 ## Database
 
 - [Postgres Basics](https://hasura.io/learn/database/postgresql/introduction/)
+- [MySQL Basics](https://hasura.io/learn/database/mysql/introduction/)
 
 ## GraphQL Basics
 

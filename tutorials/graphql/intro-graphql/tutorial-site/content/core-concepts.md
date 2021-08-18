@@ -139,7 +139,7 @@ query fetchAuthor {
   }
 }
 query fetchAuthors {
-  authors(limit: 5, order_by: { name: asc }) {
+  author(limit: 5, order_by: { name: asc }) {
     id
     name
     profile_pic

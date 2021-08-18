@@ -1,0 +1,22 @@
+table:
+  name: channel
+  schema: public
+object_relationships:
+- name: workspace
+  using:
+    foreign_key_constraint_on: workspace_id
+array_relationships:
+- name: channel_members
+  using:
+    foreign_key_constraint_on:
+      column: channel_id
+      table:
+        name: channel_member
+        schema: public
+- name: channel_threads
+  using:
+    foreign_key_constraint_on:
+      column: channel_id
+      table:
+        name: channel_thread
+        schema: public

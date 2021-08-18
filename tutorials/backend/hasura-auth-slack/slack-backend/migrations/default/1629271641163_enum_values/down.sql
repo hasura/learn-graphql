@@ -1,0 +1,3 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- INSERT INTO workspace_user_type(type) VALUES ('admin'), ('owner'), ('member');

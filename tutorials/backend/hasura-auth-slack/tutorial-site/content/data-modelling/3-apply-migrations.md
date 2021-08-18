@@ -11,13 +11,19 @@ Download the hasura project with migrations from [here](https://hasura.io/learn/
 Configure the endpoint to point to the Hasura Cloud app URL. Open the `config.yaml` file and set the endpoint value.
 
 ```yaml
+version: 3
 endpoint: https://ready-panda-91.hasura.app
+...
 ```
+
+**Note:** Your endpoint will be different based on your Hasura project.
 
 Now let's apply the migrations.
 
 ```bash
-hasura migrate apply
+hasura metadata apply --admin-secret xxxx
+hasura migrate apply --admin-secret xxxx
+hasura metadata reload --admin-secret xxxx
 ```
 
 This will create the tables and relationships for the slack app.

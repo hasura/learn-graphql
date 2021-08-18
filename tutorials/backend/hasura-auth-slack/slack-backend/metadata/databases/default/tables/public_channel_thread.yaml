@@ -1,0 +1,15 @@
+table:
+  name: channel_thread
+  schema: public
+object_relationships:
+- name: channel
+  using:
+    foreign_key_constraint_on: channel_id
+array_relationships:
+- name: channel_thread_messages
+  using:
+    foreign_key_constraint_on:
+      column: channel_thread_id
+      table:
+        name: channel_thread_message
+        schema: public

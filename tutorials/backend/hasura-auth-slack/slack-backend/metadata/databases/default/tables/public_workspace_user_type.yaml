@@ -1,0 +1,12 @@
+table:
+  name: workspace_user_type
+  schema: public
+is_enum: true
+array_relationships:
+- name: workspace_members
+  using:
+    foreign_key_constraint_on:
+      column: type
+      table:
+        name: workspace_member
+        schema: public

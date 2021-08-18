@@ -90,7 +90,7 @@ const App = ({ idToken }) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-+  const client = createApolloClient(idToken);
++  const [client] = useState(createApolloClient(idToken));
    return (
 +    <ApolloProvider client={client}>
        <div>

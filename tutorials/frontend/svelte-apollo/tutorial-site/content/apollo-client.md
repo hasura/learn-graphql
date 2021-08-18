@@ -69,7 +69,7 @@ import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 +   const cache = new InMemoryCache();
 +
 +   const client = new ApolloClient({
-+     link,
++     httpLink,
 +     cache,
 +   });
 +

@@ -15,7 +15,7 @@ function (user, context, callback) {
   const url = "https://ready-panda-91.hasura.app/v1/graphql";
   const query = `mutation($userId: String!, $nickname: String) {
     insert_users(objects: [{
-      id: $userId, name: $nickname
+      id: $userId, name: $nickname, last_seen: "now()"
     }], on_conflict: {constraint: users_pkey, update_columns: [last_seen, name]}
     ) {
       affected_rows

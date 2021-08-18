@@ -65,16 +65,24 @@ Let's get started by creating the tables and relationships for the Realtime todo
 
 Download the hasura project with migrations from [here](https://hasura.io/learn/graphql/nextjs-fullstack-serverless/hasura.zip)
 
-Configure the endpoint to point to the Hasura Cloud app URL. Open the `config.yaml` file and set the endpoint value. Note that your Hasura Cloud app URL will be different.
+Download the latest Hasura CLI from [here](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html#install-hasura-cli). We are going to use the config version v3.
+
+Configure the endpoint to point to the Hasura Cloud app URL. Open the `config.yaml` file and set the endpoint value.
 
 ```yaml
+version: 3
 endpoint: https://ready-panda-91.hasura.app
+...
 ```
 
-Now let's apply the migrations.
+**Note:** Your Hasura Cloud app URL will be different.
+
+Now let's apply the metadata and migrations.
 
 ```bash
+hasura metadata apply --admin-secret xxxx
 hasura migrate apply --database-name default --admin-secret xxxx
+hasura metadata reload
 ```
 
 This will create the tables and relationships for the realtime todo app.

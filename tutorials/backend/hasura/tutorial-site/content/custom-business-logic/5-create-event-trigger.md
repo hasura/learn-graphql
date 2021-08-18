@@ -4,8 +4,6 @@ metaTitle: "Add Event Trigger | Hasura GraphQL Tutorial"
 metaDescription: "In this part, we will look at how to add an event trigger in Hasura GraphQL Engine using the console"
 ---
 
-
-
 Event triggers can be created using the Hasura console.
 
 Open the Hasura console, head to the Events tab and click on the Create trigger button to open up the interface below to create an event trigger:
@@ -29,4 +27,3 @@ Now head to the Events tab and click on `send_email` event to browse the process
 ![Test event trigger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/test-event-trigger.png)
 
 Now, every time a new row is inserted into `users` table - this event would be invoked.
-

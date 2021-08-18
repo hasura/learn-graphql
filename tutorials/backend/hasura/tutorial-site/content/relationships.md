@@ -4,8 +4,6 @@ metaTitle: "Relationships with Hasura | Hasura GraphQL Tutorial"
 metaDescription: "This part of the tutorial covers how to make nested object queries by using object relationships and array relationships"
 ---
 
-
-
 Relationships enable you to make nested object queries if the tables/views in your database are connected. 
 
 GraphQL schema relationships can be either of

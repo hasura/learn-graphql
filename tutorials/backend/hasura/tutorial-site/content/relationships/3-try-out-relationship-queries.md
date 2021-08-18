@@ -4,8 +4,6 @@ metaTitle: "Try out Relationship Queries | Hasura GraphQL Tutorial"
 metaDescription: "Explore GraphQL APIs for the table todos with queries and nested data using Hasura GraphQL Engine"
 ---
 
-
-
 Let's explore the GraphQL APIs for the relationship created.
 
 ```graphql

@@ -12,7 +12,7 @@ To get a JWT token for testing, we will set up an extension on Auth0.
 
 To install this extension:
 
-Navigate to the [Extensions](https://manage.auth0.com/#/extensions) page of the [Auth0 Dashboard](https://manage.auth0.com/#), 
+Navigate to the [Extensions](https://manage.auth0.com/#/extensions) page of the [Auth0 Dashboard](https://manage.auth0.com/#),
 
 ![Auth0 Extension Debugger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-extensions-debugger.png)
 

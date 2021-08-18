@@ -4,8 +4,6 @@ metaTitle: "Create Relationship | Hasura GraphQL Tutorial"
 metaDescription: "This part of the tutorial covers how to create a relationship between two tables using Hasura console"
 ---
 
-
-
 Now that the foreign key constraint is created, Hasura Console automatically suggests relationships based on that.
 
 Head over to `Relationships` tab under `todos` table and you should see a suggested relationship like below:

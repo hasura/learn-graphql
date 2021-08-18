@@ -4,17 +4,16 @@ metaTitle: "Write custom resolvers | Hasura GraphQL Tutorial"
 metaDescription: "In this part, we will look at how to write custom resolvers and add it as a Remote schema in Hasura GraphQL Engine."
 ---
 
-
-
 Now we saw how the GraphQL API can be extended using Actions. We mentioned earlier that another way of customizing the API graph is through a custom GraphQL server.
 
 Let's take the same use-case of fetching profile information from Auth0.
 
-Hasura can merge remote GraphQL schemas and provide a unified GraphQL API. To handle the use-case of fetching Auth0 profile information, we will write custom resolvers in a custom GraphQL server. Hasura can then merge this custom GraphQL server with the existing auto-generated schema. 
+Hasura can merge remote GraphQL schemas and provide a unified GraphQL API. To handle the use-case of fetching Auth0 profile information, we will write custom resolvers in a custom GraphQL server. Hasura can then merge this custom GraphQL server with the existing auto-generated schema.
 
 This custom GraphQL server is the `Remote Schema`.
 
 ## Write GraphQL custom resolver
+
 So let's write a custom resolver which can be later merged into Hasura's GraphQL API.
 
 ```javascript
@@ -103,16 +102,18 @@ In the server above, let's breakdown what's happening:
 Most of the code written is very similar to the REST API code we wrote in the previous section for Actions. Here we are using Apollo Server to write a custom GraphQL server from scratch.
 If you have created `auth0` Action from `Creating Actions` part, then Action will collide with auth0 Remote schema. To solve this you can remove Action to be able to create Remote schema or rename `auth0` and `auth0_profile` types.
 
-## Deploy 
+## Deploy
 
 Let's deploy the above custom GraphQL server to Glitch. Glitch is a platform to build and deploy apps (Node.js) and is a quick way to test and iterate code on the cloud. Click on the Deploy to Glitch button below to get started.
 
 [![DEPLOY TO GLITCH](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~auth0-hasura-remote-schema)
 
 ### Environment variables
-After remixing to your own project on Glitch, modify the `.env` file to enter the 
+
+After remixing to your own project on Glitch, modify the `.env` file to enter the
+
 - `AUTH0_MANAGEMENT_API_TOKEN`
-- `AUTH0_DOMAIN` 
+- `AUTH0_DOMAIN`
 
 values appropriately.
 

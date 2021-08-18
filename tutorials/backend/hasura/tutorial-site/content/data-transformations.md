@@ -8,8 +8,9 @@ metaDescription: "We are going to leverage Postgres data transformations using V
 
 One of the realtime features of the todo app is to display the list of online users. We need a way to fetch this information based on the value of `last_seen` which tells when the user was last online.
 
-So far we were building tables and relationships. 
+So far we were building tables and relationships.
 Postgres allows you to perform data transformations using:
+
 - Views
 - SQL Functions
 
@@ -29,7 +30,7 @@ CREATE OR REPLACE VIEW "public"."online_users" AS
 
 Let's add this view and track the view with Hasura to be able to query it.
 
-Head to Console -> Data -> SQL page.
+Head to Console -> DATA -> SQL page.
 
 ![Create view online_users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-view.png)
 

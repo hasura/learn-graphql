@@ -4,15 +4,16 @@ metaTitle: "Setup todos table permissions | Hasura GraphQL Tutorial"
 metaDescription: "This tutorial covers how to set up permissions for todos table for insert, select, update and delete operations using Hasura console"
 ---
 
-
-
 Head over to the Permissions tab under `todos` table to add relevant permissions.
 
 ## Insert permission
 
+We will allow logged-in users creating a new todo entry to only specify the is_public and title columns.
+
 - In the enter new role textbox, type in “user”
 - Click on edit (pencil) icon for “insert” permissions. This would open up a section below, which lets you configure custom checks and allow columns.
 - In the custom check, choose the following condition
+
 ```json
 {"user_id":{"_eq":"X-Hasura-User-Id"}}
 ```
@@ -31,6 +32,8 @@ Click on `Save Permissions`.
 
 ## Select permission
 
+We will allow users to view a todo entry if it is public or if they are logged-in users.
+
 Now click on edit icon for "select" permissions. In the custom check, choose the following condition
 
 ```json
@@ -47,6 +50,8 @@ Click on `Save Permissions`
 
 ## Update permission
 
+We will only allow the is_completed column to be updated by a user.
+
 Now click on edit icon for "update" permissions. In the pre-update custom check, choose `With same custom checks as insert`.
 
 And under column update permissions, select the `is_completed` column.
@@ -56,6 +61,8 @@ And under column update permissions, select the `is_completed` column.
 Click on `Save Permissions` once done.
 
 ## Delete permission
+
+Only logged-in users are allowed to delete a todo entry.
 
 Finally for delete permission, under custom check, choose `With same custom checks as insert, update`.
 

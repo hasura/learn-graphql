@@ -4,8 +4,6 @@ metaTitle: "Setup online_users view permissions | Hasura GraphQL Tutorial"
 metaDescription: "This tutorial covers how to set up permissions for online_users view for select operation using Hasura console"
 ---
 
-
-
 Head over to the Permissions tab under `online_users` view to add relevant permissions. 
 
 ## Select permission
@@ -17,4 +15,3 @@ For Row select permission, choose `Without any checks` and under Column select p
 ![online users permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/online-users-permission.png)
 
 Click on `Save Permissions`. You have completed all access control rules required for the realtime todo app.
-

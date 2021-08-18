@@ -13,7 +13,8 @@ To handle the use-case of fetching Auth0 profile information, we will write a RE
 Hasura can then merge this REST API with the existing auto-generated GraphQL schema and the client will be able to query everything using the single GraphQL endpoint.
 
 ## Creating an action
-On the Hasura Console, head to the `Actions` tab and click on `Create` to create a new action. 
+
+On the Hasura Console, head to the `Actions` tab and click on `Create` to create a new action.
 
 ![Action definition](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-definition.png)
 
@@ -21,7 +22,7 @@ On the Hasura Console, head to the `Actions` tab and click on `Create` to create
 
 We will need to define our Action and the type of action. Since we are only reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments (none in this case), and the response type of the action (`auth0_profile` in this case).
 
-```
+```graphql
 type Query {
   auth0 : auth0_profile
 }
@@ -31,7 +32,7 @@ type Query {
 
 We defined that the response type of the action is `auth0_profile`. So what do we want in return from the Auth0 API? We want the `id`, `email`, and `picture` fields that aren't stored on our database so far.
 
-```
+```graphql
 type auth0_profile {
   id : String
   email : String
@@ -100,8 +101,6 @@ app.post('/auth0', async (req, res) => {
 });
 
 app.listen(PORT);
-
-
 ```
 
 In the server above, let's break down what's happening:
@@ -109,16 +108,16 @@ In the server above, let's break down what's happening:
 - We receive the payload `session_variables` as the request body from the Action.
 - We make a request to the [Auth0's Management API](https://auth0.com/docs/api/management/v2/create-m2m-app), passing in the `user_id` to get details about this user.
 - Once we get a response from the Auth0 API in our server, we form the following object `{email: resp.email, picture: resp.picture}` and send it back to the client. Else, we return an error case.
- 
-In case you are stuck with the code above, use the following [readymade 
-server](https://glitch.com/~auth0-hasura-action) on Glitch to clone it.
+
+In case you are stuck with the code above, use the following [readymade server](https://glitch.com/~auth0-hasura-action) on Glitch to clone it.
 You also need to remix the Glitch project to start modifying any code.
 
 ### Environment variables
-In your Glitch app source code, modify the `.env` file to enter the 
-- `AUTH0_MANAGEMENT_API_TOKEN`
-- `AUTH0_DOMAIN` 
 
+In your Glitch app source code, modify the `.env` file to enter the
+
+- `AUTH0_MANAGEMENT_API_TOKEN`
+- `AUTH0_DOMAIN`
 
 values appropriately. The AUTH0_MANAGEMENT_API_TOKEN can be obtained from the Auth0 project.
 
@@ -140,7 +139,7 @@ First, we need to update the webhook url for the Action. Copy the deployed app U
 
 Now head to GraphiQL and try out the following query:
 
-```
+```graphql
 query {
   auth0 {
     email
@@ -156,4 +155,3 @@ In GraphiQL, uncheck the `x-hasura-admin-secret` header, create a new one called
 **Note**: You need to pass in the right header values. You can pass in the Authorization header with the correct token and your Node.js server will receive the appropriate `x-hasura-user-id` value from the session variables for the API to work as expected.
 
 That's it! You have now extended the built-in GraphQL API with your custom code.
-

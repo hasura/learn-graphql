@@ -4,15 +4,13 @@ metaTitle: "Create Foreign Key | Hasura GraphQL Tutorial"
 metaDescription: "This part of the tutorial covers how to create Foreign key for a table column using Hasura console"
 ---
 
-
-
 In the `todos` table, the value of `user_id` column must be ideally present in the `id` column of `users` table. Otherwise, it would result in inconsistent data.
 
 Postgres allows you to define foreign key constraint to enforce this condition.
 
 Let's define one for the `user_id` column in `todos` table.
 
-Head over to Console -> Data -> todos -> Modify page.
+Head over to Console -> DATA -> todos -> Modify page.
 
 It should look something like this:
 

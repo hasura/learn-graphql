@@ -4,8 +4,6 @@ metaTitle: "Write event webhook | Hasura GraphQL Tutorial"
 metaDescription: "In this part, we will look at how to write an event webhook and trigger them asynchronously after a mutation operation."
 ---
 
-
-
 Now let's move to the second use-case of sending an email when a user registers on the app.
 
 When the user registers on the app using Auth0, we insert a new row into the `users` table to keep the user data in sync. Remember the Auth0 rule we wrote during signup to make a mutation?
@@ -73,21 +71,24 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-## Deploy 
+## Deploy
 
 [![DEPLOY TO GLITCH](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~sendgrid-send-email-event)
 
 ## Environment variables
-After remixing to your own project on Glitch, modify the `.env` file to enter the 
-- `SMTP_LOGIN`, 
-- `SMTP_PASSWORD`, 
-- `SMTP_HOST` 
+
+After remixing to your own project on Glitch, modify the `.env` file to enter the
+
+- `SMTP_LOGIN`,
+- `SMTP_PASSWORD`,
+- `SMTP_HOST`
 
 values appropriately.
 
-Additionally, you should also configure the sender and receiver address using 
-- `SENDER_ADDRESS` 
-- `RECEIVER_ADDRESS` 
+Additionally, you should also configure the sender and receiver address using
+
+- `SENDER_ADDRESS`
+- `RECEIVER_ADDRESS`
 
 env variables.
 

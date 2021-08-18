@@ -1,0 +1,46 @@
+table:
+  name: users
+  schema: public
+array_relationships:
+- name: channel_members
+  using:
+    foreign_key_constraint_on:
+      column: user_id
+      table:
+        name: channel_member
+        schema: public
+- name: channel_thread_messages
+  using:
+    foreign_key_constraint_on:
+      column: user_id
+      table:
+        name: channel_thread_message
+        schema: public
+- name: userMessagesByRecipientId
+  using:
+    foreign_key_constraint_on:
+      column: recipient_id
+      table:
+        name: user_message
+        schema: public
+- name: user_messages
+  using:
+    foreign_key_constraint_on:
+      column: user_id
+      table:
+        name: user_message
+        schema: public
+- name: workspace_members
+  using:
+    foreign_key_constraint_on:
+      column: user_id
+      table:
+        name: workspace_member
+        schema: public
+- name: workspaces
+  using:
+    foreign_key_constraint_on:
+      column: owner_id
+      table:
+        name: workspace
+        schema: public

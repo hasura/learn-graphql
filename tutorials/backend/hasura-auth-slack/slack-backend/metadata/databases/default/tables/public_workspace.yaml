@@ -1,0 +1,29 @@
+table:
+  name: workspace
+  schema: public
+object_relationships:
+- name: owner
+  using:
+    foreign_key_constraint_on: owner_id
+array_relationships:
+- name: channels
+  using:
+    foreign_key_constraint_on:
+      column: workspace_id
+      table:
+        name: channel
+        schema: public
+- name: user_messages
+  using:
+    foreign_key_constraint_on:
+      column: workspace_id
+      table:
+        name: user_message
+        schema: public
+- name: workspace_members
+  using:
+    foreign_key_constraint_on:
+      column: workspace_id
+      table:
+        name: workspace_member
+        schema: public

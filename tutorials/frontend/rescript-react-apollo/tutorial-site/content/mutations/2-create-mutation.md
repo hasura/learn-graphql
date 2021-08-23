@@ -56,7 +56,7 @@ let make = (~isPublic=false) => {
 }
 ```
 
-Since `AddTodoMutation` is a GraphQL mutation query, `AddTodoMutation.use()` uses `useMutation` React hook of Apollo. In the `useMutation` React hook, the first argument of the result tuple is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations/#result).
+Since `AddTodoMutation` is a GraphQL mutation query, `AddTodoMutation.use()` uses `useMutation` React hook of Apollo. In the `useMutation` React hook, the first argument of the result tuple is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/data/mutations/).
 
 In the above component, mutate function is called with variables only. This will execute the mutation and change the data on server but it doesn't update Apollo cache. To update Apollo cache, we should also pass update option to mutate function in addition to variables as shown in the code below.
 

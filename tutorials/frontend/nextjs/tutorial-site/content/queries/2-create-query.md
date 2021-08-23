@@ -176,7 +176,7 @@ When you use the `useQuery` React hook, Apollo returns the data along with other
 
 `data`: An object containing the result of your GraphQL query. This will contain our actual data from the server. In our case, it will be the todo data.
 
-You can read more about other properties that result object contains [here](https://www.apollographql.com/docs/react/essentials/queries/#result)
+You can read more about other properties that result object contains [here](https://www.apollographql.com/docs/react/data/queries/)
 
 Using the `data` property, we are parsing the results from the server. In our query, `data` property has an array `todos` which can be mapped over to render each `TodoItem`.
 

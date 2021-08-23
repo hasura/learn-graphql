@@ -27,7 +27,7 @@ return (
 };
 ```
 
-In the `useMutation` React hook defined above, the first argument of the result tuple is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations/#result).
+In the `useMutation` React hook defined above, the first argument of the result tuple is the mutate function; (addTodo) in this case. Read more about the mutate function [here](https://www.apollographql.com/docs/react/data/mutations/).
 
 The mutate function optionally takes variables, optimisticResponse, refetchQueries, and update; You are going to make use of the `update` function later.
 

@@ -18,7 +18,7 @@ Import the `mutation` function from `svelte-apollo` and pass the mutation query 
 const addTodoMutation = mutation(ADD_TODO);
 ```
 
-When `mutation` is called with mutation query it return a mutate function. Read more about the mutate function [here](https://www.apollographql.com/docs/react/essentials/mutations/#result).
+When `mutation` is called with mutation query it return a mutate function. Read more about the mutate function [here](https://www.apollographql.com/docs/react/data/mutations/).
 
 The mutate function optionally takes variables, optimisticResponse, refetchQueries, and update; You are going to make use of the `update` function later.
 

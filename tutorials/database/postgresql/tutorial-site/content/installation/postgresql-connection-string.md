@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL Connection String"
 metaTitle: "PostgreSQL Connection String | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "Connection string is the entrypoint to connect to the database to perform various operations and execute SQL statements. In this section we will learn how to construct a Postgres connection string."
 ---
  
 Once the installation is done, we need a way to connect the database to perform various operations and execute SQL statements. Once we are able to identify the various parameters involved in the credentials for connecting, we can construct something called Connection String.

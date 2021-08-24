@@ -1,12 +1,14 @@
 ---
 title: "PostgreSQL Views"
 metaTitle: "PostgreSQL Views | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, you will learn about the PostgreSQL views concept and how to manage views, such as creating, modifying, and removing views from the database."
 ---
 
 In this section, you will learn about the PostgreSQL views concept and how to manage views, such as creating, modifying, and removing views from the database.
 
-So what is a view? A view is a named query.
+## What is a view in PostgreSQL?
+
+A view is a named query.
 
 Let’s say that you have a complex query that you do not want to repeat everywhere, you can create a view over this query. Creating a view gives the query a name and now you can SELECT from this view as you would from an ordinary table.
 

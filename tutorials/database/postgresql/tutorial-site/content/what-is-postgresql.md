@@ -1,7 +1,7 @@
 ---
 title: "What is PostgreSQL?"
 metaTitle: "What is PostgreSQL? | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will look at what is PostgreSQL, a brief look at history and different features it supports"
 ---
 
 PostgreSQL (aka Postgres) is one of the most popular relational database backed by more than 25 years of open source development.

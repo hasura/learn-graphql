@@ -1,7 +1,7 @@
 ---
 title: "OLAP vs OLTP"
 metaTitle: "OLAP vs OLTP | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will learn what is the difference between OLAP and OLTP and what are the different operations of SETL"
 ---
 
 ## OLAP

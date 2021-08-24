@@ -1,7 +1,7 @@
 ---
 title: "What is MySQL?"
 metaTitle: "What is MySQL? | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will look at what is MySQL, a brief look at the various features it supports"
 ---
 
 ## Introduction to MySQL

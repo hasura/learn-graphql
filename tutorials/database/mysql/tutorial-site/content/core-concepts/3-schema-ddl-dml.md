@@ -1,7 +1,7 @@
 ---
 title: "Schema, DDL and DML"
 metaTitle: "MySQL Schema, DDL and DML | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will look at schemas, different types of schema, DDL and DML statements to interact with the MySQL database."
 ---
 
 ## Schemas, DDL and DML Statements

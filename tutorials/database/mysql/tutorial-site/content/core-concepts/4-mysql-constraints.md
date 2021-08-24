@@ -1,7 +1,7 @@
 ---
 title: "Constraints"
 metaTitle: "MySQL Constraints | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will look at what are the different constraints in MySQL and when to use what constraint with an example."
 ---
 
 ## Constraints in MySQL

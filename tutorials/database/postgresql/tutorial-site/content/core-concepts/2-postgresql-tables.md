@@ -1,7 +1,7 @@
 ---
 title: "Tables"
 metaTitle: "PostgreSQL Tables | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "A table in relational database consists of rows and columns and PostgreSQL tables are no different."
 ---
 
 A table in relational database consists of rows and columns.

@@ -1,7 +1,7 @@
 ---
 title: "CREATE Statements"
 metaTitle: "PostgreSQL CREATE Statements | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "The CREATE statements in PostgreSQL are used to declaratively create tables, views, functions etc."
 ---
 
 The `CREATE` statements are used to declaratively create tables, views, functions etc.

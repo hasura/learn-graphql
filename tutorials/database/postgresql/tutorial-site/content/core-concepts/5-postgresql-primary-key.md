@@ -1,7 +1,7 @@
 ---
 title: "Primary Keys"
 metaTitle: "PostgreSQL Primary Keys | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "A primary key in PostgreSQL is used to identify a row uniquely in a table. It could be a single column or a group of columns defined to restrict data input and validate."
 ---
 
 A primary key is used to identify a row uniquely in a table. It could be a single column or a group of columns (composite). A primary key is one of the constraints that we define to restrict data input and validate.

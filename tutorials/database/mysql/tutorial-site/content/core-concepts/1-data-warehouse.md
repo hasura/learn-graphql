@@ -1,7 +1,7 @@
 ---
 title: "Data Warehouse"
 metaTitle: "Data Warehouse | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "A data warehouse is a repository of data. Data Warehousing (DW) is a process to collect as well as manage data from different sources to improve the ease of data access and deriving insights from this data."
 ---
 
 ## What is a data warehouse?

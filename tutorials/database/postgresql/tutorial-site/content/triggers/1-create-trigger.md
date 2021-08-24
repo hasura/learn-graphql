@@ -1,7 +1,7 @@
 ---
 title: "Create Trigger"
 metaTitle: "Create Trigger PostgreSQL | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "Lets look at an example of how to create a trigger in PostgreSQL which will get executed before an operation is executed."
 ---
 
 ## Trigger for a before operation

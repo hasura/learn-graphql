@@ -1,7 +1,7 @@
 ---
 title: "Installing PostgreSQL"
 metaTitle: "Installing PostgreSQL on Local and Cloud | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "There are multiple ways to install Postgres and we will look at how to use docker-compose for local installation and Heroku for cloud installation."
 ---
 
 Before we dive in to the core concepts, we will install Postgres on the local machine to try out all the SQL statements given in examples. There are multiple ways to set up Postgres, but for this tutorial we will focus on local development and one Cloud alternative.

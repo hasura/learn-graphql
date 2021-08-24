@@ -1,7 +1,7 @@
 ---
 title: "MySQL on Windows"
 metaTitle: "Installing MySQL on Windows | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "Learn how to install MySQL on Windows by following this step by step instructions"
 ---
 
 ## Downloading MySQL for Windows

@@ -1,7 +1,7 @@
 ---
 title: "Performance"
 metaTitle: "PostgreSQL Performance | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "Performance tuning in PostgreSQL can be done by using Explain and Analyze, adding Indexes and identifying bottlenecks to fix query execution speed."
 ---
 
 Performance bottlenecks at the database layer will hit at some point and there are quicker ways to analyze what is the bottleneck and how to make fixes.

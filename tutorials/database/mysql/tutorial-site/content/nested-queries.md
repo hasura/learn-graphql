@@ -1,7 +1,7 @@
 ---
 title: "Nested Queries"
 metaTitle: "Nested Queries | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "A nested query is a regular SQL query which is nested inside a another query. In a MySQL database, it can be used in a select clause, a from clause or a where clause."
 ---
 
 ## Nested Queries

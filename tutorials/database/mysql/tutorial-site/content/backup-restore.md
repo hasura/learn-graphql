@@ -1,7 +1,7 @@
 ---
 title: "Backup & Restore"
 metaTitle: "Backup & Restore | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "Learn how to take MySQL database backups and also step by step commands on how to restore a database in MySQL"
 ---
 
 It is important to make regular backups of all data in case of any loss.

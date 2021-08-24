@@ -1,7 +1,7 @@
 ---
 title: "Alter Constraints"
 metaTitle: "PostgreSQL Alter Constraints | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "The ALTER statement can also be used to modify constraints like adding a check constraint or dropping a constraint in PostgreSQL "
 ---
 
 Lets extend the concept of alter to modifying constraints.

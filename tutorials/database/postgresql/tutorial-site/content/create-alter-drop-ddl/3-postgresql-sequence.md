@@ -1,7 +1,7 @@
 ---
 title: "Sequences and Increments"
 metaTitle: "PostgreSQL Sequences and Auto Increments | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "Sequences are user defined ordered list of integers that are unique and typically used as primary keys in PostgreSQL like relational database"
 ---
 
 Sequences are user defined ordered list of integers. You can define a sequence like `1,2,3,4,5` or multiple of something like `2,4,6,8,10` among different combinations. Since these are unique, typically they are used as primary keys.

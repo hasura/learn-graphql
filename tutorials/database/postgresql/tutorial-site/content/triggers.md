@@ -1,7 +1,7 @@
 ---
 title: "Postgres Triggers"
 metaTitle: "Postgres Triggers | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will look at what is a trigger and how it works, when to use triggers and a few example usage"
 ---
 
 In this section, we will look at

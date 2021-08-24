@@ -1,7 +1,7 @@
 ---
 title: "Querying and Inserting | DML"
 metaTitle: "Querying and Inserting | Data Manipulation Language | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will try out Querying and Manipulating Data with simple select, insert, update, delete statements in PostgreSQL"
 ---
 
 DML stands for Data Manipulation Language and is typically used to add, retrieve or update data. The commands used for DML in PostgreSQL are `INSERT`, `UPDATE` and `DELETE`.

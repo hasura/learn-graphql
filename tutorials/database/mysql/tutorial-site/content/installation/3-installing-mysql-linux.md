@@ -1,7 +1,7 @@
 ---
 title: "MySQL on Linux"
 metaTitle: "Installing MySQL on Linux | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "Learn how to install and setup MySQL on a Linux distribution like Ubuntu with step by step instructions"
 --- 
 
 ## Installing MySQL Server on Ubuntu

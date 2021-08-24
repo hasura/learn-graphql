@@ -1,7 +1,7 @@
 ---
 title: "Data Types and Columns"
 metaTitle: "PostgreSQL Data Types and Columns | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "Data types restrict the kind of data that can be stored for each column. PostgreSQL natively supports a rich set of data types."
 ---
 
 Data types restrict the kind of data that can be stored for each column.

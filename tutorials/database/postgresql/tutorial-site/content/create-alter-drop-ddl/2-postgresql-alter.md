@@ -1,7 +1,7 @@
 ---
 title: "ALTER Statements"
 metaTitle: "PostgreSQL ALTER Statements | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "The ALTER statements in PostgreSQL are used to modify properties of existing objects like a table, column, function or a view."
 ---
 
 The `ALTER` statements are used to modify properties of existing objects. In the last section, we tried `CREATE`. We can now make use of ALTER to change the definition of an existing object, be it a table, column, function, view etc.

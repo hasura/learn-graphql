@@ -1,7 +1,7 @@
 ---
 title: "Relationships"
 metaTitle: "PostgreSQL Relationships | One to One, One to Many, Many to Many | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "There are 3 types of table relationships in a relational database like PostgreSQL. The relationships can be enforced by defining the right foreign key constraints on the columns."
 ---
 
 There are 3 types of table relationships in a relational database. The relationships can be enforced by defining the right foreign key constraints on the columns.

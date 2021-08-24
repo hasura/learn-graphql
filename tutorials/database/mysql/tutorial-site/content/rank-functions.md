@@ -1,12 +1,12 @@
 ---
 title: "Rank Functions"
 metaTitle: "Rank Functions | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "The ranking functions in MySQL are used to rank each row of a partitioned part of a table. Lets look at some examples to understand rank functions"
 ---
 
 ## Rank Functions in MySQL
 
-The ranking functions in MySql are used to rank each row of a partitioned part of a table.
+The ranking functions in MySQL are used to rank each row of a partitioned part of a table.
 
 These functions have to be used with the OVER() clause.
 

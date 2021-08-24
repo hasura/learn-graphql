@@ -1,7 +1,7 @@
 ---
 title: "Triggers"
 metaTitle: "Triggers | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "A trigger in MySQL is a set of SQL statements that are part of a system catalog. It is a type of stored procedure that is automatically invoked in response to an event which is specified by the user."
 ---
 
 A trigger in MySQL is a set of SQL statements that are part of a system catalog. It is a type of stored procedure that is automatically invoked in response to an event which is specified by the user. Each trigger is associated with a specific table, which is activated on any DML statement.

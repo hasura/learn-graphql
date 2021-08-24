@@ -1,7 +1,7 @@
 ---
 title: "Course Introduction"
 metaTitle: "Course Introduction | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "This course is a super-fast introduction to learning about key concepts of PostgreSQL and setting it up for app development."
 ---
 
 This course is a super-fast introduction to learning about key concepts of PostgreSQL and setting it up for app development.

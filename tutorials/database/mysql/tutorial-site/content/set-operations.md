@@ -1,7 +1,7 @@
 ---
 title: "Set Operations"
 metaTitle: "Set Operations | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "MySQL supports a few Set operations like UNION, UNION ALL and MINUS which can be performed on the data in the table."
 ---
 
 MySQL supports a few Set operations which can be performed on the data in the table. These are used to create meaningful relationships between different tables or query results to combine and analyse data.

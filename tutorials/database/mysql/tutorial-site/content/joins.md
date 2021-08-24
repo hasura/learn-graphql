@@ -1,7 +1,7 @@
 ---
 title: "Joins"
 metaTitle: "Joins | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "A JOIN clause in MySQL is used to combine rows from two or more tables in a database, based on a column that is common to them."
 ---
 
 A JOIN clause is used to combine rows from two or more tables in a database, based on a column that is common to them.

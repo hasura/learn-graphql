@@ -1,7 +1,7 @@
 ---
 title: "Create, Alter and Drop | DDL"
 metaTitle: "Create, Alter and Drop Statements | Data Definition Language | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will learn how to make use of CREATE, ALTER and DROP statements to change the PostgreSQL database structure."
 ---
 
 ## Data Definition Language

@@ -1,7 +1,7 @@
 ---
 title: "Setup and Installation"
 metaTitle: "PostgreSQL Installation and Setup | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will learn how to setup PostgreSQL locally using docker and on Cloud using Heroku"
 ---
 
 In this section, we will learn how to setup Postgres locally and on Cloud.

@@ -1,8 +1,10 @@
 ---
 title: "Create View"
 metaTitle: "PostgreSQL CREATE VIEW| PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "In this example, we will look at how to create a PostgreSQL view with CREATE OR REPLACE VIEW statement."
 ---
+
+In this example, we will look at how to create a PostgreSQL view with CREATE OR REPLACE VIEW statement.
 
 ## Create a PostgreSQL View
 

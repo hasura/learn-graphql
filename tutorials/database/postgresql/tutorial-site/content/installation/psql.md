@@ -1,14 +1,14 @@
 ---
 title: "PostgreSQL Clients"
 metaTitle: "PostgreSQL Client Applications | psql | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "Postgres can be connected from a programming language, a CLI tool or a GUI. We will look at the various client applications for Postgres in this section."
 --- 
 
 Postgres can be connected from a programming language, a CLI tool or a GUI. Postgres follows the `Client Server` architecture where the server listens to requests from the client and returns a response.
 
 In the end, the clients are just wrappers over SQL commands that get executed on the server and return a response.
 
-Some of the popular client applications for PostgreSQL include 
+Some of the popular client applications for PostgreSQL include
 
 - `pg_dump` - Extracting database into a file
 - `pg_restore` - Restoring a database from a file

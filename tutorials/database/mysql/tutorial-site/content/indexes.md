@@ -1,14 +1,14 @@
 ---
 title: "Indexing"
 metaTitle: "Indexing | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "An index is a data structure that increases the effectiveness of operations in a table. We will look at how to create an index on MySQL objects."
 ---
 
 An index is a data structure that increases the effectiveness of operations in a table. Indexes can be created by using one or more columns as a reference for both rapid random searches/lookups and efficient ordering of access to records.
 
 Indexes are also a type of table, that have a primary key or an index field and a pointer to each record in the actual table.
 
-You can create a unique index on a table. A unique index indicates that two rows cannot have the same index value. 
+You can create a unique index on a table. A unique index indicates that two rows cannot have the same index value.
 
 The syntax is:
 

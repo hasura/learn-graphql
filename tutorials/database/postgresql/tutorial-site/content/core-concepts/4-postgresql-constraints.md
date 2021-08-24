@@ -1,7 +1,7 @@
 ---
 title: "Constraints"
 metaTitle: "PostgreSQL Constraints | PostgreSQL Tutorial"
-metaDescription: ""
+metaDescription: "Constraints are used to enforce rules on the data of columns. Constraints could be at the column level or table level."
 ---
 
 Constraints are used to enforce rules on the data of columns. These are defined primarily to ensure correctness and validity of the data entering into the database.

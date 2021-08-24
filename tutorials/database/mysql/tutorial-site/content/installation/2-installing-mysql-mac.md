@@ -1,7 +1,7 @@
 ---
 title: "MySQL on Mac"
 metaTitle: "Installing MySQL on Mac | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "Learn how to install and setup MySQL on Mac with step by step instructions."
 --- 
 
 ## Downloading MySQL Server

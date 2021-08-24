@@ -1,7 +1,7 @@
 ---
 title: "Functions"
 metaTitle: "MySQL Functions | MySQL Tutorial"
-metaDescription: ""
+metaDescription: "In this section, we will learn about various built-in functions in MySQL like string functions, numeric functions and date functions"
 ---
 
 MySQL contains several built-in functions.

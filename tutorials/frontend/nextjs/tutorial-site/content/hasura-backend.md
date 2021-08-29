@@ -75,6 +75,14 @@ endpoint: https://ready-panda-91.hasura.app
 ...
 ```
 
+Open the `metadata/databases/databases.yaml` file and set your Custom Env Vars PG_DATABASE_URL value.
+
+```yaml
+      database_url:
+        from_env: PG_DATABASE_URL
+...
+```
+
 **Note:** Your Hasura Cloud app URL will be different.
 
 Now let's apply the metadata and migrations.
@@ -82,7 +90,7 @@ Now let's apply the metadata and migrations.
 ```bash
 hasura metadata apply --admin-secret xxxx
 hasura migrate apply --database-name default --admin-secret xxxx
-hasura metadata reload
+hasura metadata reload --admin-secret xxxx
 ```
 
 This will create the tables and relationships for the realtime todo app.

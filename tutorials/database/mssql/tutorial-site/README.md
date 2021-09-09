@@ -1,23 +1,21 @@
-## What you will learn
+## Development
 
-### Frontend
+#### Build Docker Image
 
-- [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/) 
-- GraphQL Queries, Mutations, Subscriptions
-- Setting up a GraphQL Client with Apollo
-- Integrating GraphQL Queries in the App
-- Integrating GraphQL Mutations with Query Variables
-- Integrating Mutations to Update, Delete and Bulk Delete
-- Managing Local Cache After a GraphQL Mutation
-- Optimistic UI Updates For Responsive User Experience
-- Using Subscriptions
-- Realtime Feed With Notifications
+```bash
+docker build -t tutorial-site:0.1 -f Dockerfile.localdev .
+```
 
-### Backend
+#### Run Container in Dev Mode
 
-- MS SQL Basics
-- MSSQL Data Modelling
-- Authorization
-- Authentication
-- Custom Business Logic
-- Remote Schemas, Event Triggers
+```bash
+docker run -ti -p 8080:8080 -v /path/to/learn-graphql/tutorials/database/mssql/tutorial-site/content:/gatsby-gitbook-starter/content -v /path/to/learn-graphql/tutorials/database/mssql/tutorial-site/config.js:/gatsby-gitbook-starter/config.js tutorial-site:0.1
+```
+
+Two volumes are mounted. One for `content` and one for `config.js`. This is required for hot-reloading.
+
+Restart docker container
+
+- In case there are new files
+
+- Gatsby cache needs to be updated

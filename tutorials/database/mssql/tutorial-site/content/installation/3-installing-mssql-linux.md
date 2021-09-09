@@ -81,17 +81,22 @@ sudo apt install curl
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 ```
+
 2. Register the Microsoft Ubuntu repository.
 
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
 ```
-3. Update the sources list and run the installation command with the unixODBC developer package. 
+
+3. Update the sources list and run the installation command with the unixODBC developer package.
+
 ```bash
 sudo apt-get update 
 sudo apt-get install mssql-tools unixodbc-dev
 ```
+
 4. Optional: Add /opt/mssql-tools/bin/ to your PATH environment variable in a bash shell.
+
 ```bash
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 ```

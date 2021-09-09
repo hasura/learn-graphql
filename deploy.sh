@@ -31,6 +31,9 @@ tutorials() {
                         if [ $current_tutorial = "mysql" ]; then
                             current_tutorial="database-mysql"
                         fi
+                        if [ $current_tutorial = "mssql" ]; then
+                            current_tutorial="database-mssql"
+                        fi
                         cd "tutorial-site"
                         echo "hasura/$current_tutorial:$GIT_HASH"
                         echo "Building docker image"

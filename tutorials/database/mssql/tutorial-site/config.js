@@ -1,6 +1,6 @@
 const config = {
     gatsby: {
-      pathPrefix: "/learn/database/mssql",
+      pathPrefix: "/learn/database/microsoft-sql-server",
       siteUrl: "https://hasura.io",
       gaTrackingId: "GTM-WBBW2LN",
       trailingSlash: true,
@@ -9,11 +9,11 @@ const config = {
       logo: "",
       logoLink: "https://hasura.io/learn/",
       title:
-        "learn <a href='https://hasura.io/learn/'>/ database </a><a href='https://hasura.io/learn/database/mssql/introduction/'>/ mssql</a>",
+        "learn <a href='https://hasura.io/learn/'>/ database </a><a href='https://hasura.io/learn/database/microsoft-sql-server/introduction/'>/ mssql</a>",
       githubUrl: "https://github.com/hasura/learn-graphql",
       helpUrl: "https://discord.com/invite/hasura",
       tweetText:
-        "Check out this MSSQL course for developers by @HasuraHQ https://hasura.io/learn/database/mssql/introduction/",
+        "Check out this MSSQL course for developers by @HasuraHQ https://hasura.io/learn/database/microsoft-sql-server/introduction/",
       links: [
         {
           text: "",

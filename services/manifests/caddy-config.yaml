@@ -82,6 +82,10 @@ data:
       }
 
       redir 301 {
+        /learn/database/microsoft-sql-server/ /learn/database/microsoft-sql-server/introduction
+      }
+
+      redir 301 {
         /learn/graphql/react-rxdb-offline-first/ /learn/graphql/react-rxdb-offline-first/introduction
       }
 
@@ -202,6 +206,8 @@ data:
       proxy /learn/database/postgresql database-postgresql
 
       proxy /learn/database/mysql database-mysql
+
+      proxy /learn/database/microsoft-sql-server database-mssql
 
       proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
 

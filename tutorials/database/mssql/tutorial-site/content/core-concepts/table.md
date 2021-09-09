@@ -1,7 +1,7 @@
 ---
-title:
-metaTitle:
-metaDescription:
+title: ""
+metaTitle: ""
+metaDescription: ""
 ---
 
 Data Types and Columns

@@ -1,5 +1,5 @@
 ---
-title: Database
+title: "Database"
 metaTitle:
 metaDescription:
 ---
@@ -7,7 +7,6 @@ metaDescription:
 Create a Database
 
 ![Connected to DB engine](../../../assets/dbengine-connect.png)
-
 
 Expand Databases - default system databases
 

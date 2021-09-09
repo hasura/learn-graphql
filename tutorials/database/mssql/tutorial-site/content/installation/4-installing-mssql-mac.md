@@ -77,5 +77,5 @@ To remove your docker container and image, follow the steps in sequence:
    * To see all the stopped containers: `docker ps -a`
    * Now stop the container with its name: `docker rm mssql`
 * Remove the image
-   * Get a list of images: `docker images`. Identify and copy the mssql value from the <IMAGE ID> column.
+   * Get a list of images: `docker images`. Identify and copy the mssql value from the `<IMAGE ID>` column.
    * `docker rmi <Image_Id>`.

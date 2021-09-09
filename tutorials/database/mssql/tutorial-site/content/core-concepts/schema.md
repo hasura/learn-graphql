@@ -1,6 +1,6 @@
 ---
-title: Database Schema
-metaTitle:
-metaDescription:
+title: "Database Schema"
+metaTitle: ""
+metaDescription: ""
 ---
 

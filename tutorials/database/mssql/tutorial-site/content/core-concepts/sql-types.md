@@ -1,3 +1,8 @@
+---
+title: "Database Schema"
+metaTitle: ""
+metaDescription: ""
+---
 
 ## SQL Types
 

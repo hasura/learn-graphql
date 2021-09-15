@@ -33,6 +33,8 @@ const config = {
         "/introduction/",
         "/what-is-mssql/",
         "/installation/",
+        "/core-concepts/",
+        "/core-concepts/t-sql-statements",
       ],
       links: [
         {

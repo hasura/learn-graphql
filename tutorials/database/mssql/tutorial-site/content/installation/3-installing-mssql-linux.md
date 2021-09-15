@@ -67,7 +67,7 @@ At this point, SQL Server 2019 is running on your Ubuntu machine and is ready to
 
 In Ubuntu OS, you need to use the command line tool `sqlcmd` to run Transact-SQL statements on the MS SQL database.
 
-### Prerequisite
+### Pre-requisite
 
 Install curl on Ubuntu.
 

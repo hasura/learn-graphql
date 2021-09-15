@@ -1,5 +1,0 @@
----
-title: "Database"
-metaTitle: ""
-metaDescription: ""
----

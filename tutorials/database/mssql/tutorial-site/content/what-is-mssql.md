@@ -1,12 +1,14 @@
 ---
 title: "What is MSSQL Server?"
 metaTitle: "What is MSSQL? | MSSQL Tutorial"
-metaDescription: "In this section, we will look at what is MSSQL Server database, a brief look at the various features it supports"
+metaDescription: "This section introduces MSSQL Server and some tools to execute SQL commands on the server."
 ---
 
 ## Introduction to MS SQL Server
 
 MS SQL Server is a Relational Database Management System (RDBMS) database developed by Microsoft.
+A Relational database is based on a Relational Model architecture. The data is organized in tables(relations), and the tables are related to each other.
+Each table has rows and columns(attributes).
 MS SQL Server is a software product used to administer the database and retrieve information.
 
 ## What is SQL and T-SQL
@@ -25,6 +27,8 @@ Some of the Microsoft tools that are used to run T-SQL commands are:
 * [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 * [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
 * [sqlcmd](https://docs.microsoft.com/en-us/previous-versions/sql/2014/tools/sqlcmd-utility?view=sql-server-2014&preserve-view=true)
+
+> In this tutorial we will use SSMS on Windows Server 2019.
 
 ## What is SQL Server Management Studio (SSMS)
 

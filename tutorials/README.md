@@ -16,7 +16,7 @@
 ### Backend
 
 - Hasura Basics
-- PostgreSQL Data Modelling
+- PostgreSQL Data Modeling
 - Authorization
 - Authentication
 - Custom Business Logic

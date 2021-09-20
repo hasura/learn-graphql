@@ -4,7 +4,7 @@ metaTitle: "Defining Roles | Hasura Auth Slack Tutorial"
 metaDescription: "Learn how to choose between single vs multiple roles"
 ---
 
-In this section, we will look at how to generally approach modelling roles for permissions with Hasura.
+In this section, we will look at how to generally approach modeling roles for permissions with Hasura.
 
 Traditionally you will consider multiple roles based on responsibilities assigned to user.
 

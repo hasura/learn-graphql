@@ -1,7 +1,7 @@
 ---
-title: "Data Modelling: Slack"
-metaTitle: "Slack Data Modelling with Hasura | Hasura Auth Slack Tutorial"
-metaDescription: "This tutorial covers how to do data modelling in Postgres and create tables using Hasura console for a Slack Clone"
+title: "Data Modeling: Slack"
+metaTitle: "Slack Data Modeling with Hasura | Hasura Auth Slack Tutorial"
+metaDescription: "This tutorial covers how to do data modeling in Postgres and create tables using Hasura console for a Slack Clone"
 ---
 
 In this part of the course, we will build the data model for a realtime slack clone. Our slack app will have the following basic features:

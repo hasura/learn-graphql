@@ -1,7 +1,7 @@
 ---
 title: "Tables for Slack Clone"
 metaTitle: "Tables | Hasura Auth Slack Tutorial"
-metaDescription: "Data modelling for Slack Clone"
+metaDescription: "Data modeling for Slack Clone"
 ---
 
 Let's get started by looking at the data model.

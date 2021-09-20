@@ -13,7 +13,7 @@ is an ideal starting point before diving into advanced topics.
 
 - Intro to PostgreSQL
 - Database Core Concepts
-- Data Modelling
+- Data Modeling
 - Setup and Installation
 - Try out SQL Statements
 - Create and Alter Statements

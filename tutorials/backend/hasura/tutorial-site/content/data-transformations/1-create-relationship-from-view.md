@@ -30,4 +30,4 @@ query {
 }
 ```
 
-Great! We are completely done with data modelling for the app.
+Great! We are completely done with data modeling for the app.

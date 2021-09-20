@@ -1,6 +1,6 @@
 ﻿---
-title: "Data Modelling"
-metaTitle: "Data Modelling for Matchmaking with Hasura | GraphQL Unity Hasura Tutorial"
+title: "Data Modeling"
+metaTitle: "Data Modeling for Matchmaking with Hasura | GraphQL Unity Hasura Tutorial"
 metaDescription: "We shall create two tables, Users and Battles and also create some views"
 ---
 

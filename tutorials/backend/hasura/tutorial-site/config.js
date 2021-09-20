@@ -32,7 +32,7 @@ const config = {
     forcedNavOrder: [
       "/introduction/",
       "/setup/",
-      "/data-modelling/",
+      "/data-modeling/",
       "/relationships/",
       "/data-transformations/",
       "/authorization/",

@@ -1,22 +1,9 @@
-FROM node:14.16.0
-
-# update this line when gatsby-gitbook-starter repo changes
-RUN sh -c 'echo -e "Updated at: 2021-09-03  16:00:00 IST"'
-
-# Install global dependencies
-RUN npm -g install gatsby-cli
-
-# clone gatsby-gitbook-starter repo
-RUN git clone https://github.com/hasura/gatsby-gitbook-starter.git
-RUN cd gatsby-gitbook-starter && git checkout gitbook-theme-hasura
+FROM hasura/gatsby-gitbook-starter:43c2d1
 
 # Create app directory
-WORKDIR /gatsby-gitbook-starter
+WORKDIR /app
 
-RUN cd /gatsby-gitbook-starter
-
-# Install dependencies
-RUN npm ci
+RUN cd /app
 
 # Remove already existing dummy content
 RUN rm -R content

@@ -35,6 +35,8 @@ const config = {
         "/installation/",
         "/core-concepts/",
         "/core-concepts/t-sql-statements",
+        "/restore/",
+        "/joins/"
       ],
       links: [
         {

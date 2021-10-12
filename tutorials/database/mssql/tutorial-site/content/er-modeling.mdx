@@ -1,0 +1,123 @@
+---
+title: "Entity Relationship Diagram(ERD)"
+metaTitle: "ER Diagram (MS SQL Server) | MSSQL Tutorial"
+metaDescription: "Create ER database diagram using SSMS"
+---
+
+Entity-Relationship (ER) diagram is a visual representation of the table’s structure and the relationships between logically related tables.
+
+An ER diagram gives a better understanding of the overall database structure. It becomes easier to map the tables, their keys, and relationships.
+
+The ER diagram displays:
+
+* Table structure along with the column names and their data types
+* Primary and foreign key constraints
+* Relationship between tables
+
+## Pre-requisite
+
+* MS SQL Server
+* SQL Server Management Studio (SSMS)
+
+## Create entities and relationships
+
+To create an ER diagram, the tables must be logically related to one another with foreign key constraints.
+
+```SQL
+--Use your database
+USE HASURA;
+GO
+
+--1. Create 'COUNTRY' table
+CREATE TABLE COUNTRY(
+CountryId INT IDENTITY PRIMARY KEY, --auto-increment primary key
+CountryName VARCHAR(30),
+Continent VARCHAR(10),
+Currency VARCHAR(3)
+);
+
+--2. Create 'DEPARTMENT' table
+CREATE TABLE DEPARTMENT(
+DepartmentId INT PRIMARY KEY,
+DeptName VARCHAR(10),
+CountryId INT FOREIGN KEY REFERENCES dbo.COUNTRY(CountryId),
+);
+
+--3. Create 'EMPLOYEE' table
+CREATE TABLE EMPLOYEE(
+EmpID INT PRIMARY KEY,
+EmpName VARCHAR(20) NOT NULL,
+DeptId INT FOREIGN KEY REFERENCES dbo.DEPARTMENT (DepartmentId) NULL
+);
+
+--4. Create 'FOLDER' table
+CREATE TABLE FOLDER(
+FolderId INT NOT NULL,
+EmpId INT REFERENCES EMPLOYEE(EmpId),
+AccessType VARCHAR(5) NULL
+);
+```
+
+## Create ER diagram in SSMS
+
+* Open SQL Server Management Studio (SSMS).
+* In the **Object Explorer** on the left, expand your database.
+* Right-click on **Database Diagrams**, and then select **New Database Diagram**.
+
+![New Database diagram](../assets/er-diagram/new-db-diagram.png)
+
+* Select the tables that you created above, and then click **Add**.
+
+![Add tables to ER diagram](../assets/er-diagram/add-table.png)
+
+This generates the ER diagram.
+
+![ER Diagram](../assets/er-diagram/ER-diagram.png)
+
+You can save and also copy the diagram to the clipboard.
+
+## Insert data
+
+```SQL
+--5. Insert data into tables respecting the foreign key constraints
+
+INSERT INTO COUNTRY VALUES('Germany', 'EUROPE', 'EUR');
+INSERT INTO COUNTRY VALUES('London', 'UK', 'GBP');
+INSERT INTO COUNTRY VALUES('India', 'ASIA', 'INR');
+INSERT INTO COUNTRY VALUES('California', 'USA', 'USD');
+
+INSERT INTO DEPARTMENT VALUES (29, 'R&D', 2);
+INSERT INTO DEPARTMENT VALUES (17, 'HR', 1);
+INSERT INTO DEPARTMENT VALUES (9, 'Finance', 3);
+INSERT INTO DEPARTMENT VALUES (4, 'Product', 4);
+
+INSERT INTO EMPLOYEE VALUES (1, 'Zuckerberg', NULL);
+INSERT INTO EMPLOYEE VALUES (3, 'Jobs', 17);
+INSERT INTO EMPLOYEE VALUES (2, 'Turing', 9);
+INSERT INTO EMPLOYEE VALUES (4, 'Musk', 29);
+INSERT INTO EMPLOYEE VALUES (5, 'Tesla', 9);
+
+INSERT INTO FOLDER VALUES(1, 1, 'Read');
+INSERT INTO FOLDER VALUES(1, 1, 'Write');
+INSERT INTO FOLDER VALUES(1, 4, 'Read');
+INSERT INTO FOLDER VALUES(1, 3, 'Read');
+INSERT INTO FOLDER VALUES(2, 4, 'Read');
+INSERT INTO FOLDER VALUES(2, 5, 'Write');
+INSERT INTO FOLDER VALUES(3, null, null);
+```
+
+## Retrieve data from E-R modeled tables
+
+```SQL
+--Retrieve only those employees that belong to a department and are assigned permissions on the folders
+SELECT f.FolderId, f.AccessType, e.EmpName, d.DeptName, c.CountryName, c.Continent
+FROM EMPLOYEE e
+INNER JOIN DEPARTMENT d
+ON e.DeptId=d.DepartmentId
+INNER JOIN COUNTRY c
+ON c.CountryId=d.CountryId
+INNER JOIN FOLDER f
+ON f.EmpId=e.EmpId;
+```
+
+![Result set](../assets/er-diagram/er-model-resultset.png)

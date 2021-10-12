@@ -37,7 +37,8 @@ const config = {
         "/core-concepts/t-sql-statements",
         "/restore/",
         "/joins/",
-        "/views/"
+        "/views/",
+        "/er-modeling/",
       ],
       links: [
         {

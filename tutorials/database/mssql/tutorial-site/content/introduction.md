@@ -8,7 +8,7 @@ This course is a super-fast introduction to learning about key concepts of MS SQ
 
 ## What will I learn?
 
-This course is designed to help you understand the key features of MSSQL server, when and how to use them and will lay a foundation for you to learn advanced concepts.
+This course is designed to help you understand the key features of MSSQL server, when and how to use them, and will lay a foundation for you to learn advanced concepts.
 
 * Introduction to MSSQL Server
 * Installation and setup
@@ -17,6 +17,7 @@ This course is designed to help you understand the key features of MSSQL server,
 * T-SQL commands
 * Joins
 * Views
+* E-R Modeling
 * Functions
 * Debugging
 * Performance Optimizations

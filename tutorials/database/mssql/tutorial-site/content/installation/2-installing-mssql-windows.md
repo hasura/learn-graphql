@@ -6,7 +6,7 @@ metaDescription: "Learn how to install MSSQL Server and SSMS on Windows by follo
 
 This is a step-by-step guide for installing MS SQL Server 2019 (latest at the time of writing this document) and SSMS 18.9.2 for Windows OS.
 
-Refer the [Prerequisite](1-prerequisite.md) section before you proceed.
+Refer to the [Prerequisite](1-prerequisite.md) section before you proceed.
 
 ## Download MS SQL Server for Windows
 
@@ -23,14 +23,14 @@ Scroll down and choose between the **Developer** edition or **Express** edition.
 ![SQL2019-developer-setup](../../assets/SQL2019-developer-setup.png)
 1. Select the recommended **Basic** installation type.
 ![Developer basic edition](../../assets/developer-basic-edition.png)
-1. Click **Accept** to accept the License agreement.
+1. Click **Accept** to accept the License Agreement.
 ![Accept License](../../assets/license.png)
 1. You can select the default install location, or change the location by clicking on the **Browse** button.
 ![Installation directory](../../assets/install-location.png)
 Click **Install**.
 1. An installation complete screen summarizes the database details.
 ![Install SSMS](../../assets/install-ssms.png)
- You may want to make a note of the following information on the screen - Instance name, connection string, log folder path, sql engine path, and the installation resources folder path.
+ You may want to make a note of the following information on the screen - Instance name, connection string, log folder path, SQL engine path, and the installation resources folder path.
 
 ## Install SSMS
 
@@ -46,7 +46,7 @@ Click **Install**.
 Once SSMS is successfully installed, click **Restart**.
 ![SSMS Installed](../../assets/ssms-installed.png)
 
-Congratulations ! You have successfully installed MS SQL Server 2019 and SQL Server Management Studio (SSMS) 18.9.2 on Windows.
+Congratulations! You have successfully installed MS SQL Server 2019 and SQL Server Management Studio (SSMS) 18.9.2 on Windows.
 
 ### Connect to SQL Server Database Engine
 

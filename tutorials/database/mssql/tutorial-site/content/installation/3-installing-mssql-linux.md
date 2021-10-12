@@ -1,10 +1,10 @@
 ---
 title: "MS SQL Server on Linux"
 metaTitle: "Installing MSSQL on Linux | MSSQL Tutorial"
-metaDescription: "Learn how to install MSSQL Server and connect to server on Linux by following this step by step instructions guide"
+metaDescription: "Learn how to install MSSQL Server and connect to the server on Linux by following this step by step instructions guide"
 ---
 
-This guide walks you through installing MS SQL Server 2019 on Ubuntu 16.04, and then connecting to `sqlcmd` utility to run sql queries on the database.
+This guide walks you through installing MS SQL Server 2019 on Ubuntu 16.04, and then connecting to the `sqlcmd` utility to run SQL queries on the database.
 
 ## Prerequisite
 
@@ -47,7 +47,7 @@ Select the geographic area and the timezone.
 sudo /opt/mssql/bin/mssql-conf setup
 ```
 
-Choose your edition and a strong sa (system administrator) password.
+Choose your edition and a strong `sa` (system administrator) password.
 
 On completion of the setup, you get the message: "Setup has completed successfully. SQL Server is now starting".
 
@@ -65,7 +65,7 @@ At this point, SQL Server 2019 is running on your Ubuntu machine and is ready to
 
 ## Install the SQL Server command-line tools
 
-In Ubuntu OS, you need to use the command line tool `sqlcmd` to run Transact-SQL statements on the MS SQL database.
+In Ubuntu OS, you need to use the command-line tool `sqlcmd` to run Transact-SQL statements on the MS SQL database.
 
 ### Pre-requisite
 
@@ -115,6 +115,6 @@ where,
 * `-U`: user name (SA)
 * `-P`: password entered during setup.
 
-If successful, you should get to a sqlcmd command prompt: `1>`
+If successful, you should get to the `sqlcmd` command prompt: `1>`
 
 You can now enter your T-SQL commands to connect and transact with the database from Linux.

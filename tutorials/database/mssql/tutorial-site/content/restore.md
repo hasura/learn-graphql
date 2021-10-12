@@ -1,7 +1,7 @@
 ---
 title: "Restore Database"
 metaTitle: "Restore a SQL Server database | MSSQL Tutorial"
-metaDescription: "This page is a quickstart that covers how to restore a database."
+metaDescription: "This page is a quick start that covers how to restore a database."
 ---
 
 In this section, you will restore a database from a backup file into your SQL Server database.

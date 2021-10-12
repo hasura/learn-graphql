@@ -13,11 +13,11 @@ MS SQL Server is a software product used to administer the database and retrieve
 
 ## What is SQL and T-SQL
 
-SQL (Structured Query Language) is a domain-specific language to manage data in a RDBMS.
+SQL (Structured Query Language) is a domain-specific language to manage data in an RDBMS.
 The scope of SQL includes data query, data manipulation, data definition, and data access control.
 
-MS SQL Server has it's own proprietary query language called Transact-SQL or T-SQL to interact with MS SQL Server.
-You can run T-SQL queries via SQL Server Utility available in SQL Server Management Studio (SSMS) or via `sqlcmd` utility.
+MS SQL Server has its proprietary query language called Transact-SQL or T-SQL to interact with MS SQL Server.
+You can run T-SQL queries via SQL Server Utility available in SQL Server Management Studio (SSMS) or via the `sqlcmd` utility.
 
 ## Tools that use T-SQL
 

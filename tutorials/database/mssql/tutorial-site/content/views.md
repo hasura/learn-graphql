@@ -4,9 +4,9 @@ metaTitle: "Views - SQL Server | MSSQL Tutorial"
 metaDescription: "Create views on one or more tables. Modify data through views, alter and drop views."
 ---
 
-A View is a virtual table that is created by fetching data from one or more tables by a sql query.
+A View is a virtual table that is created by fetching data from one or more tables by a SQL query.
 
-Just like a table a view has data in the form of rows and columns. The content in a view is dynamically produced from the referencing table.
+Just like a table, a view has data in the form of rows and columns. The content in a view is dynamically produced from the referencing table.
 
 Views are generally used to:
 
@@ -25,10 +25,10 @@ WHERE <condition> --optional
 ```
 
 * `<view_name>`: A logical name for the view abiding to variables naming rules.
-* `[* | <columns_list>]`: `SELECT` query with select all (`*`) option, or a comma separated list of column names.
+* `[* | <columns_list>]`: `SELECT` query with select all (`*`) option, or a comma-separated list of column names.
 * `<table_name>`: First table being referenced.
 * `<another_table>`: Next table name being referenced by the join query.
-* `<condition>`: The `WHERE` clauses applied to filter the result sets.
+* `<condition>`: The `WHERE` clauses are applied to filter the result sets.
 
 ## Limitations and Restrictions
 

@@ -18,7 +18,7 @@ ON <join_condition>
 * `<arguments>`: use `*` to select all rows, or use column name(s) to retrieve selected columns.
 * `<first_table>`: First table name
 * `<second_table>`: Second table name
-* `<join_condition>`: condition on which the two tables have a matching pair. This condition has to evaluate to true.
+* `<join_condition>`: condition on which the two tables have a matching pair. This condition has to evaluate to be true.
 
 ## Pre-requisite
 
@@ -38,7 +38,7 @@ GO
 CREATE TABLE EMPLOYEE(
 	id int PRIMARY KEY,
 	name VARCHAR(10) not null,
-    --foreign key reference to 'id' column from the 'department'
+    --A foreign key reference to 'id' column from the 'department'
 	dept_id int FOREIGN KEY REFERENCES dbo.DEPARTMENT (id) NULL
 );
 
@@ -67,7 +67,7 @@ INSERT INTO EMPLOYEE VALUES (4, 'Musk', 9);
 INSERT INTO EMPLOYEE VALUES (5, 'Tesla', 9);
 ```
 
-3. See the result sets of both the tables.
+3. See the result sets of both tables.
 
 ```SQL
 SELECT * FROM EMPLOYEE;
@@ -78,7 +78,7 @@ SELECT * FROM DEPARTMENT;
 ## LEFT JOIN
 
 ```SQL
---All employees, including the ones that do not have a department assigned are listed.
+--All employees, including the ones that do not have a department assigned, are listed.
 SELECT * FROM EMPLOYEE e 
 LEFT JOIN DEPARTMENT d
 ON e.dept_id=d.id;

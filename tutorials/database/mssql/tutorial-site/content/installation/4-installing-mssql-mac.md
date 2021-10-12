@@ -4,7 +4,7 @@ metaTitle: "Installing MSSQL on Mac | MSSQL Tutorial"
 metaDescription: "Learn how to install MSSQL Server on Mac by following this step by step instructions guide"
 ---
 
-Follow this guide to install MS SQL Server on a Mac machine. You pull SQL Server 2019 container image from Docker and connect to database with `sqlcmd` utility.
+Follow this guide to install MS SQL Server on a Mac machine. You pull SQL Server 2019 container image from Docker and connect to the database with `sqlcmd` utility.
 
 > MS SQL Server and `sqlcmd` utility is preinstalled in this container.
 
@@ -39,7 +39,7 @@ docker ps
 
 ![MS SQL Container](../../assets/linux/sql-container.png)
 
-Your SQL Server container is successful, if you see a status of Up in the STATUS column.
+Your SQL Server container is successful if you see the status of 'Up' in the **STATUS** column.
 
 ## Connect to SQL Server
 

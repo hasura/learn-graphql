@@ -1,4 +1,4 @@
-FROM hasura/gatsby-gitbook-starter:af99f5
+FROM hasura/gatsby-gitbook-starter:ce7eca
 
 # Create app directory
 WORKDIR /app

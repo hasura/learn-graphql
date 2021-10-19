@@ -1,0 +1,232 @@
+---
+title: "Functions - SQL Server"
+metaTitle: "What are SQL functions?  | MSSQL Tutorial"
+metaDescription: "This page describes system built-in functions categories and some examples"
+---
+
+Database Functions are a set of SQL commands used to perform specific database transactions.
+
+SQL Server provides both built-in functions and user-defined functions.
+
+## Built-in functions
+
+SQL server built-in functions are categorized as follows.
+
+### String functions
+
+```SQL
+USE AdventureWorks2019;
+GO
+
+--Get the ASCII value of a character/string
+SELECT ASCII('a');
+SELECT ASCII('sentence');
+
+--Convert to character
+SELECT CHAR(97);
+
+--Get the LENGTH of a given string/column and CONCATENATE
+SELECT EMP_NAME, LEN(EMP_NAME) AS LENGTH, CONCAT('Length is = ',LEN(EMP_NAME))
+FROM EMPLOYEE;
+
+--result set
+--MYSQL	5	Length is = 5
+--ORACLE	6	Length is = 6
+
+--Print 'n' characters from the left
+SELECT LEFT('Database',3);
+--result set: Dat
+
+--Print 'n' number of characters from the right.
+SELECT RIGHT('EXPRESSION',4);
+--result set: SION
+
+--Covert the string to lowercase
+SELECT LOWER('MSSQL');
+--result set: mssql
+
+--Covert the column value to uppercase
+SELECT Name, UPPER(Name) FROM HumanResources.Department;
+
+--Trim the space characters from the left-hand side.
+SELECT LTRIM('   EXPRESSION    ');
+
+--Trim the space characters from the right-hand side.
+SELECT RTRIM('   EXPRESSION    ');
+
+--Search and replace
+SELECT REPLACE('RELATIONAL DATABASE', 'DATABASE', 'DB' );
+--result set: RELATIONAL DB
+
+--Returns a substring from a given string starting from the first integer up to the next.
+SELECT SUBSTRING('RELATIONAL DATABASE',8,3);
+```
+
+### Numeric/Math functions
+
+1. `ABS`
+
+```SQL
+--Select absolute value
+SELECT ABS(-2332.11);
+```
+
+result set: `2332.11`
+
+2. `AVG`, `SUM`, `MIN`, `MAX`
+
+```SQL
+--Compute average, sum, minimum and maximum value out of the selected column.
+SELECT AVG(StandardCost) AS AVG, SUM(StandardCost) AS SUM, MIN(StandardCost) AS MIN, MAX(StandardCost) AS MAX
+FROM Production.ProductCostHistory;
+```
+
+result set: `434.2658	171535.0024	0.8565	2171.2942`
+
+3. `FLOOR`, `CEILING`
+
+```SQL
+-- Determine equal to or lesser/greater than nearest integer value for a given number
+SELECT 34.79 AS 'NUMBER', FLOOR(34.79) AS 'FLOOR', CEILING(34.79) AS 'CEILING';
+```
+
+result set: `34.79	34	35`
+
+4. `ROUND`
+
+```SQL
+--Round a number to the second argument
+SELECT ROUND(1.298,2);
+```
+
+result set: `1.300`
+
+5. `SIGN`
+
+```SQL
+--Determine the sign of a number, greater than 0 returns 1, less than 0 returns -1, equal to 0 returns 0
+SELECT SIGN(3), SIGN(-38), SIGN(0);
+```
+
+result set: `1	-1	0`
+
+### Date/Time functions
+
+1. `GETDATE, DATEADD`
+
+```SQL
+--Increment/decrement year/month/date by a value
+SELECT GETDATE() AS 'CURRENT_DATE',
+DATEADD(year, 1, GETDATE()) AS 'ADD_YEAR',
+DATEADD(month,4,GETDATE()) AS 'ADD_MONTH',
+DATEADD(day, -10, GETDATE()) AS 'DECREASE_DAYS';
+```
+
+result set:
+`2021-10-17 22:42:15.290	2022-10-17 22:42:15.290	2022-02-17 22:42:15.290	2021-10-07 22:42:15.290`
+
+2. `DATEDIFF`
+
+```SQL
+--Calculate the year/month/day differences between 2 dates
+SELECT DATEDIFF(YEAR, '2019/10/28 06:00', '2021/10/18 07:00'), 
+DATEDIFF(MONTH, '2021/05/28', '2021/10/18'),
+DATEDIFF(day, '2021/10/8', '2021/10/18'),
+DATEDIFF(HOUR, '2021/10/8 06:00', '2021/10/8 08:00'),
+DATEDIFF(MINUTE, '2021/10/8 06:40', '2021/10/8 07:00');
+```
+
+result set:
+`2	5	10	2	20`
+
+3. `DATENAME`
+
+```SQL
+--Get the year/month/day/hour/minute/seconds from the current date (or any date)
+SELECT GETDATE(),
+DATENAME(YEAR, GETDATE()),
+DATENAME(MONTH, GETDATE()),
+DATENAME(DAY, GETDATE()),
+DATENAME(HOUR, GETDATE()),
+DATENAME(MINUTE, GETDATE()),
+DATENAME(QUARTER, GETDATE());
+```
+
+result set:
+`2021-10-17 23:09:23.083	2021	October	17	23	9	4`
+
+4. `DATEPART`
+
+```SQL
+--Returns a specified part of a date
+SELECT GETDATE(),
+DATEPART(YEAR, GETDATE()),
+DATEPART(MONTH, GETDATE()),
+DATEPART(DAY, GETDATE()),
+DATEPART(HOUR, GETDATE()),
+DATEPART(MINUTE, GETDATE()),
+DATEPART(QUARTER, GETDATE());
+```
+
+result set:
+`2021-10-17 23:14:25.297	2021	10	17	23	14	4`
+
+> `DATENAME` and `DATEPART` functions are the same, except for their return date types.
+
+### Conversion functions
+
+1. `CAST`
+
+```SQL
+--Cast one value to another data type
+SELECT '16.28',
+CAST (16.28 AS INT),
+CAST (16.28 AS FLOAT),
+CAST (GETDATE() AS VARCHAR(4)),
+CAST('2021-10-10' AS datetime);
+```
+
+result set:
+`16.28	16	16.28	Oct 	2021-10-10 00:00:00.000`
+
+2. `CONVERT`
+
+```SQL
+--Convert value from one data type to another, returns an error if the conversion fails. Otherwise it returns the converted value.
+SELECT CONVERT(INT, 39.79);
+```
+
+result set: `39`
+
+3. `TRY_CAST`
+
+```SQL
+--Try to cast from one datatype to another, and if the conversion fails returns `NULL`
+SELECT TRY_CAST(81.18 AS VARCHAR(5)), TRY_CAST(81.18 AS VARCHAR(2));
+```
+
+`81.18	NULL`
+
+4. `TRY_CONVERT`
+```SQL
+--Try to convert from one datatype to another, and if the conversion fails returns `NULL`
+SELECT TRY_CONVERT(INT, 'expression');
+```
+
+`NULL`
+
+### Advanced functions
+
+```SQL
+USE HASURA;
+GO
+--Returns the name of the current user in the SQL Server database.
+--Returns the login name information for the current user in the SQL Server database.
+--Returns the user name of the current session in the SQL Server database.
+--Validates if the value is a date(1) or not(0)
+--Validates if the value is NULL, then return an alternate value
+--Validates if value is numeric
+SELECT CURRENT_USER, SYSTEM_USER, SESSION_USER, 
+ISDATE(EMPNAME) AS ISDATE, EmpID, ISNULL(DEPTID,0), ISNUMERIC(EMPID)
+FROM EMPLOYEE;
+```

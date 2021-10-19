@@ -39,6 +39,8 @@ const config = {
         "/joins/",
         "/views/",
         "/er-modeling/",
+        "/functions/",
+        "/create-function/"
       ],
       links: [
         {

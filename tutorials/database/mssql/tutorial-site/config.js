@@ -40,7 +40,9 @@ const config = {
         "/views/",
         "/er-modeling/",
         "/functions/",
-        "/create-function/"
+        "/create-function/",
+        "/backup/",
+        "/restore/"
       ],
       links: [
         {

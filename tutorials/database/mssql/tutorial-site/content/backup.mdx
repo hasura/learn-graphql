@@ -1,0 +1,45 @@
+---
+title: "SQL Server database backup"
+metaTitle: "Create a Database backup | MSSQL Tutorial"
+metaDescription: "Learn how to backup your data and logs using SSMS"
+---
+
+A database backup is a copy of the SQL Server data.
+A backup is used to restore and recover the data after a failure or during database migration.
+A database backup can be stored on a backup device such as a disk or a URL.
+
+## Types of backups
+
+1. **Full backup**: Complete backup of the database, including the data and the transaction logs at the time of the backup.
+1. **Differential backup**: A differential backup records only the data that has changed since the last complete or differential(partial) backup.
+1. **Transaction Log backup**: Backup of transaction logs.
+
+## Pre-requisite
+
+* MSSQL Server
+* SQL Server Management Studio (SSMS)
+
+## Create a full database backup
+
+* Connect to an instance of MS SQL Server database engine.
+* In the **Object Explorer** expand **Databases**.
+* Select and right-click on your database (HASURA), and then select **Tasks > Back Up...**.
+
+![Select backup](../assets/backup/select-backup.png)
+
+* In the **Backup type**, select **Full** from the drop-down list.
+  
+> Perform at least one full backup before performing a differential or transaction log backup.
+
+![Configure backup](../assets/backup/configure-backup.png)
+
+* In the **Destination** section, select **Add**.
+
+![Select destination](../assets/backup/destination.png)
+
+* You can accept the default location or select the 3 dots `...` to modify the destination. Select **OK** or **Cancel** as appropriate.
+
+![Create backup](../assets/backup/create-backup.png)
+
+* Select **OK** to initiate the database backup process.
+* Close the dialog box once the backup is completed.

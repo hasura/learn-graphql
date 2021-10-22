@@ -46,7 +46,7 @@ You should get a response looking something like this:
 
 ![Todo Query](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-query-todo.png)
 
-Note that some columns like `is_public`, `is_completed` have default values, even though you did not insert them during the mutation.
+Note that some columns like `is_public` and `is_completed` have default values, even though you did not insert them during the mutation.
 
 ## Subscription
 

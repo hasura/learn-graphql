@@ -8,8 +8,8 @@ metaDescription: "This page explains how you can query the database and view the
 
 ## Prerequisite
 
-* MS SQL Server database installed on [Windows](../../installation/2-installing-mssql-windows.md) or [Linux](../../installation/3-installing-mssql-linux.md) or on [Mac](../../installation/4-installing-mssql-mac.md) OS.
-* [SQL Server Management Studio (SSMS)](../../installation/2-installing-mssql-windows.md) or `sqlcmd` utility.
+* MS SQL Server database installed on [Windows](https://hasura.io/learn/database/microsoft-sql-server/installation/1-installing-mssql-windows/) or [Linux](https://hasura.io/learn/database/microsoft-sql-server/installation/2-installing-mssql-linux/) or on [Mac](https://hasura.io/learn/database/microsoft-sql-server/installation/3-installing-mssql-mac/) OS.
+* [SQL Server Management Studio (SSMS)](https://hasura.io/learn/database/microsoft-sql-server/installation/1-installing-mssql-windows/) or `sqlcmd` utility.
 
 ## Download sample database
 
@@ -22,7 +22,7 @@ Move the `.bak` file to your SQL Server backup location. The default location fo
 
 ## Restore to SQL Server
 
-Next, you can use the `.bak` file to [restore the sample database](../../restore.md) into your SQL Server.
+Next, you can use the `.bak` file to [restore the sample database](https://hasura.io/learn/database/microsoft-sql-server/restore/) into your SQL Server.
 
 ## Before you begin
 

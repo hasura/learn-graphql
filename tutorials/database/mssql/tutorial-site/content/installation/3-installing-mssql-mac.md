@@ -12,7 +12,7 @@ Prerequisite
 
 * Mac OS
 * [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop).
-* Refer the common [Prerequisite](1-prerequisite.md) section.
+* Refer the common [Prerequisite](https://hasura.io/learn/database/microsoft-sql-server/installation/) section.
 * Start the Docker engine on your Mac machine and log in with your DockerHub credentials.
 
 ## Pull and run the 2019 container image

@@ -9,7 +9,7 @@ This guide walks you through installing MS SQL Server 2019 on Ubuntu 16.04, and 
 ## Prerequisite
 
 * Ubuntu 16.04 (either Ubuntu OS or a docker Ubuntu container)
-* Also refer the common [Prerequisite](1-prerequisite.md) section.
+* Also refer the common [Prerequisite](https://hasura.io/learn/database/microsoft-sql-server/installation/) section.
 
 ## Install MS SQL Server
 

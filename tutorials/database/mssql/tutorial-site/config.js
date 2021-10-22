@@ -34,7 +34,6 @@ const config = {
         "/what-is-mssql/",
         "/installation/",
         "/core-concepts/",
-        "/core-concepts/t-sql-statements",
         "/restore/",
         "/joins/",
         "/views/",

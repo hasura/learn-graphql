@@ -10,7 +10,7 @@ In this section, you will restore a database from a backup file into your SQL Se
 
 * MSSQL Server
 * SQL Server Management Studio (SSMS)
-* A database restore file stored in the default backup location. ( As explained in the download sample database section of the [select page](core-concepts/t-sql-statements/4-select.md) ).
+* A database restore file stored in the default backup location. ( As explained in the download sample database section of the [select page](https://hasura.io/learn/database/microsoft-sql-server/core-concepts/t-sql-statements/4-select/) ).
 
 ## Restore a database
 

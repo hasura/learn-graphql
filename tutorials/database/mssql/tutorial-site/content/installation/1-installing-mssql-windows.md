@@ -6,7 +6,7 @@ metaDescription: "Learn how to install MSSQL Server and SSMS on Windows by follo
 
 This is a step-by-step guide for installing MS SQL Server 2019 (latest at the time of writing this document) and SSMS 18.9.2 for Windows OS.
 
-Refer to the [Prerequisite](1-prerequisite.md) section before you proceed.
+Refer to the [Prerequisite](https://hasura.io/learn/database/microsoft-sql-server/installation/) section before you proceed.
 
 ## Download MS SQL Server for Windows
 

@@ -4,7 +4,7 @@ metaTitle: "Database | MSSQL Tutorial"
 metaDescription: "This page explains how to create and drop a database"
 ---
 
-This tutorial shows how to create and drop a database in MS SQL Server Management Studio (SSMS) using Transact-SQL on a Windows2019 Server.
+This page shows how to create and drop a database in MS SQL Server Management Studio (SSMS) using Transact-SQL on a Windows2019 Server.
 
 ### Prerequisite
 
@@ -13,10 +13,10 @@ This tutorial shows how to create and drop a database in MS SQL Server Managemen
 
 ## Create a database using T SQL
 
-Syntax:
+**Syntax**
 
 ```SQL
-CREATE DATABASE database_name
+CREATE DATABASE database_name;
 ```
 
 - Open SSMS, and connect to the Database Engine.
@@ -41,7 +41,7 @@ Note: If the new database is not displayed automatically, click the **Refresh** 
 To drop a database from a schema or from an instance of SQL Server, run the following command:
 
 ```SQL
-DROP DATABASE database_name
+DROP DATABASE database_name;
 ```
 
 When you drop a database, the database is removed from the SQL Server instance.

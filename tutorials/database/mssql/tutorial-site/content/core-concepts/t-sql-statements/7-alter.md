@@ -5,7 +5,6 @@ metaDescription: "Learn how to alter the table structure and its data types."
 ---
 
 An `ALTER` statement is a `DDL` T-SQL that modifies a table definition.
-
 You can use an `ALTER` statement to:
 
 * Add/drop columns/constraints/triggers

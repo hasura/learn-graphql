@@ -13,7 +13,7 @@ The page explains how to update the existing data in a table with the `UPDATE` (
 * Create/restore a Database (AdventureWorks2019)
 * Create a table, and insert some data into the table.
 
-## Syntax
+**Syntax**
 
 ```SQL
 UPDATE <table_name>
@@ -32,7 +32,6 @@ where,
 ## Before you begin
 
 Install and restore the 'AdventureWorks2019' sample database.
-
 Create a backup table from another table as:
 
 ```SQL

@@ -14,9 +14,9 @@ A GraphQL server supports introspection over its schema using the same GraphQL q
 
 A server exposes the following introspection queries on the `Query` operation type.
 
-- __schema
-- __type
-- __typename
+- `__schema`
+- `__type`
+- `__typename`
 
 Note that introspection queries start with `__`.
 

@@ -1,0 +1,43 @@
+---
+title: "MSSQL Constraints"
+metaTitle: "MSSQL Constraints | MSSQL Tutorial"
+metaDescription: "This section explains the SQL constraints types used to enforce data integrity in SQL Server"
+---
+
+SQL constraints are the rules to restrict the type of data that is entered into the database.
+The constraints ensure data integrity and adhere to the business rules.
+
+MSSQL has the following constraints:
+
+* `NOT NULL`: The column value cannot be null.
+* `UNIQUE` constraint: Enforce unique value on a column(s) that is not a primary key.
+* `PRIMARY KEY` (PK) constraint: Column key that uniquely identifies each row in the table.
+* `FOREIGN KEY` (FK) constraint: Column key that references a primary key in another table.
+* `CHECK` constraint: Enforce a check on the value that can be entered in the table.
+
+## CANDIDATE KEY
+
+A candidate key is one or more sets of attributes(columns) that can uniquely identify a row in a table.
+
+For example, the `Account number`, or `email_id` column is a **Single Candidate key**.
+However, you need a combination of `first name` and the `last name` to uniquely identify a row. Such a set of columns are called **Composite Candidate key**.
+
+## PRIMARY KEY (PK)
+
+A primary key (PK) is a candidate key that uniquely identifies a row. The Entity<sup>1</sup> Integrity constraints on a primary key are:
+
+* A PK cannot be null.
+* A PK has to be unique.
+
+<sup>1</sup>Entity: An entity is a reference to a real world object.
+
+## FOREIGN KEY (FK)
+
+A foreign key is a candidate key that refers to a primary key in another table.
+The values in a column declared as an FK can have duplicate or null values.
+
+FK has a **Referential Integrity** enforced, which enforces the rule that every value in the FK column must be present in the PK column.
+
+## CHECK
+
+The value in a column with a check constraint can only be entered, when the check T-SQL constraint evaluates to true.

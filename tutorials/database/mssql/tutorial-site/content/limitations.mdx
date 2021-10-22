@@ -1,0 +1,162 @@
+---
+title: "MS SQL Limitations"
+metaTitle: "MS SQL Pricing and Limitations | MSSQL Tutorial"
+metaDescription: "This page lists the SQL Server pricing and deprecated database engine features"
+---
+
+## SQL Server 2019 Pricing
+
+<table>
+    <tbody>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Editions</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Open no level price (US$)</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Licensing model</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Channel availability</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Enterprise</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>
+                    $13, 748<sup>[<a aria-label="Footnote 1"
+                            class="c-hyperlink"
+                            href="#OneGDCWeb-ContentPlacementWithRichBlock-pp5ed24">1</a>]</sup>
+                </p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>2 core pack</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Volume licensing, hosting</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Standard - per core</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>
+                    $3,586<sup>[<a aria-label="Footnote 1"
+                            class="c-hyperlink"
+                            href="#OneGDCWeb-ContentPlacementWithRichBlock-pp5ed24">1</a>]</sup>
+                </p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>2 core pack</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Volume licensing, hosting</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Standard - server</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>
+                    $899<sup>[<a aria-label="Footnote 1"
+                            class="c-hyperlink"
+                            href="#OneGDCWeb-ContentPlacementWithRichBlock-pp5ed24">1</a>]</sup>
+                </p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>
+                    Server<sup>[<a aria-label="Footnote 2"
+                            class="c-hyperlink"
+                            href="#OneGDCWeb-ContentPlacementWithRichBlock-pp5ed24">2</a>]</sup>
+                </p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Volume licensing, hosting</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Standard - CAL</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>$209</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>CAL</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Volume licensing, hosting</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Developer</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Free</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Per user</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>
+                    <a aria-label="Download the SQL Server Developer edition .exe file for free"
+                        class="c-hyperlink"
+                        href="https://go.microsoft.com/fwlink/?linkid=866662">Free download</a>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Web</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>See your hosting partner for pricing</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Not applicable</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Hosting only</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="f-divided Left f-image">
+                <p><strong>Express</strong></p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Free</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>Not applicable</p>
+            </td>
+            <td class="f-divided Left f-image">
+                <p>
+                    <a aria-label="Download the SQL Server Express edition .exe file for free"
+                        class="c-hyperlink"
+                        href="https://go.microsoft.com/fwlink/?linkid=866658">Free download</a>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+## Deprecated database engine features
+
+MS SQL Server 2019 does not deprecate any features beyond those deprecated in the earlier releases.
+MS SQL Server objects and counters are used by the System Monitor to monitor the performance of SQL Server instances.
+
+The dynamic view `sys.dm_os_performance_counters` (Transact-SQL) provides all counters generated by SQL Server.
+
+You can execute the following query to view the deprecated counters.
+
+```SQL
+SELECT * FROM SYS.dm_os_performance_counters
+WHERE object_name = 'SQLServer:Deprecated Features';
+```

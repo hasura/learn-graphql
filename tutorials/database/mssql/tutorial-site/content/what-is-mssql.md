@@ -30,7 +30,7 @@ Some of the Microsoft tools that are used to run T-SQL commands are:
 
 > In this tutorial we will use SSMS on Windows Server 2019.
 
-## What is SQL Server Management Studio (SSMS)
+## What is SQL Server Management Studio SSMS
 
 SQL Server Management Studio (SSMS) is a management software for SQL Server database engine.
 An SSMS is a primary tool to connect and administer the SQL Server database engine and run Transact-SQL on the database.

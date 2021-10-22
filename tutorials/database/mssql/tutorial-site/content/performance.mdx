@@ -13,7 +13,7 @@ Monitors the utilization of system resources.
 
 Go to **Start > Run**, type `perfmon` and select **OK**.
 
-![Performance Monitor](../assets/performance/performance-monitor.png)
+![Performance Monitor](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/performance-monitor.png)
 
 To add/delete the key parameters, use the Add (green) and Delete (red) keys on the Performance Monitor screen.
 
@@ -24,7 +24,7 @@ The Activity Monitor monitors the query execution and displays statistics such a
 Open SSMS, and connect to your server instance.
 Select **Activity Monitor** from the top ribbon bar.
 
-![Activity Monitor](../assets/performance/activity-monitor.png)
+![Activity Monitor](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/activity-monitor.png)
 
 ## Performance Dashboard in SSMS
 
@@ -32,7 +32,7 @@ The dashboard provides visual insights into the performance of the SQL Server in
 
 In the Object Explorer, right-click on the SQL Server instance name and select **Reports > Standard Reports > Performance Dashboard**.
 
-![Performance Dashboard](../assets/performance/performance-dashboard.png)
+![Performance Dashboard](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/performance-dashboard.png)
 
 The Performance Dashboard helps to identify **System CPU Utilization, Current Waiting Requests**, and performances measured based on several other metrics.
 
@@ -48,15 +48,15 @@ To capture an actual execution plan, the query has to be executed.
 In general, you can use the estimated execution plan to monitor the performance of your query.
 The actual execution plan is useful to determine the runtime performance of the query.
 
-![Estimated execution plan](../assets/performance/estimated-plan.png)
+![Estimated execution plan](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/estimated-plan.png)
 
 In the actual execution plan, the Nested Loops component indicates a red cross.
 
-![Actual execution plan](../assets/performance/actual-plan.png)
+![Actual execution plan](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/actual-plan.png)
 
 When you hover over each component, you can view additional information.
 
-![Component info](../assets/performance/components-info.jpg)
+![Component info](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/components-info.jpg)
 
 To optimize this query re-write it as the first query with selected columns and a join clause.
 

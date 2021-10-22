@@ -79,34 +79,34 @@ SELECT * FROM DEPARTMENT;
 
 ```SQL
 --All employees, including the ones that do not have a department assigned, are listed.
-SELECT * FROM EMPLOYEE e 
+SELECT * FROM EMPLOYEE e
 LEFT JOIN DEPARTMENT d
 ON e.dept_id=d.id;
 ```
 
-![left-join](../assets/joins/left-join.png)
+![left-join](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/joins/left-join.png)
 
 ## RIGHT JOIN
 
 ```SQL
 --All departments are listed, but only the employees that have a matching dept_id are shown
-SELECT * FROM EMPLOYEE e 
+SELECT * FROM EMPLOYEE e
 RIGHT JOIN DEPARTMENT d
 ON e.dept_id=d.id;
 ```
 
-![right join](../assets/joins/right-join.png)
+![right join](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/joins/right-join.png)
 
 ## FULL JOIN
 
 ```SQL
 --All employee and department rows are listed including the ones with no matching records
-SELECT * FROM EMPLOYEE e 
+SELECT * FROM EMPLOYEE e
 FULL JOIN DEPARTMENT d
 ON e.dept_id=d.id;
 ```
 
-![full join](../assets/joins/full-join.png)
+![full join](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/joins/full-join.png)
 
 ## INNER JOIN
 
@@ -117,7 +117,7 @@ INNER JOIN DEPARTMENT d
 ON e.dept_id=d.id;
 ```
 
-![inner-join](../assets/joins/inner-join.png)
+![inner-join](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/joins/inner-join.png)
 
 The keyword `INNER` is optional.
 If you omit this and just use `JOIN` alone, the join defaults to the type `INNER JOIN`.

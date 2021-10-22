@@ -53,7 +53,7 @@ ON e.dept_id=d.id;
 SELECT * FROM vempDetails;
 ```
 
-![Retrieve view data](../assets/views/view-select-query.png)
+![Retrieve view data](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/views/view-select-query.png)
 
 ## Modify data through views
 
@@ -70,7 +70,7 @@ SELECT * FROM EMPLOYEE;
 SELECT * FROM v_employee;
 ```
 
-![View on a single table](../assets/views/view-single-table.png)
+![View on a single table](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/views/view-single-table.png)
 
 2. Update the view
 
@@ -100,7 +100,7 @@ WHERE d.dept_name='Finance';
 SELECT * FROM dbo.vempDetails;
 ```
 
-![alter view](../assets/views/alter-view.png)
+![alter view](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/views/alter-view.png)
 
 ## Drop views
 
@@ -120,4 +120,4 @@ Use the system stored procedure `sp_helptext` to display the definition of the v
 sp_helptext 'dbo.vempDetails';
 ```
 
-![views structure](../assets/views/views-structure.png)
+![views structure](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/views/views-structure.png)

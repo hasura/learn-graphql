@@ -37,7 +37,7 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>" \
 docker ps
 ```
 
-![MS SQL Container](../../assets/linux/sql-container.png)
+![MS SQL Container](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/linux/sql-container.png)
 
 Your SQL Server container is successful if you see the status of 'Up' in the **STATUS** column.
 
@@ -49,7 +49,7 @@ Your SQL Server container is successful if you see the status of 'Up' in the **S
 sudo docker exec -it mssql "bash"
 ```
 
-![Start a bash shell](../../assets/linux/connect-container.png)
+![Start a bash shell](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/linux/connect-container.png)
 
 The command takes you to the container prompt as shown in the screenshot above.
 
@@ -59,7 +59,7 @@ The command takes you to the container prompt as shown in the screenshot above.
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourStrong@Passw0rd>"
 ```
 
-![Connect with SQL](../../assets/linux/connect-sql.png)
+![Connect with SQL](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/linux/connect-sql.png)
 If successful, you should get to a `sqlcmd` command prompt: `1>`.
 
 You can enter the T-SQL statements on this prompt.

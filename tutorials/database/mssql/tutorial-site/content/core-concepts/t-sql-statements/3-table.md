@@ -14,7 +14,7 @@ metaDescription: "This page explains how to create a table, insert data into a t
 
 `CREATE` is a T-SQL DDL command.
 
-### Syntax
+**Syntax**
 
 ```SQL
 CREATE TABLE <table_name> (
@@ -53,7 +53,7 @@ In the *Object Explorer* window, refresh and view the `employee` table created u
 
 `INSERT` is a T-SQL command of type DML.
 
-### Syntax
+**Syntax**
 
 ```SQL
 INSERT INTO <table_name> VALUES (
@@ -92,7 +92,7 @@ GO
 
 The `DROP` command (DDL) removes the data table and the table's structure from the database.
 
-### Syntax
+**Syntax**
 
 ```SQL
 DROP TABLE [IF EXISTS] <table_name>;
@@ -127,4 +127,4 @@ GO
 ```
 
 The `SELECT` query on the 'EMPLOYEE' table will display the structure of the table 'EMPLOYEE' with no rows in it.
-![table structure remains](../../../assets/t-sql/table-truncated.png)
+![table structure remains](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/t-sql/table-truncated.png)

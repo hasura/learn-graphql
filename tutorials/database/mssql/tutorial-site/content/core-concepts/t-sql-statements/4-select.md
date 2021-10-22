@@ -6,7 +6,7 @@ metaDescription: "This page explains how you can query the database and view the
 
 `SELECT` is a T-SQL command of the type Data Query Language (DQL). A `SELECT` query is used to retrieve rows from a table.
 
-## Pre-requisite
+## Prerequisite
 
 * MS SQL Server database installed on [Windows](../../installation/2-installing-mssql-windows.md) or [Linux](../../installation/3-installing-mssql-linux.md) or on [Mac](../../installation/4-installing-mssql-mac.md) OS.
 * [SQL Server Management Studio (SSMS)](../../installation/2-installing-mssql-windows.md) or `sqlcmd` utility.
@@ -40,7 +40,7 @@ USE AdventureWorks2019;
 GO
 ```
 
-## SELECT T-SQL statements
+## SELECT T SQL statements
 
 The statement is used to retrieve all of the columns or some columns based on certain clauses.
 
@@ -60,7 +60,7 @@ The **Arguments** may be any of the following:
 * ALL: The result set returns all the rows and columns, and may include duplicate values. 'ALL' is the default.
 * DISTINCT: Returns unique rows.
 * column_list: A single column name, or a list of comma-separated column names.
-* `*`: The result set returns all columns and rows from a table/view, as specified in the 'FROM' clause.
+* *: The result set returns all columns and rows from a table/view, as specified in the 'FROM' clause.
 
 Some of the common select query clauses are:
 
@@ -70,7 +70,7 @@ Some of the common select query clauses are:
 SELECT * FROM HumanResources.Employee;
 ```
 
-![All rows](../../../assets/select/all-rows.png)
+![All rows](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/all-rows.png)
 
 ### Get the count of all rows in a table
 
@@ -78,25 +78,25 @@ SELECT * FROM HumanResources.Employee;
 SELECT COUNT(*) FROM HumanResources.Employee;
 ```
 
-![Count of rows](../../../assets/select/count-rows.png)
+![Count of rows](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/count-rows.png)
 
-### Select certain column(s)
+### Select certain columns
 
 ```SQL
 SELECT NationalIDNumber,JobTitle FROM HumanResources.Employee;
 ```
 
-![only2cols](../../assets/../../assets/select/only2-cols.png)
+![only2cols](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/only2-cols.png)
 
-### Select column(s) and print an alias column name
+### Select columns and print an alias column name
 
 ```SQL
 --First column is renamed as 'SSN'
-SELECT NationalIDNumber AS 'SSN', HireDate 
+SELECT NationalIDNumber AS 'SSN', HireDate
 FROM HumanResources.Employee;
 ```
 
-![Alias column name](../../../assets/select/col-alias.png)
+![Alias column name](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/col-alias.png)
 
 ### Derived column
 
@@ -106,7 +106,7 @@ A derived column is based on the calculation results on another column(s).
 SELECT ( VacationHours + SickLeaveHours ) AS 'TOTAL LEAVES' FROM HumanResources.Employee;
 ```
 
-![Derived column](../../../assets/select/derived-col.png)
+![Derived column](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/derived-col.png)
 
 ### Select distinct rows
 
@@ -124,7 +124,7 @@ The query results in 67 rows
 SELECT DISTINCT JobTitle FROM HumanResources.Employee;
 ```
 
-### Limit the rows with the `WHERE` clause
+### Limit the rows with the WHERE clause
 
 1. Equal to `=` operator
 
@@ -134,7 +134,7 @@ SELECT * FROM HumanResources.Employee
 WHERE JobTitle='Application Specialist';
 ```
 
-![single-jobTitle](../../../asset/../assets/select/single-jobTitle.png)
+![single-jobTitle](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/single-jobTitle.png)
 
 2. `LIKE`
 
@@ -146,7 +146,7 @@ SELECT DISTINCT JobTitle FROM HumanResources.Employee
 WHERE JobTitle LIKE '%Assistant%';
 ```
 
-![regex1](../../../assets/select/regex1.png)
+![regex1](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/regex1.png)
 
 ```SQL
 --Job Title that begins with 'Assistant' followed by any text
@@ -154,7 +154,7 @@ SELECT DISTINCT JobTitle FROM HumanResources.Employee
 WHERE JobTitle LIKE 'Assistant%';
 ```
 
-![regex2](../../../assets/select/regex2.png)
+![regex2](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/regex2.png)
 
 ```SQL
 --Job Title that ends with 'Assistant'
@@ -162,7 +162,7 @@ SELECT DISTINCT JobTitle FROM HumanResources.Employee
 WHERE JobTitle LIKE '%Assistant';
 ```
 
-![regex3](../../../assets/select/regex3.png)
+![regex3](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/regex3.png)
 
 ```SQL
 --Job Title that begins with 'Human' and ends with 'Assistant'
@@ -170,7 +170,7 @@ SELECT DISTINCT JobTitle FROM HumanResources.Employee
 WHERE JobTitle LIKE 'Human%Assistant';
 ```
 
-![regex4](../../../assets/select/regex4.png)
+![regex4](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/regex4.png)
 
 3. `NOT LIKE`
 
@@ -188,7 +188,7 @@ SELECT * FROM HumanResources.Employee
 WHERE OrganizationLevel=2 AND JobTitle LIKE '%Assistant%';
 ```
 
-![logical-and](../../../assets/select/logical-and.png)
+![logical-and](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/logical-and.png)
 
 5. LOGICAL `OR`
 
@@ -198,7 +198,7 @@ SELECT * FROM HumanResources.Employee
 WHERE OrganizationLevel=2 OR JobTitle LIKE '%Assistant%';
 ```
 
-![Logical-or](../../../assets/select/logical-or.png)
+![Logical-or](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/logical-or.png)
 
 6. `IN`
 
@@ -207,7 +207,7 @@ SELECT * FROM HumanResources.Employee
 WHERE OrganizationLevel IN (1,3);
 ```
 
-![in-condition](../../../assets/select/in-condition.png)
+![in-condition](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/in-condition.png)
 
 7. `BETWEEN`
 
@@ -217,7 +217,7 @@ SELECT DISTINCT OrganizationLevel FROM HumanResources.Employee
 WHERE OrganizationLevel BETWEEN 2 and 4;
 ```
 
-![between-range](../../assets/select/../../../assets/select/between.png)
+![between-range](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/between.png)
 
 8. `NOT`
 
@@ -227,7 +227,7 @@ SELECT DISTINCT OrganizationLevel FROM HumanResources.Employee
 WHERE OrganizationLevel NOT BETWEEN 2 and 4;
 ```
 
-![not-between](../../../assets/select/not-between.png)
+![not-between](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/not-between.png)
 
 ## Group BY
 
@@ -238,12 +238,12 @@ The `GROUP BY` clause is used to categorize the result set based on a single or 
 
 ```SQL
 --Get the count of employees in each department.
-SELECT COUNT(NationalIDNumber) AS 'Count of employees', JobTitle 
+SELECT COUNT(NationalIDNumber) AS 'Count of employees', JobTitle
 FROM HumanResources.Employee
 GROUP BY JobTitle;
 ```
 
-![group-by](../../../assets/select/group-by.png)
+![group-by](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/group-by.png)
 
 ## HAVING
 
@@ -257,7 +257,7 @@ GROUP BY JobTitle
 HAVING COUNT(NationalIDNumber) > 20;
 ```
 
-![having](../../../assets/select/having.png)
+![having](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/having.png)
 
 ### ORDER BY
 
@@ -271,7 +271,7 @@ SELECT * FROM HumanResources.Employee
 ORDER BY BusinessEntityID DESC;
 ```
 
-![order-by](../../../assets/select/order-by.png)
+![order-by](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/order-by.png)
 
 ## SELECT INTO
 
@@ -281,7 +281,7 @@ Use the `SELECT INTO` statement to create another (backup) table from an existin
 USE AdventureWorks2019;
 GO
 
-SELECT * 
+SELECT *
 INTO PRODUCTION.PRODUCT_BACKUP
 FROM PRODUCTION.PRODUCT;
 ```

@@ -12,7 +12,7 @@ Refer to the [Prerequisite](1-prerequisite.md) section before you proceed.
 
 Click [here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) to go to the SQL Server Downloads link.
 Scroll down and choose between the **Developer** edition or **Express** edition.
-![Download](../../assets/download.png)
+![Download](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/download.png)
 
    This guide uses the *Developer* edition for development and testing in a non-production environment.
 
@@ -20,45 +20,45 @@ Scroll down and choose between the **Developer** edition or **Express** edition.
 
 1. Click on the **Download now** button for the *Developer* edition.
 1. Next, double click **SQL2019-SSEI-Dev** from your installed location to start the installer.
-![SQL2019-developer-setup](../../assets/SQL2019-developer-setup.png)
+![SQL2019-developer-setup](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/SQL2019-developer-setup.png)
 1. Select the recommended **Basic** installation type.
-![Developer basic edition](../../assets/developer-basic-edition.png)
+![Developer basic edition](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/developer-basic-edition.png)
 1. Click **Accept** to accept the License Agreement.
-![Accept License](../../assets/license.png)
+![Accept License](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/license.png)
 1. You can select the default install location, or change the location by clicking on the **Browse** button.
-![Installation directory](../../assets/install-location.png)
+![Installation directory](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/install-location.png)
 Click **Install**.
 1. An installation complete screen summarizes the database details.
-![Install SSMS](../../assets/install-ssms.png)
+![Install SSMS](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/install-ssms.png)
  You may want to make a note of the following information on the screen - Instance name, connection string, log folder path, SQL engine path, and the installation resources folder path.
 
 ## Install SSMS
 
 1. On the SQL Server 2019 completion screen, click **Install SSMS**.
 1. On the download page, scroll down and click on **Download SQL Server Management Studio (SSMS)**.
-![Download SSMS](../../assets/download-ssms.png)
+![Download SSMS](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/download-ssms.png)
 1. Double click the **SSMS-Setup-ENU.exe** executable from your download location.
-![SSMS setup](../../assets/ssms-setup.png)
+![SSMS setup](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/ssms-setup.png)
 1. The default download location is indicated. To select a different location, click the **Change** button.
-![Install SSMS](../../assets/ssms-location.png)
+![Install SSMS](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/ssms-location.png)
 Click **Install**.
 
 Once SSMS is successfully installed, click **Restart**.
-![SSMS Installed](../../assets/ssms-installed.png)
+![SSMS Installed](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/ssms-installed.png)
 
 Congratulations! You have successfully installed MS SQL Server 2019 and SQL Server Management Studio (SSMS) 18.9.2 on Windows.
 
 ### Connect to SQL Server Database Engine
 
 1. Click **Start** and search Microsoft SQL Server Management Studio or SSMS.
-![](../../assets/select-ssms.png)
+![](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select-ssms.png)
 1. From the *Object Explorer* panel on the left, click **Connect**.
 1. In the **Connect to Server** dialog box, click **Connect** with the default server values.
-![](../../assets/connect-to-server.png)
+![](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/connect-to-server.png)
 In this case, *Server name* is your machine name.
 
 1. You are now connected to MS SQL system database, as indicated with a green arrow in the screenshot.
-![Connected to DB engine](../../assets/dbengine-connect.png)
+![Connected to DB engine](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/dbengine-connect.png)
 
 ## Next Steps
 

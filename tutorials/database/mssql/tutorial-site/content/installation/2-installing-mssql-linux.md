@@ -39,7 +39,7 @@ sudo apt-get install -y mssql-server
 ```
 Select the geographic area and the timezone.
 
-![MS SQL installed on Linux](../../assets/linux/mssql-installed.png)
+![MS SQL installed on Linux](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/linux/mssql-installed.png)
 
 4. Run the following command to complete the Microsoft SQL Server setup.
 
@@ -57,7 +57,7 @@ On completion of the setup, you get the message: "Setup has completed successful
 systemctl status mssql-server --no-pager
 ```
 
-![MS SQL Server running](../../assets/linux/mssql-running.png)
+![MS SQL Server running](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/linux/mssql-running.png)
 
 The above message **Active: active (running)** confirms the installation.
 
@@ -72,7 +72,7 @@ In Ubuntu OS, you need to use the command-line tool `sqlcmd` to run Transact-SQL
 Install curl on Ubuntu.
 
 ```bash
-sudo apt-get update 
+sudo apt-get update
 sudo apt install curl
 ```
 
@@ -91,7 +91,7 @@ curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /et
 3. Update the sources list and run the installation command with the unixODBC developer package.
 
 ```bash
-sudo apt-get update 
+sudo apt-get update
 sudo apt-get install mssql-tools unixodbc-dev
 ```
 

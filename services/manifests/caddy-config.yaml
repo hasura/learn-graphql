@@ -169,6 +169,14 @@ data:
         /learn/ja/graphql/hasura/ /learn/ja/graphql/hasura/introduction
       }
 
+      redir 301 {
+        /learn/zh/graphql/hasura/ /learn/zh/graphql/hasura/introduction
+      }
+
+      redir 301 {
+        /learn/zh/graphql/intro-graphql/ /learn/zh/graphql/intro-graphql/introduction
+      }
+
       proxy /learn/auth/webhook auth-webhook {
         without /learn/auth
       }
@@ -250,6 +258,10 @@ data:
       proxy /learn/graphql/nextjs-fullstack-serverless nextjs-fullstack-serverless
 
       proxy /learn/ja/graphql/hasura hasura-backend-ja
+
+      proxy /learn/zh/graphql/hasura hasura-backend-zh
+
+      proxy /learn/zh/graphql/intro-graphql intro-graphql-zh
 
       proxy /learn/graphql hasura/v1/graphql {
         without /learn/graphql

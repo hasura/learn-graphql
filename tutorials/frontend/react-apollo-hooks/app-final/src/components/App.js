@@ -10,7 +10,7 @@ import { WebSocketLink } from "@apollo/client/link/ws";
 
 import { useAuth0 } from "./Auth/react-auth0-spa";
 
-const createApolloClient = authToken => {
+const createApolloClient = (authToken) => {
   return new ApolloClient({
     link: new WebSocketLink({
       uri: "wss://hasura.io/learn/graphql",
@@ -18,12 +18,12 @@ const createApolloClient = authToken => {
         reconnect: true,
         connectionParams: {
           headers: {
-            Authorization: `Bearer ${authToken}`
-          }
-        }
-      }
+            Authorization: `Bearer ${authToken}`,
+          },
+        },
+      },
     }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 };
 

@@ -55,7 +55,7 @@ async function getHeaders(ctx) {
   if (typeof window !== 'undefined') return null
   if (typeof ctx.req === 'undefined') return null
 
-  const s = await auth0.getSession(ctx.req)
+  const s = await auth0.getSession(ctx.req, ctx.res)
   if (s && s.accessToken == null) return null
 
   return {

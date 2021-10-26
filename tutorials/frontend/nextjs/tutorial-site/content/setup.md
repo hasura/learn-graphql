@@ -27,10 +27,12 @@ AUTH0_CLIENT_ID=
 AUTH0_AUDIENCE=https://hasura.io/learn
 AUTH0_DOMAIN=
 AUTH0_CLIENT_SECRET=
-REDIRECT_URI=http://localhost:3000/api/callback
+REDIRECT_URI=/api/callback
 POST_LOGOUT_REDIRECT_URI=http://localhost:3000/
 SESSION_COOKIE_SECRET=
 ```
+
+Do note that, the value of `AUTH0_DOMAIN` should be a full URL including the `https://` prefix as required.
 
 This is what you should see after the steps above:
 

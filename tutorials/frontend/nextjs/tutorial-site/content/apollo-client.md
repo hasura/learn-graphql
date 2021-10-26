@@ -1,7 +1,7 @@
 ---
 title: "Configure Apollo Client with Next.js"
 metaTitle: "Configure Apollo Client with Next.js | Next.js GraphQL Serverless Tutorial"
-metaDescription: "You will learn how to configure Apollo Client in Next.js by installing dependencies like apollo-boost @apollo/react-hooks apollo-link-ws"
+metaDescription: "You will learn how to configure Apollo Client in React by installing @apollo/client"
 ---
 
 import GithubLink from "../src/GithubLink.js";
@@ -9,10 +9,11 @@ import GithubLink from "../src/GithubLink.js";
 Apollo gives a neat abstraction layer and an interface to your GraphQL server. You don't need to worry about constructing your queries with request body, headers and options, that you might have done with `axios` or `fetch` say. You can directly write queries and mutations in GraphQL and they will automatically be sent to your server via your apollo client instance.
 
 ### React Apollo Hooks Installation
+
 Let's get started by installing apollo client & peer graphql dependencies:
 
 ```bash
-$ yarn add apollo-boost @apollo/react-hooks graphql apollo-link-ws subscriptions-transport-ws
+$ yarn add @apollo/client graphql subscriptions-transport-ws
 ```
 
 ### Create Apollo Client Instance
@@ -23,12 +24,12 @@ Create a file called `apolloClient.js` inside the `lib` folder and write the fol
 
 ```javascript
 import fetch from 'isomorphic-unfetch'
-import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { HttpLink } from 'apollo-link-http'
-import { onError } from 'apollo-link-error'
-import { WebSocketLink } from 'apollo-link-ws'
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { onError } from "@apollo/client/link/error";
+import { WebSocketLink } from "@apollo/client/link/ws";
 import { SubscriptionClient } from 'subscriptions-transport-ws'
+
 import auth0 from './auth0';
 
 let accessToken = null
@@ -83,9 +84,9 @@ export default function createApolloClient(initialState, headers) {
   const ssrMode = typeof window === 'undefined'
   let link
   if (ssrMode) {
-    link = createHttpLink(headers) // executed on server
+    link = createHttpLink(headers)
   } else {
-    link = createWSLink() // executed on client
+    link = createWSLink()
   }
   return new ApolloClient({
     ssrMode,
@@ -93,6 +94,9 @@ export default function createApolloClient(initialState, headers) {
     cache: new InMemoryCache().restore(initialState),
   })
 }
+
+
+
 ```
 
 Let's try to understand what is happening here. 

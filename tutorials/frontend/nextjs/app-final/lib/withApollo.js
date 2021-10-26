@@ -1,7 +1,7 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from "@apollo/client";
 import createApolloClient from './apolloClient';
 import auth0 from './auth0';
 
@@ -55,7 +55,7 @@ async function getHeaders(ctx) {
   if (typeof window !== 'undefined') return null
   if (typeof ctx.req === 'undefined') return null
 
-  const s = await auth0.getSession(ctx.req)
+  const s = await auth0.getSession(ctx.req, ctx.res)
   if (s && s.accessToken == null) return null
 
   return {
@@ -143,7 +143,7 @@ export const withApollo = ({ ssr = true } = {}) => (PageComponent) => {
         if (ssr) {
           try {
             // Run all GraphQL queries
-            const { getDataFromTree } = await import('@apollo/react-ssr')
+            const { getDataFromTree } = await import('@apollo/client/react/ssr')
             await getDataFromTree(
               <AppTree
                 pageProps={{
@@ -161,7 +161,7 @@ export const withApollo = ({ ssr = true } = {}) => (PageComponent) => {
 
           // getDataFromTree does not call componentWillUnmount
           // head side effect therefore need to be cleared manually
-          Head.rewind()
+          // Head.rewind()
         }
       }
 

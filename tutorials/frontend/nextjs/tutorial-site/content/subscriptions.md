@@ -32,8 +32,7 @@ Open `components/OnlineUsers/OnlineUsersWrapper.js` and add the following import
 ```javascript
 - import React from "react";
 + import React, { useEffect, useState } from "react";
-+ import { useMutation } from "@apollo/react-hooks";
-+ import gql from "graphql-tag";
++ import { useMutation, gql } from "@apollo/client";
 ```
 
 In `useEffect`, we will create a `setInterval` to update the last_seen of the user every 30 seconds.

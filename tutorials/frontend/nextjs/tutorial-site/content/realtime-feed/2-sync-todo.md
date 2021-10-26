@@ -17,9 +17,8 @@ Start off by importing `useEffect` from  `react` and `useApolloClient` from `@ap
 ```javascript
 - import React, { Fragment } from "react";
 + import React, { Fragment, useState, useEffect } from "react";
-- import { useSubscription } from "@apollo/react-hooks";
-+ import { useSubscription, useApolloClient } from "@apollo/react-hooks";
-import gql from 'graphql-tag';
+- import { useSubscription, gql } from "@apollo/client";
++ import { useSubscription, useApolloClient, gql } from "@apollo/client";
 
 import TaskItem from "./TaskItem";
 ```

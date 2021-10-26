@@ -1,7 +1,7 @@
 ---
 title: "Mutation and update cache"
 metaTitle: "Apollo client.mutate for GraphQL mutation update | Next.js GraphQL Serverless Tutorial"
-metaDescription: "We will use the Apollo useMutation React hook from @apollo/react-hooks as an example to modify existing data and update cache locally using readQuery and writeQuery and handle optimisticResponse"
+metaDescription: "We will use the Apollo useMutation React hook from @apollo/client as an example to modify existing data and update cache locally using readQuery and writeQuery and handle optimisticResponse"
 ---
 
 import GithubLink from "../../src/GithubLink.js";
@@ -9,8 +9,9 @@ import GithubLink from "../../src/GithubLink.js";
 Now let's do the integration part. Open `components/Todo/TodoItem.js` and add the following code below the other imports:
 
 ```javascript
-+ import gql from 'graphql-tag';
++ import { gql } from "@apollo/client";
 ```
+
 Let's define the graphql mutation to update the completed status of the todo
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/nextjs/app-final/components/Todo/TodoItem.js" text="components/Todo/TodoItem.js" />
@@ -43,12 +44,12 @@ export default TodoItem;
 ```
 
 ### Apollo useMutation React hook
+
 We need to use `useMutation` React hook to make the mutation.
 
 ```javascript
   import React from 'react';
-+ import { useMutation } from "@apollo/react-hooks";
-  import gql from 'graphql-tag';
++ import { useMutation, gql } from "@apollo/client";
 
   const TodoItem = ({index, todo}) => {
     const removeTodo = (e) => {

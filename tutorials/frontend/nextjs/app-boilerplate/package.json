@@ -7,23 +7,17 @@
     "start": "next start"
   },
   "dependencies": {
-    "@apollo/react-hooks": "3.1.5",
-    "@apollo/react-ssr": "3.1.5",
-    "@auth0/nextjs-auth0": "0.13.0",
+    "@auth0/nextjs-auth0": "1.6.1",
     "bootstrap": "3.4.1",
-    "dotenv": "8.2.0",
-    "graphql": "14.6.0",
-    "graphql-tag": "2.11.0",
-    "isomorphic-unfetch": "3.0.0",
-    "next": "9.4.1",
-    "nookies": "2.3.1",
+    "dotenv": "10.0.0",
+    "graphql": "15.6.1",
+    "isomorphic-unfetch": "3.1.0",
+    "next": "11.1.2",
+    "nookies": "2.5.2",
     "prop-types": "15.7.2",
-    "react": "16.13.1",
+    "react": "17.0.2",
     "react-bootstrap": "1.0.1",
-    "react-dom": "16.13.1"
+    "react-dom": "17.0.2"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "babel-plugin-graphql-tag": "2.5.0"
-  }
+  "license": "ISC"
 }

@@ -1,17 +1,18 @@
 ---
 title: "useMutation Hook, Update Cache"
 metaTitle: "Apollo useMutation React hook | Next.js GraphQL Serverless Tutorial"
-metaDescription: "We will use the Apollo Client useMutation from @apollo/react-hooks in React app as an example to insert new data and update cache locally using readQuery and writeQuery."
+metaDescription: "We will use the Apollo Client useMutation from @apollo/client in Next.js app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
 ### Apollo useMutation React hook
+
 Now let's do the integration part. Open `components/Todo/TodoInput.js` and add the following code below the other imports:
 
 ```javascript
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 ```
 
-We are importing the `useMutation` React hook from `@apollo/react-hooks` and the graphql query we defined above to fetch the todo data.
+We are importing the `useMutation` React hook from `@apollo/client` and the graphql query we defined above to fetch the todo data.
 
 Now, we will use the `useMutation` React hook passing our graphql mutation constant that we imported. Add the following code:
 
@@ -88,11 +89,12 @@ Now let's handle the form submit to invoke the mutation.
 ```
 
 We are passing the mutate function (`addTodo`) to our form submit handler.
-The mutate function's first argument would be the mutation query's options, such as variables etc. We are now passing the variables required for the mutation. 
+The mutate function's first argument would be the mutation query's options, such as variables etc. We are now passing the variables required for the mutation.
 
 The mutation has been integrated and the new todos will be inserted into the database. But the UI doesn't know that a new todo has been added. We need a way to tell Apollo Client to update the query for the list of todos.
 
 ### Apollo React Mutation Update
+
 The `update` function comes in handy to update the cache for this mutation. It comes with utility functions such as `readQuery` and `writeQuery` that helps in reading from and writing to the cache.
 
 Let's implement `update` for the above mutation.

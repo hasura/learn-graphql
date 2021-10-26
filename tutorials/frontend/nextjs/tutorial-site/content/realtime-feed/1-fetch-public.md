@@ -14,7 +14,7 @@ Open `components/Todo/TodoPublicList.js` and add the following imports.
 
 ```javascript
 import React, { useState, Fragment } from 'react';
-+ import gql from 'graphql-tag';
++ import { gql } from "@apollo/client";
 
 import TaskItem from "./TaskItem";
 ```
@@ -23,7 +23,7 @@ Now let's define the subscription query to get notified about new public todos
 
 ```javascript
 import React, { useState, Fragment } from 'react';
-import gql from 'graphql-tag';
+import { gql } from "@apollo/client";
 
 import TaskItem from "./TaskItem";
 
@@ -45,12 +45,12 @@ export default TodoPublicList;
 ```
 
 Also lets add a functional component which uses this subscription query.
-Import `useSubscription` from `@apollo/react-hooks` to get started.
+Import `useSubscription` from `@apollo/client` to get started.
 
 ```javascript
 import React, { Component, Fragment } from 'react';
-+ import { useSubscription } from "@apollo/react-hooks";
-import gql from 'graphql-tag';
+- import { gql } from "@apollo/client";
++ import { useSubscription, gql } from "@apollo/client";
 
 import TaskItem from "./TaskItem";
 

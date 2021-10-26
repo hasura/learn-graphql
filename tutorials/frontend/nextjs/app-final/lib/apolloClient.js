@@ -3,12 +3,9 @@ import fetch from 'isomorphic-unfetch'
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
-
 import { WebSocketLink } from "@apollo/client/link/ws";
-
 import { SubscriptionClient } from 'subscriptions-transport-ws'
 
-import { parseCookies } from 'nookies';
 import auth0 from './auth0';
 
 let accessToken = null

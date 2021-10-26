@@ -15,11 +15,11 @@ Open `components/OnlineUsers/OnlineUsersWrapper.js` and add the following code, 
 ```javascript
 - import React, { useEffect, useState } from "react";
 + import React, { useEffect, Fragment, useState } from "react";
-- import { useMutation } from "@apollo/react-hooks";
-+ import { useMutation, useSubscription } from "@apollo/react-hooks";
+- import { useMutation } from "@apollo/client";
++ import { useMutation, useSubscription, gql } from "@apollo/client";
 ```
 
-We are importing the `useSubscription` React hook from `@apollo/react-hooks` and the graphql subscription query we defined above to fetch the online user data.
+We are importing the `useSubscription` React hook from `@apollo/client` and the graphql subscription query we defined above to fetch the online user data.
 
 Now, we will use the `useSubscription` React hook passing the subscription query:
 

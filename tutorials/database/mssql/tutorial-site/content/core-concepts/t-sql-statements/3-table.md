@@ -1,5 +1,5 @@
 ---
-title: "table"
+title: "Table"
 metaTitle: "T-SQL commands on a table | MSSQL Tutorial"
 metaDescription: "This page explains how to create a table, insert data into a table, drop table, and truncate a table."
 ---

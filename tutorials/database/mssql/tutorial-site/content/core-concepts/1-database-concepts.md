@@ -19,12 +19,11 @@ To get a complete list of objects in your schema -
 * In the Query editor, execute the following command
 
 ```SQL
-SELECT DISTINCT OBJECT_NAME, OBJECT_TYPE FROM sys.all_objects;
+SELECT DISTINCT type_desc FROM sys.all_objects;
 ```
 
 Output:
 
-```SQL
 type_desc
 CLR_STORED_PROCEDURE
 EXTENDED_STORED_PROCEDURE
@@ -41,7 +40,6 @@ INTERNAL_TABLE
 CLR_SCALAR_FUNCTION
 SQL_SCALAR_FUNCTION
 UNIQUE_CONSTRAINT
-```
 
 ## What is a Database Schema
 

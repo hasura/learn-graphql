@@ -24,7 +24,7 @@ In this section, you will restore a database from a backup file into your SQL Se
 
     ![select](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/restore/select-backup.png)
 
-1. Locate the **AdventureWorks2019.bak` file from the default location, and click **OK**.
+1. Locate the `AdventureWorks2019.bak` file from the default location, and click **OK**.
 
     ![backup created](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/restore/backup-created.png)
 

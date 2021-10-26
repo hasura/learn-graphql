@@ -1,5 +1,5 @@
 ---
-title: "SELECT (T-SQL) command"
+title: "SELECT"
 metaTitle: "SELECT (T-SQL) command | MSSQL Tutorial"
 metaDescription: "This page explains how you can query the database and view the records using the `SELECT` query."
 ---
@@ -17,8 +17,7 @@ Download the sample database here: [AdventureWorks2019.bak](https://docs.microso
 
 Select the `OLTP` data that is used for most typical online transaction processing workloads.
 
-Move the `.bak` file to your SQL Server backup location. The default location for a default instance of SQL Server 2019 is:
-`C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup`.
+Move the `.bak` file to your SQL Server backup location. The default location for a default instance of SQL Server 2019 is: `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup`.
 
 ## Restore to SQL Server
 
@@ -27,13 +26,13 @@ Next, you can use the `.bak` file to [restore the sample database](https://hasur
 ## Before you begin
 
 1. In the **Object Explorer**, click to expand **AdventureWorks2019 > Tables**.
-1. Select **HumanResources.Employee**, and then click **New Query** from the top ribbon bar.
+2. Select **HumanResources.Employee**, and then click **New Query** from the top ribbon bar.
 where,
 
-    * `HumanResources` is the schema name.
-    * `Employee` is a table in the above schema.
+- `HumanResources` is the schema name.
+- `Employee` is a table in the above schema.
 
-1. Run the below statement to use the 'AdventureWorks2019' sample database.
+3. Run the below statement to use the 'AdventureWorks2019' sample database.
 
 ```SQL
 USE AdventureWorks2019;
@@ -44,7 +43,7 @@ GO
 
 The statement is used to retrieve all of the columns or some columns based on certain clauses.
 
-Syntax:
+**Syntax**
 
 ```SQL
 SELECT [Arguments]
@@ -252,7 +251,8 @@ It specifies a search condition on the Groups.
 
 ```SQL
 --List the department that has more than 25 employees
-SELECT COUNT(NationalIDNumber) AS 'Count of employees', JobTitle FROM HumanResources.Employee
+SELECT COUNT(NationalIDNumber) AS 'Count of employees', JobTitle 
+FROM HumanResources.Employee
 GROUP BY JobTitle
 HAVING COUNT(NationalIDNumber) > 20;
 ```
@@ -262,7 +262,6 @@ HAVING COUNT(NationalIDNumber) > 20;
 ### ORDER BY
 
 The result set can be sorted by any column's value in ascending (`ASC`) or descending (`DESC`) order.
-
 By default, the rows are sorted in ascending order. To change the order in descending order run the following statement:
 
 ```SQL

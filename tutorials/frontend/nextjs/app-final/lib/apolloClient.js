@@ -1,11 +1,13 @@
 import fetch from 'isomorphic-unfetch'
-import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { HttpLink } from 'apollo-link-http'
-import { setContext } from 'apollo-link-context'
-import { onError } from 'apollo-link-error'
-import { WebSocketLink } from 'apollo-link-ws'
+
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { onError } from "@apollo/client/link/error";
+
+import { WebSocketLink } from "@apollo/client/link/ws";
+
 import { SubscriptionClient } from 'subscriptions-transport-ws'
+
 import { parseCookies } from 'nookies';
 import auth0 from './auth0';
 

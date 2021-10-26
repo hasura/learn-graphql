@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { useSubscription, useApolloClient } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import { useSubscription, useApolloClient, gql } from "@apollo/client";
 import TaskItem from "./TaskItem";
 
 const TodoPublicList = props => {

@@ -58,6 +58,17 @@ const config = {
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/graphql/intro-graphql/tutorial-site/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
+  "language": {
+    "code": "en",
+    "name": "English",
+    "translations": [
+      {
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/intro-graphql/introduction"
+      },
+    ]
+	}
 };
 
 module.exports = config;

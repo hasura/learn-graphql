@@ -55,7 +55,20 @@ const config = {
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
 	"language": {
-		"code": "ja"
+    "code": "ja",
+    "name": "Japanese",
+    "translations": [
+      {
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/hasura/introduction"
+      },
+      {
+        "code": "en",
+        "name": "English",
+        "link": "https://hasura.io/learn/graphql/hasura/introduction"
+      },
+    ]
 	}
 };
 

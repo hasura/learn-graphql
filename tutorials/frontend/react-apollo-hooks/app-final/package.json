@@ -27,8 +27,6 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "husky": "^7.0.4",
-    "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
     "react-scripts": "4.0.3"
   },
@@ -38,16 +36,6 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "eslintConfig": {
     "extends": [

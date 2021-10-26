@@ -10,11 +10,9 @@ However, learning new things always takes time and, without getting your hands d
 
 So, we put together a practical and concise course that will introduce you to GraphQL and its core concepts.
 
-We will explore the fundamentals of GraphQL and what makes it especially suitable for modern applications, like its realtime capabilities! 
+We will explore the fundamentals of GraphQL and what makes it especially suitable for modern applications, like its realtime capabilities!
 
-## Key topics and takeaways:
-
-import {Link} from "gatsby";
+## Key topics and takeaways
 
 - <Link to="/what-is-graphql/">What is GraphQL?</Link>
 - <Link to="/graphql-vs-rest/">GraphQL vs REST</Link>
@@ -28,4 +26,5 @@ import {Link} from "gatsby";
 - <Link to="/what-next/">What next?</Link>
 
 ## How long will this tutorial take?
+
 Less than an hour

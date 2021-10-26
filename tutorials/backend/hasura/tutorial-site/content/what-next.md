@@ -4,8 +4,6 @@ metaTitle: "What next? | Hasura GraphQL Tutorial"
 metaDescription: "Learn what to do next with GraphQL and Hasura with more community resources. Join our discord channel for support."
 ---
 
-import TwitterShare from './twitter-share';
-
 Congratulations! You have successfully completed the course.
 
 In case you are wondering what to do next, you have the following options:
@@ -22,11 +20,6 @@ We have courses for your favorite front-end frameworks like React, Vue, etc usin
 
 - React - [https://hasura.io/learn/graphql/react](https://hasura.io/learn/graphql/react/introduction/)
 - Vue - [https://hasura.io/learn/graphql/vue](https://hasura.io/learn/graphql/vue/introduction/)
-
-## Spread the word
-
-Liked the course?
-Do spread the word on Twitter! <TwitterShare />
 
 ## Additonal Resources
 

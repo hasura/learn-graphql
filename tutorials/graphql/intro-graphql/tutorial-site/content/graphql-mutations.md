@@ -4,11 +4,10 @@ metaTitle: "GraphQL Mutations to insert data | GraphQL Tutorial"
 metaDescription: "Try out GraphQL Mutation using GraphiQL. A GraphQL mutation example with dynamic arguments and variables to insert data"
 ---
 
-import {Link} from "gatsby";
+These are the concepts you should know before you attack mutations:
 
-These are the concepts you should know before you attack mutations (haha):
-- <Link to="/graphql-queries/#graphiql">Using GraphiQL</Link>
-- <Link to="/graphql-queries/#graphqlvariables:passingargumentstoyourqueriesdynamically">Using query variables</Link>
+- Using GraphiQL
+- Using query variables
 
 Now, let's get started with seeing how we can use GraphQL to "write" data.
 GraphQL mutations are types of GraphQL queries that may result in the state
@@ -16,6 +15,7 @@ of your backend "mutating" or changing, just like typical `'POST'`,
 `'PUT'`, `'PATCH'`, `'DELETE'` APIs.
 
 ## Basic mutations
+
 Since we're using Hasura for our GraphQL API, we get mutations for
 inserts, updates or deletes that we can use in our app.
 
@@ -51,6 +51,7 @@ mutation {
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## Returning data after the mutation
+
 Notice that the data of the todo that is to be inserted is sent as
 an argument to the `insert_todos` mutation. But the "fields" of the mutation
 specify the shape of the _response_ that you want from the server.

@@ -8,7 +8,7 @@ import { useFetchUser } from '../lib/user'
 import { withApollo } from '../lib/withApollo'
 
 const IndexPage = () => { 
-  const { user, loading } = useFetchUser({required: true})
+  const { user, loading } = useFetchUser()
   if (!loading && !user) {
     return <Login />
   }

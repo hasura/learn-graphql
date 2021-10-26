@@ -9,7 +9,7 @@ const config = {
     logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-flutter/flutter-favicon.png",
     logoLink: "https://hasura.io/learn/",
     title:
-      "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/flutter-graphql/introduction/'>/ flutter</a>",
+      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/flutter-graphql/introduction/'>flutter</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:

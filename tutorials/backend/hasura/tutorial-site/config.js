@@ -78,7 +78,10 @@ const config = {
         link: "https://hasura.io/learn/zh/graphql/hasura/introduction"
       },
     ]
-	}
+	},
+  newsletter: {
+    ebookAvailable: true
+  }
 };
 
 module.exports = config;

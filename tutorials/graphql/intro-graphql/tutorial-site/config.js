@@ -8,7 +8,7 @@ const config = {
 	"header": {
 		"logo": 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-intro/graphql-favicon.png',
 		"logoLink": "https://hasura.io/learn/",
-		"title": "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/intro-graphql/introduction/'>/ intro-graphql</a>",
+		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/intro-graphql/introduction/'>intro-graphql</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
 		"tweetText": "Check out this Introduction to GraphQL course for Fullstack developers by @HasuraHQ https://hasura.io/learn/graphql/intro-graphql/introduction/",
@@ -58,6 +58,20 @@ const config = {
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/graphql/intro-graphql/tutorial-site/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
+  "language": {
+    "code": "en",
+    "name": "English",
+    "translations": [
+      {
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/intro-graphql/introduction/"
+      },
+    ]
+  },
+  "newsletter": {
+    "ebookAvailable": true
+  }
 };
 
 module.exports = config;

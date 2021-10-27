@@ -9,7 +9,7 @@ const config = {
     logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-postgresql/postgres-logo.png",
     logoLink: "https://hasura.io/learn/",
     title:
-      "learn <a href='https://hasura.io/learn/'>/ database </a><a href='https://hasura.io/learn/database/postgresql/introduction/'>/ postgresql</a>",
+      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/database/postgresql/introduction/'>postgresql</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:

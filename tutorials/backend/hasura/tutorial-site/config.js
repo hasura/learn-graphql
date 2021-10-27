@@ -9,7 +9,7 @@ const config = {
     logo: "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
     logoLink: "https://hasura.io/learn/",
     title:
-      "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/hasura/introduction/'>/ hasura</a>",
+      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/hasura/introduction/'>hasura</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:
@@ -63,6 +63,25 @@ const config = {
     favicon:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },
+  language: {
+    code: "en",
+    name: "English",
+    translations: [
+      {
+        code: "ja",
+        name: "Japanese",
+        link: "https://hasura.io/learn/ja/graphql/hasura/introduction/"
+      },
+      {
+        code: "zh",
+        name: "Chinese",
+        link: "https://hasura.io/learn/zh/graphql/hasura/introduction/"
+      },
+    ]
+	},
+  newsletter: {
+    ebookAvailable: true
+  }
 };
 
 module.exports = config;

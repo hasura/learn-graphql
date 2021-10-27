@@ -9,7 +9,7 @@ const config = {
     logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-typescript-react-apollo/typescript-favicon.png",
     logoLink: "https://hasura.io/learn/",
     title:
-      "learn <a href='https://hasura.io/learn/'>/ graphql </a><a href='https://hasura.io/learn/graphql/typescript-react-apollo/introduction/'>/ typescript-react-apollo</a>",
+      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/typescript-react-apollo/introduction/'>typescript-react-apollo</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:

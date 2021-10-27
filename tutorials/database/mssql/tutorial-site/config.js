@@ -9,7 +9,7 @@ const config = {
       logo: "",
       logoLink: "https://hasura.io/learn/",
       title:
-        "learn <a href='https://hasura.io/learn/'>/ database </a><a href='https://hasura.io/learn/database/microsoft-sql-server/introduction/'>/ mssql</a>",
+        " <a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/database/microsoft-sql-server/introduction/'>mssql</a>",
       githubUrl: "https://github.com/hasura/learn-graphql",
       helpUrl: "https://discord.com/invite/hasura",
       tweetText:
@@ -68,6 +68,5 @@ const config = {
         "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
     },
   };
-  
+
   module.exports = config;
-  

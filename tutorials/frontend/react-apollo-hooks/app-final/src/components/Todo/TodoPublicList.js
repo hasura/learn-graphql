@@ -1,46 +1,30 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useCallback } from "react";
 import { useSubscription, useApolloClient, gql } from "@apollo/client";
 import TaskItem from "./TaskItem";
 
-const TodoPublicList = props => {
+const TodoPublicList = (props) => {
   const [state, setState] = useState({
     olderTodosAvailable: props.latestTodo ? true : false,
     newTodosCount: 0,
     error: false,
-    todos: []
+    todos: [],
   });
 
   let numTodos = state.todos.length;
   let oldestTodoId = numTodos
     ? state.todos[numTodos - 1].id
     : props.latestTodo
-      ? props.latestTodo.id + 1
-      : 0;
+    ? props.latestTodo.id + 1
+    : 0;
   let newestTodoId = numTodos
     ? state.todos[0].id
     : props.latestTodo
-      ? props.latestTodo.id
-      : 0;
+    ? props.latestTodo.id
+    : 0;
 
   const client = useApolloClient();
 
-  useEffect(() => {
-    loadOlder();
-  }, []);
-
-  useEffect(
-    () => {
-      if (props.latestTodo && props.latestTodo.id > newestTodoId) {
-        setState(prevState => {
-          return { ...prevState, newTodosCount: prevState.newTodosCount + 1 };
-        });
-        newestTodoId = props.latestTodo.id;
-      }
-    },
-    [props.latestTodo]
-  );
-
-  const loadOlder = async () => {
+  const loadOlder = useCallback(async () => {
     const GET_OLD_PUBLIC_TODOS = gql`
       query getOldPublicTodos($oldestTodoId: Int!) {
         todos(
@@ -60,26 +44,39 @@ const TodoPublicList = props => {
 
     const { error, data } = await client.query({
       query: GET_OLD_PUBLIC_TODOS,
-      variables: { oldestTodoId: oldestTodoId }
+      variables: { oldestTodoId: oldestTodoId },
     });
 
     if (data.todos.length) {
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, todos: [...prevState.todos, ...data.todos] };
       });
       oldestTodoId = data.todos[data.todos.length - 1].id;
     } else {
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, olderTodosAvailable: false };
       });
     }
     if (error) {
       console.error(error);
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, error: true };
       });
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    loadOlder();
+  }, [loadOlder]);
+
+  useEffect(() => {
+    if (props.latestTodo && props.latestTodo.id > newestTodoId) {
+      setState((prevState) => {
+        return { ...prevState, newTodosCount: prevState.newTodosCount + 1 };
+      });
+      newestTodoId = props.latestTodo.id;
+    }
+  }, [props.latestTodo]);
 
   const loadNew = async () => {
     const GET_NEW_PUBLIC_TODOS = gql`
@@ -101,23 +98,23 @@ const TodoPublicList = props => {
     const { error, data } = await client.query({
       query: GET_NEW_PUBLIC_TODOS,
       variables: {
-        latestVisibleId: state.todos.length ? state.todos[0].id : null
-      }
+        latestVisibleId: state.todos.length ? state.todos[0].id : null,
+      },
     });
 
     if (data) {
-      setState(prevState => {
+      setState((prevState) => {
         return {
           ...prevState,
           todos: [...data.todos, ...prevState.todos],
-          newTodosCount: 0
+          newTodosCount: 0,
         };
       });
       newestTodoId = data.todos[0].id;
     }
     if (error) {
       console.error(error);
-      setState(prevState => {
+      setState((prevState) => {
         return { ...prevState, error: true };
       });
     }

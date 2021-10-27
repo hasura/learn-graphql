@@ -61,12 +61,12 @@ const config = {
       {
         "code": "zh",
         "name": "Chinese",
-        "link": "https://hasura.io/learn/zh/graphql/hasura/introduction"
+        "link": "https://hasura.io/learn/zh/graphql/hasura/introduction/"
       },
       {
         "code": "en",
         "name": "English",
-        "link": "https://hasura.io/learn/graphql/hasura/introduction"
+        "link": "https://hasura.io/learn/graphql/hasura/introduction/"
       },
     ]
 	}

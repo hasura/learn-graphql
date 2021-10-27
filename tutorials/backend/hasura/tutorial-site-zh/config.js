@@ -70,12 +70,12 @@ const config = {
       {
         code: "ja",
         name: "Japanese",
-        link: "https://hasura.io/learn/ja/graphql/hasura/introduction"
+        link: "https://hasura.io/learn/ja/graphql/hasura/introduction/"
       },
       {
         code: "en",
         name: "English",
-        link: "https://hasura.io/learn/graphql/hasura/introduction"
+        link: "https://hasura.io/learn/graphql/hasura/introduction/"
       },
     ]
 	}

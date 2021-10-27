@@ -65,7 +65,7 @@ const config = {
       {
         "code": "zh",
         "name": "Chinese",
-        "link": "https://hasura.io/learn/zh/graphql/intro-graphql/introduction"
+        "link": "https://hasura.io/learn/zh/graphql/intro-graphql/introduction/"
       },
     ]
   },

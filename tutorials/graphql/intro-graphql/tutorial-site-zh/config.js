@@ -65,7 +65,7 @@ const config = {
       {
         "code": "en",
         "name": "English",
-        "link": "https://hasura.io/learn/graphql/intro-graphql/introduction"
+        "link": "https://hasura.io/learn/graphql/intro-graphql/introduction/"
       },
     ]
 	}

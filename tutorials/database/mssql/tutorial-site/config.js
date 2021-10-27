@@ -61,7 +61,7 @@ const config = {
       description:
         "A concise and powerful tutorial that covers fundamental concepts of MSSQL instantly and how to leverage it with Hasura",
       ogImage:
-        "",
+      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-mssql_server.png",
       docsLocation:
         "https://github.com/hasura/learn-graphql/tree/master/tutorials/database/mssql/tutorial-site/content",
       favicon:

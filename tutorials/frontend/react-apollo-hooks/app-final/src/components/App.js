@@ -9,7 +9,6 @@ import Login from "../components/Auth/Login";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
 
-// import { useAuth0 } from "./Auth/react-auth0-spa";
 import { useAuth0 } from "@auth0/auth0-react";
 import useAccessToken from "../hooks/useAccessToken";
 

@@ -10,12 +10,12 @@
     "@auth0/auth0-react": "^1.8.0",
     "@auth0/auth0-spa-js": "1.19.2",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "bootstrap": "5.1.3",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "graphql": "15.6.1",
+    "graphql": "15.7.1",
     "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-bootstrap": "2.0.0",
@@ -23,7 +23,7 @@
     "react-router": "5.2.1",
     "react-router-dom": "5.3.0",
     "subscriptions-transport-ws": "0.9.19",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^2.1.2"
   },
   "devDependencies": {
     "prettier": "^2.4.1",
@@ -32,9 +32,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js",
-    "lint:fix": "eslint src/**/*.js --fix"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

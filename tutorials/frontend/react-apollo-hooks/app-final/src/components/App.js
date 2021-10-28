@@ -4,13 +4,15 @@ import Header from "./Header";
 import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper";
+import Login from "../components/Auth/Login";
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
 
-import { useAuth0 } from "./Auth/react-auth0-spa";
+import { useAuth0 } from "@auth0/auth0-react";
+import useAccessToken from "../hooks/useAccessToken";
 
-const createApolloClient = authToken => {
+const createApolloClient = (authToken) => {
   return new ApolloClient({
     link: new WebSocketLink({
       uri: "wss://hasura.io/learn/graphql",
@@ -18,19 +20,25 @@ const createApolloClient = authToken => {
         reconnect: true,
         connectionParams: {
           headers: {
-            Authorization: `Bearer ${authToken}`
-          }
-        }
-      }
+            Authorization: `Bearer ${authToken}`,
+          },
+        },
+      },
     }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 };
 
-const App = ({ idToken }) => {
+const App = () => {
+  const idToken = useAccessToken();
   const { loading, logout } = useAuth0();
-  if (loading || !idToken) {
+
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (!idToken) {
+    return <Login />;
   }
   const client = createApolloClient(idToken);
   return (

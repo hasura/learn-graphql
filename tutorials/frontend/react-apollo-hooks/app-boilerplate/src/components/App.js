@@ -1,16 +1,24 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Header from "./Header";
+import Login from "./Auth/Login";
 import TodoPrivateWrapper from "./Todo/TodoPrivateWrapper";
 import TodoPublicWrapper from "./Todo/TodoPublicWrapper";
 import OnlineUsersWrapper from "./OnlineUsers/OnlineUsersWrapper";
 
-import { useAuth0 } from "./Auth/react-auth0-spa";
+import useAccessToken from "../hooks/useAccessToken";
 
-const App = ({ idToken }) => {
+const App = () => {
+  const idToken = useAccessToken();
   const { loading, logout } = useAuth0();
+
   if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (!idToken) {
+    return <Login />;
   }
   return (
     <div>

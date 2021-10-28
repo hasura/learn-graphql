@@ -17,7 +17,7 @@ const config = {
 			"link": ""
 		}],
 		"search": {
-			"enabled": false,
+			"enabled": true,
 			"indexName": "learn-intro-graphql-zh",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,

@@ -21,7 +21,7 @@ const config = {
         },
       ],
       search: {
-        enabled: false,
+        enabled: true,
         indexName: "learn-database-mssql",
         algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
         algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,

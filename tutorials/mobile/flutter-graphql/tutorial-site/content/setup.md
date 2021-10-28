@@ -7,13 +7,29 @@ metaDescription: "The GraphQL backend is already ready. The task is to convert t
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
 Our task will be to convert the "static" UI into a working realtime app.
 
-### Download and run the boilerplate
+### Clone and run the boilerplate
 
+1. Clone the [learn-graphql](https://github.com/hasura/learn-graphql) repo. Execute the following commands in your terminal:
 
-1. Download the boilerplate at: [https://hasura.io/learn/graphql/flutter-graphql/boilerplate.zip](https://hasura.io/learn/graphql/flutter-graphql/boilerplate.zip)
-2. Unzip and make sure you're in the `app-boilerplate` directory.
+```bash
+git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
+
+cd learn-graphql
+
+git sparse-checkout init --cone
+
+git sparse-checkout add tutorials/mobile/flutter-graphql/app-boilerplate
+```
+
+2. Navigate to the `app-boilerplate` directory.
+
+```bash
+cd tutorials/mobile/flutter-graphql/app-boilerplate
+```
+
 3. Run this app in your phone or emulator using `Flutter SDK`
     - `flutter run`
+
 4. Signup/login as a user to load the todo app screen
 
 After you login, you should get something like this:

@@ -7,10 +7,26 @@ metaDescription: "The GraphQL backend is already ready. The task is to convert t
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
 Our task will be to convert the "static" UI into a working realtime app.
 
-### Download and run the boilerplate
+### Clone and run the boilerplate
 
-1. Download the boilerplate at: https://hasura.io/learn/graphql/ios/boilerplate.zip
-2. Unzip and make sure you're in the `app-boilerplate` directory
+1. Clone the [learn-graphql](https://github.com/hasura/learn-graphql) repo. Execute the following commands in your terminal:
+
+```bash
+git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
+
+cd learn-graphql
+
+git sparse-checkout init --cone
+
+git sparse-checkout add tutorials/mobile/ios-apollo/app-boilerplate
+```
+
+2. Navigate to the `app-boilerplate` directory.
+
+```bash
+cd tutorials/mobile/ios-apollo/app-boilerplate
+```
+
 3. This project uses carthage for dependency resolution, so you would need carthage installed,
 
 ```bash
@@ -25,7 +41,7 @@ or you can use pacakge installation from [Carthage Latest Release](https://githu
 $ carthage update --platform iOS
 ```
 
-6. Run the app in xcode and signup with auth0 to view the app
+5. Run the app in xcode and signup with auth0 to view the app
 
 This is what you should see after the steps above:
 

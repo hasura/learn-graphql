@@ -7,13 +7,30 @@ metaDescription: "The GraphQL backend is already ready. The task is to convert t
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
 Our task will be to convert the "static" UI into a working realtime app.
 
-### Download and run the boilerplate
+### Clone and run the boilerplate
 
-1. Download the boilerplate from [https://hasura.io/learn/graphql/angular-apollo/boilerplate.zip](https://hasura.io/learn/graphql/angular-apollo/boilerplate.zip)
-2. Unzip and make sure you're in the `app-boilerplate` directory
+1. Clone the [learn-graphql](https://github.com/hasura/learn-graphql) repo. Execute the following commands in your terminal:
+
+```bash
+git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
+
+cd learn-graphql
+
+git sparse-checkout init --cone
+
+git sparse-checkout add tutorials/frontend/angular-apollo/app-boilerplate
+```
+
+2. Navigate to the `app-boilerplate` directory.
+
+```bash
+cd tutorials/frontend/angular-apollo/app-boilerplate
+```
+
 3. Install dependencies and run the "static" app
     - `npm install`
     - `npm start`
+
 4. Signup/login as a user to load the todo app page
 
 This is what you should see after the steps above:
@@ -22,7 +39,7 @@ This is what you should see after the steps above:
 
 ### Load GraphiQL to play with your GraphQL APIs
 
-1. Head to https://hasura.io/learn/graphql/graphiql
+1. Head to <https://hasura.io/learn/graphql/graphiql>
 2. Log in (so that you can test the GraphQL APIs with a valid user token)
 
 This is what you should see after the steps above:

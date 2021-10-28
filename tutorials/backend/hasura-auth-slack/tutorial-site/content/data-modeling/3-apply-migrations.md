@@ -6,7 +6,25 @@ metaDescription: "hasura migrate apply for creating tables and relationships"
 
 Let's get started by creating the tables and relationships for the Slack app.
 
-Download the hasura project with migrations from [here](https://hasura.io/learn/graphql/hasura-auth-slack/slack-backend.zip)
+## Download the hasura project with migrations
+
+1. Clone the [learn-graphql](https://github.com/hasura/learn-graphql) repo. Execute the following commands in your terminal:
+
+```bash
+git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
+
+cd learn-graphql
+
+git sparse-checkout init --cone
+
+git sparse-checkout add tutorials/backend/hasura-auth-slack/slack-backend
+```
+
+2. Navigate to the `slack-backend` directory.
+
+```bash
+cd tutorials/backend/hasura-auth-slack/slack-backend
+```
 
 Configure the endpoint to point to the Hasura Cloud app URL. Open the `config.yaml` file and set the endpoint value.
 

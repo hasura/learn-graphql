@@ -9,16 +9,33 @@ import YoutubeEmbed from "../src/YoutubeEmbed.js";
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
 Our task will be to convert the "static" UI into a working realtime app.
 
-### Download and run the boilerplate
+### Clone and run the boilerplate
 
-1. Download the boilerplate from https://hasura.io/learn/graphql/reason-react-apollo/boilerplate.zip
-2. Unzip and make sure you're in the `app-boilerplate` directory
+1. Clone the [learn-graphql](https://github.com/hasura/learn-graphql) repo. Execute the following commands in your terminal:
+
+```bash
+git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
+
+cd learn-graphql
+
+git sparse-checkout init --cone
+
+git sparse-checkout add tutorials/frontend/reason-react-apollo/app-boilerplate
+```
+
+2. Navigate to the `app-boilerplate` directory.
+
+```bash
+cd tutorials/frontend/reason-react-apollo/app-boilerplate
+```
+
 3. Run the following commands:
     - `npm install` to install the dependencies
     - `npm start` to compile the `.re` files to `.bs.js` files watch the source code for changes
     - In a new shell, run `npm run webpack` to bundle the `.bs.js` files
     - In another new shell, serve the build folder to serve the single page app (`npm install -g serve && serve -s -p 3000 build`)
     - Try opening your app at http://localhost:3000
+
 4. Signup/login as a user to load the todo app page
 
 This is what you should see after the steps above:

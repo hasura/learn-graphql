@@ -7,10 +7,26 @@ metaDescription: "The GraphQL backend is already ready. The task is to convert t
 For this tutorial, the GraphQL backend and the basic app UI is already ready.
 Our task will be to convert the "static" UI into a working realtime app.
 
-### Download and run the boilerplate
+### Clone and run the boilerplate
 
-1. Download the boilerplate at: https://hasura.io/learn/graphql/android/boilerplate.zip
-2. Unzip and make sure you're in the `app-boilerplate` directory
+1. Clone the [learn-graphql](https://github.com/hasura/learn-graphql) repo. Execute the following commands in your terminal:
+
+```bash
+git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
+
+cd learn-graphql
+
+git sparse-checkout init --cone
+
+git sparse-checkout add tutorials/mobile/android-apollo/app-boilerplate
+```
+
+2. Navigate to the `app-boilerplate` directory.
+
+```bash
+cd tutorials/mobile/android-apollo/app-boilerplate
+```
+
 3. This project uses Gradle for dependency resolution, so you would need the latest version of Gradle installed.
 4. Sync Project with Gradle files
 5. Run the app in android studio and signup with Auth0 to view the app

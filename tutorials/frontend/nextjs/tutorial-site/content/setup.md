@@ -18,7 +18,7 @@ cd learn-graphql
 
 git sparse-checkout init --cone
 
-git sparse-checkout add tutorials/frontend/nextjs/app-boilerplate
+git sparse-checkout add tutorials/frontend/nextjs
 ```
 
 2. Navigate to the `app-boilerplate` directory.

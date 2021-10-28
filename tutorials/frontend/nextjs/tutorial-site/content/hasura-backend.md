@@ -63,7 +63,7 @@ Great! You have now deployed Hasura and have the admin console ready to get star
 
 Let's get started by creating the tables and relationships for the Realtime todo app.
 
-Download the hasura project with migrations from [here](https://hasura.io/learn/graphql/nextjs-fullstack-serverless/hasura.zip)
+Head to the `hasura` directory inside nextjs to apply the Hasura migrations and metadata.
 
 Download the latest Hasura CLI from [here](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html#install-hasura-cli). We are going to use the config version v3.
 

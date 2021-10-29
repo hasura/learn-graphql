@@ -10,7 +10,7 @@ Before we dive in to the core concepts, we will install Postgres on the local ma
 
 We can make use of docker-compose to install Postgres locally
 
-Create a new file called `postgres.yaml` and copy the contents below:
+Create a new file called `compose.yaml` and copy the contents below:
 
 ```yaml
 version: '3.6'

@@ -1,15 +1,15 @@
 ---
 title: "SQL Server Performance Tuning"
 metaTitle: "SQL Server Performance Tuning | MSSQL Tutorial"
-metaDescription: "SQL Server Performance monitoring and SQL Query optimization tips"
+metaDescription: "SQL Server Performance monitoring and SQL Query optimization tips."
 ---
 
 Performance monitoring includes monitoring the MS SQL Server database.
-MS SQL Server and the Microsoft Windows OS provide monitoring utilities, that help you to optimize the resources and improve performance.
+MS SQL Server and the Microsoft Windows OS provide monitoring utilities to optimize the resources and improve performance.
 
 ## System/Performance Monitor
 
-Monitors the utilization of system resources.
+This tool monitors the utilization of system resources.
 
 Go to **Start > Run**, type `perfmon` and select **OK**.
 
@@ -21,15 +21,16 @@ To add/delete the key parameters, use the Add (green) and Delete (red) keys on t
 
 The Activity Monitor monitors the query execution and displays statistics such as Processes, Resource Waits, Recent and Active Expensive Queries.
 
-Open SSMS, and connect to your server instance.
-Select **Activity Monitor** from the top ribbon bar.
+* Open SSMS, and connect to your server instance.
+* Select **Activity Monitor** from the top ribbon bar.
 
 ![Activity Monitor](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/activity-monitor.png)
 
 ## Performance Dashboard in SSMS
 
 The dashboard provides visual insights into the performance of the SQL Server instance.
-In the Object Explorer, right-click on the SQL Server instance name and select **Reports > Standard Reports > Performance Dashboard**.
+
+Right-click on the SQL Server instance name in the Object Explorer on the right. Then select **Reports > Standard Reports > Performance Dashboard**.
 
 ![Performance Dashboard](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/performance-dashboard.png)
 
@@ -41,10 +42,10 @@ The cost-based query optimizer in SQL Server calculates costs based on multiple 
 Click the **Estimated Execution Plan** and **Actual Executed Plan** button next to the **Execute** button in SSMS.
 
 The actual execution plan includes runtime statistics.
-To capture an actual execution plan, the query has to be executed.
+To capture an actual execution plan, you must execute the query.
 
 In general, you can use the estimated execution plan to monitor the performance of your query.
-The actual execution plan is useful to determine the runtime performance of the query.
+The actual execution plan determines the runtime performance of the query.
 
 ![Estimated execution plan](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/estimated-plan.png)
 
@@ -56,14 +57,13 @@ When you hover over each component, you can view additional information.
 
 ![Component info](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/performance/components-info.jpg)
 
-To optimize this query re-write it as the first query with selected columns and a join clause.
+To optimize this query, rewrite it as the first query with selected columns and a join clause.
 
 ## Query Optimization
 
-Here are some of the SQL query best practices that you can follow for better SQL Server database performance.
+Here are some of the SQL query best practices that you may follow for better SQL Server database performance.
 
-* Avoid `SELECT *`: Use specific column names in the select query that you want to view instead of using the wildcard `*` to list all columns.
-* Use [`EXISTS`](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/exists-transact-sql?view=sql-server-ver15) instead of `COUNT(*)`. This reduces the number of rows read count drastically.
-* Avoid using SQL `DISTINCT` keyword. Instead, use `GROUP BY` or a subquery.
-* Avoid a wildcard `%` character in the search string. This will avoid table scans by the query optimizer.
-* Use the `WHERE` clause to filter the data first and then use the `HAVING` clause for the aggregate data filter.
+* Instead of `SELECT *` query, use specific column names. Fetching all rows result in CPU, memory, I/O overhead and slows down performance. When you define the fields, the query optimizer queries only the required table data.
+* The `DISTINCT` query works by grouping all the fields in the query to create distinct rules. Such a grouping of fields consumes enormous processing power. Instead, mention additional and relevant column names in the `SELECT` query to yield unique results.
+* Use wildcards `%` sparingly and preferably at the end of the phrase (search text). A random wildcard broadens the search.
+* Use the `WHERE` clause to filter the data first and then use the `HAVING` clause for the aggregate data filter. If you use `WHERE` clause first, the number of rows scanned is limited before applying the `HAVING` condition.

@@ -19,4 +19,4 @@ The final model looks like the following:
 
 ![Schema Todo app](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/voyager-schema.png)
 
-As we create tables using the console or directly on postgres, Hasura GraphQL engine automatically creates GraphQL schema object types and corresponding query/mutation fields with resolvers.
+As we [create tables using the console or directly on postgres](https://hasura.io/learn/database/postgresql/create-alter-drop-ddl/1-postgresql-create/), Hasura GraphQL engine automatically creates GraphQL schema object types and corresponding query/mutation fields with resolvers.

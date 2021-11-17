@@ -13,7 +13,7 @@ In 30 mins, you will set up a Powerful, Scalable Realtime GraphQL Backend comple
 This course will help you understand the different Hasura features, when and how to use them, and
 is an ideal starting point before diving into advanced topics.
 
-1. Hasura Basics: Use Hasura to generate the realtime GraphQL API powered by a Postgres database
+1. Hasura Basics: Use Hasura to generate the realtime GraphQL API powered by [a Postgres database](https://hasura.io/learn/database/postgresql/what-is-postgresql/)
 2. Postgres power: Use the power of Postgres to make efficient data transformations so that we don't have to do them in code
 3. Authorization: Setup authorization so that app users can only run operations on data that they should be allowed to
 4. Authentication: Integrate a JWT based auth provider (using Auth0) with Hasura

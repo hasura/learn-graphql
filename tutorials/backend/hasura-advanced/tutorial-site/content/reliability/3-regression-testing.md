@@ -8,7 +8,7 @@ Regression tests ensure continued support for operations required by your fronte
 
 ![Regression Testing with Hasura](https://hasura.io/blog/content/images/2020/02/regression-testing-diagram-2.png)
 
-Your production instance should typically be configured to run regression test suites since changes to the underlying Postgres schema and/or the Hasura configuration could potentially lead to unwanted regressions in your schema. This is crucial for iterating on new features or removing existing features.
+Your production instance should typically be configured to run regression test suites since changes to the underlying [Postgres schema](https://hasura.io/learn/database/postgresql/core-concepts/1-postgresql-schema/) and/or the Hasura configuration could potentially lead to unwanted regressions in your schema. This is crucial for iterating on new features or removing existing features.
 
 ## Create a test suite
 

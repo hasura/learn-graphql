@@ -28,7 +28,7 @@ This will open up Hasura Console for your project. It should look something like
 
 ![Hasura Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console.png)
 
-The next step is to connect the database to Hasura. We can make use of Heroku's free Postgres database tier to set this up. Head to the `Data` tab on the Console and click on `Connect Database`.
+The next step is to connect the database to Hasura. We can make use of Heroku's free [Postgres database](https://hasura.io/learn/database/postgresql/what-is-postgresql/) tier to set this up. Head to the `Data` tab on the Console and click on `Connect Database`.
 
 We have two options to connect a database:
 
@@ -42,7 +42,7 @@ To quickstart this process, we are going to create a new Postgres DB from scratc
 After logging in to Heroku and clicking on `Create Database`, Hasura Cloud will perform the following for you:
 
 - Create an app on Heroku
-- Install Postgres Add-on
+- [Install Postgres](https://hasura.io/learn/database/postgresql/installation/installing-postgresql/) Add-on
 - Fetch database URL that you can use to configure Hasura
 
 ![Hasura Cloud Heroku Configuration](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-heroku-setup.png)

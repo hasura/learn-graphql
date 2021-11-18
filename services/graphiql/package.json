@@ -43,7 +43,7 @@
     "auth0-js": "9.13.2",
     "babel-polyfill": "6.26.0",
     "deep-equal": "1.0.1",
-    "graphiql": "0.11.11",
+    "graphiql": "1.4.7",
     "graphiql-explorer": "0.3.7",
     "graphql": "14.2.1",
     "hasura-console-graphiql": "0.0.1",

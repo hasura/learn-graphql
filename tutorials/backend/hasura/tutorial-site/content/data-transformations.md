@@ -9,9 +9,9 @@ metaDescription: "We are going to leverage Postgres data transformations using V
 One of the realtime features of the todo app is to display the list of online users. We need a way to fetch this information based on the value of `last_seen` which tells when the user was last online.
 
 So far we were building tables and relationships.
-Postgres allows you to perform data transformations using:
+[Postgres](https://hasura.io/learn/database/postgresql/what-is-postgresql/) allows you to perform data transformations using:
 
-- Views
+- [Views](https://hasura.io/learn/database/postgresql/views/)
 - SQL Functions
 
 In this example, we are going to make use of `Views`. This view is required by the app to find the users who have logged in and are online in the last 30 seconds.
@@ -21,7 +21,7 @@ In this example, we are going to make use of `Views`. This view is required by t
 The SQL statement for creating this view looks like this:
 
 ```sql
-CREATE OR REPLACE VIEW "public"."online_users" AS 
+CREATE OR REPLACE VIEW "public"."online_users" AS
  SELECT users.id,
     users.last_seen
    FROM users
@@ -58,8 +58,3 @@ Enter the value as `now()` for the `last_seen` column and click on `Save`.
 Now switch back to the tab where your subscription query is running to see the updated response.
 
 ![Subscription online users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/online-users-subscription.png)
-
-
-
-
-

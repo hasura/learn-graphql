@@ -34,4 +34,4 @@ Remember the JWT token that we got after configuring Auth0 and testing it out? H
 
 ![remote schema query](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/query-remote-schema.png)
 
-As you can see, Hasura has merged the custom GraphQL schema with the already existing auto-generated APIs over Postgres.
+As you can see, Hasura has merged the custom GraphQL schema with the already existing auto-generated APIs over [Postgres](https://hasura.io/learn/database/postgresql/what-is-postgresql/).

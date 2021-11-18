@@ -4,7 +4,7 @@ metaTitle: "Custom Business Logic | Hasura GraphQL Tutorial"
 metaDescription: "Custom business logic can be handled in two ways using Hasura. One is by writing custom GraphQL resolvers and adding it as remote schema and another is to trigger a webhook asynchronously after a mutation."
 ---
 
-Hasura gives you CRUD + realtime GraphQL APIs with authorization & access control. However, there are cases where you would want to add custom/business logic in your app. For example, in the todo app that we are building, before inserting todos into the public feed we want to validate the text for profanity. 
+Hasura gives you CRUD + realtime GraphQL APIs with authorization & access control. However, there are cases where you would want to add custom/business logic in your app. For example, in the todo app that we are building, before inserting todos into the public feed we want to validate the text for profanity.
 
 Custom business logic can be handled in a few flexible ways in Hasura:
 
@@ -23,19 +23,19 @@ Actions can be either a Query or a Mutation.
 Remote Schemas
 --------------
 
-Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema. 
+Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema.
 
 ![Remote schema architecture](https://hasura.io/docs/latest/_images/remote-schema-arch1.png)
 
 If you are choosing between Actions and Remote Schemas, here's something to keep in mind:
 
-- Use Remote Schemas if you have a GraphQL server or if you're comfortable building one yourself. 
+- Use Remote Schemas if you have a GraphQL server or if you're comfortable building one yourself.
 - Use Actions if you need to call a REST API
 
 Event Triggers
 --------------
 
-Hasura can be used to create event triggers on tables in the Postgres database. Event triggers reliably capture events on specified tables and invoke webhooks to carry out any custom logic. After a mutation operation, triggers can call a webhook asynchronously.
+Hasura can be used to [create event triggers on tables in the Postgres database](https://hasura.io/learn/database/postgresql/triggers/). Event triggers reliably capture events on specified tables and invoke webhooks to carry out any custom logic. After a mutation operation, triggers can call a webhook asynchronously.
 
 Use case for the todo app
 -------------------------

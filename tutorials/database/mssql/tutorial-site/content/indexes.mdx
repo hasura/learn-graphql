@@ -1,0 +1,158 @@
+---
+title: "SQL Server Indexes"
+metaTitle: "SQL Server Indexes | MSSQL Tutorial"
+metaDescription: "SQL Server Indexes - Clustered and NonClustered."
+---
+
+An index in a table improves the query performance by speeding up the data lookup.
+By default, a query analyzer does a sequential scan on every row in a table until it finds the searched result.
+An index scan is much faster because an index acts as a pointer reference to the rows address in a table.
+
+## Types of Indexes
+
+Indexes are classified as primary, clustered, and secondary indexes.
+
+### Clustered Index
+
+A clustered index determines the physical order of data in a table. In other words, an index decides the sequence in which the data gets stored in that table.
+When you create a primary key, a default clustered index is created on the column and all the rows get sorted based on the primary key column.
+There can only be one clustered index in a table.
+
+* Step 1. Create a table with no Primary Key
+
+```SQL
+USE ADVENTUREWORKS
+GO
+
+CREATE TABLE Humanresources.emp
+(
+ID INT IDENTITY,
+NAME NVARCHAR(40),
+EMAIL NVARCHAR(40),
+DEPARTMENT NVARCHAR(30)
+);
+```
+
+* Step 2. Insert rows
+
+```SQL
+--Insert 100000 rows using the while counter
+SET NOCOUNT ON
+
+Declare @counter int = 1
+While(@counter <= 100000)
+Begin
+    Declare @Name nvarchar(40) = 'name' + RTRIM(@counter)
+    Declare @Email nvarchar(40) = @Name + RTRIM(@counter) + '@domain.com'
+    Declare @Dept nvarchar(30) = 'Dept' + RTRIM(@counter)
+
+INSERT INTO HumanResources.emp values(@Name, @Email, @Dept)
+
+set @counter += 1
+
+End
+```
+
+* Step 3. Enable the Estimated and Actual Execution Plan in SSMS and execute the below query
+
+```SQL
+SELECT * FROM Humanresources.emp WHERE ID=20493
+```
+
+![Full table scan without a PK](../../../../assets/fullTableScan_noPK.png)
+
+It runs a complete table scan on all the 100000 records with a higher estimated subtree cost.
+
+#### Improve performance with a Primary key constraint
+
+```SQL
+--Create a PK on ID table
+ALTER TABLE Humanresources.emp
+ADD CONSTRAINT PK_EMP PRIMARY KEY(ID)
+```
+
+Re-run the above select query.
+
+![Clustered index seek](../../../../assets/clusteredIndex_on_PK_ID.png)
+
+The query analyzer now seeks ID in the clustered index and scans the column 'ID' alone. Number of rows read are just 1 in this case. Also, the estimated subtree cost is now reduced to 0.003281.
+
+As an alternative method, you can explicitly create a clustered index in a table.
+
+#### Create a Clustered Index
+
+```SQL
+--Create clustered index syntax
+CREATE CLUSTERED INDEX <index_name>
+ON [SCHEMA].[TABLE_NAME] (COLUMN_NAME)
+```
+
+You can also use a combination of columns to sort the records based on the Gender (descending) column followed by the Salary(ascending) column.
+
+```SQL
+--Clustered index on 2 columns
+CREATE CLUSTERED <Index name>
+ON Humanresources.emp (Gender DESC, Salary ASC);
+```
+
+Such an index is called **Composite Clustered Index**.
+
+To summarize, the select query on clustered indexed column(s) first scans through the indexed column. The scan is faster as the records are sorted and stops as soon as there is a mismatch.
+
+### Nonclustered Index
+
+A nonclustered index creates a separate index table to store the sorted column values, and a pointer reference to the records called the ROWID (Pseudocolumn).
+A ROWID is a unique hexadecimal value that stores the actual physical address of a row.
+
+Querying a table based on a column that is not indexed results in a high subtree cost.
+
+```SQL
+SELECT * FROM Humanresources.emp WHERE NAME='name82488'
+```
+
+![No index on name column](../../../../assets/noIndex_on_Name.png)
+
+Once you create a nonclustered index on the 'Name' column, the execution plan follows an optimized sequence to query the result.
+
+#### Create a nonclustered Index
+
+```SQL
+--nonclustered index syntax
+CREATE NONCLUSTERED INDEX NC_EMP_NAME
+ON HUMANRESOURCES.EMP(NAME);
+```
+
+Re-run the above select query-
+
+#### Execution Plan analysis
+
+The execution plan is read from right to left and top to bottom.
+
+1. The analyzer scans through the nonclustered index on the 'name' column for the matching value. And then the corresponding pointer address(RowID) of the row is picked.
+
+    ![Index seek](../../../../assets/1_IndexSeek.png)
+
+    The number of rows read equals 1 in this case.
+
+1. The primary key clustered index does a key lookup for the row with the ROWID pointer address.
+
+   ![Key lookup](../../../../assets/2_KeyLookup.png)
+
+1. Nested loops use inner join between the index and the table to fetch the matching record.
+
+1. The final select query prints the record with an improved Subtree cost from 1.09254 to 0.00657.
+
+    ![Subtree cost after nonclustered index](../../../../assets/nonclustered-subtree-cost-improved.png)
+
+## Drop Index
+
+Use an `ALTER` and `DROP` command to delete an index, like so:
+
+```SQL
+ALTER TABLE Humanresources.emp
+DROP NC_EMP_NAME
+```
+
+As a best practice, create a single clustered index in a table and create a nonclustered index only on the most queried columns.
+
+> Note: The Operator/Subtree/CPU cost in the execution plan vary depending on your system resources allocation.

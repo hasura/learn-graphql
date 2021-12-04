@@ -59,6 +59,17 @@ You can also manage the project from the Hasura Cloud Dashboard.
 
 Great! You have now deployed Hasura and have the admin console ready to get started!
 
+## Local project setup
+
+If you haven't already, clone the learn-graphql repo. Execute the following commands in your terminal:
+
+```
+git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
+cd learn-graphql
+git sparse-checkout init --cone
+git sparse-checkout add tutorials/frontend/nextjs
+```
+
 ## Apply database migrations
 
 Let's get started by creating the tables and relationships for the Realtime todo app.

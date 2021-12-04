@@ -42,6 +42,7 @@ const config = {
         "/create-function/",
         "/backup/",
         "/restore/",
+        "/indexes/",
         "/performance/",
         "/limitations/",
       ],

@@ -59,7 +59,7 @@ End
 SELECT * FROM Humanresources.emp WHERE ID=20493
 ```
 
-![Full table scan without a PK](../../../../assets/fullTableScan_noPK.png)
+![Full table scan without a PK](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/fullTableScan_noPK.png)
 
 It runs a complete table scan on all the 100000 records with a higher estimated subtree cost.
 
@@ -73,7 +73,7 @@ ADD CONSTRAINT PK_EMP PRIMARY KEY(ID)
 
 Re-run the above select query.
 
-![Clustered index seek](../../../../assets/clusteredIndex_on_PK_ID.png)
+![Clustered index seek](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/clusteredIndex_on_PK_ID.png)
 
 The query analyzer now seeks ID in the clustered index and scans the column 'ID' alone. Number of rows read are just 1 in this case. Also, the estimated subtree cost is now reduced to 0.003281.
 
@@ -110,7 +110,7 @@ Querying a table based on a column that is not indexed results in a high subtree
 SELECT * FROM Humanresources.emp WHERE NAME='name82488'
 ```
 
-![No index on name column](../../../../assets/noIndex_on_Name.png)
+![No index on name column](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/noIndex_on_Name.png)
 
 Once you create a nonclustered index on the 'Name' column, the execution plan follows an optimized sequence to query the result.
 
@@ -130,19 +130,19 @@ The execution plan is read from right to left and top to bottom.
 
 1. The analyzer scans through the nonclustered index on the 'name' column for the matching value. And then the corresponding pointer address(RowID) of the row is picked.
 
-    ![Index seek](../../../../assets/1_IndexSeek.png)
+    ![Index seek](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/1_IndexSeek.png)
 
     The number of rows read equals 1 in this case.
 
 1. The primary key clustered index does a key lookup for the row with the ROWID pointer address.
 
-   ![Key lookup](../../../../assets/2_KeyLookup.png)
+   ![Key lookup](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/2_KeyLookup.png)
 
 1. Nested loops use inner join between the index and the table to fetch the matching record.
 
 1. The final select query prints the record with an improved Subtree cost from 1.09254 to 0.00657.
 
-    ![Subtree cost after nonclustered index](../../../../assets/nonclustered-subtree-cost-improved.png)
+    ![Subtree cost after nonclustered index](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/nonclustered-subtree-cost-improved.png)
 
 ## Drop Index
 

@@ -1,4 +1,8 @@
 # [hasura.io/learn](https://hasura.io/learn/)
+<a href="https://hacktoberfest.digitalocean.com/" alt="Hacktoberfest"><img src="https://badgen.net/badge/hacktoberfest/friendly/pink" /></a>
+ [![hasura.io/learn website](https://img.shields.io/badge/docs-hasura.io-blue.svg)](https://hasura.io/learn/)
+ [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
+ <a href="https://github.com/hasura/learn-graphql/blob/master/LICENSE" alt="License"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
 
 Real world GraphQL tutorials for frontend developers with deadlines!
 With these open-source community maintained tutorials, you will move from the basics of GraphQL to building a real-time application in 2 hours.
@@ -36,6 +40,7 @@ There are different tutorial series:
 
 - [Postgres Basics](https://hasura.io/learn/database/postgresql/introduction/)
 - [MySQL Basics](https://hasura.io/learn/database/mysql/introduction/)
+- [SQL Server Basics](https://hasura.io/learn/database/microsoft-sql-server/introduction/)
 
 ## GraphQL Basics
 

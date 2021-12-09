@@ -8,6 +8,17 @@ echo "Using commit $GIT_HASH"
 REPO_PATH=$1
 DEPLOY=$2
 
+build_image() {
+    echo "hasura/$1$2:$GIT_HASH"
+    echo "Building docker image"
+    docker build -t hasura/$1$2:$GIT_HASH .
+    echo "Pushing docker image"
+    docker push hasura/$1$2:$GIT_HASH
+    echo "Updating kubernetes deployment"
+    echo "kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH"
+    kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH
+}
+
 # go to each folder, build docker image and push
 tutorials() {
     for f in $REPO_PATH/tutorials/*;
@@ -34,14 +45,18 @@ tutorials() {
                         if [ $current_tutorial = "mssql" ]; then
                             current_tutorial="database-mssql"
                         fi
+                        if [[ -d "tutorial-site-zh" ]]; then
+                            cd "tutorial-site-zh"
+                            build_image $current_tutorial "-zh"
+                            cd ".."
+                        fi
+                        if [[ -d "tutorial-site-ja" ]]; then
+                            cd "tutorial-site-ja"
+                            build_image $current_tutorial "-ja"
+                            cd ".."
+                        fi
                         cd "tutorial-site"
-                        echo "hasura/$current_tutorial:$GIT_HASH"
-                        echo "Building docker image"
-                        #docker build -t hasura/$current_tutorial:$GIT_HASH .
-                        echo "Pushing docker image"
-                        #docker push hasura/$current_tutorial:$GIT_HASH
-                        echo "Updating kubernetes deployment"
-                        #kubectl set image deployment $current_tutorial $current_tutorial=hasura/$current_tutorial:$GIT_HASH
+                        build_image $current_tutorial ""
                     fi
                 done;
         done;

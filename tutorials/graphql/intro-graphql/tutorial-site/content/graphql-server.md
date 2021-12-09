@@ -17,7 +17,7 @@ The server goes through the following steps:
 
 There are many approaches to writing a GraphQL server. Let's look at the most common ones that are used by the GraphQL community.
 
-## Resolver Approach
+## Resolver Approach {#resolver-approach}
 
 The most common way of writing a GraphQL server is by defining the schema and writing resolvers for the different operations and fields.
 
@@ -36,7 +36,7 @@ resolverFunc(data, args, context, info)
 
 This resolver function is now executed for every field in a GraphQL query.
 
-### N+1 performance problem
+### N+1 performance problem {#performance-problem}
 
 Let's say I have to fetch a list of authors and their articles. In a simple REST API, the naive version would look something like this:
 
@@ -87,11 +87,11 @@ The first resolver would be called for `author` which returns all the authors (3
 
 You can see the obvious performance implications with this approach.
 
-### Dataloader
+### Dataloader {#dataloader}
 
 Dataloader is a utility to be used as part of your application's data fetching layer. In trying to solve the N+1 problem, what it does is, it waits for all the resolvers to load in their individual values, coalesce all individual loads and call the batch function with the requested keys.
 
-## Compiler Approach
+## Compiler Approach {#compiler-approach}
 
 Batching of resolvers solves the performance problem to a large extent. 
 It reduces multiple hits to the database. But even with batching, there would still be multiple hits to the database depending on the depth of the query.
@@ -100,7 +100,7 @@ The compiler approach lets you map a GraphQL query of any depth to one database 
 
 Learn how Hasura does [performant GraphQL query execution](https://hasura.io/blog/fast-graphql-execution-with-query-caching-prepared-statements/) using the compiler approach.
 
-## Hybrid Approach
+## Hybrid Approach {#hybrid-approach}
 
 If data is coming from different sources, we need to use a combination of the above approaches. The compiler approach works well for database parts of the query and batching of queries with DataLoader works best for batching external data sources / HTTP requests. 
 

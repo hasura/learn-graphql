@@ -4,7 +4,7 @@ metaTitle: "GraphQL Queries to fetch data | GraphQL Tutorial"
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 ---
 
-## Try out GraphQL queries
+## Try out GraphQL queries {#try-out-graphql-queries}
 
 For this tutorial we've set up a GraphQL API for you. The most common
 way to browse a GraphQL API is to use GraphiQL. GraphiQL is a tool
@@ -27,7 +27,7 @@ You can access the GraphiQL for this realtime todo app tutorial here:
 When you work with a GraphQL API in a project you will almost always
 use a tool like GraphiQL to explore and test your GraphQL queries.
 
-## Basic GraphQL query
+## Basic GraphQL query {#basic-graphql-query}
 
 1. Open GraphiQL at: [hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql). 
    You'll have to login to get an auth token to query the API. In a real-world scenario
@@ -53,7 +53,7 @@ Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL
 to the server at the given endpoint with the HTTP headers. The server then sends the response
 that you see on the right hand side.
 
-## Fetching "graphs"
+## Fetching "graphs" {#fetching-graphs}
 
 Our todo app has users, todos and information about users that are currently online.
 This is what our API "schema" looks like:
@@ -64,7 +64,7 @@ As you can see, it is a "graph" like schema where all the 3 models are linked to
 
 Let's try making queries that fetch different slices of our data from the overall "graph".
 
-### Fetch users and their todos
+### Fetch users and their todos {#fetch-users-and-their-todos}
 
 This GraphQL query will fetch all the users and their publicly visible todos:
 
@@ -82,7 +82,7 @@ This GraphQL query will fetch all the users and their publicly visible todos:
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 
-### Fetch online users and their profile information
+### Fetch online users and their profile information {#fetch-online-users}
 
 This GraphQL query will fetch all the currently online users
 and their profile information (which is just their name for now):
@@ -101,7 +101,7 @@ and their profile information (which is just their name for now):
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 
-## Adding parameters (arguments) to GraphQL queries
+## Adding parameters (arguments) to GraphQL queries {#adding-parameters}
 
 In most API calls, you usually use parameters. e.g. to specify what data you're fetching.
 If you're familiar with making `GET` calls, you would have used a query parameter. For example,
@@ -109,7 +109,7 @@ to fetch only 10 todos you might have made this API call: `GET /api/todos?limit=
 
 The GraphQL query analog of this is *arguments* that you can attach to a "field".
 
-### Basic argument: Fetch 10 todos
+### Basic argument: Fetch 10 todos {#basic-argument}
 
 This GraphQL query will fetch 10 todos and not all of them.
 
@@ -129,7 +129,7 @@ arguments that can be used in `()` next to specific fields. In our case, we are 
 Hasura for creating the GraphQL backend which provides filter, sort and pagination arguments.
 The GraphQL server or API that you use, might provide a different set of arguments that can be used.
 
-### Multiple arguments on multiple fields: Fetch 1 user and 5 most recent todos for each user
+### Multiple arguments on multiple fields: Fetch 1 user and 5 most recent todos for each user {#multiple-arguments}
 
 ```graphql
 query {
@@ -149,9 +149,7 @@ Notice that we are passing arguments to different fields. This GraphQL query rea
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-<a name="query-variables"></a>
-
-## GraphQL variables: Passing arguments to your queries dynamically
+## GraphQL variables: Passing arguments to your queries dynamically {#graphql-variables}
 
 This is great, but we still have a problem. If we want to create a query
 where we are fetching data with arguments that are provided dynamically, we'd have to 
@@ -167,7 +165,7 @@ var query = "query { todos (limit: " + limit.toString() + ") {id title} }";
 Thankfully, we don't ever have to do this! GraphQL variables are extra variables
 that you can send in a query so that the "arguments" can be provided dynamically!
 
-## Fetch $limit number of todos
+## Fetch $limit number of todos {#fetch-limit}
 
 This is what our GraphQL query would look like:
 ```graphql
@@ -199,7 +197,7 @@ Let's try this out in GraphiQL:
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-## Summary
+## Summary {#summary}
 
 - You can now make GraphQL queries
 - You know how to pass arguments to your GraphQL queries

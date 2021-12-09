@@ -12,7 +12,7 @@ metaDescription: "In this part, we will learn how to create an Auth0 app using t
 
 ![Create Auth0 App](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-app.png)
 
-## Create Auth0 API
+## Create Auth0 API {#create-auth0-api}
 
 We need to create an API on Auth0 so that we can make the `accessToken` a valid JWT. Click on the `APIs` section on the left sidebar and click on the `+ Create API` button.
 

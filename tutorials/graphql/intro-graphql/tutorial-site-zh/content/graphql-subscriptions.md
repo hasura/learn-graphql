@@ -10,7 +10,7 @@ GraphQL 规范支持某些类似于 GraphQL 查询的订阅，但不是在一次
 
 GraphQL 订阅是轻松为你的应用程序添加实时或响应式功能的关键组件。 支持订阅的 GraphQL 客户端和服务器，让你可以无需处理 WebSocket 代码，即可提供出色的体验！
 
-## 立即订阅 GraphQL
+## 立即订阅 GraphQL {#make-first-graphql-subscription}
 
 `Step 1:`转到 https://hasura.io/learn/graphql/graphiql
 
@@ -32,13 +32,13 @@ subscription {
 
 每次在线用户集发生更改时，你都会在右侧的相应窗口中看到最新的用户集。
 
-## GraphQL 订阅如何运作？
+## GraphQL 订阅如何运作？{#how-do-graphql-subscriptions-work}
 
 GraphQL 查询和变更是发送到 POST 端点的字符串。 什么是 GraphQL 订阅？ 该操作不能通过 POST 端点进行，因为简单的 HTTP 端点只会返回响应且连接会关闭。
 
 GraphQL 订阅是发送到 WebSocket 端点的订阅查询字符串。 每当后端出现数据变化，新数据都会通过 WebSocket 从服务器向客户端推送。
 
-## 总结
+## 总结 {#summary}
 
 - 你知道如何订阅 GraphQL
 

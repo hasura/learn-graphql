@@ -6,7 +6,7 @@ metaDescription: "In local dev with custom code written, you may want to see the
 
 In local dev with custom code written, you may want to see the exact details of the webhook call for the custom code handler like Hasura Actions.
 
-## Enable Dev Mode
+## Enable Dev Mode {#enable-dev-mode}
 
 Head to Hasura Cloud dashboard to the project settings and add a new ENV var.
 

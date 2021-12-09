@@ -4,19 +4,19 @@ metaTitle: "什么是 GraphQL？ | GraphQL 教程"
 metaDescription: "什么是 GraphQL？ GraphQL 是关于如何与 API 对话的规范。 这一部分还将举例介绍 GraphQL 和 REST 的区别，并带你了解 GraphQL 的优势"
 ---
 
-## 什么是 GraphQL？
+## 什么是 GraphQL？{#what-is-graphql}
 GraphQL 是关于如何与 API 对话的规范。 它通常用于 HTTP，其中的核心思路是将“查询”`POST`至 HTTP 端点，而不是为了不同的资源访问不同的 HTTP 端点。
 
 GraphQL 专为网络/移动应用（HTTP 客户端）的开发者设计，以便能够进行 API 调用，以从其后端 API 精确抓取所需的数据。
 
 在深入理解 GraphQL 前，有必要了解一下 GraphQL 在 HTTP 客户端的实际使用方式。
 
-## GraphQL 通过 HTTP 提供服务
+## GraphQL 通过 HTTP 提供服务 {#graphql-over-http}
 查看下方图表，了解 GraphQL 通常如何用在你的堆栈中：
 
 ![GraphQL 通过 HTTP 提供服务](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphql-on-http.png)
 
-### GraphQL 客户端-服务器流：
+### GraphQL 客户端-服务器流：{#graphql-client-server-flow}
 
 1. 请注意，GraphQL 查询不完全是 JSON；它看起来类似
    你*想要*的 JSON 形状。 因此，当我们发出 'POST' 请求以将我们的 GraphQL 查询发送至
@@ -28,7 +28,7 @@ GraphQL 专为网络/移动应用（HTTP 客户端）的开发者设计，以便
    数据库或其他服务，以抓取客户端请求的数据。
 4. 接下来，服务器获取数据并以 JSON 对象的形式将其返回客户端。
 
-### GraphQL 客户端设置示例：
+### GraphQL 客户端设置示例：{#example-of-graphql-client-setup}
 
 在日常工作中，你其实无需担心潜在的
 HTTP 请求和响应。

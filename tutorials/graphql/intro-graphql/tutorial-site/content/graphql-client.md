@@ -34,25 +34,25 @@ fetch('/graphql', {
 
 This of course, assumes that your server accepts GraphQL requests over HTTP. (Remember GraphQL is protocol agnostic?).
 
-## Why do I need a GraphQL Client?
+## Why do I need a GraphQL Client? {#why-do-i-need-a-graphql-client}
 
 Now that you have learnt that requests can be made using the old fetch API method, what is the point of a GraphQL client?
 
-#### Constructing query, processing response
+#### Constructing query, processing response {#constructing-query-processing-response}
 
 A GraphQL client can help in constructing the full query with just the GraphQL document as input with relevant headers and context information. So instead of you writing the fetch API call everytime, the client will handle it for you giving the response data and error after parsing. 
 
-#### Managing UI State
+#### Managing UI State {#managing-ui-state}
 
 GraphQL client is also useful to manage UI state and sync data across multiple UI components.
 
-#### Updating cache
+#### Updating cache {#updating-cache}
 
 GraphQL client can also be used to manage cached entries of data fetched from queries or mutation. Reactive updates to UI as mentioned above is achieved using a cache.
 
 Popular GraphQL Clients in the community are [Apollo Client](https://github.com/apollographql/apollo-client) and [Relay](https://github.com/facebook/relay).
 
-## Fluent GraphQL Clients
+## Fluent GraphQL Clients {#fluent-graphql-clients}
 
 When you are writing GraphQL queries or mutations using a client, you would notice that it is just a raw string with its own syntax. This string is usually parsed into a valid GraphQL query using external libraries. 
 

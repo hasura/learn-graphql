@@ -62,6 +62,6 @@ This will export the metadata as yaml and update the right files in the `metadat
 
 In our slack schema, we have the `tables` directory populated with all the postgres tables and the role based permissions for the same. As we keep changing the schema and modify metadata related to it, these files would be updated automatically.
 
-## Import/Export Metadata from Console
+## Import/Export Metadata from Console {#import-export-metadata}
 
 Hasura Console Settings page has the option to quickly import/export metadata in `.json` format.

@@ -6,7 +6,7 @@ metaDescription: "该教程介绍如何使用 Hasura 控制台设置待办事项
 
 转到`todos`表下的“权限”选项卡，以添加相关权限。
 
-## 插入权限
+## 插入权限 {#insert-permission}
 
 我们将允许登录的用户创建新的待办事项条目，仅阐述 is_public 和标题列。
 
@@ -30,7 +30,7 @@ metaDescription: "该教程介绍如何使用 Hasura 控制台设置待办事项
 
 单击`Save Permissions`。
 
-## 选择权限
+## 选择权限 {#select-permission}
 
 如果一个待办事项条目是公共的或用户是已登录用户，我们就允许用户查看该待办事项条目。
 
@@ -48,7 +48,7 @@ metaDescription: "该教程介绍如何使用 Hasura 控制台设置待办事项
 
 单击`Save Permissions`
 
-## 更新权限
+## 更新权限 {#update-permission}
 
 我们将仅允许用户更新 is_completed 列。
 
@@ -60,7 +60,7 @@ metaDescription: "该教程介绍如何使用 Hasura 控制台设置待办事项
 
 完成后请单击`Save Permissions`。
 
-## 删除权限
+## 删除权限 {#delete-permission}
 
 仅允许登录用户删除待办事项条目。
 

@@ -22,7 +22,7 @@ and specifically in the case of Hasura GraphQL Engine, you might want to capture
 
 With this information available, you can ask meaningful questions in a production deployment to find what went wrong internally, or why your Hasura GraphQL API is behaving the way it is. For example, if you see anomalies in query execution time for a particular query, you can try to identify what is wrong with the query (may be there is a database bottleneck that you need to optimise).
 
-## Monitoring
+## Monitoring {#monitoring}
 
 Hasura Cloud comes with built-in metrics for monitoring errors, websocket connections, subscriptions, with drill-down into individual operations.
 
@@ -32,7 +32,7 @@ Here's how the errors tab on Cloud looks like:
 
 Looking more closely, you can identify what requests are failing and why. With GraphQL you don't have status codes to identify errors uniquely. So the requests need to be insepcted for the `errors` object in response.
 
-## Distributed tracing
+## Distributed tracing {#distributed-tracing}
 
 The tracing in Hasura Cloud works across database, remote schemas, event trigger and auth webhooks, and actions.
 

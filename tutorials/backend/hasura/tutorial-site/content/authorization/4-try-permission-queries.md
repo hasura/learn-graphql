@@ -6,7 +6,7 @@ metaDescription: "Explore permissions for the GraphQL API for the todos table an
 
 Let's go ahead and start testing the permissions through the GraphQL API for `todos` table.
 
-## Query
+## Query {#query}
 
 Now let's go ahead and query the data by adding two request headers:
 

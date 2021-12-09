@@ -7,7 +7,7 @@ metaDescription: "This tutorial covers how to set up permissions for users table
 We also need to allow select and update operations into `users` table.
 On the left sidebar, click on the `users` table to navigate to the users table page and switch to the Permissions tab.
 
-## Select permission
+## Select permission {#select-permission}
 
 Click on the Edit icon (pencil icon) to modify the select permission for role user. This would open up a section below which lets you configure its permissions.
 
@@ -17,7 +17,7 @@ Here the users should be able to access every other user's `id` and `name` data.
 
 Click on `Save Permissions`
 
-## Update permission
+## Update permission {#update-permission}
 
 The user who is logged in should be able to modify only their own record. So let’s set that permission now.
 

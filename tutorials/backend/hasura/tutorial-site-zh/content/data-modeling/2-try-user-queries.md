@@ -10,7 +10,7 @@ Hasura 为你提供 Postgres 和其他数据库的即时 GraphQL API。 因此�
 
 转到“控制台” -> API -> GraphiQL 选项卡，即可访问 GraphiQL。
 
-## 变更
+## 变更 {#mutation}
 
 我们使用一个 GraphQL 变更添加用户。 将以下代码复制到 GraphiQL 界面中。
 
@@ -32,7 +32,7 @@ mutation {
 
 **提示**： 单击几下，即可使用 GraphiQL 界面上的`Explorer`生成变更。
 
-## 查询
+## 查询 {#query}
 
 现在让我们查询刚刚插入的数据。
 
@@ -52,7 +52,7 @@ query {
 
 请注意，某些列（如`created_at`）有默认值，即使你并没有在变更过程中插入它们。
 
-## 订阅
+## 订阅 {#subscription}
 
 让我们对`users`表进行订阅查询，以观察对表的更改。
 

@@ -16,7 +16,7 @@ Hasura Cloud provides support for caching query responses. When queried with the
 
 **Note**: GraphQL Response Caching is enabled for `Standard` tier Cloud projects with a cache size of upto 100 MB.
 
-## How does caching work?
+## How does caching work? {#how-does-caching-work}
 
 Hasura has metadata about the data models across data sources, and the authorization rules at the application level. This helps Hasura to provide end to end application caching.
 
@@ -50,7 +50,7 @@ Ideally the HTTP response will include a `Cache-Control` header, that indicates 
 
 You can see the value of Cache-Control response header indicating how much more time in seconds this response would be cached.
 
-## Cache Lifetime
+## Cache Lifetime {#cache-lifetime}
 
 The maximum lifetime of an entry in the cache can be controlled using the ttl argument to the @cached query directive. The value is an integer number of seconds:
 

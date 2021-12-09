@@ -6,7 +6,7 @@ metaDescription: "This tutorial covers how to set up permissions for todos table
 
 Head over to the Permissions tab under `todos` table to add relevant permissions.
 
-## Insert permission
+## Insert permission {#insert-permission}
 
 We will allow logged-in users creating a new todo entry to only specify the is_public and title columns.
 
@@ -30,7 +30,7 @@ Finally under column presets, select `user_id` from `from session variable` mapp
 
 Click on `Save Permissions`.
 
-## Select permission
+## Select permission {#select-permission}
 
 We will allow users to view a todo entry if it is public or if they are logged-in users.
 
@@ -48,7 +48,7 @@ Under column select permissions, select all the columns.
 
 Click on `Save Permissions`
 
-## Update permission
+## Update permission {#update-permission}
 
 We will only allow the is_completed column to be updated by a user.
 
@@ -60,7 +60,7 @@ And under column update permissions, select the `is_completed` column.
 
 Click on `Save Permissions` once done.
 
-## Delete permission
+## Delete permission {#delete-permission}
 
 Only logged-in users are allowed to delete a todo entry.
 

@@ -10,7 +10,7 @@ Regression tests ensure continued support for operations required by your fronte
 
 Your production instance should typically be configured to run regression test suites since changes to the underlying [Postgres schema](https://hasura.io/learn/database/postgresql/core-concepts/1-postgresql-schema/) and/or the Hasura configuration could potentially lead to unwanted regressions in your schema. This is crucial for iterating on new features or removing existing features.
 
-## Create a test suite
+## Create a test suite {#create-test-suite}
 
 On Hasura Cloud console, under the Pro/Monitoring tab, head to `Regresstion Tests` at the end. Select the actions that are typically accessed from the frontend client. In our slack model, we would want to add both users and channel query that we have tried so far. Click on `Add to test suite`. Once this is added, we can now make a schema change to verify if a regression has been caught.
 

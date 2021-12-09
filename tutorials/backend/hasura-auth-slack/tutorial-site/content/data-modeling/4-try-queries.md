@@ -8,7 +8,7 @@ As you are aware that Hasura gives you Instant GraphQL APIs over [Postgres](http
 
 Let's go ahead and start exploring the GraphQL APIs for `users` table.
 
-## Mutation
+## Mutation {#mutation}
 
 Head over to Console -> GRAPHIQL tab and insert a user using GraphQL Mutations.
 
@@ -38,7 +38,7 @@ Great! You have now consumed the mutation query for the `users` table that you j
 
 **Tip**: You can use the `Explorer` on the GraphiQL interface to generate the mutation in a few clicks.
 
-## Query
+## Query {#query}
 
 Now let's go ahead and query the data that we just inserted.
 
@@ -58,7 +58,7 @@ You should get a response looking something like this:
 
 Note that some columns like `created_at` have default values, even though you did not insert them during the mutation.
 
-## Subscription
+## Subscription {#subscription}
 
 Let's run a subscription query over `users` table to watch for changes to the table.
 

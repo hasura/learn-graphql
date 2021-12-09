@@ -17,7 +17,7 @@ Hasura doesn't automatically create the GraphQL API for the entire database. We 
 
 We will use the slack clone database schema for this demo. But before that, let's run Hasura on local dev environment.
 
-## Running Hasura via docker-compose
+## Running Hasura via docker-compose {#running-hasura-via-docker-compose}
 
 The simplest setup to run Hasura locally is to use the docker-compose setup to run both graphql-engine and postgres docker containers.
 

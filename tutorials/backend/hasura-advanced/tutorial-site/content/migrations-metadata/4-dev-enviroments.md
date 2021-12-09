@@ -4,11 +4,11 @@ metaTitle: "Dev Environments | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Hasura can be used in different environments starting from local development, staging and production with the use of migrations and metadata."
 ---
 
-## Local Development
+## Local Development {#local-development}
 
 The Hasura instance that is running locally on your machine with docker-compose is the dev environment setup. The Hasura CLI can be used to serve the console for automatic management of migrations and metadata.
 
-## Staging Environment
+## Staging Environment {#staging-environment}
 
 Now let's create a staging environment and try to replicate the schema and metadata that we have in our local dev setup.
 
@@ -24,7 +24,7 @@ Once you register and sign in, you should see the following welcome screen and a
 
 Once the project is initialised, you can click on `Launch Console` button on the pop up screen. If you already have a Hasura Cloud account before, you can manually create a new project by clicking on the `+ New Project` action at the top, followed by `Launch Console`.
 
-## Hasura Console
+## Hasura Console {#hasura-console}
 
 This will open up Hasura Console for your project. It should look something like this:
 
@@ -66,7 +66,7 @@ As we keep changing the schema locally, we can keep applying the above two comma
 
 **Note**: You can also create a project on Hasura Cloud for development. All the steps required to sync between dev and staging would remain the same. Typically, the webhook URL handlers need to be exposed to a public endpoint that Hasura Cloud can access and hence they cannot be `localhost` urls. We recommend using something like `ngrok` to expose a local server running for Actions/Remote Schemas/Events to a publicly accessible endpoint.
 
-## Squashing Migrations
+## Squashing Migrations {#squashing-migrations}
 
 As we keep changing the database, the migration directory gets noisy with too many files created in the dev iteration process. Once a feature is fixed, you might want to combine and squash all the migration files related to it into a single file. This can be achieved using the squash command of the Hasura CLI. Execute the following command:
 

@@ -6,7 +6,7 @@ metaDescription: "GraphQL 与 REST 的对比。 对比 GraphQL 和 REST API，�
 
 GraphQL 通常被标榜为 REST API 的替代品。 这一部分将举例说明 GraphQL 和 REST 之间的主要差异，也会介绍两者如何共存与互补。
 
-## GraphQL 与 REST：示例
+## GraphQL 与 REST：示例 {#example}
 
 假设你有一个抓取用户个人信息及其地址的 API。 在典型的 REST 情境中，请求/响应如下所示：
 
@@ -41,7 +41,7 @@ query {           |   {
 }                 |   }
 ```
 
-## 培养 GraphQL 思维
+## 培养 GraphQL 思维 {#thinking-in-graphql}
 
 我们正在改变我们对 API 调用的看法。 我们根据查询对返回数据的“单一 URL 端点”进行临时查询，而不是对不同的 URL 发出不同的 API 调用以获取数据。
 - 'POST' 一条描述你需要的数据的查询，而非 'GET' 资源。
@@ -51,7 +51,7 @@ query {           |   {
 如上面的例子所示，GraphQL 查询非常简洁而且易读！ 这是因为查询是你想要的最终 JSON 数据的“形状”。
 这是使用 GraphQL 趣味十足的一个关键原因！
 
-## GraphQL 的优势
+## GraphQL 的优势 {#graphql-benefits}
 
 - **避免过度抓取**： 要避免抓取多于你需要的数据，因为你可以指定你需要的具体**字段**。
 - **防止多次 API 调用**： 如果需要更多数据，也可以避免多次调用你的 API。 在上述用例中，你不需要发出两次 API 调用，以分别抓取`user`和`address`。
@@ -67,14 +67,14 @@ query {           |   {
 | 更新/删除数据 | PUT/PATCH/DELETE | 变更 |
 | 观看/订阅数据 | - | 订阅 |
 
-### 模式和类型系统
+### 模式和类型系统 {#schema-and-type-system}
 
 在 REST API 中，没有模式或类型系统的概念。
 另一方面，GraphQL 具有强大的类型系统，用来定义 API 的形式。 模式由映射至类型的字段定义，并用作客户端和服务器之间的契约。
 
 该模式契约支持前端和后端开发者独立工作，同时保证满足数据要求。 在 REST API 中，虽然没有严格的契约，但遵循 OpenAPI 规范即可在文档方面更深入地了解 GraphQL 文档。 围绕 OpenAPI 的社群工具可带我们了解 REST API 的不同端点和数据有效负载。
 
-### HTTP 状态代码
+### HTTP 状态代码 {#http-status-codes}
 
 每个 GraphQL 请求，无论成功或报错，都应返回 200。 这与 REST API 相比是明显的差异，在 REST API 中，每个状态代码都指向某种类型的响应。
 
@@ -88,11 +88,11 @@ query {           |   {
 
 借助 GraphQL，任何有效的响应（数据和错误）均应为 200。 在特殊的`errors`对象下处理作为响应正文的一部分的错误，且客户端工具将有助于更好地处理错误。
 
-#### 监控
+#### 监控 {#monitoring}
 
 借助 REST API 和正确的 HTTP 状态代码，给定端点上的简单健康检查应该会显示 API 正常运行时间状态。 200 状态代码表示 API 已启动且正在运行，而 5xx 则意味着服务器出错。 这与 GraphQL 并不是无缝的，因为监控工具必须解析响应正文，以查看服务器是否返回数据或错误。
 
-## 缓存
+## 缓存 {#caching}
 
 借助 REST API，所有的 GET 端点均可缓存在服务器端或使用 CDN。 它们可以由浏览器缓存，并由客户端标记，以供频繁调用。
 GraphQL 不遵循 HTTP 规范，而且通过单个端点提供，通常是 (/graphql)。 因此，无法以与 REST API 相同的方式缓存查询。

@@ -6,7 +6,7 @@ metaDescription: "This tutorial covers how to set up permissions for online_user
 
 Head over to the Permissions tab under `online_users` view to add relevant permissions. 
 
-## Select permission
+## Select permission {#select-permission}
 
 Here in this view, we only want the user to be able to select data and not do any mutations. Hence we don't define any permission for insert, update or delete.
 

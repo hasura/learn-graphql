@@ -6,7 +6,7 @@ metaDescription: "GraphQL vs REST. A comparison of GraphQL and REST APIs, highli
 
 GraphQL is often touted as an alternative to REST APIs. In this section, we will look at the key differences between GraphQL and REST with an example and also look at how they both can co-exist and complement each other.
 
-## GraphQL vs REST: an example
+## GraphQL vs REST: an example {#example}
 
 Let's say you have an API to fetch a user's profile and their address. In a typical REST scenario, this is what the request/response would look like:
 
@@ -41,7 +41,7 @@ query {           |   {
 }                 |   }
 ```
 
-## Thinking in GraphQL
+## Thinking in GraphQL {#thinking-in-graphql}
 
 We're changing the way we think about API calls. Instead of making different API calls to different URLs to fetch data, we're making ad-hoc queries to a "single URL endpoint" that returns data based on the query.
 - Instead of 'GET'ing a resource you 'POST' a query that describes what data you want.
@@ -52,7 +52,7 @@ As you can see in the example above, GraphQL queries look very neat and easy to
 read! This is because the query is the "shape" of the final JSON data you desire.
 This is one of the key reasons that makes GraphQL a joy to work with!
 
-## GraphQL benefits
+## GraphQL benefits {#graphql-benefits}
 
 - **Avoid over-fetching**: You avoid fetching more data than you need because you can specify the exact **fields** you need.
 - **Prevent multiple API calls**: In case you need more data, you can also avoid making multiple calls to your API. In the case above, you don't need to make 2 API calls to fetch `user` and `address` separately.
@@ -68,14 +68,14 @@ Here's a quick chart to show you the GraphQL analogs of typical REST-ish terms:
 | Updating/deleting data | PUT/PATCH/DELETE | mutation |
 | Watching/subscribing to data | - | subscription |
 
-### Schema and Type System
+### Schema and Type System {#schema-and-type-system}
 
 In REST APIs, there isn't a concept of a schema or type system.
 On the other hand, GraphQL has a strong type system to define what the API looks like. A schema is defined with fields mapped to types and serves as a contract between the client and the server.
 
 This schema contract lets the frontend and backend developers to work independently with a guarantee that the data requirements are met. In REST APIs though there's no strict contract, following the OpenAPI spec will get you closer to GraphQL in terms of documentation. Community tooling around the OpenAPI spec gives an idea about the various endpoints and data payloads for the REST APIs.
 
-### HTTP Status Codes
+### HTTP Status Codes {#http-status-codes}
 
 Every GraphQL request, success or error should return a 200. This is a visible difference compared to REST APIs where each status code points to a certain type of response.
 
@@ -89,11 +89,11 @@ With REST APIs, errors can be anything other than 200 and the client handling th
 
 With GraphQL, any valid response (both data and errors) should be 200. Errors are handled as part of the response body under a special `errors` object and the client side tooling will help in handling it better.
 
-#### Monitoring
+#### Monitoring {#monitoring}
 
 With REST APIs and proper HTTP status codes, a simple health check on a given endpoint should give an idea about the API uptime status. A 200 status code means the API is up and running, where as a 5xx means something is wrong with the server. This isn't as seamless with GraphQL since the monitoring tool has to parse the response body to see if the server is returning data or error.
 
-## Caching
+## Caching {#caching}
 
 With REST APIs, all the GET endpoints can be cached at the server side or using a CDN. They can be cached by the browser as well and bookmarked by the client for frequent invocations.
 GraphQL doesn't follow the HTTP spec and is served over a single endpoint, usually (/graphql). Hence the queries cannot be cached in the same way as REST APIs. 

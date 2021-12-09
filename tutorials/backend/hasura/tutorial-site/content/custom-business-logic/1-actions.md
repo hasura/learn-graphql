@@ -12,13 +12,13 @@ To handle the use-case of fetching Auth0 profile information, we will write a RE
 
 Hasura can then merge this REST API with the existing auto-generated GraphQL schema and the client will be able to query everything using the single GraphQL endpoint.
 
-## Creating an action
+## Creating an action {#creating-an-action}
 
 On the Hasura Console, head to the `Actions` tab and click on `Create` to create a new action.
 
 ![Action definition](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-definition.png)
 
-### Action definition
+### Action definition {#action-definition}
 
 We will need to define our Action and the type of action. Since we are only reading data from an API, we will use the Query type for this Action. The definition will have the name of the action (auth0 in this case), input arguments (none in this case), and the response type of the action (`auth0_profile` in this case).
 
@@ -28,7 +28,7 @@ type Query {
 }
 ```
 
-### Types definition
+### Types definition {#types-definition}
 
 We defined that the response type of the action is `auth0_profile`. So what do we want in return from the Auth0 API? We want the `id`, `email`, and `picture` fields that aren't stored on our database so far.
 
@@ -48,7 +48,7 @@ We will change the Handler URL later once we write our REST API and deploy it on
 
 Click on `Create` once you are done configuring the above fields.
 
-## Write a REST API
+## Write a REST API {#write-rest-api}
 
 Now that the Action has been created, let's write a REST API in a Node.js Express app that can later be configured for this Action. 
 
@@ -112,7 +112,7 @@ In the server above, let's break down what's happening:
 In case you are stuck with the code above, use the following [readymade server](https://glitch.com/~auth0-hasura-action) on Glitch to clone it.
 You also need to remix the Glitch project to start modifying any code.
 
-### Environment variables
+### Environment variables {#environment-variables}
 
 In your Glitch app source code, modify the `.env` file to enter the
 
@@ -125,7 +125,7 @@ values appropriately. The AUTH0_MANAGEMENT_API_TOKEN can be obtained from the Au
 
 Congrats! You have written and deployed your first Hasura Action to extend the Graph.
 
-## Permission
+## Permission {#permission}
 
 Now to query the newly added type, we need to give Permissions to the `user` role for this query type. Head to the `Permissions` tab of the newly created Action and configure access for the role user.
 

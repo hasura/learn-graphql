@@ -9,7 +9,7 @@ Also certain columns in tables need not be exposed to the user.
 
 Let's see the different responsibilities that a user can have.
 
-## Administrative
+## Administrative {#adminstrative}
 
 All administrative tasks require write access to the database. Some of the administrative tasks are
 
@@ -17,7 +17,7 @@ All administrative tasks require write access to the database. Some of the admin
 - Create and manage channels
 - Add members to workspace and channel
 
-## Non Administrative
+## Non Administrative {#non-administrative}
 
 Non-administrative tasks require scoped read and write access to the database.
 

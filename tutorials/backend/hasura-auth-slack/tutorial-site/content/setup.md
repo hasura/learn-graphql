@@ -6,7 +6,7 @@ metaDescription: "This tutorial covers how to deploy Hasura GraphQL Engine on Ha
 
 Let's start by deploying Hasura.
 
-## One-click deployment on Hasura Cloud
+## One-click deployment on Hasura Cloud {#one-click}
 
 The fastest way to try out Hasura is via Hasura Cloud. [Hasura Cloud](https://hasura.io/cloud/) gives you a scalable, highly available, globally distributed, fully managed, secure GraphQL API as a service!
 
@@ -22,7 +22,7 @@ Once you register and sign in, you should see the following welcome screen and a
 
 Once the project is initialised, you can click on `Launch Console` button on the pop up screen. If you already have a Hasura Cloud account before, you can manually create a new project by clicking on the `+ New Project` action at the top, followed by `Launch Console`.
 
-## Hasura Console
+## Hasura Console {#hasura-console}
 
 This will open up Hasura Console for your project. It should look something like this:
 

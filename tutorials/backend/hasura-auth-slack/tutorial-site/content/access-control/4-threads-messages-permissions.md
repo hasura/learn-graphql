@@ -8,13 +8,13 @@ We are done with rules for all the base tables (`users`, `workspace` and `channe
 
 Let's start with the `channel_thread` and `channel_thread_message` tables.
 
-## Select permission
+## Select permission {#select-permission}
 
 We need to list down who can access a message posted on any channel. The requirement looks like:
 
 - Any body who is a channel member should be able to access all channel threads.
 
-### Row level select
+### Row level select {#row-level-select}
 
 The expression for `channel_thread` roughly translates to the following:
 
@@ -45,24 +45,24 @@ The expression differs slighlty for `channel_thread_message` since it has one mo
 }
 ```
 
-### Column level select
+### Column level select {#column-level-select}
 
 After filtering out the rows that a user is supposed to access, we need to filter out which fields they are allowed to read. Since there is no sensitive data that needs to be restricted to only a certain type of user, we give permission to select for ALL columns.
 
 We are done with read access. Let's move on to write access which lets a user to either create, update or delete a channel.
 
-## Insert permission
+## Insert permission {#insert-permission}
 
 Any authenticated user who is a part of a workspace can post messages on the channels of the workspace. It translates into the same expression as above for `channel_thread` table.
 
-## Update permission
+## Update permission {#update-permission}
 
 Users are not allowed to update a `channel_thread`.
 So then who is allowed to update the existing messages in `channel_thread_message` table?
 
 - Any authenticated user can update their own message posted on any channel.
 
-### Row level update
+### Row level update {#row-level-update}
 
 The above condition translates to the following expression:
 
@@ -74,11 +74,11 @@ The above condition translates to the following expression:
 }
 ```
 
-### Column level update
+### Column level update {#column-level-update}
 
 The user can only update the `message` column in `channel_thread_message` table.
 
-## Delete permission
+## Delete permission {#delete-permission}
 
 The user who created the message can delete their own message. It translates to the same expression that we defined for the update operation.
 

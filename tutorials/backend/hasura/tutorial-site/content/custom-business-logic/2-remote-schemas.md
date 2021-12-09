@@ -12,7 +12,7 @@ Hasura can merge remote GraphQL schemas and provide a unified GraphQL API. To ha
 
 This custom GraphQL server is the `Remote Schema`.
 
-## Write GraphQL custom resolver
+## Write GraphQL custom resolver {#write-graphql-custom-resolver}
 
 So let's write a custom resolver which can be later merged into Hasura's GraphQL API.
 
@@ -102,13 +102,13 @@ In the server above, let's breakdown what's happening:
 Most of the code written is very similar to the REST API code we wrote in the previous section for Actions. Here we are using Apollo Server to write a custom GraphQL server from scratch.
 If you have created `auth0` Action from `Creating Actions` part, then Action will collide with auth0 Remote schema. To solve this you can remove Action to be able to create Remote schema or rename `auth0` and `auth0_profile` types.
 
-## Deploy
+## Deploy {#deploy}
 
 Let's deploy the above custom GraphQL server to Glitch. Glitch is a platform to build and deploy apps (Node.js) and is a quick way to test and iterate code on the cloud. Click on the Deploy to Glitch button below to get started.
 
 [![DEPLOY TO GLITCH](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~auth0-hasura-remote-schema)
 
-### Environment variables
+### Environment variables {#environment-variables}
 
 After remixing to your own project on Glitch, modify the `.env` file to enter the
 

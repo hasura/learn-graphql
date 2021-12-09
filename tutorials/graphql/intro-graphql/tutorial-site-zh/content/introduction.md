@@ -12,7 +12,7 @@ GraphQL 逐渐成为了在现代网络和移动应用中使用 API 的新方式�
 
 我们将探索 GraphQL 的基础知识以及它为何特别适用于现代应用程序，比如其实时功能！
 
-## 关键主题和要点：
+## 关键主题和要点：{#key-topics-takeaways}
 
 import {Link} from "gatsby";
 

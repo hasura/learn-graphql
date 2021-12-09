@@ -13,7 +13,7 @@ metaDescription: "这一部分将介绍如何编写事件 webhook 并在变更�
 
 现在，我们将捕获此插入操作，以触发我们的事件。
 
-## SendGrid SMTP 电子邮件 API
+## SendGrid SMTP 电子邮件 API {#sendgrid-smtp-email-api}
 
 对于这个例子，我们将利用`SendGrid`的 SMTP 服务器，然后使用`nodemailer`发送电子邮件。
 
@@ -21,7 +21,7 @@ metaDescription: "这一部分将介绍如何编写事件 webhook 并在变更�
 
 按照[此处](https://sendgrid.com/docs/for-developers/sending-email/integrating-with-the-smtp-api/)的文档创建一个 API 密钥
 
-### 编写 webhook
+### 编写 webhook {#write-the-webhook}
 
 ```javascript
 const nodemailer = require('nodemailer');
@@ -71,11 +71,11 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-## 部署
+## 部署 {#deploy}
 
 [![部署到 GLITCH](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~sendgrid-send-email-event)
 
-## 环境变量
+## 环境变量 {#environment-variables}
 
 在 Glitch 上重新组合你自己的项目后，请修改`.env`文件，以正确输入
 

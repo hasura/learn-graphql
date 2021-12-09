@@ -12,13 +12,13 @@ metaDescription: "这一部分将介绍如何写入操作，以扩展 Graph 并�
 
 然后，Hasura 可以将此 REST API 与现有的自动生成的 GraphQL 模式合并，客户端即可使用该单一 GraphQL 端点查询所有内容。
 
-## 创建操作
+## 创建操作 {#creating-an-action}
 
 在 Hasura 控制台上，转到`Actions`选项卡，然后单击`Create`，以创建新操作。
 
 ![操作定义](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/action-definition.png)
 
-### 操作定义
+### 操作定义 {#action-definition}
 
 我们需要定义我们的操作及操作类型。 由于我们仅读取 API 中的数据，因此我们将“查询”类型用于此操作。 该定义将包含该操作的名称（此例中为 auth0）、输入参数（此例中无）和操作的响应类型（此例中为`auth0_profile`）。
 
@@ -28,7 +28,7 @@ type Query {
 }
 ```
 
-### 类型定义
+### 类型定义 {#types-definition}
 
 我们将该操作的响应类型定义为`auth0_profile`。那么，我们希望从该 Auth0 API 中返回什么？ 我们需要尚未存储在我们的数据库中的`id`、`email`和`picture`字段。
 
@@ -48,7 +48,7 @@ type auth0_profile {
 
 在完成上述字段的配置后，请单击`Create`。
 
-## 编写 REST API
+## 编写 REST API {#write-rest-api}
 
 现在操作已创建，我们在 Node.js Express 应用程序中写入一个 REST API，稍后可以为该操作配置该应用程序。
 
@@ -112,7 +112,7 @@ app.listen(PORT);
 如果你在上述代码处遇到困难，请使用以下 Glitch 上的[现成服务器](https://glitch.com/~auth0-hasura-action)克隆它。
 你也需要重新组合 Glitch 项目，以开始修改任意代码。
 
-### 环境变量
+### 环境变量 {#environment-variables}
 
 在你的 Glitch 应用程序源代码中，请修改`.env`文件，以正确输入
 
@@ -125,7 +125,7 @@ app.listen(PORT);
 
 恭喜！ 你已写入并部署第一个 Hasura 操作来扩展 Graph。
 
-## 权限
+## 权限 {#permission}
 
 现在，若要查询新添加的类型，我们需要赋予`user`角色执行这一查询类型的权限。 转到新创建操作的`Permissions`选项卡，然后为用户角色配置访问权限。
 

@@ -12,7 +12,7 @@ Hasura 可以合并远程 GraphQL 模式并提供统一的 GraphQL API。 为了
 
 该自定义 GraphQL 服务器就是`Remote Schema`。
 
-## 编写 GraphQL 自定义解析器
+## 编写 GraphQL 自定义解析器 {#write-graphql-custom-resolver}
 
 那么，让我们编写一个稍后可以合并到 Hasura 的 GraphQL API 中的自定义解析器。
 
@@ -102,13 +102,13 @@ schema.listen({ port: process.env.PORT }).then(({ url }) => {
 写入的大多数代码与我们在上一部分为“操作”写入的 REST API 非常相似。 在这里，我们使用 Apollo Server 从零开始编写一个自定义 GraphQL 服务器。
 如果你已在`Creating Actions`部分创建了`auth0`“操作”，那么“操作”将与 Auth0 远程模式发生冲突。 为了解决这个问题，你可以删除“操作”，以创建远程模式或重命名`auth0`和`auth0_profile`类型。
 
-## 部署
+## 部署 {#deploy}
 
 让我们将上述自定义 GraphQL 服务器部署到 Glitch。 Glitch 是创建和部署应用程序 (Node.js) 的平台，支持快速在云端测试和迭代代码。 单击下面的“部署到 Glitch”按钮，开始此操作。
 
 [![部署到 GLITCH](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~auth0-hasura-remote-schema)
 
-### 环境变量
+### 环境变量 {#environment-variables}
 
 在 Glitch 上重新组合你自己的项目后，请修改`.env`文件，以正确输入
 

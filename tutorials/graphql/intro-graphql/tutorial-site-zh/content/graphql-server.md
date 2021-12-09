@@ -17,7 +17,7 @@ GraphQL 服务的模式、GraphQL 文档（其中包含选择集和字段等操�
 
 编写 GraphQL 服务器有很多方式。 来看一下 GraphQL 社群最常使用的方式。
 
-## 解析器方式
+## 解析器方式 {#resolver-approach}
 
 编写 GraphQL 服务器最常见的方式是通过定义模式，并为不同的操作和字段编写解析器。
 
@@ -36,7 +36,7 @@ resolverFunc(data, args, context, info)
 
 现已为 GraphQL 查询中的每个字段执行该解析器功能。
 
-### N+1 性能问题
+### N+1 性能问题 {#performance-problem}
 
 假设我必须抓取作者及其文章列表。 在简单的 REST API 中，朴素版本类似于：
 
@@ -87,11 +87,11 @@ resolvers = {
 
 你可以看到这个方法对性能的明显影响。
 
-### 数据加载器
+### 数据加载器 {#dataloader}
 
 数据加载器是一款实用工具，可作为你的应用程序数据抓取层的一部分使用。 在尝试解决 N+1 问题时，它的作用是等待所有解析器加载各自的值，合并所有的单个加载，并通过请求的键调用批处理函数。
 
-## 编译器法
+## 编译器法 {#compiler-approach}
 
 批量解析器在很大程度上解决了性能问题。
 它减少了对数据库的多次点击。 但即使使用批处理功能，根据查询的深度，对数据库的点击仍然有多次。
@@ -100,7 +100,7 @@ resolvers = {
 
 了解 Hasura 如何使用编译器法[执行性能 GraphQL 查询](https://hasura.io/blog/fast-graphql-execution-with-query-caching-prepared-statements/)。
 
-## 混合法
+## 混合法 {#hybrid-approach}
 
 如果数据来源不同，则我们需要综合使用上述方法。 编译器法适用于查询的数据库部分，使用数据加载器批处理查询最适合批处理外部数据源/HTTP 请求。
 

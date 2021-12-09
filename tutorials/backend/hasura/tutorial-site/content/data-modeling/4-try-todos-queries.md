@@ -8,7 +8,7 @@ Similar to the `users` table, the `todos` table created in the previous step wou
 
 Let's go ahead and start exploring the GraphQL API for `todos` table.
 
-## Mutation
+## Mutation {#mutation}
 
 Head over to Console -> API -> GraphiQL tab and insert a todo using GraphQL Mutations.
 
@@ -26,7 +26,7 @@ You should get a response looking something like this:
 
 ![Todo Mutation](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-mutation-todo.png)
 
-## Query
+## Query {#query}
 
 Now let's go ahead and query the data that we just inserted.
 
@@ -48,7 +48,7 @@ You should get a response looking something like this:
 
 Note that some columns like `is_public` and `is_completed` have default values, even though you did not insert them during the mutation.
 
-## Subscription
+## Subscription {#subscription}
 
 Let's run a subscription query over `todos` table to watch for changes to the table. In the above GraphQL query, replace `query` with `subscription`
 

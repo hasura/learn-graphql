@@ -15,7 +15,7 @@ GraphQL mutations are types of GraphQL queries that may result in the state
 of your backend "mutating" or changing, just like typical `'POST'`,
 `'PUT'`, `'PATCH'`, `'DELETE'` APIs.
 
-## Basic mutations
+## Basic mutations {#basic-mutations}
 Since we're using Hasura for our GraphQL API, we get mutations for
 inserts, updates or deletes that we can use in our app.
 
@@ -23,7 +23,7 @@ Let's try these mutations out in the context of a todo app to see
 what mutations look like. Mutations that you get from another GraphQL
 service, say if your API team has built their own,  might be different.
 
-### Create a todo
+### Create a todo {#create-a-todo}
 
 Let's make an API call to create a todo. As you would have guessed, this
 will be a critical portion of our todo app. 😉
@@ -50,7 +50,7 @@ mutation {
 <!-- [//]: # TODO: -->
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-## Returning data after the mutation
+## Returning data after the mutation {#returning-data-after-the-mutation}
 Notice that the data of the todo that is to be inserted is sent as
 an argument to the `insert_todos` mutation. But the "fields" of the mutation
 specify the shape of the _response_ that you want from the server.
@@ -75,7 +75,7 @@ mutation {
 <!-- [//]: # TODO: -->
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-## Parameterise what you insert
+## Parameterise what you insert {#parameterise-what-you-insert}
 
 For mutations, we would almost always have to parameterise the arguments! We
 would rarely, if ever, have a "hardcoded" mutation in our app. This is because
@@ -112,7 +112,7 @@ Here the `todos_insert_input` is the type of the variable `$todo` and `!` is use
 We'll explore more mutations to update or delete data a little later.
 This is a good start to grokking mutations!
 
-## Summary
+## Summary {#summary}
 
 - You can make basic GraphQL mutations
 - You can pass dynamic arguments/data to mutations with query variables

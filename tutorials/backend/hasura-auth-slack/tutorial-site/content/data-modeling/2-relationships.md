@@ -11,7 +11,7 @@ GraphQL schema relationships can be either of
 - object relationships (one-to-one)
 - array relationships (one-to-many)
 
-## Object Relationships
+## Object Relationships {#object-relationships}
 
 Let's say you want to query `workspace` and more information about the `user` who created it. This is achievable using nested queries if a relationship exists between the two. This is a one-to-one query and hence called an object relationship.
 
@@ -32,7 +32,7 @@ query {
 
 In a single query, you are able to fetch workspace and its related user information. This can be very powerful because you can nest to any level.
 
-## Array Relationships
+## Array Relationships {#array-relationships}
 
 Let's look at an example query for array relationships.
 

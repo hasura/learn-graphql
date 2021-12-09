@@ -12,7 +12,7 @@ metaDescription: "这一部分将介绍如何使用单页 Web 应用控制面板
 
 ![创建 Auth0 应用程序](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-app.png)
 
-## 创建 Auth0 API
+## 创建 Auth0 API {#create-auth0-api}
 
 我们需要在 Auth0 上创建 API，以确保`accessToken`成为有效的 JWT。 单击左侧边栏上的`APIs`部分，然后单击`+ Create API`按钮。
 

@@ -8,7 +8,7 @@ In this part, we will look at how to configure the JWT secret.
 
 Follow the instructions [here](https://github.com/hasura/learn-graphql/tree/master/services/backend/auth-server) to setup the Auth server.
 
-### Authenticate JWT using GraphQL Engine
+### Authenticate JWT using GraphQL Engine {#authenticate-jwt}
 
 The GraphQL engine comes with built in JWT authentication.  You will need to start the engine with the same secret/key as the JWT auth server using the environment variable `HASURA_GRAPHQL_JWT_SECRET`. Read more in [docs](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html#running-with-jwt)
 

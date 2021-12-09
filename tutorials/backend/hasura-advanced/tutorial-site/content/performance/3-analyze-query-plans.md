@@ -15,7 +15,7 @@ WHERE name = 'daily-standup';
 
 The above one would return a `JSON` response with data for `Total Cost`, `Planning Time`, `Execution Time` etc among other metrics. These metrics are useful to understand how long a query is taking and what parts to optimize. For example, this returned a plan type `Seq Scan` (Sequential Scan) and for large datasets this could be relatively slower.
 
-## PostgreSQL Indexes
+## PostgreSQL Indexes {#postgresql-indexes}
 
 Postgres indexes are a way of increasing performance on a column that is queried frequently. The concept is similar to the one of an index in a book. It helps accessing the data you’re looking for more quickly by maintaining additional metadata.
 

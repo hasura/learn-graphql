@@ -10,7 +10,7 @@ Let's go ahead and start exploring the GraphQL API for `users` table. We are goi
 
 You can access GraphiQL by heading over to Console -> API -> GraphiQL tab.
 
-## Mutation
+## Mutation {#mutation}
 
 Let's add a user using a GraphQL Mutation. Copy the following code into the GraphiQL interface.
 
@@ -32,7 +32,7 @@ Great! You have now consumed the mutation query for the `users` table that you j
 
 **Tip**: You can use the `Explorer` on the GraphiQL interface to generate the mutation in a few clicks.
 
-## Query
+## Query {#query}
 
 Now let's go ahead and query the data that we just inserted.
 
@@ -52,7 +52,7 @@ You should get a response looking something like this:
 
 Note that some columns like `created_at` have default values, even though you did not insert them during the mutation.
 
-## Subscription
+## Subscription {#subscription}
 
 Let's run a subscription query over `users` table to watch for changes to the table.
 

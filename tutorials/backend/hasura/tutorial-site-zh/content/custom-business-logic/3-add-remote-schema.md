@@ -6,7 +6,7 @@ metaDescription: "这一部分将介绍如何使用 Hasura 控制台在 Hasura G
 
 我们已编写自定义解析器并将其部署到 Glitch。 我们已准备好 GraphQL 端点。 让我们将其添加到 Hasura，作为一个远程模式。
 
-## 添加
+## 添加 {#add}
 
 转到控制台的`Remote Schemas`选项卡，然后单击`Add`按钮。
 
@@ -17,7 +17,7 @@ metaDescription: "这一部分将介绍如何使用 Hasura 控制台在 Hasura G
 
 选择`Add Remote Schema`，然后单击`Forward all headers from the client`。
 
-## 试一下
+## 试一下 {#try-it-out}
 
 转到“控制台 GraphiQL”选项卡，然后了解以下 GraphQL 查询。
 

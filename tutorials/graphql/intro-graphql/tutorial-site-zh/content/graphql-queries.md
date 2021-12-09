@@ -4,7 +4,7 @@ metaTitle: "通过 GraphQL 查询抓取数据 | GraphQL 教程"
 metaDescription: "使用 GraphiQL 尝试 GraphQL 查询。 GraphQL 查询示例：含有形参、实参和变量，用以动态抓取数据"
 ---
 
-## 尝试 GraphQL 查询
+## 尝试 GraphQL 查询 {#try-out-graphql-queries}
 
 在本教程中，我们为你创建了一个 GraphQL API。 浏览 GraphQL API 最常见的方式是使用 GraphiQL。 GraphiQL 是 Facebook 开发的工具（念作 "graphical"），可轻松探索任何 GraphQL API。
 
@@ -18,7 +18,7 @@ metaDescription: "使用 GraphiQL 尝试 GraphQL 查询。 GraphQL 查询示例�
 
 如果你在某个项目中使用 GraphQL API，你几乎无一例外地要使用像 GraphiQL 这样的工具来探索并测试你的 GraphQL 查询。
 
-## 基本的 GraphQL 查询
+## 基本的 GraphQL 查询 {#basic-graphql-query}
 
 1. 打开 GraphiQL：[hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql)。 你必须登录，才能获得查询该 API 的身份验证令牌。 在实际应用情境中，你的 GraphQL API 会得到保护。
 2. 你会看到一个 URL 以及含有身份验证令牌的标头，令牌将与你的 GraphQL 查询一起发送。
@@ -38,7 +38,7 @@ metaDescription: "使用 GraphiQL 尝试 GraphQL 查询。 GraphQL 查询示例�
 
 请谨记，这不是魔法！ 托管的 GraphiQL 应用程序向给定端点处的服务器发送带有 HTTP 标头的 GraphQL 查询字符串。 然后，该服务器发送右手边显示的响应。
 
-## 抓取“图表”
+## 抓取“图表” {#fetching-graphs}
 
 我们的待办事项应用程序包含用户、待办事项和关于当前在线的用户的信息。 这是我们的 API“模式”的形式：
 
@@ -48,7 +48,7 @@ metaDescription: "使用 GraphiQL 尝试 GraphQL 查询。 GraphQL 查询示例�
 
 我们尝试进行查询，从整个“图表”中获取不同的数据片段。
 
-### 抓取用户及其待办事项
+### 抓取用户及其待办事项 {#fetch-users-and-their-todos}
 
 该 GraphQL 查询将抓取所有用户及其公开可见的待办事项：
 
@@ -66,7 +66,7 @@ metaDescription: "使用 GraphiQL 尝试 GraphQL 查询。 GraphQL 查询示例�
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">在 GraphiQL 中尝试</a></b>
 
 
-### 抓取在线用户及其个人资料信息
+### 抓取在线用户及其个人资料信息 {#fetch-online-users}
 
 该 GraphQL 查询将抓取所有当前在线的用户及其个人资料信息（目前只有他们的名称）：
 
@@ -84,13 +84,13 @@ metaDescription: "使用 GraphiQL 尝试 GraphQL 查询。 GraphQL 查询示例�
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">在 GraphiQL 中尝试</a></b>
 
 
-## 将参数添加至 GraphQL 查询
+## 将参数添加至 GraphQL 查询 {#adding-parameters}
 
 大多数 API 调用通常使用参数等指定你要抓取什么数据。 如果你熟悉如何进行`GET`调用，则你应该使用过查询参数。 例如，如需抓取仅 10 个待办事项，你可能已进行这一 API 调用： `GET /api/todos?limit=10`。
 
 它的 GraphQL 查询模拟是*参数*，可以将其附加到一个“字段”。
 
-### 基本参数： 抓取 10 个待办事项
+### 基本参数： 抓取 10 个待办事项 {#basic-argument}
 
 该 GraphQL 查询将抓取 10 个待办事项，而非全部。
 
@@ -107,7 +107,7 @@ query {
 
 这里要检查的最重要的一点是`limit: 10`。GraphQL 服务器将提供一列参数，可用在特定字段旁的`()`中。 在我们的例子中，我们使用 Hasura 创建 GraphQL 后端，它提供筛选、排序和分页参数。 你使用的 GraphQL 服务器或 API 可能提供可以使用的不同参数集。
 
-### 多个字段的多个参数： 为每个用户抓取 1 个用户和 5 个最新待办事项
+### 多个字段的多个参数： 为每个用户抓取 1 个用户和 5 个最新待办事项 {#multiple-arguments}
 
 ```graphql
 query {
@@ -127,9 +127,7 @@ query {
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">在 GraphiQL 中尝试</a></b>
 
-<a name="query-variables"></a>
-
-## GraphQL 变量： 动态地将参数传递至你的查询
+## GraphQL 变量： 动态地将参数传递至你的查询 {#graphql-variables}
 
 很好，不过我们还有个问题。 如果想创建一个查询，使用动态提供的参数抓取数据，就必须再次创建整个查询字符串。
 
@@ -142,7 +140,7 @@ var query = "query { todos (limit: " + limit.toString() + ") {id title} }";
 
 幸运的是，我们永远不必进行这项操作！ GraphQL 变量是可以在查询中发送的额外变量，这样才能动态提供“参数”！
 
-## 抓取待办事项的$限值
+## 抓取待办事项的$限值 {#fetch-limit}
 
 这是 GraphQL 查询的形式：
 ```graphql
@@ -172,7 +170,7 @@ query ($limit: Int!) {
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">在 GraphiQL 中尝试</a></b>
 
-## 总结
+## 总结 {#summary}
 
 - 现在就可以进行 GraphQL 查询了
 - 你知道如何将参数传递至 GraphQL 查询

@@ -8,7 +8,7 @@ Event triggers can be created using the Hasura console.
 
 Open the Hasura console, head to the Events tab and click on the Create trigger button to open up the interface below to create an event trigger:
 
-## Add Event Trigger
+## Add Event Trigger {#add-event-trigger}
 
 Give a name for the event trigger (say send_email) and select the table `users` and select the operation `insert`.
 
@@ -16,7 +16,7 @@ Click on `Create`.
 
 ![Create event trigger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/add-event-trigger.png)
 
-## Try it out
+## Try it out {#try-it-out}
 
 To test this, we need to insert a new row into users table.
 

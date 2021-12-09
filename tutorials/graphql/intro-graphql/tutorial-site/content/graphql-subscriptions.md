@@ -12,7 +12,7 @@ This is useful for your app to subscribe to "events" or "live results" from the 
 GraphQL subscriptions are a critical component of adding realtime or reactive features
 to your apps easily. GraphQL clients and servers that support subscriptions allow you to build great experiences without having to deal with websocket code!
 
-## Make your first GraphQL subscription
+## Make your first GraphQL subscription {#make-first-graphql-subscription}
 
 `Step 1:` Head to https://hasura.io/learn/graphql/graphiql
 
@@ -35,13 +35,13 @@ Step 3: Click on the play button.
 Every time the set of online users change, you'll see the latest set on
 the response window on the right.
 
-## How do GraphQL subscriptions work?
+## How do GraphQL subscriptions work? {#how-do-graphql-subscriptions-work}
 
 GraphQL queries and mutations are strings sent to a POST endpoint. What is a GraphQL subscription? That can't happen over a POST endpoint, because a simple HTTP endpoint would just return the response and the connection would close.
 
 A GraphQL subscription is a subscription query string sent to a websocket endpoint. And whenever data changes on the backend, new data is pushed over websockets from the server to the client.
 
-## Summary
+## Summary {#summary}
 
 - You know how to make GraphQL subscriptions
 

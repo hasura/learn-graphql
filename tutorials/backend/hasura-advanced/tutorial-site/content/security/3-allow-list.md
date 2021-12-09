@@ -12,7 +12,7 @@ Operations to Allowlist can be added
 - Using Metadata
 - Automatically through Hasura Cloud
 
-## Allowlist through Console
+## Allowlist through Console {#allowlist-through-console}
 
 For example, in our slack demo, we can restrict only the `users` query to go through and deny all other queries. This can be done by heading to the `Settings` tab on Console and navigating to the `Allow List` page.
 
@@ -35,11 +35,11 @@ query {
 
 Similarly this can be added via a file upload by manually uploading a graphql file with the list of all operations.
 
-## Allowlist through Metadata
+## Allowlist through Metadata {#allowlist-through-metadata}
 
 Queries can be stored in collections and a collection can be added to or removed from the allow-list. A collection can be added through the following [APIs](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections.html#api-query-collections)
 
-## Allowlist through Hasura Cloud
+## Allowlist through Hasura Cloud {#allowlist-through-hasura-cloud}
 
 While the above is done manually by entering in all the operations, Hasura Cloud gives a quick way to enable Allowlist from the list of operations that were already executed in the past.
 
@@ -51,7 +51,7 @@ In our example, we would like to select only the user query and hence we can exp
 
 Do note that even Introspection queries need to be added explictly to allow the GraphiQL interface to work and this tab let's you do that quickly. One other tip that would be useful is that, always ensure named queries are made from the client so that it's easier to add them to allowlist and also easier to inspect and debug.
 
-## Enabling Allowlist
+## Enabling Allowlist {#enabling-allowlist}
 
 Allowlist need to be explictly enabled through the env `HASURA_GRAPHQL_ENABLE_ALLOWLIST`.
 

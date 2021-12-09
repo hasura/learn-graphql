@@ -11,11 +11,11 @@ This could be implemented by
 - Rate of API requests - Rate limits
 - Limiting the depth of the requests - Query Depth Limit
 
-## Configuring an API limit
+## Configuring an API limit {#configuring-api-limit}
 
 Hasura Cloud let's you configure API limits in the Pro/Monitoring tab. Head to the `API Limits` page on the `Pro` tab of the Console. Click on `Configure` to start specifying a rule.
 
-### Rate limits
+### Rate limits {#configuring-rate-limits}
 
 Restricts number of GraphQL operations per minute. This uses a sliding window approach. This means whenever Hasura receives a request, it will count the rate of that client starting from the current time to last one minute.
 
@@ -29,7 +29,7 @@ The session variable way of rate limiting is useful when users of your applicati
 
 API limits can be configured per role or globally for all roles.
 
-### Query Depth limits
+### Query Depth limits {#query-depth-limits}
 
 Restricts a GraphQL operation based on its depth, preventing deeply nested queries.
 API limits are defined by role (anonymous, user) and can restrict request rate, depth, or both. Unique request parameters can include IP address or session variables (x-hasura-user-id, x-hasura-org-id, etc.)

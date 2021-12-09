@@ -6,7 +6,7 @@ metaDescription: "探索 GraphQL API 对待办事项表的权限，并了解如�
 
 现在开始通过 GraphQL API 测试`todos`表的权限。
 
-## 查询
+## 查询 {#query}
 
 现在继续，通过添加两个请求头查询数据：
 

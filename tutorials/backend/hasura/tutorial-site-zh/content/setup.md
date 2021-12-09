@@ -6,7 +6,7 @@ metaDescription: "该教程介绍如何使用一键部署功能在 Hasura Cloud 
 
 我们先部署 Hasura。
 
-## 在 Hasura Cloud 上一键部署
+## 在 Hasura Cloud 上一键部署 {#one-click-deployment}
 
 测试 Hasura 的最快方式是通过 Hasura Cloud。 [Hasura Cloud](https://hasura.io/cloud/) 提供可扩展、高可用、全球分布、全托管、安全的 GraphQL API 即服务！
 
@@ -22,7 +22,7 @@ metaDescription: "该教程介绍如何使用一键部署功能在 Hasura Cloud 
 
 在项目初始化后，即可单击弹出屏幕上的`Launch Console`按钮。 如果你之前已有 Hasura Cloud 帐户，则可以单击顶部的`+ New Project`操作，然后单击`Launch Console`，手动创建一个新项目。
 
-## Hasura 控制台
+## Hasura 控制台 {#hasura-console}
 
 这会为你的项目打开 Hasura 控制台。 它应该类似于：
 

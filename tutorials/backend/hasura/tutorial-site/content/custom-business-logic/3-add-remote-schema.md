@@ -6,7 +6,7 @@ metaDescription: "In this part, we will look at how to add a remote schema in Ha
 
 We have written the custom resolver and deployed it to Glitch. We have the GraphQL endpoint ready. Let's add it to Hasura as a remote schema.
 
-## Add
+## Add {#add}
 
 Head to the `Remote Schemas` tab of the console and click on the `Add` button.
 
@@ -17,7 +17,7 @@ Under GraphQL Server URL, enter the glitch app url that you just deployed in the
 
 Select `Forward all headers from the client` and click on `Add Remote Schema`.
 
-## Try it out
+## Try it out {#try-it-out}
 
 Head to the Console GraphiQL tab and explore the following GraphQL query.
 

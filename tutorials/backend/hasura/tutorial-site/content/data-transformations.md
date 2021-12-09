@@ -16,7 +16,7 @@ So far we were building tables and relationships.
 
 In this example, we are going to make use of `Views`. This view is required by the app to find the users who have logged in and are online in the last 30 seconds.
 
-## Create View
+## Create View {#create-view}
 
 The SQL statement for creating this view looks like this:
 
@@ -36,7 +36,7 @@ Head to Console -> DATA -> SQL page.
 
 Click on `Run` to create the view.
 
-## Subscription to Online Users
+## Subscription to Online Users {#subscription-to-online-users}
 
 Now let's test by making a subscription query to the `online_users` view.
 

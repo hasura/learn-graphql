@@ -16,7 +16,7 @@ Postgres 支持我们使用以下功能进行数据转换：
 
 在这个例子中，我们将使用`Views`。应用程序需要该视图，才能查找已登录用户和最近 30 秒内在线的用户。
 
-## 创建视图
+## 创建视图 {#create-view}
 
 用于创建该视图的 SQL 语句与此类似：
 
@@ -36,7 +36,7 @@ CREATE OR REPLACE VIEW "public"."online_users" AS
 
 单击`Run`，以创建该视图。
 
-## 在线用户订阅
+## 在线用户订阅 {#subscription-to-online-users}
 
 现在，通过对`online_users`视图提出订阅查询，进行测试。
 

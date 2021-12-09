@@ -12,7 +12,7 @@ So, we put together a practical and concise course that will introduce you to Gr
 
 We will explore the fundamentals of GraphQL and what makes it especially suitable for modern applications, like its realtime capabilities! 
 
-## Key topics and takeaways:
+## Key topics and takeaways: {#key-topics-takeaways}
 
 import {Link} from "gatsby";
 

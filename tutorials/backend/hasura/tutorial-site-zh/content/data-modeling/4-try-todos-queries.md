@@ -8,7 +8,7 @@ metaDescription: "探索待办事项表的 GraphQL API，其中的查询、变�
 
 开始探索`todos`表的 GraphQL API 吧。
 
-## 变更
+## 变更 {#mutation}
 
 转到“控制台” -> API -> GraphiQL 选项卡，然后使用 GraphQL 变更插入待办事项。
 
@@ -26,7 +26,7 @@ mutation {
 
 ![待办事项变更](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-mutation-todo.png)
 
-## 查询
+## 查询 {#query}
 
 现在让我们查询刚刚插入的数据。
 
@@ -48,7 +48,7 @@ query {
 
 请注意，某些列（如`is_public`、`is_completed`）有默认值，即使你并没有在变更过程中插入它们。
 
-## 订阅
+## 订阅 {#subscription}
 
 让我们对`todos`表进行订阅查询，以观察对表的更改。 在上面的 GraphQL 查询中，用`subscription`替换`query`
 

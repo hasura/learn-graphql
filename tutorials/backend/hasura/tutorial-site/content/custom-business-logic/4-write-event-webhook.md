@@ -13,7 +13,7 @@ The payload for each event is mentioned [here](https://hasura.io/docs/latest/gra
 
 Now we are going to capture this insert operation to trigger our event.
 
-## SendGrid SMTP Email API
+## SendGrid SMTP Email API {#sendgrid-smtp-email-api}
 
 For this example, we are going to make use of `SendGrid`'s SMTP server and use `nodemailer` to send the email.
 
@@ -21,7 +21,7 @@ Signup on [SendGrid](https://sendgrid.com/) and create a free account.
 
 Create an API Key by following the docs [here](https://sendgrid.com/docs/for-developers/sending-email/integrating-with-the-smtp-api/)
 
-### Write the webhook
+### Write the webhook {#write-the-webhook}
 
 ```javascript
 const nodemailer = require('nodemailer');
@@ -71,11 +71,11 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-## Deploy
+## Deploy {#deploy}
 
 [![DEPLOY TO GLITCH](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~sendgrid-send-email-event)
 
-## Environment variables
+## Environment variables {#environment-variables}
 
 After remixing to your own project on Glitch, modify the `.env` file to enter the
 

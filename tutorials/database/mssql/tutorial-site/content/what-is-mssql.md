@@ -4,20 +4,19 @@ metaTitle: "What is MSSQL? | MSSQL Tutorial"
 metaDescription: "This section introduces MSSQL Server and some tools to execute SQL commands on the server."
 ---
 
-## Introduction to MS SQL Server
-
-MS SQL Server is a Relational Database Management System (RDBMS) database developed by Microsoft.
+MS SQL Server is a Relational Database Management System (RDBMS) developed by Microsoft.
 A Relational database is based on a Relational Model architecture. The data is organized in tables(relations), and the tables are related to each other.
 Each table has rows and columns(attributes).
 MS SQL Server is a software product used to administer the database and retrieve information.
 
 ## What is SQL and T-SQL
 
-SQL (Structured Query Language) is a domain-specific language to manage data in an RDBMS.
+SQL (Structured Query Language) is a domain-specific language to manage data in RDBMS.
 The scope of SQL includes data query, data manipulation, data definition, and data access control.
 
 MS SQL Server has its proprietary query language called Transact-SQL or T-SQL to interact with MS SQL Server.
 You can run T-SQL queries via SQL Server Utility available in SQL Server Management Studio (SSMS) or via the `sqlcmd` utility.
+Azure portal provides Query editor(preview) to run sql queries against Azure SQL database.
 
 ## Tools that use T-SQL
 

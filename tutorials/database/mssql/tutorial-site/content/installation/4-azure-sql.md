@@ -21,7 +21,7 @@ Azure SQL provides the following SQL deployment options:
 * SQL managed instances
 * SQL virtual machines
 
-![SQL deployment options](../../../../../assets/azure/sql-deployments.png)
+![SQL deployment options](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/azure/sql-deployments.png)
 
 We will adapt a single database model to quickly get started with SQL Server concepts.
 
@@ -45,6 +45,6 @@ JOIN [SalesLT].[Address] a
 ON c.CustomerID = a.AddressID
 ```
 
-![Query Editor](../../../../../assets/azure/query-editor.png)
+![Query Editor](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/azure/query-editor.png)
 
-> Although most of the concepts of SQL Server database explained in the following sections hold good for Azure SQL, however there are few key differences as explained in the [Azure SQL Limitations](../../azure-sql-limitations) section.
+> Although most of the concepts of SQL Server database explained in the following sections hold good for Azure SQL, however there are few key differences as explained in the Azure SQL Limitations section.

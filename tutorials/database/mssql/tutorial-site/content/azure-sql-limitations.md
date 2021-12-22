@@ -1,7 +1,7 @@
 ---
 title: "Azure SQL Database limitations"
 metaTitle: "Azure SQL Database limitations | MSSQL Tutorial"
-metaDescription: ""
+metaDescription: "Azure SQL Database and T-SQL has some limitations which are distinct from other offerings. Read more about the key differences between SQL Server and Azure SQL Database"
 ---
 
 Some of the database and T-SQL limitations in Azure SQL are:

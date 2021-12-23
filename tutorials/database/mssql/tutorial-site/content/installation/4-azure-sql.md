@@ -47,4 +47,4 @@ ON c.CustomerID = a.AddressID
 
 ![Query Editor](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/azure/query-editor.png)
 
-> Although most of the concepts of SQL Server database explained in the following sections hold good for Azure SQL, however there are few key differences as explained in the Azure SQL Limitations section.
+> Although most of the concepts of SQL Server database explained in the following sections hold good for Azure SQL, however there are few key differences as explained in the [Azure SQL Limitations](https://hasura.io/learn/database/microsoft-sql-server/azure-sql-limitations/) section.

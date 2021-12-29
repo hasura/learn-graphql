@@ -8,7 +8,7 @@ Now let's move on to creating the other model: `todos`
 
 The `todos` table will have the following columns:
 
-- `id` (type Integer (auto-increment)),
+- `id` (type Integer),
 - `title` (type Text),
 - `is_completed` (type Boolean and default false)
 - `is_public` (type Boolean and default false)

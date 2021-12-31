@@ -1,31 +1,58 @@
 ---
-title: "Auth0 トークンのテスト"
-metaTitle: "Auth0 トークンのテスト | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは Auth0 からトークンを取得し Authorization ヘッダーを使用して GraphQL クエリを実行することにより Hasura で Auth0 設定をテストする方法を学びます"
+title: "Auth0トークンで試す"
+metaTitle: "Auth0 JWTトークンで試す | Hasura GraphQLチュートリアル"
+metaDescription: "ここでは、Auth0からトークンを取得して、承認ヘッダーを使用してGraphQLクエリを作成することで、HasuraでAuth0セットアップを試す方法について学びます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+Hasuraは、Auth0で使用するように設定されています。ここで、Auth0からアクセストークンを取得し、承認ヘッダーを使用してGraphQLクエリを作成することで、この設定を試し、権限が適用されているかどうか確認してみましょう。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/05-FWc14qi8" />
+テスト用JWTトークンを取得するため、Auth0で拡張機能を設定します。
 
-Hasura は Auth0 で使用するように構成されています。 次に Auth0 からトークンを取得し Authorization ヘッダーを使用して GraphQL クエリを実行して、この設定をテストし、権限が適用されているかどうかを確認します。
+1. [認証APIデバッガ拡張機能](https://auth0.com/docs/extensions/authentication-api-debugger-extension)をインストールします。これにより、アクセストークンの設定と生成が可能になります。
 
-JWTトークンを取得するには、
+この拡張機能をインストールする手順は以下の通りです。
 
-1. このURLを使用して Auth0 にログインします - https://auth0-domain.auth0.com/login?client=client_id&protocol=oauth2&response_type=token%20id_token&redirect_uri=callback_uri&scope=openid%20profile
+[Auth0ダッシュボード](https://manage.auth0.com/#)の[拡張](https://manage.auth0.com/#/extensions)ページに移動します。
 
-- auth0-domain を前の手順で作成したドメインに置き換えます。
-- client_id を Auth0 アプリケーションの client_id に置き換えます。
-- テストのために callback_uri を `http://localhost:3000/callback` に置き換えます。
+![Auth0拡張デバッガ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-extensions-debugger.png)
 
-**注意**: ログインで OIDC 準拠のクライアントに関するエラーが発生した場合は、Advanced Settings -> OAuth でOIDC準拠の設定 (https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant) を無効にしてみてください。
+Auth0認証APIデバッガボックスをクリックします。拡張機能をインストールのウィンドウが開きます。インストールをクリックします。
 
-**注意**: Auth0アプリの設定の Allowed Callback URLs で http://localhost:3000/callbackが 追加されていることを確認してください。
+2. 拡張機能を承認します
 
-2. ログインに成功すると https://localhost:3000/callback#xxxxxxxx&id_token=yyyyyyy にリダイレクトされます。 localhost:3000 で実行されているUIがない場合、このページは404になる可能性があります。
+拡張機能がインストールされたら、`Installed Extensions` タブでクリックできます。URLは、`https://<auth0-domain>.<region>.webtask.run/auth0-authentication-api-debugger` と同様になります。
 
-3. このURLから id_token 値を抽出します。 これが JWT です。
+Auth0 UIでサインインを使用してログインするように促されます。必ず、Auth0アカウントを最初に作成した際に使用した資格情報でログインしてください。この手順では、基本的に拡張機能の使用を承認して、アプリのクライアント詳細を読み取れるアクセス権を許可します。
 
-![jwt-token-auth0-url](https://graphql-engine-cdn.hasura.io/img/id_token-jwt-url.png)
+![Auth0アプリを承認する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authorize-auth0-app.png)
 
-4. このJWTを [jwt.io](https://jwt.io) デバッガーでテストします。
+アプリを承認したら、デバッガページが表示されます。
+
+3. Auth0アプリケーションを設定する
+
+APIデバッガページで、チュートリアルで前に作成したアプリの名前を選択します。
+
+![Auth0 APIデバッガ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authentication-api-debugger.png)
+
+今度は、そこに記載されたコールバックURLをコピーします。Auth0アプリケーションページに移動して、アプリの設定に移動し、「許可されたコールバックURL」にURLを追加します。
+
+4. オーディエンスを設定する
+
+設定の横にあるOAuth2 / OIDCタブに切り替えて、下にスクロールして、オーディエンス値を設定します。
+
+![Auth0オーディエンス](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/configure-audience.png)
+
+オーディエンス値を `https://hasura.io/learn` として入力して、その隣の `Use Audience` オプションを切り替えます。
+覚えている場合、前の手順の1つで上記のオーディエンス値を持つAPIを作成しました。
+
+5. Auth0認証APIデバッガの拡張機能設定に戻ります。ユーザーフローの下でOAuth2 / OIDCログインボタンをクリックします。これにより、ユーザーとしてログインするよう促されます。任意のアカウントでこのUIにサインアップして、正常にログインすると、JSON応答が表示された認証デバッガページに戻ります。
+
+![認証デバッガアクセストークン](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/authentication-debugger-access-token.png)
+
+ハッシュフラグメントセクションで、オブジェクト内の `access_token` キーを参照できます。
+
+5. JWTを試す
+
+デバッガは、キー `https://hasura.io/jwt/claims` の下でHasuraのために設定されたJWTクレームを含むデコードされたペイロードを与えてくれます。これで、このオブジェクト内で、ロール情報が `x-hasura-role` キーで使用可能になり、user-id情報が `x-hasura-user-id` キーで使用可能になります。
+
+これから、認証された要求を作成するためにこのaccess_tokenを使用できます。HasuraコンソールGraphiQLタブで、このような要求を行うためのヘッダー `Authorization: Bearer <access_token>` を追加できます。

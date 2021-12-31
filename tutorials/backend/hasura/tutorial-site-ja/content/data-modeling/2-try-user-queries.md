@@ -1,21 +1,18 @@
 ---
-title: "GraphQL APIs を試す"
-metaTitle: "GraphQL APIs で users を試してみる | Hasura GraphQL チュートリアル"
-metaDescription: "Hasura GraphQL Engineによってクエリ、ミューテーション、サブスクリプションが自動的に生成されるテーブルユーザー向けのGraphQL APIを試してみる"
+title: "GraphQL APIでユーザーを探索"
+metaTitle: GraphQL APIでユーザーを探索 | Hasura GraphQLチュートリアル
+metaDescription: "クエリ、ミューテーション、サブスクリプションがHasura GraphQL Engineによって自動的に生成されたユーザーテーブル用のGraphQL APIを見ていきます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+Hasuraは、その他のデータベースの中でも特に、[Postgres](https://hasura.io/learn/database/postgresql/what-is-postgresql/)でインスタントGraphQL APIを提供します。そのため、[先ほど作成したテーブル](https://hasura.io/learn/database/postgresql/create-alter-drop-ddl/1-postgresql-create/)でテストできます。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/ixSMUiWvKrM" />
+それでは、`users` テーブルのGraphQL APIを見ていきましょう。APIを見るにはGraphiQLを使います。GraphiQLは、GraphQL統合開発環境（IDE）です。APIと対話するために使用する強力なツールです。
 
-Hasura が Postgres を介して Instant GraphQL API を提供しているので、作成したばかりのテーブルでテストできます。
+GraphiQLにアクセスするには、コンソール -> API -> GraphiQLタブに移動します。
 
-まず `users` テーブルの GraphQL API を見てみましょう。
+## ミューテーション {#mutation}
 
-## ミューテーション
-
-コンソール -> GRAPHIQL タブに移動し GraphQL ミューテーションを使用してユーザーを追加します。
-
+GraphQLミューテーションを使ってユーザーを追加しましょう。以下のコードをGraphiQLインターフェースにコピーします。
 
 ```graphql
 mutation {
@@ -25,19 +22,19 @@ mutation {
 }
 ```
 
-クエリを実行するには GraphiQL インターフェースの `Play` ボタンをクリックします。
+GraphiQLインターフェースの `Play` ボタンをクリックして、クエリを実行します。
 
-次のようなレスポンスが得られるはずです。
+以下のような応答が得られるはずです。
 
-![ユーザーミュテーション](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-mutation-user.png)
+![ユーザーミューテーション](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-mutation-user.png)
 
-すごい！ これで作成した `users` テーブルのミューテーションクエリが実行されました。簡単ですね。
+完璧です。これで、先ほど作成した  `users`テーブルのミューテーションクエリを消費しました。
 
-**ヒント**: GraphiQL インターフェースの `Explorer` を使用して、数回のクリックでミューテーションを実行できます。
+**ヒント**：GraphiQLインターフェースの `Explorer` を使って、数回のクリックでミューテーションを生成できます。
 
-## クエリ
+## クエリ {#query}
 
-次に先ほど追加したデータをクエリしてみましょう。
+それでは、挿入されたばかりのデータのクエリを行いましょう。
 
 ```graphql
 query {
@@ -49,15 +46,15 @@ query {
 }
 ```
 
-次のようなレスポンスが得られるはずです:
+以下のような応答が得られるはずです。
 
 ![ユーザークエリ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-query-user.png)
 
-`created_at` などのデフォルト値があるカラムへの値は自動的に追加されます。
+`created_at` などの一部の列には、ミューテーション中に挿入しなくてもデフォルトの値があります。
 
-## サブスクリプション
+## サブスクリプション {#subscription}
 
-テーブルへの変更をリアルタイムで受け取るために `users` テーブルに対して単純なサブスクリプションクエリを実行してみましょう。
+`users` テーブルに対してサブスクリプションクエリを実行して、テーブルの変更を確認しましょう。
 
 ```graphql
 subscription {
@@ -69,16 +66,16 @@ subscription {
 }
 ```
 
-最初に、サブスクリプションクエリは既存の結果をレスポンスで返します。
+最初に、サブスクリプションクエリは、応答に既存の結果を返します。
 
-次に users テーブルに新しいデータを追加して、応答に表示される変更を確認します。
+それでは、新しいデータを `users` テーブルに挿入して、応答に表示される変化を確認しましょう。
 
-新しいタブで、コンソール -> Data タブ-> users -> Insert Row に移動し、別の行を追加します。
+新しいブラウザタブで、コンソール -> `DATA` タブ -> デフォルト -> パブリック -> ユーザー -> 行を挿入に移動して、別の行を挿入します。
 
-![新しいユーザーの追加](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/user-insert-new-row.png)
+![新しいユーザーを挿入する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/user-insert-new-row.png)
 
-そして前の `GRAPHIQL` タブに切り替えて、2つの結果を返すサブスクリプションの応答を確認します。
+そして、前の `GRAPHIQL` タブに切り替えて、2つの結果を返すサブスクリプション応答を確認します。
 
-![User Subscription](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-subscription-user.png)
+![ユーザーサブスクリプション](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-subscription-user.png)
 
-アクティブなサブスクリプションクエリは、クエリに応じて最新の結果セットを返し続けます。
+アクティブなサブスクリプションクエリは、クエリに応じて、最新の結果のセットを返し続けます。

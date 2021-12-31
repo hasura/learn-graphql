@@ -1,26 +1,22 @@
 ---
-title: "基本的なデータモデル"
-metaTitle: "Hasura を使った基本的なデータモデル | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは、Postgresで基本的なデータモデリングを行い、Hasura コンソールを使用してテーブルを作成する方法を説明します。"
+title: "データモデリング"
+metaTitle: "Hasuraによるデータモデリング | Hasura GraphQLチュートリアル"
+metaDescription: "このチュートリアルでは、Postgresでデータモデリングを行う方法と、Hasuraコンソールを使ってテーブルを作成する方法を学びます。"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
+コースのこのパートでは、リアルタイムtodoアプリのデータモデルを構築します。todoアプリには以下の機能があります。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/XURdIpvfp4M" />
+- ユーザーはパーソナルtodosを維持できます
+- ユーザーはパブリックtodosを表示できます
+- アプリを使用している現在オンラインのユーザーのリスト
+- ユーザーがサインアップしたときにメールを送信します
 
-コースのこの部分では、リアルタイムの ToDo アプリのデータモデルを構築します。この todo アプリには以下の機能があります:
+広い意味で、このアプリには2つの主なモデルがあります。それは、`users` と `todos` の 2 つで、それぞれに独自のプロパティがあります。
 
-- ユーザーは自分のタスクを管理できる
-- ユーザーは公開された ToDo を閲覧できる
-- アプリを使用している現在のオンラインユーザーのリスト
-- ユーザーがサインアップしたときにメールを送信する
+以降のステップで見ていきます。
 
-これはおおまかに、このアプリには `users` と `todos` の2つのモデルがあり、それぞれに独自のプロパティセットが紐付いています。
+最後のモデルを以下に示します。
 
-以降のステップでそれらについて説明します。
+![スキーマtodoアプリ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/voyager-schema.png)
 
-最終的なモデルは次のようになります:
-
-![Todo アプリスキーマ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/voyager-schema.png)
-
-コンソールを使用するか直接 postgres でテーブルを作成すると、Hasura GraphQL エンジンは GraphQL スキーマオブジェクトタイプと対応するクエリ/ミューテーションフィールドをリゾルバーで自動的に作成します。
+[コンソールを使用して、またはpostgresで直接、テーブルを作成](https://hasura.io/learn/database/postgresql/create-alter-drop-ddl/1-postgresql-create/)する際、Hasura GraphQL EngineがGraphQLスキーマオブジェクトタイプと、それに対応するクエリ/ミューテーションフィールドをリゾルバーで自動的に作成します。

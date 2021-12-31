@@ -1,25 +1,23 @@
 ---
 title: "データ変換"
-metaTitle: "Postgres のデータ変換 | Hasura GraphQL チュートリアル"
-metaDescription: "ビューとSQL関数を使って Postgres データ変換を活用し、アプリに必要なオンラインユーザーを見つけます"
+metaTitle: "Postgresでのデータ変換 | Hasura GraphQLチュートリアル"
+metaDescription: "ViewsとSQL関数を使ってPostgresデータ変換を活用して、アプリに必要なオンラインユーザーを検索します。"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/vunIhyeTaac" />
 
-todo アプリのリアルタイム機能の1つは、オンラインユーザーのリストを表示することです。ユーザーが最後にオンラインになった時期を知らせる `last_seen` の値に基づいてこの情報を取得する方法が必要です。
+todoアプリのリアルタイム機能の1つは、オンラインユーザーのリストの表示です。ユーザーが最後にオンラインにいた時刻を示す `last_seen` の値に基づいて、この情報を取得する方法が必要です。
 
-これまでのところ、テーブルと関係を構築していました。
-Postgres では、以下を使用してデータ変換を実行できます。
-- ビュー
+これまで、テーブルとリレーションシップを構築していました。[Postgres](https://hasura.io/learn/database/postgresql/what-is-postgresql/)では、次のものを使って、データ変換を実行できます。
+
+- [ビュー](https://hasura.io/learn/database/postgresql/views/)
 - SQL関数
 
-この例では `Views` を使用します。 このビューは、過去30秒間にログインしてオンラインになっているユーザーを見つけるためにアプリで必要になります。
+この例では、`Views` を利用します。このビューは、過去30秒にログインしオンラインになっているユーザーをアプリが検索するために必要です。
 
-## ビューの作成
+## ビューを作成する {#create-view}
 
-このビューを作成するための SQL 構文は次のようになります:
+このビューを作成するためのSQLステートメントは、以下のようになります。
 
 ```sql
 CREATE OR REPLACE VIEW "public"."online_users" AS
@@ -29,17 +27,17 @@ CREATE OR REPLACE VIEW "public"."online_users" AS
   WHERE (users.last_seen >= (now() - '00:00:30'::interval));
 ```
 
-このビューを追加して、それをクエリできるように Hasura でビューを追跡しましょう。
+このビューを追加して、Hasuraでビューを追跡して、クエリできるようにします。
 
-コンソール -> Data -> SQL ページに移動します。
+コンソール -> DATA -> SQLページに移動します。
 
-![Create view online_users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-view.png)
+![ビューonline_usersを作成する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-view.png)
 
-`Run` をクリックしてビューを作成します。
+`Run` をクリックして、ビューを作成します。
 
-## オンラインユーザーへのサブスクリプション
+## オンラインユーザーへのサブスクリプション {#subscription-to-online-users}
 
-次に `online_users` ビューへのサブスクリプションクエリを作成してテストしましょう。
+サブスクリプションクエリを `online_users` ビューに作成して、テストしましょう。
 
 ```graphql
 subscription {
@@ -50,12 +48,12 @@ subscription {
 }
 ```
 
-別のタブで、既存のユーザーの `last_seen` 値を更新して、サブスクリプションのレスポンスが更新されることを確認します。
+別のタブで、既存のユーザーの `last_seen` 値を更新して、サブスクリプション応答が更新されることを確認します。
 
-![Update users last_seen](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/update-users-last-seen.png)
+![ユーザー last_seen を更新する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/update-users-last-seen.png)
 
-`last_seen` 列の値を `now()` として入力し `保存` をクリックします。
+`last_seen` 列の `now()` として値を入力して、`Save` をクリックします。
 
-次にサブスクリプションクエリが実行されているタブに戻り、更新されたレスポンスを確認します。
+サブスクリプションクエリが実行されているタブに戻って、更新された応答を確認します。
 
-![Subscription online users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/online-users-subscription.png)
+![サブスクリプションオンラインユーザー](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/online-users-subscription.png)

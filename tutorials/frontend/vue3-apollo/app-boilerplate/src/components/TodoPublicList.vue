@@ -1,149 +1,69 @@
-<template>
-  <div>
-    <div class="todoListwrapper">
-      <div class="loadMoreSection" v-if="newTodosCount" v-on:click="loadMoreClicked">
-        New tasks have arrived! ({{ newTodosCount }})
-      </div>
-      <TodoItem 
-        v-bind:todos="todos" 
-        v-bind:type="type" 
-      />
-      <div class="loadMoreSection" v-if="olderTodosAvailable" v-on:click="loadOlderClicked">
-        Load older tasks
-      </div>
-    </div>
-  </div>
-</template>
+<script setup lang="ts">
+import TodoItem from "../components/TodoItem.vue"
+import { computed, reactive } from "vue"
+import { useQuery, useResult, useSubscription } from "@vue/apollo-composable"
+import { NOTIFY_NEW_PUBLIC_TODOS, SELECT_TODOS_WITH_USER } from "../graphql-operations"
 
-<script>
-import TodoItem from "../components/TodoItem.vue";
-import TodoFilters from "../components/TodoFilters.vue";
-import gql from "graphql-tag";
-const NOTIFY_NEW_PUBLIC_TODOS = gql`
-  subscription notifyNewPublicTodos {
-    todos(
-      where: { is_public: { _eq: true }} 
-      order_by: { created_at: desc }
-      limit: 1
-    ) {
-      id
-      title
-      created_at
-    }
-  }
-`;
-const GET_OLD_PUBLIC_TODOS = gql`
-  query getOldPublicTodos($oldestTodoId: Int) {
-    todos(
-      where: { is_public: { _eq: true }, id: { _lt: $oldestTodoId } }
-      limit: 7
-      order_by: { created_at: desc }
-    ) {
-      id
-      title
-      created_at
-      is_public
-      user {
-        name
-      }
-    }
-  }
-`;
-const GET_NEW_PUBLIC_TODOS = gql`
-  query getNewPublicTodos($latestVisibleId: Int!) {
-    todos(
-      where: { is_public: { _eq: true }, id: { _gt: $latestVisibleId } }
-      order_by: { created_at: desc }
-    ) {
-      id
-      title
-      created_at
-      is_public
-      user {
-        name
-      }
-    }
-  }
-`;
-export default {
-  components: {
-    TodoItem, TodoFilters
-  },
-  data: function() {
-    return {
-      olderTodosAvailable: true,
-      newTodosCount: 0,
-      limit: 7,
-      todos: [],
-      type: "public"
-    }
-  },
-  mounted() {
-    const that = this;
-    this.$apollo
-      .query({
-        query: GET_OLD_PUBLIC_TODOS
-      })
-      .then(data => {
-        this.todos = data.data.todos;
-        // start a subscription
-        this.$apollo
-          .subscribe({
-            query: NOTIFY_NEW_PUBLIC_TODOS,
-          })
-          .subscribe({
-            next(data) {
-              if (data.data.todos.length) {
-                // check if the received todo is already present
-                if(data.data.todos[0].id !== that.todos[0].id) {
-                  that.newTodosCount = that.newTodosCount + data.data.todos.length;
-                }
-              }
-            },
-            error(err) {
-              console.error("err", err);
-            }
-          });
-      });
-  },
-  methods: {
-    loadMoreClicked: function() {
-      this.newTodosCount = 0;
-      this.$apollo
-        .query({
-          query: GET_NEW_PUBLIC_TODOS,
-          variables: {
-            latestVisibleId: this.todos.length ? this.todos[0].id : null
-          }
-        })
-        .then(data => {
-          if (data.data.todos.length) {
-            const mergedTodos = data.data.todos.concat(this.todos);
-            // update state with new todos
-            this.todos = mergedTodos;
-          }
-        });
+const { type } = defineProps({ type: String })
+
+const state = reactive({
+    limit: 5,
+    newTodosCount: 0,
+    type: "public",
+    latestVisibleId: null,
+    latestSubscriptionId: null,
+})
+
+const publicTodosQueryVariables = computed(() => ({
+    limit: state.limit,
+    where: {
+        is_public: { _eq: true },
+        ...(state.latestVisibleId && { id: { _lte: state.latestVisibleId } }),
     },
-    loadOlderClicked: function() {
-      this.$apollo
-        .query({
-          query: GET_OLD_PUBLIC_TODOS,
-          variables: {
-            oldestTodoId: this.todos.length
-              ? this.todos[this.todos.length - 1].id
-              : null
-          }
-        })
-        .then(data => {
-          if (data.data.todos.length) {
-            const mergedTodos = this.todos.concat(data.data.todos);
-            // update state with new todos
-            this.todos = mergedTodos;
-          } else {
-            this.olderTodosAvailable = false;
-          }
-        });
+    order_by: {
+        created_at: "desc",
     },
-  }
+}))
+
+const publicTodosQuery = useQuery(SELECT_TODOS_WITH_USER, publicTodosQueryVariables)
+const publicTodos = useResult(publicTodosQuery.result, [], (data) => data?.todos)
+publicTodosQuery.onResult(({ data }) => {
+    if (data?.todos?.length > 0) {
+        state.latestVisibleId = data.todos[0].id
+    }
+})
+
+const newPublicTodosSubscription = useSubscription(NOTIFY_NEW_PUBLIC_TODOS, {
+    lastId: state.latestSubscriptionId,
+})
+newPublicTodosSubscription.onResult(({ data }) => {
+    if (!data?.todos?.length) return
+    if (data.todos[0].id === state.latestVisibleId) return
+
+    state.newTodosCount += data.todos.length
+    state.latestSubscriptionId = data.todos[0].id
+})
+
+function loadMoreClicked() {
+    state.latestVisibleId = state.latestSubscriptionId
+    state.newTodosCount = 0
+}
+
+function loadOlderClicked() {
+    state.limit += 5
 }
 </script>
+
+<template>
+    <div>
+        <div class="todoListwrapper">
+            <div class="loadMoreSection" v-if="state.newTodosCount" @click="loadMoreClicked">
+                <p>New tasks have arrived! ({{ state.newTodosCount }})</p>
+            </div>
+            <TodoItem :todos="publicTodos" :type="type" />
+            <div class="loadMoreSection" @click="loadOlderClicked">
+                <p>Load older tasks</p>
+            </div>
+        </div>
+    </div>
+</template>

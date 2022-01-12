@@ -1,71 +1,54 @@
-<template>
-  <div class="formInput">
-    <input 
-	class="input" 
-	placeholder="What needs to be done?" 
-	v-model="newTodo"
-	@keyup.enter="addTodo"
-    />
-    <i class="downArrow fa fa-angle-down" />
-  </div>
-</template>
+<script setup lang="ts">
+import { useMutation } from "@vue/apollo-composable"
+import { ref } from "vue"
+import { INSERT_TODOS_ONE, SELECT_TODOS } from "../graphql-operations"
 
-<script>
-  import gql from "graphql-tag";
-  import { GET_MY_TODOS } from "./TodoPrivateList.vue";
-  const ADD_TODO = gql`
-    mutation insert_todos($todo: String!, $isPublic: Boolean!) {
-      insert_todos(objects: {title: $todo, is_public: $isPublic}) {
-        affected_rows
-        returning {
-          id
-          title
-          is_completed
-          created_at
-          is_public
+const { type } = defineProps({ type: String })
+const newTodoTitle = ref("")
+const insertTodoMutation = useMutation(INSERT_TODOS_ONE)
+
+async function addTodo({ todoTitle, type }: { todoTitle: string; type: string }) {
+    // Reset the input field
+    newTodoTitle.value = ""
+
+    // insert new todo into db
+    const title = todoTitle && todoTitle.trim()
+    const result = await insertTodoMutation.mutate(
+        {
+            object: {
+                title,
+                is_public: type === "public",
+            },
+        },
+        {
+            refetchQueries: [
+                {
+                    query: SELECT_TODOS,
+                    variables: {
+                        where: {
+                            is_public: { _eq: false },
+                        },
+                        order_by: {
+                            created_at: "desc",
+                        },
+                    },
+                },
+            ],
         }
-      }
-    }
-  `;
-  export default {
-    props: ['type'],
-    data() {
-      return {
-        newTodo: '',
-      }
-    },
-    methods: {
-      addTodo: function () {
-        // insert new todo into db
-        const title = this.newTodo && this.newTodo.trim()
-        const isPublic = this.type === "public";
-        this.$apollo.mutate({
-          mutation: ADD_TODO,
-          variables: {
-            todo: title,
-            isPublic: isPublic
-          },
-          update: (cache, { data: { insert_todos } }) => {
-            // Read the data from our cache for this query.
-            try {
-              if (this.type === "private") {
-                const data = cache.readQuery({
-                  query: GET_MY_TODOS
-                });
-                const insertedTodo = insert_todos.returning;
-                data.todos.splice(0, 0, insertedTodo[0]);
-                cache.writeQuery({
-                  query: GET_MY_TODOS,
-                  data
-                });
-              }
-            } catch (e) {
-              console.error(e);
-            }
-          },
-        });
-        this.newTodo = '';
-      },
-    }
-  }
+    )
+
+    console.log("mutate result", result)
+}
 </script>
+
+<template>
+    <div class="formInput">
+        <input
+            class="input"
+            placeholder="What needs to be done?"
+            v-model="newTodoTitle"
+            @keyup.enter="addTodo({ todoTitle: newTodoTitle, type })"
+        />
+        <i class="downArrow fa fa-angle-down" />
+    </div>
+</template>

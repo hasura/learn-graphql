@@ -1,118 +1,112 @@
-<template>
-  <div>
-    <div v-if="$apollo.queries.todos.loading">Loading...</div>
-    <div v-if="error">{{ error }}</div>
-    <div class="todoListwrapper">
-      <TodoItem 
-        v-bind:todos="filteredTodos" 
-        v-bind:type="type" 
-      />
-    </div>
-    <TodoFilters 
-      v-bind:remainingTodos="remainingTodos" 
-      v-bind:filterResults="filterResults" 
-      v-bind:filterType="filterType"
-      v-bind:type="type"
-      v-bind:clearCompleted="clearCompleted"
-    />
-  </div>
-</template>
+<script setup lang="ts">
+import TodoItem from "../components/TodoItem.vue"
 
-<script>
-import TodoItem from "../components/TodoItem.vue";
-import TodoFilters from "../components/TodoFilters.vue";
-import gql from "graphql-tag";
-export const GET_MY_TODOS = gql`
-  query getMyTodos {
-    todos(
-      where: { is_public: { _eq: false } }
-      order_by: { created_at: desc }
-    ) {
-      id
-      title
-      created_at
-      is_completed
-    }
-  }
-`;
-export default {
-  components: {
-    TodoItem, TodoFilters
-  },
-  data() {
-    return {
-      type: "private",
-      filterType: "all",
-      todos: [],
-      error: null
-    }
-  },
-  computed: {
-    remainingTodos: function() {
-      const activeTodos = this.todos !== undefined ? this.todos.filter((todo) => todo.is_completed !== true) : []
-      return activeTodos.length
+import { useMutation, useQuery, useResult } from "@vue/apollo-composable"
+import { computed, reactive } from "vue"
+import { DELETE_TODOS, SELECT_TODOS } from "../graphql-operations"
+
+// Used in both query and mutation (refetch query variables)
+const selectTodosVariables = {
+    where: {
+        is_public: { _eq: false },
     },
-    filteredTodos: function() {
-      if (this.filterType === 'all') {
-        return this.todos
-      } else if(this.filterType === 'active') {
-        return this.todos.filter((todo) => todo.is_completed !== true);
-      } else if (this.filterType === 'completed') {
-        return this.todos.filter((todo) => todo.is_completed === true);
-      }
-    }
-  },
-  methods: {
-    filterResults: function(type) {
-      if(type === 'active') {
-        this.filterType = "active";
-      } else if(type === 'completed') {
-        this.filterType = "completed";
-      } else {
-        this.filterType = "all";
-      }
+    order_by: {
+        created_at: "desc",
     },
-    clearCompleted: function() {
-      const isOk = window.confirm("Are you sure?");
-      if (isOk) {
-        // Remove all the todos that are completed
-        const CLEAR_COMPLETED = gql`
-          mutation clearCompleted {
-            delete_todos(where: {is_completed: {_eq: true}, is_public: {_eq: false}}) {
-              affected_rows
+}
+
+const privateTodosQuery = useQuery(SELECT_TODOS, selectTodosVariables)
+const privateTodos = useResult(privateTodosQuery.result, [], (data) => data?.todos)
+
+const deleteCompletedTodosMutation = useMutation(DELETE_TODOS, {
+    variables: {
+        where: {
+            is_completed: { _eq: true },
+            is_public: { _eq: false },
+        },
+    },
+    refetchQueries: [
+        {
+            query: SELECT_TODOS,
+            variables: selectTodosVariables,
+        },
+    ],
+})
+
+const state = reactive({
+    type: "private",
+    filterType: "all",
+    filteredTodos: computed(() => {
+        return privateTodos.value.filter((todo) => {
+            switch (state.filterType) {
+                case "completed":
+                    return todo.is_completed
+                case "active":
+                    return !todo.is_completed
+                default:
+                    return true
             }
-          }
-        `;
-        this.$apollo
-          .mutate({
-            mutation: CLEAR_COMPLETED,
-            update: (store, { data: { delete_todos } }) => {
-              if (delete_todos.affected_rows) {
-                const data = store.readQuery({
-                  query: GET_MY_TODOS,
-                });
-                data.todos = data.todos.filter((todo) => todo.is_completed !== true);
-                store.writeQuery({
-                  query: GET_MY_TODOS,
-                  data
-                });
-              }
-            },
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
+        })
+    }),
+    activeTodos: computed(() => privateTodos.value.filter((todo) => !todo.is_completed)),
+    remainingTodos: computed(() => state.activeTodos.length),
+})
+
+function filterResults(type: string) {
+    switch (type) {
+        case "active":
+            state.filterType = "active"
+            break
+        case "completed":
+            state.filterType = "completed"
+            break
+        default:
+            state.filterType = "all"
+            break
     }
-  },
-  apollo: {
-    todos: {
-      // graphql query
-      query: GET_MY_TODOS,
-      error(error) {
-        this.error = JSON.stringify(error.message);
-      }
-    },
-  },
+}
+
+async function clearCompleted() {
+    const isOk = window.confirm("Are you sure?")
+    if (!isOk) return
+
+    const result = await deleteCompletedTodosMutation.mutate()
+    console.log("clear completed result", result)
+
+    if (deleteCompletedTodosMutation.error.value) {
+        console.error(deleteCompletedTodosMutation.error.value)
+    }
 }
 </script>
+
+<template>
+    <div>
+        <div v-if="privateTodosQuery.loading.value">Loading...</div>
+        <div v-if="privateTodosQuery.error.value">
+            Error: {{ privateTodosQuery.error.value.message }}
+        </div>
+        <div class="todoListwrapper">
+            <TodoItem :todos="state.filteredTodos" :type="state.type" />
+        </div>
+        <div class="footerList">
+            <span>{{ state.remainingTodos }} items </span>
+            <ul>
+                <li
+                    v-for="filterType in ['all', 'active', 'completed']"
+                    @click="filterResults(filterType)"
+                >
+                    <a
+                        style="text-transform: capitalize"
+                        class="removePaddLeft"
+                        :class="filterType == state.filterType && 'selected'"
+                    >
+                        {{ filterType }}
+                    </a>
+                </li>
+            </ul>
+            <button v-if="state.type === 'private'" class="clearComp" @click="clearCompleted">
+                Clear Completed
+            </button>
+        </div>
+    </div>
+</template>

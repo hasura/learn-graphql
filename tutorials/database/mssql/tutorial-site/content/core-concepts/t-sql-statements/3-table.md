@@ -99,7 +99,7 @@ DROP TABLE [IF EXISTS] <table_name>;
 GO
 ```
 
-`IF EXISTS`: First checks if the table exists then drop the table.
+`IF EXISTS`: First checks if the table exists, and if it does, drop the table.
 
 Without this keyword if the table does not exist, an error is thrown:
 `Cannot drop the table 'EMPLOYEE', because it does not exist or you do not have permission.`
@@ -113,11 +113,11 @@ DROP TABLE IF EXISTS EMPLOYEE;
 GO
 ```
 
-The `SELECT` query on the 'EMPLOYEE' table will result in an error: "Invalid object name 'EMPLOYEE'".
+The `SELECT` query on the 'EMPLOYEE' table results in an error: "Invalid object name 'EMPLOYEE'".
 
 ## TRUNCATE table
 
-The `TRUNCATE` is a DDL T-SQL command. This is used to delete the data in a table, but the structure of the table remains.
+The `TRUNCATE` is a DDL T-SQL command. This command is used to delete the data in a table, but the structure of the table remains.
 
 ```SQL
 USE HASURA
@@ -126,5 +126,6 @@ TRUNCATE TABLE EMPLOYEE;
 GO
 ```
 
-The `SELECT` query on the 'EMPLOYEE' table will display the structure of the table 'EMPLOYEE' with no rows in it.
+The `SELECT` query on the 'EMPLOYEE' table displays the structure of the table 'EMPLOYEE' with no rows in it.
+
 ![table structure remains](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/t-sql/table-truncated.png)

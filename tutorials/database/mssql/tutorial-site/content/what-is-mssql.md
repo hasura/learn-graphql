@@ -27,7 +27,7 @@ Some of the Microsoft tools that are used to run T-SQL commands are:
 * [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
 * [sqlcmd](https://docs.microsoft.com/en-us/previous-versions/sql/2014/tools/sqlcmd-utility?view=sql-server-2014&preserve-view=true)
 
-> In this tutorial we will use SSMS on Windows Server 2019.
+> In this tutorial, we will use SSMS on Windows Server 2019.
 
 ## What is SQL Server Management Studio SSMS
 

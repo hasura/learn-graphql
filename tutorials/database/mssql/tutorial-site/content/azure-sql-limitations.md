@@ -19,4 +19,4 @@ Some of the database and T-SQL limitations in Azure SQL are:
 * T-SQL debugging.
 * `USE` statement to change database. Create a new connection to that database instead.
 
-Refer the [T-SQL differences between SQL Server and Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/transact-sql-tsql-differences-sql-server) for complete reference.
+Refer the [T-SQL differences between SQL Server and Azure SQL Database](https://docs.microsoft.com/en-us/azure/azure-sql/database/transact-sql-tsql-differences-sql-server) for a complete reference.

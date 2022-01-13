@@ -16,4 +16,4 @@ The new env var would be `HASURA_GRAPHQL_DEV_MODE` with a boolean true.
 
 Once this is enabled, this would add an `extensions` key to the `errors` object of the response. The `internal` key contains error information including the generated SQL statement and exception information from Postgres.
 
-Ofcourse it is highly recommended to enable this dev mode only in dev/staging environments and also for just the `admin` role. To force the extensions to work only for the admin role, we can add a new env var called `HASURA_GRAPHQL_ADMIN_INTERNAL_ERRORS` boolean with a `true` value.
+Of course it is highly recommended to enable this dev mode only in dev/staging environments and also for just the `admin` role. To force the extensions to work only for the admin role, we can add a new env var called `HASURA_GRAPHQL_ADMIN_INTERNAL_ERRORS` boolean with a `true` value.

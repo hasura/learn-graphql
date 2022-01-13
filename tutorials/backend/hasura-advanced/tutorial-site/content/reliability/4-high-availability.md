@@ -10,7 +10,7 @@ The GraphQL API served by Hasura should be continously operational and any singl
 
 Postgres offers [various solutions](https://www.postgresql.org/docs/9.3/different-replication-solutions.html) for configuring a highly available system. Most managed Postgres providers have a HA system for Postgres, which when configured, will automatically failover to standby Postgres. With Heroku, here's how we can [set up a replication](https://devcenter.heroku.com/articles/heroku-postgres-follower-databases#high-availability-with-followers) to ensure there is a Hot standby server to ensure automated failover.
 
-Here there is no configuration required at the Hasura project level.
+There is no configuration required at the Hasura project level.
 
 ## Hasura HA {#hasura-ha}
 

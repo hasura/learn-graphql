@@ -48,7 +48,7 @@ Completion time: 2021-10-07T00:44:18.4932582-07:00
 ## Delete selected rows
 
 Please re-create the Product_backup table as in the above query.
-You can delete certain rows based on a `WHERE` clause.
+You can delete some of the rows based on a `WHERE` clause.
 
 ```SQL
 DELETE FROM Production.Product_backup 
@@ -61,5 +61,5 @@ WHERE safetystocklevel > 500;
 Completion time: 2021-10-07T00:45:12.7313869-07:00
 ```
 
-> The `DELETE` statement only removes the data from the table, however, the schema structure remains.
+> The `DELETE` statement only removes the data from the table, but the schema structure remains.
 You can also roll back this transaction.

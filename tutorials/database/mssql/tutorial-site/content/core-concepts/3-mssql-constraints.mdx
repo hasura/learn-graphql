@@ -4,7 +4,7 @@ metaTitle: "MSSQL Constraints | MSSQL Tutorial"
 metaDescription: "This section explains the SQL constraints types used to enforce data integrity in SQL Server"
 ---
 
-SQL constraints are the rules to restrict the type of data that is entered into the database.
+SQL constraints are the rules to restrict the type of data entered into the database.
 The constraints ensure data integrity and adhere to the business rules.
 
 MSSQL has the following constraints:
@@ -17,9 +17,9 @@ MSSQL has the following constraints:
 
 ## CANDIDATE KEY
 
-A candidate key is one or more sets of attributes(columns) that can uniquely identify a row in a table.
+A candidate key is one or more set of attributes(columns) that can uniquely identify a row in a table.
 
-For example, the `Account number`, or `email_id` column is a **Single Candidate key**.
+For example, the `Account number` or `email_id` column is a **Single Candidate key**.
 However, you need a combination of `first name` and the `last name` to uniquely identify a row. Such a set of columns are called **Composite Candidate key**.
 
 ## PRIMARY KEY (PK)
@@ -40,4 +40,4 @@ FK has a **Referential Integrity** enforced, which enforces the rule that every 
 
 ## CHECK
 
-The value in a column with a check constraint can only be entered, when the check T-SQL constraint evaluates to true.
+The value in a column with a check constraint can only be entered when the check T-SQL constraint evaluates to `true`.

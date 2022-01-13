@@ -26,7 +26,7 @@ Next, you can use the `.bak` file to [restore the sample database](https://hasur
 ## Before you begin
 
 1. In the **Object Explorer**, click to expand **AdventureWorks2019 > Tables**.
-2. Select **HumanResources.Employee**, and then click **New Query** from the top ribbon bar.
+2. Select **HumanResources.Employee** and then click **New Query** from the top ribbon bar.
 where,
 
 - `HumanResources` is the schema name.
@@ -56,9 +56,9 @@ ORDER BY <order_expression> [ASC|DESC]
 
 The **Arguments** may be any of the following:
 
-* ALL: The result set returns all the rows and columns, and may include duplicate values. 'ALL' is the default.
+* ALL: The result set returns all the rows and columns and may include duplicate values. 'ALL' is the default.
 * DISTINCT: Returns unique rows.
-* column_list: A single column name, or a list of comma-separated column names.
+* column_list: A single column name or a list of comma-separated column names.
 * *: The result set returns all columns and rows from a table/view, as specified in the 'FROM' clause.
 
 Some of the common select query clauses are:
@@ -82,7 +82,7 @@ SELECT COUNT(*) FROM HumanResources.Employee;
 ### Select certain columns
 
 ```SQL
-SELECT NationalIDNumber,JobTitle FROM HumanResources.Employee;
+SELECT NationalIDNumber, JobTitle FROM HumanResources.Employee;
 ```
 
 ![only2cols](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/select/only2-cols.png)

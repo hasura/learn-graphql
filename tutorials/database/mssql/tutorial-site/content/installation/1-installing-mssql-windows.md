@@ -25,12 +25,12 @@ Scroll down and choose between the **Developer** edition or **Express** edition.
 ![Developer basic edition](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/developer-basic-edition.png)
 1. Click **Accept** to accept the License Agreement.
 ![Accept License](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/license.png)
-1. You can select the default install location, or change the location by clicking on the **Browse** button.
+1. You can select the default install location or change the location by clicking on the **Browse** button.
 ![Installation directory](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/install-location.png)
 Click **Install**.
-1. An installation complete screen summarizes the database details.
+1. On the installation complete screen, you may want to note the following information: Instance name, connection string, log folder path, SQL engine path, and the installation resources folder path.
+
 ![Install SSMS](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/install-ssms.png)
- You may want to make a note of the following information on the screen - Instance name, connection string, log folder path, SQL engine path, and the installation resources folder path.
 
 ## Install SSMS
 
@@ -57,7 +57,7 @@ Congratulations! You have successfully installed MS SQL Server 2019 and SQL Serv
 ![](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/connect-to-server.png)
 In this case, *Server name* is your machine name.
 
-1. You are now connected to MS SQL system database, as indicated with a green arrow in the screenshot.
+1. You are now connected to MS SQL system database as indicated with a green arrow in the screenshot.
 ![Connected to DB engine](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/dbengine-connect.png)
 
 ## Next Steps

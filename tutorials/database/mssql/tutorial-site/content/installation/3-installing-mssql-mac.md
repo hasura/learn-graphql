@@ -73,7 +73,7 @@ Type `exit` to leave the container and return to Mac prompt.
 To remove your docker container and image, follow the steps in sequence:
 
 * First stop the container - `docker stop mssql`
-* Remove the stopped container
+* Remove the stopped container:
    * To see all the stopped containers: `docker ps -a`
    * Now stop the container with its name: `docker rm mssql`
 * Remove the image

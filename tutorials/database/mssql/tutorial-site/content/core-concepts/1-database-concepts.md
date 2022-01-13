@@ -7,9 +7,9 @@ metaDescription: "This section introduces you to database objects"
 ## Database Objects
 
 Database objects are entities that hold data and its metadata.
-In other words, an object is a data structure that is used to store or reference data.
+In other words, an object is a data structure used to store or reference data.
 
-Some of the object types that are contained in a schema are Databases, Tables, Views, Stored procedures, Indexes, Sequences, Constraints, Triggers, and Functions.
+Some of the object types contained in a schema are Databases, Tables, Views, Stored procedures, Indexes, Sequences, Constraints, Triggers, and Functions.
 
 ### Further reading
 

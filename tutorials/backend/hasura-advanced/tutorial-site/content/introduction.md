@@ -18,7 +18,7 @@ This course will dive into some advanced topics and walk you through on using di
 
 ## What do I need to take this tutorial? {#what-do-i-need}
 
-A local instance of Hasura will be used for some of the demos and hence `docker / docker-compose` is a pre-requisite. And ofcourse your browser for managing the Hasura Cloud project. However, be assured that everything you do via the browser in this tutorial can be done via code, can be version controlled, if required.
+A local instance of Hasura will be used for some of the demos and hence `docker / docker-compose` is a pre-requisite. And of course your browser for managing the Hasura Cloud project. However, be assured that everything you do via the browser in this tutorial can be done via code, can be version controlled, if required.
 
 We will be using the Hasura CLI for learning about the migrations and metadata workflow but we will set that up during that exercise.
 

@@ -10,19 +10,19 @@ metaDescription: "In this part, we will learn how to create an Auth0 app using t
 4. Click on the `Applications` menu option on the left and then click the `+ Create Application` button.
 5. In the Create Application window, set a name for your application and select `Single Page Web Applications`. (Assuming the frontend app will be a SPA built on react/vue etc)
 
-![Create Auth0 App](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-app.png)
+![Create Auth0 App](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-app-updated.png)
 
 ## Create Auth0 API {#create-auth0-api}
 
 We need to create an API on Auth0 so that we can make the `accessToken` a valid JWT. Click on the `APIs` section on the left sidebar and click on the `+ Create API` button.
 
-![Create Auth0 API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-api-create.png)
+![Create Auth0 API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-api-create-updated.png)
 
 Now in the pop-up that appears, give the name of the API and the identifier. We can technically give any value.
 
 Let's say the name is `hasura` and the identifier is `https://hasura.io/learn`.
 
-![Auth0 API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-api-audience.png)
+![Auth0 API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-api-audience-updated.png)
 
 We can let the signing algorithm to be as it is. (RS256)
 

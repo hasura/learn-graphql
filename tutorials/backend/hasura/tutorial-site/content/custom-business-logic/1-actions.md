@@ -121,7 +121,7 @@ In your Glitch app source code, modify the `.env` file to enter the
 
 values appropriately. The AUTH0_MANAGEMENT_API_TOKEN can be obtained from the Auth0 project.
 
-![Auth0 Management API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-management-api.png)
+![Auth0 Management API](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/auth0-management-api-updated.png)
 
 Congrats! You have written and deployed your first Hasura Action to extend the Graph.
 

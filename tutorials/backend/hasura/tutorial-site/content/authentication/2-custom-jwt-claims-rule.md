@@ -27,4 +27,6 @@ function (user, context, callback) {
 }
 ```
 
-![Custom JWT Claims Rule](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/custom-jwt-claims-rule-accessToken.png)
+![Custom JWT Claims Rule](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/custom-jwt-claims-rule-accessToken-updated.png)
+
+After adding the script, click on the "SAVE CHANGES" button.

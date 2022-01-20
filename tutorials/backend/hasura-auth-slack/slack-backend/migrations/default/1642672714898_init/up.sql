@@ -1,4 +1,5 @@
 SET check_function_bodies = false;
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE TABLE public.channel (
     id uuid NOT NULL,
     name text NOT NULL,
@@ -122,4 +123,3 @@ ALTER TABLE ONLY public.workspace_member
     ADD CONSTRAINT workspace_members_workspace_id_fkey FOREIGN KEY (workspace_id) REFERENCES public.workspace(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
 ALTER TABLE ONLY public.workspace
     ADD CONSTRAINT workspace_owner_fkey FOREIGN KEY (owner_id) REFERENCES public.users(id) ON UPDATE RESTRICT ON DELETE RESTRICT;
-

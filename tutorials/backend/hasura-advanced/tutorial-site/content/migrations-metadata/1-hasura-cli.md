@@ -41,3 +41,19 @@ hasura console
 ```
 
 This should open up the console on `http://localhost:9695` and is the same GUI as the one you see on the server console at `http://localhost:8080`
+
+## Connect a database {#connect-a-database}
+
+Once you are on the console, head to the `Data` tab and navigate to `Connect Database` section.
+
+![Hasura Console Connect DB](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-advanced/hasura-console-connect-db.png)
+
+- Enter the database name as `default`
+- Choose the Environment Variable option to connect the database
+- Enter the ENV name as `PG_DATABASE_URL`
+
+Click on `Connect Database` to finish the database connection. This would now let you apply the migrations in the next step.
+
+It should look something like the screen below:
+
+![Hasura Console DB Manager](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-advanced/hasura-console-post-db-connection.png)

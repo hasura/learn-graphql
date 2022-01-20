@@ -40,9 +40,11 @@ Now let's apply the migrations.
 
 ```bash
 hasura metadata apply --admin-secret xxxx
-hasura migrate apply --admin-secret xxxx
+hasura migrate apply --database-name default --admin-secret xxxx
 hasura metadata reload --admin-secret xxxx
 ```
+
+**Note**: When you apply metadata, you might initially get the warning saying, `Metadata is inconsistent`. This comes up because the tables are actually not yet created and will not be a problem once you do the `migrate apply` step.
 
 This will create the tables and relationships for the slack app.
 

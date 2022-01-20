@@ -3,7 +3,7 @@
   configuration:
     connection_info:
       database_url:
-        from_env: HEROKU_DATABASE_URL
+        from_env: PG_DATABASE_URL
       isolation_level: read-committed
       pool_settings:
         connection_lifetime: 600

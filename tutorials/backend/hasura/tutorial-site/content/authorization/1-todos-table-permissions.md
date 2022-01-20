@@ -8,7 +8,7 @@ Head over to the Permissions tab under `todos` table to add relevant permissions
 
 ## Insert permission {#insert-permission}
 
-We will allow logged-in users creating a new todo entry to only specify the is_public and title columns.
+We will allow logged-in users creating a new todo entry to only specify the `is_public` and `title` columns.
 
 - In the enter new role textbox, type in “user”
 - Click on edit (pencil) icon for “insert” permissions. This would open up a section below, which lets you configure custom checks and allow columns.
@@ -20,11 +20,11 @@ We will allow logged-in users creating a new todo entry to only specify the is_p
 
 ![Todos row permission insert](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-table-row-permission-insert.png)
 
-Now under column insert permissions, select the `title` and `is_public` columns.
+Now under "Column insert permissions", select the `title` and `is_public` columns.
 
 ![Todos insert column permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-insert-column-permission.png)
 
-Finally under column presets, select `user_id` from `from session variable` mapping to `X-HASURA-USER-ID`.
+Finally under "Column presets", select `user_id` from `from session variable` mapping to `X-HASURA-USER-ID`.
 
 **Note:** Session variables are key-value pairs returned from the authentication service for each request. When a user makes a request, the session token maps to a `USER-ID`. This `USER-ID` can be used in permission to show that inserts into a table are only allowed if the `user_id` column has a value equal to that of `USER-ID`, the session variable.
 
@@ -42,7 +42,7 @@ Now click on edit icon for "select" permissions. In the custom check, choose the
 
 ![Todos select permission row](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-select-permission-row.png)
 
-Under column select permissions, select all the columns.
+Under "Column select permissions", select all the columns.
 
 ![Todos select column permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-select-permission-column.png)
 
@@ -50,11 +50,11 @@ Click on `Save Permissions`
 
 ## Update permission {#update-permission}
 
-We will only allow the is_completed column to be updated by a user.
+We will only allow the `is_completed` column to be updated by a user.
 
 Now click on edit icon for "update" permissions. In the pre-update custom check, choose `With same custom checks as insert`.
 
-And under column update permissions, select the `is_completed` column.
+And under "Column update permissions", select the `is_completed` column.
 
 ![Todos update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-update-permission-pre-update.png)
 

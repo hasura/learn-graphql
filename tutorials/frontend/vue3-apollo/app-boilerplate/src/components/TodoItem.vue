@@ -1,25 +1,5 @@
 <script setup lang="ts">
-import { useMutation } from "@vue/apollo-composable"
-import { DELETE_TODOS_BY_PK, SELECT_TODOS, UPDATE_TODO_BY_PK } from "../graphql-operations"
-
 const { todos, type } = defineProps(["todos", "type"])
-
-const updateTodo = useMutation(UPDATE_TODO_BY_PK)
-const deleteTodoByPk = useMutation(DELETE_TODOS_BY_PK, {
-    refetchQueries: [
-        {
-            query: SELECT_TODOS,
-            variables: {
-                where: {
-                    is_public: { _eq: false },
-                },
-                order_by: {
-                    created_at: "desc",
-                },
-            },
-        },
-    ],
-})
 </script>
 
 <template>
@@ -31,15 +11,7 @@ const deleteTodoByPk = useMutation(DELETE_TODOS_BY_PK, {
             <div class="view" v-if="type === 'private'">
                 <div class="round">
                     <input type="checkbox" :id="todo.id" :checked="todo.is_completed" />
-                    <label
-                        @click="
-                            updateTodo.mutate({
-                                pk_columns: { id: todo.id },
-                                _set: { is_completed: !todo.is_completed },
-                            })
-                        "
-                        :htmlFor="todo.id"
-                    />
+                    <label :htmlFor="todo.id" />
                 </div>
             </div>
             <div class="labelContent">
@@ -47,13 +19,7 @@ const deleteTodoByPk = useMutation(DELETE_TODOS_BY_PK, {
                     {{ todo.title }}
                 </p>
             </div>
-            <button
-                v-if="type === 'private'"
-                @click="deleteTodoByPk.mutate({ id: todo.id })"
-                class="closeBtn"
-            >
-                x
-            </button>
+            <button v-if="type === 'private'" class="closeBtn">x</button>
         </li>
     </ul>
 </template>

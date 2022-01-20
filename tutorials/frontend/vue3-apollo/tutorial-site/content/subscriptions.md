@@ -30,41 +30,37 @@ The goal is to update every few seconds from the client that you are online. Ide
 
 Open `src/components/OnlineUsers.vue` and add the following imports and set the client prop in the constructor
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
 
-```javascript
-<script>
-+ import gql from 'graphql-tag'
-  export default {
-    data() {
-      return {
-        online_list: [
-          { user: { name: "someUser1" }},
-          { user: { name: "someUser2" }}
-        ]
-      };
-    },
-+   mounted() {
-+     const UPDATE_LASTSEEN_MUTATION = gql`
-+       mutation updateLastSeen ($now: timestamptz!) {
-+         update_users(where: {}, _set: {last_seen: $now}) {
-+           affected_rows
+```vue
+<script setup lang="ts">
++ import { useMutation, useResult, useSubscription } from "@vue/apollo-composable"
++ import { SUBSCRIPTION_ONLINE_USERS, UPDATE_LASTSEEN_MUTATION } from "../graphql-operations"
+
+const onlineUsers = [{ user: { name: "someUser1" } }, { user: { name: "someUser2" } }]
+
++ const UPDATE_LASTSEEN_MUTATION = gql`
++     mutation updateLastSeen($now: timestamptz!) {
++         update_users(where: {}, _set: { last_seen: $now }) {
++             affected_rows
 +         }
-+       }
-+     `;
-+     setInterval(function() {
-+       this.$apollo
-+         .mutate({
-+           mutation: UPDATE_LASTSEEN_MUTATION,
-+           variables: {
-+             now: new Date().toISOString()
-+           }
-+         })
-+         .catch(error => {
-+           console.error(error);
-+         });
-+     }.bind(this),30000);
-+   },
++     }
++ `
+
++ const updateLastSeenMutation = useMutation(UPDATE_LASTSEEN_MUTATION, {
++     variables: () => ({
++         now: new Date().toISOString(),
++     }),
++ })
+
++ setInterval(async () => {
++     try {
++         updateLastSeenMutation.mutate()
++     } catch (e) {
++         console.log(e)
++     }
++ }, 30000)
+</script>
 ```
 
 In `mounted()`, we are creating a `setInterval` to update the `last_seen` of the user every 30 seconds.

@@ -15,11 +15,11 @@ So let's define the graphql subscription to be used.
 
 Open `src/components/OnlineUsers.vue` and add the following code, below the other import.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
 
 ```javascript
 <script>
-  import gql from 'graphql-tag'
++  import gql from 'graphql-tag'
 + const SUBSCRIPTION_ONLINE_USERS = gql`
 +   subscription getOnlineUsers {
 +     online_users(order_by: {user: {name: asc }}) {
@@ -34,68 +34,42 @@ Open `src/components/OnlineUsers.vue` and add the following code, below the othe
 
 We are defining the graphql subscription query to fetch the online user data. Now let's define a smart subscription.
 
-```javascript
-export default {
-  data() {
-    return {
-      online_list: [
-        { user: { name: "someUser1" }},
-        { user: { name: "someUser2" }}
-      ]
-    };
-  },
-  mounted() {
-    ...
-  },
-+ apollo: {
-+   // Subscriptions
-+   $subscribe: {
-+     // When a user is added
-+     online_users: {
-+       query: SUBSCRIPTION_ONLINE_USERS,
-+       // Result hook
-+       result (data) {
-+         // Let's update the local data
-+         this.online_list = data.data.online_users
-+       },
-+     },
-+   },
-+ },
-}
-```
+```vue
+<script setup lang="ts">
+import { useMutation, useResult, useSubscription } from "@vue/apollo-composable"
 
-## Remove mock data
+const onlineUsersSubscription = useSubscription(SUBSCRIPTION_ONLINE_USERS)
+- const onlineUsers = [{ user: { name: "someUser1" } }, { user: { name: "someUser2" } }]
++ const onlineUsers = useResult(onlineUsersSubscription.result, [], (data) => data.online_users)
 
-Now that we have the real data, let's remove the mock online user state
-
-```javascript
-<script>
-  import gql from 'graphql-tag'
-  const SUBSCRIPTION_ONLINE_USERS = gql`
-    subscription getOnlineUsers {
-      online_users(order_by: {user: {name: asc }}) {
-        id
-        user {
-          name
+const UPDATE_LASTSEEN_MUTATION = gql`
+    mutation updateLastSeen($now: timestamptz!) {
+        update_users(where: {}, _set: { last_seen: $now }) {
+            affected_rows
         }
-      }
     }
-  `;
-  export default {
-    data() {
-      return {
-        online_list: [
--         { user: { name: "someUser1" }},
--         { user: { name: "someUser2" }}
-        ]
-      };
-    },
+`
+
+const updateLastSeenMutation = useMutation(UPDATE_LASTSEEN_MUTATION, {
+    variables: () => ({
+        now: new Date().toISOString(),
+    }),
+})
+
+setInterval(async () => {
+    try {
+        updateLastSeenMutation.mutate()
+    } catch (e) {
+        console.log(e)
+    }
+}, 30000)
+</script>
 ```
 
 How does this work?
 -------------------
 
-We are using the `apollo` object to define the subscription query, which functions similar to queries. The `online_users` prop gives the result of the real-time data for the query we have made.
+We are using the `useSubscription()` method to define the subscription query, which functions similar to queries. The `online_users` prop gives the result of the real-time data for the query we have made.
 
 Refresh your vue app and see yourself online! Don't be surprised ;) There could be other users online as well.
 

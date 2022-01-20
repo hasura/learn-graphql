@@ -14,43 +14,26 @@ So let's define the graphql mutation to be used with variables.
 
 Open `src/components/TodoInput.vue` and add the following code:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/TodoInput.vue" text="src/components/TodoInput.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/TodoInput.vue" text="src/components/TodoInput.vue" />
 
-```javascript
-<script>
-+ import gql from "graphql-tag";
-+ const ADD_TODO = gql`
-+   mutation insert_todos($todo: String!, $isPublic: Boolean!) {
-+     insert_todos(objects: {title: $todo, is_public: $isPublic}) {
-+       affected_rows
-+       returning {
-+         id
-+         title
-+         is_completed
-+         created_at
-+         is_public
-+       }
-+     }
-+   }
-+ `;
-  export default {
-    props: ['type'],
-    data() {
-      return {
-        newTodo: '',
-      }
-    },
-    methods: {
-      addTodo: function () {
-        // insert new todo into db
-      },
-    }
-  }
+```vue
+<script setup lang="ts">
+import { ref } from "vue"
++ import { useMutation } from "@vue/apollo-composable"
++ import { INSERT_TODOS_ONE } from "../graphql-operations"
+
+const { type } = defineProps({ type: String })
+const newTodoTitle = ref("")
++ const insertTodoMutation = useMutation(INSERT_TODOS_ONE)
+
+async function addTodo({ todoTitle, type }: { todoTitle: string; type: string }) {
+    // Code to add todo here
+}
 </script>
 ```
 
 What does this mutation do?
 ---------------------------
-The mutation inserts into `todos` table with the $todo and $isPublic variables being passed.
+The mutation inserts into `todos` table with the `todo_insert_input` variable being passed.
 
 Awesome! We have defined our first graphql mutation.

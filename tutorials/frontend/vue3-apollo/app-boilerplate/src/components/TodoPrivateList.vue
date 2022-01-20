@@ -1,43 +1,27 @@
 <script setup lang="ts">
+import { reactive, computed } from "vue"
 import TodoItem from "../components/TodoItem.vue"
 
-import { useMutation, useQuery, useResult } from "@vue/apollo-composable"
-import { computed, reactive } from "vue"
-import { DELETE_TODOS, SELECT_TODOS } from "../graphql-operations"
-
-// Used in both query and mutation (refetch query variables)
-const selectTodosVariables = {
-    where: {
-        is_public: { _eq: false },
+const privateTodos = [
+    {
+        id: "1",
+        title: "This is private todo 1",
+        is_completed: true,
+        is_public: false,
     },
-    order_by: {
-        created_at: "desc",
+    {
+        id: "2",
+        title: "This is private todo 2",
+        is_completed: false,
+        is_public: false,
     },
-}
-
-const privateTodosQuery = useQuery(SELECT_TODOS, selectTodosVariables)
-const privateTodos = useResult(privateTodosQuery.result, [], (data) => data?.todos)
-
-const deleteCompletedTodosMutation = useMutation(DELETE_TODOS, {
-    variables: {
-        where: {
-            is_completed: { _eq: true },
-            is_public: { _eq: false },
-        },
-    },
-    refetchQueries: [
-        {
-            query: SELECT_TODOS,
-            variables: selectTodosVariables,
-        },
-    ],
-})
+]
 
 const state = reactive({
     type: "private",
     filterType: "all",
     filteredTodos: computed(() => {
-        return privateTodos.value.filter((todo) => {
+        return privateTodos.filter((todo) => {
             switch (state.filterType) {
                 case "completed":
                     return todo.is_completed
@@ -48,7 +32,7 @@ const state = reactive({
             }
         })
     }),
-    activeTodos: computed(() => privateTodos.value.filter((todo) => !todo.is_completed)),
+    activeTodos: computed(() => privateTodos.filter((todo) => !todo.is_completed)),
     remainingTodos: computed(() => state.activeTodos.length),
 })
 
@@ -69,22 +53,11 @@ function filterResults(type: string) {
 async function clearCompleted() {
     const isOk = window.confirm("Are you sure?")
     if (!isOk) return
-
-    const result = await deleteCompletedTodosMutation.mutate()
-    console.log("clear completed result", result)
-
-    if (deleteCompletedTodosMutation.error.value) {
-        console.error(deleteCompletedTodosMutation.error.value)
-    }
 }
 </script>
 
 <template>
     <div>
-        <div v-if="privateTodosQuery.loading.value">Loading...</div>
-        <div v-if="privateTodosQuery.error.value">
-            Error: {{ privateTodosQuery.error.value.message }}
-        </div>
         <div class="todoListwrapper">
             <TodoItem :todos="state.filteredTodos" :type="state.type" />
         </div>

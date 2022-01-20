@@ -11,45 +11,47 @@ import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
 Now let's do the integration part. Open `src/components/TodoInput.vue` and add the following code below to make the mutation.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/TodoInput.vue" text="src/components/TodoInput.vue" />
+```ts
++ import { gql } from "graphql-tag"
 
-```javascript
-export default {
-  props: ['type'],
-  data() {
-    return {
-      newTodo: '',
-    }
-  },
-  methods: {
-    addTodo: function () {
-      // insert new todo into db
-+     const title = this.newTodo && this.newTodo.trim()
-+     const isPublic = this.type === "public" ? true : false;
-+     this.$apollo.mutate({
-+       mutation: ADD_TODO,
-+       variables: {
-+         todo: title,
-+         isPublic: isPublic
-+       },
-+       update: (cache, { data: { insert_todos } }) => {
-+         // Read the data from our cache for this query.
-+         // eslint-disable-next-line
-+         console.log(insert_todos);
-+       },
-+     });
-   },
-  }
+async function addTodo({ todoTitle, type }: { todoTitle: string; type: string }) {
+-    // Code to add todo here
++    const title = todoTitle && todoTitle.trim()
++    const is_public = type === "public"
++
++    // insert new todo into db
++    const result = await insertTodoMutation.mutate(
++        {
++            object: {
++                title,
++                is_public,
++            },
++        },
++        {
++            optimisticResponse: {
++                insert_todos_one: {
++                    __typename: "todos",
++                    id: -1,
++                    title,
++                    is_public,
++                    is_completed: false,
++                    created_at: new Date().toISOString(),
++                    updated_at: new Date().toISOString(),
++                },
++            },
++        }
++    )
++    console.log("Result:", result)
 }
 ```
 
-## this.$apollo.mutate()
+## useMutation()
 
-In the `addTodo` function defined above, we first define the values for title of the todo and the type of the todo (private or public?). Then in order to do a mutation, we make use of `this.$apollo.mutate()`.
+In the `addTodo` function defined above, we first define the values for title of the todo and the type of the todo (private or public?). Then in order to do a mutation, we make use of `useMutation()`.
 
-The mutate function optionally takes variables, optimisticResponse and update; You are going to make use of the `update` function later. Right now we have written a console.log to test if the mutation works as expected.
+The mutate function optionally takes `variables`, `optimisticResponse` and `update`; You are going to make use of the `update` function later. Right now we have written a `console.log()` to test if the mutation works as expected.
 
-Note that we are passing the variables todo and isPublic as required for the mutation to work.
+Note that we are passing the variables `todoTitle` and `isPublic` as required for the mutation to work.
 
 The mutation has been integrated and the new todos will be inserted into the database. But the UI doesn't know that a new todo has been added. We need a way to tell Apollo Client to update the query for the list of todos.
 
@@ -59,54 +61,61 @@ The `update` function comes in handy to update the cache for this mutation. It c
 
 Let's implement `update` for the above mutation.
 
-We need to fetch the current list of todos from the cache. So let's import the `GET_MY_TODOS` query that we defined in the `TodoPrivateList.vue` component.
+We need to fetch the current list of todos from the cache. 
 
-In the same file `TodoInput.vue`, make the following updates:
+In the same file `TodoInput.vue`, make the following changes, to modify the `update` function to read and write to cache.
 
-```javascript
-<script>
-  import gql from "graphql-tag";
-+ import { GET_MY_TODOS } from "./TodoPrivateList.vue";
-  ...
-</script>
-```
+```ts
+async function addTodo({ todoTitle, type }: { todoTitle: string; type: string }) {
+    const title = todoTitle && todoTitle.trim()
+    const is_public = type === "public"
 
-Let's modify the update function to read and write to cache.
-
-```javascript
-methods: {
-  addTodo: function () {
     // insert new todo into db
-    const title = this.newTodo && this.newTodo.trim()
-    const isPublic = this.type === "public" ? true : false;
-    this.$apollo.mutate({
-      mutation: ADD_TODO,
-      variables: {
-        todo: title,
-        isPublic: isPublic
-      },
-      update: (cache, { data: { insert_todos } }) => {
-        // Read the data from our cache for this query.
--       // eslint-disable-next-line
--       console.log(insert_todos);
-+       try {
-+         if (this.type === "private") {
-+           const data = cache.readQuery({
-+             query: GET_MY_TODOS
-+           });
-+           const insertedTodo = insert_todos.returning;
-+           data.todos.splice(0, 0, insertedTodo[0]);
-+           cache.writeQuery({
-+             query: GET_MY_TODOS,
-+             data
-+           });
-+         }
-+       } catch (e) {
-+         console.error(e);
-+       }
-      },
-    });
-  },
+    const result = await insertTodoMutation.mutate(
+        {
+            object: {
+                title,
+                is_public,
+            },
+        },
+        {
+            optimisticResponse: {
+                insert_todos_one: {
+                    __typename: "todos",
+                    id: -1,
+                    title,
+                    is_public,
+                    is_completed: false,
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString(),
+                },
+            },
++           update(cache, { data: { insert_todos_one } }) {
++               cache.modify({
++                   fields: {
++                       todos(existingTodos = []) {
++                           const newTodoRef = cache.writeFragment({
++                               data: insert_todos_one,
++                               fragment: gql`
++                                   fragment NewTodo on Todo {
++                                       id
++                                       title
++                                       is_public
++                                       is_completed
++                                       created_at
++                                       updated_at
++                                   }
++                               `,
++                           })
++                           return [newTodoRef, ...existingTodos]
++                       },
++                   },
++               })
++           },
+        }
+    )
+
+    console.log("mutate result", result)
 }
 ```
 
@@ -115,45 +124,27 @@ Let's dissect what's happening in this code snippet.
 Our goals were simple:
 
 - Make a mutation to insert the new todo in the database.
-- Once the mutation is done, we need to update the cache to update the UI.
+- Once the mutation is done, we need to update the cache so that the changes are reflected in the UI.
 
-The update function is used to update the cache after a mutation occurs.
-It receives the result of the mutation (data) and the current cache (store) as arguments. You will then use these arguments to manage your cache so that the UI will be up to date.
+The `update` function is used to update the cache after a mutation occurs.
 
-cache.readQuery
----------------
+It receives the result of the mutation (`data`) and the current cache as arguments. You will then use these arguments to manage your cache so that the UI will be up to date.
 
-Unlike `client.query`, readQuery will never make a request to your GraphQL server. It will always read from the cache. So we make a read request to the cache to get the current list of todos.
-
-cache.writeQuery
-----------------
-
-We have already done the mutation to the graphql server using the mutate function. Our goal was to update the UI. This is where writeQuery comes to the rescue. writeQuery will allow you to change data in your local cache, but it is important to remember that they will not change any data on your server (exactly what we need).
+We have already done the mutation to the graphql server using the mutate function. Our goal was to update the UI. This is where `cache.modify()` comes to the rescue. `cache.modify()` will allow you to change data in your local cache, but it is important to remember that they will not change any data on your server (exactly what we need).
 
   Any subscriber to the Apollo Client store will instantly see this update and render new UI accordingly.
 
-We concatenate our new todo from our mutation with the list of existing todos and write the query back to the cache with cache.writeQuery
+We concatenate our new todo from our mutation with the list of existing todos and write the query back to the cache with `cache.modify()`
 
-Now, the TodoPrivateList component using the apollo object with the same query will get the updated todo list as it is automatically subscribed to the store.
+Now, the `TodoPrivateList` component using the Apollo object with the same query will get the updated todo list as it is automatically subscribed to the store.
 
 Great! That was actually easy :)
 
 Let's wrap this by adding a line of code to clear the input value once the mutation is successful.
 
-```javascript
-export default {
-  props: ['type'],
-  data() {
-    return {
-      newTodo: '',
-    }
-  },
-  methods: {
-    addTodo: function () {
-      ...
-+     this.newTodo = '';
-    },
-  }
-}
+```ts
+async function addTodo({ todoTitle, type }: { todoTitle: string; type: string }) {
++    // Reset the input field
++    newTodoTitle.value = ""
 ```
 

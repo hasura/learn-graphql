@@ -12,21 +12,6 @@ export const INSERT_TODOS_ONE = gql`
     }
 `
 
-export const INSERT_TODOS = gql`
-    mutation insert_todos($objects: [todos_insert_input!]!) {
-        insert_todos(objects: $objects) {
-            affected_rows
-            todos {
-                id
-                title
-                is_completed
-                created_at
-                is_public
-            }
-        }
-    }
-`
-
 export const UPDATE_TODO_BY_PK = gql`
     mutation update_todos_by_pk($pk_columns: todos_pk_columns_input!, $_set: todos_set_input!) {
         update_todos_by_pk(pk_columns: $pk_columns, _set: $_set) {
@@ -35,21 +20,6 @@ export const UPDATE_TODO_BY_PK = gql`
             is_completed
             created_at
             is_public
-        }
-    }
-`
-
-export const UPDATE_TODOS = gql`
-    mutation update_todos($objects: [todos_set_input!]!, $where: todos_bool_exp!) {
-        update_todos(objects: $objects, where: $where) {
-            affected_rows
-            todos {
-                id
-                title
-                is_completed
-                created_at
-                is_public
-            }
         }
     }
 `
@@ -74,18 +44,6 @@ export const DELETE_TODOS = gql`
     }
 `
 
-export const SELECT_TODO_BY_PK = gql`
-    query todos_by_pk($pk_columns: todos_pk_columns_input!) {
-        todos_by_pk(pk_columns: $pk_columns) {
-            id
-            title
-            is_completed
-            created_at
-            is_public
-        }
-    }
-`
-
 export const SELECT_TODOS = gql`
     query todos(
         $where: todos_bool_exp!
@@ -103,8 +61,8 @@ export const SELECT_TODOS = gql`
     }
 `
 
-export const SELECT_TODOS_WITH_USER = gql`
-    query todos_with_user(
+export const SUBSCRIPTION_TODOS_WITH_USER = gql`
+    subscription todos_with_user(
         $where: todos_bool_exp!
         $order_by: [todos_order_by!]
         $limit: Int = 10
@@ -120,20 +78,6 @@ export const SELECT_TODOS_WITH_USER = gql`
                 id
                 name
             }
-        }
-    }
-`
-
-export const NOTIFY_NEW_PUBLIC_TODOS = gql`
-    subscription notifyNewPublicTodos($lastId: Int) {
-        todos(
-            where: { is_public: { _eq: true }, id: { _gt: $lastId } }
-            order_by: { created_at: desc }
-            limit: 1
-        ) {
-            id
-            title
-            created_at
         }
     }
 `

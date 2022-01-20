@@ -5,91 +5,82 @@ metaDescription: "You will learn how to configure GraphQL Subscriptions using Vu
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
 
-<YoutubeEmbed link="https://www.youtube.com/embed/ZujdsxSRt48" />
-
-When we had initially set up Apollo, we used Apollo Boost to install the required dependencies. But subscriptions is an advanced use case which Apollo Boost does not support. So we have to install more dependencies to set up subscriptions.
+When we had initially set up Apollo, wired up an `HttpLink` to be able to make queries and mutations. But subscriptions is an advanced usecase, so we have to install more dependencies to set up subscriptions:
 
 ```bash
- npm install apollo-link-ws subscriptions-transport-ws --save
+ npm install subscriptions-transport-ws --save
 ```
 
 Now we need to update our `ApolloClient` instance to point to the subscription server.
 
-Open `src/main.js` and update the following imports:
+Open `src/apollo-client.ts` and update the following imports:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/main.js" text="src/main.js" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/apollo-client.ts" text="src/apollo-client.ts" />
 
-```javascript
-- import { HttpLink } from 'apollo-link-http';
-+ import { WebSocketLink } from 'apollo-link-ws';
-```
+```ts
+- import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client/core"
++ import { ApolloClient, split, InMemoryCache, HttpLink } from "@apollo/client/core"
++ import { WebSocketLink } from "@apollo/client/link/ws"
+import { getMainDefinition } from "@apollo/client/utilities"
+import { onError } from "@apollo/client/link/error"
+import { logErrorMessages } from "@vue/apollo-util"
 
-Update the link by removing HttpLink and adding a WebSocketLink function to integrate WebSocketLink.
+function getHeaders() {
+    const headers = {}
+    const token = window.localStorage.getItem("apollo-token")
+    if (token) {
+        headers["Authorization"] = `Bearer ${token}`
+    }
+    return headers
+}
 
-```javascript
-    import Vue from "vue";
-    import App from "./App.vue";
-    import router from "./router";
-    import AuthPlugin from "./plugins/auth";
+// Create an http link:
+const httpLink = new HttpLink({
+    uri: "https://hasura.io/learn/graphql",
+    fetch: (uri: RequestInfo, options: RequestInit) => {
+        options.headers = getHeaders()
+        return fetch(uri, options)
+    },
+})
 
-    import VueApollo from 'vue-apollo'
-
-    import ApolloClient from "apollo-client";
-    import { WebSocketLink } from 'apollo-link-ws';
-    import { InMemoryCache } from "apollo-cache-inmemory";
-
-    Vue.use(AuthPlugin);
-    Vue.use(VueApollo);
-
-    Vue.config.productionTip = false;
-
-    const getHeaders = () => {
-      const headers = {};
-      const token = window.localStorage.getItem('apollo-token');
-      if (token) {
-        headers.Authorization = `Bearer ${token}`;
-      }
-      return headers;
-    };
-
--   // Create an http link:
--   const link = new HttpLink({
--     uri: 'https://hasura.io/learn/graphql',
--     fetch,
--     headers: getHeaders()
--   });
-
-+   // Create a WebSocket link:
-+   const link = new WebSocketLink({
-+     uri: 'wss://hasura.io/learn/graphql',
++ // Create a WebSocket link:
++ const wsLink = new WebSocketLink({
++     uri: "wss://hasura.io/learn/graphql",
 +     options: {
-+       reconnect: true,
-+       timeout: 30000,
-+       connectionParams: () => {
-+         return { headers: getHeaders() };
-+       },
-+     }
-+   });
++         reconnect: true,
++         lazy: true,
++         timeout: 30000,
++         inactivityTimeout: 30000,
++         connectionParams: () => {
++             return { headers: getHeaders() }
++         },
++     },
++ })
 
-    const client = new ApolloClient({
-      link: link,
-      cache: new InMemoryCache({
-        addTypename: true
-      })
-    });
+const errorLink = onError((error) => {
+    if (process.env.NODE_ENV !== "production") {
+        logErrorMessages(error)
+    }
+})
 
-    const apolloProvider = new VueApollo({
-      defaultClient: client,
-    })
-
-    new Vue({
-      router,
-      apolloProvider,
-      render: h => h(App)
-    }).$mount("#app");
-
+// Create the apollo client
+export const apolloClient = new ApolloClient({
+    cache: new InMemoryCache(),
+-    link: errorLink.concat(httpLink),
++    link: errorLink.concat(
++        split(
++            // split based on operation type
++            ({ query }) => {
++                const definition = getMainDefinition(query)
++                return (
++                    definition.kind === "OperationDefinition" &&
++                    definition.operation === "subscription"
++                )
++            },
++            wsLink,
++            httpLink
++        )
++    ),
+})
 ```
-
-Note that we are replacing HttpLink with WebSocketLink and hence all GraphQL queries go through a single websocket connection.

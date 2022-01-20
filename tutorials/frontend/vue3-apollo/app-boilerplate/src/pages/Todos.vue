@@ -8,7 +8,7 @@ import OnlineUsers from "../components/OnlineUsers.vue"
 <route>
 {
   meta: {
-    requiresAuth: false
+    requiresAuth: true
   }
 }
 </route>

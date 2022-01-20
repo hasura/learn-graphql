@@ -1,26 +1,11 @@
-import { createApp, provide, h } from "vue"
-import { createRouter, createWebHistory } from "vue-router"
-import { DefaultApolloClient } from "@vue/apollo-composable"
-
 // @ts-ignore
 import App from "./App.vue"
-// @ts-ignore
-import routes from "~pages"
-import { apolloClient } from "./apollo-client"
+import { createApp } from "vue"
+import { router } from "./router"
+import authPlugin from "./auth/authPlugin"
 
-console.log(routes)
+const app = createApp(App)
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes,
-})
-
-const app = createApp({
-    setup() {
-        provide(DefaultApolloClient, apolloClient)
-    },
-    render: () => h(App),
-})
-
+app.use(authPlugin)
 app.use(router)
 app.mount("#app")

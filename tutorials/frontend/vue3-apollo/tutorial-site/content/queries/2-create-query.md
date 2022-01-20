@@ -1,45 +1,45 @@
 ---
 title: "Smart Query"
-metaTitle: "Vue Apollo Smart Query | GraphQL Vue Apollo Tutorial"
-metaDescription: "We will use the Smart Query from vue-apollo. Each query in apollo object becomes a smart query and it will be executed automatically when the component is mounted."
+metaTitle: "Vue Apollo Querying | GraphQL Vue Apollo Tutorial"
+metaDescription: "We will use the reactive useQuery method from vue/@apollo-composable. Each query object becomes reactive and will be executed automatically both when the component is mounted, and when the query variables change."
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/kH2P4VPux24" />
 
 In this section, we will implement GraphQL Queries and integrate with the Vue UI.
 With Apollo Client, you can send queries in 3 different ways.
 
-1. Using the `apollo` object (Recommended)
-2. Using `$apollo`
+1. Using the Composition API (Recommended)
+2. Using the Classic ("Options") API
 3. Using Apollo Components
 
-The recommended method is to use the apollo object, where you will just pass your GraphQL query in the apollo component options and it will fetch the data automatically and will present it in the component data. Each one of them will become a `smart query`. A smart query will be executed automatically when the component is mounted and the response data will be available for the component to consume.
+The recommended method is to use the Apollo Composition API, where you will just pass your GraphQL query in the `useQuery/useMutation/useSubscription` functions and it will fetch the data automatically then present it in the component data. Each one of them will become a reactive object. These reactive queries will be executed automatically, both when the component is mounted, and if/when any variable objects change.
 
 Great! Now let's define the graphql query to be used:
 
-Open `src/components/TodoPrivateList.vue` and add the following code:
+Open `src/graphql-operations/index.ts` and add the following code:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/TodoPrivateList.vue" text="src/components/TodoPrivateList.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/graphql-operations/index.ts" text="src/graphql-operations/index.ts" />
 
-```javascript
-  <script>
-  import TodoItem from "../components/TodoItem";
-  import TodoFilters from "../components/TodoFilters";
-+ import gql from 'graphql-tag';
+```ts
+import { gql } from "graphql-tag"
 
-+ export const GET_MY_TODOS = gql`
-+  query getMyTodos {
-+    todos(where: { is_public: { _eq: false} }, order_by: { created_at: desc }) {
-+      id
-+      title
-+      created_at
-+      is_completed
-+  }
-+ }`;
-
+export const SELECT_TODOS = gql`
+    query todos(
+        $where: todos_bool_exp!
+        $order_by: [todos_order_by!]
+        $limit: Int = 10
+        $offset: Int
+    ) {
+        todos(where: $where, order_by: $order_by, limit: $limit, offset: $offset) {
+            id
+            title
+            is_completed
+            created_at
+            is_public
+        }
+    }
+`
 ```
 
 We have now written the graphql query as a javascript constant using the `gql` parser function. This function is used to parse the plain string as a graphql query.
@@ -50,61 +50,71 @@ The query fetches `todos` with a simple condition; `is_public` must be false. We
 
 The query is now ready, let's integrate it with our Vue component.
 
-```javascript
-<script>
-  export default {
-    components: {
-      TodoItem, TodoFilters
-    },
-    data() {
-      ...
-    },
-    computed: {
-      ...
-    },
-    methods: {
-      ...
-    },
-+   apollo: {
-+     todos: {
-+       // graphql query
-+       query: GET_MY_TODOS,
-+     },
-+   },
-  }
+Open `src/components/TodoPrivateList.vue` and add the following code:
 
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/TodoPrivateList.vue" text="src/components/TodoPrivateList.vue" />
+
+```ts
+<script>
+import { computed, reactive } from "vue"
+import TodoItem from "../components/TodoItem.vue"
+
++ import { useMutation, useQuery, useResult } from "@vue/apollo-composable"
++ import { DELETE_TODOS, SELECT_TODOS } from "../graphql-operations"
++ 
++ // Used in both query and mutation (refetch query variables)
++ const selectTodosVariables = {
++     where: {
++         is_public: { _eq: false },
++     },
++     order_by: {
++         created_at: "desc",
++     },
++ }
++ 
++ const privateTodosQuery = useQuery(SELECT_TODOS, selectTodosVariables)
++ const privateTodos = useResult(privateTodosQuery.result, [], (data) => data?.todos)
+
+const state = reactive({
+    type: "private",
+    filterType: "all",
+    filteredTodos: computed(() => {
+-        return privateTodos.filter((todo) => {
++        return privateTodos.value.filter((todo) => {
+            switch (state.filterType) {
+                case "completed":
+                    return todo.is_completed
+                case "active":
+                    return !todo.is_completed
+                default:
+                    return true
+            }
+        })
+    }),
+    activeTodos: computed(() => privateTodos.value.filter((todo) => !todo.is_completed)),
+    remainingTodos: computed(() => state.activeTodos.length),
+})
 ```
 
 Remember that we included `ApolloProvider` in our Vue app. This allows us to use the apollo object definition.
 
 Let's remove the mock `todos` data which was used to populate sample data.
 
-```javascript
-export default {
-  components: {
-    TodoItem, TodoFilters
-  },
-  data() {
-    return {
-      type: "private",
-      filterType: "all",
-      todos: [
--       {
+```ts
+- const privateTodos = [
+-     {
 -         id: "1",
 -         title: "This is private todo 1",
 -         is_completed: true,
--         is_public: false
--       },
--       {
+-         is_public: false,
+-     },
+-     {
 -         id: "2",
 -         title: "This is private todo 2",
 -         is_completed: false,
--         is_public: false
--       }
-     ],
-   }
- },
-
+-         is_public: false,
+-     },
+- ]
 ```
 
 Woot! You have written your first GraphQL integration with Vue. Easy isn't it?

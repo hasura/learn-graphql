@@ -95,7 +95,6 @@ Replace xxxxx with the Auth Token you copied from GraphiQL. The Auth Token shoul
 
 _Note_: The command is likely to throw an error until a query, mutation or subscription is defined in the project. You will add them in the next steps and the error will disappear.
 
-
 This script is running in `watch` mode and hence will autogenerate types for any queries/mutations/subscriptions that are added later in the tutorial.
 
 Once they are added two files will be generated:

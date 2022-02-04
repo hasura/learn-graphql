@@ -4,6 +4,69 @@ metaTitle: "GraphQL Queries to fetch data | GraphQL Tutorial"
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 ---
 
+In GraphQL, you fetch data with the help queries. A query is a GraphQL Operation that allows you to retrieve specific data from the server.
+
+Let’s look at the following GraphQL query:
+
+```graphql
+{
+  todos {
+    title
+  }
+}
+```
+
+We ask the server for all the todos and their titles in the above query. The “`todos`" represents an object and "`title`" a **field**. All queries consist of an object and one or more fields.
+
+The fields tell the server what information to return for the specified object.
+
+Executing the above query would return the following response:
+
+```graphql
+{
+  "data": {
+    "todos": [
+      {
+        "title": "Learn GraphQL"
+      },
+      {
+        “title": “Learn about queries"
+      }
+    ]
+  }
+}
+```
+
+The query and the result have the same format, demonstrating that you always get what you ask for in GraphQL. You only asked for the title, which means you will only get the title — nothing more, nothing less.
+
+There are two other types of queries - anonymous and named.
+
+1/. Anonymous queries
+
+```graphql
+query {
+  todos {
+    title
+  }
+}
+```
+
+This is similar to the first query.
+
+2/. Named queries
+
+```graphql
+query getTodos {
+  todos {
+    title
+  }
+}
+```
+
+It’s considered best practice to name all your GraphQL operations because it helps people understand their purpose and helps when debugging.
+
+In the next section, you will run queries and practice what you learnt.
+
 ## Try out GraphQL queries {#try-out-graphql-queries}
 
 For this tutorial we've set up a GraphQL API for you. The most common
@@ -27,7 +90,7 @@ You can access the GraphiQL for this realtime todo app tutorial here:
 When you work with a GraphQL API in a project you will almost always
 use a tool like GraphiQL to explore and test your GraphQL queries.
 
-## Basic GraphQL query {#basic-graphql-query}
+## Run the GraphQL Query {#basic-graphql-query}
 
 1. Open GraphiQL at: [hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql). 
    You'll have to login to get an auth token to query the API. In a real-world scenario

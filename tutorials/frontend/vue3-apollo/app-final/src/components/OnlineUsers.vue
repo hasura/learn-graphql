@@ -5,11 +5,13 @@ import { SUBSCRIPTION_ONLINE_USERS, UPDATE_LASTSEEN_MUTATION } from "../graphql-
 const onlineUsersSubscription = useSubscription(SUBSCRIPTION_ONLINE_USERS)
 const onlineUsers = useResult(onlineUsersSubscription.result, [], (data) => data.online_users)
 
-const updateLastSeenMutation = useMutation(UPDATE_LASTSEEN_MUTATION, {
-    variables: () => ({
-        now: new Date().toISOString(),
-    }),
-})
+const updateLastSeenMutation = useMutation(UPDATE_LASTSEEN_MUTATION, 
+    () => ({
+        variables: {
+            now: new Date().toISOString(),
+        },
+    })
+)
 
 setInterval(async () => {
     try {

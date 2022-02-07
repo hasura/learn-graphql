@@ -4,7 +4,9 @@ metaTitle: "GraphQL Queries to fetch data | GraphQL Tutorial"
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 ---
 
-In GraphQL, you fetch data with the help queries. A query is a GraphQL Operation that allows you to retrieve specific data from the server.
+## What is a GraphQL Query? {#what-is-a-graphql-query}
+
+In GraphQL, you fetch data with the help of queries. A query is a GraphQL Operation that allows you to retrieve specific data from the server.
 
 Let’s look at the following GraphQL query:
 
@@ -19,6 +21,8 @@ Let’s look at the following GraphQL query:
 We ask the server for all the todos and their titles in the above query. The “`todos`" represents an object and "`title`" a **field**. All queries consist of an object and one or more fields.
 
 The fields tell the server what information to return for the specified object.
+
+## GraphQL Query example {#graphql-query-example}
 
 Executing the above query would return the following response:
 
@@ -162,7 +166,6 @@ and their profile information (which is just their name for now):
 ```
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
-
 
 ## Adding parameters (arguments) to GraphQL queries {#adding-parameters}
 

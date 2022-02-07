@@ -173,11 +173,11 @@ In most API calls, you usually use parameters. e.g. to specify what data you're 
 If you're familiar with making `GET` calls, you would have used a query parameter. For example,
 to fetch only 10 todos you might have made this API call: `GET /api/todos?limit=10`.
 
-The GraphQL query analog of this is *arguments* that you can attach to a "field".
+The GraphQL query analog of this is *arguments*, which are key-value pairs that you can attach to a "field" or "nested object". GraphQL servers come with a default list of arguments, but you can also define custom arguments.
 
-### Basic argument: Fetch 10 todos {#basic-argument}
+### GraphQL Query with an argument: Fetch 10 todos {#basic-argument}
 
-This GraphQL query will fetch 10 todos and not all of them.
+This GraphQL query will fetch only 10 todos rather than all of them.
 
 ```graphql
 query {
@@ -190,12 +190,16 @@ query {
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-The most important bit to check here is `limit: 10`. GraphQL servers will provide a list of
-arguments that can be used in `()` next to specific fields. In our case, we are using
-Hasura for creating the GraphQL backend which provides filter, sort and pagination arguments.
+The most important bit to check here is `limit: 10`. GraphQL servers will provide a list of arguments that can be used in `()` next to specific fields.
+
+In our case, we are using Hasura for creating the GraphQL backend which provides filter, sort and pagination arguments.
 The GraphQL server or API that you use, might provide a different set of arguments that can be used.
 
-### Multiple arguments on multiple fields: Fetch 1 user and 5 most recent todos for each user {#multiple-arguments}
+### GraphQL Query with multiple arguments {#multiple-arguments}
+
+GraphQL allows you to use multiple arguments in the same query. You can use one or more arguments on each field or nested object in the query.
+
+Let's fetch 1 user and the 5 most recent todos for that user to showcase that.
 
 ```graphql
 query {
@@ -210,30 +214,21 @@ query {
 }
 ```
 
-Notice that we are passing arguments to different fields. This GraphQL query reads as:
+Notice that we are passing arguments to different fields. The above GraphQL query reads as:
 > Fetch users (with limit 1), and their todos (ordered by descending creation time, and limited to 5).
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
 ## GraphQL variables: Passing arguments to your queries dynamically {#graphql-variables}
 
-This is great, but we still have a problem. If we want to create a query
-where we are fetching data with arguments that are provided dynamically, we'd have to 
-create the entire query string again.
+Until now, you hardcoded the arguments in the queries. In real-life applications, though, the arguments might come from different parts of your application, such as filters for example. So you will pass them dynamically to your queries.
 
-This is what we don't want to do:
+In GraphQL, you can pass arguments dynamically with the help of variables.
 
-```javascript
-var limit = getMaxTodosFromUserInput();
-var query = "query { todos (limit: " + limit.toString() + ") {id title} }";
-```
+## GraphQL Query with variables {#graphql-query-variables}
 
-Thankfully, we don't ever have to do this! GraphQL variables are extra variables
-that you can send in a query so that the "arguments" can be provided dynamically!
+Let's fetch a limited number of todos. That can be done with the `limit` argument as follows:
 
-## Fetch $limit number of todos {#fetch-limit}
-
-This is what our GraphQL query would look like:
 ```graphql
 query ($limit: Int!) {
   todos(limit: $limit) {
@@ -243,7 +238,12 @@ query ($limit: Int!) {
 }
 ```
 
-In addition to the query above, we send a variables object:
+If you look at the previous GraphQL queries with arguments, you might spot two differences:
+
+* You define the type of the variable accepted by the query - an integer (number), in this case
+* The hardcoded value is replaced by the variable `$limit`
+
+But before you can run the query, there is an additional step. You also need to send a variables object:
 
 ```json
 {
@@ -251,9 +251,9 @@ In addition to the query above, we send a variables object:
 }
 ```
 
-Now instead of sending just the query to the GraphQL server, from our client
-we'll send both the query and the variables. The GraphQL server will use the
-variable in the right place in the query automatically for us!
+The GraphQL server will automatically use the variable in the right place in the query! That means, `$limit` is replaced by the number "10".
+
+Instead of sending just the query to the GraphQL server from our client, we'll send both the query and the variables.
 
 Let's try this out in GraphiQL:
 1. Head to GraphiQL

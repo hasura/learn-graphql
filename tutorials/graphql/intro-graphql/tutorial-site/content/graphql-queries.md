@@ -120,16 +120,26 @@ Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL
 to the server at the given endpoint with the HTTP headers. The server then sends the response
 that you see on the right hand side.
 
-## Fetching "graphs" {#fetching-graphs}
+## GraphQL Nested Query {#graphql-nested-query}
 
-Our todo app has users, todos and information about users that are currently online.
-This is what our API "schema" looks like:
+The todo application has:
+* users
+* todos
+* information about users that are currently online
+
+This is what the API "schema" looks like:
 
 ![Schema](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/schema.png)
 
-As you can see, it is a "graph" like schema where all the 3 models are linked to each other.
+The schema is a graph-like schema where all the 3 models are linked to each other. Since all 3 modes are linked, we can use nested queries. GraphQL nested queries allow you to fetch relational data in one request.
 
-Let's try making queries that fetch different slices of our data from the overall "graph".
+In the context of the todo application, you can fetch the users and their todos in one request with nested queries.
+
+**How is that possible?**
+
+Nested queries in GraphQL are possible due to the relationships between objects. When you build a GraphQL API, you define relationships in the schema, if there are any.
+
+For example, there is a relationship between `users` and `todos` in the todo application. Each user can have multiple todos, but a todo can only belong to a user. As a result, you can fetch the users and their todos in one request.
 
 ### Fetch users and their todos {#fetch-users-and-their-todos}
 

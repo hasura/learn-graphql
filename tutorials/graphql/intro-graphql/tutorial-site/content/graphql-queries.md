@@ -273,6 +273,47 @@ Let's try this out in GraphiQL:
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
+## GraphQL Query Filter - Where Clause {#graphql-query-filter}
+
+You can filter the data returned by your queries with the `where` argument. The `where` argument is applied on a specific field and it filters the results based on that field's value.
+
+For example, you can use the `where` argument to fetch all the private todos.
+
+The query is as follows:
+
+```graphql
+{
+  todos(where: {is_public: {_eq: false}}) {
+    title
+    is_public
+    is_completed
+  }
+}
+```
+
+You can also use the `where` argument multiple times in one query. Let's say you want to see all the public notes from a specific user:
+
+```graphql
+{
+  users(where: {id: {_eq: "61dd5e7dc4b05c0069a39att"}}) {
+    name
+    todos(where: {is_public: {_eq: true}}) {
+      title
+      is_public
+    }
+  }
+}
+```
+
+The `where` argument uses operators to filter the results accordingly. The above queries use the `eq` operator, which stands for "equal to". They read:
+
+> Fetch all the todos where the value of the field `is_public` equals "false".
+
+And
+
+> Fetch all the todos where the value of the field `is_public` equals "false" for the user whose id equals to "61dd5e7dc4b05c0069a39att".
+
+There are other operators that you can see in the [API Reference](https://hasura.io/docs/latest/graphql/core/api-reference/graphql-api/query.html#whereexp) documentation.
 ## Summary {#summary}
 
 - You can now make GraphQL queries

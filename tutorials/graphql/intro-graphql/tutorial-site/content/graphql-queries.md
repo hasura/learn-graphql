@@ -4,7 +4,7 @@ metaTitle: "GraphQL Queries to fetch data | GraphQL Tutorial"
 metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
 ---
 
-## What is a GraphQL Query? {#what-is-a-graphql-query}
+## What Is a GraphQL Query? {#what-is-a-graphql-query}
 
 In GraphQL, you fetch data with the help of queries. A query is a GraphQL Operation that allows you to retrieve specific data from the server.
 
@@ -22,7 +22,7 @@ We ask the server for all the todos and their titles in the above query. The “
 
 The fields tell the server what information to return for the specified object.
 
-## GraphQL Query example {#graphql-query-example}
+## GraphQL Query Example {#graphql-query-example}
 
 Executing the above query would return the following response:
 
@@ -71,7 +71,7 @@ It’s considered best practice to name all your GraphQL operations because it h
 
 In the next section, you will run queries and practice what you learnt.
 
-## Try out GraphQL queries {#try-out-graphql-queries}
+## Try Out GraphQL Queries {#try-out-graphql-queries}
 
 For this tutorial we've set up a GraphQL API for you. The most common
 way to browse a GraphQL API is to use GraphiQL. GraphiQL is a tool
@@ -141,7 +141,7 @@ Nested queries in GraphQL are possible due to the relationships between objects.
 
 For example, there is a relationship between `users` and `todos` in the todo application. Each user can have multiple todos, but a todo can only belong to a user. As a result, you can fetch the users and their todos in one request.
 
-### Fetch users and their todos {#fetch-users-and-their-todos}
+### Fetch Users and Their Todos {#fetch-users-and-their-todos}
 
 This GraphQL query will fetch all the users and their publicly visible todos:
 
@@ -158,8 +158,7 @@ This GraphQL query will fetch all the users and their publicly visible todos:
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-
-### Fetch online users and their profile information {#fetch-online-users}
+### Fetch Online Users and Their Profile Information {#fetch-online-users}
 
 This GraphQL query will fetch all the currently online users
 and their profile information (which is just their name for now):
@@ -177,7 +176,7 @@ and their profile information (which is just their name for now):
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-## Adding parameters (arguments) to GraphQL queries {#adding-parameters}
+## Adding Parameters (Arguments) To GraphQL Queries {#adding-parameters}
 
 In most API calls, you usually use parameters. e.g. to specify what data you're fetching.
 If you're familiar with making `GET` calls, you would have used a query parameter. For example,
@@ -185,7 +184,7 @@ to fetch only 10 todos you might have made this API call: `GET /api/todos?limit=
 
 The GraphQL query analog of this is *arguments*, which are key-value pairs that you can attach to a "field" or "nested object". GraphQL servers come with a default list of arguments, but you can also define custom arguments.
 
-### GraphQL Query with an argument: Fetch 10 todos {#basic-argument}
+### GraphQL Query With an Argument: Fetch 10 Todos {#basic-argument}
 
 This GraphQL query will fetch only 10 todos rather than all of them.
 
@@ -205,7 +204,7 @@ The most important bit to check here is `limit: 10`. GraphQL servers will provid
 In our case, we are using Hasura for creating the GraphQL backend which provides filter, sort and pagination arguments.
 The GraphQL server or API that you use, might provide a different set of arguments that can be used.
 
-### GraphQL Query with multiple arguments {#multiple-arguments}
+### GraphQL Query With Multiple Arguments {#multiple-arguments}
 
 GraphQL allows you to use multiple arguments in the same query. You can use one or more arguments on each field or nested object in the query.
 
@@ -229,13 +228,13 @@ Notice that we are passing arguments to different fields. The above GraphQL quer
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
-## GraphQL variables: Passing arguments to your queries dynamically {#graphql-variables}
+## GraphQL Variables: Passing Arguments to Your Queries Dynamically {#graphql-variables}
 
 Until now, you hardcoded the arguments in the queries. In real-life applications, though, the arguments might come from different parts of your application, such as filters for example. So you will pass them dynamically to your queries.
 
 In GraphQL, you can pass arguments dynamically with the help of variables.
 
-## GraphQL Query with variables {#graphql-query-variables}
+## GraphQL Query With Variables {#graphql-query-variables}
 
 Let's fetch a limited number of todos. That can be done with the `limit` argument as follows:
 
@@ -360,8 +359,10 @@ And
 There are other operators that you can see in the [API Reference](https://hasura.io/docs/latest/graphql/core/api-reference/graphql-api/query.html#whereexp) documentation.
 ## Summary {#summary}
 
-- You can now make GraphQL queries
+- You can now write simple and nested GraphQL queries
 - You know how to pass arguments to your GraphQL queries
 - You know how to make your arguments dynamic by using query variables
+- You know how to use the `limit` and `offset` arguments
+- You know how to filter your queries with the `where` clause
 
-Next, let's look at writing data and not just fetching data!
+Next, we'll look at writing data and not just fetching data!

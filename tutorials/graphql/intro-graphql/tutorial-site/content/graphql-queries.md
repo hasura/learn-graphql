@@ -273,6 +273,50 @@ Let's try this out in GraphiQL:
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
 
+## GraphQL Limit and Offset {#graphql-limit-and-offset}
+
+In GraphQL, you can limit the number of rows returned by the query with the `limit` argument. `limit` takes an integer, representing the number of rows to return.
+
+```graphql
+{
+  todos(limit: 5) {
+    title
+    is_completed
+    is_public
+  }
+}
+```
+
+In this example, you fetch only 5 todos. 
+
+But why would you want to do that? One of the most common scenarios is pagination, where you would use the `limit` and `offset` arguments. The `offset` argument specifies how many records to skip.
+
+For example, if we have 50 todos, we could split them into 5 pages of 10 todos. You would fetch the first page as follows:
+
+```graphql
+{
+  todos(limit: 5, offset: 0) {
+    title
+    is_completed
+    is_public
+  }
+}
+```
+
+You would want to skip the first 5 todos on the second page, so the `offset` would be "5".
+
+```graphql
+{
+  todos(limit: 5, offset: 5) {
+    title
+    is_completed
+    is_public
+  }
+}
+```
+
+You would continue like that until the last page. So, `limit` specifies the number of rows to return, whereas `offset` specifies where to start counting.
+
 ## GraphQL Query Filter - Where Clause {#graphql-query-filter}
 
 You can filter the data returned by your queries with the `where` argument. The `where` argument is applied on a specific field and it filters the results based on that field's value.

@@ -46,13 +46,12 @@ const { type } = defineProps({ type: String })
 +     }
 + `
 
-+ const { subscription } = useSubscription(
++ const { onResult } = useSubscription(
 +     SUBSCRIPTION_TODOS_WITH_USER,
 +     computed(() => ({
 +         limit: state.limit,
 +         where: {
 +             is_public: { _eq: true },
-+             ...(state.todos.length && { id: { _gte: state.todos[0].id } }),
 +         },
 +         order_by: {
 +             created_at: "desc",
@@ -60,19 +59,30 @@ const { type } = defineProps({ type: String })
 +     }))
 + )
 
-+ // On the first subscription result, we set "todos"
-+ // Afterwards, we push new todos into "receivedTodos" where they wait for the "loadMore" button click
-+ subscription.value.subscribe(({ data }) => {
-+     if (state.todos.length === 0) {
++ onResult(({ data }) => {
++     // If this is the first subscription result and we've not loaded initial todos
++     // Then we should just set the initial state.todos value and stop
++     if (!initialTodosSet) {
 +         state.todos = data.todos
++         initialTodosSet = true
 +     } else {
-+         state.receivedTodos.push(data.todos[0])
++         // Else, if the change is because of a change in the "limit" value (due to the "load more" button being clicked)
++         // Then we should add the new todos to the existing todos and clear the "receivedTodos" array
++         if (state.limit != previousLimit) {
++             state.todos = [...data.todos, ...state.receivedTodos]
++             state.receivedTodos = []
++             previousLimit = state.limit
++         } else {
++             // Else, if the change is because of a new todo being created
++             state.receivedTodos.push(data.todos[0])
++         }
 +     }
 + })
 
  const state = reactive({
      limit: 5,
      type: "public",
++    receivedTodos: [],
 +    todos: [],
 -    todos: [
 -         {

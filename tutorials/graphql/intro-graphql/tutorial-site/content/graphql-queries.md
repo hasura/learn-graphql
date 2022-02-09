@@ -1,10 +1,10 @@
 ---
 title: Queries - Fetching data
 metaTitle: "GraphQL Queries to fetch data | GraphQL Tutorial"
-metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example with parameters, arguments and variables to fetch data dynamically"
+metaDescription: "Try out GraphQL Query using GraphiQL. Simple and nested GraphQL query examples with parameters, arguments and variables to fetch data dynamically"
 ---
 
-## What Is a GraphQL Query? {#what-is-a-graphql-query}
+## What is a GraphQL Query? {#what-is-a-graphql-query}
 
 In GraphQL, you fetch data with the help of queries. A query is a GraphQL Operation that allows you to retrieve specific data from the server.
 

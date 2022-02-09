@@ -1,6 +1,6 @@
 ---
 title: "What next?"
-metaTitle: "What next? | GraphQL Vue Apollo Tutorial"
+metaTitle: "What next? | GraphQL Vue 3 Apollo Tutorial"
 metaDescription: "Learn what to do next with GraphQL, Vue and Backend with more community resources. Join our discord channel for support."
 ---
 

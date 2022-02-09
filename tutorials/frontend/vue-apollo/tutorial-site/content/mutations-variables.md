@@ -1,6 +1,6 @@
 ---
 title: "Mutations & Query variables"
-metaTitle: "Integrate Mutations with Query Variables | GraphQL Vue Apollo Tutorial"
+metaTitle: "Integrate Mutations with Query Variables | GraphQL Vue 3 Apollo Tutorial"
 metaDescription: "Integrate GraphQL Mutations to create new personal todos using the this.$apollo.mutate and handle loading and error states"
 ---
 

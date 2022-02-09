@@ -1,6 +1,6 @@
 ---
 title: "Tutorial & boilerplate setup"
-metaTitle: "Todo app vue boilerplate setup | GraphQL Vue Apollo Tutorial"
+metaTitle: "Todo app vue boilerplate setup | GraphQL Vue 3 Apollo Tutorial"
 metaDescription: "The GraphQL backend is already ready. The task is to convert the static UI into a working real-time app in Vue.js"
 ---
 

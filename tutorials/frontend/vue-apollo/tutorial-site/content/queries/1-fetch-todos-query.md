@@ -1,6 +1,6 @@
 ---
 title: "Fetch todos - query"
-metaTitle: "Query to fetch todo | GraphQL Vue Apollo Tutorial"
+metaTitle: "Query to fetch todo | GraphQL Vue 3 Apollo Tutorial"
 metaDescription: "GraphQL Query to fetch personal todos. Try the query in GraphiQL, passing the Authorization token to get authenticated results"
 ---
 

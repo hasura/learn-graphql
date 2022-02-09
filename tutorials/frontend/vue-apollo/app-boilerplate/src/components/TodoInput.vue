@@ -1,27 +1,22 @@
-<template>
-  <div class="formInput">
-    <input 
-	class="input" 
-	placeholder="What needs to be done?" 
-	v-model="newTodo"
-	@keyup.enter="addTodo"
-    />
-    <i class="downArrow fa fa-angle-right" />
-  </div>
-</template>
+<script setup lang="ts">
+import { ref } from "vue"
 
-<script>
-  export default {
-    props: ['type'],
-    data() {
-      return {
-        newTodo: '',
-      }
-    },
-    methods: {
-      addTodo: function () {
-        // insert new todo into db
-      },
-    }
-  }
+const { type } = defineProps({ type: String })
+const newTodoTitle = ref("")
+
+async function addTodo({ todoTitle, type }: { todoTitle: string; type: string }) {
+    // Code to add todo here
+}
 </script>
+
+<template>
+    <div class="formInput">
+        <input
+            class="input"
+            placeholder="What needs to be done?"
+            v-model="newTodoTitle"
+            @keyup.enter="addTodo({ todoTitle: newTodoTitle, type })"
+        />
+        <i class="downArrow fa fa-angle-down" />
+    </div>
+</template>

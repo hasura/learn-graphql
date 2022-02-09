@@ -87,7 +87,7 @@ This way, you can see all the types available in the GraphQL API. Similarly, you
 
 The Schema Introspection is a great feature and it can be really helpful, but it can cause problems too.
 
-As you might remember, the Schema Introspection allows developers to query the API schema and see all the available resources. That means potential attackers can get a good understanding of your API and they can even get access to resources that are not meant to be publicly available. Having access to all this information,
+As you might remember, the Schema Introspection allows developers to query the API schema and see all the available resources. That means potential attackers can get a good understanding of your API and they can even get access to resources that are not meant to be publicly available. All this information available to potential attackers makes it easier to exploit your GraphQL API.
 
 As a result, it's recommended to turn off the Introspection in production.
 

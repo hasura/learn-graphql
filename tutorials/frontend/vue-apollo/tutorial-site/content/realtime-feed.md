@@ -1,6 +1,6 @@
 ---
 title: "Real-time Feed"
-metaTitle: "Real-time Public Todo Feed | GraphQL Vue Apollo Tutorial"
+metaTitle: "Real-time Public Todo Feed | GraphQL Vue 3 Apollo Tutorial"
 metaDescription: "You will learn how to make a real-time feed that captures public todos added by other people."
 ---
 

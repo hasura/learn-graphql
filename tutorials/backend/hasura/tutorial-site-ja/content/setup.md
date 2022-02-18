@@ -1,44 +1,56 @@
 ---
-title: "Hasura のデプロイ"
-metaTitle: "Hasura を Heroku にデプロイ | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは、ワンクリックデプロイを使用してHerokuにHasura GraphQL Engineをデプロイし、Hasuraコンソールにアクセスする方法について説明します"
+title: "Hasuraをデプロイする"
+metaTitle: "HasuraクラウドにHasuraをデプロイする | Hasura GraphQLチュートリアル"
+metaDescription: "このチュートリアルでは、ワンクリックデプロイを使ってHasuraクラウドにHasura GraphQL Engineをデプロイする方法を学び、Hasuraコンソールにアクセスする方法を学びます。"
 ---
 
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
+Hasuraをデプロイしてみましょう。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/yOVHEzUiH84" />
+## Hasuraクラウドでのワンクリックデプロイ {#one-click-deployment}
 
-Hasura のデプロイを始めましょう。
+Hasuraを試す最も早い方法はHasuraクラウドを使うことです。[ Hasuraクラウド ](https://hasura.io/cloud/) は、拡張性、可用性、安全性が高く、グローバルに展開し、完全な管理を実現するGraphQL APIサービスを提供します。
 
-## Heroku へのワンクリックデプロイ
+以下のボタンをクリックして、Hasuraクラウドで新しいプロジェクトを作成します。
 
-Hasura を試す最速の方法は Heroku 経由です。
+<a href="https://cloud.hasura.io/?pg=learn-hasura-backend&plcmt=body&tech=default" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
 
-- 次のボタンをクリックして、無料の Postgres アドオンと GraphQL エンジンを Heroku にデプロイします。
+**注**：サインアップは無料で、クレジットカードは必要ありません。
 
-    [![Heroku にデプロイ](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/hasura/graphql-engine-heroku)
+登録してサインインすると以下のウェルカム画面が表示されて、新しいHasuraプロジェクトが自動的に作成されます。
 
-    これにより、HerokuにHasura GraphQL エンジンがデプロイされます。 PostgreSQL データベースは Hasura とともに自動的にプロビジョニングされます。 Heroku にアカウントがない場合は、サインアップする必要があります。
-    *注意*: サインアップは無料で、クレジットカードは必要ありません。
+![ Hasuraクラウドのウェルカムページ ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-welcome.png)
 
-![Heroku にデプロイ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/deploy-on-heroku.png)
+プロジェクトの初期化が完了したら、ポップアップ画面の `Launch Console` をクリックします。Hasuraクラウドのアカウントを既にお持ちの場合は、画面上部の `+ New Project` アクションをクリックしてから `Launch Console` をクリックします。そうすれば手動で新しいプロジェクトを作成することができます。
 
-アプリ名を入力し、選択領域を選択して Deploy app ボタンをクリックします。
+## Hasuraコンソール {#hasura-console}
 
-## Hasura コンソール
+続いてプロジェクトのHasura Consoleを開きます。以下のような画面が表示されます。
 
-アプリがデプロイされると Heroku ダッシュボードに次のように表示されます。
+![ Hasuraコンソール ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console.png)
 
-![Heroku にある Hasura GraphQL](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/app-deployed-heroku.png)
+続いてHasuraをデータベースと接続します。この設定には、Herokuの[Postgresデータベース](https://hasura.io/learn/database/postgresql/what-is-postgresql/) 層（無料）を使用できます。コンソールの `Data` タブに移動して、`Connect Database` をクリックします。
 
-- Hasura コンソールを開く
+データベースに接続するには2つの方法があります。
 
-    `View` ボタンをクリックしてアプリを開きます。
+- 既存のデータベースへの接続
+- 新しくHerokuデータベースを作成する（無料）
 
-    または、いつでも `https://<app-name>.herokuapp.com` (*&lt;app-name>をアプリ名に置き換える*) にアクセスして、管理コンソールを開くことができます。
+ここでは早く先に進めるため、Heroku Postgresを使用して新しいPostgresデータベースを一から作成します。`Create Heroku Database (Free)` タブをクリックしてから、 `Create Database` をクリックします。Herokuアカウントの作成は無料です。
 
-次のようになります:
+![Heroku データベースの作成](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-heroku-database.png)
 
-![Hasura コンソール](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console-initial-load.png)
+Heroku にログイン後、`Create Database` をクリックすると、Hasuraクラウドは以下を実行します。
 
-すごい！これで Hasura GraphQL エンジンがデプロイされ、管理コンソールの準備が整いました!
+- Heroku上にアプリを作成する
+- [Postgresアドオンをインストールする](https://hasura.io/learn/database/postgresql/installation/installing-postgresql/)
+- Hasuraの設定に使用するデータベースのURLを取得する
+
+![ HasuraクラウドでのHerokuの設定 ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-heroku-setup.png)
+
+Heroku Postgresへの接続と初期化には数秒かかります。Postgresへの接続が完了するとコンソールのData Managerページが表示され、先ほど接続したデータベースの一覧が表示されます。
+
+また、Hasuraクラウドダッシュボードからプロジェクトを管理できます。
+
+![Hasuraクラウドプロジェクトページ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-project-page.png)
+
+完璧です。これでHasuraをデプロイして、データベースに接続して、管理コンソールを使えるようになりました！

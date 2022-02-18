@@ -1,14 +1,10 @@
 ---
-title: "ユーザとルールの同期"
-metaTitle: "ユーザとルールの同期 | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは Auth0 のルールをセットアップして Auth0 のユーザーがデータベースのユーザーと同期できるようにする方法を学びます"
+title: "Rulesでユーザーを同期する"
+metaTitle: "RulesでAuth0ユーザーを同期する | Hasura GraphQLチュートリアル"
+metaDescription: "ここでは、Auth0のルールの設定について学び、Auth0のユーザーがデータベース内のユーザーと同期できるようにします。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/i5rMmXXcVsk" />
-
-Auth0 のルールを設定して Auth0 のユーザーがデータベース内のユーザーと同期できるようにする必要があります。 次のコードスニペットを使用すると同じことができます。再びルール機能を使用して、新しいルールを作成し、次のコードスニペットに貼り付けます。
+Auth0には、ログイン要求のたびに呼び出されるように設定できるルールがあります。Auth0設定の2番目のステップを思い出してください。カスタムJWTクレームを適用するルールを作成しました。こここでは、Auth0におけるルールを設定して、Auth0のユーザーがデータベース内のユーザーと同期できるようにする必要があります。以下のコードスニペットによって、それが可能です。再度Rules機能を使用して、新しい空のルールを作成して、以下のコードスニペットに貼り付けます。
 
 ```javascript
 function (user, context, callback) {
@@ -16,12 +12,25 @@ function (user, context, callback) {
   const nickname = user.nickname;
 
   const admin_secret = "xxxx";
-  const url = "https://learn-hasura-backend.herokuapp.com/v1/graphql";
+  const url = "https://ready-panda-91.hasura.app/v1/graphql";
+  const query = `mutation($userId: String!, $nickname: String) {
+    insert_users(objects: [{
+      id: $userId, name: $nickname, last_seen: "now()"
+    }], on_conflict: {constraint: users_pkey, update_columns: [last_seen, name]}
+    ) {
+      affected_rows
+    }
+  }`;
+
+  const variables = { "userId": userId, "nickname": nickname };
 
   request.post({
+      url: url,
       headers: {'content-type' : 'application/json', 'x-hasura-admin-secret': admin_secret},
-      url:   url,
-      body:    `{\"query\":\"mutation($userId: String!, $nickname: String) {\\n          insert_users(\\n            objects: [{ id: $userId, name: $nickname }]\\n            on_conflict: {\\n              constraint: users_pkey\\n              update_columns: [last_seen, name]\\n            }\\n          ) {\\n            affected_rows\\n          }\\n        }\",\"variables\":{\"userId\":\"${userId}\",\"nickname\":\"${nickname}\"}}`
+      body: JSON.stringify({
+        query: query,
+        variables: variables
+      })
   }, function(error, response, body){
        console.log(body);
        callback(null, user, context);
@@ -29,11 +38,11 @@ function (user, context, callback) {
 }
 ```
 
-![Auth0 挿入ルール](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-insert-rule.png)
+![Auth0挿入ルール](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-sync-rule.png)
 
-**注意**: アプリに応じて `x-hasura-admin-secret` および `url` パラメーターを適切に変更します。
-ここでは `users` テーブルに変更を加える簡単なリクエストを作成しています。
+**注**：アプリに応じて、`x-hasura-admin-secret` および `url` パラメーターを適切に変更します。
+ここでは、 `users` テーブルにミューテーションを実行する要求を行います。
 
-それでおしまいです！このルールは、サインアップまたはログインが成功するたびにトリガーされ Hasura GraphQL ミューテーションを使用してユーザーデータをデータベースに挿入または更新します。
+それでおしまいです！このルールは、サインアップまたはログインが成功するたびにトリガーされます。そして、Hasura GraphQLミューテーションを使用して、ユーザーデータをデータベースに挿入または、更新します。
 
-上記のリクエストは `id` と `name` の値を使用して users テーブルに対して変更を実行します。
+上記の要求では、`id` 値と `name` 値によってユーザーテーブルでミューテーションを実行します。

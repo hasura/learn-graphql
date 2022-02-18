@@ -1,28 +1,24 @@
 ---
-title: "users テーブルの作成"
-metaTitle: "users テーブルの作成 | Hasura GraphQL チュートリアル"
-metaDescription: "Hasuraコンソールで Data タブに移動し、Create table をクリックして、テーブルユーザーを作成します"
+title: "ユーザーテーブルを作成する"
+metaTitle: "ユーザーテーブルを作成する | Hasura GraphQLチュートリアル"
+metaDescription: "データタブに移動して、テーブルの作成をクリックして、Hasuraコンソールでユーザーテーブルを作成します。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+`users` テーブルを作成することから始めましょう。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/YLRYrEgJRA0" />
+`users` テーブルには、以下の列が表示されます。
 
-users テーブルを作成することから始めましょう。
+- `id`（type Text）、
+- `name`（type Text）、
+- `created_at`（type Timestamp and default now()）
+- `last_seen`（type Timestamp and nullable）
 
-`users` テーブルには次のカラムがあります:
+これらの列は、ユーザー項目のプロパティと関連付けられています。`last_seen` 列は、ユーザーがオンラインになった時の最新のタイムスタンプを保存するために使用されます。
 
-- `id` (type text)
-- `name` (type text)
-- `created_at` (type timestamp and default now())
-- `last_seen` (type timestamp and nullable)
+Hasuraコンソールで、`DATA` タブセクションに移動し、接続済みのHerokuデータベース（左側ナビゲーションから）をクリックします。データベース名は `default` になり、スキーマ名は `public` になります。`public` スキーマに移動し、`Create Table` をクリックします。上記の通り、テーブルを作成する値を入力します。
 
-カラムはほとんどが名前から意味が分かります。`last_seen` カラムは、ユーザーがオンラインの時の最新のタイムスタンプを格納するために使用されます。
+![テーブルユーザーを作成する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-table-users.png)
 
-Hasuraコンソールで `Data` タブセクションに移動し `Create Table` をクリックします。上記のようにテーブルを作成するための値を入力します。
+完了後、`Add Table` ボタンをクリックして、テーブルを作成します。
 
-![Create table users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-table-users.png)
-
-完了したら `Add Table` ボタンをクリックしてテーブルを作成します。
-
-すごい！ アプリに必要な最初のテーブルを作成することができました。
+完璧です。アプリに必要な最初のテーブルが作成されました。

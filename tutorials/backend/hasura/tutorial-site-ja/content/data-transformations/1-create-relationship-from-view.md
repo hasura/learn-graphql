@@ -1,22 +1,32 @@
 ---
-title: "ユーザーへのリレーションシップを作成"
-metaTitle: "ビューから手動でリレーションシップを作成 | Hasura GraphQL チュートリアル"
-metaDescription: "このパートでは Hasura Console を使用して、ビューからテーブルへの手動でリレーションシップを作成する方法を学びます"
+title: "ユーザーへのリレーションシップを作成する"
+metaTitle: "ビューから手動のリレーションシップを作成する | Hasura GraphQLチュートリアル"
+metaDescription: "ここでは、Hasuraコンソールを使って、ビューからテーブルへの手動のリレーションシップを作成する方法を学びます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+ビューが作成されたら、ビューの `id` 列に基づいて、ユーザー情報を取得できるようにする方法が必要です。ビューの `id column` を使って、ビュー `online_users` からテーブル `users` への手動のリレーションシップを作成しましょう。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/QuaNRk2c5KI" />
+コンソール -> データ -> online_users -> リレーションシップページに移動します。
 
-ビューが作成されたので、ビューの `id` カラムに基づいてユーザー情報を取得できる方法が必要です。 ビューの `id` カラムを使用して、ビュー `online_users` からテーブル `users` への手動のリレーションシップを作成してみましょう。
+リレーションシップのタイプを `Object Relationship` にすることにより、手動で新しいリレーションシップを追加します。リレーションシップ名を `user` として入力します。現在の列の設定を `id` として選択すると、リモートテーブルは `users` になり、リモート列は再度 `id` になります。
 
-コンソール -> Data -> online_users -> Relationships ページに移動します。
+現在のビューのid列をユーザーテーブルのid列にマッピングして、リレーションシップを作ります。
 
-リレーションシップタイプを `Object Relationship` で選択して、新しいリレーションシップを追加します。 関係名を `user` として入力します。
-現在のカラムの設定を `id` として選択すると、リモートテーブルは `users` になり、リモートカラムは再び `id` になります。
+![ビューからリレーションシップを作成する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-relationship-view.png)
 
-現在のビューの id カラムを users テーブルの id カラムにマッピングして、リレーションシップを作成します。
+作成されたリレーションシップ用のGraphQL APIを見てみましょう。
 
-![create relationship from view](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-relationship-view.png)
+```graphql
+query {
+  online_users {
+    id
+    last_seen
+    user {
+      id
+      name
+    }
+  }
+}
+```
 
-すごい！ これでこのアプリのデータモデリングは完了です。
+完璧です。アプリのデータモデリングが完了しました。

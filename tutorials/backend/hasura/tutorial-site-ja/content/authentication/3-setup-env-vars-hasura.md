@@ -1,29 +1,31 @@
 ---
-title: "Auth0 で Hasura に接続"
-metaTitle: "Auth0 で Hasura に接続 | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは Hasura を Auth0 アプリケーションに接続し HASURA_GRAPHQL_JWT_SECRET および HASURA_GRAPHQL_ADMIN_SECRET を使用してアプリを保護する方法を学びます"
+title: "HasuraをAuth0に接続する"
+metaTitle: "HasuraをAuth0に接続する | Hasura GraphQLチュートリアル"
+metaDescription: "ここでは、HasuraをAuth0アプリケーションに接続し、Hasura_GRAPHQL_JWT_SECRETでアプリを保護する方法を学びます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+ここでは、前のステップで作成したAuth0アプリケーションにHasuraを接続する方法を学びます。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/86qWv1YU7jA" />
+その前に管理者シークレットでエンドポイントを保護する必要があります。GraphQLエンドポイントが開き、誰でもデータのクエリと管理が可能です。Hasuraクラウドプロジェクトに管理者シークレットを追加する方法に関する[ドキュメントをご覧ください](https://hasura.io/docs/latest/graphql/cloud/projects/secure.html#adding-an-admin-secret)。
 
-このチュートリアルでは、前のステップで作成した Auth0 アプリケーションに Hasura を接続する方法を学びます。
-
-Auth0 公開鍵を使用するように Hasura を構成する必要があります。 次のリンクからJWT の構成を生成できます - [https://hasura.io/jwt-config](https://hasura.io/jwt-config)
+管理者シークレットが追加されたら、HasuraがAuth0公開鍵を使用するように設定する必要があります。JWTの設定を生成する簡単な方法は、このリンク（[https://hasura.io/jwt-config/](https://hasura.io/jwt-config/)）を使用することです。
 
 ![jwt-config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/generate-jwt-config.png)
 
-生成された設定は、環境変数 `HASURA_GRAPHQL_JWT_SECRET` の値として使用できます。
+生成された設定は、環境変数 `HASURA_GRAPHQL_JWT_SECRET` に対する値として使用できます。
 
-Heroku に Hasura GraphQL エンジンをデプロイしたので Heroku ダッシュボードに移動して、管理シークレットと JWT シークレットを構成します。
+Hasuraクラウドダッシュボードを開いて、Hasuraクラウドプロジェクトの「Env vars」ページに移動します。
 
-Heroku アプリの「Settings」ページを開き `HASURA_GRAPHQL_JWT_SECRET` という名前の新しい Config Var を追加し、生成された JWT 設定をコピーして値ボックスに貼り付けます。
+![Hasura ENV設定](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-project-env-var.png)
 
-次に `HASURA_GRAPHQL_ADMIN_SECRET` という名前の新しい設定変数を作成し、秘密鍵を入力して GraphQL エンドポイントを保護します。(これがGraphQLサーバーへのパスワードだと思ってください)。
+`+ New Env Var` をクリックして新しい環境変数を追加します。
 
-次のような設定になります:
+`HASURA_GRAPHQL_JWT_SECRET` という新しい Config Varを追加して、生成されたJWT設定を値ボックスにコピーアンドペーストします。
 
-![Heroku ENV Config](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/heroku-env-vars.png)
+以下のようになります。
 
-すごい！これで Hasura GraphQL エンジンが Auth0 を使用して保護されました。
+![新しい環境クラウドを追加する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/add-env-cloud.png)
+
+`Add` をクリックすると、環境変数がプロジェクトに適用されます。
+
+完璧です。これでHasuraインスタンスがAuth0を使って保護されます。

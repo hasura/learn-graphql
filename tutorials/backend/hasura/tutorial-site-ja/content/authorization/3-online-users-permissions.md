@@ -1,21 +1,17 @@
 ---
-title: "online_users ビューへの権限の設定"
-metaTitle: "online_users ビューへの権限の設定 | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは Hasura コンソールを使用して、online_usersビューに選択の操作の権限を設定する方法について説明します"
+title: "online_usersビューの権限を設定する"
+metaTitle: "online_usersビューの権限を設定する | Hasura GraphQLチュートリアル"
+metaDescription: "本チュートリアルでは、Hasuraコンソールを使って選択操作するためのonline_usersビューに対する権限を設定する方法を学びます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+`online_users` ビューの下の権限タブに移動して、関連する権限を追加します。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/mmX5JRhT1-c" />
+## 権限 {#select-permission} を選択します
 
-`online_users` ビューの下の Permissions タブに移動して、関連する権限を追加します。
+このビューでは、ユーザーがデータを選択できるようにしたいだけなので、ミューテーションは行いません。そのため、挿入、更新、または削除に対する権限は定義しません。
 
-## 選択の権限
+行選択権限については、 `Without any checks` を選択して、列選択権限で列 `id` および `last_seen` を両方選択します。
 
-このビューではユーザーがデータを選択だけできるようにして、変更を行わないようにします。 したがって、挿入、更新、削除の権限は定義していません。
+![オンラインユーザー権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/online-users-permission.png)
 
-行の選択権限については `Without any checks` を選択しカラムの選択の権限で `id` カラムと `last_seen` カラムの両方を選択します。
-
-![online users permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/online-users-permission.png)
-
-`Save Permissions` をクリックします。 リアルタイムToDoアプリに必要なすべてのアクセス制御ルールを完了しました。
+`Save Permissions` をクリックします。リアルタイムtodoアプリに必要なすべてのアクセス制御ルールを設定しました。

@@ -11,7 +11,7 @@ const config = {
 		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/ja/graphql/hasura/introduction/'>hasura</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
-		"tweetText": "@HasuraHQ https://hasura.io/learn/ja/graphql/hasura/introduction/によるフロントエンド開発者向けのこのHasura GraphQLバックエンドコースの紹介をご覧ください。",
+		"tweetText": "@HasuraHQ https://hasura.io/learn/ja/graphql/hasura/introduction/ によるフロントエンド開発者向けのこのHasura GraphQLバックエンドコースの紹介をご覧ください。",
 		"links": [{
 			"text": "",
 			"link": ""

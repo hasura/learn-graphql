@@ -1,6 +1,6 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/learn/ja/graphql/hasura",
+		"pathPrefix": "/learn/ja/graphql/hasura-auth-slack",
 		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "GTM-WBBW2LN",
 		"trailingSlash": true
@@ -8,17 +8,17 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/ja/graphql/hasura/introduction/'>hasura</a>",
+		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/'>hasura</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
-		"tweetText": "@HasuraHQ https://hasura.io/learn/ja/graphql/hasura/introduction/によるフロントエンド開発者向けのこのHasura GraphQLバックエンドコースの紹介をご覧ください。",
+		"tweetText": "@HasuraHQ https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/ フロントエンド開発者向けのこのHasuraGraphQLバックエンド認証コースをチェックしてください",
 		"links": [{
 			"text": "",
 			"link": ""
 		}],
 		"search": {
 			"enabled": true,
-			"indexName": "learn-hasura-backend-ja",
+			"indexName": "learn-hasura-auth-slack-ja",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
@@ -48,10 +48,10 @@ const config = {
 		]
 	},
 	"siteMetadata": {
-		"title": "フロントエンド開発者向けのHasuraバックエンドコースの概要-Hasura",
-		"description": "Hasuraを使用してGraphQLバックエンドを即座に開発する基本的な概念をカバーする簡潔で強力なチュートリアル",
-		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-ja.png",
-		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/tutorial-site-ja/content",
+		"title": "フロントエンド開発者向けのHasuraAuthSlackバックエンドコースの概要",
+		"description": "フロントエンド開発者向けのこのHasuraGraphQLバックエンド認証コースをチェックしてください",
+		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-auth-slack-ja.png",
+		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura-auth-slack/tutorial-site-ja/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
 	"language": {

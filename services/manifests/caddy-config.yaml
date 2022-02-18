@@ -106,6 +106,22 @@ data:
       }
 
       redir 301 {
+        /learn/ja/graphql/hasura-auth-slack/ /learn/ja/graphql/hasura-auth-slack/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/hasura-advanced/ /learn/ja/graphql/hasura-advanced/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/intro-graphql/ /learn/ja/graphql/intro-graphql/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/react-apollo-hooks/ /learn/ja/graphql/react-apollo-hooks/introduction
+      }
+
+      redir 301 {
         /learn/zh/graphql/hasura/ /learn/zh/graphql/hasura/introduction
       }
 
@@ -194,6 +210,14 @@ data:
       proxy /learn/graphql/nextjs-fullstack-serverless nextjs-fullstack-serverless
 
       proxy /learn/ja/graphql/hasura hasura-backend-ja
+
+      proxy /learn/ja/graphql/hasura-auth-slack hasura-auth-slack-ja
+
+      proxy /learn/ja/graphql/hasura-advanced hasura-advanced-ja
+
+      proxy /learn/ja/graphql/intro-graphql intro-graphql-ja
+
+      proxy /learn/ja/graphql/react-apollo-hooks react-apollo-hooks-ja
 
       proxy /learn/zh/graphql/hasura hasura-backend-zh
 

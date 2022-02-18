@@ -3,14 +3,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: hasura-advanced
-  name: hasura-advanced
+    app: intro-graphql-ja
+  name: intro-graphql-ja
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hasura-advanced
+      app: intro-graphql-ja
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,12 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: hasura-advanced
+        app: intro-graphql-ja
     spec:
       containers:
       - image: hasura/base-git-image:0.7
         imagePullPolicy: IfNotPresent
-        name: hasura-advanced
+        name: intro-graphql-ja
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -33,8 +33,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: hasura-advanced
-  name: hasura-advanced
+    app: intro-graphql-ja
+  name: intro-graphql-ja
   namespace: default
 spec:
   ports:
@@ -42,5 +42,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: hasura-advanced
+    app: intro-graphql-ja
   type: ClusterIP

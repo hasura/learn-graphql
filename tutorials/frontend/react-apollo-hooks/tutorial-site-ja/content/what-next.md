@@ -4,8 +4,6 @@ metaTitle: "次にすべきこと| GraphQL React Apolloフックチュートリ�
 metaDescription: "さらに多くのコミュニティリソースを使えば、GraphQL、Reactフック、バックエンドについてより深く学ぶことができます。Discordチャンネルに参加すればサポートを受けることができます。"
 ---
 
-import TwitterShare from "./twitter-share";
-
 おめでとうございます。このコースは修了しました。
 
 次に何をすべきか迷っている方には、以下のオプションがあります。
@@ -22,6 +20,3 @@ GraphQLを初めて使う方を対象にしたDiscordチャンネルをご用意
 React、Apollo Client、Hasura GraphQL Engineを使って作成したサンプルアプリを豊富に揃えています。
 
 [ サンプルアプリ ](https://hasura.io/sample-apps) を確認して、リアルタイムGraphQLとAuthがHasuraでどのように動作するかを体験できます。また、ReactとApolloをすぐに始められるように、ボイラープレートも用意しています。
-
-## 情報の発信
-<TwitterShare />コースは気に入りましたか。もし気に入ったらこのコースをTwitterでツイートしましょう。

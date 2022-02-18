@@ -4,8 +4,6 @@ metaTitle: "次にすべきこと| Hasura GraphQL上級チュートリアル"
 metaDescription: "さらに多くのコミュニティリソースを使って、GraphQLとHasuraで次に何をすべきか見つけましょう。Discordチャンネルに参加すればサポートを受けることができます。"
 ---
 
-import TwitterShare from './twitter-share';
-
 おめでとうございます。このコースは修了しました。
 
 次に何をすべきか迷っている方には、以下のオプションがあります。
@@ -22,7 +20,3 @@ ReactやVueなど人気のあるフロントエンドフレームワークのコ
 
 - Reactコース - [ https://hasura.io/learn/graphql/react ](https://hasura.io/learn/graphql/react/introduction/)
 - Vueコース - [ https://hasura.io/learn/graphql/vue ](https://hasura.io/learn/graphql/vue/introduction/)
-
-## 情報の発信 {#spread-the-word}
-
-<TwitterShare />コースは気に入りましたか。もし気に入ったらこのコースをTwitterでツイートしましょう。

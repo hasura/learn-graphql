@@ -4,8 +4,6 @@ metaTitle: "次にすべきこと| Hasura Auth Slackチュートリアル"
 metaDescription: "さらに多くのコミュニティリソースを使って、GraphQLとHasura Authで次に何をすべきか見つけましょう。Discordチャンネルに参加すればサポートを受けることができます。"
 ---
 
-import TwitterShare from './twitter-share';
-
 おめでとうございます。このコースは修了しました。
 
 次に何をすべきか迷っている方には、以下のオプションがあります。
@@ -20,6 +18,3 @@ todoアプリバックエンドを使った、ReactやVueなどのお気に入�
 
 - Reactコース - [ https://hasura.io/learn/graphql/react ](https://hasura.io/learn/graphql/react/introduction/)
 - Vueコース - [ https://hasura.io/learn/graphql/vue ](https://hasura.io/learn/graphql/vue/introduction/)
-
-## 拡散をお願いします！ {#spread-the-word}
-<TwitterShare />コースは気に入りましたか。よろしければTwitterでの拡散をお願いします。

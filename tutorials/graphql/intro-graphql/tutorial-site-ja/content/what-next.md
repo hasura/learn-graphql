@@ -4,8 +4,6 @@ metaTitle: "次にすべきこと| GraphQLチュートリアル"
 metaDescription: "ここまでで、GraphQLの概念と用語を理解して、自分でバックエンドまたはフロントエンドを試すことができるようになったと思います。"
 ---
 
-import TwitterShare from "./twitter-share";
-
 おめでとうございます。GraphQLチュートリアルが終了しました。ここまでで、GraphQLの概念と用語を理解して、自分でバックエンドまたはフロントエンドを試すことができるようになったと思います。
 
 次に何をすべきか迷っている場合、以下を推奨します。
@@ -29,6 +27,3 @@ GraphQLを初めて使う方を対象にしたDiscordチャンネルをご用意
 React、Apollo Client、Hasura GraphQL Engineを使って作成されたサンプルアプリが豊富に揃っています。
 
 [サンプルアプリ](https://hasura.io/sample-apps)を確認して、リアルタイムGraphQLとAuthがHasuraでどのように動作するかを体験できます。ReactとApolloを手早く始めるのに役立つ定型文もあります。
-
-## 拡散をお願いします! {#spread-the-word}
-<TwitterShare />コースは気に入りましたか。

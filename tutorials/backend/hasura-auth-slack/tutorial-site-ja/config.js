@@ -29,12 +29,11 @@ const config = {
 			"/introduction/",
     		"/setup/",
     		"/data-modeling/",
-    		"/relationships/",
-    		"/data-transformations/",
-    		"/authorization/",
-    		"/authentication/",
-    		"/custom-business-logic/",
-    		"/what-next/"
+			"/thinking-in-roles/",
+			"/access-control/",
+			"/choosing-jwt-mode/",
+			"/production-ready-auth/",
+			"/what-next/",
     	],
 		"links": [
 			{
@@ -59,14 +58,9 @@ const config = {
     "name": "Japanese",
     "translations": [
       {
-        "code": "zh",
-        "name": "Chinese",
-        "link": "https://hasura.io/learn/zh/graphql/hasura/introduction/"
-      },
-      {
         "code": "en",
         "name": "English",
-        "link": "https://hasura.io/learn/graphql/hasura/introduction/"
+        "link": "https://hasura.io/learn/graphql/hasura-auth-slack/introduction/"
       },
     ]
 	}

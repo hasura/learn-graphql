@@ -72,7 +72,7 @@ const config = {
       {
         "code": "en",
         "name": "English",
-        "link": "https://hasura.io/learn/graphql/react-apollo-hooks/introduction/"
+        "link": "https://hasura.io/learn/graphql/react/introduction/"
       },
     ]
   },

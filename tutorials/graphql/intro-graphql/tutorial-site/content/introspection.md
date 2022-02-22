@@ -14,7 +14,7 @@ Thus, the Introspection feature allows you to query the schema and discover the 
 
 The schema acts as a contract between the frontend and backend, improving the communication between them. But how does the frontend client know what the schema looks like? How do they prevent over-fetching or under-fetching? How do they know what operations are available? That's where the Introspection query helps.
 
-## Introspection Queries {#introspection-queries}
+## GraphQL Introspection Query {#graphql-introspection-query}
 
 A server exposes the following introspection queries on the `Query` operation type.
 
@@ -24,7 +24,7 @@ A server exposes the following introspection queries on the `Query` operation ty
 
 Note that introspection queries start with `__`.
 
-## Introspection Query Examples {#introspection-query-examples}
+## Schema Introspection {#schema-introspection}
 
 Let's see some examples of introspective queries. We will query the field `__schema` field to find out the available queries, mutations and types.
 
@@ -83,13 +83,13 @@ Lastly, you can fetch all the types as follows:
 
 This way, you can see all the types available in the GraphQL API. Similarly, you can retrieve all the available directives and subscriptions.
 
-## GraphQL Schema Introspection Vulnerability {#graphql-schema-introspection-vulnerability}
+## GraphQL Introspection Security & Exploits {#graphql-introspection-security-and-exploits}
 
 The Schema Introspection is a great feature and it can be really helpful, but it can cause problems too.
 
 As you might remember, the Schema Introspection allows developers to query the API schema and see all the available resources. That means potential attackers can get a good understanding of your API and they can even get access to resources that are not meant to be publicly available. All this information available to potential attackers makes it easier to exploit your GraphQL API.
 
-As a result, it's recommended to turn off the Introspection in production.
+Should you disable the introspection query? Although it can be helpful, especially in the dev environment, turning off the introspection in production is recommended.
 
 ## Community Tooling {#community-tooling}
 

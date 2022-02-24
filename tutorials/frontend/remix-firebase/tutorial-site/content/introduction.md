@@ -1,3 +1,4 @@
+
 ---
 title: "Course Introduction"
 metaTitle: "Introduction | Remix Hasura Tutorial"
@@ -10,7 +11,7 @@ The focus is on setting up a solid foundation that you can build on with feature
 
 ## Key topics and takeways
 
-- Setting up a no-code backend integrating REST APIs using [Data Hub](https://hasura.io/data-hub/) and the GraphQL SpaceX API
+- Setting up a no-code backend integrating the GraphQL SpaceX API
 - End to end example of authentication and CSRF protection
 - Code generation for type safe and easy to use GraphQL calls
 - Progressive enhancement on the browser, only load JS when logged in for features like preloading

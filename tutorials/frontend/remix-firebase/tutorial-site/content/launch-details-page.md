@@ -4,7 +4,7 @@ metaTitle: "Create the Launch Details Page GraphQL queries | Remix Firebase Hasu
 metaDescription: "We'll start the launch details page with writing the GraphQL queries"
 ---
 
-import GithubLink from "../../src/GithubLink.js";
+import GithubLink from "../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/app/graphql/launch.graphql" text="launch.graphql" />
 

@@ -4,7 +4,7 @@ metaTitle: "Create the Launches Index Page | Remix Firebase Hasura Tutorial"
 metaDescription: "Using our foundation we've setup, we now display launches to book cargo on"
 ---
 
-import GithubLink from "../../src/GithubLink.js";
+import GithubLink from "../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/app/graphql/index.graphql" text="index.graphql" />
 

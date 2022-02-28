@@ -6,7 +6,7 @@ const config = {
     trailingSlash: true,
   },
   header: {
-    logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-nextjs/nextjs-favicon.png",
+    logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-remix/remix-favicon.png",
     logoLink: "https://hasura.io/learn/",
     title:
       "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/remix-fullstack-firebase/introduction/'>Remix</a>",

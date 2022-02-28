@@ -4,7 +4,7 @@ metaTitle: "Setup Auth in Remix | Remix Firebase Hasura Tutorial"
 metaDescription: "Using browser cookies and Firebase auth we setup session management"
 ---
 
-import GithubLink from "../../src/GithubLink.js";
+import GithubLink from "../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/app/utils/sessions.server.ts" text="sessions.server.ts" />
 

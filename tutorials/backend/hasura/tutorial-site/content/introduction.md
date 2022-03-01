@@ -43,6 +43,6 @@ go on to set up your favorite tools and workflows.
 
 Less than 30 mins.
 
-## Additonal Resources {#additional-resources}
+## Additional Resources {#additional-resources}
 
 [Watch this video guide](https://hasura.io/events/webinar/get-started-with-hasura/?pg=learn&plcmt=body&cta=getting-started&tech=) on how to get started with Hasura.

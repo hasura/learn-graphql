@@ -66,7 +66,7 @@ const config = {
 		"translations": [
 		{
 			"code": "ja",
-			"name": "English",
+			"name": "Japanese",
 			"link": "https://hasura.io/learn/ja/graphql/hasura-advanced/introduction/"
 		},
 		]

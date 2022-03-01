@@ -59,11 +59,6 @@ const config = {
 		"name": "Japanese",
 		"translations": [
 		{
-			"code": "zh",
-			"name": "Chinese",
-			"link": "https://hasura.io/learn/zh/graphql/hasura-advanced/introduction/"
-		},
-		{
 			"code": "en",
 			"name": "English",
 			"link": "https://hasura.io/learn/graphql/hasura-advanced/introduction/"

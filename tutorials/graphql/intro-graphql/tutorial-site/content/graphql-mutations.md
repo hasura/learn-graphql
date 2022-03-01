@@ -42,7 +42,7 @@ You will see more GraphQL Mutations later and you will also have the chance to t
 
 ## Types of GraphQL Mutations {#types-of-graphql-mutations}
 
-There are three types of mutations in GraphQL:
+Mutations in GraphQL can be categorised under the following types:
 * Insert Mutations
 * Update Mutations
 * Delete Mutations
@@ -126,8 +126,6 @@ Running the above mutation returns the following response:
 ```
 
 The mutation returns all the todo data we requested; nothing more, nothing less.
-
-You might ask - both GraphQL Mutations and Queries can return data? Yes, but there is a caveat. A GraphQL Mutation can only return the newly inserted data. A GraphQL Query can return multiple records.
 
 <!-- [//]: # TODO: -->
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
@@ -283,8 +281,6 @@ mutation insertTodos {
   }
 }
 ```
-
-https://hasura.io/learn/graphql/intro-graphql/graphql-queries/
 
 If any of the mutations fails, no data is inserted into the database. Both mutations need to be successful for the data to be added to the database.
 

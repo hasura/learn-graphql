@@ -1,4 +1,3 @@
-
 ---
 title: "Course Introduction"
 metaTitle: "Introduction | Remix Hasura Tutorial"

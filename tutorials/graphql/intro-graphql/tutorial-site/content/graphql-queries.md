@@ -1,5 +1,5 @@
 ---
-title: Queries - Fetching data
+title: GraphQL Queries - Fetching data
 metaTitle: "GraphQL Queries to fetch data | GraphQL Tutorial"
 metaDescription: "Try out GraphQL Query using GraphiQL. Simple and nested GraphQL query examples with parameters, arguments and variables to fetch data dynamically"
 ---
@@ -45,7 +45,7 @@ The query and the result have the same format, demonstrating that you always get
 
 There are two other types of queries - anonymous and named.
 
-1/. Anonymous queries
+1\. Anonymous queries
 
 ```graphql
 query {
@@ -57,7 +57,7 @@ query {
 
 This is similar to the first query.
 
-2/. Named queries
+2\. Named queries
 
 ```graphql
 query getTodos {

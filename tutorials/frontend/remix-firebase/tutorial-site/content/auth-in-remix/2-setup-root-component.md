@@ -1,6 +1,6 @@
 ---
 title: "Setup Remix Root for Auth and CSRF"
-metaTitle: "Setup Remix Root for Auth and CSRF | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Remix Root for Auth and CSRF | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Here we setup the root component of our app for auth and CSRF protection"
 ---
 

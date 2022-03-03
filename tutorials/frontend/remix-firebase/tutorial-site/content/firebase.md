@@ -1,6 +1,6 @@
 ---
 title: "Setup Firebase Authentication"
-metaTitle: "Setup Firebase Authentication | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Firebase Authentication | Remix Fullstack GraphQL Tutorial"
 metaDescription: "We Set up our Firebase Auth config"
 ---
 

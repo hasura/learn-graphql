@@ -1,6 +1,6 @@
 ---
 title: "Create logout component"
-metaTitle: "Create logout component | Remix Firebase Hasura Tutorial"
+metaTitle: "Create logout component | Remix Fullstack GraphQL Tutorial"
 metaDescription: "We create a logout component following the Remix example"
 ---
 

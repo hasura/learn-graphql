@@ -36,6 +36,9 @@ tutorials() {
                         if [ $current_tutorial = "nextjs" ]; then
                             current_tutorial="nextjs-fullstack-serverless"
                         fi
+                        if [ $current_tutorial = "remix-firebase" ]; then
+                            current_tutorial="remix-fullstack-firebase"
+                        fi
                         if [ $current_tutorial = "postgresql" ]; then
                             current_tutorial="database-postgresql"
                         fi

@@ -1,6 +1,6 @@
 ---
 title: "Install Dependencies"
-metaTitle: "Install Dependencies | Remix Firebase Hasura Tutorial"
+metaTitle: "Install Dependencies | Remix Fullstack GraphQL Tutorial"
 metaDescription: "You will setup a solid foundation for your Remix app"
 ---
 

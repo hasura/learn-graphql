@@ -1,6 +1,6 @@
 ---
 title: "Setup Auth in Remix"
-metaTitle: "Setup Auth in Remix | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Auth in Remix | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Using browser cookies and Firebase auth we setup session management"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Create Auth Helper Function"
-metaTitle: "Create Auth Helper Function | Remix Firebase Hasura Tutorial"
+metaTitle: "Create Auth Helper Function | Remix Fullstack GraphQL Tutorial"
 metaDescription: "We Create a helper function for getting auth info"
 ---
 

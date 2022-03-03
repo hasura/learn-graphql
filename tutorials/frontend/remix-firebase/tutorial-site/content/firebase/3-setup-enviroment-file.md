@@ -1,6 +1,6 @@
 ---
 title: "Setup Remix Environment Variables"
-metaTitle: "Setup Remix Environment Variables | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Remix Environment Variables | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Setup our Remix environment variables and load them with dotenv"
 ---
 

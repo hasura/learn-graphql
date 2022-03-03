@@ -1,6 +1,6 @@
 ---
 title: "What next?"
-metaTitle: "What next? | Remix Firebase Hasura Tutorial"
+metaTitle: "What next? | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Learn what to do next with GraphQL, React Hooks and Backend with more community resources. Join our discord channel for support."
 ---
 

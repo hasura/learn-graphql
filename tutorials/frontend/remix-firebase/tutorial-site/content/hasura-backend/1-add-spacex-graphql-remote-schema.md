@@ -1,6 +1,6 @@
 ---
 title: "Connect to the SpaceX GraphQL API"
-metaTitle: "Connect to the SpaceX GraphQL API | Remix Firebase Hasura Tutorial"
+metaTitle: "Connect to the SpaceX GraphQL API | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Using Hasura's remote schema feature we connect to the SpaceX GraphQL API"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Remix Boilerplate Setup"
-metaTitle: "Remix Boilerplate setup | Remix Firebase Hasura Tutorial"
+metaTitle: "Remix Boilerplate setup | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Setup your Remix foundation"
 ---
 

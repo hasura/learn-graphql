@@ -1,6 +1,6 @@
 ---
 title: "Setup Firebase Admin"
-metaTitle: "Setup Firebase Admin | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Firebase Admin | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Now we setup Firebase Admin server side"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Cloud Deployment"
-metaTitle: "Cloud Deployment | Remix Firebase Hasura Tutorial"
+metaTitle: "Cloud Deployment | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Deploy your Remix and Hasura app to the cloud"
 ---
 

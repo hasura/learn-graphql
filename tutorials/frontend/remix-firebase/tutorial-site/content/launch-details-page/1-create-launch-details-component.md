@@ -1,6 +1,6 @@
 ---
 title: "Create the Launch Details Component"
-metaTitle: "Create the Launch Details Component | Remix Firebase Hasura Tutorial"
+metaTitle: "Create the Launch Details Component | Remix Fullstack GraphQL Tutorial"
 metaDescription: "With our GraphQL setup, now we build the Remix component"
 ---
 

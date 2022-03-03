@@ -1,6 +1,6 @@
 ---
 title: "Setup Hasura JWT Parsing"
-metaTitle: "Setup Hasura JWT Parsing | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Hasura JWT Parsing | Remix Fullstack GraphQL Tutorial"
 metaDescription: "For Hasura to read our JWT cookies we need to do some setup"
 ---
 

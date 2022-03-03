@@ -1,6 +1,6 @@
 ---
 title: "Add the Cargo Table to Hasura"
-metaTitle: "Add the Cargo Table to Hasura | Remix Firebase Hasura Tutorial"
+metaTitle: "Add the Cargo Table to Hasura | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Now we setup the cargo table in our database"
 ---
 

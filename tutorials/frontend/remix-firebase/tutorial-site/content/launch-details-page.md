@@ -1,6 +1,6 @@
 ---
 title: "Create the Launch Details Page GraphQL queries"
-metaTitle: "Create the Launch Details Page GraphQL queries | Remix Firebase Hasura Tutorial"
+metaTitle: "Create the Launch Details Page GraphQL queries | Remix Fullstack GraphQL Tutorial"
 metaDescription: "We'll start the launch details page with writing the GraphQL queries"
 ---
 

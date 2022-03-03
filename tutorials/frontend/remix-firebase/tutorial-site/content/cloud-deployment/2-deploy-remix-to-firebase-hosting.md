@@ -1,6 +1,6 @@
 ---
 title: "Deploy Remix to Firebase Hosting"
-metaTitle: "Deploy Remix to Firebase Hosting | Remix Firebase Hasura Tutorial"
+metaTitle: "Deploy Remix to Firebase Hosting | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Adding Firebase hosting to our Cloud Run app gives us CDN caching"
 ---
 

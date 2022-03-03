@@ -1,6 +1,6 @@
 ---
 title: "Create the Launches Index Page"
-metaTitle: "Create the Launches Index Page | Remix Firebase Hasura Tutorial"
+metaTitle: "Create the Launches Index Page | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Using our foundation we've setup, we now display launches to book cargo on"
 ---
 

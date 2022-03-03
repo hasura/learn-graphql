@@ -1,6 +1,6 @@
 ---
 title: "Deploy Remix to Cloud Run"
-metaTitle: "Deploy Remix to Cloud Run | Remix Firebase Hasura Tutorial"
+metaTitle: "Deploy Remix to Cloud Run | Remix Fullstack GraphQL Tutorial"
 metaDescription: "After setting up Hasura Cloud now we deploy Remix to GCP Cloud Run"
 ---
 
@@ -77,17 +77,17 @@ node_modules/
 
 1. In the GCP console Enable the [Cloud Build API](https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com)
 
-1. Enable the [Cloud Run API](https://console.cloud.google.com/marketplace/product/google/run.googleapis.com)
+2. Enable the [Cloud Run API](https://console.cloud.google.com/marketplace/product/google/run.googleapis.com)
 
-1. Run `gcloud init` and select your Firebase project
+3. Run `gcloud init` and select your Firebase project
 
-1. `gcloud builds submit --tag gcr.io/<firebase project ID>/<any image name>`
+4. `gcloud builds submit --tag gcr.io/<firebase project ID>/<any image name>`
 
-1. Back in the GCP console, [create a Cloud Run service with your new image.](https://console.cloud.google.com/run/create) Allow all traffic and allow unauthenticated invocations. In variables & secrets add these four environment variables:
+5. Back in the GCP console, [create a Cloud Run service with your new image.](https://console.cloud.google.com/run/create) Allow all traffic and allow unauthenticated invocations. In variables & secrets add these four environment variables:
 
 - FIREBASE_ADMIN_SERVICE_ACCOUNT - from your .env with out the wrapping single quotes
 - GRAPHQL_ENDPOINT - Your Hasura Cloud GraphQL endpoint
 - HASURA_ADMIN_SECRET - Your Hasura Cloud admin secret
 - COOKIE_SECRET - a randomly generated string of letters and numbers
 
-1. Once you've created the service Cloud Run will give you a URL, test out your app by opening in a web browser.
+6. Once you've created the service Cloud Run will give you a URL, test out your app by opening in a web browser.

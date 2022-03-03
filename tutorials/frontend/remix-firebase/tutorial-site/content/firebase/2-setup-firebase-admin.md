@@ -1,6 +1,6 @@
 ---
 title: "Setup Firebase Admin"
-metaTitle: "Setup Firebase Admin | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Firebase Admin | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Create the Firebase Admin Service Account"
 ---
 

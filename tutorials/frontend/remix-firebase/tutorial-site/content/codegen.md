@@ -1,7 +1,7 @@
 ---
 title: "Setup Graphql Code Generator"
-metaTitle: "Setup Graphql Code Generator | Remix Firebase Hasura Tutorial"
-metaDescription: "Setting up Graphql Code Generator allows us to make easy GraphQL calls in Remix"
+metaTitle: "Setup GraphQL Code Generator | Remix Fullstack GraphQL Tutorial"
+metaDescription: "Setting up GraphQL Code Generator allows us to make easy GraphQL calls in Remix"
 ---
 
 import GithubLink from "../src/GithubLink.js";

@@ -1,6 +1,6 @@
 ---
 title: "Course Introduction"
-metaTitle: "Introduction | Remix Hasura Tutorial"
+metaTitle: "Introduction | Remix Fullstack GraphQL Tutorial"
 metaDescription: "A tutorial integrating a no code Hasura backend with the Remix web framework"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Create login component"
-metaTitle: "Create login component | Remix Firebase Hasura Tutorial"
+metaTitle: "Create login component | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Now we create the login component"
 ---
 

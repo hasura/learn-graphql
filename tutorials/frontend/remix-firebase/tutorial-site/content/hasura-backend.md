@@ -1,6 +1,6 @@
 ---
 title: "Setup Hasura"
-metaTitle: "Setup Hasura | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Hasura | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Now we add Hasura to our Remix App folder"
 ---
 

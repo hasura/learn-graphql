@@ -1,6 +1,6 @@
 ---
 title: "Setup Firebase Project"
-metaTitle: "Setup Firebase Project | Remix Firebase Hasura Tutorial"
+metaTitle: "Setup Firebase Project | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Create the project in Firebase"
 ---
 

@@ -102,6 +102,10 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/remix-fullstack-firebase/ /learn/graphql/remix-fullstack-firebase/introduction
+      }
+
+      redir 301 {
         /learn/ja/graphql/hasura/ /learn/ja/graphql/hasura/introduction
       }
 
@@ -184,6 +188,8 @@ data:
       proxy /learn/graphql/react-apollo-components react-apollo
 
       proxy /learn/graphql/react react-apollo-hooks
+
+      proxy /learn/graphql/remix-fullstack-firebase remix-fullstack-firebase
 
       proxy /learn/graphql/vue vue-apollo
 

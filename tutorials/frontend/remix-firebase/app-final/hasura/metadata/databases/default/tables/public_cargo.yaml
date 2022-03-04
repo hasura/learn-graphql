@@ -1,0 +1,36 @@
+table:
+  name: cargo
+  schema: public
+configuration:
+  custom_column_names:
+    launch_id: launchId
+    user_id: userId
+  custom_root_fields: {}
+select_permissions:
+- permission:
+    allow_aggregations: true
+    columns:
+    - id
+    - launch_id
+    - user_id
+    - name
+    - weight
+    filter:
+      user_id:
+        _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: {}
+    columns:
+    - name
+    filter:
+      user_id:
+        _eq: X-Hasura-User-Id
+  role: user
+delete_permissions:
+- permission:
+    filter:
+      user_id:
+        _eq: X-Hasura-User-Id
+  role: user

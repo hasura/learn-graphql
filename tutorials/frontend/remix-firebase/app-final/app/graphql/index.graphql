@@ -1,0 +1,13 @@
+query pastLaunchesList($limit: Int! = 10) {
+  launchesPast(limit: $limit, sort: "launch_date_utc", order: "DESC") {
+    id
+    mission_name
+    links {
+      flickr_images
+      mission_patch
+    }
+    rocket {
+      rocket_name
+    }
+  }
+}

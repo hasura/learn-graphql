@@ -42,7 +42,9 @@ Every time the set of online users changes, you’ll see the latest set on the r
 
 ## GraphQL Subscriptions with WebSockets {#graphql-subscriptions-with-websocket}
 
-GraphQL Subscriptions are implemented with WebSockets, which are necessary to maintain an open connection between the server and client.
+GraphQL Subscriptions are implemented using the WebSocket protocol, enabling us to create a persistent connection between the server and client. The connection stays open until either party terminates it.
+
+The WebSockets make it possible to implement features such as Subscriptions and get real-time updates from the server.
 
 ## Replace Query with Subscription {#replace-query-with-subscription}
 
@@ -105,9 +107,9 @@ The above Live Query watches the query result and whenever it changes, the serve
 
 One significant difference is that Subscriptions are defined in the GraphQL Specification, whereas Live Queries are not. That means there is no official definition of a Live Query.
 
-Another difference is that Subscriptions observe and respond to events. For example, you might have a Subscription that reacts to an insertion. When the insertion occurs, the server sends back the new data to the client.
+Another difference is that Subscriptions respond to events. For example, you might have a Subscription that reacts to an insertion. When the insertion occurs, the server sends back the new data to the client.
 
-On the other hand, Live Queries observe data and whenever the underlying data changes, the server returns the latest results to the client.
+On the other hand, Live Queries watch the latest result of a query and whenever it changes, the server returns the latest results to the client. Rather than responding to an event, they monitor for changes in the query result.
 
 **Note**: Live Queries do not work by default. They only work if the server supports them.
 

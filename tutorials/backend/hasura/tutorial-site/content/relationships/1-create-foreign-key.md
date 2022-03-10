@@ -23,7 +23,7 @@ Scroll down to the `Foreign Keys` section at the bottom and click on `Add`.
 - Select the Reference table as `users`
 - Choose the From column as `user_id` and To column as `id`
 
-We are enforcing that the `user_id` column of `todos` table must be one of the values of id in `users` table.
+We are enforcing that every value in the `user_id` column of the `todos` table must be one of the values of `id` in the `users` table.
 
 Click on `Save` to create the foreign key.
 

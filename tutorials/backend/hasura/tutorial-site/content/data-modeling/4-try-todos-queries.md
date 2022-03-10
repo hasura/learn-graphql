@@ -68,7 +68,7 @@ Initially, the subscription query returns the existing results in the response.
 
 Now let's insert new data into the `todos` table and see the changes appearing in the response.
 
-In a new tab, head over to Console -> `DATA` tab -> todos -> Insert Row and insert another row.
+In a new tab, head over to Console -> `DATA` tab -> todos -> Insert Row and insert another row, setting the `user_id` to 1.
 
 ![Insert new todo](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todo-insert-new-row.png)
 

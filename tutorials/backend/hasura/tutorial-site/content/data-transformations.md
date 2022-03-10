@@ -53,7 +53,7 @@ Initially, the query returns no users. Let's update an existing user's `last_see
 
 In another tab, head to Console -> DATA -> default -> public -> users -> Browse Rows. Click on the pen-and-paper icon ("Edit row" button) to the left of a row to open the Edit Row tab.
 
-![Update users last_seen](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/update-userp-queries.mds-last-seen.png)
+![Update users last_seen](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/update-users-last-seen.png)
 
 Enter the value as `now()` for the `last_seen` column and click on `Save`.
 

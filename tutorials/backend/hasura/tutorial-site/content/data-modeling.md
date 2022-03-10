@@ -8,8 +8,8 @@ In this part of the course, we will build the data model for a realtime todo app
 
 - Users can maintain personal todos
 - Users can view public todos
-- A list of currently online users using the app
-- Send email when a user signs up
+- Users can view a list of currently online users
+- The app will send an email when a user signs up
 
 Broadly this means that we have two main models in this app: `users` and `todos`, each with its own set of properties.
 

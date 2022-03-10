@@ -11,12 +11,12 @@ In this part of the course, we will build the data model for a realtime todo app
 - Users can view a list of currently online users
 - The app will send an email when a user signs up
 
-Broadly this means that we have two main models in this app: `users` and `todos`, each with its own set of properties.
+Broadly this means that we will have two main models in this app: `users` and `todos`, each with its own set of properties.
 
 We will go over them in the subsequent steps.
 
-The final model looks like the following:
+The final model will look like the following:
 
 ![Schema Todo app](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/voyager-schema.png)
 
-Curious how this works under the hood? As we create tables using the console or [directly on postgres](https://hasura.io/learn/database/postgresql/create-alter-drop-ddl/1-postgresql-create/), the Hasura GraphQL engine automatically creates GraphQL [schema object types](https://graphql.org/learn/schema/) and corresponding [query/mutation fields](https://graphql.org/learn/queries/) with [resolvers](https://hasura.io/learn/graphql/intro-graphql/graphql-server/).
+To implement this model we'll create new tables using the console (or [directly on postgres](https://hasura.io/learn/database/postgresql/create-alter-drop-ddl/1-postgresql-create/)), and under the hood the Hasura GraphQL engine will automatically create GraphQL [schema object types](https://graphql.org/learn/schema/) and corresponding [query/mutation fields](https://graphql.org/learn/queries/) with [resolvers](https://hasura.io/learn/graphql/intro-graphql/graphql-server/).

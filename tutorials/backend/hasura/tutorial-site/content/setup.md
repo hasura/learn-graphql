@@ -20,7 +20,7 @@ Once you register and sign in, you should see the following welcome screen and a
 
 ![Hasura Cloud Welcome Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-welcome.png)
 
-Once the project is initialised, you can click on `Launch Console` button on the pop up screen. If you already have a Hasura Cloud account before, you can manually create a new project by clicking on the `+ New Project` action at the top, followed by `Launch Console`.
+Once the project is initialised, you can click on `Launch Console` button on the pop up screen. If you already have a Hasura Cloud account, you can manually create a new project by clicking on the `+ New Project` action at the top, followed by `Launch Console`.
 
 ## Hasura Console {#hasura-console}
 

@@ -54,7 +54,7 @@ Note that some columns like `created_at` have default values, even though you di
 
 ## Subscription {#subscription}
 
-Let's run a subscription query over `users` table to watch for changes to the table.
+Let's run a subscription query over the `users` table to watch for changes to the table.
 
 ```graphql
 subscription {
@@ -66,7 +66,7 @@ subscription {
 }
 ```
 
-Initially, the subscription query will return the existing results in the response.
+Initially, the subscription query will return the existing results in the response; in this case, the 1 user you added.
 
 Now let's insert new data into the `users` table and see the changes appearing in the response.
 
@@ -74,7 +74,7 @@ In a new browser tab, Head over to Console -> `DATA` tab -> default -> public ->
 
 ![Insert new user](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/user-insert-new-row.png)
 
-And switch to the previous `GRAPHIQL` tab and see the subscription response returning 2 results.
+Click "Save", then switch to the previous `GraphiQL` tab and see the subscription response now returning 2 results.
 
 ![User Subscription](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-subscription-user.png)
 

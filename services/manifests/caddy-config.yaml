@@ -22,6 +22,10 @@ data:
       }
 
       redir 301 {
+        /learn/database/yugabyte/ /learn/database/yugabyte/introduction
+      }
+
+      redir 301 {
         /learn/graphql/react-rxdb-offline-first/ /learn/graphql/react-rxdb-offline-first/introduction
       }
 
@@ -122,7 +126,7 @@ data:
       }
 
       redir 301 {
-        /learn/ja/graphql/react-apollo-hooks/ /learn/ja/graphql/react-apollo-hooks/introduction
+        /learn/ja/graphql/react/ /learn/ja/graphql/react/introduction
       }
 
       redir 301 {
@@ -172,6 +176,8 @@ data:
       proxy /learn/database/mysql database-mysql
 
       proxy /learn/database/microsoft-sql-server database-mssql
+
+      proxy /learn/database/yugabyte database-yugabyte
 
       proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
 
@@ -223,7 +229,7 @@ data:
 
       proxy /learn/ja/graphql/intro-graphql intro-graphql-ja
 
-      proxy /learn/ja/graphql/react-apollo-hooks react-apollo-hooks-ja
+      proxy /learn/ja/graphql/react react-apollo-hooks-ja
 
       proxy /learn/zh/graphql/hasura hasura-backend-zh
 

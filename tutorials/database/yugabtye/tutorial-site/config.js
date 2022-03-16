@@ -9,7 +9,7 @@ const config = {
     logo: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-yugabyte/yugabyte-logo.png",
     logoLink: "https://hasura.io/learn/",
     title:
-      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/database/yugabyte/introduction/'>mysql</a>",
+      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/database/yugabyte/introduction/'>yugabyte</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:

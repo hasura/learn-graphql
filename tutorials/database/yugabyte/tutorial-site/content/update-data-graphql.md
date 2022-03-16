@@ -1,6 +1,6 @@
 ---
 title: "Update Data with GraphQL"
-metaTitle: "Update Data with GraphQL Mutations | Yugabyte Tutorial"
+metaTitle: "Update Data with GraphQL Mutations | YugabyteDB Tutorial"
 metaDescription: "In this section, we will learn how to update data in Yugabyte database using Hasura's GraphQL mutation API"
 ---
 

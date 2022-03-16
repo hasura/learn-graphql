@@ -1,6 +1,6 @@
 ---
 title: "Connect Hasura to YugabyteDB"
-metaTitle: "Connect Hasura to YugabyteDB | Yugabyte Tutorial"
+metaTitle: "Connect Hasura to YugabyteDB | YugabyteDB Tutorial"
 metaDescription: "In this section, we will learn how to connect Hasura to YugabyteDB and setup the backend for generating GraphQL APIs"
 ---
 

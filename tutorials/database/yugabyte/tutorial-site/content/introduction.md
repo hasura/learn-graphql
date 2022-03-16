@@ -1,6 +1,6 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | Yugabyte Tutorial"
+metaTitle: "Course Introduction | YugabyteDB Tutorial"
 metaDescription: "This course is a super-fast introduction to learning about key concepts of Yugabyte and setting it up for app development."
 ---
 

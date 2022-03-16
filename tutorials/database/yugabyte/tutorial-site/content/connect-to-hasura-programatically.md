@@ -1,6 +1,6 @@
 ---
 title: "Connect to Hasura Programmatically"
-metaTitle: "Connect to Hasura Progammatically | Yugabyte Tutorial"
+metaTitle: "Connect to Hasura Progammatically | YugabyteDB Tutorial"
 metaDescription: "In this section, we will learn how to connect to Hasura programatically using cURL or via Node.js server"
 ---
 
@@ -46,7 +46,7 @@ GRAPHQL_API_ENDPOINT
 
 ## Query via Node.js Application
 
-*Callout**: To proceed with this section you need to [download and install npm and Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+**Callout**: To proceed with this section you need to [download and install npm and Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 Finally, download and execute a sample Node.js application that connects to your Hasura BaaS and retrieves a list of Todos: 
 

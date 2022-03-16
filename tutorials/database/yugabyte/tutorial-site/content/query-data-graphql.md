@@ -1,6 +1,6 @@
 ---
 title: "Query Data with GraphQL"
-metaTitle: "Query Data with GraphQL Queries | Yugabyte Tutorial"
+metaTitle: "Query Data with GraphQL Queries | YugabyteDB Tutorial"
 metaDescription: "In this section, we will learn how to query the Yugabyte database using Hasura's GraphQL query API"
 ---
 

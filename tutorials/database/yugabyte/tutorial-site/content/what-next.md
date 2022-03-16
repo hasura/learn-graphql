@@ -1,6 +1,6 @@
 ---
 title: "What next?"
-metaTitle: "What next? | Yugabyte Tutorial"
+metaTitle: "What next? | YugabyteDB Tutorial"
 metaDescription: "Learn what to do next with Yugabyte and Hasura with more community resources. Join our discord channel for support."
 ---
 

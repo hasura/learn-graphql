@@ -1,6 +1,6 @@
 ---
 title: "Setup and Installation"
-metaTitle: "YugabyteDB Installation and Setup | Yugabyte Tutorial"
+metaTitle: "YugabyteDB Installation and Setup | YugabyteDB Tutorial"
 metaDescription: "In this section, we will learn how to setup YugabyteDB, learn more about connection string and deploy Hasura on Hasura Cloud"
 ---
 

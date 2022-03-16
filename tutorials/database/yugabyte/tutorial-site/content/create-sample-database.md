@@ -1,6 +1,6 @@
 ---
 title: "Create a Sample Database"
-metaTitle: "Create a sample Yugabtye database | Yugabyte Tutorial"
+metaTitle: "Create a sample Yugabtye database | YugabyteDB Tutorial"
 metaDescription: "In this section, we will learn how to create a sample Yugabyte database"
 ---
 
@@ -26,8 +26,13 @@ Follow the steps below to create the Todos and Users table in YugabyteDB:
 
 5. Execute `SELECT * FROM Users` and confirm the following output:
 
+```bash
  id | name  |         created_at         | last_seen 
 ----+-------+----------------------------+-----------
+
   1 | Mark  | 2022-02-02 18:49:45.092247 | 
+
   2 | Jenny | 2022-02-02 18:49:45.092247 | 
+
 (2 rows)
+```

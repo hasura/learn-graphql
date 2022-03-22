@@ -8,7 +8,7 @@ metaDescription: "ここでは、コンソールを使用してHasura GraphQL En
 
 Hasuraコンソールを開いてイベントタブに移動し、トリガー作成ボタンをクリックし、以下のインターフェースを開いてイベントトリガーを作成します。
 
-## イベントトリガー {#add-event-trigger} を追加する
+## イベントトリガーを追加する {#add-event-trigger}
 
 イベントトリガーに名前を付けて（send_emailなど）、テーブル `users` を選択し、操作 `insert` を選択します。
 

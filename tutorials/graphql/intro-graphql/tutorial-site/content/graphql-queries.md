@@ -354,7 +354,7 @@ The `where` argument uses operators to filter the results accordingly. The above
 
 And
 
-> Fetch all the todos where the value of the field `is_public` equals "false" for the user whose id equals to "61dd5e7dc4b05c0069a39att".
+> Fetch all the todos where the value of the field `is_public` equals "true" for the user whose id equals to "61dd5e7dc4b05c0069a39att".
 
 There are other operators that you can see in the [API Reference](https://hasura.io/docs/latest/graphql/core/api-reference/graphql-api/query.html#whereexp) documentation.
 ## Summary {#summary}

@@ -70,7 +70,7 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-## {#deploy} をデプロイする
+## デプロイ {#deploy}
 
 [![Glitch にデプロイする](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~sendgrid-send-email-event)
 

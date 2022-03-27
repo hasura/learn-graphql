@@ -8,7 +8,7 @@ import GithubLink from "../../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/Dockerfile" text="Dockerfile" />
 
-1. Run `firebase-init` select hosting, pick your existing project, use the default public directory and do not configure as a single-page app
+1. Run `firebase-init` select hosting, pick your existing project, use the default public directory, and do not configure as a single-page app
 
 1. Delete the public folder that Firebase created
 

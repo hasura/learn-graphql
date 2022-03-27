@@ -12,7 +12,7 @@ Curious to learn how to integrate GraphQL in a svelte app? Then this course is f
 
 We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! and learn how to build apps with GraphQL and Svelte.
 
-## Key topics and takeways:
+## Key topics and takeaways:
 
 - [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions

@@ -6,7 +6,7 @@ metaDescription: "Create the Firebase Admin Service Account"
 
 1. Back at the project settings screen, navigate to service accounts
 
-1. Generate new private key
+1. Generate a new private key
 
 1. Rename to `firebase-admin.json` and move it to the project root
 

@@ -8,7 +8,7 @@ import GithubLink from "../../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/Dockerfile" text="Dockerfile" />
 
-Now we deploy Remix to Cloud Run using Tom Rowe's excellent gist with slight modification. Add this Dockerfile to your project root
+Now, we deploy Remix to Cloud Run using Tom Rowe's excellent gist with slight modification. Add this Dockerfile to your project root
 
 ```dockerfile
 # Credit to Tom Rowe https://gist.github.com/TheRealFlyingCoder/773bf60f433ccbdbad8c296a99fb3738
@@ -75,7 +75,7 @@ node_modules/
 .firebase
 ```
 
-1. In the GCP console Enable the [Cloud Build API](https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com)
+1. In the GCP console, enable the [Cloud Build API](https://console.cloud.google.com/marketplace/product/google/cloudbuild.googleapis.com)
 
 2. Enable the [Cloud Run API](https://console.cloud.google.com/marketplace/product/google/run.googleapis.com)
 
@@ -83,11 +83,11 @@ node_modules/
 
 4. `gcloud builds submit --tag gcr.io/<firebase project ID>/<any image name>`
 
-5. Back in the GCP console, [create a Cloud Run service with your new image.](https://console.cloud.google.com/run/create) Allow all traffic and allow unauthenticated invocations. In variables & secrets add these four environment variables:
+5. In the GCP console, [create a Cloud Run service with your new image.](https://console.cloud.google.com/run/create) Allow all traffic and allow unauthenticated invocations. In variables & secrets, add these four environment variables:
 
-- FIREBASE_ADMIN_SERVICE_ACCOUNT - from your .env with out the wrapping single quotes
+- FIREBASE_ADMIN_SERVICE_ACCOUNT - from your .env without the single wrapping quotes
 - GRAPHQL_ENDPOINT - Your Hasura Cloud GraphQL endpoint
 - HASURA_ADMIN_SECRET - Your Hasura Cloud admin secret
 - COOKIE_SECRET - a randomly generated string of letters and numbers
 
-6. Once you've created the service Cloud Run will give you a URL, test out your app by opening in a web browser.
+6. Once you've created the service Cloud Run will give you a URL. Test out your app by opening it in a web browser.

@@ -6,7 +6,7 @@ metaDescription: "For Hasura to read our JWT cookies we need to do some setup"
 
 Usually with Firebase Auth and Hasura we can use the [standard JWK url as described here](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html#firebase).
 
-However with Firebase Session cookies they need a different format which we'll have to add manually. Hopefully in the future this can improve.
+However, with Firebase Session cookies they need a different format which we'll have to add manually. Hopefully in the future this can improve.
 
 1. In `login.tsx` add `console.log(cookie)` after `const cookie = await admin.auth().createSessionCookie(idToken, { expiresIn });` and go through the login process to get the cookie JWT token
 
@@ -18,6 +18,6 @@ However with Firebase Session cookies they need a different format which we'll h
 
 `{"type":"RS256", "key": "<Firebase public cert from previous step>", "audience": "<firebase project id>", "issuer": "https://session.firebase.google.com/<firebase project id>", "claims_map": {"x-hasura-allowed-roles": ["user"], "x-hasura-default-role": "user", "x-hasura-user-id": {"path":"$.sub"} }}`
 
-By default we assign a logged in user the role of user using the [claims map feature](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html#claims-map).
+By default, we assign a logged-in user the role of user using the [claims map feature](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html#claims-map).
 
 Save this config for an upcoming step.

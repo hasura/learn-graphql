@@ -24,5 +24,7 @@ RUN rm -R content
 # Bundle app source
 COPY . .
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # serve on port 8080
 CMD ["gatsby", "develop", "--verbose", "-p", "8080", "--host", "0.0.0.0"]

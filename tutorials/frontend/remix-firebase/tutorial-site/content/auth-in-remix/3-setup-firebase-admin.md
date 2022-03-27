@@ -8,7 +8,7 @@ import GithubLink from "../../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/app/utils/firebase.server.ts" text="firebase.server.ts" />
 
-To verify our users login JWT toke and setup our session cookie we need to use the Firebase Admin SDK server side. Create `./app/utils/firebase.server.ts`
+To verify our user's login JWT token and create our session cookie we need to use the Firebase Admin SDK server-side. Create `./app/utils/firebase.server.ts`
 
 ```typescript
 import * as admin from "firebase-admin";

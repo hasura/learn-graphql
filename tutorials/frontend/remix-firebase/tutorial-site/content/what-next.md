@@ -6,25 +6,23 @@ metaDescription: "Learn what to do next with GraphQL, React Hooks and Backend wi
 
 import TwitterShare from "./twitter-share";
 
-Congratulations! You have successfully completed the course.
+Congratulations! You have completed the course.
 
 In case you are wondering what to do next, you have the following options:
 
 ## Take the Hasura backend course
 
-We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/) backend course to build the backend that you just used for your react app.
+We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/) backend course of building the backend that you just used for your react app.
 
 ## Join Discord for Support
 
 We have a Discord Channel for those who are new to GraphQL. Please post your queries or feedback regarding this course. It is a pretty active channel.
 
-Here's the [invite link](https://discord.com/invite/hasura) to join discord.
+Here's the [invite link](https://discord.com/invite/hasura) to join Discord.
 
 ## More sample apps
 
-We have a bunch of sample apps created using React, Apollo Client and Hasura GraphQL Engine.
-
-Check out the [sample apps](https://hasura.io/sample-apps/) to get a taste of how realtime GraphQL and Auth work with Hasura. We also have boilerplates to help you get started quickly with React and Apollo.
+We have many [sample apps created using React and Hasura GraphQL Engine](https://hasura.io/sample-apps/).
 
 ## Spread the word!
 

@@ -61,9 +61,9 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 ```
 
-Our root App component is the standard Remix one except we conditionally load Javascript and add a nav bar with login/logout. Throughout the app we make heavy use of the remix-utils npm library.
+Our root App component is the standard Remix one except we conditionally load Javascript and add a navigation bar with login/logout. Throughout the app we make heavy use of the remix-utils npm library.
 
-We use forms to POST to the our action endpoints
+We use forms to POST to our action endpoints.
 
 ```typescript
 export default function App() {

@@ -26,7 +26,7 @@ https://remix-spacex-hasura.web.app/
 
 ## Is this a Remix tutorial
 
-No, we recommend you read the Remix docs and watch the videos on their youtube channel. This tutorial lets you set up a solid foundation with Remix + Hasura.
+No, we recommend you read the Remix docs and watch the videos on their YouTube channel. This tutorial lets you set up a solid foundation with Remix + Hasura.
 
 ## What do I need to take this tutorial?
 

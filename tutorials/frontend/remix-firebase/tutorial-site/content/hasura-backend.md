@@ -30,7 +30,7 @@ Make sure the [Hasura CLI is installed](https://hasura.io/docs/latest/graphql/co
 
 3. Run the command `hasura init hasura --admin-secret <the string you created in .env>`
 
-aaaaaaaaaaaa<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/hasura/Dockerfile" text="Dockerfile" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/hasura/Dockerfile" text="Dockerfile" />
 
 4. Create `./hasura/Dockerfile` with the [auto applying migrations image](https://hasura.io/docs/latest/graphql/core/migrations/advanced/auto-apply-migrations.html)
 

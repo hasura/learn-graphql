@@ -24,9 +24,9 @@ Following [Remix's file based routing](https://remix.run/docs/en/v1/guides/routi
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/app/routes/launch/$launchId.tsx" text="$launchId.tsx" />
 
-Lets build this component piece by piece.
+Let's build this component piece by piece.
 
-First we add our imports, custom typescript interfaces, and helper function for calculating cargo weights
+First, we add our imports, custom typescript interfaces, and helper function for calculating cargo weights
 
 ```typescript
 import { useRef } from "react";
@@ -117,7 +117,7 @@ export const headers: HeadersFunction = ({ loaderHeaders }) => {
 };
 ```
 
-Now we setup our Remix action that receives a cargo, checks how much weight is left on the rocket, and then validates the cargo. In a real app you would use a database transaction to ensure the current cargo doesn't change while you do this.
+Now we set up our Remix action that receives a cargo, checks how much weight is left on the rocket, and then validates the cargo. In a real app, you would use a database transaction to ensure the current cargo doesn't change while you do this.
 
 ```typescript
 // Add cargo to rocket
@@ -225,7 +225,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 };
 ```
 
-Finally we write the UI component
+Finally, we write the UI component
 
 ```typescript
 export default function Launch() {

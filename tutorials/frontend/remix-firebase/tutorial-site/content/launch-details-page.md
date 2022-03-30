@@ -83,4 +83,4 @@ mutation AddCargo($cargo: cargo_insert_input!) {
 
 Run `npm run codegen`
 
-We make heavy use of [Graphql fragments](https://graphql.org/learn/queries/#fragments) and have different queries based on login status. We also have a single mutation to add cargo.
+We use [Graphql fragments](https://graphql.org/learn/queries/#fragments) and have different queries based on login status. We also have a single mutation to add cargo.

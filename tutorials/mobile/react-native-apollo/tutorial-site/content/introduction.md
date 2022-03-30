@@ -12,7 +12,7 @@ So, we put together a powerful and concise course that will introduce you to Gra
 
 We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
 
-## Key topics and takeways:
+## Key topics and takeaways:
 
 - [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions
@@ -26,7 +26,7 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 
 ## What will we be building?
 
-We will be building a realtime todo app using authenticated GraphQL APIs. 
+We will be building a realtime todo app using authenticated GraphQL APIs.
 
 ## Will this course teach React Native as well?
 
@@ -35,9 +35,11 @@ No, we will be simulating a scenario where we already have a GraphQL API and the
 If you're new to React Native, we recommend going through [this tutorial](http://www.reactnativeexpress.com) and then coming back here!
 
 ## What do I need to take this tutorial?
+
 You need to have npm/yarn & node 8+ running.
 
 ## How long will this tutorial take?
+
 Less than 2 hours
 
 ## Other courses

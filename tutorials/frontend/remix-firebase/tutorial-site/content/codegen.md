@@ -10,7 +10,7 @@ import GithubLink from "../src/GithubLink.js";
 
 Using [Graphql Code Generator](https://www.graphql-code-generator.com/) and the library [graphql-request](https://github.com/prisma-labs/graphql-request) we setup type safe and easy Graphql calls in Remix.
 
-In the project root create the file `codegen.yaml`
+In the project root, create the file `codegen.yaml`
 
 ```yaml
 schema:

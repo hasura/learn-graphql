@@ -70,6 +70,16 @@ const config = {
     "name": "Japanese",
     "translations": [
       {
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/react/introduction/"
+      },
+      {
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/react/introduction/"
+      },
+      {
         "code": "en",
         "name": "English",
         "link": "https://hasura.io/learn/graphql/react/introduction/"

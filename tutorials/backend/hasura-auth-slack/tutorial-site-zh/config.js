@@ -1,6 +1,6 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/learn/ja/graphql/hasura-auth-slack",
+		"pathPrefix": "/learn/zh/graphql/hasura-auth-slack",
 		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "GTM-WBBW2LN",
 		"trailingSlash": true
@@ -8,17 +8,17 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/'>hasura</a>",
+		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/zh/graphql/hasura-auth-slack/introduction/'>hasura</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
-		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ in Japanese https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/",
+		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ in Chinese https://hasura.io/learn/zh/graphql/hasura-auth-slack/introduction/",
 		"links": [{
 			"text": "",
 			"link": ""
 		}],
 		"search": {
 			"enabled": true,
-			"indexName": "learn-hasura-auth-slack-ja",
+			"indexName": "learn-hasura-auth-slack-zh",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
@@ -47,20 +47,20 @@ const config = {
 		]
 	},
 	"siteMetadata": {
-		"title": "フロントエンド開発者向けのHasuraAuthSlackバックエンドコースの概要",
-		"description": "フロントエンド開発者向けのこのHasuraGraphQLバックエンド認証コースをチェックしてください",
-		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-auth-slack-ja.png",
-		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura-auth-slack/tutorial-site-ja/content",
+		"title": "",
+		"description": "",
+		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-auth-slack-zh.png",
+		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura-auth-slack/tutorial-site-zh/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
 	"language": {
-    "code": "ja",
-    "name": "Japanese",
+    "code": "zh",
+    "name": "Chinese",
     "translations": [
       {
-        "code": "zh",
-        "name": "Chinese",
-        "link": "https://hasura.io/learn/zh/graphql/hasura-auth-slack/introduction/"
+        "code": "ja",
+        "name": "Japanese",
+        "link": "https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/"
       },
       {
         "code": "es",

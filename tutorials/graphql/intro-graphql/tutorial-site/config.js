@@ -63,6 +63,11 @@ const config = {
     "name": "English",
     "translations": [
       {
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/intro-graphql/introduction/"
+      },
+      {
         "code": "zh",
         "name": "Chinese",
         "link": "https://hasura.io/learn/zh/graphql/intro-graphql/introduction/"

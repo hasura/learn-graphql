@@ -66,6 +66,16 @@ const config = {
     "name": "English",
     "translations": [
       {
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/hasura-auth-slack/introduction/"
+      },
+      {
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/hasura-auth-slack/introduction/"
+      },
+      {
         "code": "ja",
         "name": "Japanese",
         "link": "https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/"

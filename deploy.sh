@@ -61,6 +61,11 @@ tutorials() {
                             build_image $current_tutorial "-ja"
                             cd ".."
                         fi
+                        if [[ -d "tutorial-site-es" ]]; then
+                            cd "tutorial-site-es"
+                            build_image $current_tutorial "-es"
+                            cd ".."
+                        fi
                         cd "tutorial-site"
                         build_image $current_tutorial ""
                     fi

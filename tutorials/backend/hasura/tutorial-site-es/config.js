@@ -1,6 +1,6 @@
 const config = {
 	"gatsby": {
-		"pathPrefix": "/learn/ja/graphql/hasura",
+		"pathPrefix": "/learn/es/graphql/hasura",
 		"siteUrl": "https://hasura.io",
 		"gaTrackingId": "GTM-WBBW2LN",
 		"trailingSlash": true
@@ -8,17 +8,17 @@ const config = {
 	"header": {
 		"logo": "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
 		"logoLink": "https://hasura.io/learn/",
-		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/ja/graphql/hasura/introduction/'>hasura</a>",
+		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/es/graphql/hasura/introduction/'>hasura</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
-		"tweetText": "@HasuraHQ https://hasura.io/learn/ja/graphql/hasura/introduction/ によるフロントエンド開発者向けのこのHasura GraphQLバックエンドコースの紹介をご覧ください。",
+		"tweetText": "Check out this Introduction to Hasura GraphQL backend course for frontend developers by @HasuraHQ in Spanish https://hasura.io/learn/es/graphql/hasura/introduction/ Hasura GraphQL",
 		"links": [{
 			"text": "",
 			"link": ""
 		}],
 		"search": {
 			"enabled": true,
-			"indexName": "learn-hasura-backend-ja",
+			"indexName": "learn-hasura-backend-es",
 			"algoliaAppId": process.env.GATSBY_ALGOLIA_APP_ID,
 			"algoliaSearchKey": process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 			"algoliaAdminKey": process.env.ALGOLIA_ADMIN_KEY
@@ -48,15 +48,15 @@ const config = {
 		]
 	},
 	"siteMetadata": {
-		"title": "フロントエンド開発者向けのHasuraバックエンドコースの概要-Hasura",
-		"description": "Hasuraを使用してGraphQLバックエンドを即座に開発する基本的な概念をカバーする簡潔で強力なチュートリアル",
-		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-ja.png",
-		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/tutorial-site-ja/content",
+		"title": "",
+		"description": "",
+		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-es.png",
+		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/tutorial-site-es/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
 	"language": {
-    "code": "ja",
-    "name": "Japanese",
+    "code": "es",
+    "name": "Spanish",
     "translations": [
       {
         "code": "zh",
@@ -64,9 +64,9 @@ const config = {
         "link": "https://hasura.io/learn/zh/graphql/hasura/introduction/"
       },
       {
-        "code": "es",
-        "name": "Spanish",
-        "link": "https://hasura.io/learn/es/graphql/hasura/introduction/"
+        "code": "ja",
+        "name": "Japanese",
+        "link": "https://hasura.io/learn/ja/graphql/hasura/introduction/"
       },
       {
         "code": "en",

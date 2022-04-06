@@ -6,9 +6,9 @@ metaDescription: "Hasura 身份验证可以使用 JWT、webhook 和未经身份�
 
 Hasura 身份验证可以通过以下方式实现：
 
-- [JWT](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html)
-- [Webhook](https://hasura.io/docs/latest/graphql/core/auth/authentication/webhook.html)
-- [未经身份验证的公共访问](https://hasura.io/docs/latest/graphql/core/auth/authentication/unauthenticated-access.html)
+- [JWT](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/)
+- [Webhook](https://hasura.io/docs/latest/graphql/core/auth/authentication/webhook/)
+- [未经身份验证的公共访问](https://hasura.io/docs/latest/graphql/core/auth/authentication/unauthenticated-access/)
 
 在所有这些情况下，必须先配置一个 `admin secret`。
 

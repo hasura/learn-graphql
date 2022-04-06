@@ -6,7 +6,7 @@ metaDescription: "En esta parte, aprenderá a conectar Hasura con la aplicación
 
 En esta parte, aprenderá a conectar Hasura con la aplicación de Auth0 que acaba de crear en el paso anterior.
 
-Antes de hacer eso, necesitamos proteger nuestro punto de conexión con un secreto de administrador. Ahora mismo, el punto de conexión de GraphQL está abierto y cualquiera puede consultar y gestionar los datos. [Lea los documentos](https://hasura.io/docs/latest/graphql/cloud/projects/secure.html#adding-an-admin-secret) sobre cómo agregar un secreto de administrador a un proyecto de Hasura Cloud.
+Antes de hacer eso, necesitamos proteger nuestro punto de conexión con un secreto de administrador. Ahora mismo, el punto de conexión de GraphQL está abierto y cualquiera puede consultar y gestionar los datos. [Lea los documentos](https://hasura.io/docs/latest/graphql/cloud/projects/secure/#adding-an-admin-secret)) sobre cómo agregar un secreto de administrador a un proyecto de Hasura Cloud.
 
 Una vez que se agrega un secreto de administrador, necesitamos configurar Hasura para utilizar las claves públicas de Auth0. Una manera más fácil de generar la configuración para JWT es utilizar el siguiente enlace: [https://hasura.io/jwt-config/](https://hasura.io/jwt-config/)
 

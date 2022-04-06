@@ -6,7 +6,7 @@ metaDescription: "プロジェクトをローカルで管理するために、Ha
 
 ## Hasura CLIのインストール {#install-hasura-cli}
 
-プラットフォームに応じて、ドキュメントの手順に従って [ Hasura CLIをインストール ](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html) します。
+プラットフォームに応じて、ドキュメントの手順に従って [ Hasura CLIをインストール ](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/) します。
 
 プロジェクトをローカルで管理するために、Hasura CLIを使用します。空のフォルダで以下のコマンドを実行します。
 

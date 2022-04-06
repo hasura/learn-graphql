@@ -4,7 +4,7 @@ metaTitle: "Caché de respuestas de GraphQL | Tutorial avanzado de Hasura GraphQ
 metaDescription: "El motor Hasura GraphQL (OSS) admite el almacenamiento en caché de consultas, donde se almacenará la representación interna del AST de GraphQL completamente cualificado."
 ---
 
-El motor Hasura GraphQL (OSS) admite el almacenamiento en caché de consultas, donde se almacenará la representación interna del AST de GraphQL completamente cualificado. Cuando se realiza una consulta de GraphQL, el SQL generado es una instrucción preparada con las variables de sesión adecuadas para que estas lleguen a la base de datos. Estas instrucciones preparadas ayudan a realizar consultas rápidamente. Más información sobre [Almacenamiento de consultas en caché](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance.html)
+El motor Hasura GraphQL (OSS) admite el almacenamiento en caché de consultas, donde se almacenará la representación interna del AST de GraphQL completamente cualificado. Cuando se realiza una consulta de GraphQL, el SQL generado es una instrucción preparada con las variables de sesión adecuadas para que estas lleguen a la base de datos. Estas instrucciones preparadas ayudan a realizar consultas rápidamente. Más información sobre [Almacenamiento de consultas en caché](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance/)
 
 Ahora bien, algunas consultas son de acceso más frecuente que otras. Normalmente, podría darse una latencia o tiempos de respuesta lentos debido a
 

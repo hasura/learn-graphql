@@ -30,7 +30,7 @@ Vamos a construir el backend de un clon de Slack básico mediante la configuraci
 
 ## ¿Qué necesito para realizar este tutorial? {#what-do-i-need}
 
-- Hasura CLI ([Docs](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html))
+- Hasura CLI ([Docs](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/))
 - Node.js 8+ instalado para configurar el servidor de autenticación más adelante.
 
 Hemos mantenido el foco de este curso sobre los flujos de trabajo de los desarrolladores y

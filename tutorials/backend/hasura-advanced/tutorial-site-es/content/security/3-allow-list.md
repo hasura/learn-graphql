@@ -37,7 +37,7 @@ Del mismo modo, también puede agregarse mediante la carga de un archivo, al car
 
 ## Allowlist mediante metadatos {#allowlist-through-metadata}
 
-Las consultas pueden almacenarse en colecciones y estas pueden agregarse o eliminarse de la lista de permitidos. Puede agregarse una colección a través de las siguientes [API](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections.html#api-query-collections)
+Las consultas pueden almacenarse en colecciones y estas pueden agregarse o eliminarse de la lista de permitidos. Puede agregarse una colección a través de las siguientes [API](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections/#api-query-collections)
 
 ## Allowlist a través de Hasura Cloud {#allowlist-through-hasura-cloud}
 

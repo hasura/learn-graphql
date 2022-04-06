@@ -11,9 +11,9 @@ La lógica de negocios personalizada puede gestionarse de varias maneras flexibl
 Acciones (recomendadas) {#actions}
 ---------------------
 
-[Las acciones](https://hasura.io/docs/latest/graphql/core/actions/index.html) son una manera de extender el esquema de Hasura con lógica de negocios personalizada utilizando mutaciones y consultas personalizadas. Pueden agregarse acciones a Hasura para gestionar varios casos de uso, como validación de datos, enriquecimiento de datos de fuentes externas y cualquier otra lógica de negocios compleja.
+[Las acciones](https://hasura.io/docs/latest/graphql/core/actions/index/) son una manera de extender el esquema de Hasura con lógica de negocios personalizada utilizando mutaciones y consultas personalizadas. Pueden agregarse acciones a Hasura para gestionar varios casos de uso, como validación de datos, enriquecimiento de datos de fuentes externas y cualquier otra lógica de negocios compleja.
 
-![Arquitectura de acciones](https://hasura.io/docs/latest/_images/actions-arch1.png)
+![Arquitectura de acciones](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/actions-architecture.png)
 
 Las acciones pueden ser una consulta o una mutación.
 
@@ -25,7 +25,7 @@ Esquemas remotos {#remote-schemas}
 
 Hasura tiene la capacidad de fusionar esquemas de GraphQL remotos y proporcionar una API de GraphQL unificada. Piense en ello como costuras de esquema automatizadas. De esta manera, podemos escribir resoluciones de GraphQL personalizadas y agregarlas como esquema remoto.
 
-![Arquitectura de esquema remoto](https://hasura.io/docs/latest/_images/remote-schema-arch1.png)
+![Arquitectura de esquema remoto](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/remote-schema-architecture.png)
 
 Si está eligiendo entre acciones y esquemas remotos, aquí hay algo que debe tener en cuenta:
 

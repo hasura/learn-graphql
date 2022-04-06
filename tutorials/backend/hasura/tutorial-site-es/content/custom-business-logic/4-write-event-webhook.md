@@ -8,7 +8,7 @@ Ahora vamos a pasar al segundo caso de uso de enviar un correo electrónico cuan
 
 Cuando el usuario se registra en la aplicación utilizando Auth0, insertamos una nueva fila en la tabla `users` para mantener los datos de usuario sincronizados. ¿Recuerda la regla de Auth0 que escribimos durante la suscripción para hacer una mutación?
 
-Esta es una operación `insert` en la tabla `users`. La carga para cada evento se menciona [aquí](https://hasura.io/docs/latest/graphql/core/event-triggers/payload.html#json-payload)
+Esta es una operación `insert` en la tabla `users`. La carga para cada evento se menciona [aquí](https://hasura.io/docs/latest/graphql/core/event-triggers/payload/#json-payload)
 
 Ahora vamos a capturar esta operación de inserción para desencadenar nuestro evento.
 

@@ -10,9 +10,9 @@ Siga [estas](https://github.com/hasura/learn-graphql/tree/master/services/backen
 
 ### Autentique JWT mediante el uso del motor de GraphQL {#authenticate-jwt}
 
-El motor de GraphQL viene con la autenticación de JWT integrada.  Necesitará iniciar el motor con el mismo secreto/clave que el servidor de autenticación de JWT utilizando la variable de entorno `HASURA_GRAPHQL_JWT_SECRET`. Lea más en [docs](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html#running-with-jwt)
+El motor de GraphQL viene con la autenticación de JWT integrada.  Necesitará iniciar el motor con el mismo secreto/clave que el servidor de autenticación de JWT utilizando la variable de entorno `HASURA_GRAPHQL_JWT_SECRET`. Lea más en [docs](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/#running-with-jwt)
 
-Tenga en cuenta que también necesita configurar la variable de entorno `HASURA_GRAPHQL_ADMIN_SECRET`. Considere esto como la contraseña para tener el control de administrador sobre el proyecto. [Lea más](https://hasura.io/docs/latest/graphql/cloud/projects/env-vars.html) sobre cómo configurar una nueva variable de entorno en un proyecto de Hasura Cloud.
+Tenga en cuenta que también necesita configurar la variable de entorno `HASURA_GRAPHQL_ADMIN_SECRET`. Considere esto como la contraseña para tener el control de administrador sobre el proyecto. [Lea más](https://hasura.io/docs/latest/graphql/cloud/projects/env-vars/) sobre cómo configurar una nueva variable de entorno en un proyecto de Hasura Cloud.
 
 Un comando de muestra CURL utilizando el token anterior sería:
 

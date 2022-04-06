@@ -21,7 +21,7 @@ Utilizaremos el esquema de la base de datos del clon de slack para esta demostra
 
 La configuración más sencilla para ejecutar Hasura de forma local es utilizar la configuración de docker-compose para ejecutar tanto los contenedores docker de graphql-engine como los de postgres.
 
-Diríjase a los documentos para [configurar Hasura de forma local utilizando docker-compose](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple.html#step-1-get-the-docker-compose-file).
+Diríjase a los documentos para [configurar Hasura de forma local utilizando docker-compose](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple/#step-1-get-the-docker-compose-file).
 
 Una vez configurado Hasura de forma local, debería poder acceder a la consola en `http://localhost:8080`.
 

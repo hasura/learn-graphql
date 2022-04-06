@@ -16,7 +16,7 @@ build_image() {
     docker push hasura/$1$2:$GIT_HASH
     echo "Updating kubernetes deployment"
     echo "kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH"
-    #kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH
+    kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH
 }
 
 # go to each folder, build docker image and push

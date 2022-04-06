@@ -6,9 +6,9 @@ metaDescription: "La autenticación puede implementarse con Hasura mediante JWT,
 
 La autenticación puede implementarse con Hasura mediante el uso de
 
-- [JWT](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html)
-- [Webhooks](https://hasura.io/docs/latest/graphql/core/auth/authentication/webhook.html)
-- [Acceso público no autenticado](https://hasura.io/docs/latest/graphql/core/auth/authentication/unauthenticated-access.html)
+- [JWT](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/)
+- [Webhooks](https://hasura.io/docs/latest/graphql/core/auth/authentication/webhook/)
+- [Acceso público no autenticado](https://hasura.io/docs/latest/graphql/core/auth/authentication/unauthenticated-access/)
 
 En todos estos casos, para empezar es importante configurar un `admin secret`.
 

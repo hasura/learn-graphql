@@ -21,7 +21,7 @@ Hasura 不会自动为整个数据库创建 GraphQL API。我们需要具体说�
 
 本地运行 Hasura 的最简单设置是使用 docker-compose 设置，以运行 graphql-engine 和 postgres docker 容器。
 
-前往文档，[使用 docker-compose 在本地设置 Hasura](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple.html#step-1-get-the-docker-compose-file)。
+前往文档，[使用 docker-compose 在本地设置 Hasura](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple/#step-1-get-the-docker-compose-file)。
 
 在本地设置 Hasura 后，即可在 `http://localhost:8080` 上访问控制台。
 

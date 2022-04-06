@@ -30,7 +30,7 @@ metaDescription: "这个强大而简洁的教程将向你介绍如何在 GraphQL
 
 ## 学习该教程需要准备什么？{#what-do-i-need}
 
-- Hasura CLI（[文档](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)）
+- Hasura CLI（[文档](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/)）
 - 安装 Node.js 8+，以稍后设置身份验证服务器。
 
 我们在本课程中保持开发人员的工作流程和环境选择的简化，以便你能够专注于关键概念，并继续设置自己偏好的工具和工作流程。

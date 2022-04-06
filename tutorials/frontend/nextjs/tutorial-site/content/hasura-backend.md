@@ -76,7 +76,7 @@ Let's get started by creating the tables and relationships for the Realtime todo
 
 Head to the `hasura` directory inside nextjs to apply the Hasura migrations and metadata.
 
-Download the latest Hasura CLI from [here](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html#install-hasura-cli). We are going to use the config version v3.
+Download the latest Hasura CLI from [here](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/#install-hasura-cli). We are going to use the config version v3.
 
 Configure the endpoint to point to the Hasura Cloud app URL. Open the `config.yaml` file and set the endpoint value.
 

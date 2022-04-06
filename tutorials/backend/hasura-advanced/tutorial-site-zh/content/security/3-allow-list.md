@@ -37,7 +37,7 @@ query {
 
 ## 通过元数据添加允许列表 {#allowlist-through-metadata}
 
-查询可以存储在收藏中，而且可以将收藏添加至允许列表或从中删除。可以通过以下 [API](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections.html#api-query-collections) 添加收藏
+查询可以存储在收藏中，而且可以将收藏添加至允许列表或从中删除。可以通过以下 [API](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections/#api-query-collections) 添加收藏
 
 ## 通过 Hasura Cloud 添加允许列表 {#allowlist-through-hasura-cloud}
 

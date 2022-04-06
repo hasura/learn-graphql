@@ -4,7 +4,7 @@ metaTitle: "GraphQL 响应缓存 | Hasura GraphQL 高级教程"
 metaDescription: "Hasura GraphQL 引擎 (OSS) 支持查询缓存，其中缓存完全符合条件的 GraphQL AST 的内部表示。"
 ---
 
-Hasura GraphQL 引擎 (OSS) 支持查询缓存，其中缓存完全符合条件的 GraphQL AST 的内部表示。在发出 GraphQL 查询后，生成的 SQL 是预编译语句，其中包含访问数据库的正确会话变量。这些预编译语句有助于快速进行查询。详细了解[查询缓存](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance.html)
+Hasura GraphQL 引擎 (OSS) 支持查询缓存，其中缓存完全符合条件的 GraphQL AST 的内部表示。在发出 GraphQL 查询后，生成的 SQL 是预编译语句，其中包含访问数据库的正确会话变量。这些预编译语句有助于快速进行查询。详细了解[查询缓存](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance/)
 
 现在，某些查询的访问频率比其他查询高。通常可能存在延迟且响应缓慢的现象，原因包括：
 

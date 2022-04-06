@@ -10,9 +10,9 @@ metaDescription: "教程的这一部分介绍如何选择正确的身份验证�
 
 ### 使用 GraphQL 引擎验证 JWT {#authenticate-jwt}
 
-GraphQL 引擎内置有 JWT 身份验证功能。你需要通过 `HASURA_GRAPHQL_JWT_SECRET` 环境变量，使用与 JWT 身份验证服务器相同的密钥/键来启动引擎 。点击[文档](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html#running-with-jwt)，阅读更多
+GraphQL 引擎内置有 JWT 身份验证功能。你需要通过 `HASURA_GRAPHQL_JWT_SECRET` 环境变量，使用与 JWT 身份验证服务器相同的密钥/键来启动引擎 。点击[文档](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/#running-with-jwt)，阅读更多
 
-请注意，你还需要配置 `HASURA_GRAPHQL_ADMIN_SECRET` 环境变量。将它视作对项目进行管理员控制的密码。[详细阅读](https://hasura.io/docs/latest/graphql/cloud/projects/env-vars.html)如何在 Hasura Cloud 项目中配置新的环境变量。
+请注意，你还需要配置 `HASURA_GRAPHQL_ADMIN_SECRET` 环境变量。将它视作对项目进行管理员控制的密码。[详细阅读](https://hasura.io/docs/latest/graphql/cloud/projects/env-vars/)如何在 Hasura Cloud 项目中配置新的环境变量。
 
 使用上述令牌的 CURL 命令示例如下：
 

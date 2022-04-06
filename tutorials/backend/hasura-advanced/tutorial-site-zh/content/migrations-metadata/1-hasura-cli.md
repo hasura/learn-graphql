@@ -6,7 +6,7 @@ metaDescription: "我们将利用 Hasura CLI 在本地管理项目。从空文�
 
 ## 安装 Hasura CLI {#install-hasura-cli}
 
-根据平台的不同，按照文档中的步骤[安装 Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)。
+根据平台的不同，按照文档中的步骤[安装 Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/)。
 
 我们将利用 Hasura CLI 在本地管理项目。从空文件夹开始，执行以下命令：
 

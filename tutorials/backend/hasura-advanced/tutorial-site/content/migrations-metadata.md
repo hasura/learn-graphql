@@ -21,7 +21,7 @@ We will use the slack clone database schema for this demo. But before that, let'
 
 The simplest setup to run Hasura locally is to use the docker-compose setup to run both graphql-engine and postgres docker containers.
 
-Head to the docs to [set up Hasura locally using docker-compose](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple.html#step-1-get-the-docker-compose-file).
+Head to the docs to [set up Hasura locally using docker-compose](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple/#step-1-get-the-docker-compose-file).
 
 Once you have set up Hasura locally, you should be able to access the console at `http://localhost:8080`.
 

@@ -51,7 +51,7 @@ Choose your edition and a strong `sa` (system administrator) password.
 
 On completion of the setup, you get the message: "Setup has completed successfully. SQL Server is now starting".
 
-5. Once the configuration is done, verify that the service is running:
+5. Once the configuration is done verify that the service is running:
 
 ```bash
 systemctl status mssql-server --no-pager

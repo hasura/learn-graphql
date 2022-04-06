@@ -1,64 +1,71 @@
 ---
-title: "todos テーブルの権限のセットアップ"
-metaTitle: "todos テーブルの権限のセットアップ | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは、Hasuraコンソールを使用して、挿入、選択、更新、および削除操作のためのtodosテーブルの権限を設定する方法について説明します"
+title: "todosテーブル権限を設定する"
+metaTitle: "todosテーブル権限を設定する | Hasura GraphQLチュートリアル"
+metaDescription: "このチュートリアルでは、Hasuraコンソールを使って操作を挿入、選択、更新、削除するため、todosテーブルに権限を設定する方法を学びます"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+`todos` テーブルの下の権限タブに移動して、関連する権限を追加します。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/AM1KbJL0kTo" />
+## 権限を挿入する {#insert-permission}
 
-'todos' テーブルの下の 'Permissions' タブに移動して、関連する権限を追加します。
+ログインしたユーザーが、新しいtodoエントリを作成して、is_publicとタイトル列だけを指定できるようにします。
 
-## 挿入の権限
+- 新しい役割を入力するテキストボックスに、“user”と入力します
+- 「挿入」権限の編集（鉛筆）アイコンをクリックします。これにより、下のセクションが開き、カスタムチェックを設定して列を許可できます。
+- カスタムチェックで、以下の条件を選択します。
 
-- 新しい役割を入力するテキストボックスに `ユーザー` と入力します
-- 「insert(挿入)」権限の編集（鉛筆）アイコンをクリックします。 これにより、下のセクションが開き、カスタムチェックを構成して列を許可できます。
-- カスタムチェックで、次の条件を選択します
 ```json
 {"user_id":{"_eq":"X-Hasura-User-Id"}}
 ```
 
-![Todos row permission insert](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-table-row-permission-insert.png)
+![todo行権限挿入](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-table-row-permission-insert.png)
 
-カラム挿入権限の下で `title` カラムと `is_public` カラムを選択します。
+列の挿入権限の下で、`title` および `is_public` 列を選択します。
 
-![Todos insert column permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-insert-column-permission.png)
+![todos挿入列権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-insert-column-permission.png)
 
+最後に、列のプリセットの下で、`X-HASURA-USER-ID` への `from session variable` マッピングから `user_id` を選択します。
 
-最後にカラムのプリセットの下で `from session variable` から `X-HASURA-USER-ID` へのマッピングから `user_id` を選択します。
+**注：**セッション変数は、各要求の認証サービスから返されるキーと値のペアです。ユーザーが要求すると、セッショントークンは `USER-ID` にマッピングされます。この `USER-ID` は許可で使用され、`user_id` 列にセッション変数 `USER-ID` の値に等しい値がある場合にのみ、テーブルへの挿入が許可されることを示すことができます。
 
 `Save Permissions` をクリックします。
 
-## 選択の権限
+## 権限 {#select-permission} を選択します
 
-次に「select(選択)」権限の編集アイコンをクリックします。 カスタムチェックで、次の条件を選択します
+todoエントリがパブリックになっているか、ユーザーがログインしていれば、todoエントリを表示できるようにします。
+
+「選択」権限の編集アイコンをクリックします。カスタムチェックで、以下の条件を選択します。
+
 ```json
 {"_or":[{"is_public":{"_eq":true}},{"user_id":{"_eq":"X-Hasura-User-Id"}}]}
 ```
 
-![Todos select permission row](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-select-permission-row.png)
+![todos選択権限行](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-select-permission-row.png)
 
-カラム選択権限の下で、すべてのカラムを選択します。
+列選択権限の下で、すべての列を選択します。
 
-![Todos select column permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-select-permission-column.png)
+![todos選択列権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-select-permission-column.png)
 
-`Save Permissions` をクリックします
+`Save Permissions` をクリックする
 
-## 更新の権限
+## 権限 {#update-permission} を更新する
 
-「update(更新)」権限の編集アイコンをクリックします。 カスタムチェックで `With same custom checks as insert` を選択します。
+ユーザーがis_completed列しか更新できないようにします。
 
-カラムの更新権限の下で、`is_completed` カラムを選択します。
+「更新」権限の編集アイコンをクリックします。更新前カスタムチェックで `With same custom checks as insert` を選択します。
 
-![Todos update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-update-permission.png)
+そして、列更新権限の下で、`is_completed` 列を選択します。
 
-終わったら `Save Permissions` をクリックします。
+![todos更新権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-update-permission-pre-update.png)
 
-## 削除の許可
+完了したら `Save Permissions` をクリックします。
 
-最後に削除の許可については、カスタムチェックで、`With same custom checks as insert, update`を選択します。
+## 権限 {#delete-permission}を削除する
 
-![Todos delete permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-delete-permission.png)
+ログインしたユーザーのみ、todoエントリを削除できます。
 
-`Save Permissions` をクリックすると `todos` テーブルのアクセス制御が完了します。
+最後に、削除権限についてはカスタムチェックの下で `With same custom checks as insert, update` を選択します。
+
+![todos削除権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-delete-permission.png)
+
+`Save Permissions` をクリックすると、`todos` テーブルのアクセス制御が完了します。

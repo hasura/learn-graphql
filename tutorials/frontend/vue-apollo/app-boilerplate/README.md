@@ -1,18 +1,7 @@
-Tutorial
---------
+# Vue 3 + Vite
 
-- [Vue]https://hasura.io/learn/graphql/vue/introduction/
-- [Hasura GraphQL Endpoint](https://hasura.io/learn/graphql)
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-Tech stack
-----------
+## Recommended IDE Setup
 
-- Frontend
-    - Vue 2.6+
-    - Vue Apollo
-
-Run the Vue app
----------------
-
-Run `npm run serve` to start the todo app.
-
+- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)

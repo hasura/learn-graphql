@@ -22,6 +22,10 @@ data:
       }
 
       redir 301 {
+        /learn/database/yugabyte/ /learn/database/yugabyte/introduction
+      }
+
+      redir 301 {
         /learn/graphql/react-rxdb-offline-first/ /learn/graphql/react-rxdb-offline-first/introduction
       }
 
@@ -102,7 +106,27 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/remix-fullstack-firebase/ /learn/graphql/remix-fullstack-firebase/introduction
+      }
+
+      redir 301 {
         /learn/ja/graphql/hasura/ /learn/ja/graphql/hasura/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/hasura-auth-slack/ /learn/ja/graphql/hasura-auth-slack/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/hasura-advanced/ /learn/ja/graphql/hasura-advanced/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/intro-graphql/ /learn/ja/graphql/intro-graphql/introduction
+      }
+
+      redir 301 {
+        /learn/ja/graphql/react/ /learn/ja/graphql/react/introduction
       }
 
       redir 301 {
@@ -153,6 +177,8 @@ data:
 
       proxy /learn/database/microsoft-sql-server database-mssql
 
+      proxy /learn/database/yugabyte database-yugabyte
+
       proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
 
       proxy /learn/graphql/hasura-advanced hasura-advanced
@@ -168,6 +194,8 @@ data:
       proxy /learn/graphql/react-apollo-components react-apollo
 
       proxy /learn/graphql/react react-apollo-hooks
+
+      proxy /learn/graphql/remix-fullstack-firebase remix-fullstack-firebase
 
       proxy /learn/graphql/vue vue-apollo
 
@@ -194,6 +222,14 @@ data:
       proxy /learn/graphql/nextjs-fullstack-serverless nextjs-fullstack-serverless
 
       proxy /learn/ja/graphql/hasura hasura-backend-ja
+
+      proxy /learn/ja/graphql/hasura-auth-slack hasura-auth-slack-ja
+
+      proxy /learn/ja/graphql/hasura-advanced hasura-advanced-ja
+
+      proxy /learn/ja/graphql/intro-graphql intro-graphql-ja
+
+      proxy /learn/ja/graphql/react react-apollo-hooks-ja
 
       proxy /learn/zh/graphql/hasura hasura-backend-zh
 

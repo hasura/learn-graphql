@@ -19,7 +19,7 @@ This page shows how to create and drop a database in MS SQL Server Management St
 CREATE DATABASE database_name;
 ```
 
-- Open SSMS, and connect to the Database Engine.
+- Open SSMS and connect to the Database Engine.
 - Click **New Query** from the top ribbon bar.
 - In the Query editor, enter the following command and then press **Execute**.
 

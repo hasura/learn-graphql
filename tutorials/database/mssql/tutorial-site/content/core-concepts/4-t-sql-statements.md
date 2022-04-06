@@ -4,7 +4,7 @@ metaTitle: "T-SQL Statements | MSSQL Tutorial"
 metaDescription: "In this section, we will look into various T-SQL Statements"
 ---
 
-We will go in detail about the various T-SQL Statements.
+Let's understand different T-SQL Statements with the help of examples in the following sections:
 
 - Data types
 - Tables
@@ -12,5 +12,3 @@ We will go in detail about the various T-SQL Statements.
 - Update
 - Delete
 - Alter
-
-There would be examples for each statement to better understand the core concepts.

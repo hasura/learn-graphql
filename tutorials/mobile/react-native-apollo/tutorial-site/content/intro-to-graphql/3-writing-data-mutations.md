@@ -68,7 +68,7 @@ mutation {
       title
       is_completed
       is_public
-      created
+      created_at
     }
   }
 }

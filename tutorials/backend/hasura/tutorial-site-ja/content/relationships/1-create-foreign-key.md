@@ -1,34 +1,30 @@
 ---
-title: "外部キーの作成"
-metaTitle: "外部キーの作成 | Hasura GraphQL チュートリアル"
-metaDescription: "チュートリアルのこのパートでは Hasura コンソールを使用してテーブル列の外部キーを作成する方法について説明します"
+title: "外部キーを作成する"
+metaTitle: "外部キーを作成する | Hasura GraphQLチュートリアル"
+metaDescription: "ここでは、Hasuraコンソールを使ってテーブル列用に外部キーを作成する方法を学びます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+ `todos`テーブルでは、 `user_id`列の値が  テーブル`users`の  `id`列にあるのが理想です。そうでなければ、一貫性のないデータが発生します。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/5V7ghxVTQuY" />
+[Postgres](https://hasura.io/learn/database/postgresql/what-is-postgresql/)では、外部キー制約を定義してこの条件を強制できます。
 
-`todos` テーブルでは `user_id` カラムの値は、理想的には `users` テーブルの `id` カラムに存在する必要があります。そうしないとデータに一貫性がなくなります。
+ テーブル `todos` の  `user_id` 列用のものを定義します。
 
-Postgres ではこの条件を強制する外部キー制約を定義できます。
+コンソール -> DATA -> todos -> ページの編集に移動します。
 
-`todos` テーブルの `user_id` カラムを1つ定義しましょう。
+以下のような画面が表示されます。
 
-コンソール -> Data -> todos -> Modify ページに行きます。
+![todos変更ページ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-modify-page.png)
 
-次のようになります:
+下部の `Foreign Keys` セクションまでスクロールして、`Add` をクリックします。
 
-![Todos 編集ページ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-modify-page.png)
+![user_id外部キー](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/user-id-foreign-key.png)
 
-下にある `Foreign Keys` セクションまでスクロールし `Add` をクリックします。
+- `users` として参照テーブルを選択します。
+-  開始列を `user_id`として、終了列を `id`として選択します。
 
-![user_id 外部キー](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/user-id-foreign-key.png)
-
-- 参照テーブルを `users` として選択します
-- Fromカラムを `user_id` Toカラムを  `id` として選択します
-
-todos テーブルの user_id カラムは users テーブルの id の値の1つでなければならないことを強制しています。
+todosテーブルのuser_id列は、ユーザーテーブルのidの値の1つでなければなりません。
 
 `Save` をクリックして外部キーを作成します。
 
-すごい！ これで、データの整合性が保証されるようになります。
+完璧です。これで、データの一貫性が確保されました。

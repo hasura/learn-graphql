@@ -26,8 +26,6 @@ This will export the metadata as yaml and update the right files in the `metadat
 ├── databases
 │   ├── databases.yaml
 │   └── default
-│       ├── functions
-│       │   └── functions.yaml
 │       └── tables
 │           ├── public_channel.yaml
 │           ├── public_channel_member.yaml
@@ -40,9 +38,9 @@ This will export the metadata as yaml and update the right files in the `metadat
 │           ├── public_workspace_member.yaml
 │           ├── public_workspace_user_type.yaml
 │           └── tables.yaml
-├── inherited_roles.yaml
 ├── query_collections.yaml
-├── remote_schemas.yaml
+├── remote_schemas
+│   └── remote_schemas.yaml
 ├── rest_endpoints.yaml
 └── version.yaml
 ```

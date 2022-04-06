@@ -12,7 +12,7 @@ So, we put together a powerful and concise course that will introduce you to Gra
 
 We will explore the fundamentals of GraphQL and the especially things that make GraphQL suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
 
-## Key topics and takeways:
+## Key topics and takeaways:
 
 - [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions
@@ -23,20 +23,24 @@ We will explore the fundamentals of GraphQL and the especially things that make 
 - Building a real-time feed with notifications using mutations and subscriptions
 
 ## What will we be building?
+
 We will be building a realtime todo app using authenticated GraphQL APIs.
 
 Try this deployed version of the app to see what we'll be building:
 https://learn-hasura-todo-app.netlify.com/
 
 ## Will this course teach ReasonReact concepts as well?
+
 No, we will be simulating a scenario where we already have a GraphQL API and the basic UI of a ReasonReact app built. Our task in this scenario is to integrate the GraphQL APIs into our ReasonReact app to build a complete and working app.
 
 If you're new to ReasonReact, we recommend going through this [official tutorial](https://reasonml.github.io/reason-react) and then coming back here!
 
 ## What do I need to take this tutorial?
+
 You need to have npm/yarn & node 8+ running.
 
 ## How long will this tutorial take?
+
 Less than 2 hours
 
 ## Other courses

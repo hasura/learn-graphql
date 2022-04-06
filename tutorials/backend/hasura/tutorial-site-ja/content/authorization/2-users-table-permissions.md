@@ -1,38 +1,36 @@
 ---
-title: "users テーブルの権限の設定"
-metaTitle: "users テーブルの権限の設定 | Hasura GraphQL チュートリアル"
-metaDescription: "このチュートリアルでは Hasura コンソールを使用して、挿入、選択、更新、削除の操作を行うためのユーザーテーブルの権限を設定する方法について説明します"
+title: "ユーザーテーブル権限を設定する"
+metaTitle: "ユーザーテーブル権限を設定する | Hasura GraphQLチュートリアル"
+metaDescription: "このチュートリアルでは、Hasuraコンソールを使って操作を挿入、選択、更新、削除するため、ユーザーテーブルに権限を設定する方法を学びます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+また、`users` テーブルに対する操作の選択および更新を許可する必要があります。左側のサイドバーで、`users` テーブルをクリックして、ユーザーテーブルページに移動して、権限タブに切り替えます。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/vt7B3Fpa0qc" />
+## 権限 {#select-permission} を選択します
 
-続いて `users` テーブルへの選択および更新操作を許可する必要があります。
-左側のサイドバーで `users` テーブルをクリックして users テーブルページに移動し Permissionsタブに切り替えます。
+編集アイコン（鉛筆アイコン）をクリックして、ロールユーザーの選択権限を変更します。以下のセクションが開いて、権限を設定できます。
 
-## 選択の権限
+ここでは、ユーザーは他のすべてのユーザーの `id` と `name` データにアクセスできるはずです。
 
-「編集」アイコン（鉛筆アイコン）をクリックして、役割ユーザーの選択の権限を変更します。 これにより、下のセクションが開き、その権限の設定ができます。
+![ユーザーが権限を選択する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/users-select-permission.png)
 
-ここでユーザーは他のすべてのユーザーの `id` と ` name` データにアクセスできるはずです。
+`Save Permissions` をクリックする
 
-![users select permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/users-select-permission.png)
+## 権限 {#update-permission} を更新する
 
-`Save Permissions` をクリックします
+ログインしたユーザーは、自分のレコードだけを変更できるようにする必要があります。この権限を設定しましょう。
 
-## 更新の権限
-
-ログインしているユーザーは、自分のレコードのみを変更できる必要があります。その権限を設定しましょう。
-
-カスタムチェック内の行の更新権限で、次の条件を選択します。
+行の更新権限で、カスタムチェックで以下の条件を選択します。
 
 ```json
 {"id":{"_eq":"X-Hasura-User-Id"}}
 ```
 
-列の更新権限の下で `last_seen` 列を選択します。これは、フロントエンドアプリから更新されるためです。
+列の更新権限で、`last_seen` 列を選択します。これは、フロントエンドアプリから更新されるためです。
 
-![users update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/users-update-permission.png)
+![ユーザーが権限を更新する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/users-update-permission.png)
 
-`Save Permissions` をクリックすると `users` テーブルのアクセス制御ルールが完成します。
+`Save Permissions` をクリックすると、`users` テーブルのアクセス制御ルールが完了します。
+
+
+

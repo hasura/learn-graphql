@@ -1,28 +1,26 @@
 ---
-title: "todos テーブルの作成"
-metaTitle: "todos テーブルの作成 | Hasura GraphQL チュートリアル"
-metaDescription: "Hasuraコンソールで Data タブに移動し、Create table をクリックして、todos テーブルを作成します"
+title: "todosテーブルを作成する"
+metaTitle: "todosテーブルを作成する | Hasura GraphQLチュートリアル"
+metaDescription: "データタブに移動して、テーブルの作成をクリックして、Hasuraコンソールでtodosテーブルを作成します。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+では、もう 1 つのモデル `todos` を作成してみましょう。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/u-5n4gKQQnw" />
+`todos` テーブルには、以下の列が表示されます。
 
-次にモデル `todos` モデルの作成に移りましょう
+- `id`（タイプ整数（自動インクリメント））、
+- `title`（タイプテキスト）、
+- `is_completed`（タイプブーリアン、デフォルトはfalse）
+- `is_public`（タイプブーリアン、デフォルトはfalse）
+- `created_at`（タイムスタンプ、デフォルトはnow()）
+- `user_id`（タイプテキスト）
 
-`todos` テーブルには次のカラムを用意します:
+これらの列は、todo項目のプロパティと関連付けられています。
 
-- `id` (type integer;auto-increment)
-- `title` (type text)
-- `is_completed` (type boolean and default false)
-- `is_public` (type boolean and default false)
-- `created_at` (type timestamp and default now())
-- `user_id` (type text)
+id列をプライマリキーに設定する事を忘れないでください。
 
-各コラムは名前から意味が分かります。
+Hasuraコンソールで、`DATA` タブセクションに移動して、`Create Table` をクリックします。上記の通り、テーブルを作成する値を入力します。
 
-Hasura コンソールで、Data タブセクションに移動し、Create Table をクリックします。 上記のようにテーブルを作成するための値を入力します。
+![テーブルユーザーを作成する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-table-todos.png)
 
-![users テーブルの作成](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-table-todos.png)
-
-完了したら `Add Table` ボタンをクリックしてテーブルを作成します。
+完了後、`Add Table` ボタンをクリックして、テーブルを作成します。

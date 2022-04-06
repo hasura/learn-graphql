@@ -38,7 +38,7 @@ function (user, context, callback) {
 }
 ```
 
-![Auth0 insert rule](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-sync-rule.png)
+![Auth0 insert rule](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-auth0-sync-rule-updated.png)
 
 **Note**: Modify `x-hasura-admin-secret` and `url` parameters appropriately according to your app.
 Here we are making a request to make a mutation into `users` table.

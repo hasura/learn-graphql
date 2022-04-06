@@ -1,20 +1,16 @@
 ---
-title: "GraphQL APIs を試す"
-metaTitle: "todos の GraphQL APIs を試す | Hasura GraphQL チュートリアル"
-metaDescription: "Hasura GraphQL エンジンによってクエリ、ミューテーション、サブスクリプションが自動的に生成される todos テーブルのGraphQL APIを試してみる"
+title: "GraphQL APIのtodosの紹介"
+metaTitle: "GraphQL APIのtodosの紹介 | Hasura GraphQLチュートリアル"
+metaDescription: "todosテーブル用のGraphQL APIを見ていきます。todosテーブルには、Hasura GraphQL Engineによって、クエリ、ミューテーション、サブスクリプションが自動的に生成されます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+`users` テーブルと同様、前のステップで作成された `todos` テーブルには自動生成されたGraphQL APIがあります。それについて紹介します。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/AflCqgGu-ms" />
+それでは、`todos` テーブルのGraphQL APIを見ていきましょう。
 
-`users` テーブルと同様に、前のステップで作成された `todos` テーブルにも自動生成された GraphQL API を試すことができます。
+## ミューテーション {#mutation}
 
-それでは `todos` テーブル用の GraphQL API を見てみましょう。
-
-## ミューテーション
-
-コンソール -> GRAPHIQL から GraphQL Mutations を使用して todo を作成します。
+コンソール -> API -> GraphiQLタブに移動して、GraphQLミューテーションを使ってtodoを挿入します。
 
 ```graphql
 mutation {
@@ -24,15 +20,15 @@ mutation {
 }
 ```
 
-クエリを実行するには、GraphiQLインターフェースの `Play` ボタンをクリックします。
+GraphiQLインターフェースの `Play` ボタンをクリックして、クエリを実行します。
 
-次のようなレスポンスが得られるはずです:
+以下のような応答が得られるはずです。
 
-![Todo ミュテーション](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-mutation-todo.png)
+![todoミューテーション](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-mutation-todo.png)
 
-## クエリ
+## クエリ {#query}
 
-次に、先ほど作成したデータをクエリしてみましょう。
+それでは、先ほど挿入したデータのクエリを行いましょう。
 
 ```graphql
 query {
@@ -46,15 +42,15 @@ query {
 }
 ```
 
-次のようなレスポンスが得られるはずです:
+以下のような応答が得られるはずです。
 
-![Todo クエリ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-query-todo.png)
+![todoクエリ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-query-todo.png)
 
-作成中に値を指定しなかった場合でも `is_public` や ` is_completed` などの一部のカラムにはデフォルト値があることに注意してください。
+ミューテーション中に挿入しなくても、`is_public` や `is_completed` のような一部の列にはデフォルト値があります。
 
-## サブスクリプション
+## サブスクリプション {#subscription}
 
-`todos` テーブルに対して単純なサブスクリプションクエリを実行して、テーブルへの変更を監視してみましょう。 上記の graphql クエリで `query` を `subscription` に置き換えます
+`todos` テーブルに対してサブスクリプションクエリを実行して、テーブルの変更を確認しましょう。上記のGraphQLクエリで、`query` を `subscription` に置き換えます。
 
 ```graphql
 subscription {
@@ -68,14 +64,14 @@ subscription {
 }
 ```
 
-最初に、サブスクリプションクエリは既存の結果をレスポンスに返します。
+最初に、サブスクリプションクエリは、応答に既存の結果を返します。
 
-次に、新しいデータを todos テーブルに挿入して、レスポンスの内容を見てみましょう。
+それでは、新しいデータをtodosテーブルに挿入して、応答に表示される変更を確認しましょう。
 
-新しいタブでコンソールに行き -> Data タブ-> todos -> Insert Rowに移動し、別の行を追加します。
+新しいタブで、コンソール -> `DATA` タブ -> todo -> 行を挿入に移動して、別の行を挿入します。
 
-![新しい todo を追加](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todo-insert-new-row.png)
+![新しいtodoを挿入する](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todo-insert-new-row.png)
 
-そして前の GRAPHIQL タブに切り替えて、2つの結果を返すサブスクリプションのレスポンスを確認します。
+そして、前の `API` タブに切り替えて、2つの結果を返すサブスクリプション応答を確認します。
 
-![Todo サブスクリプション](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-subscription-todo.png)
+![todoサブスクリプション](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/graphql-subscription-todo.png)

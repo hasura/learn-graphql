@@ -1,0 +1,9 @@
+- name: SpaceXGraphql
+  definition:
+    url: https://api.spacex.land/graphql/
+    timeout_seconds: 60
+    customization:
+      type_names:
+        mapping:
+          String_comparison_exp: String_comparison_exp_spacex
+  comment: ""

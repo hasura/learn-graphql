@@ -1,22 +1,21 @@
 ---
-title: "カスタム JWT クレームのルール"
-metaTitle: "カスタム JWT クレームのルール | Hasura GraphQL チュートリアル"
-metaDescription: "JWT 内のカスタムクレームは、発信者の役割について Hasura に通知するために使用されます。これにより Hasura は 発信者が実行できることと実行できないことを決定するために必要な承認ルールを決定します。"
+title: "カスタムJWTクレームのルール"
+metaTitle: "カスタムJWTクレームのルール | Hasura GraphQLチュートリアル"
+metaDescription: "JWT内のカスタムクレームは、発信者の役割についてHasuraに通知するために使用され、Hasuraは、発信者ができることとできないことを決めるために必要な認証ルールを適用できます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+JWT内の[カスタムクレーム](https://auth0.com/docs/scopes/current/custom-claims)は、発信者の役割についてHasuraに通知するために使用され、Hasuraは、発信者ができることとできないことを決めるために必要な認証ルールを適用できます。Auth0ダッシュボードで、[ルール](https://manage.auth0.com/#/rules)に移動します。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/AAVn87dBOCU" />
+`+ Create Rule` ボタンをクリックします。次の画面で、`Empty rule` テンプレートを選択します。
 
-[カスタムクレーム](https://auth0.com/docs/scopes/current/custom-claims) は、JWT 内で Hasura に呼び出し元の役割を通知するために使用されます。これにより Hasura は必要な承認規則を適用して、呼び出し元が実行できることと実行できないことを決定します。
-Auth0ダッシュボードで [Rules](https://manage.auth0.com/#/rules) に移動します。
+ルールに `hasura-jwt-claims` と名前を付けます。
 
-次のルールを追加して `hasura-jwt-claim` の下にカスタム JWT クレームを追加します。
+以下のスクリプトをルールに追加します。
 
 ```javascript
 function (user, context, callback) {
   const namespace = "https://hasura.io/jwt/claims";
-  context.idToken[namespace] =
+  context.accessToken[namespace] =
     {
       'x-hasura-default-role': 'user',
       // do some custom logic to decide allowed roles
@@ -27,4 +26,4 @@ function (user, context, callback) {
 }
 ```
 
-![Custom JWT Claims Rule](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/custom-jwt-claims-rule.png)
+![カスタムJWTクレームルール](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/custom-jwt-claims-rule-accessToken.png)

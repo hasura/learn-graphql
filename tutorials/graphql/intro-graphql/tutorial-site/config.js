@@ -67,6 +67,11 @@ const config = {
         "name": "Chinese",
         "link": "https://hasura.io/learn/zh/graphql/intro-graphql/introduction/"
       },
+      {
+        "code": "ja",
+        "name": "Japanese",
+        "link": "https://hasura.io/learn/ja/graphql/intro-graphql/introduction/"
+      },
     ]
   },
   "newsletter": {

@@ -24,6 +24,6 @@ Refer the MS article on [Data types (Transact-SQL)](https://docs.microsoft.com/e
 
 Run the T-SQL queries to interact with MS SQL Server.
 
-This tutorial demonstrates all the examples in the query editor that is available in MS SQL Server Management Studio (SSMS) on a Windows2019 Server.
+This tutorial demonstrates all the examples in the query editor available in MS SQL Server Management Studio (SSMS) on a Windows2019 Server.
 
-> You can execute the example T-SQL queries in both Linux and Mac OS using the `sqlcmd` utility running on your OS or on a Docker container depending upon the type of MS SQL Server installation.
+> You can execute the example T-SQL queries in both Linux and Mac OS using the `sqlcmd` utility running on your OS or on a Docker container; depending upon the type of MS SQL Server installation.

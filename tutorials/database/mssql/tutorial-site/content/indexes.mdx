@@ -15,7 +15,7 @@ Indexes are classified as primary, clustered, and secondary indexes.
 ### Clustered Index
 
 A clustered index determines the physical order of data in a table. In other words, an index decides the sequence in which the data gets stored in that table.
-When you create a primary key, a default clustered index is created on the column and all the rows get sorted based on the primary key column.
+When you create a primary key, a default clustered index is created on the column, and all the rows get sorted based on the primary key column.
 There can only be one clustered index in a table.
 
 * Step 1. Create a table with no Primary Key
@@ -75,9 +75,9 @@ Re-run the above select query.
 
 ![Clustered index seek](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/clusteredIndex_on_PK_ID.png)
 
-The query analyzer now seeks ID in the clustered index and scans the column 'ID' alone. Number of rows read are just 1 in this case. Also, the estimated subtree cost is now reduced to 0.003281.
+The query analyzer now seeks ID in the clustered index and scans the column 'ID' alone. The number of rows read are just 1 in this case. Also, the estimated subtree cost is reduced to 0.003281.
 
-As an alternative method, you can explicitly create a clustered index in a table.
+As an alternate method, you can explicitly create a clustered index in a table.
 
 #### Create a Clustered Index
 
@@ -101,7 +101,7 @@ To summarize, the select query on clustered indexed column(s) first scans throug
 
 ### Nonclustered Index
 
-A nonclustered index creates a separate index table to store the sorted column values, and a pointer reference to the records called the ROWID (Pseudocolumn).
+A nonclustered index creates a separate index table to store the sorted column values; and a pointer reference to the records called the ROWID (Pseudocolumn).
 A ROWID is a unique hexadecimal value that stores the actual physical address of a row.
 
 Querying a table based on a column that is not indexed results in a high subtree cost.
@@ -112,7 +112,7 @@ SELECT * FROM Humanresources.emp WHERE NAME='name82488'
 
 ![No index on name column](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/noIndex_on_Name.png)
 
-Once you create a nonclustered index on the 'Name' column, the execution plan follows an optimized sequence to query the result.
+Once you create a non-clustered index on the 'Name' column, the execution plan follows an optimized sequence to query the result.
 
 #### Create a nonclustered Index
 
@@ -128,7 +128,7 @@ Re-run the above select query-
 
 The execution plan is read from right to left and top to bottom.
 
-1. The analyzer scans through the nonclustered index on the 'name' column for the matching value. And then the corresponding pointer address(RowID) of the row is picked.
+1. The analyzer scans through the non-clustered index on the 'name' column for the matching value. And then the corresponding pointer address(RowID) of the row is picked.
 
     ![Index seek](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/1_IndexSeek.png)
 
@@ -142,7 +142,7 @@ The execution plan is read from right to left and top to bottom.
 
 1. The final select query prints the record with an improved Subtree cost from 1.09254 to 0.00657.
 
-    ![Subtree cost after nonclustered index](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/nonclustered-subtree-cost-improved.png)
+    ![Subtree cost after non-clustered index](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-mssql/nonclustered-subtree-cost-improved.png)
 
 ## Drop Index
 
@@ -153,6 +153,6 @@ ALTER TABLE Humanresources.emp
 DROP NC_EMP_NAME
 ```
 
-As a best practice, create a single clustered index in a table and create a nonclustered index only on the most queried columns.
+As a best practice, create a single clustered index in a table and create a non-clustered index only on the most queried columns.
 
 > Note: The Operator/Subtree/CPU cost in the execution plan vary depending on your system resources allocation.

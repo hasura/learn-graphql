@@ -1,23 +1,19 @@
 ---
-title: "リレーションシップの作成"
-metaTitle: "リレーションシップの作成 | Hasura GraphQL チュートリアル"
-metaDescription: "チュートリアルのこの部分では Hasura コンソールを使用して2つのテーブル間のリレーションシップを作成する方法について説明します"
+title: "リレーションシップを作成する"
+metaTitle: "リレーションシップを作成する | Hasura GraphQLチュートリアル"
+metaDescription: "ここでは、Hasuraコンソールを使って2つのテーブル間のリレーションシップを作成する方法を学びます。"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
+これで外部キー制約が作成されたため、Hasuraコンソールがそれに基づき自動的にリレーションシップを提案します。
 
-<YoutubeEmbed link="https://www.youtube.com/embed/D0QthrXu_Jc" />
+`todos` テーブルにある `Relationships` タブに移動して、以下の提案されたリレーションシップを確認する必要があります。
 
-外部キー制約が作成されたので Hasura Console はそれに基づいてリレーションシップを自動的に提案します。
+![todosリレーションシップページ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-relationship-page.png)
 
-`todos` テーブルの下の `Relationships` タブに移動すると、以下のような提案された関係が表示されます。
+提案されたオブジェクトリレーションシップで `Add` をクリックします。
 
-![Todos Relationships Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-relationship-page.png)
+`user`（事前に入力済み）としてリレーションシップ名を入力して、`Save` をクリックします。
 
-提案されたオブジェクト関係で `Add` をクリックします。
+![ユーザーオブジェクトリレーションシップ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-relationship-user.png)
 
-リレーションシップ名を `user`（すでに入力済み）として入力し `Save` をクリックします。
-
-![User Object Relationship](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-relationship-user.png)
-
-これで todos と users テーブルの間に関係が確立されました。
+これでtodosとユーザーテーブル間でリレーションシップが確立されます。

@@ -37,7 +37,7 @@ query {
 
 ## メタデータでのAllowlist {#allowlist-through-metadata}
 
-queryはcollectionに保存でき、collectionはallow-listによって追加・削除できます。collectionは次の [ APIs ](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections.html#api-query-collections) によって追加できます
+queryはcollectionに保存でき、collectionはallow-listによって追加・削除できます。collectionは次の [ APIs ](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections/#api-query-collections) によって追加できます
 
 ## HasuraクラウドでのAllowlist {#allowlist-through-hasura-cloud}
 

@@ -67,10 +67,10 @@ This will provision the database on the app you have selected.
 
 For production use cases, there are managed Postgres solutions from various cloud providers.
 
-- Aiven - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/aiven.html)
-- Amazon RDS - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/aws-postgres.html)
-- Azure Postgres - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/azure.html)
-- DigitalOcean - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/digital-ocean.html)
-- Google Cloud SQL - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/gcp.html)
+- Aiven - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/aiven/)
+- Amazon RDS - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/aws-postgres/)
+- Azure Postgres - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/azure/)
+- DigitalOcean - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/digital-ocean/)
+- Google Cloud SQL - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/gcp/)
 
 You can also find the comprehensive list of officially recognised [Cloud Providers for hosting PostgreSQL](https://www.postgresql.org/support/professional_hosting/).

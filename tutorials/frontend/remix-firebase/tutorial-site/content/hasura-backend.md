@@ -8,9 +8,9 @@ import GithubLink from "../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/docker-compose.yml" text="docker-compose.yml" />
 
-Make sure the [Hasura CLI is installed](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)
+Make sure the [Hasura CLI is installed](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/)
 
-1. [Download the Hasura Docker compose](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple.html#step-1-get-the-docker-compose-file) file to the project root
+1. [Download the Hasura Docker compose](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple/#step-1-get-the-docker-compose-file) file to the project root
 
 2. Modify the graphql-engine service to point to our own Dockerfile
 

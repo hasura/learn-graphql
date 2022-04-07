@@ -6,7 +6,7 @@ metaDescription: "这一部分将介绍如何通过该 Auth0 应用程序连接 
 
 这一部分将介绍如何通过你刚刚在上一步中创建的 Auth0 应用程序连接 Hasura。
 
-在此之前，我们需要通过管理员密码保护我们的端点。 目前为止，GraphQL 端点还未加密，任何人都可以查询和管理数据。 [阅读文档](https://hasura.io/docs/latest/graphql/cloud/projects/secure.html#adding-an-admin-secret)，了解如何将管理员密码添加到 Hasura Cloud 项目中。
+在此之前，我们需要通过管理员密码保护我们的端点。 目前为止，GraphQL 端点还未加密，任何人都可以查询和管理数据。 [阅读文档](https://hasura.io/docs/latest/graphql/cloud/projects/secure/#adding-an-admin-secret))，了解如何将管理员密码添加到 Hasura Cloud 项目中。
 
 在添加管理员密码后，我们需要配置 Hasura，以使用 Auth0 公钥。 使用以下链接生成 JWT 配置更简单 - [https://hasura.io/jwt-config/](https://hasura.io/jwt-config/)
 

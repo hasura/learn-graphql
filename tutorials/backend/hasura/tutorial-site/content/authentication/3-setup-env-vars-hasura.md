@@ -6,7 +6,7 @@ metaDescription: "In this part, you will learn how to connect Hasura with the Au
 
 In this part, you will learn how to connect Hasura with the Auth0 application that you just created in the previous step.
 
-Before we do that, we need to secure our endpoint with an admin secret. Right now, the GraphQL endpoint is open and anybody can query and manage the data. [Read docs](https://hasura.io/docs/latest/graphql/cloud/projects/secure.html#adding-an-admin-secret) on how to add an admin secret to a Hasura Cloud project.
+Before we do that, we need to secure our endpoint with an admin secret. Right now, the GraphQL endpoint is open and anybody can query and manage the data. [Read docs](https://hasura.io/docs/latest/graphql/cloud/projects/secure/#adding-an-admin-secret)) on how to add an admin secret to a Hasura Cloud project.
 
 Once an admin secret is added, we need to configure Hasura to use the Auth0 public keys. An easier way to generate the config for JWT is to use the following link - [https://hasura.io/jwt-config/](https://hasura.io/jwt-config/)
 

@@ -9,7 +9,7 @@ Now let's move to the second use-case of sending an email when a user registers 
 When the user registers on the app using Auth0, we insert a new row into the `users` table to keep the user data in sync. Remember the Auth0 rule we wrote during signup to make a mutation?
 
 This is an `insert` operation on table `users`.
-The payload for each event is mentioned [here](https://hasura.io/docs/latest/graphql/core/event-triggers/payload.html#json-payload)
+The payload for each event is mentioned [here](https://hasura.io/docs/latest/graphql/core/event-triggers/payload/#json-payload)
 
 Now we are going to capture this insert operation to trigger our event.
 

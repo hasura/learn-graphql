@@ -43,7 +43,7 @@ const config = {
     links: [
       {
         text: "Hasura Docs",
-        link: "https://hasura.io/docs/latest/graphql/core/index.html",
+        link: "https://hasura.io/docs/latest/graphql/core/index/",
       },
       {
         text: "GraphQL API",
@@ -71,6 +71,11 @@ const config = {
         code: "ja",
         name: "Japanese",
         link: "https://hasura.io/learn/ja/graphql/hasura/introduction/"
+      },
+      {
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/hasura/introduction/"
       },
       {
         code: "zh",

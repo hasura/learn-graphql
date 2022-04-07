@@ -6,9 +6,9 @@ metaDescription: "Hasuraによる認証は、JWT、ウェブフック、未認�
 
 Hasuraによる認証は、以下の方法で実装できます。
 
-- [ JWT ](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html)
-- [ Webhooks ](https://hasura.io/docs/latest/graphql/core/auth/authentication/webhook.html)
-- [ 未認証のパブリックアクセス ](https://hasura.io/docs/latest/graphql/core/auth/authentication/unauthenticated-access.html)
+- [ JWT ](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/)
+- [ Webhooks ](https://hasura.io/docs/latest/graphql/core/auth/authentication/webhook/)
+- [ 未認証のパブリックアクセス ](https://hasura.io/docs/latest/graphql/core/auth/authentication/unauthenticated-access/)
 
 上記のすべてのケースにおいて、最初に `admin secret` を設定することが重要です。
 

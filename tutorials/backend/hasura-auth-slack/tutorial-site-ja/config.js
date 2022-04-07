@@ -11,7 +11,7 @@ const config = {
 		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/'>hasura</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
-		"tweetText": "@HasuraHQ https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/ フロントエンド開発者向けのこのHasuraGraphQLバックエンド認証コースをチェックしてください",
+		"tweetText": "Check out this Hasura GraphQL Auth backend course by @HasuraHQ in Japanese https://hasura.io/learn/ja/graphql/hasura-auth-slack/introduction/",
 		"links": [{
 			"text": "",
 			"link": ""
@@ -38,7 +38,7 @@ const config = {
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://hasura.io/docs/latest/graphql/core/index.html"
+			"link": "https://hasura.io/docs/latest/graphql/core/index/"
 			},
 			{
 			"text": "GraphQL API",
@@ -57,6 +57,16 @@ const config = {
     "code": "ja",
     "name": "Japanese",
     "translations": [
+      {
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/hasura-auth-slack/introduction/"
+      },
+      {
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/hasura-auth-slack/introduction/"
+      },
       {
         "code": "en",
         "name": "English",

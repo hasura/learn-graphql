@@ -16,7 +16,7 @@ build_image() {
     docker push hasura/$1$2:$GIT_HASH
     echo "Updating kubernetes deployment"
     echo "kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH"
-    #kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH
+    kubectl set image deployment $1$2 $1$2=hasura/$1$2:$GIT_HASH
 }
 
 # go to each folder, build docker image and push
@@ -59,6 +59,11 @@ tutorials() {
                         if [[ -d "tutorial-site-ja" ]]; then
                             cd "tutorial-site-ja"
                             build_image $current_tutorial "-ja"
+                            cd ".."
+                        fi
+                        if [[ -d "tutorial-site-es" ]]; then
+                            cd "tutorial-site-es"
+                            build_image $current_tutorial "-es"
                             cd ".."
                         fi
                         cd "tutorial-site"

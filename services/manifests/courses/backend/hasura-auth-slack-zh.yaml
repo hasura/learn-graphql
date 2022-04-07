@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hasura-auth-slack-zh
+  name: hasura-auth-slack-zh
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hasura-auth-slack-zh
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 100%
+  template:
+    metadata:
+      labels:
+        app: hasura-auth-slack-zh
+    spec:
+      containers:
+      - image: hasura/base-git-image:0.7
+        imagePullPolicy: IfNotPresent
+        name: hasura-auth-slack-zh
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hasura-auth-slack-zh
+  name: hasura-auth-slack-zh
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: hasura-auth-slack-zh
+  type: ClusterIP

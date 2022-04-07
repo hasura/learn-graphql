@@ -13,7 +13,7 @@ const config = {
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:
-      "Check out this Introduction to Hasura GraphQL backend course for frontend developers by @HasuraHQ https://hasura.io/learn/zh/graphql/hasura/introduction/",
+      "Check out this Introduction to Hasura GraphQL backend course for frontend developers by @HasuraHQ in Chinese https://hasura.io/learn/zh/graphql/hasura/introduction/",
     links: [
       {
         text: "",
@@ -43,7 +43,7 @@ const config = {
     links: [
       {
         text: "Hasura Docs",
-        link: "https://hasura.io/docs/latest/graphql/core/index.html",
+        link: "https://hasura.io/docs/latest/graphql/core/index/",
       },
       {
         text: "GraphQL API",
@@ -71,6 +71,11 @@ const config = {
         code: "ja",
         name: "Japanese",
         link: "https://hasura.io/learn/ja/graphql/hasura/introduction/"
+      },
+      {
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/hasura/introduction/"
       },
       {
         code: "en",

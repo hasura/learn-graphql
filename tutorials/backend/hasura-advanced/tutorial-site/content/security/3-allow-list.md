@@ -37,7 +37,7 @@ Similarly this can be added via a file upload by manually uploading a graphql fi
 
 ## Allowlist through Metadata {#allowlist-through-metadata}
 
-Queries can be stored in collections and a collection can be added to or removed from the allow-list. A collection can be added through the following [APIs](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections.html#api-query-collections)
+Queries can be stored in collections and a collection can be added to or removed from the allow-list. A collection can be added through the following [APIs](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections/#api-query-collections)
 
 ## Allowlist through Hasura Cloud {#allowlist-through-hasura-cloud}
 

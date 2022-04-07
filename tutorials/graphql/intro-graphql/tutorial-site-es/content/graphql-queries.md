@@ -1,5 +1,5 @@
 ---
-title: Consultas: búsqueda de datos
+title: Consultas - búsqueda de datos
 metaTitle: "Consultas de GraphQL para buscar datos | Tutorial de GraphQL"
 metaDescription: "Pruebe las consultas de GraphQL usando GraphiQL. Un ejemplo de consulta de GraphQL con parámetros, argumentos y variables para buscar datos dinámicamente"
 ---

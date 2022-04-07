@@ -1,5 +1,5 @@
 ---
-title: Mutaciones: escritura de datos
+title: Mutaciones - escritura de datos
 metaTitle: "Mutaciones de GraphQL para insertar datos | Tutorial de GraphQL"
 metaDescription: "Pruebe la mutación de GraphQL utilizando GraphiQL. Un ejemplo de mutación de GraphQL con argumentos dinámicos y variables para insertar datos"
 ---

@@ -23,4 +23,5 @@ In the Hasura Console, head over to the `DATA` tab section and click on `Create 
 
 ![Create table users](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-table-todos.png)
 
+Change the field type of the user_id field to integer instead of text.
 Once you are done, click on `Add Table` button to create the table.

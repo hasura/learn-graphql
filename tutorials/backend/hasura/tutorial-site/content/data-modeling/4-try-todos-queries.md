@@ -14,7 +14,7 @@ Head over to Console -> API -> GraphiQL tab and insert a todo using GraphQL Muta
 
 ```graphql
 mutation {
-  insert_todos(objects:[{title: "My First Todo", user_id: "1"}]) {
+  insert_todos(objects:[{id: "1", title: "My First Todo", user_id: "1"}]) {
     affected_rows
   }
 }

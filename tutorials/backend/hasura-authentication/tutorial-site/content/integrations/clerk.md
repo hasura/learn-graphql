@@ -1,7 +1,7 @@
 ---
 title: "Clerk"
 metaTitle: "Clerk | Hasura Authentication Tutorial"
-metaDescription: ""
+metaDescription: "Learn how to integrate Clerk with Hasura to add sign-up, sign-in, and user profiles into your applications."
 ---
 
 ## What is Clerk

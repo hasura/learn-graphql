@@ -21,7 +21,7 @@ Click on `Save Permissions`
 
 The user who is logged in should be able to modify only their own record. So let’s set that permission now.
 
-In the Row update permission, under custom check, choose the following condition.
+Now click on edit icon for "update" permissions. In the pre-update custom check, choose `With custom check` with following condition.
 
 ```json
 {"id":{"_eq":"X-Hasura-User-Id"}}
@@ -29,7 +29,7 @@ In the Row update permission, under custom check, choose the following condition
 
 Under column update permissions, select `last_seen` column, as this will be updated from the frontend app.
 
-![users update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/users-update-permission.png)
+![users update permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/new-users-pre-update-post-update-permissions.png)
 
 Click on `Save Permissions` and you are done with access control rules for `users` table.
 

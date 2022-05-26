@@ -12,7 +12,7 @@ Express is a fast, unopinionated, minimalist web framework for Node.js. Using th
 
 ### Add Admin Secret to Hasura
 
-To use authentication with Hasura first we need to set an admin secret via the `HASURA_GRAPHQL_ADMIN_SECRET` enviroment variable. For this tutorial we'll use `myadminsecretkey`
+To use authentication with Hasura first we need to set an admin secret via the `HASURA_GRAPHQL_ADMIN_SECRET` environment variable. For this tutorial, we'll use `myadminsecretkey`
 
 ### Create User Table
 
@@ -34,13 +34,13 @@ Configure the `user` role to deny all permissions except selecting where id \_eq
 
 In your empty project folder run `npm init` and change the start script to `ts-node src/index.ts`
 
-Install development dependecies
+Install development dependencies
 
 ```bash
 npm i -D ts-node typescript @types/bcrypt @types/express @types/jsonwebtoken @types/node
 ```
 
-and regular dependincies
+and regular dependencies
 
 ```bash
 npm i bcrypt express graphql-request jsonwebtoken
@@ -242,7 +242,7 @@ curl --request POST \
 
 #### Integrate the Express JWT with Hasura
 
-We tell Hasura how to authenticate the JWT using the [`HASURA_GRAPHQL_JWT_SECRET` enviroment variable](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/#configuring-jwt-mode). By default `jsonwebtoken` uses the HS256 algorithm and we set the secret to the same value as in our Express server.
+We tell Hasura how to authenticate the JWT using the [`HASURA_GRAPHQL_JWT_SECRET` environment variable](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/#configuring-jwt-mode). By default `jsonwebtoken` uses the HS256 algorithm and we set the secret to the same value as in our Express server.
 
 ```env
 HASURA_GRAPHQL_JWT_SECRET: '{ "type": "HS256", "key": "this-is-a-generic-HS256-secret-key-and-you-should-really-change-it" }'
@@ -254,4 +254,4 @@ HASURA_GRAPHQL_JWT_SECRET: '{ "type": "HS256", "key": "this-is-a-generic-HS256-s
 
 Using the `register` or `login` endpoint get a working JWT token. You can check the token at [https://jwt.io](https://jwt.io/).
 
-Open up the Hasura API Explorer GUI and uncheck the `x-hasura-admin-secret` header. If your permissions are setup properly you shouldn't be able to query anything. Now add an `Authorization` header with the value being `Bearer <your JWT token>`. If your setup worked properly you should be able to query your user!
+Open up the Hasura API Explorer GUI and uncheck the `x-hasura-admin-secret` header. If your permissions are set up properly you shouldn't be able to query anything. Now add an `Authorization` header with the value being `Bearer <your JWT token>`. If your setup worked properly you should be able to query your user!

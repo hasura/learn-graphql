@@ -15,7 +15,7 @@ metaDescription: "教程的这一部分介绍如何选择正确的身份验证�
 
 由身份验证服务器发出 JWT 令牌的常见架构如下所示：
 
-![JWT 模式](https://hasura.io/docs/latest/_images/jwt-auth1.png)
+![JWT 模式](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/jwt-mode.png)
 
 身份验证服务器向该应用程序发出含有相关 `x-hasura-*` 声明的 JWT 令牌，然后由应用程序将令牌发送至 Hasura GraphQL 引擎。Hasura 然后验证该声明，以允许请求通过。
 
@@ -25,7 +25,7 @@ metaDescription: "教程的这一部分介绍如何选择正确的身份验证�
 
 使用 webhook 的架构如下所示：
 
-![Webhook 模式](https://hasura.io/docs/latest/_images/webhook-auth1.png)
+![Webhook 模式](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/webhook-mode.png)
 
 ### 未经身份验证的模式 {#unauthenticated-mode}
 

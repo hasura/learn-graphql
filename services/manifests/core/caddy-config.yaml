@@ -86,6 +86,10 @@ data:
       }
 
       redir 301 {
+        /learn/graphql/hasura-authentication / /learn/graphql/hasura-authentication/introduction
+      }
+
+      redir 301 {
         /learn/graphql/hasura-advanced/ /learn/graphql/hasura-advanced/introduction
       }
 
@@ -212,6 +216,8 @@ data:
       proxy /learn/database/yugabyte database-yugabyte
 
       proxy /learn/graphql/hasura-auth-slack hasura-auth-slack
+
+      proxy /learn/graphql/hasura-authentication hasura-authentication
 
       proxy /learn/graphql/hasura-advanced hasura-advanced
 

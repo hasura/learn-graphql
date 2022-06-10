@@ -15,7 +15,7 @@ Puede configurar el motor de GraphQL para utilizar el modo de autorización JWT 
 
 Una arquitectura típica con el servidor de autenticación que emite JWT se parece a lo siguiente:
 
-![Modo JWT](https://hasura.io/docs/latest/_images/jwt-auth1.png)
+![Modo JWT](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/jwt-mode.png)
 
 El servidor de autenticación emite tokens JWT con los reclamos `x-hasura-*` relevantes a la aplicación que luego envía el token al motor de GraphQL de Hasura. Hasura entonces valida los reclamos para permitir que la solicitud pase.
 
@@ -25,7 +25,7 @@ También puede configurar el motor de GraphQL para utilizar el modo Webhook. Su 
 
 La arquitectura con webhook se parece a la siguiente:
 
-![Modo Webhook](https://hasura.io/docs/latest/_images/webhook-auth1.png)
+![Modo Webhook](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/webhook-mode.png)
 
 ### Modo no autenticado {#unauthenticated-mode}
 

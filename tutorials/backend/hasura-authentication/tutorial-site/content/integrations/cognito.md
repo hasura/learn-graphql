@@ -1,7 +1,7 @@
 ---
-title: “Amazon Cognito”
-metaTitle: “Amazon Cognito | Hasura Authentication Tutorial”
-metaDescription: “Learn how to integrate Amazon Cognito with Hasura to secure your applications.”
+title: "Amazon Cognito"
+metaTitle: "Amazon Cognito | Hasura Authentication Tutorial"
+metaDescription: "Learn how to integrate Amazon Cognito with Hasura to secure your applications."
 ---
 
 ## What is Amazon Cognito?

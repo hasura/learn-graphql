@@ -12,7 +12,7 @@ It comes in two flavors:
 * self-hosted - unlimited users and free forever
 * managed version by SuperTokens - free up to 5K monthly active users
 
-> **Note**: The tutorial uses the managed version of SuperTokens. Also, the auth API is built using NodeJS.
+**Note**: The tutorial uses the managed version of SuperTokens. Also, the auth API is built using NodeJS.
 
 ## Set up SuperTokens
 

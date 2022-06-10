@@ -1,7 +1,7 @@
 ---
-title: “Keycloak”
-metaTitle: “Keycloak | Hasura Authentication Tutorial”
-metaDescription: “Learn how to integrate Keycloak with Hasura to secure your applications.”
+title: "Keycloak"
+metaTitle: "Keycloak | Hasura Authentication Tutorial"
+metaDescription: "Learn how to integrate Keycloak with Hasura to secure your applications."
 ---
 
 ## What is Keycloak?

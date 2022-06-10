@@ -4,7 +4,9 @@ metaTitle: "Authentication Modes | Hasura Authentication Tutorial"
 metaDescription: "This part of the tutorial covers how to choose the right auth mode"
 ---
 
-In this part, we will look at the different modes for Authentication. Authentication is handled outside of Hasura. You can bring in your own Auth server and integrate it with Hasura. There are broadly two options available.
+In this part, we will look at the different modes for Authentication. 
+
+The key part to understand is that, Authentication is handled outside of Hasura. You can bring in your own Auth server or use any of the Authentication providers that support JWT and integrate it with Hasura. There are broadly two options available to achieve this:
 
 - JWT Mode
 - Webhook Mode

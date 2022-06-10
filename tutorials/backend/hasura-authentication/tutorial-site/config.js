@@ -34,10 +34,10 @@ const config = {
       "/authentication-modes/",
       "/jwt-basics/",
       "/integrations/",
-      "/use-cases/",
       "/webhook-mode/",
       "/what-next/",
     ],
+    collapsedNav: [],
     links: [
       {
         text: "Hasura Docs",

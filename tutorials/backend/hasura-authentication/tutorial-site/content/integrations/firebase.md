@@ -283,11 +283,11 @@ firebase init
 
 That will prompt you to answer a series of questions. Choose the following:
 
-* **? Please select an option**: Use an existing project
-* **? Select a default Firebase project for this directory**: <choose-your-project>
-* **? What do you want to use as your public directory?**: app
-* **? Configure as a single-page app (rewrite all urls to /index.html)?**: No
-* **? Set up automatic builds and deploys with GitHub?**: No
-* **? File app/index.html already exists. Overwrite?**: No
+* Please select an option: Use an existing project
+* Select a default Firebase project for this directory: Choose your project
+* What do you want to use as your public directory?: app
+* Configure as a single-page app (rewrite all urls to /index.html)?: No
+* Set up automatic builds and deploys with GitHub?: No
+* File app/index.html already exists. Overwrite?: No
     
 After answering the questions, the app will be deployed within minutes. You will get the public app URL in your terminal.

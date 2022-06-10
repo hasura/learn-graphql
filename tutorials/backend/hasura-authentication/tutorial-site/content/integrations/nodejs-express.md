@@ -1,7 +1,7 @@
 ---
 title: "Node.js Express"
 metaTitle: "Node.js Express | Hasura Authentication Tutorial"
-metaDescription: "Learn how to integrate a custom Node.js express server with Hasura to add sign-up and sign-in into your applications."
+metaDescription: "Learn how to integrate a custom Node.js express server with Hasura to add sign-up and sign-in into your applications using JWT"
 ---
 
 ## What is Express

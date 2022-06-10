@@ -1,7 +1,7 @@
 ---
 title: "Authentication Modes"
 metaTitle: "Authentication Modes | Hasura Authentication Tutorial"
-metaDescription: "This part of the tutorial covers how to choose the right auth mode"
+metaDescription: "This part of the tutorial covers how to choose the right authentication mode in Hasura"
 ---
 
 In this part, we will look at the different modes for Authentication. 

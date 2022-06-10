@@ -1,7 +1,7 @@
 ---
 title: "SuperTokens"
 metaTitle: "SuperTokens | Hasura Authentication Tutorial"
-metaDescription: "SuperTokens is an Open-Source Auth provider that enables you to implement authentication and session management into your applications."
+metaDescription: "SuperTokens is an Open-Source Auth provider that enables you to implement authentication and session management into your applications. Learn how to integrate SuperTokens with Hasura using JWT"
 ---
 
 ## What is SuperTokens

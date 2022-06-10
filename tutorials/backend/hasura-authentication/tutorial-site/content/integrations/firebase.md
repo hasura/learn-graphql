@@ -1,7 +1,7 @@
 ---
 title: "Firebase"
 metaTitle: "Firebase | Hasura Authentication Tutorial"
-metaDescription: "Firebase enables you to add authentication to your applications."
+metaDescription: "Firebase enables you to add authentication to your applications. Learn how to integrate Firebase with Hasura using JWT"
 ---
 
 ## What is Firebase

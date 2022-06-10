@@ -1,7 +1,7 @@
 ---
 title: "NextAuth.js"
 metaTitle: "NextAuth.js | Hasura Authentication Tutorial"
-metaDescription: "Learn how to integrate NextAuth.js with Hasura to add sign-up and sign-in into your applications."
+metaDescription: "Learn how to integrate NextAuth.js with Hasura to add sign-up and sign-in into your applications using JWT"
 ---
 
 ## What is Express

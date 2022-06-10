@@ -1,7 +1,7 @@
 ---
 title: "Auth0"
 metaTitle: "Auth0 | Hasura Authentication Tutorial"
-metaDescription: "Auth0 is a service that allows you to integrate authentication and authorization into your applications."
+metaDescription: "Auth0 is a service that allows you to integrate authentication and authorization into your applications. Learn how to integrate Auth0 with Hasura using JWT"
 ---
 
 ## What is Auth0

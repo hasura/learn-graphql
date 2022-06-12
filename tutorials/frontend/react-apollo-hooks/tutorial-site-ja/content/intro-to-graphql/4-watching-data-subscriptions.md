@@ -13,7 +13,7 @@ GraphQLサブスクリプションは、アプリへのリアルタイム機能�
 
 ## 初めてのGraphQLサブスクリプションを作成しましょう
 
-ステップ1：https://hasura.io/learn/graphql/graphiqlに移動しますステップ2：テキストエリアに以下のGraphQL queryを書き込みます。
+ステップ1：https://hasura.io/learn/graphql/graphiql に移動します。ステップ2：テキストエリアに以下のGraphQL queryを書き込みます。
 
 ```graphql
 subscription {

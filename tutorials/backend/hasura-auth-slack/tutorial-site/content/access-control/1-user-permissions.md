@@ -33,8 +33,12 @@ The expanded valid boolean expression of the above statement looks like this:
     },
     {
       "workspace_members": {
-        "user_id": {
-          "_eq": "X-Hasura-User-Id"
+        "workspace": {
+          "workspace_members": {
+            "user_id": {
+              "_eq": "X-Hasura-User-Id"
+            }
+          }
         }
       }
     }

@@ -131,7 +131,7 @@ This is what the API "schema" looks like:
 
 ![Schema](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/schema.png)
 
-The schema is a graph-like schema where all the 3 models are linked to each other. Since all 3 modes are linked, we can use nested queries. GraphQL nested queries allow you to fetch relational data in one request.
+The schema is a graph-like schema where all the 3 models are linked to each other. Since all 3 models are linked, we can use nested queries. GraphQL nested queries allow you to fetch relational data in one request.
 
 In the context of the todo application, you can fetch the users and their todos in one request with nested queries.
 

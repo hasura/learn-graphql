@@ -5,9 +5,6 @@ metaDescription: "Integrate Vue Apollo Smart Subscription to watch for changes i
 ---
 
 import GithubLink from "../../src/GithubLink.js";
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/E5Is7bshZXM" />
 
 ## Add subscription query
 
@@ -15,7 +12,7 @@ So let's define the graphql subscription to be used.
 
 Open `src/components/OnlineUsers.vue` and add the following code, below the other import.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
 
 ```javascript
 <script>

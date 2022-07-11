@@ -5,9 +5,6 @@ metaDescription: "You will learn how to configure Apollo Client in Vue by instal
 ---
 
 import GithubLink from "../src/GithubLink.js";
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/iph-ERuYx_Y" />
 
 Apollo gives a neat abstraction layer and an interface to your GraphQL server. You don't need to worry about constructing your queries with a request body, headers, and options, that you might have done with `axios` or `fetch`.
 You can directly write queries and mutations in GraphQL and they will automatically be sent to your server via your apollo client instance.
@@ -22,7 +19,7 @@ $ npm install --save @apollo/client @vue/apollo-composable @vue/apollo-util grap
 ### Create Apollo Client Instance
 Open `src/apollo-client.ts` and add the following code to create an ApolloClient instance.
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/apollo-client.ts" text="src/apollo-client.ts" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/apollo-client.ts" text="src/apollo-client.ts" />
 
 ```ts
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client/core"

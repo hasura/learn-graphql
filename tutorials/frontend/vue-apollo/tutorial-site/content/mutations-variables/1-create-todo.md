@@ -4,10 +4,6 @@ metaTitle: "Mutation to create todos | GraphQL Vue 3 Apollo Tutorial"
 metaDescription: "GraphQL Mutation to create new personal todos. Try the mutation in GraphiQL, passing the Authorization token to get authenticated results."
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/S6R2aQ3z2f4" />
-
 In this part of the tutorial, you will learn how to create new todos by using GraphQL Mutations.
 
 Let's define a graphql mutation to perform insert into todos. In the file `src/graphql-operations/index.ts`, add the following:

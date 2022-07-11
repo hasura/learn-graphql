@@ -5,9 +5,6 @@ metaDescription: "GraphQL Mutation to update last seen of user to make them avai
 ---
 
 import GithubLink from "../src/GithubLink.js";
-import YoutubeEmbed from "../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/gbyHMbDtF-c" />
 
 We cruised through our GraphQL queries and mutations. We queried for todos, added a new todo, updated an existing todo, removed an existing todo.
 
@@ -30,7 +27,7 @@ The goal is to update every few seconds from the client that you are online. Ide
 
 Open `src/components/OnlineUsers.vue` and add the following imports and set the client prop in the constructor
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/OnlineUsers.vue" text="src/components/OnlineUsers.vue" />
 
 ```vue
 <script setup lang="ts">

@@ -2,7 +2,7 @@
 title: "架构"
 metaTitle: "GraphQL 架构 | GraphQL React Apollo Hooks 教程"
 metaDescription: "以http请求为例，了解GraphQL的架构、HTTP的GraphQL 、客户端服务器模型"
-canonicalUrl: "https://hasura.io/learn/graphql/ intra-graphql/what-is-graphql/"
+canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/what-is-graphql/"
 ---
 
 在进一步了解GraphQL之前，了解一下如何是很有用的GraphQL实际上是在HTTP客户端中使用（通常是网络/移动应用）。

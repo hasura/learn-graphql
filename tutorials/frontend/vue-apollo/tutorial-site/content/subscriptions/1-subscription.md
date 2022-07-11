@@ -16,7 +16,7 @@ Now we need to update our `ApolloClient` instance to point to the subscription s
 
 Open `src/apollo-client.ts` and update the following imports:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/apollo-client.ts" text="src/apollo-client.ts" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/apollo-client.ts" text="src/apollo-client.ts" />
 
 ```ts
 - import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client/core"

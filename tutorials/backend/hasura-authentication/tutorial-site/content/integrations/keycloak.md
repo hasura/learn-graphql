@@ -140,7 +140,7 @@ The first Protocol Mapper is for the allowed roles. Add the following values:
 * **Client ID** - your client
 * **Multivalued** - ON
 * **Token Claim Name** - `https://hasura\.io/jwt/claims.x-hasura-allowed-roles`
-* **Claim JSON Type**: JSON
+* **Claim JSON Type**: String
 
 Then save it!
 
@@ -162,7 +162,7 @@ The last Protocol Mapper is for the user id. Add the following values:
 * **Mapper Type** - User Property
 * **Property** - id
 * **Token Claim Name** - `https://hasura\.io/jwt/claims.x-hasura-user-id`
-* **Claim JSON Type**: JSON
+* **Claim JSON Type**: String
 
 Then save it!
 

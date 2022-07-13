@@ -1,4 +1,4 @@
-FROM node:8.17.0
+FROM --platform=linux/amd64 node:8.17.0
 
 RUN mkdir -p /opt/app
 

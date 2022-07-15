@@ -6,7 +6,7 @@ metaDescription: "A simple but full-featured tutorial to showcase the modern way
 
 ## Key topics and takeaways:
 
-** Foundation **
+**Foundation**
 
 - [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - Running Hasura Engine locally with Docker Compose and the Hasura CLI
@@ -14,21 +14,21 @@ metaDescription: "A simple but full-featured tutorial to showcase the modern way
 - Running NextJS locally and deploying to Vercel with GitHub
 - Synchronizing environment variables with integrations
 
-** A better way to Query **
+**A better way to Query**
 
 - Implementing URQL for a more streamlined way to query data
 - Implementing GraphQL Codegen to generate types from our server
 
-** User Authentication and Authorization **
+**User Authentication and Authorization**
 
 - Creating authentication patterns with Vercel and Hasura Actions
 - Defining permissions with hasura
 
-** State Management for React **
+**State Management for React**
 
 - Creating and managing global state management
 
-** Continuos deployment **
+**Continuos deployment**
 
 - Building and iterating our with CD using GitHub
 

@@ -1,0 +1,7 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- INSERT into order_status (value) VALUES
+-- ('open'),
+-- ('baking'),
+-- ('ready'),
+-- ('gone');

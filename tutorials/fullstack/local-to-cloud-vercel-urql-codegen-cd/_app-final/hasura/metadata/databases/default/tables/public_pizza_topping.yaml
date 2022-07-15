@@ -1,0 +1,26 @@
+table:
+  schema: public
+  name: pizza_topping
+array_relationships:
+  - name: pizza_topping_pizzas
+    using:
+      foreign_key_constraint_on:
+        column: pizza_topping_id
+        table:
+          schema: public
+          name: pizza_topping_pizza
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - emoji
+        - title
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - available
+        - emoji
+        - id
+        - title
+      filter: {}

@@ -1,0 +1,28 @@
+table:
+  schema: public
+  name: pizza_topping_pizza
+object_relationships:
+  - name: pizza
+    using:
+      foreign_key_constraint_on: pizza_id
+  - name: pizza_topping
+    using:
+      foreign_key_constraint_on: pizza_topping_id
+insert_permissions:
+  - role: user
+    permission:
+      check:
+        pizza:
+          original_friend:
+            _eq: X-Hasura-User-Id
+      columns:
+        - pizza_id
+        - pizza_topping_id
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - pizza_id
+        - pizza_topping_id
+      filter: {}

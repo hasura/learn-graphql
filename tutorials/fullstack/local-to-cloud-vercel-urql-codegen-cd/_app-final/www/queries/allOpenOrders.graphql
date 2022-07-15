@@ -1,0 +1,27 @@
+subscription AllOpenOrders {
+  pizza_order(
+    where: { order_status: { _neq: gone } }
+    order_by: { created_at: asc }
+  ) {
+    id
+    order_status
+    friend {
+      username
+    }
+    pizza {
+      title
+      pizza_topping_pizzas {
+        pizza_topping {
+          emoji
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+query MyPizzas($id: Int!) {
+  pizza_order(where: { friend_id: { _eq: $id } }) {
+    pizza {
+      ...Pizza
+    }
+  }
+}

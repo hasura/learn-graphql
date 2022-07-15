@@ -1,0 +1,19 @@
+table:
+  schema: public
+  name: order_status
+is_enum: true
+array_relationships:
+  - name: pizza_orders
+    using:
+      foreign_key_constraint_on:
+        column: order_status
+        table:
+          schema: public
+          name: pizza_order
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - comment
+        - value
+      filter: {}

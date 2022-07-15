@@ -1,0 +1,10 @@
+fragment Pizza on pizza {
+  id
+  title
+  pizza_topping_pizzas {
+    pizza_topping {
+      title
+      emoji
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mutation OrderPizza($pizza_id: Int) {
+  insert_pizza_order_one(object: { pizza_id: $pizza_id }) {
+    id
+  }
+}

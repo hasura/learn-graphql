@@ -1,0 +1,71 @@
+table:
+  schema: public
+  name: pizza_order
+object_relationships:
+  - name: friend
+    using:
+      foreign_key_constraint_on: friend_id
+  - name: orderStatusByOrderStatus
+    using:
+      foreign_key_constraint_on: order_status
+  - name: pizza
+    using:
+      foreign_key_constraint_on: pizza_id
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      set:
+        friend_id: x-hasura-user-id
+      columns:
+        - id
+        - pizza_id
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - created_at
+        - friend_id
+        - id
+        - order_status
+        - pizza_id
+        - updated_at
+      filter:
+        _or:
+          - friend_id:
+              _eq: X-Hasura-User-Id
+          - _exists:
+              _where:
+                friend_id:
+                  _eq: X-Hasura-User-Id
+              _table:
+                schema: public
+                name: admin
+      allow_aggregations: true
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - order_status
+      filter:
+        _or:
+          - _exists:
+              _where:
+                friend_id:
+                  _eq: X-Hasura-User-Id
+              _table:
+                schema: public
+                name: admin
+          - _and:
+              - friend_id:
+                  _eq: X-Hasura-User-Id
+              - order_status:
+                  _eq: ready
+      check: {}
+delete_permissions:
+  - role: user
+    permission:
+      backend_only: false
+      filter:
+        friend_id:
+          _eq: X-Hasura-User-Id

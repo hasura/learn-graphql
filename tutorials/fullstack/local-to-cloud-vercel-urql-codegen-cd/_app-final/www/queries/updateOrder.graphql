@@ -1,0 +1,10 @@
+mutation UpdateOrder($id: Int, $status: order_status_enum) {
+  update_pizza_order(
+    where: { id: { _eq: $id } }
+    _set: { order_status: $status }
+  ) {
+    returning {
+      id
+    }
+  }
+}

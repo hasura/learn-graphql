@@ -1,0 +1,8 @@
+query GetToppings {
+  pizza_topping {
+    id
+    title
+    available
+    emoji
+  }
+}

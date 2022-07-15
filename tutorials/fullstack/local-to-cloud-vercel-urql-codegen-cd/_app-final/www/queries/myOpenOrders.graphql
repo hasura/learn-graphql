@@ -1,0 +1,12 @@
+subscription MyOpenOrders($id: Int!) {
+  pizza_order(
+    where: { order_status: { _neq: gone }, friend_id: { _eq: $id } }
+  ) {
+    id
+    order_status
+    pizza {
+      id
+      title
+    }
+  }
+}

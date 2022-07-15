@@ -1,0 +1,21 @@
+type Mutation {
+  login(
+    username: String!
+    password: String!
+  ): FriendOutput
+}
+
+type Mutation {
+  signup(
+    username: String!
+    password: String!
+  ): FriendOutput
+}
+
+type FriendOutput {
+  id: uuid
+  username: String
+  password: String
+  token: String
+}
+

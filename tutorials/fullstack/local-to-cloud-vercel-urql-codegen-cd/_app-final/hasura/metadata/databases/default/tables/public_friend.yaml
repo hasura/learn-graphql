@@ -1,0 +1,41 @@
+table:
+  schema: public
+  name: friend
+object_relationships:
+  - name: admin
+    using:
+      foreign_key_constraint_on:
+        column: friend_id
+        table:
+          schema: public
+          name: admin
+array_relationships:
+  - name: pizza_orders
+    using:
+      foreign_key_constraint_on:
+        column: friend_id
+        table:
+          schema: public
+          name: pizza_order
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - username
+      filter: {}
+  - role: user
+    permission:
+      columns:
+        - id
+        - username
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+delete_permissions:
+  - role: user
+    permission:
+      backend_only: false
+      filter:
+        id:
+          _eq: X-Hasura-User-Id

@@ -1,0 +1,6 @@
+mutation InsertFriendOne($username: String, $password: String) {
+  insert_friend_one(object: { username: $username, password: $password }) {
+    id
+    username
+  }
+}

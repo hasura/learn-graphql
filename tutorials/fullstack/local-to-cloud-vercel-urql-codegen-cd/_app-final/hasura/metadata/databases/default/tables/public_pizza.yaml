@@ -1,0 +1,45 @@
+table:
+  schema: public
+  name: pizza
+array_relationships:
+  - name: pizza_orders
+    using:
+      foreign_key_constraint_on:
+        column: pizza_id
+        table:
+          schema: public
+          name: pizza_order
+  - name: pizza_topping_pizzas
+    using:
+      foreign_key_constraint_on:
+        column: pizza_id
+        table:
+          schema: public
+          name: pizza_topping_pizza
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      set:
+        original_friend: x-hasura-user-id
+      columns:
+        - id
+        - title
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - original_friend
+        - title
+      filter: {}
+      limit: 25
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - title
+      filter:
+        original_friend:
+          _eq: X-Hasura-User-Id
+      check: null

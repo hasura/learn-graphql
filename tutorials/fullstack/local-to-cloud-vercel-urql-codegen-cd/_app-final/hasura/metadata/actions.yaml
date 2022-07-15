@@ -1,0 +1,48 @@
+actions:
+  - name: login
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_HANDLER}}'
+      forward_client_headers: true
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+                "username": {{$body.input.username}},
+                "password": {{$body.input.password}}
+            }
+        url: '{{$base_url}}/api/actions/login'
+        method: POST
+        version: 2
+        query_params: {}
+        template_engine: Kriti
+    permissions:
+      - role: anonymous
+      - role: user
+  - name: signup
+    definition:
+      kind: synchronous
+      handler: '{{ACTION_BASE_HANDLER}}'
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+                "username": {{$body.input.username}},
+                "password": {{$body.input.password}}
+            }
+        url: '{{$base_url}}/api/actions/signup'
+        method: POST
+        version: 2
+        query_params: {}
+        template_engine: Kriti
+    permissions:
+      - role: user
+      - role: anonymous
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+    - name: FriendOutput
+  scalars: []

@@ -1,0 +1,22 @@
+mutation CreatePizza(
+  $title: String
+  $pizza_toppings: [pizza_topping_pizza_insert_input!]!
+) {
+  insert_pizza_order_one(
+    object: {
+      pizza: {
+        data: { title: $title, pizza_topping_pizzas: { data: $pizza_toppings } }
+      }
+    }
+  ) {
+    id
+    pizza {
+      title
+      pizza_topping_pizzas {
+        pizza_topping {
+          title
+        }
+      }
+    }
+  }
+}

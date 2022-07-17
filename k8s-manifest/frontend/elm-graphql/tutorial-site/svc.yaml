@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: elm-graphql
+  name: elm-graphql
+  namespace: learn
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: elm-graphql
+  type: ClusterIP

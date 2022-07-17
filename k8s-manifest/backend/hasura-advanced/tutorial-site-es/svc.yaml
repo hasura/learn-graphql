@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hasura-advanced-es
+  name: hasura-advanced-es
+  namespace: learn 
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: hasura-advanced-es
+  type: ClusterIP

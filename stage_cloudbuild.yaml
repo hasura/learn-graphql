@@ -1,13 +1,21 @@
 #for building image
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  id: build docker image
-  args: [ 'build', '-t', '${_IMG_URL}:latest', './${_LOC_URL}/.' ]
-#pushing image
-- name: 'gcr.io/cloud-builders/docker'
-  id: push docker image
-  args: [ 'push', '${_IMG_URL}:latest' ]
+# - name: 'gcr.io/cloud-builders/docker'
+#   id: build docker image
+#   args: [ 'build', '-t', '${_IMG_URL}:latest', './${_LOC_URL}/.' ]
+# #pushing image
+# - name: 'gcr.io/cloud-builders/docker'
+#   id: push docker image
+#   args: [ 'push', '${_IMG_URL}:latest' ]
 #change in Deployment file
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: update image in deployment file
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+       ls ./k8s-manifest/${_LOC_URL}/
+       cat ./k8s-manifest/${_LOC_URL}/deployment.yaml
 - name: 'gcr.io/cloud-builders/gcloud'
   id: update image in deployment file
   entrypoint: /bin/sh

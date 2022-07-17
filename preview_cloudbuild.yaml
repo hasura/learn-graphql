@@ -27,7 +27,7 @@ steps:
         "--platform",
         "managed",
         "--region",
-        "${_REGION}",
+        "${_RUN_REGION}",
         "--image",
         "${_IMG_URL}:${_PR_NUMBER}-${SHORT_SHA}",
         "--tag",
@@ -44,7 +44,7 @@ steps:
         "--project-id",
         "${PROJECT_ID}",
         "--region",
-        "${_REGION}",
+        "${_RUN_REGION}",
         "--service",
         "${_SERVICE_NAME}",
         "--pull-request",
@@ -57,7 +57,7 @@ steps:
 
 substitutions:
   _SERVICE_NAME: web-app
-  _REGION: us-west1
+  _RUN_REGION: us-west1
   _GITHUB_REPO: $(pull_request.pull_request.head.repo.full_name)
 
 options:

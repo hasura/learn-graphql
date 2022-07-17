@@ -9,7 +9,7 @@ steps:
 #   args: [ 'push', '${_IMG_URL}:latest' ]
 #change in Deployment file
 - name: 'gcr.io/cloud-builders/gcloud'
-  id: update image in deployment file
+  id: test image in deployment file
   entrypoint: /bin/sh
   args:
   - '-c'

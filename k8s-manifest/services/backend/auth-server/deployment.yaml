@@ -23,6 +23,9 @@ spec:
     spec:
       containers:
       - image: IMG_PATH:latest
+      # IMG_PATH:
+      # us-west1-docker.pkg.dev/websitecloud-352908/learn-backend/hasura-ts
+      # img_parm_1/img_proj/img_repo/img_svc
         imagePullPolicy: IfNotPresent
         name: auth-jwt-server
         env:

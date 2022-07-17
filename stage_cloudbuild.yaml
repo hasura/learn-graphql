@@ -14,11 +14,11 @@ steps:
   args:
   - '-c'
   - |
-        sed -i "s/IMG_PATH/${_IMG_URL}/g" ./k8s-manifest/${_LOC_URL}/k8s/deployment.yaml
+        sed -i "s/IMG_PATH/${_IMG_URL}/g" ./k8s-manifest/${_LOC_URL}/deployment.yaml
 #deploy kubernetes manifest
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy deployment.yaml
-  args: ['apply' , '-f' , './k8s-manifest/${_LOC_URL}/k8s/']
+  args: ['apply' , '-f' , './k8s-manifest/${_LOC_URL}/']
   env:
   - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'

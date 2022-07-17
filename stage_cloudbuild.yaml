@@ -16,6 +16,8 @@ steps:
   - |
        ls ./k8s-manifest/${_LOC_URL}/
        cat ./k8s-manifest/${_LOC_URL}/deployment.yaml
+       echo ./k8s-manifest/${_LOC_URL}/
+       echo ${_IMG_URL}
 - name: 'gcr.io/cloud-builders/gcloud'
   id: update image in deployment file
   entrypoint: /bin/sh

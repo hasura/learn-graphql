@@ -26,6 +26,13 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'
+#update kubernetes manifest
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: rolling update
+  args: ['rollout' , 'restart' , 'deployment', '{_DEP}', '-n', 'learn']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'
 timeout: 3600s
 options:
     dynamic_substitutions: true

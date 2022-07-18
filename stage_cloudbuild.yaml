@@ -6,7 +6,7 @@ steps:
 #pushing image
 - name: 'gcr.io/cloud-builders/docker'
   id: push docker image
-  args: [ 'push', '${_IMG_URL}:latest' ]
+  args: [ 'push', '${_IMG_URL}:latest_stage' ]
 # change in Deployment file
 - name: 'gcr.io/cloud-builders/gcloud'
   id: update image in deployment file
@@ -15,6 +15,7 @@ steps:
   - '-c'
   - |
         sed -i 's|IMG_PATH|${_IMG_URL}|g' ./k8s-manifest/${_LOC_URL}/deployment.yaml
+        sed -i 's|latest|latest_stage|g' ./k8s-manifest/${_LOC_URL}/deployment.yaml
 #deploy kubernetes manifest
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy deployment.yaml

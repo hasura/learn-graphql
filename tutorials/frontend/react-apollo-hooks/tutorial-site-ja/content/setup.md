@@ -38,7 +38,7 @@ cd tutorials/frontend/react-apollo-hooks/app-boilerplate
 
 ### Graphi QLをロードしてGraphQL APIを試す
 
-1. https://hasura.io/learn/graphql/graphiqlに移動します
+1. https://hasura.io/learn/graphql/graphiql に移動します
 2. ログインします（有効なユーザートークンを使って、GraphQL APIのテストを実施できるようにします）
 
 上記の手順を実施した後は、以下のようなページが表示されるはずです。

@@ -6,7 +6,7 @@ steps:
         "build",
         "-t",
         "${_IMG_URL}:${_PR_NUMBER}-${SHORT_SHA}",
-        "./${LOC_URL}/.",
+        "./${_LOC_URL}/.",
       ]
   - id: "push image"
     name: "gcr.io/cloud-builders/docker"

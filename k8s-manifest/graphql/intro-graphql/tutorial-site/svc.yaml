@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: intro-graphql
+  name: intro-graphql
+  namespace: learn
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: intro-graphql
+  type: ClusterIP

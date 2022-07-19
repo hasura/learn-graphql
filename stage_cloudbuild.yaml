@@ -14,7 +14,7 @@ steps:
   args:
   - '-c'
   - |
-        sed -i "s/IMG_PATH/${_IMG_URL}/g" ./k8s-manifest/${_LOC_URL}/k8s/deployment.yaml
+        sed -i "s|IMG_PATH|${_IMG_URL}|g" ./k8s-manifest/${_LOC_URL}/k8s/deployment.yaml
 #deploy kubernetes manifest
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy deployment.yaml

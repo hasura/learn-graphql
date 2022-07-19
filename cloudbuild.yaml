@@ -1,4 +1,15 @@
 steps:
+#update image tag
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: update image tag
+  args: [
+    'artifacts' ,
+    'docker' ,
+    'add',
+    'tags' ,
+    '${_IMG_URL}:latest_stage',
+    '${_IMG_URL}:latest_prod'
+    ]
 #change in Deployment file
 - name: 'gcr.io/cloud-builders/gcloud'
   id: update image in deployment file
@@ -6,7 +17,7 @@ steps:
   args:
   - '-c'
   - |
-        sed -i "s/IMG_PATH/${_IMG_URL}/g" ./k8s-manifest/${_LOC_URL}/k8s/deployment.yaml
+        sed -i "s|IMG_PATH|${_IMG_URL}|g" ./k8s-manifest/${_LOC_URL}/deployment.yaml
 #deploy kubernetes manifest
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy deployment.yaml
@@ -14,6 +25,14 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'
+#update pods
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: update deployment
+  args: ['rollout' , 'restart' , 'deployment','${_DEP}','-n','learn']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'
+
 timeout: 3600s
 options:
     dynamic_substitutions: true

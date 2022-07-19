@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: react-apollo-hooks-ja
+  name: react-apollo-hooks-ja
+  namespace: learn
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: react-apollo-hooks-ja
+  type: ClusterIP

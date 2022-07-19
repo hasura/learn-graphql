@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hasura-backend-ja
+  name: hasura-backend-ja
+  namespace: learn 
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: hasura-backend-ja
+  type: ClusterIP

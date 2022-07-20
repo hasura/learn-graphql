@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - image: IMG_PATH:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: nextjs-fullstack-serverless
         ports:
         - containerPort: 8080

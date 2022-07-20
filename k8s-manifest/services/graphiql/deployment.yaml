@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - image: IMG_PATH:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: graphiql
         env:
         - name: GRAPHQL_ENDPOINT

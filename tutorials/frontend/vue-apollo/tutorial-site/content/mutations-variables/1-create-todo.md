@@ -14,8 +14,6 @@ export const INSERT_TODOS_ONE = gql`
     mutation insert_todos_one($object: todos_insert_input!) {
         insert_todos_one(object: $object) {
             id
-            id
-            id
             title
             is_completed
             created_at

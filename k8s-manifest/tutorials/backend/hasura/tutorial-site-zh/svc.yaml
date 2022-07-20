@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: hasura-backend
-  name: hasura-backend
+  name: hasura-backend-zh
   namespace: learn 
 spec:
   ports:

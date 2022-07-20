@@ -13,6 +13,7 @@ So, we put together a powerful and concise course that will introduce you to Gra
 We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its real-time capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
 
 ## Key topics and takeaways:
+## Key topics and takeaways:
 
 - [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions

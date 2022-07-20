@@ -12,6 +12,7 @@ This course will help you understand the key features of MySQL, when and how to 
 
 - Introduction to MySQL test
 - Introduction to MySQL test
+- Introduction to MySQL test
 - Installation and setup
 - What is a data warehouse?
 - OLAP vs OLTP

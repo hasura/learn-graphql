@@ -12,7 +12,6 @@ This course will help you understand the different Postgres features, when and h
 is an ideal starting point before diving into advanced topics.
 
 - Intro to PostgreSQL
-- Intro to PostgreSQL
 - Database Core Concepts
 - Data Modeling
 - Setup and Installation

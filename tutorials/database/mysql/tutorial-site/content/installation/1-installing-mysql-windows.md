@@ -1,5 +1,5 @@
 ---
-title: "MySQL on Windows Test"
+title: "MySQL on Windows"
 metaTitle: "Installing MySQL on Windows | MySQL Tutorial"
 metaDescription: "Learn how to install MySQL on Windows by following this step by step instructions"
 ---

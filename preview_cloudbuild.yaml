@@ -62,6 +62,7 @@ substitutions:
 
 options:
   dynamicSubstitutions: true
+  workerPool: 'projects/${PROJECT_ID}/locations/${_REGION}/workerPools/gke-vpn-pool'
 
 availableSecrets:
   secretManager:

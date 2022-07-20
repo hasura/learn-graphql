@@ -6,7 +6,8 @@ metaDescription: "This course is a super-fast introduction to learning about key
 
 This course is a super-fast introduction to learning about key concepts of MySQL and setting it up for app development.
 
-## What will I learn?
+## What will I learn learn?
+## What will I learn learn?
 
 This course will help you understand the key features of MySQL, when and how to use them and helps create a foundation upon which more advanced concepts can be learned.
 

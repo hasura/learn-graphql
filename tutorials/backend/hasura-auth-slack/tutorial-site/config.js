@@ -30,14 +30,14 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      "/introductionl/",
-      "/setupl/",
-      "/data-modelingl/",
-      "/thinking-in-rolesl/",
-      "/access-controll/",
-      "/choosing-jwt-model/",
-      "/production-ready-authl/",
-      "/what-nextl/",
+      "/introduction/",
+      "/setup/",
+      "/data-modeling/",
+      "/thinking-in-roles/",
+      "/access-control/",
+      "/choosing-jwt-mode/",
+      "/production-ready-auth/",
+      "/what-next/",
     ],
     links: [
       {

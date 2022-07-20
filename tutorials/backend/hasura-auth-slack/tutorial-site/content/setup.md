@@ -1,14 +1,14 @@
 ---
-title: "01 Deploy Hasura"
-metaTitle: "01 Deploy Hasura to Hasura Cloud | Hasura Auth Slack Tutorial"
+title: "Deploy Hasura"
+metaTitle: "Deploy Hasura to Hasura Cloud | Hasura Auth Slack Tutorial"
 metaDescription: "This tutorial covers how to deploy Hasura GraphQL Engine on Hasura Cloud using one-click deployment and access the Hasura Console"
 ---
 
-Let's start by deploying Hasura 01.
+Let's start by deploying Hasura.
 
 ## One-click deployment on Hasura Cloud {#one-click}
 
-01The fastest way to try out Hasura is via Hasura Cloud. [Hasura Cloud](https://hasura.io/cloud/) gives you a scalable, highly available, globally distributed, fully managed, secure GraphQL API as a service!
+The fastest way to try out Hasura is via Hasura Cloud. [Hasura Cloud](https://hasura.io/cloud/) gives you a scalable, highly available, globally distributed, fully managed, secure GraphQL API as a service!
 
 Click on the following button to create a new project on Hasura Cloud:
 

@@ -48,6 +48,7 @@ steps:
         "${SHORT_SHA}",
       ]
 
+timeout: 3600s
 substitutions:
   _SERVICE_NAME: web-app
   _REGION: us-west1

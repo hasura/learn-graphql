@@ -1,5 +1,5 @@
 ---
-title: "Course Introduction"
+title: "Course Introduction 11"
 metaTitle: "Course Introduction | Hasura Auth Slack Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to setting up a Slack clone backend in GraphQL with a walkthrough of auth and modeling permissions"
 ---

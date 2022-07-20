@@ -10,7 +10,7 @@ This course is a super-fast introduction to learning about key concepts of MySQL
 
 This course will help you understand the key features of MySQL, when and how to use them and helps create a foundation upon which more advanced concepts can be learned.
 
-- Introduction to MySQL
+- Introduction to MySQL test
 - Installation and setup
 - What is a data warehouse?
 - OLAP vs OLTP

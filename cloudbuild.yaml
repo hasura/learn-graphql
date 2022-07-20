@@ -21,17 +21,11 @@ steps:
   - |
         sed -i "s|IMG_PATH|${_IMG_URL}|g" ./k8s-manifest/${_LOC_URL}/deployment.yaml
         sed -i "s|latest|${SHORT_SHA}|g" ./k8s-manifest/${_LOC_URL}/deployment.yaml
+        
 #deploy kubernetes manifest
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy deployment.yaml
   args: ['apply' , '-f' , './k8s-manifest/${_LOC_URL}/']
-  env:
-  - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'
-#update pods
-- name: 'gcr.io/cloud-builders/kubectl'
-  id: update deployment
-  args: ['rollout' , 'restart' , 'deployment','${_DEP}','-n','learn']
   env:
   - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'

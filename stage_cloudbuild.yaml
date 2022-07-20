@@ -14,11 +14,11 @@ steps:
 
 - name: 'gcr.io/cloud-builders/docker'
   id: build docker image
-  args: [ 'build', '-t', '${_IMG_URL}:latest', './${_LOC_URL}/.' ]
+  args: [ 'build', '-t', '${_IMG_URL}:${SHORT_SHA}', './${_LOC_URL}/.' ]
 #pushing image
 - name: 'gcr.io/cloud-builders/docker'
   id: push docker image
-  args: [ 'push', '${_IMG_URL}:latest' ]
+  args: [ 'push', '${_IMG_URL}:${SHORT_SHA}' ]
 
 #change in Deployment file
 - name: 'gcr.io/cloud-builders/gcloud'

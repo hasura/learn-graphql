@@ -4,6 +4,7 @@ metaTitle: "GraphQL Core Concepts | GraphQL Tutorial"
 metaDescription: "Learn about the core concepts of GraphQL - document, operation, fields, arguments, variables, aliases, fragments and directives"
 ---
 
+
 GraphQL introduces a new set of concepts for someone coming from a REST API background. In this section, we will look at the core concepts of GraphQL from a client/frontend perspective.
 
 ## GraphQL document {#graphql-document}

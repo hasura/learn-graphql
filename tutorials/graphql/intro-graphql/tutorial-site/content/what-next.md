@@ -16,6 +16,7 @@ We have an [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/intro
 ## Take the Frontend course {#frontend-course}
 We have a bunch of frontend courses based on the framework of your choice.
 - [React](https://hasura.io/learn/graphql/react/introduction/)
+- [Next.js](https://hasura.io/learn/graphql/nextjs-fullstack-serverless/introduction/)
 - [Vue](https://hasura.io/learn/graphql/vue/introduction/)
 - [Angular](https://hasura.io/learn/graphql/angular-apollo/introduction/)
 - [Typescript React](https://hasura.io/learn/graphql/typescript-react-apollo/introduction/)

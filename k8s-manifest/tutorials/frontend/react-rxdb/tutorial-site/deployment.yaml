@@ -1,16 +1,16 @@
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: graphiql
-  name: graphiql
+    app: react-rxdb
+  name: react-rxdb
   namespace: learn
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: graphiql
+      app: react-rxdb
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,15 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: graphiql
+        app: react-rxdb
     spec:
       containers:
       - image: IMG_PATH:latest
         imagePullPolicy: Always
-        name: graphiql
-        env:
-        - name: GRAPHQL_ENDPOINT
-          value: https://hasura.io/learn/graphql
+        name: react-rxdb
         ports:
         - containerPort: 8080
           protocol: TCP

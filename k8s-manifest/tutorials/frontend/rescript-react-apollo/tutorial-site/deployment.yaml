@@ -1,16 +1,16 @@
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: graphiql
-  name: graphiql
+    app: rescript-react-apollo
+  name: rescript-react-apollo
   namespace: learn
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: graphiql
+      app: rescript-react-apollo
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,15 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: graphiql
+        app: rescript-react-apollo
     spec:
       containers:
       - image: IMG_PATH:latest
         imagePullPolicy: Always
-        name: graphiql
-        env:
-        - name: GRAPHQL_ENDPOINT
-          value: https://hasura.io/learn/graphql
+        name: rescript-react-apollo
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -48,4 +45,6 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "100m"
+
+
 

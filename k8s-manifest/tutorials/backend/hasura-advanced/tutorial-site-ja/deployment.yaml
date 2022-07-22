@@ -1,16 +1,16 @@
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: graphiql
-  name: graphiql
-  namespace: learn
+    app: hasura-advanced-ja
+  name: hasura-advanced-ja
+  namespace: learn 
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: graphiql
+      app: hasura-advanced-ja
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,15 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: graphiql
+        app: hasura-advanced-ja
     spec:
       containers:
       - image: IMG_PATH:latest
         imagePullPolicy: Always
-        name: graphiql
-        env:
-        - name: GRAPHQL_ENDPOINT
-          value: https://hasura.io/learn/graphql
+        name: hasura-advanced-ja
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -48,4 +45,3 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "100m"
-

@@ -1,16 +1,16 @@
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: graphiql
-  name: graphiql
+    app: vue2-apollo
+  name: vue2-apollo
   namespace: learn
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: graphiql
+      app: vue2-apollo
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,15 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: graphiql
+        app: vue2-apollo
     spec:
       containers:
       - image: IMG_PATH:latest
         imagePullPolicy: Always
-        name: graphiql
-        env:
-        - name: GRAPHQL_ENDPOINT
-          value: https://hasura.io/learn/graphql
+        name: vue2-apollo
         ports:
         - containerPort: 8080
           protocol: TCP

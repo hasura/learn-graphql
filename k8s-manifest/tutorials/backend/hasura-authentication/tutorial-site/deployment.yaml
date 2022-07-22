@@ -1,16 +1,16 @@
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: graphiql
-  name: graphiql
-  namespace: learn
+    app: hasura-authentication
+  name: hasura-authentication
+  namespace: learn 
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: graphiql
+      app: hasura-authentication
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,15 +19,12 @@ spec:
   template:
     metadata:
       labels:
-        app: graphiql
+        app: hasura-authentication
     spec:
       containers:
       - image: IMG_PATH:latest
         imagePullPolicy: Always
-        name: graphiql
-        env:
-        - name: GRAPHQL_ENDPOINT
-          value: https://hasura.io/learn/graphql
+        name: hasura-authentication
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -48,4 +45,5 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "100m"
+
 

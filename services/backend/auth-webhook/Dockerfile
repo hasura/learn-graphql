@@ -12,7 +12,7 @@ USER node
 
 RUN curl https://graphql-tutorials.auth0.com/pem > graphql-tutorials.pem
 
-RUN npm ci
+RUN npm install
 
 COPY . .
 

@@ -26,7 +26,7 @@ spec:
       # IMG_PATH:
       # us-west1-docker.pkg.dev/websitecloud-352908/learn-backend/hasura-ts
       # img_parm_1/img_proj/img_repo/img_svc
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: auth-jwt-server
         env:
         - name: DATABASE_URL
@@ -58,4 +58,3 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "100m"
-

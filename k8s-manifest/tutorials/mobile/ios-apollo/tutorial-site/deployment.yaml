@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - image: IMG_PATH:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: ios-apollo
         ports:
         - containerPort: 8080

@@ -1,62 +1,45 @@
 steps:
-  # - id: "build image"
-  #   name: "gcr.io/cloud-builders/docker"
-  #   args:
-  #     [
-  #       "build",
-  #       "-t",
-  #       "${_IMG_URL}:${_PR_NUMBER}-${SHORT_SHA}",
-  #       "./${_LOC_URL}/.",
-  #     ]
-  # - id: "push image"
-  #   name: "gcr.io/cloud-builders/docker"
-  #   args:
-  #     [
-  #       "push",
-  #       "${_IMG_URL}:${_PR_NUMBER}-${SHORT_SHA}",
-  #     ]
-  #kaniko
-  - name: 'gcr.io/kaniko-project/executor:latest'
-    id: kaniko
-    args:
+#kaniko
+- name: 'gcr.io/kaniko-project/executor:latest'
+  id: kaniko
+  args:
       [
           "--dockerfile=./${_LOC_URL}/Dockerfile",
           "--context=dir:///workspace/${_LOC_URL}",
           "--cache=true",
           "--cache-ttl=24h",
-          "--destination=${_IMG_URL}:${_PR_NUMBER}-${SHORT_SHA}"
+          "--destination=${_IMG_URL}:${_PR_NUMBER}-${SHORT_SHA}",
       ]
-  - id: "deploy revision with tag"
-    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
-    entrypoint: "gcloud"
-    args:
+- id: "deploy revision with tag"
+  name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+  entrypoint: "gcloud"
+  args:
       [
         "run",
         "deploy",
-        "${_SERVICE_NAME}",
+        "${_DEP}",
         "--platform",
         "managed",
         "--region",
-        "${_RUN_REGION}",
+        "${_REGION}",
         "--image",
         "${_IMG_URL}:${_PR_NUMBER}-${SHORT_SHA}",
         "--tag",
         "pr-${_PR_NUMBER}",
         "--no-traffic",
       ]
-
-  - id: "link revision on pull request"
-    name: "gcr.io/${PROJECT_ID}/deployment-previews" # our custom builder
-    secretEnv: ["GITHUB_TOKEN"]
-    args:
+- id: "link revision on pull request"
+  name: "gcr.io/${PROJECT_ID}/deployment-previews" # our custom builder
+  secretEnv: ["GITHUB_TOKEN"]
+  args:
       [
         "set",
         "--project-id",
         "${PROJECT_ID}",
         "--region",
-        "${_RUN_REGION}",
+        "${_REGION}",
         "--service",
-        "${_SERVICE_NAME}",
+        "${_DEP}",
         "--pull-request",
         "${_PR_NUMBER}",
         "--repo-name",
@@ -65,13 +48,16 @@ steps:
         "${SHORT_SHA}",
       ]
 
+timeout: 3600s
 substitutions:
   _SERVICE_NAME: web-app
-  _RUN_REGION: us-west1
+  _REGION: us-west2
   _GITHUB_REPO: $(pull_request.pull_request.head.repo.full_name)
 
 options:
   dynamicSubstitutions: true
+  workerPool:
+     'projects/${PROJECT_ID}/locations/${_REGION}/workerPools/gke-vpn-pool'
 
 availableSecrets:
   secretManager:

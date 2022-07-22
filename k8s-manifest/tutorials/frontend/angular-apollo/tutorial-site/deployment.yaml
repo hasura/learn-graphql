@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - image: IMG_PATH:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: angular-apollo
         ports:
         - containerPort: 8080

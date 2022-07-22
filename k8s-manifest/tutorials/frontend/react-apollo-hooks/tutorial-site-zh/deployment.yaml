@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - image: IMG_PATH:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: react-apollo-hooks-zh
         ports:
         - containerPort: 8080

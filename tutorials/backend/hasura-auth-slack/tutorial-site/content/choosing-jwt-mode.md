@@ -15,7 +15,7 @@ You can configure GraphQL Engine to use the JWT authorization mode to authorize 
 
 A typical architecture with Auth server issuing JWT looks like the one below:
 
-![JWT Mode](https://hasura.io/docs/latest/_images/jwt-auth1.png)
+![JWT Mode](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/jwt-mode.png)
 
 The Auth Server issues JWT tokens with relevant `x-hasura-*` claims to the app which then sends the token to Hasura GraphQL Engine. Hasura then validates the claims to allow the request to go through.
 
@@ -25,7 +25,7 @@ You can also configure GraphQL Engine to use the Webhook mode. Your auth server 
 
 The architecture with webhook looks like the one below:
 
-![Webhook mode](https://hasura.io/docs/latest/_images/webhook-auth1.png)
+![Webhook mode](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/webhook-mode.png)
 
 ### Unauthenticated Mode {#unauthenticated-mode}
 

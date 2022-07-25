@@ -15,7 +15,7 @@ JWT承認モードを使用して、すべての受信した要求を承認す�
 
 JWTを発行するAuthサーバーがある典型的なアーキテクチャは、以下のようになります。
 
-![JWTモード](https://hasura.io/docs/latest/_images/jwt-auth1.png)
+![JWTモード](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/jwt-mode.png)
 
 Authサーバーは、関連する `x-hasura-*` クレームを含むJWTトークンをアプリに発行すると、そのアプリはそのトークンをHasura GraphQL Engineに送信します。その後、Hasuraは、クレームを検証して要求が通るようにします。
 
@@ -25,7 +25,7 @@ GraphQL Engineがウェブフックモードを使用するように設定する
 
 ウェブフック付きのアーキテクチャーは、以下のようになります。
 
-![ウェブフックモード](https://hasura.io/docs/latest/_images/webhook-auth1.png)
+![ウェブフックモード](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/webhook-mode.png)
 
 ### 未認証モード {#unauthenticated-mode}
 

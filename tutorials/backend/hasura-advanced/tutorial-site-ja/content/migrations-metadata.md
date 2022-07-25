@@ -21,7 +21,7 @@ Hasuraは、データベース全体のGraphQL APIを自動的に作成するわ
 
 Hasuraをローカルで実行するための最も簡単なセットアップは、docker-composeセットアップを使用して、graphql-engineとpostgresの両方のdockerコンテナを実行することです。
 
-ドキュメントを参照して、 [ docker-composeを使用したHasuraのローカルセットアップ ](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple.html#step-1-get-the-docker-compose-file) を実行します。
+ドキュメントを参照して、 [ docker-composeを使用したHasuraのローカルセットアップ ](https://hasura.io/docs/latest/graphql/core/getting-started/docker-simple/#step-1-get-the-docker-compose-file) を実行します。
 
 Hasuraのローカルセットアップが完了したら、 `http://localhost:8080` からコンソールにアクセスできるようになります。
 

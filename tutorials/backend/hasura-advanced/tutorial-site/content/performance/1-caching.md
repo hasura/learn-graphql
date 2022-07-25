@@ -4,7 +4,7 @@ metaTitle: "GraphQL Response Caching | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Hasura GraphQL Engine (OSS) supports Query Caching where the internal representation of the fully qualified GraphQL AST is cached."
 ---
 
-Hasura GraphQL Engine (OSS) supports Query Caching where the internal representation of the fully qualified GraphQL AST is cached. When a GraphQL query is made, the generated SQL is a prepared statement with the right session variables hitting the database. These prepared statements help in making queries fast. Read more about [Query Caching](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance.html)
+Hasura GraphQL Engine (OSS) supports Query Caching where the internal representation of the fully qualified GraphQL AST is cached. When a GraphQL query is made, the generated SQL is a prepared statement with the right session variables hitting the database. These prepared statements help in making queries fast. Read more about [Query Caching](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance/)
 
 Now, some queries are more frequently accessed than others. Typically, there could be latency and slow response times due to the
 

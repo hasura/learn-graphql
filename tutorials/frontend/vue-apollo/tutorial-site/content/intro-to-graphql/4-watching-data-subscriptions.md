@@ -5,10 +5,6 @@ metaDescription: "Try out GraphQL Subscription using GraphiQL. A GraphQL subscri
 canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-subscriptions/"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/Ti7zYY5P4Cg" />
-
 The GraphQL specification allows for something called subscriptions that are like GraphQL queries
 but instead of returning data in one read, you get data pushed from the server.
 

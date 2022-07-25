@@ -14,7 +14,7 @@ import GithubLink from "../../src/GithubLink.js";
 
 Open `src/components/TodoPublicList.vue` and add the following:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/TodoPublicList.vue" text="src/components/TodoPublicList.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/TodoPublicList.vue" text="src/components/TodoPublicList.vue" />
 
 ```vue
 <script setup lang="ts">

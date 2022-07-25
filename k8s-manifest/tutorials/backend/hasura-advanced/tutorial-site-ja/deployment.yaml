@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hasura-advanced-ja
+  name: hasura-advanced-ja
+  namespace: learn 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hasura-advanced-ja
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        app: hasura-advanced-ja
+    spec:
+      containers:
+      - image: IMG_PATH:latest
+        imagePullPolicy: Always
+        name: hasura-advanced-ja
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"

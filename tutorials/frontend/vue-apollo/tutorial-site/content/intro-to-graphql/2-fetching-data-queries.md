@@ -5,10 +5,6 @@ metaDescription: "Try out GraphQL Query using GraphiQL. A GraphQL query example 
 canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-queries/"
 ---
 
-import YoutubeEmbed from "../../src/YoutubeEmbed.js";
-
-<YoutubeEmbed link="https://www.youtube.com/embed/ygUDIeiYZNA" />
-
 <a name="graphiql"></a>
 
 ## Try out GraphQL queries

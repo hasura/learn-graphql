@@ -19,7 +19,7 @@ Great! Now let's define the graphql query to be used:
 
 Open `src/graphql-operations/index.ts` and add the following code:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/graphql-operations/index.ts" text="src/graphql-operations/index.ts" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/graphql-operations/index.ts" text="src/graphql-operations/index.ts" />
 
 ```ts
 import { gql } from "graphql-tag"
@@ -52,7 +52,7 @@ The query is now ready, let's integrate it with our Vue component.
 
 Open `src/components/TodoPrivateList.vue` and add the following code:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/TodoPrivateList.vue" text="src/components/TodoPrivateList.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/TodoPrivateList.vue" text="src/components/TodoPrivateList.vue" />
 
 ```ts
 <script>

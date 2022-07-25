@@ -6,7 +6,7 @@ metaDescription: "GraphQLクライアントは、queryingとcachingを改善し�
 
 このセクションでは、専用のGraphQLクライアントが、どのようにqueryingとcachingを改善し、繰り返し利用可能なモジュールの構築をサポートするのかを見ていきます。
 
-GraphQL要求は、ネイティブなJavaScript Fetch APIを使用して作成できます。例えば作成者のリストを取得するためには、以下に示すようなコードを使ってqueryを実行します。
+GraphQLリクエストは、ネイティブなJavaScript Fetch APIを使用して作成できます。例えば作成者のリストを取得するためには、以下に示すようなコードを使ってqueryを実行します。
 
 ```javascript
 const limit = 5;
@@ -32,15 +32,15 @@ fetch('/graphql', {
   .then(data => console.log('data returned:', data));
 ```
 
-これを実行するための前提は、サーバーがHTTP経由でGraphQL要求を受け付けていることです。（GraphQLがプロトコルに依存しないことは覚えていますか）
+これを実行するための前提は、サーバーがHTTP経由でGraphQLリクエストを受け付けていることです。（GraphQLがプロトコルに依存しないことは覚えていますか）
 
 ## GraphQLクライアントが必要な理由 {#why-do-i-need-a-graphql-client}
 
-ここまでは旧来のFetch APIメソッドを使った要求について学んできましたが、GraphQLクライアントが必要な理由とは何でしょうか。
+ここまでは旧来のFetch APIメソッドを使ったリクエストについて学んできましたが、GraphQLクライアントが必要な理由とは何でしょうか。
 
-#### queryの構築と応答処理{#constructing-query-processing-response}
+#### queryの構築とレスポンス処理{#constructing-query-processing-response}
 
-GraphQLクライアントは、関連するヘッダーとコンテキストの情報とGraphQLドキュメントのみを使用して、完全なqueryを構築することができます。Fetch API呼び出しコードを毎回記述する代わりに、クライアントが呼び出しを処理し、パースした後に応答データやエラーを返します。
+GraphQLクライアントは、関連するヘッダーとコンテキストの情報とGraphQLドキュメントのみを使用して、完全なqueryを構築することができます。Fetch API呼び出しコードを毎回記述する代わりに、クライアントが呼び出しを処理し、パースした後にレスポンスデータやエラーを返します。
 
 #### UIステートの管理 {#managing-ui-state}
 

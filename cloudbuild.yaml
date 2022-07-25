@@ -1,0 +1,37 @@
+steps:
+#update image tag
+#kaniko
+- name: 'gcr.io/kaniko-project/executor:latest'
+  id: kaniko
+  args:
+     [
+        "--dockerfile=./${_LOC_URL}/Dockerfile",
+        "--context=dir:///workspace/${_LOC_URL}",
+        "--cache=true",
+        "--cache-ttl=24h",
+        "--destination=${_IMG_URL}:${SHORT_SHA}"
+     ]
+
+#change in Deployment file
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: update image in deployment file
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+        sed -i "s|IMG_PATH|${_IMG_URL}|g" ./k8s-manifest/${_LOC_URL}/deployment.yaml
+        sed -i "s|latest|${SHORT_SHA}|g" ./k8s-manifest/${_LOC_URL}/deployment.yaml
+        
+#deploy kubernetes manifest
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy deployment.yaml
+  args: ['apply' , '-f' , './k8s-manifest/${_LOC_URL}/']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=${_REGION}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTERNAME}'
+
+timeout: 3600s
+options:
+    dynamic_substitutions: true
+    workerPool:
+      'projects/${PROJECT_ID}/locations/${_REGION}/workerPools/gke-vpn-pool'

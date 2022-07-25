@@ -8,7 +8,7 @@ import GithubLink from "../../src/GithubLink.js";
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/remix-firebase/app-final/app/routes/login.tsx" text="login.tsx" />
 
-Our plan is to have the user login via the client side [Firebase UI component](https://github.com/firebase/firebaseui-web-react), then send up the JWT to be turned into a session cookie.
+We plan to have the user login via the client-side [Firebase UI component](https://github.com/firebase/firebaseui-web-react), then send up the JWT to be turned into a session cookie.
 
 ```typescript
 import { useEffect } from "react";
@@ -66,7 +66,7 @@ export const action: ActionFunction = async ({ request }) => {
 
 With the login component we make sure we are in the browser, not the server, and initialize Firebase using the config we got when creating the project. Once a user logs in we POST to our server with the JWT token, turn it into a session cookie, and redirect to the homepage.
 
-For homework implement the Firebase config using [Remix browser environment variables](https://remix.run/docs/en/v1/guides/envvars#browser-environment-variables).
+For homework, implement the Firebase config using [Remix browser environment variables](https://remix.run/docs/en/v1/guides/envvars#browser-environment-variables).
 
 ```typescript
 export default function Login() {

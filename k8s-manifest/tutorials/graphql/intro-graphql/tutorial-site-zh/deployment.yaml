@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: intro-graphql-zh
+  name: intro-graphql-zh
+  namespace: learn
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: intro-graphql-zh
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        app: intro-graphql-zh
+    spec:
+      containers:
+      - image: IMG_PATH:latest
+        imagePullPolicy: Always
+        name: intro-graphql-zh
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m" 

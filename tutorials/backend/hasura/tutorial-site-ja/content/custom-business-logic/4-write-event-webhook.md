@@ -8,7 +8,7 @@ metaDescription: "ここでは、イベントウェブフックを書いて、�
 
 ユーザーがAuth0を使用してアプリに登録すると、新しい行を `users` テーブルに挿入してユーザーデータの同期を維持します。サインアップ時にミューテーションを作成するために書いたAuth0ルールを覚えていますか？
 
-これはテーブル `users` の `insert` 操作です。各イベントのペイロードについては、[こちら](https://hasura.io/docs/latest/graphql/core/event-triggers/payload.html#json-payload)をご覧ください。
+これはテーブル `users` の `insert` 操作です。各イベントのペイロードについては、[こちら](https://hasura.io/docs/latest/graphql/core/event-triggers/payload/#json-payload)をご覧ください。
 
 この挿入操作をキャプチャしてイベントをトリガーしましょう。
 
@@ -70,7 +70,7 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-## {#deploy} をデプロイする
+## デプロイ {#deploy}
 
 [![Glitch にデプロイする](https://raw.githubusercontent.com/hasura/graphql-engine/master/community/boilerplates/auth-webhooks/nodejs-express/assets/deploy-glitch.png)](https://glitch.com/~sendgrid-send-email-event)
 

@@ -6,7 +6,7 @@ metaDescription: "ここでは、コンソールを使って、Hasura GraphQL En
 
 カスタムリゾルバーを書いて、Glitchにデプロイしました。GraphQLエンドポイントを準備しました。リモートスキーマとして、Hasuraに追加しましょう。
 
-## {#add} を追加する
+## 追加する {#add}
 
 コンソールの `Remote Schemas` タブに移動して、`Add` ボタンをクリックします。
 

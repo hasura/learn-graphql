@@ -42,7 +42,7 @@ const config = {
     links: [
       {
         text: "Hasura Docs",
-        link: "https://hasura.io/docs/latest/graphql/core/index.html",
+        link: "https://hasura.io/docs/latest/graphql/core/index/",
       },
       {
         text: "GraphQL API",
@@ -65,6 +65,16 @@ const config = {
     "code": "en",
     "name": "English",
     "translations": [
+      {
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/hasura-auth-slack/introduction/"
+      },
+      {
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/hasura-auth-slack/introduction/"
+      },
       {
         "code": "ja",
         "name": "Japanese",

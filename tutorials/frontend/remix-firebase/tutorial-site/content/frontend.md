@@ -4,7 +4,7 @@ metaTitle: "Remix Boilerplate setup | Remix Fullstack GraphQL Tutorial"
 metaDescription: "Setup your Remix foundation"
 ---
 
-For this tutorial we will setup your Remix app with a solid fullstack foundation.
+In this tutorial we setup solid foundation for a full stack Remix app.
 
 ### Generate Remix App
 

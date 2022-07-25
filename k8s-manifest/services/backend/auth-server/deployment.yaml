@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: auth-jwt-server
+  name: auth-jwt-server
+  namespace: learn
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: auth-jwt-server
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        app: auth-jwt-server
+    spec:
+      containers:
+      - image: IMG_PATH:latest
+      # IMG_PATH:
+      # us-west1-docker.pkg.dev/websitecloud-352908/learn-backend/hasura-ts
+      # img_parm_1/img_proj/img_repo/img_svc
+        imagePullPolicy: Always
+        name: auth-jwt-server
+        env:
+        - name: DATABASE_URL
+          value: postgres://postgres:@postgres.default:5432/postgres
+        - name: PORT
+          value: "8080"
+        - name: ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: hasura-secret
+              key: customJwtSecret
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"

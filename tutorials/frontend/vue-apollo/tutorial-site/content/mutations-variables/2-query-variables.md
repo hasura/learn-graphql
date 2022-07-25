@@ -14,7 +14,7 @@ So let's define the graphql mutation to be used with variables.
 
 Open `src/components/TodoInput.vue` and add the following code:
 
-<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue3-apollo/app-final/src/components/TodoInput.vue" text="src/components/TodoInput.vue" />
+<GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/vue-apollo/app-final/src/components/TodoInput.vue" text="src/components/TodoInput.vue" />
 
 ```vue
 <script setup lang="ts">

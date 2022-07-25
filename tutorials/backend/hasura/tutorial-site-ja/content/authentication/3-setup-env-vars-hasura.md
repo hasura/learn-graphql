@@ -6,7 +6,7 @@ metaDescription: "ここでは、HasuraをAuth0アプリケーションに接続
 
 ここでは、前のステップで作成したAuth0アプリケーションにHasuraを接続する方法を学びます。
 
-その前に管理者シークレットでエンドポイントを保護する必要があります。GraphQLエンドポイントが開き、誰でもデータのクエリと管理が可能です。Hasuraクラウドプロジェクトに管理者シークレットを追加する方法に関する[ドキュメントをご覧ください](https://hasura.io/docs/latest/graphql/cloud/projects/secure.html#adding-an-admin-secret)。
+その前に管理者シークレットでエンドポイントを保護する必要があります。GraphQLエンドポイントが開き、誰でもデータのクエリと管理が可能です。Hasuraクラウドプロジェクトに管理者シークレットを追加する方法に関する[ドキュメントをご覧ください](https://hasura.io/docs/latest/graphql/cloud/projects/secure/#adding-an-admin-secret))。
 
 管理者シークレットが追加されたら、HasuraがAuth0公開鍵を使用するように設定する必要があります。JWTの設定を生成する簡単な方法は、このリンク（[https://hasura.io/jwt-config/](https://hasura.io/jwt-config/)）を使用することです。
 

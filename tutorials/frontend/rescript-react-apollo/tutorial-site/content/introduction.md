@@ -13,7 +13,7 @@ In this course we will learn how to integrate GraphQL into ReScript React applic
 
 We will explore the fundamentals of GraphQL and the things that make GraphQL especially suitable for modern applications, like its realtime capabilities! The course is light on opinions so that once you grok the fundamentals you can go on to choose your favorite libraries, tools and tailor your workflow.
 
-## Key topics and takeways:
+## Key topics and takeaways:
 
 - [GraphQL vs REST](https://hasura.io/learn/graphql/intro-graphql/graphql-vs-rest/)
 - GraphQL queries, mutations, subscriptions

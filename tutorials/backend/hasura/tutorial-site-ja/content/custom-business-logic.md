@@ -11,9 +11,9 @@ Hasuraではカスタムビジネスロジックは、いくつかの柔軟な�
 アクション（推奨）{#actions}
 ---------------------
 
-[アクション](https://hasura.io/docs/latest/graphql/core/actions/index.html)は、カスタムクエリとミューテーションを使用して、カスタムビジネスロジックでHasuraのスキーマを拡張する方法です。アクションは、データ検証、外部ソースからのデータ強化、その他の複雑なビジネスロジックなどの様々なユースケースを処理するためにHasuraに追加できます。
+[アクション](https://hasura.io/docs/latest/graphql/core/actions/index/)は、カスタムクエリとミューテーションを使用して、カスタムビジネスロジックでHasuraのスキーマを拡張する方法です。アクションは、データ検証、外部ソースからのデータ強化、その他の複雑なビジネスロジックなどの様々なユースケースを処理するためにHasuraに追加できます。
 
-![アクションアーキテクチャ](https://hasura.io/docs/latest/_images/actions-arch1.png)
+![アクションアーキテクチャ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/actions-architecture.png)
 
 アクションは、クエリまたはミューテーションのいずれかになります。
 
@@ -25,7 +25,7 @@ Hasuraではカスタムビジネスロジックは、いくつかの柔軟な�
 
 Hasuraには、リモートGraphQLスキーマを統合して、統一されたGraphQL APIを提供する機能があります。自動化されたスキーマステッチのようなものだと考えてください。これにより、カスタムGraphQLリゾルバーを書いて、リモートスキーマとして追加できます。
 
-![リモートスキーマアーキテクチャ](https://hasura.io/docs/latest/_images/remote-schema-arch1.png)
+![リモートスキーマアーキテクチャ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/remote-schema-architecture.png)
 
 アクションかリモートスキーマかを選択する際、注意すべき点があります。
 

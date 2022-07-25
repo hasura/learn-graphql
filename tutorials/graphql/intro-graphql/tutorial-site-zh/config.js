@@ -11,7 +11,7 @@ const config = {
 		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/zh/graphql/intro-graphql/introduction/'>intro-graphql</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
-		"tweetText": "Check out this Introduction to GraphQL course for Fullstack developers by @HasuraHQ https://hasura.io/learn/zh/graphql/intro-graphql/introduction/",
+		"tweetText": "Check out this Introduction to GraphQL course for Fullstack developers by @HasuraHQ in Chinese https://hasura.io/learn/zh/graphql/intro-graphql/introduction/",
 		"links": [{
 			"text": "",
 			"link": ""
@@ -41,7 +41,7 @@ const config = {
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://hasura.io/docs/latest/graphql/core/index.html"
+			"link": "https://hasura.io/docs/latest/graphql/core/index/"
 			},
 			{
 			"text": "GraphQL API",
@@ -52,27 +52,32 @@ const config = {
 		"ignoreIndex": true
 	},
 	"siteMetadata": {
-		"title": "Introduction to GraphQL Tutorial for Fullstack Developers",
-		"description": "A concise and powerful tutorial that covers fundamental concepts of GraphQL, GraphQL vs REST, GraphQL server and client",
+		"title": "",
+		"description": "",
 		"ogImage": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-intro-graphql-zh.png",
 		"docsLocation": "https://github.com/hasura/learn-graphql/tree/master/tutorials/graphql/intro-graphql/tutorial-site-zh/content",
 		"favicon": "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png"
 	},
-  "language": {
-    "code": "zh",
-    "name": "Chinese",
-    "translations": [
-      {
-        "code": "ja",
-        "name": "Japanese",
-        "link": "https://hasura.io/learn/ja/graphql/intro-graphql/introduction/"
-      },
-      {
-        "code": "en",
-        "name": "English",
-        "link": "https://hasura.io/learn/graphql/intro-graphql/introduction/"
-      },
-    ]
+	"language": {
+		"code": "zh",
+		"name": "Chinese",
+		"translations": [
+		{
+			"code": "ja",
+			"name": "Japanese",
+			"link": "https://hasura.io/learn/ja/graphql/intro-graphql/introduction/"
+		},
+		{
+			"code": "es",
+			"name": "Spanish",
+			"link": "https://hasura.io/learn/es/graphql/intro-graphql/introduction/"
+		},
+		{
+			"code": "en",
+			"name": "English",
+			"link": "https://hasura.io/learn/graphql/intro-graphql/introduction/"
+		},
+		]
 	}
 };
 

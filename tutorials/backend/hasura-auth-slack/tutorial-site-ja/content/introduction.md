@@ -30,7 +30,7 @@ metaDescription: "認証およびモデリング権限によるGraphQLでのク�
 
 ## 本チュートリアルの受講に必要なもの {#what-do-i-need}
 
-- Hasura CLI（[ドキュメント](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)）
+- Hasura CLI（[ドキュメント](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/)）
 - Node.js 8+が後でAuthサーバーを設定するためにインストールされます。
 
 このコースでは、開発者ワークフローと環境選択については軽く触れるに留め、ユーザーが基本的な概念に集中して、お気に入りのツールとワークフローの設定に進めるようにしました。

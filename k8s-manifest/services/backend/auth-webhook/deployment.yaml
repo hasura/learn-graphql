@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: auth-webhook
+  name: auth-webhook
+  namespace: learn
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: auth-webhook
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        app: auth-webhook
+    spec:
+      containers:
+      - image: IMG_PATH:latest
+        imagePullPolicy: Always
+        name: auth-webhook
+        env:
+        - name: PORT
+          value: "8080"
+        - name: CUSTOM_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hasura-secret
+              key: customJwtSecret
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+

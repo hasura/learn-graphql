@@ -1,4 +1,4 @@
-FROM node:8.17-alpine
+FROM --platform=linux/amd64 node:8.17-alpine
 
 # Create app directory
 ENV GRAPHQL_ENDPOINT=https://hasura.io/learn/graphql
@@ -7,11 +7,11 @@ WORKDIR /app
 
 # Install app dependencies
 RUN npm config set unsafe-perm true
-RUN npm -g install serve
+RUN npm -g install serve@11.3.2
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci
 
 # Bundle app source
 COPY . /app

@@ -64,7 +64,7 @@ Click on `Save Permissions` once done.
 
 Only logged-in users are allowed to delete a todo entry.
 
-Finally for delete permission, under custom check, choose `With same custom checks as insert, update`.
+Finally for delete permission, under custom check, choose `With same custom checks as insert, pre update`.
 
 ![Todos delete permission](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-delete-permission.png)
 

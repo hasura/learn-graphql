@@ -4,7 +4,7 @@ metaTitle: "Apollo useMutation React hook | ReScript React Apollo GraphQL Tutori
 metaDescription: "We will use the Apollo Client useMutation from @apollo/client in React app as an example to insert new data and update cache locally using readQuery and writeQuery."
 ---
 
-let's create a ReScirpt module for create todo mutation in `src/components/Todo/TodoInput.res` with the following code
+let's create a ReScript module for create todo mutation in `src/components/Todo/TodoInput.res` with the following code
 
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/rescript-react-apollo/app-final/src/components/Todo/TodoInput.res" text="src/components/Todo/TodoInput.res" />
 

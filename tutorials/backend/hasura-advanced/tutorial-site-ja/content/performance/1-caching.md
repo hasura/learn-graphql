@@ -4,7 +4,7 @@ metaTitle: "GraphQL Response Caching | Hasura GraphQL上級チュートリアル
 metaDescription: "Hasura GraphQLエンジン（OSS）は、完全に指定されたGraphQL ASTの内部表現をキャッシュしたQuery Cachingをサポートします。"
 ---
 
-Hasura GraphQLエンジン（OSS）は、完全に指定されたGraphQL ASTの内部表現をキャッシュしたQuery Cachingをサポートします。GraphQL queryを実行すると、生成されたSQLはデータベースを検索するのに適切なセッションの変数を持つプリペアードステートメントになります。このプリペアードステートメントは、クエリ作成の高速化に役立ちます。詳細については [クエリキャッシング](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance.html) をご覧ください
+Hasura GraphQLエンジン（OSS）は、完全に指定されたGraphQL ASTの内部表現をキャッシュしたQuery Cachingをサポートします。GraphQL queryを実行すると、生成されたSQLはデータベースを検索するのに適切なセッションの変数を持つプリペアードステートメントになります。このプリペアードステートメントは、クエリ作成の高速化に役立ちます。詳細については [クエリキャッシング](https://hasura.io/docs/latest/graphql/core/databases/postgres/queries/performance/) をご覧ください
 
 一部のクエリは他のものよりも頻繁にアクセスされます。そのようなクエリでは、以下の理由によりレイテンシーと応答時間に遅延が生じます。
 

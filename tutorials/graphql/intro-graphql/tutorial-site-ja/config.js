@@ -11,7 +11,7 @@ const config = {
 		"title": "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/ja/graphql/intro-graphql/introduction/'>intro-graphql</a>",
 		"githubUrl": "https://github.com/hasura/learn-graphql",
 		"helpUrl": "https://discord.com/invite/hasura",
-		"tweetText": "Check out this Introduction to GraphQL course for Fullstack developers by @HasuraHQ https://hasura.io/learn/ja/graphql/intro-graphql/introduction/",
+		"tweetText": "Check out this Introduction to GraphQL course for Fullstack developers by @HasuraHQ in Japanese https://hasura.io/learn/ja/graphql/intro-graphql/introduction/",
 		"links": [{
 			"text": "",
 			"link": ""
@@ -41,7 +41,7 @@ const config = {
 		"links": [
 			{
 			"text": "Hasura Docs",
-			"link": "https://hasura.io/docs/latest/graphql/core/index.html"
+			"link": "https://hasura.io/docs/latest/graphql/core/index/"
 			},
 			{
 			"text": "GraphQL API",
@@ -62,6 +62,11 @@ const config = {
 		"code": "ja",
 		"name": "Japanese",
 		"translations": [
+		{
+			"code": "es",
+			"name": "Spanish",
+			"link": "https://hasura.io/learn/es/graphql/intro-graphql/introduction/"
+		},
 		{
 			"code": "zh",
 			"name": "Chinese",

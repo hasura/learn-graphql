@@ -2,7 +2,7 @@
 title: 写入数据 - 变更
 metaTitle: "GraphQL 变更以插入数据 | GraphQL React Apollo Hooks 教程"
 metaDescription: "使用 GraphiQL 尝试 GraphQL 变更。GraphQL 变更示例：含有动态参数和变量，用以插入数据"
-canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-mutation/"
+canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/graphql-mutations/"
 ---
 
 import {Link} from "gatsby";

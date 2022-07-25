@@ -11,6 +11,8 @@ metaDescription: "Hasura 迁移适用于创建表和关系"
 1. 克隆 [learn-graphql](https://github.com/hasura/learn-graphql) 代码库。在终端执行以下命令：
 
 ```bash
+# make sure git version is >= v2.26
+
 git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
 
 cd learn-graphql

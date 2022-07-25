@@ -11,6 +11,8 @@ metaDescription: "GraphQL 后端已经准备就绪。任务是在React.js中把�
 1. 克隆[学习-graphql](https://github.com/hasura/learn-graphql)报告。在您的终端执行以下命令：
 
 ```bash
+# make sure git version is >= v2.26
+
 git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
 
 cd learn-graphql

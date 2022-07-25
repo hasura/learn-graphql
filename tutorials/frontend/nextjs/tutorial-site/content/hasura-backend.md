@@ -64,6 +64,8 @@ Great! You have now deployed Hasura and have the admin console ready to get star
 If you haven't already, clone the learn-graphql repo. Execute the following commands in your terminal:
 
 ```
+# make sure git version is >= v2.26
+
 git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
 cd learn-graphql
 git sparse-checkout init --cone

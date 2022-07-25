@@ -12,6 +12,8 @@ Para este tutorial, el backend GraphQL y la interfaz de usuario básica de la ap
 1. Clone el repositorio de [learn-graphql](https://github.com/hasura/learn-graphql). Ejecute los siguientes comandos en su terminal:
 
 ```bash
+# make sure git version is >= v2.26
+
 git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
 
 cd learn-graphql

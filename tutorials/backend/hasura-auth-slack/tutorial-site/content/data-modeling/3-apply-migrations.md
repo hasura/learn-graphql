@@ -11,6 +11,8 @@ Let's get started by creating the tables and relationships for the Slack app.
 1. Clone the [learn-graphql](https://github.com/hasura/learn-graphql) repo. Execute the following commands in your terminal:
 
 ```bash
+# make sure git version is >= v2.26
+
 git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
 
 cd learn-graphql

@@ -11,6 +11,8 @@ metaDescription: "GraphQLバックエンドはすでに準備されています�
 1. [ learn-graphql ](https://github.com/hasura/learn-graphql) repo.をcloneします。ターミナルで以下のコマンドを実行します。
 
 ```bash
+# make sure git version is >= v2.26
+
 git clone --filter=blob:none --sparse git@github.com:hasura/learn-graphql.git
 
 cd learn-graphql

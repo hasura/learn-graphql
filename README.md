@@ -21,6 +21,7 @@ There are different tutorial series:
 - [Next.js](https://hasura.io/learn/graphql/nextjs-fullstack-serverless/introduction/)
 - [RxDB](https://hasura.io/learn/graphql/react-rxdb-offline-first/introduction/)
 - [Svelte](https://hasura.io/learn/graphql/svelte-apollo/introduction/)
+- [Remix](https://hasura.io/learn/graphql/remix-fullstack-firebase/introduction/)
 - [Rescript](https://hasura.io/learn/graphql/rescript-react-apollo/introduction/)
 
 ## Mobile
@@ -33,14 +34,16 @@ There are different tutorial series:
 ## Backend
 
 - [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/)
-- [Auth with Hasura](https://hasura.io/learn/graphql/hasura-auth-slack/introduction/)
+- [Authorization with Hasura](https://hasura.io/learn/graphql/hasura-auth-slack/introduction/)
 - [Advanced Hasura](https://hasura.io/learn/graphql/hasura-advanced/introduction/)
+- [Authentication with Hasura](https://hasura.io/learn/graphql/hasura-authentication/introduction/)
 
 ## Database
 
 - [Postgres Basics](https://hasura.io/learn/database/postgresql/introduction/)
 - [MySQL Basics](https://hasura.io/learn/database/mysql/introduction/)
 - [SQL Server Basics](https://hasura.io/learn/database/microsoft-sql-server/introduction/)
+- [YugabyteDB Basics](https://hasura.io/learn/database/yugabyte/introduction/)
 
 ## GraphQL Basics
 

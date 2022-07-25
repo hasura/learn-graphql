@@ -33,6 +33,8 @@ cd tutorials/frontend/svelte-apollo/app-boilerplate
    - `npm install`
    - `npm run dev`
 
+**Note**: If you are on Windows, the command for `npm run dev` needs to be changed to `"set PORT=3000 && rollup -c -w",` in package.json
+
 4. Signup/login as a user to load the todo app page
 
 This is what you should see after the steps above:

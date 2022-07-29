@@ -68,4 +68,4 @@ We have applied two foreign key constraints, one for article_id and one for tag_
 
 ## GraphQL Example
 
-Check out the Postgres schema in GraphQL using our example [running in Hasura Cloud](https://cloud.hasura.io/public/graphiql?endpoint=https://postgres-learn.hasura.app/v1/graphql).
+Check out the Postgres schema in GraphQL using our example [running in Hasura Cloud](https://cloud.hasura.io/public/graphiql?endpoint=https://learn-postgres.hasura.app/v1/graphql).

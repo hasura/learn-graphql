@@ -1,0 +1,26 @@
+table:
+  schema: public
+  name: article
+object_relationships:
+  - name: author
+    using:
+      foreign_key_constraint_on: author_id
+array_relationships:
+  - name: article_tags
+    using:
+      foreign_key_constraint_on:
+        column: article_id
+        table:
+          schema: public
+          name: article_tag
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - author_id
+        - id
+        - content
+        - title
+      filter: {}
+      limit: 20
+      allow_aggregations: true

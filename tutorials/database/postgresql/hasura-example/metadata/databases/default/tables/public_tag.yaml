@@ -1,0 +1,20 @@
+table:
+  schema: public
+  name: tag
+array_relationships:
+  - name: article_tags
+    using:
+      foreign_key_constraint_on:
+        column: tag_id
+        table:
+          schema: public
+          name: article_tag
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - id
+        - tag_value
+      filter: {}
+      limit: 20
+      allow_aggregations: true

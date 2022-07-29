@@ -1,0 +1,21 @@
+type Mutation {
+  actionName(
+    arg1: String!
+  ): json!
+}
+
+type Mutation {
+  actionName1(
+    arg1: String!
+  ): json!
+}
+
+input SampleInput {
+  username: String!
+  password: String!
+}
+
+type SampleOutput {
+  accessToken: String!
+}
+

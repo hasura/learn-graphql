@@ -1,0 +1,5 @@
+- "!include public_article.yaml"
+- "!include public_article_tag.yaml"
+- "!include public_author.yaml"
+- "!include public_old_users.yaml"
+- "!include public_tag.yaml"

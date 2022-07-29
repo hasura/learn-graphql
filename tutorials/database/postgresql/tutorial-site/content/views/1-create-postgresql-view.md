@@ -20,4 +20,4 @@ CREATE OR REPLACE VIEW "public"."old_users" AS
 
 ## GraphQL Example
 
-Check out the Postgres view in GraphQL using our example [running in Hasura Cloud](https://cloud.hasura.io/public/graphiql?endpoint=https://postgres-learn.hasura.app/v1/graphql).
+Check out the Postgres view in GraphQL using our example [running in Hasura Cloud](https://cloud.hasura.io/public/graphiql?endpoint=https://learn-postgres.hasura.app/v1/graphql).

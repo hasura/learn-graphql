@@ -10,10 +10,6 @@ Go is an open-source programming language supported by Google. Learn more at [th
 
 ## Hasura Actions
 
-Actions are a way to extend Hasura's schema with custom business logic using custom queries and mutations. Actions can be added to Hasura to handle various use cases such as data validation, data enrichment from external sources, and any other complex business logic.
-
-![Hasura Actions](https://graphql-engine-cdn.hasura.io/console/assets/common/img/actions.png)
-
 In the Actions tab on the Hasura Console we will set up a custom login function
 
 ```graphql
@@ -57,8 +53,6 @@ Result:
 ```
 
 ## Event Triggers
-
-Hasura can be used to create event triggers on tables in the database. Event triggers reliably capture events on specified tables and invoke HTTP webhooks to carry out any custom logic.
 
 Let's send a webhook when a new user is created and print out their name.
 

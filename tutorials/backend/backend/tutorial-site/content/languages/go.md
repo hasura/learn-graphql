@@ -8,6 +8,8 @@ metaDescription: "Go is an open source programming language supported by Google.
 
 Go is an open-source programming language supported by Google. Learn more at [the official website](https://go.dev/).
 
+See the [the server source code on Github](https://github.com/hasura/graphql-engine/tree/master/community/sample-apps/golang-backend-server).
+
 ## Hasura Actions
 
 In the Actions tab on the Hasura Console we will set up a custom login function
@@ -97,24 +99,6 @@ Let's send a webhook when a new user is created and print out their name.
 1.  Now we make an HTTP handler that handles the event
 
     ```go
-    func NewUserHandler(w http.ResponseWriter, r *http.Request) {
-        var user EventTriggerPayload[interface{}, struct {
-            Id   string
-            Name string
-        }]
-
-        err := json.NewDecoder(r.Body).Decode(&user)
-
-        if err != nil {
-            http.Error(w, err.Error(), http.StatusBadRequest)
-            return
-        }
-
-        fmt.Println("Hello", user.Event.Data.New.Name)
-
-        w.WriteHeader(200)
-    }
-
     func NewUserHandler(w http.ResponseWriter, r *http.Request) {
         var u EventTriggerPayload[interface{}, struct {
             Id   string

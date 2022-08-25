@@ -1,0 +1,21 @@
+table:
+  schema: public
+  name: author
+array_relationships:
+  - name: articles
+    using:
+      foreign_key_constraint_on:
+        column: author_id
+        table:
+          schema: public
+          name: article
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - age
+        - id
+        - name
+      filter: {}
+      limit: 20
+      allow_aggregations: true

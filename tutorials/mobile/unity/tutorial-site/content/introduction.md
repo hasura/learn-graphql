@@ -47,7 +47,10 @@ No, most of the Unity-centric parts of the game have already been built within t
 We will be focused mainly on integrating multiplayer features to the game by utilising Hasura's GraphQL engine.
 
 ## What do I need to take this tutorial?
-You will need to have Unity. Ideally, version 2019 and upward. 
+You will need to have Unity. Ideally, version 2019 and upward.
+
+## How long will this tutorial take?
+2 hours
 
 ## Prerequisite knowledge/skills
 - Beginner level understanding of Unity

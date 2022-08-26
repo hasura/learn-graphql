@@ -1,6 +1,6 @@
 ---
-title: "Fusion Auth"
-metaTitle: "Fusion Auth | Hasura Authentication Tutorial"
+title: "FusionAuth"
+metaTitle: "FusionAuth | Hasura Authentication Tutorial"
 metaDescription: "Learn how to integrate FusionAuth with Hasura to secure your applications using JWT"
 ---
 

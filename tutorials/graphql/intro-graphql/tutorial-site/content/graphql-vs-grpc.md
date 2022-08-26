@@ -63,7 +63,7 @@ Since gRPC uses Protobuf to exchange data, the messages are not human readable. 
 
 ## GraphQL vs gRPC
 
-When it comes to data fetching, GraphQL is more precise than gRPC. That means you can retrieve exactly the data you want - nothing more, nothing less. With gRPC, you might get extra data back from the server (similar to REST).
+When it comes to data fetching, GraphQL is more precise than gRPC. That means you can retrieve exactly the data you want - nothing more, nothing less. gRPC, with certain API designs, might return extra data from the server (similar to REST).
 
 Regarding performance, gRPC is considerably faster than GraphQL, thanks to the Protobuf and HTTP/2. The payload data is serialized into binary format, which reduces its size and makes it more efficient than text-based formats JSON or XML.
 

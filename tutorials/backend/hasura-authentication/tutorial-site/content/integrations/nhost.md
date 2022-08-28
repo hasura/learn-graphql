@@ -57,7 +57,13 @@ Next, give your new Nhost project a name, select a geographic region for your Nh
 We now need to create a table named ```notes```. 
 <img width="1434" alt="Create notes table" src="https://user-images.githubusercontent.com/32492961/187066519-9b3071b7-004c-4d8d-8d45-54ab59c38849.png">
 
+<img width="1434" alt="Foreign key" src="https://user-images.githubusercontent.com/32492961/187094626-000952a6-74b8-47d9-aadd-fb8f94ca63d9.png">
+
 Create permissions to read, write for the ```users``` role, so that only they can access them.
+
+<img width="1432" alt="Insert permission" src="https://user-images.githubusercontent.com/32492961/187094759-896614b8-9cd2-4a4b-bb35-a74cdb42d1e5.png">
+
+<img width="1435" alt="Select permission" src="https://user-images.githubusercontent.com/32492961/187094799-78d6d26a-bf3d-4c5d-81e2-ec3f41d631ca.png">
 
 
 
@@ -89,11 +95,35 @@ query {
 ```
 This query will fail because the user is not signed in while making the request
 
-<img width="1440" alt="Error message on query" src="https://user-images.githubusercontent.com/32492961/187076819-204dea87-ceaf-43ae-84cc-777faf1cf10a.png">
+<img width="1409" alt="Error message on query" src="https://user-images.githubusercontent.com/32492961/187095070-8063b3b6-d87a-47fb-8abf-88b1054024ac.png">
+
+Make curl command with your email and password in the terminal to sign in and recieve the access token.
+
+```
+curl https://{subdomain}.auth.{region}.nhost.run/v1/signin/email-password \
+    -v \
+    -H "Content-Type: application/json" \
+    -d '{ "email": "<email>", "password": "<password" }'
+    
+```
+
+You now need to first verify your email before using the access token
 
 
 <img width="1180" alt="VerifyYourEmail" src="https://user-images.githubusercontent.com/32492961/187076770-44f36f27-6d76-4e77-abba-78e8183cc22b.png">
 
+You can also decode your JWT token [here](https://jwt.io/ )
+
 <img width="1436" alt="Decoding the JWT token" src="https://user-images.githubusercontent.com/32492961/187076780-d6996cfd-bf14-48c2-a663-a0c25d705081.png">
 
+Now add the JWT token in the headers inside GraphiQL like this and make the same query in the playground
+
+```
+Authorization: bearer {JWT-token}
+
+```
+
+<img width="1434" alt="Successful Query Retrival" src="https://user-images.githubusercontent.com/32492961/187095035-e4a9d5c4-e65b-4b71-8046-b18252a65321.png">
+
+You can now see the user's details as you have been authenticated using Nhost Authentication.
 

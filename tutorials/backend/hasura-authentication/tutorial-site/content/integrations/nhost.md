@@ -59,6 +59,41 @@ We now need to create a table named ```notes```.
 
 Create permissions to read, write for the ```users``` role, so that only they can access them.
 
+
+
 ### Open Nhost Dashboard
+
+Go to the Auth section in the Nhost Dashboard and create a user using their mail ID and password
+
+<img width="1434" alt="Nhost Auth Dashboard" src="https://user-images.githubusercontent.com/32492961/187075955-94e66457-fc3d-46fb-8614-8c8f05ab3fc2.png">
+
+Copy the User ID from the Nhost Dashboard
+
+<img width="1428" alt="UserInfo" src="https://user-images.githubusercontent.com/32492961/187076234-797f1c74-f94a-4875-abf0-44d0aee0f65c.png">
+
+Go over to the Hasura console and insert a new row with the user ID that you copied from the Nhost Dashboard
+
+<img width="1435" alt="Insert note with user_id" src="https://user-images.githubusercontent.com/32492961/187076515-5e76d9b3-b9b8-4202-99a4-99872bea4af2.png">
+
+In the GraphiQL playground, uncheck the header ```x-hasura-admin-secret``` so that you can manage role based access. 
+Make GraphQL request to get all notes
+
+```
+query {
+  notes {
+    id
+    title
+  }
+}
+
+```
+This query will fail because the user is not signed in while making the request
+
+<img width="1440" alt="Error message on query" src="https://user-images.githubusercontent.com/32492961/187076819-204dea87-ceaf-43ae-84cc-777faf1cf10a.png">
+
+
+<img width="1180" alt="VerifyYourEmail" src="https://user-images.githubusercontent.com/32492961/187076770-44f36f27-6d76-4e77-abba-78e8183cc22b.png">
+
+<img width="1436" alt="Decoding the JWT token" src="https://user-images.githubusercontent.com/32492961/187076780-d6996cfd-bf14-48c2-a663-a0c25d705081.png">
 
 

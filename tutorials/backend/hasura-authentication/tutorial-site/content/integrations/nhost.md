@@ -7,9 +7,9 @@ metaDescription: "Nhost is the open source GraphQL backend (Firebase Alternative
 
 ## What is Nhost
 
-<!-- Nhost dashboard image  -->
+<img width="1440" alt="NhostLandingPage" src="https://user-images.githubusercontent.com/32492961/187065209-66957b8d-9161-4fe5-adb2-d9366b995808.png">
 
-Nhost is the open source GraphQL backend (Firebase Alternative) and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
+[Nhost](https://nhost.io/) is the open source GraphQL backend (Firebase Alternative) and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
 
 We provide a modern backend with the postgres database,
 GraphQL, Authentication, Storage, and Serverless Functions.
@@ -40,14 +40,25 @@ Nhost's authentication service is integrated with your database. All users are s
 
 First things first, we need to create a new Nhost project.
 
+<img width="1434" alt="CreateYourFirstNhostProject" src="https://user-images.githubusercontent.com/32492961/187065872-30a10875-fd16-4e62-9b45-4d6cecb0f510.png">
+
+
 So, log in to your Nhost dashboard and click the Create Your First Project button.
 
 Next, give your new Nhost project a name, select a geographic region for your Nhost services and click Create Project.
 
+<img width="1431" alt="NotesApp" src="https://user-images.githubusercontent.com/32492961/187065453-628b240f-d4c1-443b-af4f-ca59bd23638d.png">
 
-We will be creating a basic Notes app.
+
+## We will be creating a basic Notes app.
 
 ### Open Hasura Console
 
-We now need to create a table named notes. 
-Create permissions so only users can read their own notes.
+We now need to create a table named ```notes```. 
+<img width="1434" alt="Create notes table" src="https://user-images.githubusercontent.com/32492961/187066519-9b3071b7-004c-4d8d-8d45-54ab59c38849.png">
+
+Create permissions to read, write for the ```users``` role, so that only they can access them.
+
+### Open Nhost Dashboard
+
+

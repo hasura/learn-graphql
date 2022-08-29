@@ -1,18 +1,22 @@
----
-title: "Go"
-metaTitle: "Go | Hasura Backend Tutorial"
-metaDescription: "Go is an open source programming language supported by Google. Learn how to integrate Go with Hasura"
----
+# Use a Go Backend Server With Hasura
 
-## What is Go
+The Hasura GraphQL engine instantly generates a real-time GraphQL CRUD API on your data. For some use-cases, we may need to call a custom backend server. This article uses the programming language [Go](https://go.dev/) to run custom business logic, respond to event triggers, create a GraphQL remote schema, and query a GraphQL endpoint.
 
-Go is an open-source programming language supported by Google. Learn more at [the official website](https://go.dev/).
+Run the example with Docker
 
-New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
+```bash
+docker compose up -d
+```
 
-See the [the server source code on Github](https://github.com/hasura/graphql-engine/tree/master/community/sample-apps/golang-backend-server).
+- [Hasura Actions](#hasura-actions)
+- [Event Triggers](#event-triggers)
+- [Remote Schema](#remote-schema)
+- [Query GraphQL](#query-graphql)
+- [Conclusion](#conclusion)
 
 ## Hasura Actions
+
+Actions are a way to extend Hasura's schema with custom business logic using custom queries and mutations. Actions can be added to Hasura to handle various use cases such as data validation, data enrichment from external sources, and any other complex business logic.
 
 In the Actions tab on the Hasura Console we will set up a custom login function
 
@@ -57,6 +61,8 @@ Result:
 ```
 
 ## Event Triggers
+
+Hasura can be used to create event triggers on tables in the database. Event triggers reliably capture events on specified tables and invoke HTTP webhooks to carry out any custom logic.
 
 Let's send a webhook when a new user is created and print out their name.
 

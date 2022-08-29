@@ -8,6 +8,8 @@ metaDescription: "Python is a programming language that lets you work quickly an
 
 Python is a programming language that lets you work quickly and integrate systems more effectively. Learn more at [the official website](https://www.python.org/).
 
+New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
+
 See the [the server source code on Github](https://github.com/hasura/graphql-engine/tree/master/community/sample-apps/python-backend-server).
 
 ## Hasura Actions

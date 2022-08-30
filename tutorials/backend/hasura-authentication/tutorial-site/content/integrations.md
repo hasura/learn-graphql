@@ -21,6 +21,7 @@ This list is not exhaustive by any means as Hasura will work with any authentica
 
 - SuperTokens
 - KeyCloak
+- Authorizer
 
 ## Custom Implementations
 

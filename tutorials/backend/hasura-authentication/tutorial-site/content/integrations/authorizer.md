@@ -1,7 +1,7 @@
 ---
-title: 'Authorizer'
-metaTitle: 'Authorizer | Hasura Authentication Tutorial'
-metaDescription: 'Learn how to integrate Authorizer with Hasura to add sign-up, sign-in, and role based authorization into your applications using JWT'
+title: "Authorizer"
+metaTitle: "Authorizer | Hasura Authentication Tutorial"
+metaDescription: "Learn how to integrate Authorizer with Hasura to add sign-up, sign-in, and role based authorization into your applications using JWT"
 ---
 
 ## What is Authorizer

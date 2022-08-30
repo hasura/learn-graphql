@@ -5,7 +5,7 @@ metaDescription: "Nhost is the open source GraphQL backend (Firebase Alternative
 "
 ---
 
-## What is Nhost
+## What is [Nhost](https://github.com/nhost/nhost)
 
 <img width="1440" alt="NhostLandingPage" src="https://user-images.githubusercontent.com/32492961/187065209-66957b8d-9161-4fe5-adb2-d9366b995808.png">
 
@@ -13,6 +13,7 @@ metaDescription: "Nhost is the open source GraphQL backend (Firebase Alternative
 
 We provide a modern backend with the postgres database,
 GraphQL, Authentication, Storage, and Serverless Functions.
+
 
 Nhost Authentication is a ready-to-use authentication service that is integrated with the [GraphQL API](/platform/graphql) and its permission system from Hasura.
 
@@ -55,11 +56,16 @@ Next, give your new Nhost project a name, select a geographic region for your Nh
 ### Open Hasura Console
 
 We now need to create a table named ```notes```. 
+Every note has an unique id, title and details about when it was created or updated. 
+
 <img width="1434" alt="Create notes table" src="https://user-images.githubusercontent.com/32492961/187066519-9b3071b7-004c-4d8d-8d45-54ab59c38849.png">
+
+`user_id` will be our foreign key refrencing the ID from the users table. 
+If you delete a user, cascading will delete all the user's notes.
 
 <img width="1434" alt="Foreign key" src="https://user-images.githubusercontent.com/32492961/187094626-000952a6-74b8-47d9-aadd-fb8f94ca63d9.png">
 
-Create permissions to read, write for the ```users``` role, so that only they can access them.
+Create permissions to read, write for the ```users``` role, to have role specific access.
 
 <img width="1432" alt="Insert permission" src="https://user-images.githubusercontent.com/32492961/187094759-896614b8-9cd2-4a4b-bb35-a74cdb42d1e5.png">
 
@@ -69,15 +75,15 @@ Create permissions to read, write for the ```users``` role, so that only they ca
 
 ### Open Nhost Dashboard
 
-Go to the Auth section in the Nhost Dashboard and create a user using their mail ID and password
+Go to the Auth section in the Nhost Dashboard and create a user using mail ID and password. You can add multiple users here.
 
 <img width="1434" alt="Nhost Auth Dashboard" src="https://user-images.githubusercontent.com/32492961/187075955-94e66457-fc3d-46fb-8614-8c8f05ab3fc2.png">
 
-Copy the User ID from the Nhost Dashboard
+Now copy the User ID that was created on the Nhost Dashboard.
 
 <img width="1428" alt="UserInfo" src="https://user-images.githubusercontent.com/32492961/187076234-797f1c74-f94a-4875-abf0-44d0aee0f65c.png">
 
-Go over to the Hasura console and insert a new row with the user ID that you copied from the Nhost Dashboard
+Go over to the Hasura console and create a new row using the user ID that you copied from the Nhost Dashboard.
 
 <img width="1435" alt="Insert note with user_id" src="https://user-images.githubusercontent.com/32492961/187076515-5e76d9b3-b9b8-4202-99a4-99872bea4af2.png">
 
@@ -93,11 +99,11 @@ query {
 }
 
 ```
-This query will fail because the user is not signed in while making the request
+This query will fail because the user is not signed in while making the request.
 
 <img width="1409" alt="Error message on query" src="https://user-images.githubusercontent.com/32492961/187095070-8063b3b6-d87a-47fb-8abf-88b1054024ac.png">
 
-Make curl command with your email and password in the terminal to sign in and recieve the access token.
+Make a curl command with your email and password in the terminal to sign in and recieve the access token.
 
 ```
 curl https://{subdomain}.auth.{region}.nhost.run/v1/signin/email-password \
@@ -107,7 +113,7 @@ curl https://{subdomain}.auth.{region}.nhost.run/v1/signin/email-password \
     
 ```
 
-You now need to first verify your email before using the access token
+You now need to first verify your email before using the access token.
 
 
 <img width="1180" alt="VerifyYourEmail" src="https://user-images.githubusercontent.com/32492961/187076770-44f36f27-6d76-4e77-abba-78e8183cc22b.png">
@@ -125,5 +131,13 @@ Authorization: bearer {JWT-token}
 
 <img width="1434" alt="Successful Query Retrival" src="https://user-images.githubusercontent.com/32492961/187095035-e4a9d5c4-e65b-4b71-8046-b18252a65321.png">
 
-You can now see the user's details as you have been authenticated using Nhost Authentication.
+You can now see the user's details as you have been authenticated using Nhost Authentication and Hasura. Now that you have your authentication and backend setup done, you can go ahead and build your frontend. 
+
+Hope this guide was useful and you can get started with Nhost by following one of our quickstart guides:
+
+- [Next.js](/platform/quickstarts/nextjs)
+- [React](/platform/quickstarts/react)
+- [RedwoodJS](/platform/quickstarts/redwoodjs)
+- [Vue](/platform/quickstarts/vue)
+
 

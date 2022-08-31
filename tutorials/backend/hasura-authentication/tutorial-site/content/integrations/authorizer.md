@@ -1,7 +1,7 @@
 ---
-title: "Authorizer"
-metaTitle: "Authorizer | Hasura Authentication Tutorial"
-metaDescription: "Learn how to integrate Authorizer with Hasura to add sign-up, sign-in, and role based authorization into your applications using JWT"
+title: 'Authorizer'
+metaTitle: 'Authorizer | Hasura Authentication Tutorial'
+metaDescription: 'Learn how to integrate Authorizer with Hasura to add sign-up, sign-in, and role based authorization into your applications using JWT'
 ---
 
 ## What is Authorizer
@@ -16,11 +16,11 @@ In this section you will learn how to integrate [Authorizer](https://authorizer.
 
 To integrate Authorizer with Hasura, you will need an Authorizer instance deployed on your infrastructure or 3rd party cloud services. You can deploy authorizer instance using following one click deployment options:
 
-| **Infra provider** |                                                                                                      **One-click link**                                                                                                      |               **Additional information**               |
-| :----------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------: |
-|    Railway.app     | <a target="_blank" href="https://railway.app/new/template?template=https://github.com/authorizerdev/authorizer-railway&amp;plugins=postgresql,redis"><img src="https://railway.app/button.svg" alt="Deploy on Railway"/></a> | [docs](https://docs.authorizer.dev/deployment/railway) |
-|       Heroku       |             <a target="_blank" href="https://heroku.com/deploy?template=https://github.com/authorizerdev/authorizer-heroku"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a>             | [docs](https://docs.authorizer.dev/deployment/heroku)  |
-|       Render       |           <a target="_blank" href="https://render.com/deploy?repo=https://github.com/authorizerdev/authorizer-render"><img alt="render button" src="https://render.com/images/deploy-to-render-button.svg" /></a>            | [docs](https://docs.authorizer.dev/deployment/render)  |
+| **Infra provider** |                                                                                           **One-click link**                                                                                            |               **Additional information**               |
+| :----------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------: |
+|    Railway.app     |                      <a target="_blank" href="https://railway.app/new/template/nwXp1C?referralCode=FEF4uT"><img src="https://railway.app/button.svg" alt="Deploy on Railway"/></a>                      | [docs](https://docs.authorizer.dev/deployment/railway) |
+|       Heroku       |  <a target="_blank" href="https://heroku.com/deploy?template=https://github.com/authorizerdev/authorizer-heroku"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /></a>   | [docs](https://docs.authorizer.dev/deployment/heroku)  |
+|       Render       | <a target="_blank" href="https://render.com/deploy?repo=https://github.com/authorizerdev/authorizer-render"><img alt="render button" src="https://render.com/images/deploy-to-render-button.svg" /></a> | [docs](https://docs.authorizer.dev/deployment/render)  |
 
 OR
 

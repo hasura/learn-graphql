@@ -33,7 +33,7 @@ You can also deploy Authorizer instance using
 
 > **Note:** If you are trying out with one click deployment options like railway then template is configured in a way that it will also deploy postgres + redis for you. But if you are going with other deployment options required environment variables are `DATABASE_TYPE` & `DATABASE_URL`. You can also configure `REDIS_URL` to have persisted sessions. For more information check [docs](https://docs.authorizer.dev/core/env).
 
-In case of Hasura, we need to have database type as `postgres` / `mysql` or the one that is supported by Hasura and connect that database with Authorizer instance via Database Environment Variables.
+In case of Hasura, we need to have database type as one of `postgres`, `sqlserver` or `yugabyte` and connect that database with Authorizer instance via Database Environment Variables. As more databases are supported by Hasura, this list could change.
 
 ### Step 2: Configure Authorizer instance
 
@@ -54,12 +54,11 @@ Also, you can invite the users and manage them from the dashboard itself.
 
 ### Step 3: Setup Hasura Instance
 
-- Signup on https://cloud.hasura.io/
-- Create a project
+- Create a project on [Hasura Cloud](https://cloud.hasura.io)
 
 ### Step 4: Configure Database with Hasura Instance
 
-- Open the dashboard of Hasura cloud and navigate to your project
+- Open the dashboard of Hasura Cloud and navigate to your project
 - Click on `Launch Console` on top right corner
 - Go to `Data` section and connect to your database
 
@@ -88,7 +87,7 @@ Check the [hasura docs](https://hasura.io/docs/latest/graphql/cloud/getting-star
 
 > **Note:** In case of RSA and ECDSA JWT types only provide the public key in PEM encoded string format. You can get the JWT type and key from the authorizer dashboard under env variables section.
 
-Check the [hasura docs](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/) for more information.
+Check the [Hasura Docs](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt/) for more information.
 
 ## Step 6: Configure JWT token Authorization Script
 
@@ -111,7 +110,7 @@ function(user,tokenPayload) {
 
 ![script-image](https://res.cloudinary.com/dcfpom7fo/image/upload/v1661836293/Authorizer/configure_id_token_yrwb6z.png)
 
-Once user login they will get a `id_token` in the response, this token should be used with Hasura queries as `Authorization: Bearer ID_TOKEN`. This will help in making `Authorized` requests.
+Once user logs in, they will get a `id_token` in the response, this token should be used with Hasura queries as `Authorization: Bearer ID_TOKEN`. This will help in making `Authorized` requests.
 
 You can configure access control for the various roles that your application needs from Hasura + Add / Update those roles from Authorizer dashboard
 
@@ -119,4 +118,4 @@ You can configure access control for the various roles that your application nee
 
 For more information on access control check [Hasura docs](https://hasura.io/docs/latest/graphql/core/auth/authorization/basics/)
 
-You can also stitch Authorizer GraphQl Endpoint with Hasura Remote Schema, that way you can have single endpoint for all your GraphQL queries / mutations.
+You can also stitch Authorizer GraphQL Endpoint with Hasura Remote Schema, that way you can have a single endpoint for all your GraphQL queries / mutations.

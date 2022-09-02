@@ -1,12 +1,13 @@
-from flask import Flask
-from flask_pydantic import validate
+from fastapi import FastAPI
 from typing import Generic, TypeVar
 from pydantic import BaseModel
 from pydantic.generics import GenericModel
 from action.loginTypes import LoginResponse, loginArgs
+from event.event import Payload
+from remoteSchema.remoteSchema import graphql_app
+from qlient.aiohttp import AIOHTTPClient, GraphQLResponse
 
-
-ActionInput = TypeVar("ActionInput", bound=BaseModel)
+ActionInput = TypeVar("ActionInput", bound=BaseModel | None)
 
 
 class ActionName(BaseModel):
@@ -20,10 +21,27 @@ class ActionPayload(GenericModel, Generic[ActionInput]):
     session_variables: dict[str, str]
 
 
-app = Flask(__name__)
+app = FastAPI()
 
 
-@app.route("/action", methods=["POST"])
-@validate()
-def actionHandler(action: ActionPayload[loginArgs]) -> LoginResponse:
+@app.post("/action")
+async def actionHandler(action: ActionPayload[loginArgs]) -> LoginResponse:
+    action.input
     return LoginResponse(AccessToken="<sample value>")
+
+
+class UserTable(BaseModel):
+    id: str
+    name: str
+
+
+@app.post("/event")
+async def actionHandler(action: Payload[UserTable, None]):
+    async with AIOHTTPClient("http://graphql-engine:8080/v1/graphql") as client:
+        result: GraphQLResponse = await client.query.user(["id", "name"])
+        print(result.request.query)
+        print(result.data)
+    return
+
+
+app.include_router(graphql_app, prefix="/graphql")

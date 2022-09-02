@@ -1,20 +1,24 @@
 ---
 title: "Course Introduction"
 metaTitle: "Course Introduction | Hasura Backend Tutorial"
-metaDescription: "A powerful and concise tutorial that will introduce you to integrating backend applications with Hasura"
+metaDescription: "A concise backend application tutorial optionally integrating with Hasura"
 ---
 
-This course is a super quick introduction to integrating backend applications with Hasura GraphQL.
+This course is a super quick introduction to developing backend applications and optionally integrating them with [Hasura GraphQL](https://hasura.io/).
+
+When developing backend applications, especially ones with GraphQL, there are many things you need to worry about, such as security, performance, and the manual labor of creating CRUD operations.
+
+Hasura reduces the bulk of this complexity of setting up a GraphQL API from scratch by giving you instant GraphQL CRUD for databases covering most of the data fetching and real-time subscription use cases. When you need to run custom business logic, Hasura lets you extend your graph in multiple ways.
 
 ## Pre-requisites {#prerequisites}
 
-You should be familiar with Hasura to quickly dive into the integration sections that this course focuses on. In case you are new to Hasura, we recommend you go over the [Introduction to Hasura Introduction](https://hasura.io/learn/graphql/hasura/introduction/) Course before taking this.
+You should be familiar with your language of choice. If you are new to Hasura and want to integrate, we recommend you go over the [Introduction to Hasura](https://hasura.io/learn/graphql/hasura/introduction/) Course before taking this.
 
 ## What will I learn? {#what-will-i-learn}
 
-This course will help you understand how to integrate backend applications with Hasura. There are step by step guides for many of the popular languages that work well with Hasura.
+This course will help you understand how to do everyday backend application tasks and how to integrate Hasura. We have step-by-step guides for many of the popular languages.
 
 ## What do I need to take this tutorial? {#what-do-i-need}
 
-- An instance of Hasura running either on Hasura Cloud or somewhere publicly accessible so that you can configure JWT secrets.
 - Your chosen language
+- Optionally a running instance of Hasura such as Hasura Cloud

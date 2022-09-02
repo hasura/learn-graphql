@@ -24,11 +24,11 @@ services:
     volumes:
       - ./hasura/metadata:/hasura-metadata
       - ./hasura/migrations:/hasura-migrations
-  golang-backend-server:
+  python-backend-server:
     build: .
     depends_on:
       - "graphql-engine"
     ports:
-      - "3000:3000"
+      - "8000:8000"
 volumes:
   db_data:

@@ -8,13 +8,121 @@ metaDescription: "Go is an open source programming language supported by Google.
 
 Go is an open-source programming language supported by Google. Learn more at [the official website](https://go.dev/).
 
+The following guide covers common backend application tasks and how they can tie into Hasura.
+
 New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
-See the [the server source code on Github](https://github.com/hasura/graphql-engine/tree/master/community/sample-apps/golang-backend-server).
+See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend/tutorial-site/source-code/go).
 
-## Hasura Actions
+## Create Go REST Endpoint
 
-In the Actions tab on the Hasura Console we will set up a custom login function
+We will create a login POST endpoint that takes a username and password and returns an access code.
+
+In our `main.go`, we use the standard library to create an HTTP server:
+
+```go
+package main
+
+import (
+	"log"
+	"net/http"
+)
+
+func main() {
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("/action", action.LoginHandler)
+
+	err := http.ListenAndServe(":3000", mux)
+	log.Fatal(err)
+}
+```
+
+In `action/action.go`, we create the handler:
+
+```go
+package action
+
+import (
+	"encoding/json"
+	"io/ioutil"
+	"net/http"
+)
+
+type LoginResponse struct {
+	AccessToken string
+}
+
+type Mutation struct {
+	Login *LoginResponse
+}
+
+type loginArgs struct {
+	Username string
+	Password string
+}
+
+type ActionPayload struct {
+	SessionVariables map[string]interface{} `json:"session_variables"`
+	Input            loginArgs              `json:"input"`
+}
+
+type GraphQLError struct {
+	Message string `json:"message"`
+}
+
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
+
+	// set the response header as JSON
+	w.Header().Set("Content-Type", "application/json")
+
+	// read request body
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "invalid payload", http.StatusBadRequest)
+		return
+	}
+
+	// parse the body as action payload
+	var actionPayload ActionPayload
+	err = json.Unmarshal(reqBody, &actionPayload)
+	if err != nil {
+		http.Error(w, "invalid payload", http.StatusBadRequest)
+		return
+	}
+
+	// Send the request params to the Action's generated handler function
+	result, err := login(actionPayload.Input)
+
+	// throw if an error happens
+	if err != nil {
+		errorObject := GraphQLError{
+			Message: err.Error(),
+		}
+		errorBody, _ := json.Marshal(errorObject)
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write(errorBody)
+		return
+	}
+
+	// Write the response as JSON
+	data, _ := json.Marshal(result)
+	w.Write(data)
+
+}
+
+// Auto-generated function that takes the Action parameters and must return it's response type
+func login(args loginArgs) (response LoginResponse, err error) {
+	response = LoginResponse{
+		AccessToken: "<sample value>",
+	}
+	return response, nil
+}
+```
+
+### Hasura Actions
+
+We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console we will set up a custom login function
 
 ```graphql
 type Mutation {
@@ -56,7 +164,9 @@ Result:
 }
 ```
 
-## Event Triggers
+### Event Triggers
+
+With [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can get notified whenever an event happens in our database.
 
 Let's send a webhook when a new user is created and print out their name.
 
@@ -121,9 +231,9 @@ Let's send a webhook when a new user is created and print out their name.
 
 When you add a user in Hasura your Go server should receive the event.
 
-## Remote Schema
+## Create Go GraphQL Server
 
-We can make a custom GraphQL in Go using [gqlgen](https://gqlgen.com/) and connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
+We can make a custom GraphQL in Go using [gqlgen](https://gqlgen.com/)
 
 1. Run the [gqlgen quickstart](https://gqlgen.com/#quick-start), skipping the first step.
 
@@ -176,6 +286,10 @@ We can make a custom GraphQL in Go using [gqlgen](https://gqlgen.com/) and conne
    }
    ```
 
+### Hasura Remote Schema
+
+We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
+
 1. In the Hasura Console remote schema tab, add your Go server `<Go server URL>/graphql`
 
 1. In the API Explorer tab, try querying the sample todos.
@@ -190,9 +304,9 @@ We can make a custom GraphQL in Go using [gqlgen](https://gqlgen.com/) and conne
    }
    ```
 
-## Query GraphQL
+## Query GraphQL from Go
 
-To query Hasura from Go we use Khan Academy's [genqlient](https://github.com/Khan/genqlient) to generate a type-safe GraphQL client.
+To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://github.com/Khan/genqlient) to generate a type-safe GraphQL client.
 
 1. [Download your Hasura schema](https://hasura.io/docs/latest/graphql/core/guides/export-graphql-schema/#introduction)
 
@@ -249,8 +363,8 @@ To query Hasura from Go we use Khan Academy's [genqlient](https://github.com/Kha
 
 ## Conclusion
 
-Hasura autogenerates most of our API but gives us escape hatches for custom logic. We've gone over four ways you can combine the power of Go and Hasura. Enjoy!
+When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Go. Enjoy!
 
-When ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
+If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 
 <a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://camo.githubusercontent.com/a6de317cd7d0ed4e8722684b428f72e3da614fe8/68747470733a2f2f6772617068716c2d656e67696e652d63646e2e6861737572612e696f2f696d672f6465706c6f795f746f5f6861737572612e706e67"></a>

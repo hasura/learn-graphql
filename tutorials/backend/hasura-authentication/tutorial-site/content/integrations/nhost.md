@@ -1,7 +1,7 @@
 ---
 title: "Nhost"
 metaTitle: "Nhost | Hasura Authentication Tutorial"
-metaDescription: "Nhost is the open source GraphQL backend (Firebase Alternative) and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
+metaDescription: "Nhost is the open source Firebase alternative with GraphQL and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
 "
 ---
 
@@ -9,10 +9,9 @@ metaDescription: "Nhost is the open source GraphQL backend (Firebase Alternative
 
 <img width="1440" alt="NhostLandingPage" src="https://user-images.githubusercontent.com/32492961/187065209-66957b8d-9161-4fe5-adb2-d9366b995808.png">
 
-[Nhost](https://nhost.io/) is the open source GraphQL backend (Firebase Alternative) and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
+[Nhost](https://nhost.io/) is the open source Firebase alternative with GraphQL and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
 
-We provide a modern backend with the postgres database,
-GraphQL, Authentication, Storage, and Serverless Functions.
+We provide a modern backend with the Postgres database, GraphQL API, Authentication, Storage, and Serverless Functions.
 
 
 Nhost Authentication is a ready-to-use authentication service that is integrated with the [GraphQL API](/platform/graphql) and its permission system from Hasura.
@@ -30,33 +29,50 @@ Nhost Authentication lets you authenticate users using different sign-in methods
 
 ## How it works
 
-1. When a user signs up or is created, the user's information is inserted into the `auth.users` table in your database.
+1. When a user signs up, the user's information is inserted into the `auth.users` table in your database.
 2. Nhost returns an access token and a refresh token, together with the user's information.
 3. The user sends requests to Nhost services (GraphQL API, Authentication, Storage, Functions) with the access token as a header.
 4. The Nhost services use the user's access token to authorize the requests.
 
 Nhost's authentication service is integrated with your database. All users are stored in the `users` table under the `auth` schema.
 
-### Create a Nhost account
+### Create a Nhost project
 
-First things first, we need to create a new Nhost project.
+If this is your first Nhost project sign up using your GitHub or email.
+Next step is to create an Nhost project.
+
+### Add Sign up image
+
+Click the Create Your First Project button to add project details.
 
 <img width="1434" alt="CreateYourFirstNhostProject" src="https://user-images.githubusercontent.com/32492961/187065872-30a10875-fd16-4e62-9b45-4d6cecb0f510.png">
 
-
-So, log in to your Nhost dashboard and click the Create Your First Project button.
-
-Next, give your new Nhost project a name, select a geographic region for your Nhost services and click Create Project.
+Give your new Nhost project a name, select a region and click Create Project.
 
 <img width="1431" alt="NotesApp" src="https://user-images.githubusercontent.com/32492961/187065453-628b240f-d4c1-443b-af4f-ca59bd23638d.png">
 
 
-## We will be creating a basic Notes app.
+## A basic Notes app
 
-### Open Hasura Console
+For this guide, will be creating the backend for a notes app with two users. Each user will have a note with an unique id, title, body and details about when it was created or updated.
 
-We now need to create a table named ```notes```. 
-Every note has an unique id, title and details about when it was created or updated. 
+<img width="1440" alt="Screenshot 2022-09-04 at 10 57 24 PM" src="https://user-images.githubusercontent.com/32492961/188325902-853817c4-8bba-45d7-a6ca-0164a75eb289.png">
+
+We now need to create a table named ```notes```. The table will be created via Hasura Console.
+Click on Hasura from the Nhost panel. Copy the Admin Secret and click on Open Hasura.
+
+<img width="1440" alt="Screenshot 2022-09-04 at 10 58 50 PM" src="https://user-images.githubusercontent.com/32492961/188326035-0635ea5b-face-4140-95ac-ef003e2a27f6.png">
+
+Paste the Admin secret and press Enter
+
+<img width="1439" alt="Capture d’écran 2022-09-04 à 23 11 11" src="https://user-images.githubusercontent.com/32492961/188326547-9ab4998f-b4f5-46a0-b996-93b9c0f8e251.png">
+
+Head over to the Data tab and under the public schema of Databases, click on Create Table.
+
+<img width="1439" alt="Capture d’écran 2022-09-04 à 23 15 38" src="https://user-images.githubusercontent.com/32492961/188326729-d5a78d63-e260-4b55-917a-911a430eef57.png">
+
+Enter table name, comment and column details as shown below.
+
 
 <img width="1434" alt="Create notes table" src="https://user-images.githubusercontent.com/32492961/187066519-9b3071b7-004c-4d8d-8d45-54ab59c38849.png">
 
@@ -73,9 +89,9 @@ Create permissions to read, write for the ```users``` role, to have role specifi
 
 
 
-### Open Nhost Dashboard
+### Create users
 
-Go to the Auth section in the Nhost Dashboard and create a user using mail ID and password. You can add multiple users here.
+Go to the Auth section in the Nhost Dashboard click on Add user to create users using mail ID and password.
 
 <img width="1434" alt="Nhost Auth Dashboard" src="https://user-images.githubusercontent.com/32492961/187075955-94e66457-fc3d-46fb-8614-8c8f05ab3fc2.png">
 

@@ -38,10 +38,10 @@ Nhost's authentication service is integrated with your database. All users are s
 
 ### Create a Nhost project
 
-If this is your first Nhost project sign up using your GitHub or email.
+If this is your first Nhost project, sign up using your GitHub or email.
 Next step is to create an Nhost project.
 
-### Add Sign up image
+![image](https://user-images.githubusercontent.com/32492961/188327361-f5f808ac-5101-481b-aa1c-cedecb1fab38.png)
 
 Click the Create Your First Project button to add project details.
 
@@ -93,17 +93,26 @@ Create permissions to read, write for the ```users``` role, to have role specifi
 
 Go to the Auth section in the Nhost Dashboard click on Add user to create users using mail ID and password.
 
-<img width="1434" alt="Nhost Auth Dashboard" src="https://user-images.githubusercontent.com/32492961/187075955-94e66457-fc3d-46fb-8614-8c8f05ab3fc2.png">
+<img width="1435" alt="User" src="https://user-images.githubusercontent.com/32492961/188327487-4dc1ea6e-3ac7-4de7-88e5-a945f540eee5.png">
 
-Now copy the User ID that was created on the Nhost Dashboard.
+We have created two users.
+
+<img width="1440" alt="Screenshot 2022-09-04 at 11 40 33 PM" src="https://user-images.githubusercontent.com/32492961/188328245-234b9ab4-885c-402d-8291-05d42c35814e.png">
+
+
+Now copy the User ID of the user you created.
 
 <img width="1428" alt="UserInfo" src="https://user-images.githubusercontent.com/32492961/187076234-797f1c74-f94a-4875-abf0-44d0aee0f65c.png">
 
-Go over to the Hasura console and create a new row using the user ID that you copied from the Nhost Dashboard.
+Go over to the Database to access the notes table you created in Hasura. Add a new row using the user ID that you copied previously.
 
-<img width="1435" alt="Insert note with user_id" src="https://user-images.githubusercontent.com/32492961/187076515-5e76d9b3-b9b8-4202-99a4-99872bea4af2.png">
+<img width="1440" alt="Screenshot 2022-09-04 at 11 42 00 PM" src="https://user-images.githubusercontent.com/32492961/188327658-a46246bc-e56b-42e2-b064-1181f04a9ae2.png">
 
-In the GraphiQL playground, uncheck the header ```x-hasura-admin-secret``` so that you can manage role based access. 
+<img width="1440" alt="Screenshot 2022-09-04 at 10 12 39 PM" src="https://user-images.githubusercontent.com/32492961/188328085-9c9bafab-c8c5-4232-af79-5d95f0a3f9ff.png">
+
+Similarly add the other user's note by adding their user id.
+
+Now head over to the Hasura console's GraphiQL playground, uncheck the header ```x-hasura-admin-secret``` so that you can manage role based access. 
 Make GraphQL request to get all notes
 
 ```
@@ -119,7 +128,7 @@ This query will fail because the user is not signed in while making the request.
 
 <img width="1409" alt="Error message on query" src="https://user-images.githubusercontent.com/32492961/187095070-8063b3b6-d87a-47fb-8abf-88b1054024ac.png">
 
-Make a curl command with your email and password in the terminal to sign in and recieve the access token.
+Make a curl command with the user's email and password in the terminal to sign in.
 
 ```
 curl https://{subdomain}.auth.{region}.nhost.run/v1/signin/email-password \
@@ -128,15 +137,21 @@ curl https://{subdomain}.auth.{region}.nhost.run/v1/signin/email-password \
     -d '{ "email": "<email>", "password": "<password" }'
     
 ```
+<img width="1435" alt="Curl command for pratim" src="https://user-images.githubusercontent.com/32492961/188328581-f7101009-e376-4833-b9f6-608c345c2e26.png">
 
-You now need to first verify your email before using the access token.
+<img width="1431" alt="Curlcommand" src="https://user-images.githubusercontent.com/32492961/188328652-005fc6f9-3b0f-419d-8a8e-ae39a9a9f452.png">
+
+When a user logs in, the recieve a JWT token that can be used to access their details. This token is generally encoded. 
+A JWT token consits of a header, payload and signature. 
+
+You can see our user's user id and role in mentioned in the payload below.
 
 
-<img width="1180" alt="VerifyYourEmail" src="https://user-images.githubusercontent.com/32492961/187076770-44f36f27-6d76-4e77-abba-78e8183cc22b.png">
+<img width="1440" alt="Screenshot 2022-09-05 at 12 21 20 AM" src="https://user-images.githubusercontent.com/32492961/188329017-e4de498a-b7fa-43a6-888b-514b6cc76025.png">
 
 You can also decode your JWT token [here](https://jwt.io/ )
 
-<img width="1436" alt="Decoding the JWT token" src="https://user-images.githubusercontent.com/32492961/187076780-d6996cfd-bf14-48c2-a663-a0c25d705081.png">
+> **_NOTE:_**  You can use the Hasura Admin secret code to verify the JWT signature.
 
 Now add the JWT token in the headers inside GraphiQL like this and make the same query in the playground
 
@@ -145,9 +160,46 @@ Authorization: bearer {JWT-token}
 
 ```
 
-<img width="1434" alt="Successful Query Retrival" src="https://user-images.githubusercontent.com/32492961/187095035-e4a9d5c4-e65b-4b71-8046-b18252a65321.png">
+<img width="1440" alt="Screenshot 2022-09-05 at 12 35 04 AM" src="https://user-images.githubusercontent.com/32492961/188329558-bc0dd027-9ac8-4467-8088-4aa4ce4c89a3.png">
 
-You can now see the user's details as you have been authenticated using Nhost Authentication and Hasura. Now that you have your authentication and backend setup done, you can go ahead and build your frontend. 
+
+You can now see the user's details as you have been authenticated using Nhost Authentication and Hasura.
+
+Let's try to retrive Tom's note using the following query.
+
+```
+query {
+  notes(where: {id: {_eq: 2}}) {
+    id 
+    title
+  }
+}
+
+```
+
+
+<img width="1440" alt="Screenshot 2022-09-05 at 12 37 32 AM" src="https://user-images.githubusercontent.com/32492961/188329697-aa6e63e2-6e95-4beb-9177-c9a742a3f880.png">
+
+The response is empty. Wonder why? 
+
+It is because we are tying to access Tom's details while we are logged in as Pratim.
+We previously defined permissions so that users can only read and write their own notes.
+
+In order to access Tom's notes, we need Tom's JWT token. 
+
+We make the same curl command in our terminal with Tom's login details.
+
+<img width="1426" alt="Screenshot 2022-09-05 at 12 50 27 AM" src="https://user-images.githubusercontent.com/32492961/188330168-d981ce6a-9871-4d55-9f67-7bcb794faac1.png">
+
+
+<img width="1434" alt="Screenshot 2022-09-05 at 12 52 04 AM" src="https://user-images.githubusercontent.com/32492961/188330139-e90f24c0-51b2-4514-bb5b-7c708132bc3b.png">
+
+You can now view Tom's note by adding the JWT token in the Authorization header and making the same query again.
+
+<img width="1432" alt="Screenshot 2022-09-05 at 12 54 51 AM" src="https://user-images.githubusercontent.com/32492961/188330407-524f7f97-4ef4-4ec5-9cc4-81c5d7899e92.png">
+
+
+Now that you have your authentication and backend setup done, you can go ahead and build your frontend. 
 
 Hope this guide was useful and you can get started with Nhost by following one of our quickstart guides:
 

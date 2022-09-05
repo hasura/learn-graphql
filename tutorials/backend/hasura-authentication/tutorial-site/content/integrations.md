@@ -30,7 +30,6 @@ This list is not exhaustive by any means as Hasura will work with any authentica
 
 We do have a few more providers that will be added soon.
 
-- FusionAuth (Coming soon)
 - Ory (Coming Soon)
 - Magic.link (Coming Soon)
 - Nhost Auth (Coming Soon)

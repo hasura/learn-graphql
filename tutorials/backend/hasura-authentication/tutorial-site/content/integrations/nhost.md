@@ -18,14 +18,16 @@ Nhost Authentication is a ready-to-use authentication service that is integrated
 
 Nhost Authentication lets you authenticate users using different sign-in methods:
 
-- [Email and Password](/platform/authentication/sign-in-with-email-and-password)
-- [Magic Link](/platform/authentication/sign-in-with-magic-link)
-- [Phone Number (SMS)](/platform/authentication/sign-in-with-phone-number-sms)
-- [Google](/platform/authentication/sign-in-with-google)
-- [Facebook](/platform/authentication/sign-in-with-facebook)
-- [GitHub](/platform/authentication/sign-in-with-github)
-- [LinkedIn](/platform/authentication/sign-in-with-linkedin)
-- [Spotify](/platform/authentication/sign-in-with-spotify)
+- [Email and Password](https://docs.nhost.io/platform/authentication/sign-in-with-email-and-password)
+- [Magic Link](https://docs.nhost.io/platform/authentication/sign-in-with-magic-link)
+- [Phone Number (SMS)](https://docs.nhost.io/platform/authentication/sign-in-with-phone-number-sms)
+- [Google](https://docs.nhost.io/platform/authentication/sign-in-with-google)
+- [Facebook](https://docs.nhost.io/platform/authentication/sign-in-with-facebook)
+- [GitHub](https://docs.nhost.io/platform/authentication/sign-in-with-github)
+- [LinkedIn](https://docs.nhost.io/platform/authentication/sign-in-with-linkedin)
+- [Spotify](https://docs.nhost.io/platform/authentication/sign-in-with-spotify)
+- [Discord](https://docs.nhost.io/platform/authentication/sign-in-with-discord)
+- [Twitch](https://docs.nhost.io/platform/authentication/sign-in-with-twitch)
 
 ## How it works
 

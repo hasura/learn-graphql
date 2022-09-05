@@ -1,89 +1,22 @@
----
-title: "Python"
-metaTitle: "Python | Hasura Backend Tutorial"
-metaDescription: "Python is a programming language that lets you work quickly and integrate systems more effectively. Learn how to integrate Python with Hasura"
----
+# Use a Go Backend Server With Hasura
 
-## What is Python
+The Hasura GraphQL engine instantly generates a real-time GraphQL CRUD API on your data. For some use-cases, we may need to call a custom backend server. This article uses the programming language [Python](https://www.python.org/) to run custom business logic, respond to event triggers, create a GraphQL remote schema, and query a GraphQL endpoint.
 
-Python is a programming language that lets you work quickly and integrate systems more effectively. Learn more at [the official website](https://www.python.org/).
-
-The following guide covers common backend application tasks using [FastAPI](https://fastapi.tiangolo.com/) and how they can tie into Hasura.
-
-New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
-
-See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend/tutorial-site/source-code/python).
-
-## Create Python REST Endpoint
-
-We will create a login POST endpoint that takes a username and password and returns an access code.
-
-In our `main.py`, we use FastAPI to create an HTTP server:
-
-```python
-from fastapi import FastAPI
-from typing import Generic, TypeVar
-from pydantic import BaseModel
-from pydantic.generics import GenericModel
-from action.loginTypes import LoginResponse, loginArgs
-from event.event import Payload
-from remoteSchema.remoteSchema import graphql_app
-from qlient.aiohttp import AIOHTTPClient, GraphQLResponse
-
-ActionInput = TypeVar("ActionInput", bound=BaseModel | None)
-
-
-class ActionName(BaseModel):
-    name: str
-
-
-class ActionPayload(GenericModel, Generic[ActionInput]):
-    action: ActionName
-    input: ActionInput
-    request_query: str
-    session_variables: dict[str, str]
-
-
-app = FastAPI()
-
-
-@app.post("/action")
-async def actionHandler(action: ActionPayload[loginArgs]) -> LoginResponse:
-    action.input
-    return LoginResponse(AccessToken="<sample value>")
-```
-
-In `action/action.py`, we create the handler:
-
-```python
-from enum import Enum, auto
-from pydantic import BaseModel
-
-
-class LoginResponse(BaseModel):
-    AccessToken: str
-
-
-class Mutation(BaseModel):
-    login: LoginResponse | None
-
-
-class loginArgs(BaseModel):
-    username: str
-    password: str
-```
-
-Install the dependencies and run the app
+Run the example with Docker
 
 ```bash
-pip install "fastapi[all]"
-
-uvicorn main:app --reload
+docker compose up -d
 ```
 
-### Hasura Action
+- [Hasura Actions](#hasura-actions)
+- [Event Triggers](#event-triggers)
+- [Remote Schema](#remote-schema)
+- [Query GraphQL](#query-graphql)
+- [Conclusion](#conclusion)
 
-We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console we will set up a custom login function
+## Hasura Actions
+
+In the Actions tab on the Hasura Console we will set up a custom login function
 
 ```graphql
 type Mutation {
@@ -102,6 +35,45 @@ type LoginResponse {
 Create the action, click the `Codegen` tab, and select `python-fast-api`.
 
 Copy `login.py` to `main.py` and `loginTypes.py` in your project.
+
+```python
+from fastapi import FastAPI
+from typing import Generic, TypeVar
+from pydantic import BaseModel
+from pydantic.generics import GenericModel
+from loginTypes import LoginResponse, loginArgs
+
+
+ActionInput = TypeVar("ActionInput", bound=BaseModel | None)
+
+
+class ActionName(BaseModel):
+    name: str
+
+
+class ActionPayload(GenericModel, Generic[ActionInput]):
+    action: ActionName
+    input: ActionInput
+    request_query: str
+    session_variables: dict[str, str]
+
+
+app = FastAPI()
+
+
+@app.post("/login")
+async def actionHandler(action: ActionPayload[loginArgs]) -> LoginResponse:
+    return LoginResponse(AccessToken="<sample value>")
+
+```
+
+Install the dependencies and run the app
+
+```bash
+pip install "fastapi[all]"
+
+uvicorn main:app --reload
+```
 
 In the Hasura API explorer tab you should now be able to test it
 
@@ -125,9 +97,7 @@ Result:
 }
 ```
 
-### Event Triggers
-
-With [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can get notified whenever an event happens in our database.
+## Event Triggers
 
 Let's send a webhook when a new user is created and print out their name.
 
@@ -203,7 +173,7 @@ Let's send a webhook when a new user is created and print out their name.
 
 When you add a user in Hasura your Python server should receive the event.
 
-## Create Python GraphQL Server
+## Remote Schema
 
 We can make a custom GraphQL in Python using [Strawberry](https://strawberry.rocks/) and connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
@@ -237,10 +207,6 @@ We can make a custom GraphQL in Python using [Strawberry](https://strawberry.roc
    app.include_router(graphql_app, prefix="/graphql")
    ```
 
-### Hasura Remote Schema
-
-We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
-
 1. In the Hasura Console remote schema tab, add your Python server `<Python server URL>/graphql`
 
 1. In the API Explorer tab, try querying the sample todos.
@@ -251,9 +217,9 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
    }
    ```
 
-## Query GraphQL from Python
+## Query GraphQL
 
-To query a GraphQL endpoint from Python we use the async version of [qlient](https://github.com/qlient-org/python-qlient).
+To query Hasura from Python we use the async version of [qlient](https://github.com/qlient-org/python-qlient).
 
 1. Install qlient
 
@@ -266,7 +232,7 @@ To query a GraphQL endpoint from Python we use the async version of [qlient](htt
    ```python
    @app.post("/event")
    async def actionHandler(action: Payload   [UserTable, None]):
-       async with AIOHTTPClient("http://localhost:8080/v1/graphql") as client:
+       async with AIOHTTPClient("http://graphql-engine:8080/v1/graphql") as client:
            result: GraphQLResponse = await client.query.user(["id", "name"])
            print(result.request.query)
            print(result.data)
@@ -275,8 +241,8 @@ To query a GraphQL endpoint from Python we use the async version of [qlient](htt
 
 ## Conclusion
 
-When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Python. Enjoy!
+Hasura autogenerates most of our API but gives us escape hatches for custom logic. We've gone over four ways you can combine the power of Python and Hasura. Enjoy!
 
-If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
+When ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 
 <a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://camo.githubusercontent.com/a6de317cd7d0ed4e8722684b428f72e3da614fe8/68747470733a2f2f6772617068716c2d656e67696e652d63646e2e6861737572612e696f2f696d672f6465706c6f795f746f5f6861737572612e706e67"></a>

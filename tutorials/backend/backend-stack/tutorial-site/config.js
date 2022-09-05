@@ -1,6 +1,6 @@
 const config = {
   gatsby: {
-    pathPrefix: "/learn/graphql/backend",
+    pathPrefix: "/learn/graphql/backend-stack",
     siteUrl: "https://hasura.io",
     gaTrackingId: "GTM-WBBW2LN",
     trailingSlash: true,
@@ -9,11 +9,11 @@ const config = {
     logo: "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
     logoLink: "https://hasura.io/learn/",
     title:
-      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/backend/introduction/'>backend</a>",
+      "<a href='https://hasura.io/learn/'>learn</a><img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/chevron-right.svg' alt='Chevron Right' /><a href='https://hasura.io/learn/graphql/backend-stack/introduction/'>backend</a>",
     githubUrl: "https://github.com/hasura/learn-graphql",
     helpUrl: "https://discord.com/invite/hasura",
     tweetText:
-      "Check out this Hasura GraphQL backend course by @HasuraHQ https://hasura.io/learn/graphql/backend/introduction/",
+      "Check out this Hasura GraphQL backend course by @HasuraHQ https://hasura.io/learn/graphql/backend-stack/introduction/",
     links: [
       {
         text: "",
@@ -22,7 +22,7 @@ const config = {
     ],
     search: {
       enabled: true,
-      indexName: "learn-hasura-backend",
+      indexName: "learn-hasura-backend-stack",
       algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
       algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
@@ -31,8 +31,8 @@ const config = {
   sidebar: {
     forcedNavOrder: [
       "/introduction/",
-      "/authentication-modes/",
-      "/integrations/",
+      "/custom-business-logic/",
+      "/languages/",
       "/what-next/",
     ],
     collapsedNav: [],

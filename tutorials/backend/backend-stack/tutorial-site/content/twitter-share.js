@@ -4,7 +4,7 @@ const TwitterShare = () => {
   return (
     <React.Fragment>
       <a
-        href="https://twitter.com/intent/tweet?&text=I just completed this Hasura backend course for developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/backend/introduction/"
+        href="https://twitter.com/intent/tweet?&text=I just completed this Hasura backend course for developers by @HasuraHQ. Check it out here - https://hasura.io/learn/graphql/backend-stack/introduction/"
         target="_blank"
         rel="noopener noreferrer"
       >

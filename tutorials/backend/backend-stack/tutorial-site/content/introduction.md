@@ -1,6 +1,6 @@
 ---
 title: "Course Introduction"
-metaTitle: "Course Introduction | Hasura Backend Tutorial"
+metaTitle: "Course Introduction | GraphQL Backend Stack Tutorial"
 metaDescription: "A concise backend application tutorial optionally integrating with Hasura"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Custom Business Logic"
-metaTitle: "Custom Business Logic | Hasura Backend Tutorial"
+metaTitle: "Custom Business Logic | GraphQL Backend Stack Tutorial"
 metaDescription: "Custom business logic in traditional backend apps and Hasura"
 ---
 

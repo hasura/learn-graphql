@@ -1,7 +1,7 @@
 ---
 title: "Go"
-metaTitle: "Go | Hasura Backend Tutorial"
-metaDescription: "Go is an open source programming language supported by Google. Learn how to integrate Go with Hasura"
+metaTitle: "Go | GraphQL Backend Stack Tutorial"
+metaDescription: "Go is an open source programming language supported by Google. Learn how to integrate Go in a GraphQL stack with Hasura"
 ---
 
 ## What is Go
@@ -10,7 +10,7 @@ Go is an open-source programming language supported by Google. Learn more at [th
 
 The following guide covers common backend application tasks and how they can tie into Hasura.
 
-New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
+> New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
 See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend/tutorial-site/source-code/go).
 

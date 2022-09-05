@@ -29,6 +29,7 @@ const config = {
 			"/introduction/",
     		"/what-is-graphql/",
     		"/graphql-vs-rest/",
+			"/graphql-vs-grpc/",
     		"/core-concepts/",
     		"/introspection/",
     		"/graphql-queries/",

@@ -65,3 +65,7 @@ CREATE TABLE article_tag (
 ```
 
 We have applied two foreign key constraints, one for article_id and one for tag_id. The table `article_tag` is the bridge table involved in the many-to-many relationship.
+
+## GraphQL Example
+
+Check out the Postgres schema in GraphQL using our example [running in Hasura Cloud](https://cloud.hasura.io/public/graphiql?endpoint=https://learn-postgres.hasura.app/v1/graphql).

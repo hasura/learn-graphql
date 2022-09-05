@@ -1,0 +1,12 @@
+table:
+  schema: public
+  name: old_users
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - age
+        - id
+      filter: {}
+      limit: 20
+      allow_aggregations: true

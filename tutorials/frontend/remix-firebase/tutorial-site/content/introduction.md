@@ -31,3 +31,6 @@ No, we recommend you read the Remix docs and watch the videos on their YouTube c
 ## What do I need to take this tutorial?
 
 The Hasura CLI, Firebase CLI, gcloud cli, Docker, and Node 16+
+
+## How long will this tutorial take?
+2 hours

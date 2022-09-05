@@ -12,7 +12,7 @@ The following guide covers common backend application tasks using [FastAPI](http
 
 > New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
-See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend/tutorial-site/source-code/python).
+See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/python).
 
 ## Create Python REST Endpoint
 

@@ -13,7 +13,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/graph/model"
+	"github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )

@@ -262,12 +262,12 @@ We can make a custom GraphQL in Go using [gqlgen](https://gqlgen.com/)
     "log"
     "net/http"
 
-    "github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/action"
-    "github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/event"
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/action"
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/event"
 
     "github.com/99designs/gqlgen/graphql/handler"
-    "github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/graph"
-    "github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/graph/generated"
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph"
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph/generated"
    )
 
    func main() {

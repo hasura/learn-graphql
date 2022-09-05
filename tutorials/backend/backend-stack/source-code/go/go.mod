@@ -1,4 +1,4 @@
-module github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server
+module github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code
 
 go 1.18
 

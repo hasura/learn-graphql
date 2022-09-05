@@ -7,8 +7,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/graph/generated"
-	"github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/graph/model"
+	"github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph/generated"
+	"github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph/model"
 )
 
 // CreateTodo is the resolver for the createTodo field.

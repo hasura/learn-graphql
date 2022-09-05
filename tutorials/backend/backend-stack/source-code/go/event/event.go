@@ -9,7 +9,7 @@ import (
 
 	"github.com/Khan/genqlient/graphql"
 
-	"github.com/hasura/graphql-engine/community/sample-apps/golang-backend-server/generated"
+	"github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/generated"
 )
 
 type EventTriggerPayload[Old interface{}, New interface{}] struct {

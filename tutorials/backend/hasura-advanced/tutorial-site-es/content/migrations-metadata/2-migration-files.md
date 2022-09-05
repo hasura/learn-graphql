@@ -10,7 +10,7 @@ Y lo que es más importante, la interfaz de usuario de la consola genera automá
 
 Por supuesto, la interfaz de usuario no es la única manera de generar archivos de migración, aunque resulte conveniente. La `hasura` CLI le permite crear archivos de migración de forma manual. Esta es la opción que vamos a utilizar a continuación para inicializar nuestro esquema para este tutorial.
 
-[Descargue el archivo SQL](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/hasura/hasura-advanced/sql/slack-schema.sql) y ejecute el siguiente comando.
+[Descargue el archivo SQL](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/backend/hasura-advanced/sql/slack-schema.sql) y ejecute el siguiente comando.
 
 ```bash
 hasura migrate create init --sql-from-file `/path/to/schema.sql` --database-name default

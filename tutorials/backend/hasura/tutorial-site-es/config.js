@@ -57,7 +57,7 @@ const config = {
     ogImage:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-es.png",
     docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/hasura/hasura/tutorial-site-es/content",
+      "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/tutorial-site-es/content",
     favicon:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },

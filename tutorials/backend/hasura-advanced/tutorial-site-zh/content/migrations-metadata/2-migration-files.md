@@ -10,7 +10,7 @@ metaDescription: "Hasura 带有一个内置的迁移系统来管理数据库架�
 
 当然，用户界面不是生成迁移文件的唯一方法，尽管很方便。`hasura`CLI 支持您手动创建迁移文件。这是我们将在下面为本教程初始化架构的选项。
 
-[下载 SQL 文件](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/hasura/hasura-advanced/sql/slack-schema.sql)，执行以下命令。
+[下载 SQL 文件](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/backend/hasura-advanced/sql/slack-schema.sql)，执行以下命令。
 
 ```bash
 hasura migrate create init --sql-from-file `/path/to/schema.sql` --database-name default

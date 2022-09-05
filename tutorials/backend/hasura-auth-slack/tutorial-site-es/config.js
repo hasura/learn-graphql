@@ -56,7 +56,7 @@ const config = {
     ogImage:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-auth-slack-es.png",
     docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/hasura/hasura-auth-slack/tutorial-site-es/content",
+      "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura-auth-slack/tutorial-site-es/content",
     favicon:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },

@@ -10,7 +10,7 @@ metaDescription: "Hasuraには、データベーススキーマを管理する�
 
 この UI は便利ですが、移行ファイルを生成する方法はこれだけではありません。`hasura` CLI では、移行ファイルを手動で作成できます。本チュートリアルでは、スキーマの初期化にこの手順を用いています。
 
-[SQL ファイルをダウンロード](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/hasura/hasura-advanced/sql/slack-schema.sql) して、以下のコマンドを実行します。
+[SQL ファイルをダウンロード](https://raw.githubusercontent.com/hasura/learn-graphql/master/tutorials/backend/hasura-advanced/sql/slack-schema.sql) して、以下のコマンドを実行します。
 
 ```bash
 hasura migrate create init --sql-from-file `/path/to/schema.sql` --database-name default

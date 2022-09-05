@@ -70,23 +70,23 @@ const config = {
       {
         code: "ja",
         name: "Japanese",
-        link: "https://hasura.io/learn/ja/graphql/hasura/introduction/",
+        link: "https://hasura.io/learn/ja/graphql/hasura/introduction/"
       },
       {
-        code: "es",
-        name: "Spanish",
-        link: "https://hasura.io/learn/es/graphql/hasura/introduction/",
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/hasura/introduction/"
       },
       {
         code: "zh",
         name: "Chinese",
-        link: "https://hasura.io/learn/zh/graphql/hasura/introduction/",
+        link: "https://hasura.io/learn/zh/graphql/hasura/introduction/"
       },
-    ],
-  },
+    ]
+	},
   newsletter: {
-    ebookAvailable: true,
-  },
+    ebookAvailable: true
+  }
 };
 
 module.exports = config;

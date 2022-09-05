@@ -19,13 +19,13 @@ cd learn-graphql
 
 git sparse-checkout init --cone
 
-git sparse-checkout add tutorials/hasura/hasura-auth-slack/slack-backend
+git sparse-checkout add tutorials/backend/hasura-auth-slack/slack-backend
 ```
 
 2. 导航至 `slack-backend` 目录。
 
 ```bash
-cd tutorials/hasura/hasura-auth-slack/slack-backend
+cd tutorials/backend/hasura-auth-slack/slack-backend
 ```
 
 配置端点，以指向 Hasura Cloud 应用程序 URL。打开 `config.yaml` 文件，并设置端点值。
@@ -33,6 +33,7 @@ cd tutorials/hasura/hasura-auth-slack/slack-backend
 ```yaml
 version: 3
 endpoint: https://ready-panda-91.hasura.app
+...
 ```
 
 **注：**你的端点因 Hasura 项目不同而有所不同。

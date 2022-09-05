@@ -60,27 +60,27 @@ const config = {
     favicon:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },
-  language: {
-    code: "en",
-    name: "English",
-    translations: [
+	"language": {
+		"code": "en",
+		"name": "English",
+		"translations": [
       {
-        code: "zh",
-        name: "Chinese",
-        link: "https://hasura.io/learn/zh/graphql/react/introduction/",
+        "code": "zh",
+        "name": "Chinese",
+        "link": "https://hasura.io/learn/zh/graphql/react/introduction/"
       },
       {
-        code: "es",
-        name: "Spanish",
-        link: "https://hasura.io/learn/es/graphql/react/introduction/",
+        "code": "es",
+        "name": "Spanish",
+        "link": "https://hasura.io/learn/es/graphql/react/introduction/"
       },
       {
-        code: "ja",
-        name: "Japanese",
-        link: "https://hasura.io/learn/ja/graphql/hasura-advanced/introduction/",
+        "code": "ja",
+        "name": "Japanese",
+        "link": "https://hasura.io/learn/ja/graphql/hasura-advanced/introduction/"
       },
-    ],
-  },
+		]
+	}
 };
 
 module.exports = config;

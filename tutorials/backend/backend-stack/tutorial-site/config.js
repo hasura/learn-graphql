@@ -52,9 +52,9 @@ const config = {
     description:
       "A concise and powerful tutorial that covers fundamental concepts of integrating backend applications using Hasura",
     ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura-authentication.png",
+      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-backend-stack.png",
     docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend/tutorial-site/content",
+      "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend-stack/tutorial-site/content",
     favicon:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },

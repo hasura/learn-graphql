@@ -1,6 +1,6 @@
 ---
 title: "What next?"
-metaTitle: "What next? | Hasura Backend Tutorial"
+metaTitle: "What next? | GraphQL Backend Stack Tutorial"
 metaDescription: "Learn what to do next with GraphQL and Hasura with more community resources. Join our discord channel for support."
 ---
 

@@ -9,7 +9,7 @@ metaDescription: "Nhost is the open source Firebase alternative with GraphQL and
 
 <img width="1440" alt="NhostLandingPage" src="https://user-images.githubusercontent.com/32492961/187065209-66957b8d-9161-4fe5-adb2-d9366b995808.png">
 
-[Nhost](https://nhost.io/) is the open source Firebase alternative with GraphQL and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
+[Nhost](https://nhost.io/) is the open-source Firebase alternative with GraphQL and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
 
 We provide a modern backend with the Postgres database, GraphQL API, Authentication, Storage, and Serverless Functions.
 
@@ -41,7 +41,7 @@ Nhost's authentication service is integrated with your database. All users are s
 ### Create a Nhost project
 
 If this is your first Nhost project, sign up using your GitHub or email.
-Next step is to create an Nhost project.
+The next step is to create a Nhost project.
 
 ![image](https://user-images.githubusercontent.com/32492961/188327361-f5f808ac-5101-481b-aa1c-cedecb1fab38.png)
 
@@ -56,7 +56,7 @@ Give your new Nhost project a name, select a region and click Create Project.
 
 ## A basic Notes app
 
-For this guide, will be creating the backend for a notes app with two users. Each user will have a note with an unique id, title, body and details about when it was created or updated.
+For this guide, will be creating the backend for a notes app with two users. Each user will have a note with a unique id, title, body and details about when it was created or updated.
 
 <img width="1440" alt="Screenshot 2022-09-04 at 10 57 24 PM" src="https://user-images.githubusercontent.com/32492961/188325902-853817c4-8bba-45d7-a6ca-0164a75eb289.png">
 
@@ -83,7 +83,7 @@ If you delete a user, cascading will delete all the user's notes.
 
 <img width="1434" alt="Foreign key" src="https://user-images.githubusercontent.com/32492961/187094626-000952a6-74b8-47d9-aadd-fb8f94ca63d9.png">
 
-Create permissions to read, write for the ```users``` role, to have role specific access.
+Create permissions to read and write for the ```users``` role, to have role-specific access.
 
 <img width="1432" alt="Insert permission" src="https://user-images.githubusercontent.com/32492961/187094759-896614b8-9cd2-4a4b-bb35-a74cdb42d1e5.png">
 
@@ -93,7 +93,7 @@ Create permissions to read, write for the ```users``` role, to have role specifi
 
 ### Create users
 
-Go to the Auth section in the Nhost Dashboard click on Add user to create users using mail ID and password.
+Go to the Auth section in the Nhost Dashboard and click on Add user to create users using mail ID and password.
 
 <img width="1435" alt="User" src="https://user-images.githubusercontent.com/32492961/188327487-4dc1ea6e-3ac7-4de7-88e5-a945f540eee5.png">
 
@@ -111,10 +111,9 @@ Go over to the Database to access the notes table you created in Hasura. Add a n
 <img width="1440" alt="Screenshot 2022-09-04 at 11 42 00 PM" src="https://user-images.githubusercontent.com/32492961/188327658-a46246bc-e56b-42e2-b064-1181f04a9ae2.png">
 
 <img width="1440" alt="Screenshot 2022-09-04 at 10 12 39 PM" src="https://user-images.githubusercontent.com/32492961/188328085-9c9bafab-c8c5-4232-af79-5d95f0a3f9ff.png">
+Similarly, add the other user's note by adding their user id.
 
-Similarly add the other user's note by adding their user id.
-
-Now head over to the Hasura console's GraphiQL playground, uncheck the header ```x-hasura-admin-secret``` so that you can manage role based access. 
+Now head over to the Hasura console's GraphiQL playground, and uncheck the header ```x-hasura-admin-secret``` so that you can manage role-based access. 
 Make GraphQL request to get all notes
 
 ```
@@ -130,7 +129,7 @@ This query will fail because the user is not signed in while making the request.
 
 <img width="1409" alt="Error message on query" src="https://user-images.githubusercontent.com/32492961/187095070-8063b3b6-d87a-47fb-8abf-88b1054024ac.png">
 
-Make a curl command with the user's email and password in the terminal to sign in and recieve the access token.
+Make a curl command with the user's email and password in the terminal to sign in and receive the access token.
 
 ```
 curl https://joprqixhifsgfwzrmxtp.auth.ap-south-1.nhost.run/v1/signin/email-password \
@@ -146,7 +145,7 @@ curl https://joprqixhifsgfwzrmxtp.auth.ap-south-1.nhost.run/v1/signin/email-pass
 
 When a user signs in, they receive a JWT token that is used when making GraphQL requests. A JWT token consists of a header, payload and signature. 
 
-In the payload, you can see thing like the user's id and default role.
+In the payload, you can see things like the user's id and default role.
 
 <img width="1440" alt="Screenshot 2022-09-05 at 12 21 20 AM" src="https://user-images.githubusercontent.com/32492961/188329017-e4de498a-b7fa-43a6-888b-514b6cc76025.png">
 
@@ -167,7 +166,7 @@ Authorization: bearer {JWT-token}
 
 You can now see the user's details as you have been authenticated using Nhost Authentication and Hasura.
 
-Let's try to retrive Tom's note using the following query.
+Let's try to retrieve Tom's note using the following query.
 
 ```
 query {
@@ -185,9 +184,8 @@ query {
 The response is empty. Wonder why? 
 
 It is because we are trying to access Tom's details while we are logged in as Pratim.
-We previously defined permissions so that users can only read and write their own notes.
-
-In order to access Tom's notes, we need make the request using a JWT token issued to Tom. 
+We previously defined permissions so that users can only read and write their notes.
+To access Tom's notes, we need to make the request using a JWT token issued to Tom. 
 
 We make the same curl command in our terminal with Tom's login details.
 

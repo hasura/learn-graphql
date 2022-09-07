@@ -93,7 +93,7 @@ Create permissions to read and write for the ```users``` role, to have role-spec
 
 ### Create users
 
-Go to the Auth section in the Nhost Dashboard and click on Add user to create users using mail ID and password.
+Go to the Auth section in the Nhost Dashboard and click on Add user to create users using email and password.
 
 <img width="1435" alt="User" src="https://user-images.githubusercontent.com/32492961/188327487-4dc1ea6e-3ac7-4de7-88e5-a945f540eee5.png">
 
@@ -157,7 +157,7 @@ You can also decode your JWT token [here](https://jwt.io/ ) and verify it using 
 Now add the JWT token in the headers inside GraphiQL like this and make the same query in the playground
 
 ```
-Authorization: bearer {JWT-token}
+Authorization: Bearer {JWT-token}
 
 ```
 

@@ -78,7 +78,7 @@ Enter table name, comment and column details as shown below.
 
 <img width="1434" alt="Create notes table" src="https://user-images.githubusercontent.com/32492961/187066519-9b3071b7-004c-4d8d-8d45-54ab59c38849.png">
 
-`user_id` will be our foreign key refrencing the ID from the users table. 
+`user_id` will be our foreign key referencing the ID from the users table. 
 If you delete a user, cascading will delete all the user's notes.
 
 <img width="1434" alt="Foreign key" src="https://user-images.githubusercontent.com/32492961/187094626-000952a6-74b8-47d9-aadd-fb8f94ca63d9.png">
@@ -130,30 +130,30 @@ This query will fail because the user is not signed in while making the request.
 
 <img width="1409" alt="Error message on query" src="https://user-images.githubusercontent.com/32492961/187095070-8063b3b6-d87a-47fb-8abf-88b1054024ac.png">
 
-Make a curl command with the user's email and password in the terminal to sign in.
+Make a curl command with the user's email and password in the terminal to sign in and recieve the access token.
 
 ```
-curl https://{subdomain}.auth.{region}.nhost.run/v1/signin/email-password \
-    -v \
+curl https://joprqixhifsgfwzrmxtp.auth.ap-south-1.nhost.run/v1/signin/email-password \
+    -v \                                 
     -H "Content-Type: application/json" \
-    -d '{ "email": "<email>", "password": "<password" }'
-    
+    -d '{ "email": "pratimbhosale@gmail.com", "password": "TestNhostApp@123" }'
 ```
+```
+{"session":{"accessToken":"eyJhbGciOiJIUzI1NiJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWFsbG93ZWQtcm9sZXMiOlsidXNlciIsIm1lIl0sIngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS11c2VyLWlkIjoiZWM1OGNiZTgtZWI1Ny00NDM2LWFkMDktZjFmNDJmYjk1OGIzIiwieC1oYXN1cmEtdXNlci1pcy1hbm9ueW1vdXMiOiJmYWxzZSJ9LCJzdWIiOiJlYzU4Y2JlOC1lYjU3LTQ0MzYtYWQwOS1mMWY0MmZiOTU4YjMiLCJpYXQiOjE2NjI1MzQ3ODksImV4cCI6MTY2MjUzNTY4OSwiaXNzIjoiaGFzdXJhLWF1dGgifQ.vnJuBTc5kn-Vtuy7BzFlhvPpk4GwrZN_8syAu_ckCCM","accessTokenExpiresIn":900,"refreshToken":"cebaca26-6c51-42cc-a978-ae8702beb53e","user":{"id":"ec58cbe8-eb57-4436-ad09-f1f42fb958b3","createdAt":"2022-08-28T08:00:50.105078+00:00","displayName":"pratimbhosale@gmail.com","avatarUrl":"https://s.gravatar.com/avatar/0869e6d3ab4951a7262c3d680be4b680?r=g&default=blank","locale":"en","email":"pratimbhosale@gmail.com","isAnonymous":false,"defaultRole":"user","metadata":{},"emailVerified":true,"phoneNumber":null,"phoneNumberVerified":false,"activeMfaType":null,"roles":["user","me"]}},"mfa":null}% 
 <img width="1435" alt="Curl command for pratim" src="https://user-images.githubusercontent.com/32492961/188328581-f7101009-e376-4833-b9f6-608c345c2e26.png">
 
-<img width="1431" alt="Curlcommand" src="https://user-images.githubusercontent.com/32492961/188328652-005fc6f9-3b0f-419d-8a8e-ae39a9a9f452.png">
+```
 
-When a user logs in, the recieve a JWT token that can be used to access their details. This token is generally encoded. 
-A JWT token consits of a header, payload and signature. 
+When a user signs in, they receive a JWT token that is used when making GraphQL requests. A JWT token consists of a header, payload and signature. 
 
-You can see our user's user id and role in mentioned in the payload below.
-
+In the payload, you can see thing like the user's id and default role.
 
 <img width="1440" alt="Screenshot 2022-09-05 at 12 21 20 AM" src="https://user-images.githubusercontent.com/32492961/188329017-e4de498a-b7fa-43a6-888b-514b6cc76025.png">
 
-You can also decode your JWT token [here](https://jwt.io/ )
+You can also decode your JWT token [here](https://jwt.io/ ) and verify it using the NHOST_JWT_SECRET environment variable found in the settings.
 
-> **_NOTE:_**  You can use the Hasura Admin secret code to verify the JWT signature.
+<img width="1440" alt="Screenshot 2022-09-07 at 12 23 08 PM" src="https://user-images.githubusercontent.com/32492961/188810071-9ee1262c-a06e-472c-9046-5b73dd498871.png">
+
 
 Now add the JWT token in the headers inside GraphiQL like this and make the same query in the playground
 
@@ -184,17 +184,25 @@ query {
 
 The response is empty. Wonder why? 
 
-It is because we are tying to access Tom's details while we are logged in as Pratim.
+It is because we are trying to access Tom's details while we are logged in as Pratim.
 We previously defined permissions so that users can only read and write their own notes.
 
-In order to access Tom's notes, we need Tom's JWT token. 
+In order to access Tom's notes, we need make the request using a JWT token issued to Tom. 
 
 We make the same curl command in our terminal with Tom's login details.
 
-<img width="1426" alt="Screenshot 2022-09-05 at 12 50 27 AM" src="https://user-images.githubusercontent.com/32492961/188330168-d981ce6a-9871-4d55-9f67-7bcb794faac1.png">
+```
+curl https://joprqixhifsgfwzrmxtp.auth.ap-south-1.nhost.run/v1/signin/email-password \
+    -v \
+    -H "Content-Type: application/json" \
+    -d '{ "email": "tom@gmail.com", "password": "test@123" }'
+```    
+    
 
+```
+{"session":{"accessToken":"eyJhbGciOiJIUzI1NiJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWFsbG93ZWQtcm9sZXMiOlsidXNlciIsIm1lIl0sIngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS11c2VyLWlkIjoiNDU5ZmQ5NGMtZmIxNC00OWVjLWFkMjAtMjQ4YmJkMmJhOTQ0IiwieC1oYXN1cmEtdXNlci1pcy1hbm9ueW1vdXMiOiJmYWxzZSJ9LCJzdWIiOiI0NTlmZDk0Yy1mYjE0LTQ5ZWMtYWQyMC0yNDhiYmQyYmE5NDQiLCJpYXQiOjE2NjI1MzM1MjIsImV4cCI6MTY2MjUzNDQyMiwiaXNzIjoiaGFzdXJhLWF1dGgifQ.J-yCfxloyCvF0NCGvhferydft3NOJbL1q-wIgsxf-rI","accessTokenExpiresIn":900,"refreshToken":"f33bb87c-4ab0-4dbf-a352-5b04db246d7a","user":{"id":"459fd94c-fb14-49ec-ad20-248bbd2ba944","createdAt":"2022-09-04T16:25:32.641977+00:00","displayName":"tom@gmail.com","avatarUrl":"https://s.gravatar.com/avatar/44e330dea0304e5f8005ef073510b2b1?r=g&default=blank","locale":"en","email":"tom@gmail.com","isAnonymous":false,"defaultRole":"user","metadata":{},"emailVerified":false,"phoneNumber":null,"phoneNumberVerified":false,"activeMfaType":null,"roles":["user","me"]}},"mfa":null}% 
 
-<img width="1434" alt="Screenshot 2022-09-05 at 12 52 04 AM" src="https://user-images.githubusercontent.com/32492961/188330139-e90f24c0-51b2-4514-bb5b-7c708132bc3b.png">
+```
 
 You can now view Tom's note by adding the JWT token in the Authorization header and making the same query again.
 

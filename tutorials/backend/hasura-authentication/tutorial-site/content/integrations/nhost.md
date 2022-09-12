@@ -7,8 +7,6 @@ metaDescription: "Nhost is the open source Firebase alternative with GraphQL and
 
 ## What is [Nhost](https://github.com/nhost/nhost)
 
-<img width="1440" alt="NhostLandingPage" src="https://user-images.githubusercontent.com/32492961/187065209-66957b8d-9161-4fe5-adb2-d9366b995808.png">
-
 [Nhost](https://nhost.io/) is the open-source Firebase alternative with GraphQL and a development platform. Nhost is doing for the backend, what Netlify and Vercel are doing for the frontend.
 
 We provide a modern backend with the Postgres database, GraphQL API, Authentication, Storage, and Serverless Functions.

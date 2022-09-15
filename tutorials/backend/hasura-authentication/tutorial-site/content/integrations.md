@@ -22,7 +22,6 @@ This list is not exhaustive by any means as Hasura will work with any authentica
 - SuperTokens
 - KeyCloak
 - Authorizer
-- Nhost
 
 ## Custom Implementations
 
@@ -33,6 +32,7 @@ We do have a few more providers that will be added soon.
 
 - Ory (Coming Soon)
 - Magic.link (Coming Soon)
+- Nhost Auth (Coming Soon)
 
 There are more and do let us know which provider you are looking to integrate with Hasura. Note that, Hasura works with any Authentication provider.
 

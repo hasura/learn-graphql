@@ -10,7 +10,7 @@ In the `todos` table, the value of `user_id` column must be ideally present in t
 
 Let's define one for the `user_id` column in `todos` table.
 
-Head over to Console -> DATA -> todos -> Modify page.
+Head over to Console -> DATA -> todos -> Modify.
 
 It should look something like this:
 

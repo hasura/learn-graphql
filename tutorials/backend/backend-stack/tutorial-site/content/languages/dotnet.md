@@ -193,7 +193,7 @@ app.MapPost("/event", (EventTriggerPayload<User> payload) =>
 });
 ```
 
-When you add a user in Hasura your Go server should receive the event.
+When you add a user in Hasura your .NET server should receive the event.
 
 ## Create .NET GraphQL Server
 
@@ -251,7 +251,7 @@ This will add a GraphQL endpoint to your application. You can test it by going t
 
 We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
-1. In the Hasura Console remote schema tab, add your .NET GraphQL server `<Go server URL>/graphql`
+1. In the Hasura Console remote schema tab, add your .NET GraphQL server `<.NET server URL>/graphql`
 
 1. In the API Explorer tab, try querying the sample todos.
 

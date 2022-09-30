@@ -1,4 +1,4 @@
-namespace dotnet.action;
+namespace dotnet.Models;
 
 public class LoginResponse
 { 

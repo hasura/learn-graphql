@@ -246,3 +246,99 @@ builder.Services
 ```
 
 This will add a GraphQL endpoint to your application. You can test it by going to `/graphql` in your browser. For more information on Hot Chocolate check out the [Get Started](https://chillicream.com/docs/hotchocolate/get-started).
+
+### Hasura Remote Schema
+
+We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
+
+1. In the Hasura Console remote schema tab, add your .NET GraphQL server `<Go server URL>/graphql`
+
+1. In the API Explorer tab, try querying the sample todos.
+
+   ```graphql
+   query {
+     todos {
+       id
+       text
+       done
+     }
+   }
+   ```
+
+## Query GraphQL from .NET using Strawberry Shake
+
+We can use [Strawberry Shake](https://chillicream.com/docs/strawberryshake/) to query our GraphQL server from .NET. This will generate a strongly typed client for us.
+
+1. Create a dotnet tool-manifest
+
+```bash
+dotnet new tool-manifest
+```
+
+1. Install the Strawberry Shake Tools to your computer.
+
+```bash
+dotnet tool install StrawberryShake.Tools --local
+```
+
+1. Install the required Dependencies.
+
+```bash
+dotnet add package StrawberryShake.Transport.Http
+dotnet add package StrawberryShake.CodeGeneration.CSharp.Analyzers
+```
+
+1. Add Dependency Injection and Http Extensions
+
+```bash
+dotnet add package Microsoft.Extensions.DependencyInjection
+dotnet add package Microsoft.Extensions.Http
+```
+
+1. Add GraphQL client to your project using CLI tools
+
+```bash
+dotnet graphql init <Hasura URL>/v1/graphql -n HasuraClient 
+```
+
+1. Let's add a GraphQL query to your project.
+
+```graphql
+query GetUsers {
+  user {
+    id
+    name
+  }
+}
+```
+
+1. Compile your project
+
+```bash
+dotnet build
+```
+
+This will create a client in `Generated` folder called `HasuraClient.StrawyberryShake.cs`. This will contain a strongly typed client for your GraphQL server.
+
+
+1. Now let's enable your application to use the client we just created.
+  
+```csharp
+builder.Services
+    .AddHasuraClient()
+    .ConfigureHttpClient(client => client.BaseAddress = new Uri("<Hasura URL>/v1/graphql"));
+
+IServiceProvider services = builder.Services.BuildServiceProvider();
+
+var client = services.GetRequiredService<HasuraDOTNetSample.IHasuraClient>();
+```
+
+1. Lets add a simple get end-point to your application to return data from the GraphQL server using the new client
+
+```csharp
+app.MapGet("/getTodos", async (HasuraDOTNetSample.HasuraClient hasuraClient) =>
+{
+    var result = await hasuraClient.GetUsers.ExecuteAsync();
+    return Results.Ok(result);
+});
+```

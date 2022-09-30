@@ -194,3 +194,55 @@ app.MapPost("/event", (EventTriggerPayload<User> payload) =>
 ```
 
 When you add a user in Hasura your Go server should receive the event.
+
+## Create .NET GraphQL Server
+
+We will use [Hot Chocolate](https://chillicream.com/docs/hotchocolate/) to create a GraphQL server.
+
+1. Add the Hot Chocolate NuGet package to your project.
+
+```bash
+dotnet add package HotChocolate.AspNetCore
+```
+
+1. Define the Todo Type in `Todo.cs`
+
+```csharp
+namespace HasuraDOTNetSample.Models;
+public class Todo {
+    public string Id { get; set; }
+
+    public string Text { get; set; }
+
+    public bool Done { get; set; }
+
+    public User User { get; set; }
+}
+```
+
+
+1. Add a Query type to `Query.cs`
+
+```csharp
+namespace HasuraDOTNetSample.Models;
+
+public class Query
+{
+    public Todo[] GetTodos() => new Todo[]
+    {
+        new Todo { Id = "1", Text = "Todo 1", Done = false, User = new User { Id = "1", Name = "User 1" } },
+        new Todo { Id = "2", Text = "Todo 2", Done = true, User = new User { Id = "2", Name = "User 2" } },
+        new Todo { Id = "3", Text = "Todo 3", Done = false, User = new User { Id = "3", Name = "User 3" } },
+    };
+}
+```
+
+1. Add GraphQL Services to `Program.cs`
+
+```csharp
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
+```
+
+This will add a GraphQL endpoint to your application. You can test it by going to `/graphql` in your browser. For more information on Hot Chocolate check out the [Get Started](https://chillicream.com/docs/hotchocolate/get-started).

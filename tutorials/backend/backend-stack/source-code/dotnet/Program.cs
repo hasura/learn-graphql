@@ -1,5 +1,4 @@
-using dotnet.action;
-using dotnet.Models;
+using HasuraDOTNetSample.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -9,9 +8,14 @@ app.MapPost("/action", (ActionPayload<LoginArgs> action) =>
     return new LoginResponse() { AccessToken = "<sample value>"};
 });
 
-app.MapPost("/trigger", (EventTriggerPayload<LoginArgs> action) =>
+app.MapPost("/event", (EventTriggerPayload<User> payload) =>
 {
-    return new LoginResponse() { AccessToken = "<sample value>"};
+    Console.WriteLine($"New user created: {payload.Event.Data.New.Name}");
+    return new { };
 });
+
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
 
 app.Run();

@@ -1,4 +1,4 @@
-namespace dotnet.Models;
+namespace HasuraDOTNetSample.Models;
 
 public class LoginResponse
 { 

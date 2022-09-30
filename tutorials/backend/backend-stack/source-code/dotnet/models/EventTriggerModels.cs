@@ -1,4 +1,4 @@
-namespace dotnet.action;
+namespace HasuraDOTNetSample.Models;
 
 public class EventTriggerPayload<T>
 {

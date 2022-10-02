@@ -44,6 +44,7 @@ There are different tutorial series:
 - [MySQL Basics](https://hasura.io/learn/database/mysql/introduction/)
 - [SQL Server Basics](https://hasura.io/learn/database/microsoft-sql-server/introduction/)
 - [YugabyteDB Basics](https://hasura.io/learn/database/yugabyte/introduction/)
+- [MongoDB Basics](https://hasura.io/learn/database/mongodb/introduction/)
 
 ## GraphQL Basics
 

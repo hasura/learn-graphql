@@ -1,5 +1,6 @@
 Tutorial
 --------
+- [Next.js](https://hasura.io/learn/graphql/nextjs-fullstack-serverless/introduction)
 
 GraphQL is becoming the new way to use APIs in modern web and mobile apps.
 However, learning new things always takes time and without getting your hands dirty it’s very hard to understand the nuances of a new technology.

@@ -217,7 +217,7 @@ We can make a custom GraphQL in Spring Boot using [Netflix's DGS](https://netfli
 
 We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
-1. In the Hasura Console remote schema tab, add your Python server `<Spring Boot URL>/graphql`
+1. In the Hasura Console remote schema tab, add your Java server `<Spring Boot URL>/graphql`
 
 1. In the API Explorer tab, try querying the sample shows.
 
@@ -271,7 +271,7 @@ To query a GraphQL endpoint from Java we use the [DGS GraphQL Client](https://ne
 
 ## Conclusion
 
-When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Python. Enjoy!
+When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Java. Enjoy!
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 

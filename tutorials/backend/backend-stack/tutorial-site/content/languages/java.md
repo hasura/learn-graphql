@@ -203,15 +203,15 @@ We can make a custom GraphQL in Spring Boot using [Netflix's DGS](https://netfli
 
 1. Run the [DGS getting started guide](https://netflix.github.io/dgs/getting-started/), stop before the `Implement a Data Fetcher` step.
 
-1. Run the [DGS code generation quickstart](https://netflix.github.io/dgs/generating-code-from-schema/). For this tutorial we are using version 5.3.1.
+2. Run the [DGS code generation quickstart](https://netflix.github.io/dgs/generating-code-from-schema/). For this tutorial we are using version 5.3.1.
 
-1. Run the `generateJava` task in Gradle.
+3. Run the `generateJava` task in Gradle.
 
-1. Copy `build/generated/sources/dgs-codegen-generated-examples/com/example/packagename/datafetchers/ShowsDatafetcher.java` to `src/main/java/com/example/demo/ShowsDatafetcher.java`
+4. Copy `build/generated/sources/dgs-codegen-generated-examples/com/example/packagename/datafetchers/ShowsDatafetcher.java` to `src/main/java/com/example/demo/ShowsDatafetcher.java`
 
-1. Rename the package to `package com.example.demo;`
+5. Rename the package to `package com.example.demo;`
 
-1. Run the Spring Boot app and navigate to `<Spring Boot URL>/graphql` and if everything worked you should be able to query `shows`
+6. Run the Spring Boot app and navigate to `<Spring Boot URL>/graphql` and if everything worked you should be able to query `shows`
 
 ### Hasura Remote Schema
 
@@ -235,7 +235,7 @@ To query a GraphQL endpoint from Java we use the [DGS GraphQL Client](https://ne
 
 1. Add the line `generateClient = true` to our previous `generateJava` Gradle task and rerun it.
 
-1. Query the shows in our Action handler
+2. Query the shows in our Action handler
 
    ```java
    package com.example.demo.action;
@@ -275,4 +275,4 @@ When developing backend applications, we may need to write custom business logic
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 
-<a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://camo.githubusercontent.com/a6de317cd7d0ed4e8722684b428f72e3da614fe8/68747470733a2f2f6772617068716c2d656e67696e652d63646e2e6861737572612e696f2f696d672f6465706c6f795f746f5f6861737572612e706e67"></a>
+<a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://camo.githubusercontent.com/a6de317cd7d0ed4e8722684b428f72e3da614fe8/68747470733a2f2f6772617068716c2d656e67696e652d63646e2e6861737572612e696f2f696d672f6465706c6f795f746f5f6861737572612e706e67" /></a>

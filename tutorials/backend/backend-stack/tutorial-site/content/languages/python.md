@@ -205,7 +205,7 @@ When you add a user in Hasura your Python server should receive the event.
 
 ## Create Python GraphQL Server
 
-We can make a custom GraphQL in Python using [Strawberry](https://strawberry.rocks/) and connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
+We can make a custom GraphQL server in Python using [Strawberry](https://strawberry.rocks/) and connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
 1. Run the [Strawberry FastAPI quickstart](https://strawberry.rocks/docs/integrations/fastapi)
 

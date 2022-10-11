@@ -20,30 +20,36 @@ Once you register and sign in, you should see the following welcome screen:
 
 ![Hasura Cloud Welcome Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-welcome.png)
 
-Hasura requires a Postgres database to start with. We can make use of Heroku's free Postgres database tier to set this up.
+Once the project is initialised, you can click on `Launch Console` button on the pop up screen. If you already have a Hasura Cloud account before, you can manually create a new project by clicking on the `+ New Project` action at the top, followed by `Launch Console`.
 
-Click on `Try a free database with Heroku` button. After logging in to Heroku, Hasura Cloud will perform the following for you:
+# Hasura Console {#hasura-console}
 
-- Create an app on Heroku
-- Install Postgres Add-on
+This will open up Hasura Console for your project. It should look something like this:
+
+![Hasura Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console-updated.png)
+
+Hasura requires a Postgres database to start with. We can make use of Neon's free Postgres database tier to set this up. Head to the `Data` tab on the Console and click on `Connect Database`.
+
+We have two options to connect a database:
+
+- Connect an existing database
+- Create a new database (free)
+
+To quickstart this process, we are going to create a new Postgres DB from scratch using Neon Postgres. Click on `Create New Database (Free)` tab. In this tab, you now have an option to click on the `Connect Neon Database` button. Note that Neon gives you 3 free Posgres database instances.
+
+![Create Neon Database](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-neon-database.png)
+
+After logging in to Neon and clicking on `Create Neon Database`, Hasura Cloud will perform the following for you:
+
+- Create a Postgres database on Neon
 - Fetch database URL that you can use to configure Hasura
 
-![Hasura Cloud Heroku Configuration](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-heroku-setup.png)
+It will take a few seconds to connect to Neon Postgres and initialise. Once the connection is established, you will be taken to the Data Manager page on the Console, listing the database that we just connected.
 
-Once the database URL is fetched, you can click on `Create Project` button to deploy an instance of Hasura. Once the project is created, it might take a few seconds to initialise.
+![Neon database created](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/neon-database-created.png)
 
-## Hasura Console
+You can also manage the project from the Hasura Cloud Dashboard.
 
-Once the project is initialised, we can open the Hasura Console to get started.
-
-![Hasura Cloud Project Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-project-page.png)
-
-- Open the Hasura console
-
-    Click on the `Launch Console` button to open the console. 
-
-It should look something like this:
-
-![Hasura Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console.png)
+![Hasura Cloud Project Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-project-page-updated.png)
 
 Great! You have now deployed Hasura and have the admin console ready to get started!

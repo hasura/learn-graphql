@@ -6,7 +6,7 @@ You can access it live here - https://hasura.io/learn/graphql/graphiql
 
 ## Usage of Environment Variables
 
-This app uses a few environment variables that are required for the development. The production build uses values directly present in index.html serving this app.
+This app uses a few environment variables that are required for the development. The production build uses values directly present in `index.html` serving this app.
 
 We use [dotenv](https://github.com/motdotla/dotenv) for setting environment variables for development. Create a `.env` file in the root directory (wherever package.json is) and set the following values. Replace accordingly for testing.
 
@@ -20,13 +20,13 @@ QUERY_STRING='query { test_table { id } }'
 REACT_APP_CALLBACK_URL='http://localhost:3000/callback'
 ```
 
-**Note**
-The .env file should not be in version control.
+**Note**:
+The `.env` file should not be in version control.
 
 ## Deployment
-
+Run the following command:-
 ```
 $ npm run build
 ```
 
-The static assets will be generated in `static` folder. There is an index.html file referencing the css and js assets inside `dist` folder.
+The static assets will be generated in `static` folder. There is an `index.html` file referencing the css and js assets inside `dist` folder.

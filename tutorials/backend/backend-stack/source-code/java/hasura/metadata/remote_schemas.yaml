@@ -1,0 +1,10 @@
+- name: java
+  definition:
+    url: http://host.docker.internal:8081/graphql
+    timeout_seconds: 60
+    customization: {}
+- name: python
+  definition:
+    url: http://python-backend-server:8000/graphql
+    timeout_seconds: 60
+  comment: ""

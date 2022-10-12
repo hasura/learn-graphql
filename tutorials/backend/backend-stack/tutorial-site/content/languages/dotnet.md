@@ -201,7 +201,7 @@ We will use [Hot Chocolate](https://chillicream.com/docs/hotchocolate/) to creat
 dotnet add package HotChocolate.AspNetCore
 ```
 
-1. Define the Todo Type in `Todo.cs`
+2. Define the Todo Type in `Todo.cs`
 
 ```csharp
 namespace HasuraDOTNetSample.Models;
@@ -216,8 +216,7 @@ public class Todo {
 }
 ```
 
-
-1. Add a Query type to `Query.cs`
+3. Add a Query type to `Query.cs`
 
 ```csharp
 namespace HasuraDOTNetSample.Models;
@@ -233,7 +232,7 @@ public class Query
 }
 ```
 
-1. Add GraphQL Services to `Program.cs`
+4. Add GraphQL Services to `Program.cs`
 
 ```csharp
 builder.Services
@@ -249,7 +248,7 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
 
 1. In the Hasura Console Remote Schemas tab, add your .NET GraphQL server `<.NET server URL>/graphql`
 
-1. In the API Explorer tab, try querying the sample todos.
+2. In the API Explorer tab, try querying the sample todos.
 
    ```graphql
    query {

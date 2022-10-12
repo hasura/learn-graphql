@@ -9,11 +9,11 @@ metaDescription: "Learn how to integrate .NET with Hasura."
 
 > New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
-See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/dtonet).
+See the [server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/dtonet).
 
 ## Create a new .NET project
 
-We will begin by creating a new .NET project. We will use the `dotnet` command line tool to create a new project. We will also be using .NET's minimal api template to create a new project. 
+We will begin by creating a new .NET project. We will use the `dotnet` command line tool to create a new project. We will also be using .NET's minimal API template to create a new project. 
 
 
 ```bash
@@ -38,7 +38,7 @@ app.Run();
 ```
 
 
-In `action/action.cs`, we will create following models.
+In `action/action.cs`, we will create the following models.
 
 ```csharp
 
@@ -77,8 +77,7 @@ dotnet run
 
 ### Hasura Actions
 
-We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console we will set up a custom login function
-
+We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console, we will set up a custom login function
 
 
 ```graphql
@@ -95,7 +94,7 @@ type LoginResponse {
 }
 ```
 
-In the Hasura API explorer tab you should now be able to test it
+In the Hasura API explorer tab, you should now be able to test it
 
 ```graphql
 mutation {
@@ -117,19 +116,17 @@ Result:
 }
 ```
 
-
 ### Event Triggers
 
 With [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can get notified whenever an event happens in our database.
 
-
 Let's send a webhook when a new user is created and print out their name.
 
-1.  In the Hasura Console add a `user` table with a `Text` column `name` and the frequently used `UUID` column id.
+1.  In the Hasura Console add a `user` table with a `Text` column `name` and the frequently used `UUID` column `id`.
 
-1.  In the event trigger tab, on the `user` table, check the insert and via console trigger operations.
+2.  In the event trigger tab, on the `user` table, check the insert and via console trigger operations.
 
-1.  The event trigger payload schema can be found [in the docs](https://hasura.io/docs/latest/graphql/core/event-triggers/payload/#json-payload). We will make a class to represent the payload.
+3.  The event trigger payload schema can be found [in the docs](https://hasura.io/docs/latest/graphql/core/event-triggers/payload/#json-payload). We will make a class to represent the payload.
 
 ```csharp
 public class EventTriggerPayload<T>
@@ -173,7 +170,6 @@ public class Data<T>
 }
 ```
 
-
 1.  We will also create a model to represent our data.
 
 ```csharp
@@ -183,7 +179,7 @@ public class User
     public string Name { get; set; }
 }
 ```
-1. Now we will add an HTTP handler to our `Program.cs` file.
+2. Now we will add an HTTP handler to our `Program.cs` file.
 
 ```csharp
 app.MapPost("/event", (EventTriggerPayload<User> payload) =>
@@ -251,7 +247,7 @@ This will add a GraphQL endpoint to your application. You can test it by going t
 
 We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
-1. In the Hasura Console remote schema tab, add your .NET GraphQL server `<.NET server URL>/graphql`
+1. In the Hasura Console Remote Schemas tab, add your .NET GraphQL server `<.NET server URL>/graphql`
 
 1. In the API Explorer tab, try querying the sample todos.
 
@@ -275,33 +271,33 @@ We can use [Strawberry Shake](https://chillicream.com/docs/strawberryshake/) to 
 dotnet new tool-manifest
 ```
 
-1. Install the Strawberry Shake Tools to your computer.
+2. Install the Strawberry Shake Tools on your computer.
 
 ```bash
 dotnet tool install StrawberryShake.Tools --local
 ```
 
-1. Install the required Dependencies.
+3. Install the required Dependencies.
 
 ```bash
 dotnet add package StrawberryShake.Transport.Http
 dotnet add package StrawberryShake.CodeGeneration.CSharp.Analyzers
 ```
 
-1. Add Dependency Injection and Http Extensions
+4. Add Dependency Injection and Http Extensions
 
 ```bash
 dotnet add package Microsoft.Extensions.DependencyInjection
 dotnet add package Microsoft.Extensions.Http
 ```
 
-1. Add GraphQL client to your project using CLI tools
+5. Add GraphQL client to your project using CLI tools
 
 ```bash
 dotnet graphql init <Hasura URL>/v1/graphql -n HasuraClient 
 ```
 
-1. Let's add a GraphQL query to your project.
+6. Let's add a GraphQL query to your project.
 
 ```graphql
 query GetUsers {
@@ -312,7 +308,7 @@ query GetUsers {
 }
 ```
 
-1. Compile your project
+7. Compile your project
 
 ```bash
 dotnet build
@@ -320,8 +316,7 @@ dotnet build
 
 This will create a client in `Generated` folder called `HasuraClient.StrawyberryShake.cs`. This will contain a strongly typed client for your GraphQL server.
 
-
-1. Now let's enable your application to use the client we just created.
+8. Now let's enable your application to use the client we just created.
   
 ```csharp
 builder.Services
@@ -333,7 +328,7 @@ IServiceProvider services = builder.Services.BuildServiceProvider();
 var client = services.GetRequiredService<HasuraDOTNetSample.IHasuraClient>();
 ```
 
-1. Lets add a simple get end-point to your application to return data from the GraphQL server using the new client
+9. Let's add a simple get end-point to your application to return data from the GraphQL server using the new client
 
 ```csharp
 app.MapGet("/getTodos", async (HasuraDOTNetSample.HasuraClient hasuraClient) =>
@@ -349,4 +344,4 @@ When developing backend applications, we may need to write custom business logic
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 
-<a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://camo.githubusercontent.com/a6de317cd7d0ed4e8722684b428f72e3da614fe8/68747470733a2f2f6772617068716c2d656e67696e652d63646e2e6861737572612e696f2f696d672f6465706c6f795f746f5f6861737572612e706e67" /></a>
+<a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/global/deploy-to-hasura.png" /></a>

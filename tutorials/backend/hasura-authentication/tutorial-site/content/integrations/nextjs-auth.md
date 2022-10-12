@@ -6,7 +6,7 @@ metaDescription: "Learn how to integrate NextAuth.js with Hasura to add sign-up 
 
 ## What is Express
 
-[NextAuth.js](https://next-auth.js.org/) is a complete open-source authentication solution for Next.js applications. Using the `@skillrecordings/next-auth-hasura-adapter` library we can connect NextAuth.js and Hasura.
+[NextAuth.js](https://next-auth.js.org/) is a complete open-source authentication solution for Next.js applications. Using the [`next-auth-hasura-adapter`](https://www.npmjs.com/package/next-auth-hasura-adapter) library we can connect NextAuth.js and Hasura.
 
 ## How to Integrate NextAuth.js with Hasura
 

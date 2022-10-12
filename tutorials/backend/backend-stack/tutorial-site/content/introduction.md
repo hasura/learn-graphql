@@ -4,7 +4,7 @@ metaTitle: "Course Introduction | GraphQL Backend Stack Tutorial"
 metaDescription: "A concise backend application tutorial optionally integrating with Hasura"
 ---
 
-This course is a super quick introduction to developing backend applications and optionally integrating them with [Hasura GraphQL](https://hasura.io/).
+This course is a quick introduction to developing backend applications in various languages. We also show how to integrate them with [Hasura GraphQL](https://hasura.io/).
 
 When developing backend applications, especially ones with GraphQL, there are many things you need to worry about, such as security, performance, and the manual labor of creating CRUD operations.
 

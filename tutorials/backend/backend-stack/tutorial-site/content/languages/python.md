@@ -8,7 +8,7 @@ metaDescription: "Python is a programming language that lets you work quickly an
 
 Python is a programming language that lets you work quickly and integrate systems more effectively. Learn more at [the official website](https://www.python.org/).
 
-The following guide covers common backend application tasks using [FastAPI](https://fastapi.tiangolo.com/) and how they can tie into Hasura.
+The following guide covers common backend application tasks, such as creating REST endpoints using [FastAPI](https://fastapi.tiangolo.com/).We also go over how to integrate your Python app with Hasura.
 
 > New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
@@ -83,7 +83,11 @@ uvicorn main:app --reload
 
 ### Hasura Action
 
-We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console we will set up a custom login function
+When writing a backend we usually have to write around 80% of our code doing boilerplate CRUD operations. Hasura helps us by autogenerating this part.
+
+When we need to write custom business logic we can integrate our Python REST endpoint using [Hasura Actions](https://hasura.io/docs/latest/actions/index/), giving us the best of both worlds.
+
+In the Actions tab on the Hasura Console we will set up a custom login function that calls the REST endpoint we created:
 
 ```graphql
 type Mutation {
@@ -125,9 +129,11 @@ Result:
 }
 ```
 
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/python/python-hasura-actions.png" alt="Hasura Actions with Python backend" />
+
 ### Event Triggers
 
-With [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can get notified whenever an event happens in our database.
+Databases like Postgres can run triggers when data changes, with [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can easily call an HTTP endpoint whenever we have one of these events.
 
 Let's send a webhook when a new user is created and print out their name.
 
@@ -203,7 +209,9 @@ Let's send a webhook when a new user is created and print out their name.
 
 When you add a user in Hasura your Python server should receive the event.
 
-## Create Python GraphQL Server
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/python/python-event-triggers.png" alt="Hasura Event Triggers with Python backend" />
+
+## Create a Python GraphQL Server
 
 We can make a custom GraphQL server in Python using [Strawberry](https://strawberry.rocks/) and connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
@@ -250,6 +258,9 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
      hello
    }
    ```
+
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
+backend-stack/python/python-remote-schema.png" alt="Hasura Event Triggers with Python backend" />
 
 ## Query GraphQL from Python
 

@@ -1,0 +1,29 @@
+{
+  "schema": "schema.graphql",
+  "documents": "**/*.graphql",
+  "extensions": {
+    "strawberryShake": {
+      "name": "HasuraClient",
+      "url": "http://localhost:8080/v1/graphql",
+      "dependencyInjection": true,
+      "strictSchemaValidation": true,
+      "hashAlgorithm": "md5",
+      "useSingleFile": true,
+      "requestStrategy": "Default",
+      "outputDirectoryName": "Generated",
+      "noStore": false,
+      "emitGeneratedCode": true,
+      "razorComponents": false,
+      "records": {
+        "inputs": false,
+        "entities": false
+      },
+      "transportProfiles": [
+        {
+          "default": "Http",
+          "subscription": "WebSocket"
+        }
+      ]
+    }
+  }
+}

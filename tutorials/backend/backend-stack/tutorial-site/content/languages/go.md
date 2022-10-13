@@ -8,7 +8,7 @@ metaDescription: "Go is an open source programming language supported by Google.
 
 Go is an open-source programming language supported by Google. Learn more at [the official website](https://go.dev/).
 
-The following guide covers common backend application tasks and how they can tie into Hasura.
+The following guide covers common backend application tasks, such as creating REST endpoints. We also go over how to integrate your Go app with Hasura.
 
 > New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
@@ -38,7 +38,7 @@ func main() {
 }
 ```
 
-In `action/action.go`, we create the handler:
+In `action/action.go`, we make the handler:
 
 ```go
 package action
@@ -122,7 +122,11 @@ func login(args loginArgs) (response LoginResponse, err error) {
 
 ### Hasura Actions
 
-We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console we will set up a custom login function
+When writing a backend we usually have to write around 80% of our code doing boilerplate CRUD operations. Hasura helps us by autogenerating this part.
+
+When we need to write custom business logic we can integrate our Go REST endpoint using [Hasura Actions](https://hasura.io/docs/latest/actions/index/), giving us the best of both worlds.
+
+In the Actions tab on the Hasura Console we will set up a custom login function that calls the REST endpoint we created:
 
 ```graphql
 type Mutation {
@@ -164,9 +168,11 @@ Result:
 }
 ```
 
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/go/go-hasura-actions.png" alt="Hasura Actions with Go backend" />
+
 ### Event Triggers
 
-With [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can get notified whenever an event happens in our database.
+Databases like Postgres can run triggers when data changes, with [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can easily call an HTTP endpoint whenever we have one of these events.
 
 Let's send a webhook when a new user is created and print out their name.
 
@@ -231,9 +237,11 @@ Let's send a webhook when a new user is created and print out their name.
 
 When you add a user in Hasura your Go server should receive the event.
 
-## Create Go GraphQL Server
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/go/go-event-triggers.png" alt="Hasura Event Triggers with Go backend" />
 
-We can make a custom GraphQL in Go using [gqlgen](https://gqlgen.com/)
+## Create a Go GraphQL Server
+
+We can make a custom GraphQL server in Go using [gqlgen](https://gqlgen.com/)
 
 1. Run the [gqlgen quickstart](https://gqlgen.com/#quick-start), skipping the first step.
 
@@ -304,6 +312,9 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
    }
    ```
 
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
+backend-stack/go/go-remote-schema.png" alt="Hasura Event Triggers with Go backend" />
+
 ## Query GraphQL from Go
 
 To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://github.com/Khan/genqlient) to generate a type-safe GraphQL client.
@@ -367,4 +378,4 @@ When developing backend applications, we may need to write custom business logic
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 
-<a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://camo.githubusercontent.com/a6de317cd7d0ed4e8722684b428f72e3da614fe8/68747470733a2f2f6772617068716c2d656e67696e652d63646e2e6861737572612e696f2f696d672f6465706c6f795f746f5f6861737572612e706e67" /></a>
+<a target="_blank" rel="noopener" href="https://cloud.hasura.io"><img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/global/deploy-to-hasura.png" /></a>

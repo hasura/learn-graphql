@@ -16,4 +16,4 @@ If you want a language guide, please open an issue on the [learn-graphql](https:
 - Ruby (coming soon)
 - Node.js (coming soon)
 - TypeScript (coming soon)
-- .NET (coming soon)
+- .NET

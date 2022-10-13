@@ -8,7 +8,7 @@ metaDescription: "Learn how to integrate Java with Hasura."
 
 Java is a high-level, class-based, object-oriented programming language with as few implementation dependencies as possible. Learn more at [the official website](https://www.java.com/).
 
-The following guide covers common backend application tasks using [Spring Boot](https://spring.io/projects/spring-boot/) and how they can tie into Hasura. We will be using [Gradle](https://gradle.org/) for dependencies.
+The following guide covers common backend application tasks, such as creating REST endpoints using [Spring Boot](https://spring.io/projects/spring-boot/). We also go over how to integrate your Java app with Hasura. We will be using [Gradle](https://gradle.org/) for dependencies.
 
 New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
@@ -89,7 +89,11 @@ Run the app
 
 ### Hasura Action
 
-We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console we will set up a custom login function
+When writing a backend we usually have to write around 80% of our code doing boilerplate CRUD operations. Hasura helps us by autogenerating this part.
+
+When we need to write custom business logic we can integrate our Java REST endpoint using [Hasura Actions](https://hasura.io/docs/latest/actions/index/), giving us the best of both worlds.
+
+In the Actions tab on the Hasura Console we will set up a custom login function that calls the REST endpoint we created:
 
 ```graphql
 type Mutation {
@@ -135,9 +139,11 @@ Result:
 }
 ```
 
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/java/java-hasura-actions.png" alt="Hasura Actions with Java backend" />
+
 ### Event Triggers
 
-With [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can get notified whenever an event happens in our database.
+Databases like Postgres can run triggers when data changes, with [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can easily call an HTTP endpoint whenever we have one of these events.
 
 Let's send a webhook when a new user is created and print out their name.
 
@@ -197,9 +203,11 @@ Let's send a webhook when a new user is created and print out their name.
 
 When you add a user in Hasura your Spring Boot server should receive the event.
 
-## Create Spring Boot GraphQL Server
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/java/java-event-triggers.png" alt="Hasura Event Triggers with Java backend" />
 
-We can make a custom GraphQL in Spring Boot using [Netflix's DGS](https://netflix.github.io/dgs/) and connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
+## Create a Spring Boot GraphQL Server
+
+We can make a custom GraphQL server in Spring Boot using [Netflix's DGS](https://netflix.github.io/dgs/) and connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
 1. Run the [DGS getting started guide](https://netflix.github.io/dgs/getting-started/), stop before the `Implement a Data Fetcher` step.
 
@@ -228,6 +236,9 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
      }
    }
    ```
+
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
+backend-stack/java/java-remote-schema.png" alt="Hasura Event Triggers with Java backend" />
 
 ## Query GraphQL from Java
 

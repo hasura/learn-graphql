@@ -1,22 +1,103 @@
 ---
 title: "Go"
-metaTitle: "Go | GraphQL Backend Stack Tutorial"
-metaDescription: "Go is an open source programming language supported by Google. Learn how to integrate Go in a GraphQL stack with Hasura"
+metaTitle: "GraphQL Server with Golang | Backend Tutorial"
+metaDescription: "In this tutorial, learn how to integrate Go in a GraphQL backend server stack with Hasura"
 ---
 
-## What is Go
+## GraphQL server with Golang
 
 Go is an open-source programming language supported by Google. Learn more at [the official website](https://go.dev/).
 
-The following guide covers common backend application tasks, such as creating REST endpoints. We also go over how to integrate your Go app with Hasura.
+The following guide covers common backend application tasks, such as creating a GraphQL server with Go gqlgen and integrating a Go REST API into a unified GraphQL schema. We also go over how to integrate your Go app with Hasura.
 
-> New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
+> New to GraphQL? Check out the [Introduction to GraphQL](https://hasura.io/learn/graphql/intro-graphql/introduction/) tutorial to learn the core concepts quickly.
 
-See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/go).
+- You will learn how to create a GraphQL server with Golang and gqlgen
+- If you have an existing GraphQL API with Golang, you can integrate it with Hasura as a [Remote Schema](https://hasura.io/docs/latest/remote-schemas/index/) to get a unified GraphQL API.
+- If you have an existing REST API with Golang, you can transform that declaratively to GraphQL without writing any code using [Hasura REST Connectors](https://hasura.io/docs/latest/actions/rest-connectors/).
+- You can also re-use or custom write REST endpoints with Golang and map the endpoint to a GraphQL schema in Hasura.
 
-## Create Go REST Endpoint
+> New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out the [Hasura documentation](https://hasura.io/docs/latest/index/).
 
-We will create a login POST endpoint that takes a username and password and returns an access code.
+## Create a Go GraphQL Server with gqlgen
+
+We can make a custom GraphQL server in Go using [gqlgen](https://gqlgen.com/)
+
+1. Run the [gqlgen quickstart](https://gqlgen.com/#quick-start), skipping the first step.
+
+2. In the `graph/schema.resolvers.go` Todos resolver return a placeholder test value.
+
+   ```go
+   func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
+       return []*model.Todo{
+           {
+               ID:   "test",
+               Text: "test",
+               Done: false,
+               User: &model.User{
+                   ID:   "",
+                   Name: "",
+               },
+           },
+       }, nil
+   }
+   ```
+
+3. Delete `server.go` and in `main.go` add the generated GraphQL handler
+
+   ```go
+   import (
+    "log"
+    "net/http"
+
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/action"
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/event"
+
+    "github.com/99designs/gqlgen/graphql/handler"
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph"
+    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph/generated"
+   )
+
+   func main() {
+       mux := http.NewServeMux()
+
+       srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
+
+       mux.HandleFunc("/graphql", srv.ServeHTTP)
+
+       mux.HandleFunc("/action", action.LoginHandler)
+
+       mux.HandleFunc("/event", event.NewUserHandler)
+
+       err := http.ListenAndServe(":3000", mux)
+       log.Fatal(err)
+   }
+   ```
+
+### Golang GraphQL API Federation using Hasura Remote Schema
+
+We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/) to unify the GraphQL endpoint as a single endpoint.
+
+1. In the Hasura Console Remote Schema tab, add your Go server `<Go server URL>/graphql`
+
+2. In the API Explorer tab, try querying the sample todos.
+
+   ```graphql
+   query {
+     todos {
+       id
+       text
+       done
+     }
+   }
+   ```
+
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
+backend-stack/go/go-remote-schema.png" alt="Hasura Remote Schemas with Go backend" />
+
+## Convert a Go REST API Endpoint to GraphQL
+
+In this section, we will write a REST Endpoint in Golang and see how to transform that to GraphQL. We will create a login POST endpoint that takes a username and password and returns an access code.
 
 In our `main.go`, we use the standard library to create an HTTP server:
 
@@ -120,7 +201,7 @@ func login(args loginArgs) (response LoginResponse, err error) {
 }
 ```
 
-### Hasura Actions
+### Add Go REST Endpoint to GraphQL schema using Hasura Actions
 
 When writing a backend we usually have to write around 80% of our code doing boilerplate CRUD operations. Hasura helps us by autogenerating this part.
 
@@ -170,7 +251,7 @@ Result:
 
 <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/go/go-hasura-actions.png" alt="Hasura Actions with Go backend" />
 
-### Event Triggers
+### Run async scheduled events using a Go REST API and Hasura GraphQL
 
 Databases like Postgres can run triggers when data changes, with [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can easily call an HTTP endpoint whenever we have one of these events.
 
@@ -178,9 +259,9 @@ Let's send a webhook when a new user is created and print out their name.
 
 1.  In the Hasura Console add a `user` table with a `Text` column `name` and the frequently used `UUID` column id.
 
-1.  In the event trigger tab, on the `user` table, check the insert and via console trigger operations.
+2.  In the event trigger tab, on the `user` table, check the insert and via console trigger operations.
 
-1.  The event trigger payload schema can be found [in the docs](https://hasura.io/docs/latest/graphql/core/event-triggers/payload/#json-payload). We make a struct type in Go to represent this
+3.  The event trigger payload schema can be found [in the docs](https://hasura.io/docs/latest/graphql/core/event-triggers/payload/#json-payload). We make a struct type in Go to represent this
 
     ```go
     type EventTriggerPayload[Old interface{}, New interface{}] struct {
@@ -214,7 +295,7 @@ Let's send a webhook when a new user is created and print out their name.
     }
     ```
 
-1.  Now we make an HTTP handler that handles the event
+4.  Now we make an HTTP handler that handles the event
 
     ```go
     func NewUserHandler(w http.ResponseWriter, r *http.Request) {
@@ -239,83 +320,7 @@ When you add a user in Hasura your Go server should receive the event.
 
 <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/go/go-event-triggers.png" alt="Hasura Event Triggers with Go backend" />
 
-## Create a Go GraphQL Server
-
-We can make a custom GraphQL server in Go using [gqlgen](https://gqlgen.com/)
-
-1. Run the [gqlgen quickstart](https://gqlgen.com/#quick-start), skipping the first step.
-
-1. In the `graph/schema.resolvers.go` Todos resolver return a placeholder test value.
-
-   ```go
-   func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-       return []*model.Todo{
-           {
-               ID:   "test",
-               Text: "test",
-               Done: false,
-               User: &model.User{
-                   ID:   "",
-                   Name: "",
-               },
-           },
-       }, nil
-   }
-   ```
-
-1. Delete `server.go` and in `main.go` add the generated GraphQL handler
-
-   ```go
-   import (
-    "log"
-    "net/http"
-
-    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/action"
-    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/event"
-
-    "github.com/99designs/gqlgen/graphql/handler"
-    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph"
-    "github.com/hasura/learn-graphql/tutorials/backend/backend-stack/source-code/graph/generated"
-   )
-
-   func main() {
-       mux := http.NewServeMux()
-
-       srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
-
-       mux.HandleFunc("/graphql", srv.ServeHTTP)
-
-       mux.HandleFunc("/action", action.LoginHandler)
-
-       mux.HandleFunc("/event", event.NewUserHandler)
-
-       err := http.ListenAndServe(":3000", mux)
-       log.Fatal(err)
-   }
-   ```
-
-### Hasura Remote Schema
-
-We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
-
-1. In the Hasura Console remote schema tab, add your Go server `<Go server URL>/graphql`
-
-1. In the API Explorer tab, try querying the sample todos.
-
-   ```graphql
-   query {
-     todos {
-       id
-       text
-       done
-     }
-   }
-   ```
-
-<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
-backend-stack/go/go-remote-schema.png" alt="Hasura Event Triggers with Go backend" />
-
-## Query GraphQL from Go
+## Example: Querying GraphQL with Golang Client genqlient
 
 To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://github.com/Khan/genqlient) to generate a type-safe GraphQL client.
 
@@ -325,7 +330,7 @@ To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://gi
    npx --yes graphqurl <Hasura URL>/v1/graphql --introspect > schema.graphql
    ```
 
-1. Add your queries to `genqlient.graphql`
+2. Add your queries to `genqlient.graphql`
 
    ```graphql
    query GetUsers {
@@ -336,7 +341,7 @@ To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://gi
    }
    ```
 
-1. Create `genqlient.yaml`
+3. Create `genqlient.yaml`
 
    ```yaml
    schema: schema.graphql
@@ -353,7 +358,7 @@ To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://gi
        type: int32
    ```
 
-1. Install and run `genqlient`
+4. Install and run `genqlient`
 
    ```bash
    go get github.com/Khan/genqlient
@@ -361,7 +366,7 @@ To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://gi
    go run github.com/Khan/genqlient
    ```
 
-1. To test if your setup is working, add a user, then query all users in the event trigger handler we created earlier
+5. To test if your setup is working, add a user, then query all users in the event trigger handler we created earlier
 
    ```go
    ctx := context.Background()
@@ -372,9 +377,11 @@ To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://gi
    }
    ```
 
-## Conclusion
+## Summary
 
-When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Go. Enjoy!
+When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Go.
+
+See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/go).
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 

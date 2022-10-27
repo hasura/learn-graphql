@@ -12,8 +12,8 @@ If you want a language guide, please open an issue on the [learn-graphql](https:
 
 - Go
 - Python
-- Java (coming soon)
-- Ruby (coming soon)
-- Node.js (coming soon)
-- TypeScript (coming soon)
+- Java
+- Node.js
 - .NET
+- TypeScript (coming soon)
+- Ruby (coming soon)

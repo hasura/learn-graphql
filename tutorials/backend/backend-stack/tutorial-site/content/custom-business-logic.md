@@ -22,4 +22,4 @@ Hasura can be used to create event triggers on tables in the database. Event tri
 
 Hasura can merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. All you need to do is build your GraphQL service and provide the HTTP endpoint to Hasura. Your GraphQL service can be written in any language or framework.
 
-![Remote Schema](https://hasura.io/docs/assets/images/remote-schema-arch-5bb135f3789ab646431fd2f60e85a59a.png)
+![Remote Schema](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/remote-schema-architecture.png)

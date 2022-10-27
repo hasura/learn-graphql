@@ -1,20 +1,94 @@
 ---
-title: ".NET"
-metaTitle: ".NET | GraphQL Backend Stack Tutorial"
-metaDescription: "Learn how to integrate .NET with Hasura."
+title: ".NET (dotnet)"
+metaTitle: "GraphQL Server with .NET (dotnet) | Backend Tutorial"
+metaDescription: "In this tutorial, learn how to integrate .NET (dotnet) in a GraphQL backend server stack with Hasura"
 ---
 
-## What is .NET 
+## GraphQL server with .NET (dotnet)
+
 .NET is an open-source and cross-platform framework supported by Microsoft. Learn more about .NET [here](https://dotnet.microsoft.com/).
+
+> New to GraphQL? Check out the [Introduction to GraphQL](https://hasura.io/learn/graphql/intro-graphql/introduction/) tutorial to learn the core concepts quickly.
+
+- You will learn how to create a GraphQL server with .NET and Hot Chocolate.
+- If you have an existing GraphQL API with .NET, you can integrate it with Hasura as a [Remote Schema](https://hasura.io/docs/latest/remote-schemas/index/) to get a unified GraphQL API.
+- If you have an existing REST API with .NET, you can transform that declaratively to GraphQL without writing any code using [Hasura REST Connectors](https://hasura.io/docs/latest/actions/rest-connectors/).
+- You can also re-use or custom-write REST endpoints with .NET and map the endpoint to a GraphQL schema in Hasura.
 
 > New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
-See the [server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/dtonet).
+## Create a .NET GraphQL Server with Hot Chocolate
 
-## Create a new .NET project
+We will use [Hot Chocolate](https://chillicream.com/docs/hotchocolate/) to create a GraphQL server.
+
+1. Add the Hot Chocolate NuGet package to your project.
+
+```bash
+dotnet add package HotChocolate.AspNetCore
+```
+
+2. Define the Todo Type in `Todo.cs`
+
+```csharp
+namespace HasuraDOTNetSample.Models;
+public class Todo {
+    public string Id { get; set; }
+
+    public string Text { get; set; }
+
+    public bool Done { get; set; }
+
+    public User User { get; set; }
+}
+```
+
+3. Add a Query type to `Query.cs`
+
+```csharp
+namespace HasuraDOTNetSample.Models;
+
+public class Query
+{
+    public Todo[] GetTodos() => new Todo[]
+    {
+        new Todo { Id = "1", Text = "Todo 1", Done = false, User = new User { Id = "1", Name = "User 1" } },
+        new Todo { Id = "2", Text = "Todo 2", Done = true, User = new User { Id = "2", Name = "User 2" } },
+        new Todo { Id = "3", Text = "Todo 3", Done = false, User = new User { Id = "3", Name = "User 3" } },
+    };
+}
+```
+
+4. Add GraphQL Services to `Program.cs`
+
+```csharp
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
+```
+
+This will add a GraphQL endpoint to your application. You can test it by going to `/graphql` in your browser. For more information on Hot Chocolate check out the [Get Started](https://chillicream.com/docs/hotchocolate/get-started).
+
+### .NET GraphQL API Federation using Hasura Remote Schema
+
+We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
+
+1. In the Hasura Console Remote Schemas tab, add your .NET GraphQL server `<.NET server URL>/graphql`
+
+2. In the API Explorer tab, try querying the sample todos.
+
+   ```graphql
+   query {
+     todos {
+       id
+       text
+       done
+     }
+   }
+   ```
+
+## Convert a .NET REST API endpoint to GraphQL
 
 We will begin by creating a new .NET project. We will use the `dotnet` command line tool to create a new project. We will also be using .NET's minimal API template to create a new project. 
-
 
 ```bash
 dotnet new web -o dotnet-graphql
@@ -75,7 +149,7 @@ Run the application using:
 dotnet run
 ```
 
-### Hasura Actions
+### Add .NET REST Endpoint to GraphQL schema using Hasura Actions
 
 We can integrate this endpoint into Hasura and generate the code using [Hasura Actions](https://hasura.io/docs/latest/actions/index/). In the Actions tab on the Hasura Console, we will set up a custom login function
 
@@ -116,7 +190,7 @@ Result:
 }
 ```
 
-### Event Triggers
+### Run async scheduled events using a Python REST API and Hasura GraphQL
 
 With [Hasura event triggers](https://hasura.io/docs/latest/event-triggers/index/) we can get notified whenever an event happens in our database.
 
@@ -191,76 +265,8 @@ app.MapPost("/event", (EventTriggerPayload<User> payload) =>
 
 When you add a user in Hasura your .NET server should receive the event.
 
-## Create .NET GraphQL Server
 
-We will use [Hot Chocolate](https://chillicream.com/docs/hotchocolate/) to create a GraphQL server.
-
-1. Add the Hot Chocolate NuGet package to your project.
-
-```bash
-dotnet add package HotChocolate.AspNetCore
-```
-
-2. Define the Todo Type in `Todo.cs`
-
-```csharp
-namespace HasuraDOTNetSample.Models;
-public class Todo {
-    public string Id { get; set; }
-
-    public string Text { get; set; }
-
-    public bool Done { get; set; }
-
-    public User User { get; set; }
-}
-```
-
-3. Add a Query type to `Query.cs`
-
-```csharp
-namespace HasuraDOTNetSample.Models;
-
-public class Query
-{
-    public Todo[] GetTodos() => new Todo[]
-    {
-        new Todo { Id = "1", Text = "Todo 1", Done = false, User = new User { Id = "1", Name = "User 1" } },
-        new Todo { Id = "2", Text = "Todo 2", Done = true, User = new User { Id = "2", Name = "User 2" } },
-        new Todo { Id = "3", Text = "Todo 3", Done = false, User = new User { Id = "3", Name = "User 3" } },
-    };
-}
-```
-
-4. Add GraphQL Services to `Program.cs`
-
-```csharp
-builder.Services
-    .AddGraphQLServer()
-    .AddQueryType<Query>();
-```
-
-This will add a GraphQL endpoint to your application. You can test it by going to `/graphql` in your browser. For more information on Hot Chocolate check out the [Get Started](https://chillicream.com/docs/hotchocolate/get-started).
-
-### Hasura Remote Schema
-
-We can connect our custom GraphQL server to Hasura using [remote schemas](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
-
-1. In the Hasura Console Remote Schemas tab, add your .NET GraphQL server `<.NET server URL>/graphql`
-
-2. In the API Explorer tab, try querying the sample todos.
-
-   ```graphql
-   query {
-     todos {
-       id
-       text
-       done
-     }
-   }
-   ```
-
-## Query GraphQL from .NET using Strawberry Shake
+## Example: Querying GraphQL with .NET using Strawberry Shake
 
 We can use [Strawberry Shake](https://chillicream.com/docs/strawberryshake/) to query our GraphQL server from .NET. This will generate a strongly typed client for us.
 
@@ -337,9 +343,11 @@ app.MapGet("/getTodos", async (HasuraDOTNetSample.HasuraClient hasuraClient) =>
 });
 ```
 
-## Conclusion
+## Summary
 
-When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of .NET. Enjoy!
+When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of .NET.
+
+See the [server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/dtonet).
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 

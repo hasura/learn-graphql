@@ -32,13 +32,11 @@ We can make a custom GraphQL server in Python using [Strawberry](https://strawbe
    import strawberry
    from strawberry.fastapi import GraphQLRouter
 
-
    @strawberry.type
    class Query:
        @strawberry.field
        def hello(self) -> str:
          return "Hello World"
-
 
    schema = strawberry.Schema(Query)
 
@@ -49,7 +47,6 @@ We can make a custom GraphQL server in Python using [Strawberry](https://strawbe
 
    ```python
    from remoteSchema.remoteSchema import graphql_app
-
 
    app.include_router(graphql_app, prefix="/graphql")
    ```
@@ -208,21 +205,17 @@ Let's send a webhook when a new user is created and print out their name.
     New = TypeVar("New", bound=BaseModel | None)
     Old = TypeVar("Old", bound=BaseModel | None)
 
-
     class DeliveryInfo(BaseModel):
         current_retry: int
         max_retries: int
-
 
     class Data(GenericModel, Generic[New, Old]):
         new: New
         old: Old
 
-
     class TraceContext(BaseModel):
         span_id: str
         trace_id: str
-
 
     class Event(GenericModel, Generic[New, Old]):
         data: Data[New, Old]
@@ -230,15 +223,12 @@ Let's send a webhook when a new user is created and print out their name.
         session_variables: dict[str, str]
         trace_context: TraceContext
 
-
     class Table(BaseModel):
         name: str
         schema_: str = Field("", alias="schema")
 
-
     class Trigger(BaseModel):
         name: str
-
 
     class Payload(GenericModel, Generic[New, Old]):
         created_at: str
@@ -257,7 +247,6 @@ Let's send a webhook when a new user is created and print out their name.
     class UserTable(BaseModel):
       id: str
       name: str
-
 
     @app.post("/event")
     async def actionHandler(action: Payload[UserTable, None]):

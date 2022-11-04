@@ -105,6 +105,6 @@ hasura migrate apply --database-name default --admin-secret xxxx
 hasura metadata reload --admin-secret xxxx
 ```
 
-This will create the tables and relationships for the realtime todo app.
+This will create the tables and relationships for the todo app.
 
 Great! Now navigate to the Hasura Cloud app to see the schema on the Hasura console.

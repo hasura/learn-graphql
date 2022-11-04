@@ -73,13 +73,15 @@ To configure JWT claims we will need to the appsettings.json file. Add the follo
 
 ```json
 "Jwt": {
-    "key": "mysecretkey",
+    "key": "MyReallySecureSecretThatMustBe32CharactersLong",
     "Issuer": "https://localhost:5001",
     "Audience": "https://localhost:5001"
   }
 ```
 
 We will use this information to configure Hasura for JWT authentication. In production you will want to use a more secure key and a different issuer and audience.
+
+Since we are using H256 algorithm, the key must be 32 characters long. You can use any other algorithm and key length as per your requirements.
 
 ### Configure Hasura to Accept JWT
 To configure Hasura we will define a custom environment variable `HASURA_GRAPHQL_JWT_SECRET` in the `docker-compose.yml` file. This environment variable will be used to configure Hasura to accept JWT tokens.
@@ -89,3 +91,4 @@ HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "mysecretkey", "claims_form
 ```
 
 **Note** In production you will want to use a more secure key and a different issuer and audience. This also must match the values in the `appsettings.json` file.
+

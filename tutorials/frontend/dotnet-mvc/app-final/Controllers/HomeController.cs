@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TodoApp.Models;
+using TodoApp.Services;
 
 namespace TodoApp.Controllers;
 
@@ -8,9 +9,11 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, JwtTokenService service)
     {
         _logger = logger;
+        String token = service.CreateToken("123", "John");
+        
     }
 
     public IActionResult Index()

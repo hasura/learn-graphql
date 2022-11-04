@@ -46,7 +46,7 @@ namespace TodoApp.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { new Claim("id", userName) }),
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddMinutes(1),
                 Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"],
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -60,8 +60,32 @@ namespace TodoApp.Services
 
 This service will be used to create the JWT token that will be used to authenticate the user from the ASP.NET application to Hasura. We will need to inject this service into the Services in the `Program.cs` file.
 
+**Note** : The JWT token is valid for 1 minute since we are using it directly during the request and not storing it anywhere. Also this JWT is not being used from the client side so there is no need to store it in a cookie or local storage.
+
 ```csharp
 builder.Services.AddScoped<JwtTokenService>();
 ```
 
 Now we will be able to use the `JwtTokenService` to create JWT tokens for the user in any of our ASP.NET controllers.
+
+### Configure JWT claims in ASP.NET
+To configure JWT claims we will need to the appsettings.json file. Add the following lines to the `appsettings.json` file:
+
+```json
+"Jwt": {
+    "key": "mysecretkey",
+    "Issuer": "https://localhost:5001",
+    "Audience": "https://localhost:5001"
+  }
+```
+
+We will use this information to configure Hasura for JWT authentication. In production you will want to use a more secure key and a different issuer and audience.
+
+### Configure Hasura to Accept JWT
+To configure Hasura we will define a custom environment variable `HASURA_GRAPHQL_JWT_SECRET` in the `docker-compose.yml` file. This environment variable will be used to configure Hasura to accept JWT tokens.
+
+```yaml
+HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "mysecretkey", "claims_format": "json","audience": "https://localhost:5001", "issuer": "https://localhost:5001"}'
+```
+
+**Note** In production you will want to use a more secure key and a different issuer and audience. This also must match the values in the `appsettings.json` file.

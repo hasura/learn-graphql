@@ -33,26 +33,31 @@ namespace TodoApp.Services
     public class JwtTokenService
     {
         private readonly IConfiguration _configuration;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public JwtTokenService(IConfiguration configuration)
+        public JwtTokenService(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public string CreateToken(string userId, string userName)
+        public string CreateToken()
         {
-          var tokenHandler = new JwtSecurityTokenHandler();
+            var userId = _httpContextAccessor.HttpContext.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier)
+                .Value;
+            var userName = _httpContextAccessor.HttpContext.User.Identity.Name;
+
+            var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:key"]);
 
-            
 
             var claims = new Dictionary<string, object>
             {
                 {
-                    "https://hasura.io/jwt/claims", 
+                    "https://hasura.io/jwt/claims",
                     new Dictionary<string, object>
                     {
-                        {"x-hasura-allowed-roles",new[] {"user"}},
+                        {"x-hasura-allowed-roles", new[] {"user"}},
                         {"x-hasura-default-role", "user"},
                         {"x-hasura-user-id", userId}
                     }
@@ -61,11 +66,12 @@ namespace TodoApp.Services
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", userName) }),
+                Subject = new ClaimsIdentity(new[] {new Claim("id", userName)}),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = _configuration["Jwt:Issuer"],
                 Audience = _configuration["Jwt:Audience"],
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+                SigningCredentials =
+                    new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
                 Claims = claims
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
@@ -80,7 +86,7 @@ This service will be used to create the JWT token that will be used to authentic
 **Note** : The JWT token is valid for 1 minute since we are using it directly during the request and not storing it anywhere. Also this JWT is not being used from the client side so there is no need to store it in a cookie or local storage.
 
 ```csharp
-builder.Services.AddScoped<JwtTokenService>();
+builder.Services.AddSingleton<JwtTokenService>();
 ```
 
 Now we will be able to use the `JwtTokenService` to create JWT tokens for the user in any of our ASP.NET controllers.

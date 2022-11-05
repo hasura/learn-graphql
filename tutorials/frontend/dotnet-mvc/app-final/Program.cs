@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TodoApp.Data;
@@ -15,7 +16,19 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<JwtTokenService>();
+builder.Services.AddSingleton<JwtTokenService>();
+
+builder.Services
+    .AddTodoClient()
+    .ConfigureHttpClient((sp, client) =>
+        {
+            var tokenService = sp.GetService<JwtTokenService>();
+            var token = tokenService.CreateToken();
+            client.BaseAddress = new Uri("http://localhost:8080/v1/graphql");
+            client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
+        }
+    );
 
 var app = builder.Build();
 

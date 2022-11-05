@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <GraphQL Update="TodoClient\GetTodos.graphql">
-      <Generator>MSBuild:Compile</Generator>
-    </GraphQL>
+    <AdditionalFiles Include="Views\Todos\Index.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -56,12 +56,10 @@ namespace TodoApp.Controllers;
 public class TodosController : Controller
 {
     private readonly ITodoClient _todoClient;
-    private readonly JwtTokenService _tokenService;
 
-    public TodosController(ITodoClient todoClient, JwtTokenService tokenService)
+    public TodosController(ITodoClient todoClient)
     {
         _todoClient = todoClient;
-        _tokenService = tokenService;
     }
     
     // GET
@@ -72,16 +70,21 @@ public class TodosController : Controller
 }
 ```
 
-2. In our controller we will add a method to make it easier to get the User ID from the built in authetnication: 
-  
+2. Now lets query the GraphQL API and display the results in the view. Add the following to the `Index` action:
+
 ```csharp
-private string UserId() => HttpContext.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+public async Task<IActionResult> Index()
+{
+    var todos = await _todoClient.GetMyTodos.ExecuteAsync();
+    return View(todos.Data?.Todos);
+}
 ```
+
 
 As you can see we are injecting the `ITodoClient` into the controller. This is the Strawberry Shake client that we generated in the previous step. We are also making this the route authenticated to protect the data.
 
 
-2. Let's add navigation to the main menu in the `Views/Shared/_Layout.cshtml` file:
+3. Let's add navigation to the main menu in the `Views/Shared/_Layout.cshtml` file:
 
 ```html
 <li class="nav-item">
@@ -89,13 +92,43 @@ As you can see we are injecting the `ITodoClient` into the controller. This is t
 </li>
 ```
 
-3. Add a new view `Index.cshtml` in the `Views/Todos` folder. Add the following to the file:
+4. Add a new view `Index.cshtml` in the `Views/Todos` folder. Add the following to the file:
 
 ```html
 @model TodoApp.Models.TodoViewModel
 
+@model System.Collections.Generic.IReadOnlyList<TodoApp.IGetMyTodos_Todos>?
+
 @{
-    ViewData["Title"] = "Todos";
+    ViewBag.Title = "Todos";
+    Layout = "_Layout";
 }
 
-<h1 class="display-4">Todos</h1>
+<h2>Todos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Is Completed
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+<tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Is_completed)
+        </td>          
+    </tr>
+}
+</tbody>
+</table>
+```

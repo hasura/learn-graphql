@@ -5,6 +5,9 @@
     "strawberryShake": {
       "name": "TodoClient",
       "url": "http://localhost:8080/v1/graphql/",
+      "headers": {
+        "x-hasura-admin-secret": "123456"
+      },
       "dependencyInjection": true,
       "strictSchemaValidation": true,
       "hashAlgorithm": "md5",

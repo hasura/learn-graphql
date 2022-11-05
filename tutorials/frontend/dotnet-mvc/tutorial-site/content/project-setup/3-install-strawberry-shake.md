@@ -42,9 +42,31 @@ dotnet add package StrawberryShake.CodeGeneration.CSharp.Analyzers
 This should show Strawberry Shake in the list of installed tools.
 
 ### Generate Strawberry Shake client
-To add the client to access the GraphQL API, we will run the following command:
+
+1. To add the client to access the GraphQL API, we will run the following command:
 
 ```bash
-dotnet graphql init http://localhost:8080/v1/graphql/ -n TodoClient -p .
+ dotnet graphql init http://localhost:8080/v1/graphql/ -n TodoClient -p ./TodoClient --headers x-hasura-admin-secret=123456
 ```
 
+2. We will need to customize the `.graphqlrc.json` file to add the `x-hasura-admin-secret` header. Add the following to the `headers` section:
+
+```json
+{
+  "schema": "schema.graphql",
+  "documents": "**/*.graphql",
+  "extensions": {
+    "strawberryShake": {
+      "name": "TodoClient",
+      "namespace": "TodoApp.GraphQL",
+      "url": "http://localhost:8080/v1/graphql/",
+      "dependencyInjection": true,
+      "headers": {
+          "x-hasura-admin-secret": "123456"
+      },
+    }
+  }
+}
+```
+
+This will create a new class called `TodoClient` in the `TodoClient` folder. This class will be used to access the GraphQL API. We will begin to use this class in the next step.

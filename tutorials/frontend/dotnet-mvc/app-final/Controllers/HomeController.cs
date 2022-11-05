@@ -9,11 +9,9 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger, JwtTokenService service)
+    public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-        String token = service.CreateToken("123", "John");
-        
     }
 
     public IActionResult Index()

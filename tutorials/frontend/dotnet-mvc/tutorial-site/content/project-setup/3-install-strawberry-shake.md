@@ -18,7 +18,7 @@ dotnet new tool-manifest
 2. Install Strawberry Shake:
 
 ```bash
-dotnet tool install --global StrawberryShake.Tool
+dotnet tool install StrawberryShake.Tools --local
 ```
 
 This will install Strawberry Shake as a global tool. You can verify the installation by running the following command:
@@ -27,6 +27,24 @@ This will install Strawberry Shake as a global tool. You can verify the installa
 dotnet tool list -g
 ```
 
+3. Add Strawberry Shake to the project:
+
+```bash
+dotnet add package StrawberryShake.Transport.Http
+```
+
+4. Add the Strawberry Shake CSharp Analyzer:
+
+```bash
+dotnet add package StrawberryShake.CodeGeneration.CSharp.Analyzers
+```
+
 This should show Strawberry Shake in the list of installed tools.
 
-We will generate the client and queries in a future step.
+### Generate Strawberry Shake client
+To add the client to access the GraphQL API, we will run the following command:
+
+```bash
+dotnet graphql init http://localhost:8080/v1/graphql/ -n TodoClient -p .
+```
+

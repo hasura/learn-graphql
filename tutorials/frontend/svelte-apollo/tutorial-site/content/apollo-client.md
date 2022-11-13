@@ -59,7 +59,7 @@ These are the required apollo dependencies to get started. Now let's define a fu
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 
 +function createApolloClient(authToken) {
-+   const httpLink = new HttpLink({
++   const link = new HttpLink({
 +     uri: "https://hasura.io/learn/graphql",
 +     headers: {
 +       Authorization: `Bearer ${authToken}`,
@@ -69,7 +69,7 @@ import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 +   const cache = new InMemoryCache();
 +
 +   const client = new ApolloClient({
-+     httpLink,
++     link,
 +     cache,
 +   });
 +

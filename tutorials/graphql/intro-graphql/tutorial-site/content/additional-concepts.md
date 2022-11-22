@@ -1,8 +1,10 @@
 ---
-title: "GraphQL Comments"
-metaTitle: "GraphQL Comments | GraphQL Tutorial"
-metaDescription: "GraphQL comments enable developers to add additional context for their GraphQL API with code comments. The comments are passed to GraphQL tools such as GraphiQL and GraphQL Playground."
+title: "GraphQL Concepts"
+metaTitle: "GraphQL Concepts | GraphQL Tutorial"
+metaDescription: "This section covers additional GraphQL concepts"
 ---
+
+## GraphQL Comments
 
 With GraphQL, you can add code comments that are also shown in GraphQL tools such as GraphiQL, GraphQL Playground, and others. As a result, the comments are helpful for both the developers working on your GraphQL API and the developers consuming the API.
 

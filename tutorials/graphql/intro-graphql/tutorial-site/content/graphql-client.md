@@ -42,12 +42,6 @@ Now that you have learned that requests can be made using the old fetch API meth
 
 A GraphQL client can help construct the entire query with just the GraphQL document as input and add the relevant headers and context information. So instead of you writing the fetch API call every time, the client will handle it for you giving the response data and error after parsing.
 
-#### Parsing queries with graphql-tag - `gql`
-
-When you use a GraphQL client, you will most likely use `graphql-tag`. `graphql-tag` is a library for parsing GraphQL operations. It includes the `gql` tag, which parses a GraphQL operation (query/mutation/subscription) string into an AST (Abstract Syntax Tree) document your client understands.
-
-That means you can define the GraphQL operations in your code using template literals and use `gql` to compile them to an AST document.
-
 ### Managing UI State {#managing-ui-state}
 
 A GraphQL client is also helpful in managing the UI state and syncing data across multiple UI components.

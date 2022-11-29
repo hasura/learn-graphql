@@ -61,7 +61,7 @@ The CHECK constraint verifies the value in a particular column. It ensures that 
 CREATE TABLE Persons(
 ID int NOT NULL,
 Name varchar(45) NOT NULL,
-Age int CHECK (Age=18)
+Age int CHECK (Age>=18)
 );
 ```
 

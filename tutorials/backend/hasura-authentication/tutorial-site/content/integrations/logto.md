@@ -74,7 +74,7 @@ For more details on how to self-host a Logto instance, please check Logto offici
 
 - Open browser, and navigates to the Logto domain URL. You will see this welcome page once the above deployment is successful.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a76f03be-2dc7-4111-964c-e3d785fc9382/Untitled.png)
+    ![image](https://user-images.githubusercontent.com/12833674/204700000-a3073c8e-191e-486a-b93c-f99c28a1eeec.png)
     
 - Create an admin account, and sign in.
 
@@ -82,7 +82,7 @@ For more details on how to self-host a Logto instance, please check Logto offici
 
 - In order to protect your HASURA GraphQL requests, we are going to create an API resource for HASURA in Logto. Once signed-in to Logto admin console, go to “API Resources” page, and click “Create API Resource” button.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3c01c6b1-598b-4842-995c-b239418b1813/Untitled.png)
+    ![image](https://user-images.githubusercontent.com/12833674/204700041-16f30fe8-7c6c-498c-a716-7d4394e09eb0.png)
     
 
 <aside>
@@ -94,13 +94,13 @@ For more details on how to self-host a Logto instance, please check Logto offici
 
 - Go to “Applications” in admin console, and click “Create Application” button.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/af2a7b70-b96e-4fda-9f37-5c944ee882d0/Untitled.png)
+    ![image](https://user-images.githubusercontent.com/12833674/204700098-eeecbf84-faa3-4724-a8df-35e3b4a9e4d4.png)
     
     In this guide, let’s assume your application is an SPA built with React framework.
     
 - Follow the guide step by step, and integrate Logto React SDK into your application.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd547ac3-5467-4baa-a394-b63367f0a248/Untitled.png)
+    ![image](https://user-images.githubusercontent.com/12833674/204700117-c1cda4fa-4c3e-4e3c-a87e-cb38a42253ab.png)
     
     For now, you are having your user authentication ready and secured by Logto. 
     

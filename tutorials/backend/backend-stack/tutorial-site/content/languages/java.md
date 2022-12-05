@@ -51,8 +51,7 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
    }
    ```
 
-<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
-backend-stack/java/java-remote-schema.png" alt="Hasura Event Triggers with Java backend" />
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/java/java-remote-schema.png" alt="Hasura Event Triggers with Java backend" />
 
 ## Convert a Java REST API endpoint to GraphQL
 

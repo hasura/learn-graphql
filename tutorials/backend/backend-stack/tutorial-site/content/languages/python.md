@@ -65,8 +65,7 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
    }
    ```
 
-<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
-backend-stack/python/python-remote-schema.png" alt="Hasura Remote Schema with Python backend" />
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/python/python-remote-schema.png" alt="Hasura Remote Schema with Python backend" />
 
 ## Convert a Python REST API endpoint to GraphQL
 

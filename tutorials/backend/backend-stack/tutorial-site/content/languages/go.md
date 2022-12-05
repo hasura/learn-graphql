@@ -92,8 +92,7 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
    }
    ```
 
-<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
-backend-stack/go/go-remote-schema.png" alt="Hasura Remote Schemas with Go backend" />
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/go/go-remote-schema.png" alt="Hasura Remote Schemas with Go backend" />
 
 ## Convert a Go REST API Endpoint to GraphQL
 

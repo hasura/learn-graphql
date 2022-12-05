@@ -66,14 +66,14 @@ This is one of the key-reasons that makes GraphQL a joy to work with!
 - **Prevent multiple API calls**: In case you need more data, you can also avoid
   making multiple calls to your API. In the case above, you don't need to make
   2 API calls to fetch `user` and `address` separately.
-- **Lesser communication with API developers**: Sometimes to fetch the exact data
+- **Lesser communication with API developers**: Sometimes, to fetch the exact data
   you need, especially if you need to fetch more data and want to avoid multiple API
   calls, you will need to ask your API developers to build a new API. With GraphQL,
   your work is *independent* of the API team! This allows you to work faster on your
   app.
 - **Self-documenting**: Every GraphQL API conforms to a "schema" which is the graph
   data model and what kinds of queries a client can make. This allows the community
-  to build lots of cool tools to explore & visualise your API or create IDE plugins
+  to build lots of cool tools to explore & visualize your API or create IDE plugins
   that autocomplete your GraphQL queries and even do "codegen". We'll understand this
   in more detail later!
 

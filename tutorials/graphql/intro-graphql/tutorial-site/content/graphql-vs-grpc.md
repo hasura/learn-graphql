@@ -55,7 +55,7 @@ Code generation is another benefit. gRPC's `protoc` compiler can use the `.proto
 
 ## gRPC Drawbacks
 
-One drawback is that Protobuf (Protocol buffers), a core part of gRPC, only supports code generated in 9 languages: Kotlin, Python, C++, Ruby, Java, C#, Go, Objective-C, and Dart.
+One drawback is that Protobuf (Protocol buffers), a core part of gRPC, only supports code generated in 11 languages: C#/.NET, C++, Dart, Go, Java, Kotlin, Node, Objective-C, PHP, Python and Ruby.
 
 Another drawback is that gRPC uses Protobuf to exchange data. As a result, the messages are not human readable. Reading and inspecting data requires extra steps and tools.
 

@@ -1,3 +1,9 @@
+---
+title: "PostgreSQL Hosting Providers"
+metaTitle: "PostgreSQL Hosting Providers | PostgreSQL Tutorial"
+metaDescription: "Host your PostgreSQL database instance with any of the popular cloud hosting providers and connect it to your Hasura app"
+---
+
 ## Hosting providers for PostgreSQL database
 
 There are managed Postgres solutions from various hosting providers for production use cases. You can use any of these hosting providers to host your Postgres database and then connect it to your Hasura application.

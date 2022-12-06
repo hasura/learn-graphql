@@ -30,7 +30,8 @@ Hasura supports two ways of authentication: Webhooks and JWT. In this guide, we 
 # Replace with your own secret
 HASURA_GRAPHQL_ADMIN_SECRET=myadminsecretkey
 
-# Assuming Logto is running at 'http://localhost:3001'
+# Assuming Logto is running at 'http://localhost:3001',
+# and we are also going to create an API resource named 'https://hasura.api' in the next few steps
 HASURA_GRAPHQL_AUTH_HOOK=http://localhost:3001/api/authn/hasura?resource=https://hasura.api
 
 USER_DEFAULT_ROLE_NAMES=user,good_user
@@ -68,7 +69,7 @@ docker run \
 ghcr.io/logto-io/logto:prerelease
 ```
 
-For more details on how to self-host a Logto instance, please check Logto official “[Get Started](https://docs.logto.io/docs/tutorials/get-started/)” documentation.
+For more details on how to self-host a Logto instance, please check Logto official "[Get Started](https://docs.logto.io/docs/tutorials/get-started/)" documentation.
 
 ### Sign-in to Logto Admin Console
 
@@ -84,11 +85,8 @@ For more details on how to self-host a Logto instance, please check Logto offici
     
     ![image](https://user-images.githubusercontent.com/12833674/204700041-16f30fe8-7c6c-498c-a716-7d4394e09eb0.png)
     
-
-<aside>
-💡 The API resource identifier can be any absolute URI format. In this guide, we use `[https://hasura.api](https://hasura.api)` as the identifier.
-
-</aside>
+    > 💡 The API resource identifier can be any absolute URI format. In this guide, we use `https://hasura.api` as the identifier.
+    >
 
 ### Create Application and Integrate Logto SDK
 
@@ -103,11 +101,10 @@ For more details on how to self-host a Logto instance, please check Logto offici
     ![image](https://user-images.githubusercontent.com/12833674/204700117-c1cda4fa-4c3e-4e3c-a87e-cb38a42253ab.png)
     
     For now, you are having your user authentication ready and secured by Logto. 
-    
-    <aside>
-    💡 Check “Sign-in Experience” in admin console if you want to customize your sign-in page and workflow.
-    
-    </aside>
+        
+    > 💡 Check “Sign-in Experience” in admin console if you want to customize your sign-in page and workflow.
+    >
+
     
 - Once you complete the integration above, we need one tiny modification to the code in `Step 2: Init LogtoClient`. Add the Hasura API identifier in `LogtoConfig` as `resources` when initializing LogtoClient.
 

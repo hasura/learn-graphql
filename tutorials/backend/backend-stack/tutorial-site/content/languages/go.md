@@ -380,7 +380,7 @@ To query a GraphQL endpoint from Go we use Khan Academy's [genqlient](https://gi
 
 When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Go.
 
-See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/go).
+See the [server source code on Github](https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend-stack/source-code/go).
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 

@@ -50,37 +50,16 @@ const config = {
     ignoreIndex: true,
   },
   siteMetadata: {
-    title: "2 hour GraphQL Apollo course for React developers | Hasura",
+    title: "2 hour GraphQL course for ASP.NET developers | Hasura",
     description:
-      "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in React with Apollo Hooks",
+      "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in ASP.NET",
     ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-react-apollo-hooks.png",
+      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-asp-dotnet-mvc.png",
     docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/react-apollo-hooks/tutorial-site/content",
+      "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/dotnet-mvc/tutorial-site/content",
     favicon:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
-  },
-  "language": {
-    "code": "en",
-    "name": "English",
-    "translations": [
-      {
-        "code": "zh",
-        "name": "Chinese",
-        "link": "https://hasura.io/learn/zh/graphql/react/introduction/"
-      },
-      {
-        "code": "es",
-        "name": "Spanish",
-        "link": "https://hasura.io/learn/es/graphql/react/introduction/"
-      },
-      {
-        "code": "ja",
-        "name": "Japanese",
-        "link": "https://hasura.io/learn/ja/graphql/react/introduction/"
-      },
-    ]
-  },
+  }
 };
 
 module.exports = config;

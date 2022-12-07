@@ -88,14 +88,14 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
 
 ## Convert a .NET REST API endpoint to GraphQL
 
-We will begin by creating a new .NET project. We will use the `dotnet` command line tool to create a new project. We will also be using .NET's minimal API template to create a new project. 
+We will begin by creating a new .NET project. We will use the `dotnet` command line tool to create a new project. We will also be using .NET's minimal API template to create a new project.
 
 ```bash
 dotnet new web -o dotnet-graphql
 cd dotnet-graphql
 ```
 
-This will create a simple `Program.cs` file with a basic `Hello World` program. 
+This will create a simple `Program.cs` file with a basic `Hello World` program.
 
 ```csharp
 using dotnet.action;
@@ -119,7 +119,7 @@ In `action/action.cs`, we will create the following models.
 namespace dotnet.action;
 
 public class LoginResponse
-{ 
+{
     public string AccessToken { get; set; }
 }
 
@@ -137,15 +137,15 @@ public class LoginArgs
 public class ActionPayload<T>
 {
     public Dictionary<string, string> SessionVariables { get; set; }
-    
+
     public T Input { get; set; }
 }
 ```
 
 
 Run the application using:
-    
-```bash 
+
+```bash
 dotnet run
 ```
 
@@ -299,7 +299,7 @@ dotnet add package Microsoft.Extensions.Http
 5. Add GraphQL client to your project using CLI tools
 
 ```bash
-dotnet graphql init <Hasura URL>/v1/graphql -n HasuraClient 
+dotnet graphql init <Hasura URL>/v1/graphql -n HasuraClient
 ```
 
 6. Let's add a GraphQL query to your project.
@@ -322,7 +322,7 @@ dotnet build
 This will create a client in `Generated` folder called `HasuraClient.StrawyberryShake.cs`. This will contain a strongly typed client for your GraphQL server.
 
 8. Now let's enable your application to use the client we just created.
-  
+
 ```csharp
 builder.Services
     .AddHasuraClient()
@@ -347,7 +347,7 @@ app.MapGet("/getTodos", async (HasuraDOTNetSample.HasuraClient hasuraClient) =>
 
 When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of .NET.
 
-See the [server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/dtonet).
+See the [server source code on Github](https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend-stack/source-code/dotnet).
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 

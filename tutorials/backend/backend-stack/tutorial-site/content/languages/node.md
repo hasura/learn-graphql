@@ -74,7 +74,7 @@ Borrowing from the [GraphQL Yoga quickstart](https://www.the-guild.dev/graphql/y
 }
 ```
 
-## Create a Node.js GraphQL server with GraphQL Yoga 
+## Create a Node.js GraphQL server with GraphQL Yoga
 
 We can make a custom GraphQL server in Node using [GraphQL Yoga](https://www.the-guild.dev/graphql/yoga-server) and [GraphQL Code Generator](https://www.the-guild.dev/graphql/codegen). Then we connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
@@ -171,8 +171,7 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
    }
    ```
 
-<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
-backend-stack/node/node-remote-schema.png" alt="Hasura Event Triggers with Node backend" />
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/node/node-remote-schema.png" alt="Hasura Event Triggers with Node backend" />
 
 ## Convert a Node.js REST API endpoint to GraphQL
 
@@ -451,7 +450,7 @@ To query a GraphQL endpoint from Node we use [graphql-request](https://github.co
 
 When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Node and TypeScript.
 
-See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend/tutorial-site/source-code/node).
+See the [server source code on Github](https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend-stack/source-code/node).
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 

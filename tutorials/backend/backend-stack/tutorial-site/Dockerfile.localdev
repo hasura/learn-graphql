@@ -4,7 +4,7 @@ FROM node:buster
 RUN sh -c 'echo -e "Updated at: 2021-09-03  16:00:00 IST"'
 
 # Install global dependencies
-RUN npm -g install gatsby-cli
+RUN npm -g install gatsby-cli@4.24.0
 
 # clone gatsby-gitbook-starter
 RUN git clone https://github.com/hasura/gatsby-gitbook-starter.git

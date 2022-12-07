@@ -65,8 +65,7 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
    }
    ```
 
-<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/
-backend-stack/python/python-remote-schema.png" alt="Hasura Remote Schema with Python backend" />
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/python/python-remote-schema.png" alt="Hasura Remote Schema with Python backend" />
 
 ## Convert a Python REST API endpoint to GraphQL
 
@@ -283,7 +282,7 @@ To query a GraphQL endpoint from Python we use the async version of [qlient](htt
 
 When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Python.
 
-See the [the server source code on Github](https://github.com/hasura/learn-graphql/backend/backend-stack/tutorial-site/source-code/python).
+See the [server source code on Github](https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend-stack/source-code/python).
 
 If you use Hasura and are ready to go to production, check out Hasura Cloud for a fully managed Hasura deployment.
 

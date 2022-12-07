@@ -62,15 +62,3 @@ In the next step you will be asked to select an app in your Heroku account to pr
 ![Postgres Provisioning](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/database-postgresql/postgres-provision.png)
 
 This will provision the database on the app you have selected.
-
-## Cloud Hosting Providers for PostgreSQL
-
-For production use cases, there are managed Postgres solutions from various cloud providers.
-
-- Aiven - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/aiven/)
-- Amazon RDS - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/aws-postgres/)
-- Azure Postgres - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/azure/)
-- DigitalOcean - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/digital-ocean/)
-- Google Cloud SQL - [Guide](https://hasura.io/docs/latest/graphql/cloud/getting-started/cloud-databases/gcp/)
-
-You can also find the comprehensive list of officially recognised [Cloud Providers for hosting PostgreSQL](https://www.postgresql.org/support/professional_hosting/).

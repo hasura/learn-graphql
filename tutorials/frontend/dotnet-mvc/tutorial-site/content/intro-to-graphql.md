@@ -2,6 +2,7 @@
 title: "Intro to GraphQL"
 metaTitle: "Intro to GraphQL | ASP.NET MVC GraphQL Tutorial"
 metaDescription: "What is GraphQL? GraphQL is a specification for how to talk to an API. This part also covers GraphQL vs REST with an example and takes you over benefits of GraphQL"
+canonicalUrl: "https://hasura.io/learn/graphql/intro-graphql/what-is-graphql/"
 ---
 
 ## What is GraphQL?

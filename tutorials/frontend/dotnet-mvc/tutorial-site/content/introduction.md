@@ -20,7 +20,6 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 - Integrating GraphQL queries in your ASP.NET MVC App
 - Integrating GraphQL mutations with query variables to handle form input
 
-
 ## What will we be building?
 
 We will be building a todo app using authenticated GraphQL APIs.

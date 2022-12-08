@@ -24,7 +24,7 @@ To integrate Authorizer with Hasura, you need to deploy an Authorizer instance o
 
 You can also deploy an Authorizer instance using:
 - [Docker Image + Kubernetes](https://docs.authorizer.dev/deployment/kubernetes)
-- [Kubernetes HelmChart](github.com/authorizerdev/authorizer-helm-chart)
+- [Kubernetes HelmChart](https://github.com/authorizerdev/authorizer-helm-chart)
 - [Binanry](https://docs.authorizer.dev/deployment/binary)
 - [fly.io](https://docs.authorizer.dev/deployment/flydotio)
 
@@ -34,7 +34,7 @@ With Hasura, the database type needs to be either `Postgres`, `SQL Server`, or `
 
 ### Step 2: Configure Authorizer instance
 
-It's recommended to configure a sub-domain for your Authorizer instance. For example, `auth.yourdomain.com`. 
+It's recommended to configure a sub-domain for your Authorizer instance. For example, `auth.yourdomain.com`.
 
 After deploying the Authorizer instance, open the dashboard to start the configuration process. In the Authorizer dashboard, you can configure:
 - Social media logins
@@ -72,7 +72,7 @@ Open the Authorizer dashboard, navigate to the `JWT Secrets` section, and retrie
 
 ![Authorizer JWT Secrets section](https://res.cloudinary.com/dcfpom7fo/image/upload/v1661836501/Authorizer/configure_jwt_uyrvoc.png)
 
-After that, open the Hasura dashboard and navigate to the `Env vars` section in your project's settings. 
+After that, open the Hasura dashboard and navigate to the `Env vars` section in your project's settings.
 
 Add the following env variable to configure the JWT token:
 

@@ -55,17 +55,15 @@ Code generation is another benefit. gRPC's `protoc` compiler can use the `.proto
 
 ## gRPC Drawbacks
 
-One of the main drawbacks of gRPC is that it does not come with browser support. That means a browser can't communicate with a gRPC service. There are some workarounds to do it using HTTP/1.1, but you lose the benefits of HTTP/2.
+One drawback is that Protobuf (Protocol buffers), a core part of gRPC, only supports code generated in 11 languages: C#/.NET, C++, Dart, Go, Java, Kotlin, Node, Objective-C, PHP, Python and Ruby.
 
-Another drawback is that Protobuf (Protocol buffers), a core part of gRPC, only supports code generated in 9 languages: Kotlin, Python, C++, Ruby, Java, C#, Go, Objective-C, and Dart.
-
-Since gRPC uses Protobuf to exchange data, the messages are not human readable. Reading and inspecting data requires extra steps and tools.
+Another drawback is that gRPC uses Protobuf to exchange data. As a result, the messages are not human readable. Reading and inspecting data requires extra steps and tools.
 
 ## GraphQL vs gRPC
 
 When it comes to data fetching, GraphQL is more precise than gRPC. That means you can retrieve exactly the data you want - nothing more, nothing less. gRPC, with certain API designs, might return extra data from the server (similar to REST).
 
-Regarding performance, gRPC is considerably faster than GraphQL, thanks to the Protobuf and HTTP/2. The payload data is serialized into binary format, which reduces its size and makes it more efficient than text-based formats JSON or XML.
+Regarding performance, gRPC is considerably faster than GraphQL, thanks to Protobuf and HTTP/2. The payload data is serialized into binary format, which reduces its size and makes it more efficient than text-based formats JSON or XML.
 
 gRPC comes with native support for code generation, whereas for GraphQL, you need third-party tools. gRPC can generate server and client code from the `.proto` file without requiring third-party tools.
 

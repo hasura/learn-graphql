@@ -4,9 +4,9 @@ metaTitle: "NextAuth.js | Hasura Authentication Tutorial"
 metaDescription: "Learn how to integrate NextAuth.js with Hasura to add sign-up and sign-in into your applications using JWT"
 ---
 
-## What is Express
+## What is NextAuth.js
 
-[NextAuth.js](https://next-auth.js.org/) is a complete open-source authentication solution for Next.js applications. Using the `@skillrecordings/next-auth-hasura-adapter` library we can connect NextAuth.js and Hasura.
+[NextAuth.js](https://next-auth.js.org/) is a complete open-source authentication solution for Next.js applications. Using the [`next-auth-hasura-adapter`](https://www.npmjs.com/package/next-auth-hasura-adapter) library we can connect NextAuth.js and Hasura.
 
 ## How to Integrate NextAuth.js with Hasura
 
@@ -107,7 +107,7 @@ npm i -D @types/jsonwebtoken
 and regular dependencies
 
 ```bash
-npm i @skillrecordings/next-auth-hasura-adapter graphql graphql-request jsonwebtoken
+npm i next-auth-hasura-adapter graphql graphql-request jsonwebtoken
 ```
 
 We need to include the id property to the session user type. In `next-auth.d.ts` add
@@ -152,7 +152,7 @@ Replace `pages/api/auth/[...nextauth].ts` with our example:
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import { JWT } from "next-auth/jwt";
-import { HasuraAdapter } from "@skillrecordings/next-auth-hasura-adapter";
+import { HasuraAdapter } from "next-auth-hasura-adapter";
 import * as jsonwebtoken from "jsonwebtoken";
 
 // For more information on each option (and a full list of options) go to

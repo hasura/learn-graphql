@@ -1,0 +1,37 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen": "graphql-codegen --config server-codegen.ts && graphql-codegen --config client-codegen.ts",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/main.ts",
+    "start": "ts-node src/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
+    "@graphql-yoga/node": "^2.13.13",
+    "@graphql-typed-document-node/core": "^3.1.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.13.7",
+    "@graphql-codegen/client-preset": "1.1.0",
+    "@graphql-codegen/typescript": "^2.7.5",
+    "@graphql-codegen/typescript-resolvers": "^2.7.5",
+    "@tsconfig/node18-strictest": "^1.0.0",
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.25.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.4"
+  }
+}

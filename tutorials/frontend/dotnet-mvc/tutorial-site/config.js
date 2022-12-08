@@ -34,7 +34,8 @@ const config = {
       "/intro-to-graphql/",
       "/hasura-backend/",
       "/project-setup/",
-      "/queries/"
+      "/queries/",
+      "/what-next/"
     ],
     links: [
       {

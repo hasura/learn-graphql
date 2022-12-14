@@ -1,11 +1,33 @@
 import React from "react";
 import { useMutation, gql } from "@apollo/client";
-import {GET_MY_TODOS} from './TodoPrivateList';
+import { GET_MY_TODOS } from './TodoPrivateList';
 
 const TodoItem = ({ index, todo }) => {
+  const REMOVE_TODO = gql`
+  mutation removeTodo ($id: Int!) {
+    delete_todos(where: {id: {_eq: $id}}) {
+      affected_rows
+    }
+  }
+`;
+
+  const [removeTodoMutation] = useMutation(REMOVE_TODO);
+
   const removeTodo = e => {
     e.preventDefault();
     e.stopPropagation();
+    removeTodoMutation({
+      variables: { id: todo.id },
+      optimisticResponse: true,
+      update: (cache) => {
+        const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
+        const newTodos = existingTodos.todos.filter(t => (t.id !== todo.id));
+        cache.writeQuery({
+          query: GET_MY_TODOS,
+          data: { todos: newTodos }
+        });
+      }
+    });
   };
 
   const TOGGLE_TODO = gql`
@@ -25,18 +47,18 @@ const TodoItem = ({ index, todo }) => {
         const existingTodos = cache.readQuery({ query: GET_MY_TODOS });
         const newTodos = existingTodos.todos.map(t => {
           if (t.id === todo.id) {
-            return {...t, is_completed: !t.is_completed};
+            return { ...t, is_completed: !t.is_completed };
           } else {
             return t;
           }
         });
         cache.writeQuery({
           query: GET_MY_TODOS,
-          data: {todos: newTodos}
+          data: { todos: newTodos }
         });
       }
     });
-    
+
   };
 
   return (

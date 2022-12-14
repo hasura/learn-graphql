@@ -23,7 +23,7 @@
     "react-router": "5.2.1",
     "react-router-dom": "5.3.0",
     "react-scripts": "^4.0.3",
-    "subscriptions-transport-ws": "0.9.19",
+    "subscriptions-transport-ws": "^0.9.19",
     "web-vitals": "^2.1.2"
   },
   "scripts": {

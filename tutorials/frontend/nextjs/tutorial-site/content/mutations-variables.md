@@ -9,7 +9,7 @@ their task list.
 
 We will learn the following concepts:
 
-- Creating a GraphQL mutation
+- Creating a GraphQL [mutation](https://hasura.io/docs/latest/queries/index/)
 - Using the `useMutation` React hook
 - Capturing loading/finished/error states
 

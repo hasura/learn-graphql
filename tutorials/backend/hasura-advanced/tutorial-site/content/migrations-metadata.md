@@ -4,7 +4,7 @@ metaTitle: "Migrations and Metadata | Hasura GraphQL Advanced Tutorial"
 metaDescription: "In this section, we will look at how to manage database migrations and Hasura metadata in a local dev environment setup and learn about database schema and metadata config"
 ---
 
-In this section, we will look at how to manage database migrations and Hasura metadata in a local dev environment setup.
+In this section, we will look at how to manage [database migrations and Hasura metadata](https://hasura.io/docs/latest/migrations-metadata-seeds/index/) in a local dev environment setup.
 
 Hasura needs two components to (re)create a GraphQL API.
 

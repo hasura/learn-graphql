@@ -4,7 +4,7 @@ metaTitle: "Allow Lists | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Allowlist can be configured to safely allow a limited number of GraphQL operations (queries/mutations/subscriptions) for your project."
 ---
 
-Allowlist can be configured to safely allow a limited number of GraphQL operations (queries/mutations/subscriptions) for your project.
+[Allowlist](https://hasura.io/docs/latest/security/allow-list/) can be configured to safely allow a limited number of GraphQL operations (queries/mutations/subscriptions) for your project.
 
 Operations to Allowlist can be added
 

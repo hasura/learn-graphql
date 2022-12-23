@@ -4,7 +4,7 @@ metaTitle: "Observability | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Observability means you can answer any questions about what’s happening on the inside of the system just by observing metrics from outside of the system"
 ---
 
-Observability means you can answer any questions about what’s happening on the inside of the system just by observing metrics from outside of the system.
+[Observability](https://hasura.io/docs/latest/observability/index/) means you can answer any questions about what’s happening on the inside of the system just by observing metrics from outside of the system.
 
 In a GraphQL application, these are the important metrics and context to capture:
 

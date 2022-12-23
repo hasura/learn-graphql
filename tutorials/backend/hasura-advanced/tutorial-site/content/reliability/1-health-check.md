@@ -4,7 +4,7 @@ metaTitle: "Health Check | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Hasura gives a health check endpoint to monitor the status of the GraphQL API. This is available under `/healthz` endpoint for all Hasura projects (including the OSS GraphQL Engine)."
 ---
 
-Hasura gives a health check endpoint to monitor the status of the GraphQL API. This is available under `/healthz` endpoint for all Hasura projects (including the OSS GraphQL Engine).
+Hasura gives a [health check endpoint](https://hasura.io/docs/latest/deployment/health-checks/healthz-check/) to monitor the status of the GraphQL API. This is available under `/healthz` endpoint for all Hasura projects (including the OSS GraphQL Engine).
 
 Make a `GET` request to the `/healthz` endpoint to fetch the status.
 

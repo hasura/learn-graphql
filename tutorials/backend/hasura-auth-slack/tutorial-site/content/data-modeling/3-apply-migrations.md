@@ -38,7 +38,7 @@ endpoint: https://ready-panda-91.hasura.app
 
 **Note:** Your endpoint will be different based on your Hasura project.
 
-Now let's apply the migrations.
+Now let's apply the [migrations](https://hasura.io/docs/latest/migrations-metadata-seeds/manage-migrations/).
 
 ```bash
 hasura metadata apply --admin-secret xxxx

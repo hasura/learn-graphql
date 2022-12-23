@@ -4,7 +4,7 @@ metaTitle: "Course Introduction | Hasura Authentication Tutorial"
 metaDescription: "A powerful and concise tutorial that will introduce you to setting up an Authentication service in Hasura with a walkthrough of JWT configuration"
 ---
 
-This course is a super fast introduction to model and think about Authentication with Hasura GraphQL.
+This course is a super fast introduction to model and think about [Authentication](https://hasura.io/docs/latest/auth/authentication/index/) with Hasura GraphQL.
 
 ## Pre-requisites {#prerequisites}
 

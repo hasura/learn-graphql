@@ -8,8 +8,8 @@ Relationships enable you to make nested object queries if the tables/views in yo
 
 GraphQL schema relationships can be either of
 
-- object relationships (one-to-one)
-- array relationships (one-to-many)
+- [object relationships (one-to-one)](https://hasura.io/docs/latest/schema/common-patterns/data-modeling/one-to-one/)
+- [array relationships (one-to-many)](https://hasura.io/docs/latest/schema/common-patterns/data-modeling/one-to-many/)
 
 ## Object Relationships {#object-relationships}
 

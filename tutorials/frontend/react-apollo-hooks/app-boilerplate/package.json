@@ -6,7 +6,7 @@
   },
   "private": true,
   "dependencies": {
-    "@apollo/client": "3.4.16",
+    "@apollo/client": "^3.4.16",
     "@auth0/auth0-react": "^1.8.0",
     "@auth0/auth0-spa-js": "1.19.2",
     "@testing-library/jest-dom": "^5.11.4",
@@ -15,7 +15,7 @@
     "bootstrap": "5.1.3",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "graphql": "15.7.1",
+    "graphql": "^15.7.1",
     "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-bootstrap": "2.0.0",

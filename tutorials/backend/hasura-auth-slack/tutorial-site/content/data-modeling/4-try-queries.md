@@ -10,7 +10,7 @@ Let's go ahead and start exploring the GraphQL APIs for `users` table.
 
 ## Mutation {#mutation}
 
-Head over to Console -> GRAPHIQL tab and insert a user using [GraphQL Mutations](https://hasura.io/docs/latest/mutations/index/).
+Head over to Console -> GRAPHIQL tab and insert a user using [GraphQL Mutations](https://hasura.io/learn/graphql/intro-graphql/graphql-mutations/).
 
 ```graphql
 mutation {

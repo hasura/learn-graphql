@@ -15,7 +15,7 @@ GraphQL Subscriptions
 
 We have a section of UI which displays the list of online users. So far we have made queries to fetch data and display them on the UI. But typically online users data is dynamic.
 
-We can make use of GraphQL [Subscription](https://hasura.io/docs/latest/subscriptions/index/) API to get realtime data from the graphql server to efficiently handle this.
+We can make use of GraphQL Subscription API to get realtime data from the graphql server to efficiently handle this.
 
 But but but...
 

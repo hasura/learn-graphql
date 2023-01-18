@@ -12,7 +12,7 @@ You can access GraphiQL by heading over to Console -> API -> GraphiQL tab.
 
 ## Mutation {#mutation}
 
-Let's add a user using a [GraphQL Mutation](https://hasura.io/docs/latest/mutations/index/). Copy the following code into the GraphiQL interface.
+Let's add a user using a [GraphQL Mutation](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/). Copy the following code into the GraphiQL interface.
 
 ```graphql
 mutation {

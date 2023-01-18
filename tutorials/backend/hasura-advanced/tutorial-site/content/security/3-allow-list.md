@@ -6,21 +6,18 @@ metaDescription: "Allowlist can be configured to safely allow a limited number o
 
 [Allowlist](https://hasura.io/docs/latest/security/allow-list/) can be configured to safely allow a limited number of GraphQL operations (queries/mutations/subscriptions) for your project.
 
-Operations to Allowlist can be added
-
+You can add operations to Allowlist as follows:
 - Using Console
 - Using Metadata
 - Automatically through Hasura Cloud
 
 ## Allowlist through Console {#allowlist-through-console}
 
-For example, in our slack demo, we can restrict only the `users` query to go through and deny all other queries. This can be done by heading to the `Settings` tab on Console and navigating to the `Allow List` page.
+For example, in the slack demo, you can restrict only the `users` query to go through and deny all other queries. Do this by heading to the `Settings` tab on Console and navigating to the `Allow List` page.
 
 ![Allow Lists on Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-advanced/console-allow-lists.png)
 
-We can add an operation manually by specifying an operation name and the operation definition.
-
-Let's say the operation name is `users` and the definition is
+You can manually add an operation by specifying an operation name and definition. Consider the operation name is `users`, whereas the definition is the following:
 
 ```graphql
 query {
@@ -33,26 +30,28 @@ query {
 
 ![Allow List operation](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-advanced/allow-list-operation.png)
 
-Similarly this can be added via a file upload by manually uploading a graphql file with the list of all operations.
+Similarly, you can manually upload a GraphQL file with the list of all operations to achieve the same result.
 
 ## Allowlist through Metadata {#allowlist-through-metadata}
 
-Queries can be stored in collections and a collection can be added to or removed from the allow-list. A collection can be added through the following [APIs](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections/#api-query-collections)
+An "allow list" can have multiple collections, with each collection containing different queries. You can add a collection with the help of the following [APIs](https://hasura.io/docs/latest/graphql/core/api-reference/schema-metadata-api/query-collections/#api-query-collections).
 
 ## Allowlist through Hasura Cloud {#allowlist-through-hasura-cloud}
 
-While the above is done manually by entering in all the operations, Hasura Cloud gives a quick way to enable Allowlist from the list of operations that were already executed in the past.
+Hasura Cloud provides an efficient way to add operations to the Allowlist from a list of previously executed operations.
 
-Head to the `Allow List` tab inside the `Pro` tab of Hasura Cloud project. Then navigate to `New Operations` to see the list of operations that are not in the allow list yet.
+Head to the `Allow List` tab inside the `MONITORING` tab of the Hasura Cloud project. Then navigate to `NEW OPERATIONS` to see the list of operations that are not in the allow list yet.
 
 ![Hasura Cloud Allowlist](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-advanced/hasura-cloud-allowlist.png)
 
-In our example, we would like to select only the user query and hence we can explictly select that from the list of operations instead of manually entering them one by one.
+In this example, select the user and introspection queries. You can choose them from the list of operations instead of manually entering them one by one.
 
-Do note that even Introspection queries need to be added explictly to allow the GraphiQL interface to work and this tab let's you do that quickly. One other tip that would be useful is that, always ensure named queries are made from the client so that it's easier to add them to allowlist and also easier to inspect and debug.
+Note that even Introspection queries need to be added explicitly to allow the GraphiQL interface to work. One other tip that would be useful is to ensure that the client uses named queries, so it's easier to add them to the allowlist. It's also easier to inspect and debug.
 
 ## Enabling Allowlist {#enabling-allowlist}
 
-Allowlist need to be explictly enabled through the env `HASURA_GRAPHQL_ENABLE_ALLOWLIST`.
+The Allowlist feature needs to be enabled because it comes disabled by default.
+
+Set the `HASURA_GRAPHQL_ENABLE_ALLOWLIST` env variable to `true` to start using the Allowlist.
 
 Head to the `Env vars` tab on the project settings page on Hasura Cloud to enable this env.

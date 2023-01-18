@@ -348,7 +348,7 @@ You can also use the `where` argument multiple times in one query. Let's say you
 }
 ```
 
-The `where` argument uses operators to filter the results accordingly. The above queries use the `eq` operator, which stands for "equal to". They read:
+The `where` argument uses operators to filter the results accordingly. The above queries use the `_eq` operator, which stands for "equal to". They read:
 
 > Fetch all the todos where the value of the field `is_public` equals "false".
 

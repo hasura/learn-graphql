@@ -12,7 +12,7 @@ You can access GraphiQL by heading over to Console -> API -> GraphiQL tab.
 
 ## Mutation {#mutation}
 
-Let's add a user using a GraphQL Mutation. Copy the following code into the GraphiQL interface.
+Let's add a user using a [GraphQL Mutation](https://hasura.io/learn/graphql/intro-graphql/graphql-queries/). Copy the following code into the GraphiQL interface.
 
 ```graphql
 mutation {
@@ -34,7 +34,7 @@ Great! You have now consumed the mutation query for the `users` table that you j
 
 ## Query {#query}
 
-Now let's go ahead and query the data that we just inserted.
+Now let's go ahead and [query](https://hasura.io/docs/latest/queries/index/) the data that we just inserted.
 
 ```graphql
 query {
@@ -54,7 +54,7 @@ Note that some columns like `created_at` have default values, even though you di
 
 ## Subscription {#subscription}
 
-Let's run a subscription query over `users` table to watch for changes to the table.
+Let's run a [subscription](https://hasura.io/docs/latest/subscriptions/index/) query over `users` table to watch for changes to the table.
 
 ```graphql
 subscription {

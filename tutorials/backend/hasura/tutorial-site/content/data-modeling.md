@@ -4,7 +4,7 @@ metaTitle: "Data Modeling with Hasura | Hasura GraphQL Tutorial"
 metaDescription: "This tutorial covers how to do data modeling in Postgres and create tables using Hasura console"
 ---
 
-In this part of the course, we will build the data model for a realtime todo app. Our todo app will have the following features:
+In this part of the course, we will build the [data model](https://hasura.io/docs/latest/schema/common-patterns/data-modeling/index/) for a realtime todo app. Our todo app will have the following features:
 
 - Users can maintain personal todos
 - Users can view public todos

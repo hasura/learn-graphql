@@ -12,7 +12,7 @@ So far we were building tables and relationships.
 [Postgres](https://hasura.io/learn/database/postgresql/what-is-postgresql/) allows you to perform data transformations using:
 
 - [Views](https://hasura.io/learn/database/postgresql/views/)
-- SQL Functions
+- [SQL Functions](https://hasura.io/docs/latest/schema/postgres/custom-functions/)
 
 In this example, we are going to make use of `Views`. This view is required by the app to find the users who have logged in and are online in the last 30 seconds.
 

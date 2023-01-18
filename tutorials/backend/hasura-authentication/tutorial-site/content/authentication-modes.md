@@ -13,7 +13,7 @@ The key part to understand is that, Authentication is handled outside of Hasura.
 
 ## JWT Mode {#jwt-mode}
 
-You can configure GraphQL Engine to use the JWT authorization mode to authorize all incoming requests. The auth server is expected to return a valid JWT token, which are decoded and verified by the GraphQL engine, to authorize and get metadata about the request.
+You can configure GraphQL Engine to use the [JWT authorization mode](https://hasura.io/docs/latest/auth/authentication/jwt/) to authorize all incoming requests. The auth server is expected to return a valid JWT token, which are decoded and verified by the GraphQL engine, to authorize and get metadata about the request.
 
 A typical architecture with Auth server issuing JWT looks like the one below:
 
@@ -23,7 +23,7 @@ The Auth Server issues JWT tokens with relevant `x-hasura-*` claims to the app w
 
 ## Webhook Mode {#webhook-mode}
 
-You can also configure GraphQL Engine to use the Webhook mode. Your auth server exposes a webhook that is used to authenticate all incoming requests to the Hasura GraphQL engine server and to get metadata about the request to evaluate access control rules.
+You can also configure GraphQL Engine to use the [Webhook mode](https://hasura.io/docs/latest/auth/authentication/webhook/). Your auth server exposes a webhook that is used to authenticate all incoming requests to the Hasura GraphQL engine server and to get metadata about the request to evaluate access control rules.
 
 The architecture with webhook looks like the one below:
 
@@ -31,4 +31,4 @@ The architecture with webhook looks like the one below:
 
 ### Unauthenticated Mode {#unauthenticated-mode}
 
-Sometimes you would like to allow access to data without a user being logged in. This is useful for public feed which is open to all users. Although our Slack app doesn't have this as a use case, it is good to know when this could be used.
+Sometimes you would like to allow [access to data without a user being logged in](https://hasura.io/docs/latest/auth/authentication/unauthenticated-access/). This is useful for public feed which is open to all users. Although our Slack app doesn't have this as a use case, it is good to know when this could be used.

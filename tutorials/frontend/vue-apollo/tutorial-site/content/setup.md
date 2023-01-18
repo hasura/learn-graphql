@@ -31,7 +31,7 @@ cd tutorials/frontend/vue-apollo/app-boilerplate
 
 3. Install dependencies and run the "static" app
     - `npm install`
-    - `npm run serve`
+    - `npm run dev`
 
 4. Signup/login as a user to load the todo app page
 

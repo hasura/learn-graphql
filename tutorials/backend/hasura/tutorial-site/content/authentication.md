@@ -4,7 +4,7 @@ metaTitle: "Authentication with Hasura | Hasura GraphQL Tutorial"
 metaDescription: "This part of the tutorial covers how to do Authentication in Hasura GraphQL Engine by integrating with an Authentication provider like Auth0"
 ---
 
-In this part, we will look at how to integrate an Authentication provider.
+In this part, we will look at how to integrate an [Authentication](https://hasura.io/docs/latest/auth/authentication/index/) provider.
 
 The realtime todo app needs to be protected by a login interface. We are going to use [Auth0](https://auth0.com) as the identity/authentication provider for this example.
 

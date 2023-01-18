@@ -4,7 +4,7 @@ metaTitle: "Hasura Backend Setup | Next.js GraphQL Serverless Tutorial"
 metaDescription: "The GraphQL backend will be done with Hasura. In this step we will apply database migrations."
 ---
 
-The first step in the tutorial is to setup the backend with Hasura and create the necessary data models.
+The first step in the tutorial is to setup the backend with Hasura and create the necessary [data models](https://hasura.io/docs/latest/schema/common-patterns/data-modeling/index/).
 
 ## Setup GraphQL Backend with Hasura
 
@@ -75,7 +75,7 @@ git sparse-checkout add tutorials/frontend/nextjs
 
 Let's get started by creating the tables and relationships for the Realtime todo app.
 
-Head to the `hasura` directory inside nextjs to apply the Hasura migrations and metadata.
+Head to the `hasura` directory inside nextjs to apply the Hasura [migrations and metadata](https://hasura.io/docs/latest/migrations-metadata-seeds/index/).
 
 Download the latest Hasura CLI from [here](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli/#install-hasura-cli). We are going to use the config version v3.
 

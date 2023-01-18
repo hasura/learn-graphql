@@ -4,7 +4,7 @@ metaTitle: "Managing migration files | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Hasura comes with a built-in migration system to manage the database schema. Managing the database schema to perform incremental, reversible updates that are version controlled is a critical component for apps running in production."
 ---
 
-Managing the database schema to perform incremental, reversible updates that are version controlled is a critical component for apps running in production. Hasura comes with a built-in migration system to manage the database schema.
+Managing the database schema to perform incremental, reversible updates that are version controlled is a critical component for apps running in production. Hasura comes with a [built-in migration system](https://hasura.io/docs/latest/migrations-metadata-seeds/manage-migrations/) to manage the database schema.
 
 More importantly, migration files are generated automatically by the Console UI when served through the CLI. This makes it easy to make changes to the schema, such as creating tables, columns, functions, and views using the UI. Read more about the [architecture of how Hasura built the UI to autogenerate database migrations](https://hasura.io/blog/building-a-ui-for-postgresql-database-migrations/).
 

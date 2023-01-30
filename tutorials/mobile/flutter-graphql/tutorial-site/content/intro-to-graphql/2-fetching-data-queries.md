@@ -50,7 +50,7 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 4. Hit `ctrl + enter` or `cmd + enter` (mac) or click on the ▶️ icon to run the GraphQL query
 5. On the right, you should see a list of users by their names that are in the system!
 
-<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=react-native" target="_blank">Try it out in GraphiQL</a></b>
+<b><a href="https://hasura.io/learn/graphql/graphiql?tutorial=flutter" target="_blank">Try it out in GraphiQL</a></b>
 
 Recall that there is no magic here! The hosted GraphiQL app is sending a GraphQL query string
 to the server at the given endpoint with the HTTP headers. The server then sends the response

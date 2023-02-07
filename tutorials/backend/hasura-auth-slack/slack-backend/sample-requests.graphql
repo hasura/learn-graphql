@@ -1,12 +1,12 @@
 # Insert a new user with their name, email and password
-mutation {
+mutation insertUser {
   insert_users(objects:[{name:"Praveen", email: "myemail@example.com", password: "password123"}]) {
     affected_rows
   }
 }
 
-# Query the user's id, name and created timestamp
-query {
+# Query the user id, name and created timestamp
+query fetchUsers {
   users {
     id
     name

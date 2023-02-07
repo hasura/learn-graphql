@@ -29,4 +29,4 @@ The architecture with webhook looks like the one below:
 
 ### Unauthenticated Mode {#unauthenticated-mode}
 
-Sometimes you would like to allow (access to data without a user being logged in)[https://hasura.io/docs/latest/auth/authentication/unauthenticated-access/]. This is useful for public feed which is open to all users. Although our Slack app doesn't have this as a use case, it is good to know when this could be used.
+Sometimes you would like to allow [access to data without a user being logged in](https://hasura.io/docs/latest/auth/authentication/unauthenticated-access/). This is useful for public feed which is open to all users. Although our Slack app doesn't have this as a use case, it is good to know when this could be used.

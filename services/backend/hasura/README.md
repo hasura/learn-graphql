@@ -19,6 +19,8 @@ The final model looks like the following:
 
 ![Schema Todo app](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/voyager-schema.png)
 
+Check out the full tutorial here - [https://hasura.io/learn/graphql/hasura/introduction/](https://hasura.io/learn/graphql/hasura/introduction/)
+
 ## Apply Todo App Migrations and Metadata Manually
 
 Update `config.yaml` to point to the right `graphql-engine` endpoint with/without `admin_secret`.

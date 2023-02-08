@@ -1,6 +1,6 @@
 # Insert a new user with their name, email and password
 mutation insertUser {
-  insert_users(objects:[{name:"Praveen", email: "myemail@example.com", password: "password123"}]) {
+  insert_users(objects:[{name:"John Doe", email: "myemail@example.com", password: "password123"}]) {
     affected_rows
   }
 }

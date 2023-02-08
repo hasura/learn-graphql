@@ -1,12 +1,12 @@
 # Add a new user
-mutation {
+mutation insertUser {
   insert_users(objects:[{id: "1", name:"Praveen"}]) {
     affected_rows
   }
 }
 
 # Now let's go ahead and query the data that we just inserted above
-query {
+query fetchUsers {
   users {
     id
     name

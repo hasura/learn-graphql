@@ -1,0 +1,9 @@
+name: "Realtime Todo App"
+
+static-env:
+  HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+
+user-env:
+  PG_DATABASE_URL:
+    description: "Postgres database URL"
+    mandatory: true

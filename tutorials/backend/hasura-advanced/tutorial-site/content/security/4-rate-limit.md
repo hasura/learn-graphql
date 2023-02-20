@@ -4,7 +4,7 @@ metaTitle: "Rate Limiting | Hasura GraphQL Advanced Tutorial"
 metaDescription: "Rate Limiting ensures that API performance issues caused by malicious or poorly implemented queries can be restricted."
 ---
 
-Malicious or poorly implemented queries typically cause API performance issues. In the case of malicious queries, we can restrict by configuring allow lists as we did in the previous step. But sometimes, you can (configure restrictions for API access)[https://hasura.io/docs/latest/security/api-limits/#introduction].
+Malicious or poorly implemented queries typically cause API performance issues. In the case of malicious queries, we can restrict by configuring allow lists as we did in the previous step. But sometimes, you can [configure restrictions for API access](https://hasura.io/docs/latest/security/api-limits/#introduction).
 
 It could be implemented as follows:
 - Rate of API requests - Rate limits

@@ -16,13 +16,6 @@ We have a Discord Channel for those who are new to GraphQL. Please post your que
 
 Here's the [invite link](https://discord.com/invite/hasura) to join our discord.
 
-## Take the frontend course {#frontend-course}
-
-We have courses for your favorite front-end frameworks like React, Vue, etc using the realtime todo backend that you created in the Hasura Basics tutorial.
-
-- React - [https://hasura.io/learn/graphql/react](https://hasura.io/learn/graphql/react/introduction/)
-- Vue - [https://hasura.io/learn/graphql/vue](https://hasura.io/learn/graphql/vue/introduction/)
-
 ## Spread the word {#spread-the-word}
 
 Liked the course?

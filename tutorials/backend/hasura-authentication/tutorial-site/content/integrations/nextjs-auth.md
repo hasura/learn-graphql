@@ -87,6 +87,9 @@ Configure the `user` role to deny all permissions except selecting where id \_eq
 
 ![Hasura Permissions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/hasura-permissions.png)
 
+Finally, also add the `accounts.userId -> users.id` relationship on the "Relationships" tab of the users table. 
+This ensure that the adapter library has access to the necessary `accounts` field in the `GetUsers` query.
+
 ### Create Next.js App
 
 #### Setup Boilerplate

@@ -11,7 +11,7 @@ RUN rm -R content
 # Bundle app source
 COPY . .
 
-# Build static files
+# Build static files with some params
 RUN GATSBY_ALGOLIA_APP_ID=WCBB1VVLRC GATSBY_ALGOLIA_SEARCH_KEY=baf43aa3921858bc144d0fe5ce85b526 npm run build
 
 # serve dist folder on port 8080

@@ -8,7 +8,7 @@ RUN cd /app
 # Remove already existing dummy content
 RUN rm -R content
 
-# Bundle app source
+# Bundle app source content
 COPY . .
 
 # Build static files

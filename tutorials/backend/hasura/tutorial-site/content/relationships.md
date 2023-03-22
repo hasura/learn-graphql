@@ -11,6 +11,14 @@ GraphQL schema relationships can be either of
 - [object relationships (one-to-one)](https://hasura.io/docs/latest/schema/common-patterns/data-modeling/one-to-one/)
 - [array relationships (one-to-many)](https://hasura.io/docs/latest/schema/common-patterns/data-modeling/one-to-many/)
 
+## Creating a Foreign Key Relationship
+
+Now that you have your tables setup, you will need to link the foreign keys of `users.id` and `todos.user_id`. To do this, navigate to the `Data` tab, click on the `todos` table, `Modify` and then click "edit" under Foreign Keys
+
+<img width="844" alt="image" src="https://user-images.githubusercontent.com/558569/227050524-985ac7b0-e1d1-443f-8167-b0953ae96166.png">
+
+Link the two table columns together.
+
 ## Object Relationships {#object-relationships}
 
 Let's say you want to query `todos` and more information about the `user` who created it. This is achievable using nested queries if a relationship exists between the two. This is a one-to-one query and hence called an object relationship.

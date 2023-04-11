@@ -8,27 +8,6 @@ metaDescription: "Logto is an open source identity solution that helps build the
 
 Logto is an open source identity solution that helps you build the sign-in experience and user authentication service within minutes.
 
-Main features:
-
-
-🧑‍💻 **A frontend-to-backend identity solution**
-
-- OIDC-based authentication and RBAC authorization.
-- Passwordless sign in and much more diverse options, including Email, Phone number, Username, Google, Facebook and other social sign in methods.
-- Beautiful UI components with customizable CSS to fit your business needs.
-
-📦 **Out-of-box infrastructure**
-
-- A ready-to-use management API can serve as your authentication provider, eliminating the need for extra implementation.
-- SDKs that can integrate your apps with Logto quickly, multi-platform and language compatible, tailored to your development environment.
-- Flexible connectors, scalable with community contributions, customizable with SMAL, OAuth, and OIDC protocols.
-
-💻 **Enterprise-ready solutions**
-
-- RBAC to control your resource through scalable role authorization for diverse use cases.
-- User management and audit Logs to understand identity related user info and keep your security on track.
-- We are currently working on SSO, Organizations and MFA! Stay tuned!
-
 ## How to integrate Logto?
 
 > This guide assumes you already have Hasura instance running on your local environment.

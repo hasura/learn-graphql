@@ -149,7 +149,7 @@ HASURA_ADMIN_SECRET=<Chosen Hasura Admin secret>
 Replace `pages/api/auth/[...nextauth].ts` with our example:
 
 ```typescript
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth"
 import GithubProvider from "next-auth/providers/github";
 import { JWT } from "next-auth/jwt";
 import { HasuraAdapter } from "next-auth-hasura-adapter";
@@ -157,7 +157,7 @@ import * as jsonwebtoken from "jsonwebtoken";
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
   // https://next-auth.js.org/configuration/providers/oauth
   providers: [
     GithubProvider({
@@ -211,7 +211,9 @@ export default NextAuth({
       return session;
     },
   },
-});
+};
+
+export default NextAuth(authOptions);
 ```
 
 Now when we log in our user will be saved to our database via Hasura, the JWT will be HS256 signed and populated with the needed custom claims, and our session has our user ID.

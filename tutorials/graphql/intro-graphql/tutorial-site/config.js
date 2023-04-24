@@ -38,7 +38,6 @@ const config = {
     		"/graphql-subscriptions/",
     		"/graphql-server/",
     		"/graphql-client/",
-			"/graphql-client/graphql-tag",
 			"/additional-concepts/",
     		"/what-next/"
     	],

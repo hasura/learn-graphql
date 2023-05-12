@@ -48,7 +48,7 @@ The query is now ready, let's integrate it with our svelte code.
 `query` function is being imported from `svelte-apollo`
 
 ```javascript
-import { gql } from "@apollo/client";
+import { gql } from "@apollo/client/core";
 import { query } from "svelte-apollo";
 
 import TodoItem from "./TodoItem";

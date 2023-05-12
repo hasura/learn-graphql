@@ -14,7 +14,7 @@ Open `src/components/Todo/TodoPublicListSubscription.svelte` and add the followi
 
 ```javascript
 <script>
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
   import { subscribe } from "svelte-apollo";
 
   const NOTIFY_NEW_PUBLIC_TODOS = gql`

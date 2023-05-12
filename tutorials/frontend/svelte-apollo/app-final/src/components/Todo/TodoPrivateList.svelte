@@ -1,5 +1,5 @@
 <script>
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
   import { query, mutation } from "svelte-apollo";
   import TodoFilters from "./TodoFilters.svelte";
   import TodoItem from "./TodoItem.svelte";

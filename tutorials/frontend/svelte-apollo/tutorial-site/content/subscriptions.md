@@ -30,7 +30,7 @@ Open `src/components/OnlineUsers/OnlineUsersWrapper.svelte` and add the followin
 
 ```javascript
 + import { onMount, onDestroy } from "svelte";
-+ import { gql } from "@apollo/client";
++ import { gql } from "@apollo/client/core";
 + import { subscribe, mutation } from "svelte-apollo";
 ```
 

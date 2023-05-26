@@ -1,47 +1,57 @@
 ---
 title: "SuperTokens"
 metaTitle: "SuperTokens | Hasura Authentication Tutorial"
-metaDescription: "SuperTokens is an Open-Source Auth provider that enables you to implement authentication and session management into your applications. Learn how to integrate SuperTokens with Hasura using JWT"
+metaDescription:
+  "SuperTokens is an Open-Source Auth provider that enables you to implement authentication and session management into
+  your applications. Learn how to integrate SuperTokens with Hasura using JWT"
 ---
 
 ## What is SuperTokens
 
-SuperTokens is an Open-Source Auth provider that enables you to implement authentication and session management into your applications.
+SuperTokens is an Open-Source Auth provider that enables you to implement authentication and session management into
+your applications.
 
 It comes in two flavors:
-* self-hosted - unlimited users and free forever
-* managed version by SuperTokens - free up to 5K monthly active users
+
+- self-hosted - unlimited users and free forever
+- managed version by SuperTokens - free up to 5K monthly active users
 
 **Note**: The tutorial uses the managed version of SuperTokens. Also, the auth API is built using NodeJS.
 
 ## Set up SuperTokens
 
-Using SuperTokens for authentication means that you need to build an auth API that uses the SuperTokens Backend SDK. The app communicates with SuperTokens through the custom auth API.
+Using SuperTokens for authentication means that you need to build an auth API that uses the SuperTokens Backend SDK. The
+app communicates with SuperTokens through the custom auth API.
 
 SuperTokens provides Backend SDKs for:
-* Node.js
-* Go
-* Python
+
+- Node.js
+- Go
+- Python
 
 It also has Frontend SDKs for:
-* Vanilla JS
-* React
-* React-Native
+
+- Vanilla JS
+- React
+- React-Native
 
 ### Create a SuperTokens Managed Service
 
 > If you run a self-hosted (with or without Docker) SuperTokens instance, you can skip this section.
 
-You need to create a SuperTokens account, which gives you a `connectionURI` and an `API key`. When you call the SuperTokens `init` function in your auth API, you will use them.
+You need to create a SuperTokens account, which gives you a `connectionURI` and an `API key`. When you call the
+SuperTokens `init` function in your auth API, you will use them.
 
-Navigate to [supertokens.com](https://supertokens.com/) and click on the "Sign Up" button to start the registration process.
+Navigate to [supertokens.com](https://supertokens.com/) and click on the "Sign Up" button to start the registration
+process.
 
 ![The Homepage of SuperTokens](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/supertokens/supertokens-homepage.png)
 
 You can sign up in three ways:
-* with GitHub
-* with Google
-* manually
+
+- with GitHub
+- with Google
+- manually
 
 Additionally, you can customize the signup form on the left-hand side. You can change colors, fonts, and so on.
 
@@ -61,7 +71,8 @@ That takes you to the "Dashboard" page, where you can see your `connectionURI` a
 
 You will need those later. Also, you will connect your Hasura app to the PostgreSQL database from SuperTokens.
 
-You can retrieve the database connection details by clicking where it says `Access the PostgreSQL database used by this core`. You should see something similar:
+You can retrieve the database connection details by clicking where it says
+`Access the PostgreSQL database used by this core`. You should see something similar:
 
 ![Get PostgreSQL database connection details in SuperTokens](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/supertokens/supertokens-connect-to-database.png)
 
@@ -69,13 +80,15 @@ You will need these details in the next step.
 
 ## Create Hasura App
 
-Navigate to your [Hasura Cloud dashboard](https://cloud.hasura.io/projects) and create a new project.
+Navigate to your [Hasura Cloud dashboard](https://cloud.hasura.io/projects?skip_onboarding=true) and create a new
+project.
 
 Launch the console once the project is created, go to the "DATA" tab, and connect to an existing database.
 
 ![Connect to a database in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/supertokens/hasura-connect-database.png)
 
-Under **Connect Database Via**, choose the "Connection Parameters" option to add the connection details manually. Now you need the database details from the previous section.
+Under **Connect Database Via**, choose the "Connection Parameters" option to add the connection details manually. Now
+you need the database details from the previous section.
 
 ![Connect to SuperTokens database from Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/supertokens/hasura-database-connection-params.png)
 
@@ -89,15 +102,18 @@ Do the same for the "foreign-key relationships".
 
 ![Track relationships in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/supertokens/hasura-track-relationships.png)
 
-The next step is to create a `user` role for the app. Users should be able to see only their records, but not the other people’s records.
+The next step is to create a `user` role for the app. Users should be able to see only their records, but not the other
+people’s records.
 
-Configure the `user` role as shown in the image below. For more information, read about [configuring permission rules in Hasura](https://hasura.io/docs/latest/graphql/core/auth/authorization/permission-rules/).
+Configure the `user` role as shown in the image below. For more information, read about
+[configuring permission rules in Hasura](https://hasura.io/docs/latest/graphql/core/auth/authorization/permission-rules/).
 
 ![Hasura Permissions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/supertokens/hasura-create-user-role.png)
 
 This way, users cannot read other people’s records. They can only access theirs.
 
-> **Note**: The SuperTokens database is only for demo purposes. In a production environment, you should have a separate database.
+> **Note**: The SuperTokens database is only for demo purposes. In a production environment, you should have a separate
+> database.
 
 The next step is implementing the Backend Auth API to interact with SuperTokens.
 
@@ -191,17 +207,20 @@ app.listen(3333, () => console.log("Server started!"));
 ```
 
 For this auth API, you need the:
-* Express Framework
-* SuperTokens Node.js SDK
+
+- Express Framework
+- SuperTokens Node.js SDK
 
 > Even though the implementation is done with Node.js, the concepts also apply to the other Backend SDKs.
 
 It's a basic API that allows people to:
+
 - register
 - login
 - receive a JWT token
 
-When you build with SuperTokens, you need to call the `.init` function and pass some parameters. The parameters allow overriding the default settings.
+When you build with SuperTokens, you need to call the `.init` function and pass some parameters. The parameters allow
+overriding the default settings.
 
 The first parameter is the `supertokens` object.
 
@@ -226,7 +245,8 @@ appInfo: {
   },
 ```
 
-`appInfo` specifies where your API and the frontend client are located. Since there is no frontend implementation, you can use the same URL.
+`appInfo` specifies where your API and the frontend client are located. Since there is no frontend implementation, you
+can use the same URL.
 
 If you had a frontend client, you would replace the `websiteDomain` with the URL of that client.
 
@@ -266,13 +286,15 @@ recipeList: [
 ```
 
 In the above `recipeList`, you:
-* initialize the email/password authentication
-* enable the JWT feature and specify a custom issuer (*you’ll see in the next section how to set the issuer*)
-* add custom claims to the JWT
+
+- initialize the email/password authentication
+- enable the JWT feature and specify a custom issuer (_you’ll see in the next section how to set the issuer_)
+- add custom claims to the JWT
 
 That's all the code you need for a basic auth API that can interact with SuperTokens!
 
-**Note**: If you had a frontend client, you would have to write additional code. You would have to add the following piece of code.
+**Note**: If you had a frontend client, you would have to write additional code. You would have to add the following
+piece of code.
 
 ```
 app.use(cors({
@@ -289,10 +311,12 @@ The value for `origin` would be your frontend client URL.
 Until now, your API is available only locally - on your machine. That means you cannot use it with Hasura Cloud.
 
 There are two ways to make the API accessible to Hasura Cloud:
-* deploy your API
-* make your API publicly with ngrok
 
-This tutorial shows how to make your API available publicly. Check the [ngrok documentation](https://ngrok.com/docs/getting-started) to learn how to get started.
+- deploy your API
+- make your API publicly with ngrok
+
+This tutorial shows how to make your API available publicly. Check the
+[ngrok documentation](https://ngrok.com/docs/getting-started) to learn how to get started.
 
 After setting up "ngrok", go to the "auth-api" folder and run your API locally with the command:
 
@@ -325,11 +349,13 @@ Re-start your server, but leave "ngrok" running. The last step is to add the JWT
 
 ## Integrate SuperTokens with Hasura
 
-The JWKS endpoint is available at `http://localhost:3333/api/jwt/jwks.json`, but Hasura Cloud cannot access the local API.
+The JWKS endpoint is available at `http://localhost:3333/api/jwt/jwks.json`, but Hasura Cloud cannot access the local
+API.
 
 Since you run "ngrok", your JWKS endpoint is available at `<your-ngrok-url>/api/jwt/jwks.json`.
 
-You will set the URL as an environment variable in your Hasura Project. To do so, go to the [Hasura Dashboard](https://cloud.hasura.io/) and then click the "Gear ⚙️" icon.
+You will set the URL as an environment variable in your Hasura Project. To do so, go to the
+[Hasura Dashboard](https://cloud.hasura.io/) and then click the "Gear ⚙️" icon.
 
 After that, go to the `Env vars` section and click the `+ New Env Var` option.
 
@@ -377,7 +403,8 @@ Provided that the request is successful, you should get a similar response:
 {"status":"OK","user":{"email":"supertokens+hasura@email.com","id":"0a9baee6-cd1e-4ccc-92ef-9fa8e2edd75c","timeJoined":1652686138026}}%
 ```
 
-Now you have a user whose email is `supertokens+hasura@email.com`. Since you connected Hasura to the SuperTokens database, the user is available in Hasura too.
+Now you have a user whose email is `supertokens+hasura@email.com`. Since you connected Hasura to the SuperTokens
+database, the user is available in Hasura too.
 
 The next step is to log in. You can do so with the following command:
 
@@ -402,8 +429,9 @@ curl --cookie-jar my_cookies.txt --location --request POST 'https://a182-2a02-2f
 ```
 
 Observe the "cookie" part from the curl command `--cookie-jar my_cookies.txt`. When you sign in, you get two tokens:
-* a refresh token
-* an access token
+
+- a refresh token
+- an access token
 
 The `--cookie-jar my_cookies.txt` part takes the tokens returned by the "signin" endpoint and saves them in a file.
 
@@ -413,7 +441,8 @@ You will need the access token to get the JWT token. Also, you will get a simila
 {"status":"OK","user":{"email":"supertokens+hasura@email.com","id":"0a9baee6-cd1e-4ccc-92ef-9fa8e2edd75c","timeJoined":1652686138026}}%
 ```
 
-When you request the JWT token, you need to pass the tokens. That's what the `--cookie my_cookies.txt` part from the command does.
+When you request the JWT token, you need to pass the tokens. That's what the `--cookie my_cookies.txt` part from the
+command does.
 
 You can retrieve the JWT token as follows:
 
@@ -423,11 +452,13 @@ You can retrieve the JWT token as follows:
 curl --cookie my_cookies.txt --location --request GET 'https://a182-2a02-2f08-e000-fb00-9d0-feeb-e5cd-5e50.eu.ngrok.io/getjwt'
 ```
 
-You can then use the token to make authenticated requests. The image below shows that the database returns only this user's details rather than all users.
+You can then use the token to make authenticated requests. The image below shows that the database returns only this
+user's details rather than all users.
 
 ![SuperTokens with Hasura integration](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/supertokens/hasura-bearer-token-example.png)
 
 From here, you can extend the Backend auth API to fit your requirements and build a Frontend client.
 
 Useful links:
-* https://github.com/offscriptio/hasura-supertokens
+
+- https://github.com/offscriptio/hasura-supertokens

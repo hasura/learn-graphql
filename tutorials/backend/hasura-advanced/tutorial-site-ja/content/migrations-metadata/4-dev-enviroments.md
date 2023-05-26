@@ -6,69 +6,85 @@ metaDescription: "Hasuraは、移行とメタデータを活用することで�
 
 ## ローカル開発 {#local-development}
 
-docker-composeを使用してマシン上でローカルに実行されるHasuraインスタンスは、開発環境のセットアップによるものです。Hasura CLIは、マイグレーションとメタデータの自動管理のためのコンソールとして使用できます。
+docker-compose を使用してマシン上でローカルに実行される Hasura インスタンスは、開発環境のセットアップによるものです
+。Hasura CLI は、マイグレーションとメタデータの自動管理のためのコンソールとして使用できます。
 
 ## ステージング環境 {#staging-environment}
 
 ここでは、ステージング環境を作成して、ローカル環境セットアップ内のスキーマとメタデータを複製します。
 
-ステージング環境にはHasuraクラウドを使用します。[Hasuraクラウド](https://hasura.io/cloud/) は、拡張性、可用性、安全性が高く、グローバルに展開し、完全な管理を実現するGraphQL APIサービスを提供します。
+ステージング環境には Hasura クラウドを使用します。[Hasura クラウド](https://hasura.io/cloud/) は、拡張性、可用性、安全性
+が高く、グローバルに展開し、完全な管理を実現する GraphQL API サービスを提供します。
 
-以下のボタンをクリックして、Hasuraクラウドで新しいプロジェクトを作成します。
+以下のボタンをクリックして、Hasura クラウドで新しいプロジェクトを作成します。
 
-<a href="https://cloud.hasura.io/?pg=learn-hasura-backend&plcmt=body&tech=default" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
+<a href="https://cloud.hasura.io/?pg=learn-hasura-backend&plcmt=body&tech=default&skip_onboarding=true" target="_blank"><img src="https://graphql-engine-cdn.hasura.io/assets/main-site/deploy-hasura-cloud.png" /></a>
 
-登録してサインインすると以下のウェルカム画面が表示されて、新しいHasuraプロジェクトが自動的に作成されます。
+登録してサインインすると以下のウェルカム画面が表示されて、新しい Hasura プロジェクトが自動的に作成されます。
 
 ![Hasuraクラウドのウェルカムページ](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-welcome.png)
 
-プロジェクトの初期化が完了したら、ポップアップ画面の `Launch Console` をクリックします。Hasuraクラウドのアカウントを既にお持ちの場合は、画面上部の `+ New Project` をクリックしてから `Launch Console` をクリックします。そうすれば手動で新しいプロジェクトを作成することができます。
+プロジェクトの初期化が完了したら、ポップアップ画面の `Launch Console` をクリックします。Hasura クラウドのアカウントを既
+にお持ちの場合は、画面上部の `+ New Project` をクリックしてから `Launch Console` をクリックします。そうすれば手動で新し
+いプロジェクトを作成することができます。
 
 ## Hasura コンソール {#hasura-console}
 
-続いてプロジェクトのHasura コンソールを開きます。以下のような画面が表示されます。
+続いてプロジェクトの Hasura コンソールを開きます。以下のような画面が表示されます。
 
 ![Hasura Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-console.png)
 
-続いてHasuraをデータベースと接続します。この設定には、HerokuのPostgresデータベース層（無料）を使用できます。Consoleの `Data` タブに移動して、 `Connect Database` をクリックします。
+続いて Hasura をデータベースと接続します。この設定には、Heroku の Postgres データベース層（無料）を使用できます。Console
+の `Data` タブに移動して、 `Connect Database` をクリックします。
 
-データベースに接続するには2つの方法があります。
+データベースに接続するには 2 つの方法があります。
 
 - 既存のデータベースへの接続
-- 新しくHerokuデータベースを作成する（無料）
+- 新しく Heroku データベースを作成する（無料）
 
-ここでは早く先に進めるため、Heroku Postgresを使用して新しいPostgresデータベースを一から作成します。`Create Heroku Database (Free)` タブをクリックすると、 `Create Database` ボタンを選択できるオプションが表示されます。Herokuアカウントの作成は無料です。
+ここでは早く先に進めるため、Heroku Postgres を使用して新しい Postgres データベースを一から作成します
+。`Create Heroku Database (Free)` タブをクリックすると、 `Create Database` ボタンを選択できるオプションが表示されます
+。Heroku アカウントの作成は無料です。
 
 ![Heroku データベースの作成](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-heroku-database.png)
 
-Heroku にログイン後、 `Create Database` をクリックすると、Hasuraクラウドは以下を実行します。
+Heroku にログイン後、 `Create Database` をクリックすると、Hasura クラウドは以下を実行します。
 
-- Heroku上にアプリを作成する
-- Postgresアドオンをインストールする
-- Hasuraの設定に使用するデータベースのURLを取得する
+- Heroku 上にアプリを作成する
+- Postgres アドオンをインストールする
+- Hasura の設定に使用するデータベースの URL を取得する
 
 ![HasuraクラウドでのHerokuの設定](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/hasura-cloud-heroku-setup.png)
 
-Heroku Postgresへの接続と初期化には数秒かかります。Postgresへの接続が完了するとConsoleのData Managerページが表示され、先ほど接続したデータベースの一覧が表示されます。
+Heroku Postgres への接続と初期化には数秒かかります。Postgres への接続が完了すると Console の Data Manager ページが表示さ
+れ、先ほど接続したデータベースの一覧が表示されます。
 
-続いてプロジェクトURLの `https://myproject.hasura.app` をコピーしますが、 `myproject` は、Hasuraのプロジェクト名に変更します。
+続いてプロジェクト URL の `https://myproject.hasura.app` をコピーしますが、 `myproject` は、Hasura のプロジェクト名に変
+更します。
 
-ターミナルからHasuraのプロジェクトディレクトリに移動します。以下のコマンドを実行します。
+ターミナルから Hasura のプロジェクトディレクトリに移動します。以下のコマンドを実行します。
 
 ```bash
 hasura migrate apply --endpoint https://myproject.hasura.app --admin-secret xxxxx --database-name default
 hasura metadata apply --endpoint https://myproject.hasura.app --admin-secret xxxxx
 ```
 
-クラウドプロジェクトのHasura Consoleを更新して、データベーススキーマに変更が反映されているか確認します。ここで行う処理の基本は、スキーマとメタデータを、新しいHasuraインスタンスと新しいPostgresデータベースに複製しています。
+クラウドプロジェクトの Hasura Console を更新して、データベーススキーマに変更が反映されているか確認します。ここで行う処理
+の基本は、スキーマとメタデータを、新しい Hasura インスタンスと新しい Postgres データベースに複製しています。
 
-スキーマをローカルで変更し続けているので、上記の2つのコマンドを実行し続ければステージング環境に随時変更を適用できます。
+スキーマをローカルで変更し続けているので、上記の 2 つのコマンドを実行し続ければステージング環境に随時変更を適用できます
+。
 
-**注** ：Hasuraクラウドでも開発用のプロジェクトの作成が可能です。開発環境とステージング環境を同期させる手順はすべて同じです。通常、webhookのURLハンドラーは、Hasuraクラウドがアクセス可能なパブリックエンドポイントに公開する必要があるため、 `localhost` のURLにはできません。`ngrok` のようなサービスを使用して、Actions/Remote Schemas/Eventsのために稼働しているローカルサーバーを、一般にアクセス可能なエンドポイントで公開することをお勧めします。
+**注** ：Hasura クラウドでも開発用のプロジェクトの作成が可能です。開発環境とステージング環境を同期させる手順はすべて同じ
+です。通常、webhook の URL ハンドラーは、Hasura クラウドがアクセス可能なパブリックエンドポイントに公開する必要があるため
+、 `localhost` の URL にはできません。`ngrok` のようなサービスを使用して、Actions/Remote Schemas/Events のために稼働して
+いるローカルサーバーを、一般にアクセス可能なエンドポイントで公開することをお勧めします。
 
 ## 移行データの高圧縮（Squash） {#squashing-migrations}
 
-データベースの変更が続くと、開発の反復処理でファイルが大量に作成され、移行ディレクトリ内のノイズが増えていきます。機能の修正が完了したら、修正に関連するすべての移行ファイルを高圧縮（Squash）して1つのファイルにまとめたい場合があります。squashは、Hasura CLIのsquashコマンドで実行します。以下のコマンドを実行します。
+データベースの変更が続くと、開発の反復処理でファイルが大量に作成され、移行ディレクトリ内のノイズが増えていきます。機能の
+修正が完了したら、修正に関連するすべての移行ファイルを高圧縮（Squash）して 1 つのファイルにまとめたい場合があります
+。squash は、Hasura CLI の squash コマンドで実行します。以下のコマンドを実行します。
 
 ```bash
 hasura migrate squash --name "squashed-migration" --from 123 --database-name default --endpoint https://myproject.hasura.app

@@ -23,7 +23,7 @@ Open `src/apollo.js` and update the following imports:
 Update the createApolloClient function to integrate WebSocketLink.
 
 ```
-import { split, HttpLink, InMemoryCache, ApolloClient } from "@apollo/client";
+import { split, HttpLink, InMemoryCache, ApolloClient } from "@apollo/client/core";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { WebSocketLink } from "@apollo/client/link/ws";
 

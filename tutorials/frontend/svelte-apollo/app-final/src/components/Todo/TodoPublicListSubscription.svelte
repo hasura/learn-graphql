@@ -1,5 +1,5 @@
 <script>
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
   import { subscribe } from "svelte-apollo";
   import TodoPublicList from "./TodoPublicList.svelte";
 

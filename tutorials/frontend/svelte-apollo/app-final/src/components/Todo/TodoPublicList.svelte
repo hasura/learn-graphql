@@ -1,5 +1,5 @@
 <script>
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
   import { onMount } from "svelte";
   import { query, mutation, getClient } from "svelte-apollo";
   import TaskItem from "./TaskItem.svelte";

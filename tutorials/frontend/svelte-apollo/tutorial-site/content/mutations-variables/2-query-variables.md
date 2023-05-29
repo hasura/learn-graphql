@@ -18,7 +18,7 @@ Open `src/components/Todo/TodoInput.svelte` and add the following code:
 
 ```javascript
 <script>
-+ import { gql } from "@apollo/client";
++ import { gql } from "@apollo/client/core";
 
 + const ADD_TODO = gql `
 +  mutation ($todo: String!, $isPublic: Boolean!) {

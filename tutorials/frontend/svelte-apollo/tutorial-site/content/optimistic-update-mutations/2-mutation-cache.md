@@ -9,7 +9,7 @@ import GithubLink from "../../src/GithubLink.js";
 Now let's do the integration part. Open `src/components/Todo/TodoItem.svelte` and add the following code below the other imports:
 
 ```javascript
-+ import { gql } from "@apollo/client";
++ import { gql } from "@apollo/client/core";
 ```
 
 Let's define the graphql mutation to update the completed status of the todo
@@ -17,7 +17,7 @@ Let's define the graphql mutation to update the completed status of the todo
 <GithubLink link="https://github.com/hasura/learn-graphql/blob/master/tutorials/frontend/svelte-apollo/app-final/src/components/Todo/TodoItem.svelte" text="src/components/Todo/TodoItem.svelte" />
 
 ```javascript
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
 
 +  const TOGGLE_TODO = gql`
 +    mutation toggleTodo ($id: Int!, $isCompleted: Boolean!) {
@@ -35,7 +35,7 @@ Let's define the graphql mutation to update the completed status of the todo
 We need to use `mutation` function from `apollo-svelte` to make the mutate function.
 
 ```javascript
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
 + import { mutation } from "svelte-apollo";
 
   const TOGGLE_TODO = gql`

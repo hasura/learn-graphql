@@ -1,5 +1,5 @@
 <script>
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
   import { mutation } from "svelte-apollo";
   import { GET_MY_TODOS } from "./queries";
 

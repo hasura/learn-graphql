@@ -48,7 +48,7 @@ Then you can quickly implement a Casdoor-based login page in your own app with t
 
 Now you have the application running, but you must create a user and assign them a role next.
 
-Go to the “Users” page and click on “Add user” in the top right corner. That opens a new page where you can add the new user.
+Go to the “Users” page and click “Add user” in the top right corner. This will open a new page where you can add the user.
 
 ![Pic showing the users page](https://github.com/RanTao123/image/blob/main/user.png?raw=true)
 

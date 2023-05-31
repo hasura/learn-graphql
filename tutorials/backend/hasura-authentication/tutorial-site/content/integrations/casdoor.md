@@ -123,9 +123,7 @@ Go back to Casdoor/Token page
 
 ![Token Page](https://github.com/RanTao123/image/blob/main/asd.png?raw=true)
 
-Find the Username you input before then click edit
-
-Copy the Access Token.
+Find the username you entered before then click "Edit" and copy the token.
 
 ![Access Token](https://github.com/RanTao123/image/blob/main/access.png?raw=true)
 

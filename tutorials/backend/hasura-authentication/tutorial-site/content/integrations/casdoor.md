@@ -25,7 +25,7 @@ In this section, you will learn how to integrate Casdoor with Hasura.
 
 ## Deploy Casdoor
 
-Firstly, the Casdoor should be deployed.
+Firstly, you should deploy a Casdoor instance.
 
 You can refer to the Casdoor official documentation for the [Server Installation](https://casdoor.org/docs/basic/server-installation).
 

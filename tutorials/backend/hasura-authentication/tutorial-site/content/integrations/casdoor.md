@@ -113,7 +113,7 @@ http://localhost:8000/login/oauth/authorize?client_id=<client ID>>&response_type
 
 Change the client ID to the ID you copied before, and input the public certificate of Casdoor, which you can find in `Casdoor/Certs`.
 
-Then input the username and password you create for Hasura before.
+Then, input the username and password you created for Hasura earlier.
 
 Click Sign in.
 

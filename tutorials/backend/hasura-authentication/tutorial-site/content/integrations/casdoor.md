@@ -54,7 +54,7 @@ Go to the “Users” page and click on “Add user” in the top right corner. 
 
 Save the user after adding a username and adding the organisation Hasura(other details are optional).
 
-Now you need to set up a password for your user, which you can do by clicking manage your password.
+Now you need to set up a password for your user, which you can do by clicking "Manage Your Password."
 
 Choose a password for your user and confirm it.
 

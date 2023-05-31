@@ -111,7 +111,7 @@ Since there is no client implementation, you can get your access token by making
 http://localhost:8000/login/oauth/authorize?client_id=<client ID>>&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Flogin&scope=read&state=app-built-in<public certificate>>
 ```
 
-Change the client ID to the ID you copied before, and input the public certificate of Cadoor which you can find in Casdoor/Certs.
+Change the client ID to the ID you copied before, and input the public certificate of Casdoor, which you can find in `Casdoor/Certs`.
 
 Then input the username and password you create for Hasura before.
 

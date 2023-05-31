@@ -127,6 +127,6 @@ Find the username you entered before then click "Edit" and copy the token.
 
 ![Access Token](https://github.com/RanTao123/image/blob/main/access.png?raw=true)
 
-Now you can use the access token to make the authenticated request. Hasura returned the appropriate user rather than returning all the users from the database.
+Now you can use the access token to make the authenticated requests. In the example below, Hasura returned the appropriate user rather than all the users from the database.
 
 ![Picture showing the access token from Keycloak being used in Hasura](https://github.com/RanTao123/image/blob/main/hasura.png?raw=truehttps://github.com/RanTao123/image/blob/main/hasura.png?raw=true)

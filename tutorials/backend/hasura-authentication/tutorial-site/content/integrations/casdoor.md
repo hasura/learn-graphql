@@ -100,7 +100,7 @@ HASURA_GRAPHQL_JWT_SECRET: '{"claims_map": {
     },"jwk_url":"https://door.casdoor.com/.well-known/jwks"}'
 ```
 
-Save the change, and reload the docker.
+Save the change, and restart the Docker container.
 
 ![Add Casdoor JWT URL to Hasura](https://github.com/RanTao123/image/blob/main/MD$GWN%5BBET2O538TG~LNZIM.png?raw=true)
 

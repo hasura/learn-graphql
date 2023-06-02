@@ -60,7 +60,7 @@ Choose a password for your user and confirm it.
 
 ## Create a Hasura instance
 
-Start the Hasura by docker or Hasura Cloud.
+Create a Hasura instance using either [Hasura Cloud](https://hasura.io/docs/latest/getting-started/getting-started-cloud/) or [Docker](https://hasura.io/docs/latest/getting-started/docker-simple/).
 
 Now create a `users` table with the following columns:
 * `id` of type Text (Primary Key)

@@ -76,7 +76,7 @@ Configure the `user` role as shown in the image below. For more information, rea
 
 ![Picture showing how to set permissions in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/keycloak/hasura-set-permissions.png)
 
-This way, users cannot read other people’s records. They can only access theirs.
+This way, users can only access their own records.
 
 For testing purposes, add a dummy user. This is to ensure that when you use the JWT token, you only see your user’s details and not other users’ details.
 

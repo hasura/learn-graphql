@@ -2,24 +2,30 @@
 title: "Casdoor"
 metaTitle: "Casdoor | Hasura Authentication Tutorial"
 metaDescription: "Learn how to integrate Casdoor with Hasura to secure your applications using JWT"
+canonicalUrl: "https://casdoor.org/docs/integration/Haskell/Hasura"
 ---
 
 ## What is Casdoor?
 
-Casdoor is a UI-first Identity Access Management (IAM) / Single-Sign-On (SSO) platform based on OAuth 2.0, OIDC, SAML and CAS.
+Casdoor is a UI-first Identity Access Management (IAM) / Single-Sign-On (SSO) platform based on OAuth 2.0, OIDC, SAML
+and CAS.
 
 Casdoor serves both the web UI and the login requests from the application users.
 
 Casdoor comes with features such as:
-* Front-end and back-end separate architecture, developed by Golang, Casdoor supports high concurrency, provides web-based managing UI and supports multiple languages(Chinese, English).
-* Casdoor supports third-party applications login, such as GitHub, Google, QQ, WeChat, etc., and supports the extension of third-party login with plugins.
-* With Casbin based authorization management, Casdoor supports ACL, RBAC, ABAC, RESTful accessing control models.
-* Phone verification code, email verification code and password retrieval functions.
-* Accessing logs auditing and recording.
-* Alibaba Cloud, Tencent Cloud, Qiniu Cloud image CDN cloud storage.
-* Customizable registration, login, and password retrieval pages.
-* Casdoor supports integration with existing systems by db sync, so users can transition to Casdoor smoothly.
-* Casdoor supports mainstream databases: MySQL, PostgreSQL, SQL Server, etc., and supports the extension of new databases with plugins.
+
+- Front-end and back-end separate architecture, developed by Golang, Casdoor supports high concurrency, provides
+  web-based managing UI and supports multiple languages(Chinese, English).
+- Casdoor supports third-party applications login, such as GitHub, Google, QQ, WeChat, etc., and supports the extension
+  of third-party login with plugins.
+- With Casbin based authorization management, Casdoor supports ACL, RBAC, ABAC, RESTful accessing control models.
+- Phone verification code, email verification code and password retrieval functions.
+- Accessing logs auditing and recording.
+- Alibaba Cloud, Tencent Cloud, Qiniu Cloud image CDN cloud storage.
+- Customizable registration, login, and password retrieval pages.
+- Casdoor supports integration with existing systems by db sync, so users can transition to Casdoor smoothly.
+- Casdoor supports mainstream databases: MySQL, PostgreSQL, SQL Server, etc., and supports the extension of new
+  databases with plugins.
 
 In this section, you will learn how to integrate Casdoor with Hasura.
 
@@ -27,7 +33,8 @@ In this section, you will learn how to integrate Casdoor with Hasura.
 
 Firstly, you should deploy a Casdoor instance.
 
-You can refer to the Casdoor official documentation for the [Server Installation](https://casdoor.org/docs/basic/server-installation).
+You can refer to the Casdoor official documentation for the
+[Server Installation](https://casdoor.org/docs/basic/server-installation).
 
 After a successful deployment, you need to ensure:
 
@@ -48,7 +55,8 @@ Then you can quickly implement a Casdoor-based login page in your own app with t
 
 Now you have the application running, but you must create a user and assign them a role next.
 
-Go to the “Users” page and click “Add user” in the top right corner. This will open a new page where you can add the user.
+Go to the “Users” page and click “Add user” in the top right corner. This will open a new page where you can add the
+user.
 
 ![Pic showing the users page](https://github.com/RanTao123/image/blob/main/user.png?raw=true)
 
@@ -60,25 +68,31 @@ Choose a password for your user and confirm it.
 
 ## Create a Hasura instance
 
-Create a Hasura instance using either [Hasura Cloud](https://hasura.io/docs/latest/getting-started/getting-started-cloud/) or [Docker](https://hasura.io/docs/latest/getting-started/docker-simple/).
+Create a Hasura instance using either
+[Hasura Cloud](https://hasura.io/docs/latest/getting-started/getting-started-cloud/) or
+[Docker](https://hasura.io/docs/latest/getting-started/docker-simple/).
 
 Now, create a `users` table with the following columns:
-* `id` of type Text (Primary Key)
-* `username` of type Text
+
+- `id` of type Text (Primary Key)
+- `username` of type Text
 
 See the image below for reference.
 
 ![Picture showing how to create a table in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/keycloak/hasura-create-table.png)
 
-The next step is to create a `user` role for the app. Users should be able to see only their records, but not the other people’s records.
+The next step is to create a `user` role for the app. Users should be able to see only their records, but not the other
+people’s records.
 
-Configure the `user` role as shown in the image below. For more information, read about [configuring permission rules in Hasura](https://hasura.io/docs/latest/graphql/core/auth/authorization/permission-rules/).
+Configure the `user` role as shown in the image below. For more information, read about
+[configuring permission rules in Hasura](https://hasura.io/docs/latest/graphql/core/auth/authorization/permission-rules/).
 
 ![Picture showing how to set permissions in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/keycloak/hasura-set-permissions.png)
 
 This way, users can only access their own records.
 
-For testing purposes, add a dummy user. This is to ensure that when you use the JWT token, you only see your user’s details and not other users’ details.
+For testing purposes, add a dummy user. This is to ensure that when you use the JWT token, you only see your user’s
+details and not other users’ details.
 
 ![Picture showing how to add a table record in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/keycloak/hasura-dummy-user.png)
 
@@ -107,11 +121,13 @@ Save the change, and restart the Docker container.
 ## Retrieve JWT Token
 
 Since there is no client implementation, you can get your access token by making a request by below URL:
+
 ```
 http://localhost:8000/login/oauth/authorize?client_id=<client ID>>&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Flogin&scope=read&state=app-built-in<public certificate>>
 ```
 
-Change the client ID to the ID you copied before, and input the public certificate of Casdoor, which you can find in `Casdoor/Certs`.
+Change the client ID to the ID you copied before, and input the public certificate of Casdoor, which you can find in
+`Casdoor/Certs`.
 
 Then, input the username and password you created for Hasura earlier.
 
@@ -127,6 +143,7 @@ Find the username you entered before then click "Edit" and copy the token.
 
 ![Access Token](https://github.com/RanTao123/image/blob/main/access.png?raw=true)
 
-Now you can use the access token to make the authenticated requests. In the example below, Hasura returned the appropriate user rather than all the users from the database.
+Now you can use the access token to make the authenticated requests. In the example below, Hasura returned the
+appropriate user rather than all the users from the database.
 
 ![Picture showing the access token from Keycloak being used in Hasura](https://github.com/RanTao123/image/blob/main/hasura.png?raw=truehttps://github.com/RanTao123/image/blob/main/hasura.png?raw=true)

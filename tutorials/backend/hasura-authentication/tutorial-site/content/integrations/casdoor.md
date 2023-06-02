@@ -58,7 +58,7 @@ Now you need to set up a password for your user, which you can do by clicking "M
 
 Choose a password for your user and confirm it.
 
-## Build Hasura App
+## Create a Hasura instance
 
 Start the Hasura by docker or Hasura Cloud.
 

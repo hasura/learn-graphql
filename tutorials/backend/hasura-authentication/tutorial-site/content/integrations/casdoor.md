@@ -82,7 +82,7 @@ For testing purposes, add a dummy user. This is to ensure that when you use the 
 
 ![Picture showing how to add a table record in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/keycloak/hasura-dummy-user.png)
 
-Now you need to set the `JWT_SECRET` in Hasura.
+Next, set the `JWT_SECRET` in Hasura.
 
 ## Configure Hasura with Casdoor
 

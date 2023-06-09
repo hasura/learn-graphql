@@ -51,6 +51,12 @@ Then you can quickly implement a Casdoor-based login page in your own app with t
    ![Casdoor Application Setting](https://github.com/RanTao123/image/blob/main/Casdoor%20Application%20Setting.png?raw=true)
 3. Copy the client ID, we will need it in the following steps.
 
+## Add organization in Casdoor
+
+Now we can add Hasura organization in Casdoor.
+
+Click "Organization" page and click "add", then fill in the information and save the organization.
+
 ## Add user in Casdoor
 
 Now you have the application running, but you must create a user and assign them a role next.
@@ -87,6 +93,8 @@ people’s records.
 Configure the `user` role as shown in the image below. For more information, read about
 [configuring permission rules in Hasura](https://hasura.io/docs/latest/graphql/core/auth/authorization/permission-rules/).
 
+Click "Permissions" and assign the permissions for admin,manager and user.
+
 ![Picture showing how to set permissions in Hasura](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/keycloak/hasura-set-permissions.png)
 
 This way, users can only access their own records.
@@ -102,7 +110,7 @@ Next, set the `JWT_SECRET` in Hasura.
 
 In this step, you need to add the **HASURA_GRAPHQL_JWT_SECRET** to Hasura.
 
-To do so, go to the Hasura docker-compose.yaml and then add the new `HASURA_GRAPHQL_JWT_SECRET` as below.
+To do so, if you are running Hasura on docker, please go to the Hasura docker-compose.yaml and then add the new `HASURA_GRAPHQL_JWT_SECRET` as below.
 
 The `HASURA_GRAPHQL_JWT_SECRET` should be in the following format:
 
@@ -118,6 +126,21 @@ Save the change, and restart the Docker container.
 
 ![Add Casdoor JWT URL to Hasura](https://github.com/RanTao123/image/blob/main/MD$GWN%5BBET2O538TG~LNZIM.png?raw=true)
 
+If you are runnning Hasura Cloud, you can configure Hasura on Env vars.
+
+![Add Casdoor JWT URL to Hasura Cloud](https://github.com/RanTao123/image/blob/main/Z3A1GD0Q_VHO4A%7BPVW37%5DY1.png)
+
+Click "HASURA_GRAPHQL_JWT_SECRET" and input
+```
+'{"claims_map": {
+"x-hasura-allowed-roles": ["user","editor"],
+"x-hasura-default-role": "user",
+"x-hasura-user-id": "userID"
+},"jwk_url":"https://door.casdoor.com/.well-known/jwks"}'
+```
+
+![Add Casdoor JWT URL to Hasura Cloud](https://github.com/RanTao123/image/blob/main/U3%241Y3V6DKGYVPGLY_XDI%60E.png)
+
 ## Retrieve JWT Token
 
 Since there is no client implementation, you can get your access token by making a request by below URL:
@@ -127,7 +150,7 @@ http://localhost:8000/login/oauth/authorize?client_id=<client ID>>&response_type
 ```
 
 Change the client ID to the ID you copied before, and input the public certificate of Casdoor, which you can find in
-`Casdoor/Certs`.
+`http://CASDOOR_HOSTNAME/Certs`.
 
 Then, input the username and password you created for Hasura earlier.
 

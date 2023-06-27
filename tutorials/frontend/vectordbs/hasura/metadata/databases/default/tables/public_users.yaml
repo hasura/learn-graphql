@@ -1,0 +1,28 @@
+table:
+  schema: public
+  name: users
+array_relationships:
+  - name: todos
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: todos
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - name
+      filter: {}
+      limit: 100
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - last_seen
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: null

@@ -35,7 +35,7 @@ const config = {
       "connect-hasura",
       "query-data",
       "handle-events",
-      "add-frontend",
+      "add-a-frontend",
       "/what-next/",
     ],
     links: [

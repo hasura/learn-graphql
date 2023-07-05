@@ -1,5 +1,5 @@
 ---
-title: "Clone Repository and Run Docker"
+title: "Clone repository and run Docker"
 metaTitle: "Setup | Fullstack VectorDB Tutorial"
 metaDescription: "A fullstack VectorDB tutorial using Next.js, React, TypeScript, and Hasura"
 ---

@@ -1,19 +1,28 @@
 ---
-title: "Handle events | Fullstack VectorDB Tutorial"
+title: "Auto-vectorization"
 metaTitle: "Handle events | Fullstack VectorDB Tutorial"
 metaDescription: "A fullstack VectorDB tutorial using Next.js, React, TypeScript, and Hasura"
 ---
 
-# Auto vectorization
-Let's say we want to automatically ingest and update resumes. You can set up an Event Trigger on your Postgres table, such that whenever there is a new record or change in a record, we automatically fetch the data and store the vectorized data in out VectorDB.
+Let's say we want to automatically ingest and update resumes. We can set up an
+[Event Trigger](https://hasura.io/docs/latest/event-triggers/overview/) on our Postgres table, such that whenever there
+is a new record or change in a record, we automatically fetch the data and store the vectorized data in out VectorDB.
 
-You can find this code under handlers/event.py and handlers/server.py.
+You can find this code under `handlers/event.py` and `handlers/server.py` in our repository. **We'll go over information
+step-by-step below but if you're eager to get started, simply run `python3 handlers/server.py` from the root of the repo
+to start the server.** This will run a Flask server on port `8400` that will handle all events as they're triggered from
+Hasura. **Please also ensure your OpenAI API key is set as an environment variable called `OPENAI_API_KEY`.**
 
-## Step 1: Define your specific event handler.
-You can have one for insert, delete, update - this is totally your call on the use case!
+## Step 1: Define your specific event handler
 
-As an example, we could handle inserts and deletes like this:
-```
+For all CRUD events, we'll need to define a specific handler. In our use case, we're only illustrating how to handle
+inserts and deletes.
+
+In the example below, we're defining a handler for inserts and deletes. We're using the `id` field from the row to
+identify the record in our VectorDB. We're also using the `content` field to store the vectorized data. In reality, you
+would follow the URL from `row['url']` to fetch the resume content.
+
+```python
 def handle_insert(row, client):
     id = row['id']
     # In reality you would follow the URL from row['url']
@@ -42,9 +51,11 @@ def handle_delete(row, client):
 ```
 
 ## Step 2: Define an overall handler
-After defining each event handler we'll need, we need an overall event handler defined that will execute the appropriate handler when an event occurs:
 
-```
+After defining each event handler we'll need, we need an overall event handler defined that will execute the appropriate
+handler when an event occurs:
+
+```python
 def handle_event(event):
     gql_headers = {'x-hasura-admin-secret': 'secret'}
     # Create a GraphQL client with the request transport
@@ -70,16 +81,45 @@ def handle_event(event):
 ```
 
 ## Step 3: Create an API for Hasura to call
-Event Triggers in Hasura need an API to call. As we're using Python, we'll implement a simple, lightweight Flask API. From the repository's directory, you can run python server.py to start the server.
+
+Event Triggers in Hasura work by hitting an endpoint or server of your own design. This allows you to define your own
+logic, in any language, for handling events. In our case, we're using Python and the lightweight Flask framework. In the
+code below, you can see we've an endpoint at `/handle_event` that will handle all events from Hasura.
+
+```python
+import query_llm
+import event
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from flask import Flask, request, jsonify
+
+app = Flask("handlers")
+
+@app.route('/query_llm', methods=['POST'])
+def query_llm_handler():
+    return jsonify(query_llm.query_llm(request.get_json(), request.headers))
+
+@app.route('/handle_event', methods=['POST'])
+def event_trigger_handler():
+    return jsonify(event.handle_event(request.get_json()))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8400)
+```
+
+If you've built this in the `/handler` directory, you can start this from the repository's root by running
+`python3 server.py` to start the server.
 
 ## Step 4: Configure the Event Trigger in Hasura
-Head to Events and click Create to configure a new Event Trigger. We'll reference the public shema and application table. Ensure all CRUD operations are checked as triggers and enter the following URL for our Flask API:
+
+Head to the `Events` tab and click `Create` to configure a new Event Trigger. We'll reference the public schema and
+`application` table. Ensure all CRUD operations are checked as triggers and enter the following URL for our Flask API:
 
 http://host.docker.internal:8400/handle_event
 
-The configuration should look like this before clicking, Create Event Trigger:
-<events_setup_image.png>
+The configuration should look like this before clicking, `Create Event Trigger`:
+
+<!-- TODO: Screenshot events_setup_image.png -->
 
 Finally, we can test this by entering a new application:
 
-<new_application_test.png>
+<!-- TODO: Screenshot new_application_test.png -->

@@ -31,11 +31,11 @@ const config = {
   sidebar: {
     forcedNavOrder: [
       "/introduction/",
-      "setup-and-installation",
-      "connect-hasura",
-      "query-data",
-      "handle-events",
-      "add-a-frontend",
+      "/setup-and-installation/",
+      "/connect-hasura/",
+      "/query-data/",
+      "/handle-events/",
+      "/add-a-frontend/",
       "/what-next/",
     ],
     links: [

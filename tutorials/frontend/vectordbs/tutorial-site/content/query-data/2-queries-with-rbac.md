@@ -1,20 +1,22 @@
 ---
-title: "Query data | Fullstack VectorDB Tutorial"
+title: "Queries with access control"
 metaTitle: "Query data | Fullstack VectorDB Tutorial"
 metaDescription: "A fullstack VectorDB tutorial using Next.js, React, TypeScript, and Hasura"
 ---
-# Remote joins with Access Control
-Let us now define permissions on our data. Our current usecase has user profile of `Hiring Manager` and hiring managers should be able to review only the resumes that are tagged to them.
 
-We can do this easily by defining `SELECT` permission on our `hiring_manager` relationship. You can copy and paste this rule into the first line of the editor, or configure it using the dropdown GUI.
+Hasura has a robust [permissions system](https://hasura.io/docs/latest/auth/authorization/index/) that allows for
+granular authorization. We'll use this system to define permissions on the data we just imported. As our application is
+meant to be a helpful tool for HR managers, it would make sense for a user to only see information relevant to them.
+
+We can do this easily by defining `SELECT` permission on our `hiring_manager` relationship. You can copy and paste this
+rule into the first line of the editor, or configure it using the dropdown GUI.
 
 ```
 {"application_relationship":{"hiring_manager":{"_eq":"x-hasura-manager-id"}}}
 ```
 
-<access_control_image.png>
+<!-- TODO: Screenshot access_control_image.png -->
 
-Adding this rule does the magic! We'll now only see the applications belonging to the manager id in x-hasura-manager-id 🎉
-
-Don’t forget to send x-hasura-role as manager and x-hasura-manager-id as your id of choice:
-<x_hasura_manager_id.png>
+Adding this rule does the magic! If we head back to the Console and run a query with the `x-hasura-manager-id` header
+added, and assign it to a specific manager, we'll now only see the applications belonging to the manager's `id` in
+`x-hasura-manager-id` 🎉

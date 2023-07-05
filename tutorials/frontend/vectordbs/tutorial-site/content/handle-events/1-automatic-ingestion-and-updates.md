@@ -3,3 +3,83 @@ title: "Handle events | Fullstack VectorDB Tutorial"
 metaTitle: "Handle events | Fullstack VectorDB Tutorial"
 metaDescription: "A fullstack VectorDB tutorial using Next.js, React, TypeScript, and Hasura"
 ---
+
+# Auto vectorization
+Let's say we want to automatically ingest and update resumes. You can set up an Event Trigger on your Postgres table, such that whenever there is a new record or change in a record, we automatically fetch the data and store the vectorized data in out VectorDB.
+
+You can find this code under handlers/event.py and handlers/server.py.
+
+## Step 1: Define your specific event handler.
+You can have one for insert, delete, update - this is totally your call on the use case!
+
+As an example, we could handle inserts and deletes like this:
+```
+def handle_insert(row, client):
+    id = row['id']
+    # In reality you would follow the URL from row['url']
+    content = "dummy content"
+    gql_query = gql("""
+            mutation insertItem($id: String!, $content: text!) {
+                insert_Resume_one(object: { application_id: $id, content: $content }) {
+                    id
+                }
+            }
+        """)
+    print(client.execute(gql_query, variable_values={
+        'id': id, 'content': content}))
+
+def handle_delete(row, client):
+    id = row['id']
+    gql_query = gql("""
+            mutation deleteItem($id: String!) {
+                delete_Resume(where: {application_id: { _eq: $id } }) {
+                    affected_rows
+                }
+            }
+        """)
+    print(client.execute(gql_query, variable_values={
+        'id': id}))
+```
+
+## Step 2: Define an overall handler
+After defining each event handler we'll need, we need an overall event handler defined that will execute the appropriate handler when an event occurs:
+
+```
+def handle_event(event):
+    gql_headers = {'x-hasura-admin-secret': 'secret'}
+    # Create a GraphQL client with the request transport
+    transport = RequestsHTTPTransport(
+        url=GRAPHQL_ENDPOINT, headers=gql_headers)
+    client = Client(transport=transport)
+
+    event = event['event']
+    op = event['op']
+    if op == 'INSERT':
+        row = event['data']['new']
+        handle_insert(row, client)
+    elif op == 'UPDATE':
+        old_row = event['data']['old']
+        new_row = event['data']['new']
+        # TODO: Do something
+    elif op == 'DELETE':
+        old_row = event['data']['old']
+        handle_delete(old_row, client)
+    else:
+        print(str(event))
+    return "Success"
+```
+
+## Step 3: Create an API for Hasura to call
+Event Triggers in Hasura need an API to call. As we're using Python, we'll implement a simple, lightweight Flask API. From the repository's directory, you can run python server.py to start the server.
+
+## Step 4: Configure the Event Trigger in Hasura
+Head to Events and click Create to configure a new Event Trigger. We'll reference the public shema and application table. Ensure all CRUD operations are checked as triggers and enter the following URL for our Flask API:
+
+http://host.docker.internal:8400/handle_event
+
+The configuration should look like this before clicking, Create Event Trigger:
+<events_setup_image.png>
+
+Finally, we can test this by entering a new application:
+
+<new_application_test.png>

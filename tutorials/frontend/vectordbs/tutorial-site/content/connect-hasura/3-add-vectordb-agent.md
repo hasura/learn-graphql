@@ -9,12 +9,17 @@ vectorized data.
 
 #### Add the Weaviate agent
 
-Back in the Hasura Console, head to `Data` and add the Weaviate agent as shown in the image.
+Back in the Hasura Console, head to `Data` and click on `Manage` in the left-hand sidebar and then expand
+`Data Connector Agents`. Then, add the Weaviate agent as shown in the image:
+
+![Set up Weaviate agent](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/weaviate-connection-details.png)
+
+Then, click on `Connect Database` and add your Weaviate instance's connection details:
 
 ![Set up Weaviate agent](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/vector-db-connect-db-9d1955d0227e35f371fb336ef0f2c38a.png)
 
 You'll need to enter `Resume` for your `Database Name`, your Weaviate `apiKey`, the host of your Weaviate instance
-(which is the endpoint without `https`), and the scheme.
+(which is the endpoint without `https`), and the scheme which should be `https`.
 
 #### Track our Schema
 

@@ -11,3 +11,5 @@ API and allow us to query against them.
 Simply head to the `Data` tab, select the `HRTool` database, and click the `Track All` button.
 
 <!--TODO: Screenshot tracking_all_tables.png  -->
+
+![Tracking all tables](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/track-all-tables.png)

@@ -5,8 +5,9 @@ metaDescription: "A fullstack VectorDB tutorial using Next.js, React, TypeScript
 ---
 
 We've provided you several Jupyter notebooks that will help you to shape your data and configure your Postgres instance.
-You can find these notebooks in the `/scripts` directory of the repository. We'll walk through each of these notebooks
-in sequence. **It's important to follow the steps in order as they appear, as they are dependent on each other.**
+You can find these notebooks in the `/tutorials/HRTooldata/scripts` directory of the repository. We'll walk through each
+of these notebooks in sequence. **It's important to follow the steps in order as they appear, as they are dependent on
+each other.**
 
 ## Overview
 
@@ -29,6 +30,14 @@ pip install pandas
 pip install psycopg2-binary
 pip install sqlalchemy
 ```
+
+## Grab the CSV
+
+We're using [this dataset](https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset) from Kaggle. Download it and,
+inside your repository, add a new set of directories inside the `scripts` folder called, `data/Resume` and place the
+file in this lowest subdirectory. The filename should be `Resume.csv`.
+
+At this point, you should run the cells in `1_postgres_setup.ipynb` and follow along with the steps below for context.
 
 ## Read in the CSV
 

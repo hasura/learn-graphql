@@ -8,7 +8,10 @@ Connecting an application database is very simple with Hasura. Hasura
 [supports connectors to most popular databases](https://hasura.io/docs/latest/databases/overview). Head to the `Data`
 tab and click on `Connect Database`.
 
-Select Postgres from the list of connectors and click `Connect Existing Database`.
+Launch the Hasura Console - our GUI for managing our Hasura instance - by navigating to:
+`http://localhost:8080/console`.
+
+Select Postgres from the list of connectors and click `Connect Existing Database`:
 
 ![Connect Postgres](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/connect_postgres_db.png)
 

@@ -13,6 +13,12 @@ tutorial. Clone the starter from GitHub:
 git clone https://github.com/hasura/ai-workshop-hasuracon23.git
 ```
 
+Then, head into the directory:
+
+```bash
+cd ai-workshop-hasuracon23
+```
+
 Next, we'll need to use `git-lfs` to pull down the large files in the repository. If you don't have `git-lfs`,
 [install it globally](https://git-lfs.github.com/) and then run the following command to install it on the repository:
 
@@ -34,16 +40,16 @@ root of the repository, run the following commands in sequence:
 ```bash
 docker load < hasura-image-arm64.tar.gz
 docker load < weaviate-gdc-image-arm64.tar.gz
-docker compose up
+docker compose up -d
 ```
 
 The first two commands will load the images for Hasura and VectorDB into Docker. The last command will start the
 containers for the application. You should see output similar to the following after all of the containers have started:
 
 ```bash
-Starting ai-workshop-hasuracon23_postgres_1 ... done
-Starting ai-workshop-hasuracon23_weaviate_1 ... done
-Starting ai-workshop-hasuracon23_hasura_1   ... done
+⠿ Container ai-workshop-hasuracon23-weaviate-gdc    Started
+⠿ Container ai-workshop-hasuracon23-postgres        Started
+⠿ Container ai-workshop-hasuracon23-graphql-engine  Started
 ```
 
 At this point, you're ready to shape your data and configure your Postgres instance!

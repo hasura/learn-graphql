@@ -10,8 +10,8 @@ below, we want to enable our API to serve natural-language queries to our LLM mo
 such as "Who would be best in a zombie scenario?" and our API can return a generative AI response that's backed up by
 its training on the data in our database.
 
-**As before, if you've already set up the server, you can skip to Step 3. However, we'll go into detail below for each
-step.**
+**As before, if you've already set up the server, you can skip to [Step 3](#step3:createanactiononthehasuraconsole).
+However, we'll go into detail below for each step.**
 
 ## Step 1: Write the LLM query
 
@@ -94,12 +94,16 @@ type Query {
 }
 ```
 
-Then, clear out the Type Configuration. Finally, provide the handler via this URL:
+Then, clear out the Type Configuration and provide the handler via this URL:
 
-`http://host:docker.internal:8400/query_llm`
+`http://host.docker.internal:8400/query_llm`
+
+Finally, we'll need to transform the request options as we did with our Event Trigger. Our API is expecting a `POST`
+request, so we'll set that as the `Request Method` before clicking `Create Action` at the bottom of the page.
 
 ## Step 4: Execute the Action
 
-Now you can use `QueryLLM` as a type in your GraphQL API 🎉
+For now, turn off our added `manager` and `role` request headers. Now you can use `QueryLLM` as a type in your GraphQL
+API 🎉
 
 ![Authorized LLM call](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/authorized_llm_call.png)

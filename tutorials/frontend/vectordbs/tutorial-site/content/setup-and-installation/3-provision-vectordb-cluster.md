@@ -37,7 +37,7 @@ pprint(df.iloc[0]['content'])
 ## Set up the Weaviate client
 
 **Before jumping into this section, make sure you've obtained your Weaviate cluster's endpoint and the API key. You can
-find these in the Weaviate console.**
+find these in the [Weaviate console](https://console.weaviate.cloud/dashboard).**
 
 ![Weaviate console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/weaviate-connection-info.png)
 
@@ -49,11 +49,18 @@ On Weaviate, we'll have a schema called `Resume`. This schema will have two prop
 df = df.rename(columns={'id': 'application_id'})
 ```
 
-## Load environment variables
+## Create and load environment variables
 
-If you've created a `.env` file, you can load the environment variables into your notebook. This will allow you to
-reference the variables without having to type them out each time. If you haven't created a `.env` file, you can skip
-this import, but you'll still need to import the `weaviate` library.
+We'll need to reference some values, including the ones we grabbed above. Inside your `/scripts` folder, create a `.env`
+file and add the following keys and their corresponding values:
+
+```env
+WEAVIATE_URL="<YOUR_WEAVIATE_URL>"
+WEAVIATE_APIKEY="<YOUR_WEAVIATE_KEY>"
+OPENAI_APIKEY="<YOUR_OPENAI_KEY>"
+```
+
+Then, import the `weaviate` library and the `load_dotenv` method from the `dotenv` library.
 
 ```python
 import os
@@ -61,14 +68,6 @@ import weaviate
 from dotenv import load_dotenv
 
 load_dotenv()
-```
-
-If you choose to use environment variables, you'll need the following key-value pairs:
-
-```env
-WEAVIATE_URL=<your-weaviate-cluster-url>
-WEAVIATE_API_KEY=<your-weaviate-cluster-api-key>
-OPENAPI_APIKEY=<your-openai-api-key>
 ```
 
 ## Create the Weaviate client

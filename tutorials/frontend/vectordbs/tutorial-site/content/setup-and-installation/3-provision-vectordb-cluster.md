@@ -39,7 +39,7 @@ pprint(df.iloc[0]['content'])
 **Before jumping into this section, make sure you've obtained your Weaviate cluster's endpoint and the API key. You can
 find these in the Weaviate console.**
 
-<!-- TODO: SCREENSHOT -->
+![Weaviate console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/weaviate-connection-info.png)
 
 On Weaviate, we'll have a schema called `Resume`. This schema will have two properties: `application_id` and
 `chunk_text`. The `application_id` will be the same as the `id` column of our dataframe. The `chunk_text` will be the

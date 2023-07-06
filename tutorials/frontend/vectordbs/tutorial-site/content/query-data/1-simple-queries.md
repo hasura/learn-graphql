@@ -10,7 +10,7 @@ This is where we start to see power of the Hasura integration.
 Let's say I wanted to access `Resumes`. But, I also need relevant information about `Resume` like the `candidate` and
 `application` details. I don't have to make multiple calls. I can make one call to fetch all of the info.
 
-<!-- TODO: Screenshot simple_query_image.png -->
+![Simple query](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/simple_query_image.png)
 
 Try pasting this sample GraphQL query for into your GraphiQL explorer on the Hasura Console (just click on the `API`
 tab):

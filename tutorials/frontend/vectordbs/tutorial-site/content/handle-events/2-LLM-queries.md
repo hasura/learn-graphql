@@ -102,4 +102,4 @@ Then, clear out the Type Configuration. Finally, provide the handler via this UR
 
 Now you can use `QueryLLM` as a type in your GraphQL API 🎉
 
-<!-- TODO: Screenshot authorized_llm_call.png -->
+![Authorized LLM call](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/authorized_llm_call.png)

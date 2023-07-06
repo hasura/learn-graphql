@@ -40,8 +40,6 @@ We'll build a fullstack HR tool that allows HR managers to search through resume
 questions using natural language and choose to either get an array of resumes that match the query or get a response
 from an LLM.
 
-<!-- TODO: Screenshot / GIF -->
-
 ## Will this course teach Next.js concepts as well?
 
 In part, yes. We expect you to have a basic understanding of React and Next.js, but we'll be using the new app router

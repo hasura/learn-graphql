@@ -9,8 +9,8 @@ tables.
 
 We need to define a remote relationship from our vector db to our relational database:
 
-<!-- TODO: Screenshot create_rdb_vdb_relationship.png -->
+![Create a remote relationship](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/create_rdb_vdb_relationship.png)
 
 All in all, if your Console looks like this — you should be set 🎉
 
-<!-- TODO: Screenshot final_setup_image.png -->
+![Final setup](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/final_setup_image.png)

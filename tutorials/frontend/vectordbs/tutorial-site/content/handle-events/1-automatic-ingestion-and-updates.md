@@ -118,8 +118,8 @@ http://host.docker.internal:8400/handle_event
 
 The configuration should look like this before clicking, `Create Event Trigger`:
 
-<!-- TODO: Screenshot events_setup_image.png -->
+![Events setup](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/events_setup_image.png)
 
 Finally, we can test this by entering a new application:
 
-<!-- TODO: Screenshot new_application_test.png -->
+![New application test](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/new_application_test.png)

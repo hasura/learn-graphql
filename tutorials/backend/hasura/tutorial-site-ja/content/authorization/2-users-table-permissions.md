@@ -1,6 +1,6 @@
 ---
-title: "ユーザーテーブル権限を設定する"
-metaTitle: "ユーザーテーブル権限を設定する | Hasura GraphQLチュートリアル"
+title: "usersテーブル権限を設定する"
+metaTitle: "usersテーブル権限を設定する | Hasura GraphQLチュートリアル"
 metaDescription: "このチュートリアルでは、Hasuraコンソールを使って操作を挿入、選択、更新、削除するため、ユーザーテーブルに権限を設定する方法を学びます。"
 ---
 

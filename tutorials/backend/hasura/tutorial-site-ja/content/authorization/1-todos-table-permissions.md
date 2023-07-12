@@ -48,13 +48,13 @@ todoエントリがパブリックになっているか、ユーザーがログ�
 
 `Save Permissions` をクリックする
 
-## 権限 {#update-permission} を更新する
+## 更新権限 {#update-permission}
 
 ユーザーがis_completed列しか更新できないようにします。
 
 「更新」権限の編集アイコンをクリックします。更新前カスタムチェックで `With same custom checks as insert` を選択します。
 
-そして、列更新権限の下で、`is_completed` 列を選択します。
+そして、列の更新権限の下で、`is_completed` 列を選択します。
 
 ![todos更新権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-update-permission-pre-update.png)
 

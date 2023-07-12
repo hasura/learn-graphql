@@ -6,7 +6,7 @@ metaDescription: "このチュートリアルでは、Hasuraコンソールを�
 
 `todos` テーブルの下の権限タブに移動して、関連する権限を追加します。
 
-## 権限を挿入する {#insert-permission}
+## 挿入権限 {#insert-permission}
 
 ログインしたユーザーが、新しいtodoエントリを作成して、is_publicとタイトル列だけを指定できるようにします。
 
@@ -18,11 +18,11 @@ metaDescription: "このチュートリアルでは、Hasuraコンソールを�
 {"user_id":{"_eq":"X-Hasura-User-Id"}}
 ```
 
-![todo行権限挿入](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-table-row-permission-insert.png)
+![todos行の挿入権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-table-row-permission-insert.png)
 
 列の挿入権限の下で、`title` および `is_public` 列を選択します。
 
-![todos挿入列権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-insert-column-permission.png)
+![todos列の挿入権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-insert-column-permission.png)
 
 最後に、列のプリセットの下で、`X-HASURA-USER-ID` への `from session variable` マッピングから `user_id` を選択します。
 

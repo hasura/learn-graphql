@@ -9,10 +9,10 @@ Let's say we want to automatically ingest and update resumes. We can set up an
 is a new record or change in a record, we automatically fetch the data and store the vectorized data in out VectorDB.
 
 You can find this code under `handlers/event.py` and `handlers/server.py` in our repository. **We'll go over information
-step-by-step below but if you're eager to get started, simply run `python tutorials/HRTool/handlers/server.py` from the
-root of the repo to start the server.** This will run a Flask server on port `8400` that will handle all events as
-they're triggered from Hasura. You can skip to [Step 4](#step4:configuretheeventtriggerinhasura). **Please also ensure
-your OpenAI API key is set as an environment variable called `OPENAI_API_KEY`.**
+step-by-step below but remember, this service is already running as part of your docker-comose.** This will run a Flask
+server on port `8400` that will handle all events as they're triggered from Hasura. If you're eager to get started, you
+can skip to [Step 4](#step4:configuretheeventtriggerinhasura). **Please also ensure your OpenAI API key is set as an
+environment variable called `OPENAI_API_KEY` in the docker-compose file.**
 
 ## Step 1: Define your specific event handler
 
@@ -113,8 +113,8 @@ If you've built this in the `/handler` directory, you can start this from the re
 ## Step 4: Configure the Event Trigger in Hasura
 
 Head to the `Events` tab and click `Create` to configure a new Event Trigger. Let's name this `ingestion`. We'll
-reference the public schema and `application` table of `HRTool`. Ensure all CRUD operations are checked as triggers and
-enter the following URL for our Flask API:
+reference the public schema and `application` table of the `HRTool` database. Ensure all CRUD operations are checked as
+triggers and enter the following URL for our Flask API:
 
 `http://host.docker.internal:8400/handle_event`
 
@@ -124,8 +124,8 @@ The configuration should look like this before clicking, `Create Event Trigger`:
 
 ![Events setup](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/events_setup_image.png)
 
-Finally, we can test this by entering a new application. Head to the `Data` tab and click `Insert Row`. Enter a new
-`application` and click `Insert`.
+Finally, we can test this by entering a new application. Head to the `Data` tab and choose the `application` table
+before clicking `Insert Row`. Enter a new `application` and click `Insert`.
 
 ![New application test](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/new_application_test.png)
 

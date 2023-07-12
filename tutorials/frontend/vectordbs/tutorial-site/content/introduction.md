@@ -19,7 +19,7 @@ our data.
 
 - Vectorizing relational data
 - Writing LLM queries
-- Using the new app router in Next.js
+- Using the new App Router in Next.js
 - Developing a UI with Tailwind
 
 ## Learning outcomes
@@ -30,25 +30,25 @@ By the end of this course, you’ll be able to…
 2. Vectorize relational data.
 3. Create an API for handling Event Triggers and Actions with Hasura.
 4. Integrate OpenAI with vectorized data.
-5. Create a Next.js application using the new app router.
+5. Create a Next.js application using the new App Router.
 6. Style an application with Tailwind.
 7. Manage state with React's Context API.
 
 ## What will we be building?
 
 We'll build a fullstack HR tool that allows HR managers to search through resumes of open positions. A user can ask
-questions using natural language and choose to either get an array of resumes that match the query or get a response
-from an LLM.
+questions using natural language and choose to either get an array of applications that match the query or get a
+response from an LLM.
 
 ## Will this course teach Next.js concepts as well?
 
-In part, yes. We expect you to have a basic understanding of React and Next.js, but we'll be using the new app router
+In part, yes. We expect you to have a basic understanding of React and Next.js, but we'll be using the new App Router
 and we'll build the UI with Tailwind. We'll cover these topics in detail, but we won't be covering the basics of React
 or Next.js.
 
 ## What do I need to take this tutorial?
 
-**At present, we only support ARM64 architectures for the Hasura image used with this tutorial.**
+**At present, we support ARM64 and amd64 architectures for the Hasura image used with this tutorial.**
 
 You'll need a basic understanding of React, JavaScript, and GraphQL. You'll also need to install or obtain the
 following:

@@ -83,7 +83,7 @@ export const metadata = {
   description: "Ask your AI assistant to find the perfect candidate and save you time and money",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -105,9 +105,15 @@ In `/app/utilities`, create a new file called `queries.ts` and add the following
 ```ts
 // inside /app/utilities/queries.ts
 
-import { gql } from "@apollo/client";
+import { gql, DocumentNode } from "@apollo/client";
 
-const TEST = gql`
+interface TestQuery {
+  application: {
+    candidate_id: string;
+  };
+}
+
+const TEST: DocumentNode = gql`
   query TestQuery {
     application {
       candidate_id
@@ -115,7 +121,18 @@ const TEST = gql`
   }
 `;
 
-const NEAR_TEXT_RESPONSE = gql`
+interface NearTextQuery {
+  Resume: {
+    application_id: string;
+    content: string;
+    application_relationship: {
+      hiring_manager: string;
+      resume_url: string;
+    };
+  }[];
+}
+
+const NEAR_TEXT_RESPONSE: DocumentNode = gql`
   query NearTextQuery($user_query: text!) {
     Resume(where: { vector: { near_text: $user_query } }, limit: 10) {
       application_id
@@ -128,7 +145,11 @@ const NEAR_TEXT_RESPONSE = gql`
   }
 `;
 
-const LLM_QUERY = gql`
+interface LLMQuery {
+  QueryLLM: string;
+}
+
+const LLM_QUERY: DocumentNode = gql`
   query LLMQuery($user_query: String!) {
     QueryLLM(user_query: $user_query)
   }
@@ -149,7 +170,7 @@ query so we can confirm that our Apollo Client is working correctly. Let's creat
 import { useQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { TEST } from "../utilities/queries";
 
-export default function Response() {
+export default function QueryResponse(): JSX.Element {
   const { data, loading } = useQuery(TEST);
 
   if (loading) {
@@ -178,6 +199,6 @@ export default function Home() {
 }
 ```
 
-If all works, we should see `2484` returned to the page, as this is the number of resumes we have in our database. If
-you see this, you've successfully configured your Apollo Client to work with your Hasura GraphQL API! Next, let's get on
-with making this useful and allowing a user to query information.
+If all works, we should see `2484` (or similar) returned to the page, as this is the number of resumes we have in our
+database. If you see this, you've successfully configured your Apollo Client to work with your Hasura GraphQL API! Next,
+let's get on with making this useful and allowing a user to query information.

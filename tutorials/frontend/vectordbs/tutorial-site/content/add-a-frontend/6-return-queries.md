@@ -6,9 +6,12 @@ metaDescription: "A fullstack VectorDB tutorial using Next.js, React, TypeScript
 
 Finally, we're ready to return the results of our query to the frontend. We already have a component called
 `QueryResponses` that's utilizing our `useQuery` hook. We'll trade out the `TEST` query that we imported earlier and
-replace it with our `NEAR_TEXT_RESPONSE` and `LLM_QUERY` queries. Additionally, we'll need access to our context.
+replace it with our `NEAR_TEXT_RESPONSE` and `LLM_QUERY` queries. Additionally, we'll need access to our context. Inside
+the `QueryResponses.tsx` file, let's import the queries and the context along with the `useEffect` hook:
 
 ```tsx
+import { useEffect } from "react";
+import { useQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { NEAR_TEXT_RESPONSE, LLM_QUERY } from "../utilities/queries";
 import { useAppContext } from "../utilities/context";
 ```
@@ -16,7 +19,28 @@ import { useAppContext } from "../utilities/context";
 Within the function, we'll also need this context; we'll need to destructure three pieces in this component:
 
 ```tsx
-const { query, responseType, isSent } = useAppContext();
+const { query, responseType, setQueryLoading } = useAppContext();
+```
+
+We'll also create a series of interfaces that will help us to type the data that we're receiving from our queries:
+
+```tsx
+interface Resume {
+  application_id: string;
+  content: string;
+  application_relationship: {
+    hiring_manager: string;
+    resume_url: string;
+  };
+}
+
+interface NearTextQueryResponse {
+  Resume: Resume[];
+}
+
+interface LLMQueryResponse {
+  QueryLLM: string;
+}
 ```
 
 ## Making the right query
@@ -40,25 +64,43 @@ we're choosing to render parts of them. We'll add a function that truncates the 
 Finally, we're including a smooth-scroll effect so that the user can see the response as soon as it's returned.
 
 ```tsx
-"use-client";
-
 import { useEffect } from "react";
 import { useQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { NEAR_TEXT_RESPONSE, LLM_QUERY } from "../utilities/queries";
 import { useAppContext } from "../utilities/context";
 
-export default function QueryResponse() {
-  const { query, responseType, isSent, setQueryLoading } = useAppContext();
+interface Resume {
+  application_id: string;
+  content: string;
+  application_relationship: {
+    hiring_manager: string;
+    resume_url: string;
+  };
+}
+
+interface NearTextQueryResponse {
+  Resume: Resume[];
+}
+
+interface LLMQueryResponse {
+  QueryLLM: string;
+}
+
+export default function QueryResponse(): JSX.Element {
+  const { query, responseType, setQueryLoading } = useAppContext();
   console.log(query);
-  const { data, loading, error } = useQuery(responseType === "near_text" ? NEAR_TEXT_RESPONSE : LLM_QUERY, {
-    variables: {
-      user_query: query,
-    },
-  });
+  const { data, loading, error } = useQuery<NearTextQueryResponse | LLMQueryResponse>(
+    responseType === "near_text" ? NEAR_TEXT_RESPONSE : LLM_QUERY,
+    {
+      variables: {
+        user_query: query,
+      },
+    }
+  );
 
   data && console.log(data);
 
-  function formatResumeString(string: string) {
+  function formatResumeString(string: string): string {
     let newString = string.substring(0, 200);
     newString = newString + "...";
     return newString;
@@ -66,7 +108,7 @@ export default function QueryResponse() {
 
   useEffect(() => {
     const querySelector = document.querySelector("#responses");
-    if ((querySelector && data != undefined) || error != undefined) {
+    if ((querySelector && data !== undefined) || error !== undefined) {
       querySelector.scrollIntoView({ behavior: "smooth" });
       setQueryLoading(false);
     }
@@ -90,11 +132,13 @@ export default function QueryResponse() {
       )}
       {responseType === "near_text" &&
         data &&
-        data.Resume.map((item: object, i: number) => {
+        data.Resume.map((item: Resume, i: number) => {
           return (
             <div className="flex rounded-md shadow-lg min-h-32 p-12 gap-2" key={i}>
               <div>
-                <p className="grid place-items-center text-white text-sm rounded-full w-8 h-8 bg-indigo-500" id={i}>
+                <p
+                  className="grid place-items-center text-white text-sm rounded-full w-8 h-8 bg-indigo-500"
+                  id={i.toString()}>
                   {i + 1}
                 </p>
               </div>
@@ -195,7 +239,7 @@ import { useAppContext } from "../utilities/context";
 import { useState, useEffect } from "react";
 
 export default function Input() {
-  const { query, setQuery, responseType, setResponseType, queryLoading, setQueryLoading, setIsSent } = useAppContext();
+  const { setQuery, responseType, setResponseType, queryLoading, setQueryLoading, setIsSent } = useAppContext();
 
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [placeholders, setPlaceholders] = useState([

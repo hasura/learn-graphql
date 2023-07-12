@@ -27,7 +27,18 @@ Then, we'll create a new provider we can use to wrap our app in:
 
 import { ReactNode, useState, useContext, createContext } from "react";
 
-const AppContext = createContext({});
+interface AppState {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  responseType: string;
+  setResponseType: React.Dispatch<React.SetStateAction<string>>;
+  queryLoading: boolean;
+  setQueryLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  isSent: boolean;
+  setIsSent: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const AppContext = createContext<AppState | null>(null);
 
 export function AppWrapper({ children }: { children: ReactNode }) {
   const [query, setQuery] = useState("");
@@ -35,7 +46,7 @@ export function AppWrapper({ children }: { children: ReactNode }) {
   const [queryLoading, setQueryLoading] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-  let state = {
+  const state: AppState = {
     query,
     setQuery,
     responseType,
@@ -45,13 +56,23 @@ export function AppWrapper({ children }: { children: ReactNode }) {
     isSent,
     setIsSent,
   };
+
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
 }
 
-export function useAppContext() {
-  return useContext(AppContext);
+export function useAppContext(): AppState {
+  const context = useContext(AppContext);
+  if (!context) {
+    throw new Error("useAppContext must be used within an AppWrapper");
+  }
+  return context;
 }
 ```
+
+This is the first time we've encountered interfaces in TypeScript. Interfaces are a way to define the shape of an
+object. In this case, we're defining the shape of our `AppState` object. This object will contain all of the state we
+want to track in our application. Additionally, we're using the `ReactNode` type to define the type of the `children`
+prop. This is a special type that allows us to pass any valid JSX as a prop.
 
 ## Wrap the app in context
 
@@ -71,7 +92,7 @@ export const metadata = {
   description: "Ask your AI assistant to find the perfect candidate and save you time and money",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>

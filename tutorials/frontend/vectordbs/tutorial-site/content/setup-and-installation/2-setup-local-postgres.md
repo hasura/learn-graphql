@@ -5,9 +5,9 @@ metaDescription: "A fullstack VectorDB tutorial using Next.js, React, TypeScript
 ---
 
 We've provided you several Jupyter notebooks that will help you to shape your data and configure your Postgres instance.
-You can find these notebooks in the `/tutorials/HRTooldata/scripts` directory of the repository. We'll walk through each
-of these notebooks in sequence. **It's important to follow the steps in order as they appear, as they are dependent on
-each other.**
+You can find these notebooks in the `/tutorials/HRTool/scripts` directory of the repository. We'll walk through each of
+these notebooks in sequence. **It's important to follow the steps in order as they appear, as they are dependent on each
+other.**
 
 ## Overview
 

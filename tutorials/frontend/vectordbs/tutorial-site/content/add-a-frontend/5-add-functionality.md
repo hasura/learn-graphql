@@ -11,11 +11,14 @@ help to create a rich and engaging experience.
 
 ## The placeholder text
 
-First, let's import the `useState` and `useEffect` hooks from React at the top of the `app/components/Input.tsx` file:
+First, let's import the `useState`, `useEffect`, and `ChangeEvent` hooks from React at the top of the
+`app/components/Input.tsx` file:
 
 ```tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 ```
+
+These hooks will allow us to create state variables and update them when certain events occur.
 
 Then, inside the `Input()` function, let's create a state variable that will hold the placeholder text's index, along
 with a series of placeholders to cycle through:
@@ -105,8 +108,8 @@ The last thing to configure is the query. We'll need to update the `query` varia
 typing in the input. We can do this by first adding a `handleChange()` function:
 
 ```tsx
-function handleChange(e) {
-  setQuery(e.target.value);
+function handleChange(event: ChangeEvent<HTMLInputElement>) {
+  setQuery(event.target.value);
 }
 ```
 

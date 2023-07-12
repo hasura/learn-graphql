@@ -4,7 +4,7 @@ metaTitle: "権限を試す | Hasura GraphQLチュートリアル"
 metaDescription: "todosテーブル用のGraphQL API権限を紹介し、データアクセスがどのように制限されるかを説明します。"
 ---
 
-`todos` テーブル用のGraph QL APIを使って権限を試してみましょう。
+`todos` テーブル用のGraphQL APIによる権限のテストを始めましょう。
 
 ## クエリ {#query}
 

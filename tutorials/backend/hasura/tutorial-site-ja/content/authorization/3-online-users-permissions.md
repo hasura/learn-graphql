@@ -1,7 +1,7 @@
 ---
 title: "online_usersビューの権限を設定する"
 metaTitle: "online_usersビューの権限を設定する | Hasura GraphQLチュートリアル"
-metaDescription: "本チュートリアルでは、Hasuraコンソールを使って選択操作するためのonline_usersビューに対する権限を設定する方法を学びます。"
+metaDescription: "本チュートリアルでは、Hasuraコンソールを使ってonline_usersビューに閲覧、更新操作の権限を設定する方法を学びます。"
 ---
 
 `online_users` ビューの下の権限タブに移動して、関連する権限を追加します。

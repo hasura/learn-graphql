@@ -1,7 +1,7 @@
 ---
 title: "todosテーブル権限を設定する"
 metaTitle: "todosテーブル権限を設定する | Hasura GraphQLチュートリアル"
-metaDescription: "このチュートリアルでは、Hasuraコンソールを使って操作を挿入、閲覧、更新、削除するため、todosテーブルに権限を設定する方法を学びます"
+metaDescription: "このチュートリアルでは、Hasuraコンソールを使ってtodosテーブルに挿入、閲覧、更新、削除操作の権限を設定する方法を学びます。"
 ---
 
 `todos` テーブルの下の権限タブに移動して、関連する権限を追加します。

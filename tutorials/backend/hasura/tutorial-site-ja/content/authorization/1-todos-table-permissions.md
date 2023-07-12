@@ -60,7 +60,7 @@ todoエントリがパブリックになっているか、ユーザーがログ�
 
 完了したら `Save Permissions` をクリックします。
 
-## 権限 {#delete-permission}を削除する
+## 削除権限 {#delete-permission}
 
 ログインしたユーザーのみ、todoエントリを削除できます。
 

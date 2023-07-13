@@ -98,6 +98,8 @@ Then, clear out the Type Configuration and provide the handler via this URL:
 
 `http://host.docker.internal:8400/query_llm`
 
+**Note: If your're using Linux, you'll need to replace `host.docker.internal` with `localhost`.**
+
 Finally, we'll need to transform the request options as we did with our Event Trigger. Our API is expecting a `POST`
 request, so we'll set that as the `Request Method` before clicking `Create Action` at the bottom of the page.
 

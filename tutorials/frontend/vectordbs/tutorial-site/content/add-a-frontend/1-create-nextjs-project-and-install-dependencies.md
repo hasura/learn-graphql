@@ -27,6 +27,8 @@ npm run dev
 
 If you see the Next.js welcome page, you're good to go!
 
+![Next.js landing page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/next-welcome.png)
+
 ## Housekeeping
 
 Let's clean up the project a bit. First, let's clear out everything inside the `/app/page.tsx` file. You can replace it

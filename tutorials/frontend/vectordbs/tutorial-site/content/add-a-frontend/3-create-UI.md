@@ -64,6 +64,8 @@ export default function Home() {
 }
 ```
 
+![Input component](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/input-ui.png)
+
 Of course, we're doing a lot here. If you were to refresh your page, you should see most of the UI for the what will be
 the top-half of our page. Let's break down what we're doing here:
 

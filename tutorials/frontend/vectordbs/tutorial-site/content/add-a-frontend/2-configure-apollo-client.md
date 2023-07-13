@@ -200,5 +200,9 @@ export default function Home() {
 ```
 
 If all works, we should see `2484` (or similar) returned to the page, as this is the number of resumes we have in our
-database. If you see this, you've successfully configured your Apollo Client to work with your Hasura GraphQL API! Next,
-let's get on with making this useful and allowing a user to query information.
+database.
+
+![Confirm connection](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/confirm-connection.png)
+
+If you see this, you've successfully configured your Apollo Client to work with your Hasura GraphQL API! Next, let's get
+on with making this useful and allowing a user to query information.

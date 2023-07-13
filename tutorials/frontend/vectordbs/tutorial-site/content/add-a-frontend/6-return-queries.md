@@ -327,3 +327,5 @@ export default function Input() {
 
 At this point, we should be able to ask questions and get responses from our AI assistant in one of two ways: either as
 an array of resumes based on the `near_text` vector property, or as a natural language response from our LLM 🎉
+
+![Working query](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-vectordb/gen-ai-frontend.gif)

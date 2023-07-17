@@ -118,6 +118,8 @@ triggers and enter the following URL for our Flask API:
 
 `http://host.docker.internal:8400/handle_event`
 
+**Note: If your're using Linux, you'll need to replace `host.docker.internal` with `localhost`.**
+
 Then, we'll need to modify the Request Method underneath the `Request Options Transform` section to `POST`.
 
 The configuration should look like this before clicking, `Create Event Trigger`:

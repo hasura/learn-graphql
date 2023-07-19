@@ -23,7 +23,7 @@ Actions can be either a Query or a Mutation.
 Remote Schemas {#remote-schemas}
 --------------
 
-Hasura has the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema.
+Hasura's [Remote Schema](https://hasura.io/docs/latest/remote-schemas/index/) feature provides the ability to merge remote GraphQL schemas and provide a unified GraphQL API. Think of it like automated schema stitching. This way, we can write custom GraphQL resolvers and add it as a remote schema.
 
 ![Remote schema architecture](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/remote-schema-architecture.png)
 
@@ -35,7 +35,7 @@ If you are choosing between Actions and Remote Schemas, here's something to keep
 Event Triggers {#event-triggers}
 --------------
 
-Hasura can be used to [create event triggers on tables in the Postgres database](https://hasura.io/learn/database/postgresql/triggers/). Event triggers reliably capture events on specified tables and invoke webhooks to carry out any custom logic. After a mutation operation, triggers can call a webhook asynchronously.
+Hasura can be used to [create event triggers on tables in the Postgres database](https://hasura.io/learn/database/postgresql/triggers/). [Event Triggers](https://hasura.io/docs/latest/event-triggers/index/) reliably capture events on specified tables and invoke webhooks to carry out any custom logic. After a mutation operation, triggers can call a webhook asynchronously.
 
 Use case for the todo app {#use-case-todo-app}
 -------------------------

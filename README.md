@@ -56,3 +56,11 @@ Check out our [contributing guide](CONTRIBUTING.md) for more details.
 ## License
 
 This project is licensed under the MIT License - read [LICENSE](LICENSE) file for details.
+
+
+## Contributors
+<a href="https://github.com/hasura/learn-graphql/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=hasura/learn-graphql" />
+</a>
+
+<!-- Made with [contrib.rocks](https://contrib.rocks). -->

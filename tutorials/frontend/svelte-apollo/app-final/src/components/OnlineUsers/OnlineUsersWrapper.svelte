@@ -1,7 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import OnlineUser from "./OnlineUser.svelte";
-  import { gql } from "@apollo/client";
+  import { gql } from "@apollo/client/core";
   import { subscribe, mutation } from "svelte-apollo";
 
   const onlineUsers = subscribe(gql`

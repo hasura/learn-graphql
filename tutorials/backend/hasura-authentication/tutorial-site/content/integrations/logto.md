@@ -8,34 +8,23 @@ metaDescription: "Logto is an open source identity solution that helps build the
 
 Logto is an open source identity solution that helps you build the sign-in experience and user authentication service within minutes.
 
-Main features:
-
-- An OIDC-based identity service
-- Multi-platform user sign-in/up experience with dark mode and SDKs (Web, iOS, and Android)
-- Sign-in/up with dynamic SMS/Email passcode
-- Out-of-box social sign-in integration (GitHub, Google, WeChat, Alipay, etc.)
-- A web UI to control all above (Admin Console)
-- Extendable multi-language support
-
 ## How to integrate Logto?
 
-> This guide assumes you already have Hasura instance running on your local cloud environment.
+> This guide assumes you already have Hasura instance running on your local environment.
 > 
 
 Hasura supports two ways of authentication: Webhooks and JWT. In this guide, we are using a webhook to authenticate all incoming requests to the Hasura server. Check [Hasura official docs](https://hasura.io/docs/latest/auth/authentication/webhook/) for more information about Webhooks.
 
-### Set admin secret, auth hook endpoint and default roles via environment variables:
+### Set auth hook endpoint via environment variables:
 
 ```bash
-# Replace with your own secret
-HASURA_GRAPHQL_ADMIN_SECRET=myadminsecretkey
-
 # Assuming Logto is running at 'http://localhost:3001',
 # and we are also going to create an API resource named 'https://hasura.api' in the next few steps
 HASURA_GRAPHQL_AUTH_HOOK=http://localhost:3001/api/authn/hasura?resource=https://hasura.api
-
-USER_DEFAULT_ROLE_NAMES=user,good_user
 ```
+
+> 💡 In case your Hasura instance operates within a docker container, accessing Logto via "localhost:3001" might not be feasible since it's located in another container. Normally, you can substitute 'localhost' with 'host.docker.internal', however, for detailed guidance, refer the [official Docker documentation](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host). 
+>
 
 ### Self-host Logto instance on your own server:
 
@@ -49,9 +38,9 @@ npx @logto/cli db seed
 
 ```bash
 # ghcr
-docker pull ghcr.io/logto-io/logto:prerelease
+docker pull ghcr.io/logto-io/logto
 # DockerHub
-docker pull svhd/logto:prerelease
+docker pull svhd/logto
 ```
 
 - Run docker container with the following environment variables
@@ -60,13 +49,11 @@ docker pull svhd/logto:prerelease
 docker run \
 --name logto \
 -p 3001:3001 \
+-p 3002:3002 \
 -e TRUST_PROXY_HEADER=1 \
 -e ENDPOINT=https://your-logto-domain-url \
 -e DB_URL=postgres://username:password@your_postgres_url:port/db_name \
--e HASURA_GRAPHQL_ADMIN_SECRET=myadminsecretkey \
--e HASURA_GRAPHQL_AUTH_HOOK=http://localhost:3001/api/authn/hasura?resource=https://hasura.api
--e USER_DEFAULT_ROLE_NAMES=user,good_user
-ghcr.io/logto-io/logto:prerelease
+svhd/logto
 ```
 
 For more details on how to self-host a Logto instance, please check Logto official "[Get Started](https://docs.logto.io/docs/tutorials/get-started/)" documentation.
@@ -86,7 +73,18 @@ For more details on how to self-host a Logto instance, please check Logto offici
     ![image](https://user-images.githubusercontent.com/12833674/204700041-16f30fe8-7c6c-498c-a716-7d4394e09eb0.png)
     
     > 💡 The API resource identifier can be any absolute URI format. In this guide, we use `https://hasura.api` as the identifier.
-    >
+
+
+### Create Role for Hasura
+
+- In order to take advantage of Hasura's permission management, we are going to create roles in Logto, those roles will map to Hasura's roles.
+    
+    ![image](https://user-images.githubusercontent.com/5717882/226831392-f1e3e194-8c82-4435-b117-9fedfad3a05d.png)
+    
+    > 💡 The role name must equal to the role name in Hasura's "Premissions" page.
+
+
+- Remember to assign the role to users.
 
 ### Create Application and Integrate Logto SDK
 

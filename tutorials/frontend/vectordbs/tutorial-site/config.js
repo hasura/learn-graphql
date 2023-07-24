@@ -21,8 +21,7 @@ const config = {
     ],
     search: {
       enabled: true,
-      // TODO: Configure algolia index
-      indexName: "learn-vectordb-weaviate",
+      indexName: "learn-vectordbs",
       algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
       algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
@@ -55,7 +54,7 @@ const config = {
     title: "1-hour VectorDB course for fullstack developers",
     description: "Everything you need to build a VectorDBs app and integrate LLMs with your modern application!",
     ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-nextjs-fullstack-serverless.png",
+      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-vectordbs.png",
     docsLocation: "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/vectordbs/tutorial-site/content",
     favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },

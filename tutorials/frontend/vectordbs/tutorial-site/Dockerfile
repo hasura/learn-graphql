@@ -12,7 +12,6 @@ RUN rm -R content
 COPY . .
 
 # Build static files
-# TODO: Again with the Algolia
 RUN GATSBY_ALGOLIA_APP_ID=WCBB1VVLRC GATSBY_ALGOLIA_SEARCH_KEY=baf43aa3921858bc144d0fe5ce85b526 npm run build
 
 # serve dist folder on port 8080

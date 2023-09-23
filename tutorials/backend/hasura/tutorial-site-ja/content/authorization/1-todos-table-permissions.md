@@ -64,7 +64,7 @@ todoエントリがパブリックになっているか、ユーザーがログ�
 
 ログインしたユーザーのみ、todoエントリを削除できます。
 
-最後に、削除権限についてはカスタムチェックの下で `With same custom checks as insert, update` を選択します。
+最後に、削除権限についてはカスタムチェックの下で `With same custom checks as insert, pre update` を選択します。
 
 ![todos削除権限](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/todos-delete-permission.png)
 

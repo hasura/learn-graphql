@@ -16,7 +16,7 @@ Inside a new directory, run the following command to create a new project:
 hasura3 local init --dir .
 ```
 
-This will init a new project in the current directory by creating an empty `metadata.hsl` file.
+This will init a new project in the current directory by creating an empty `metadata.hml` file.
 
 ## Authenticate your CLI
 

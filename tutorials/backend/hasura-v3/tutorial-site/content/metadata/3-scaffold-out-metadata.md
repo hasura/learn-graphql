@@ -13,7 +13,7 @@ With just a couple of commands, we'll have our entire data layer defined and an 
 In VS Code, press `Command + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows) to open the Command Palette. Type
 `hasura refresh data source` and choose the option that appears.
 
-![Refreshing data source in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-refresh-data-source.png)
+![Refreshing data source in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-refresh-data-source-8e1fdf22272b2fdb134d79ca9aeb07fc.png)
 
 You should now see the name you provided in the previous step. Clicking this will introspect your data source and add
 information to your metadata about the tables and views in your database.
@@ -23,7 +23,7 @@ Hasura VS Code extension. Bring up the command palette again, type `hasura track
 dropdown. Then, select your data source's name and, viola — your metadata file will be populated with **models** and
 everything you need to get started! 🎉
 
-![Tracking all models, relationships, etc. in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-track-everything.png)
+![Tracking all models, relationships, etc. in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-track-everything-b628eb5816a34f898a95e8f5f6af31cc.png)
 
 Models are a new way to represent your data in Hasura.
 
@@ -42,8 +42,8 @@ to the bottom of your metadata:
 ```yaml
 ---
 kind: AuthConfig
-allowRoleEmulationFor: admin
+allowRoleEmulationBy: admin
 webhook:
-  mode: POST
+  mode: Post
   webhookUrl: https://auth.pro.hasura.io/webhook/ddn?role=admin
 ```

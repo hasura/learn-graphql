@@ -17,18 +17,18 @@ responsible for interpreting work to be done on behalf of the Hasura Engine, usi
 source.
 
 Data connectors are available for a number of data sources, including PostgreSQL, MongoDB, ClickHouse, and more. You can
-learn more about them on the [Hasura Data Connector Hub](https://hasura.io/connectors).
+learn more about them on the [Connector Hub](https://hasura.io/connectors).
 
 In this guide, we'll be using the `hasura/postgres` data connector to connect to a PostgreSQL database.
 
-## Create the HasuraHubDataSource kind
+## Create the HasuraHubDataConnector kind
 
-Open your empty `metadata.hml` file and start typing `HasuraHubDataSource`. Hit Enter and the
+Open your empty `metadata.hml` file and start typing `HasuraHubDataConnector`. Hit Enter and the
 [VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) will automatically populate the
 rest of the template for you:
 
 ```yaml
-kind: HasuraHubDataSource
+kind: HasuraHubDataConnector
 name:
 connectorId:
 connectorConfiguration:
@@ -46,10 +46,10 @@ You can tab through and add values for each of the fields:
 | `version`                | The version of your connector. Put `1` for now.                                            |
 | `connection_uris`        | The array of connection strings for your databases. Add your database's connection string. |
 
-A simple, completed `HasuraHubDataSource` kind looks like this:
+A simple, completed `HasuraHubDataConnector` kind looks like this:
 
 ```yaml
-kind: HasuraHubDataSource
+kind: HasuraHubDataConnector
 name: default
 connectorId: hasura/postgres
 connectorConfiguration:
@@ -108,11 +108,11 @@ string for your database, like this:
 postgresql://<USERNAME>:<PASSWORD>@<URL_RETURNED_BY_THE_CLI>/<DATABASE_NAME>
 ```
 
-<!-- ## Secrets
+## Secrets
 
 Optionally, you can utilize **secrets** to store your connection strings. Secrets are a new concept in Hasura that allow
 you to store sensitive information securely. You can quickly create them
-[using the CLI](/ci-cd/cli/commands/cloud-secret-set.mdx) as key-value pairs:
+[using the CLI](https://v3-docs-eny.pages.dev/latest/ci-cd/secrets/) as key-value pairs:
 
 ```bash
 hasura3 cloud secret set --project-id <PROJECT_ID_FROM_PREVIOUS_STEP> <KEY>=<VALUE>
@@ -122,5 +122,5 @@ And then reference the key in your `connection_uris` array:
 
 ```yaml
 connection_uris:
-  - <KEY>
-``` -->
+  - stringValueFromSecret: <KEY>
+```

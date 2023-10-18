@@ -52,7 +52,7 @@ permissions:
       - email
 ```
 
-## Test the user role
+## Test the user role with a new build
 
 As we've made modifications to our metadata, we'll need to create a new build. Like before, run the following to create
 a new build:

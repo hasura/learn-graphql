@@ -4,16 +4,16 @@ metaTitle: 'Data Modeling with Hasura | Hasura GraphQL Tutorial'
 metaDescription: 'This tutorial covers how to do data modeling in PostgreSQL and create tables using Hasura console'
 ---
 
-Hasura allows you to define your entire data model using a single, declarative metadata file. This metadata file is
-written in HML (a Hasura-specific flavor of YAML) and is used to create tables, relationships, permissions, and more.
-This metadata file can be version controlled and modified iteratively, allowing you to easily collaborate with your
-team - and across others - to keep track of changes to your data layer.
+Hasura allows you to define your entire data model using a declarative set of metadata files. This metadata is written
+in HML (a Hasura-specific flavor of YAML) and is used to create tables, relationships, permissions, and more. This
+metadata can be version controlled and modified iteratively, allowing you to easily collaborate with your team - and
+across others - to keep track of changes to your data layer.
 
 ## The Open Data Domain (OpenDD) Specification
 
 We designed the
-[Open Data Domain specification (OpenDD spec)](https://hasura.io/docs/3.0/data-domain-modeling/introduction/) to be a
-simple, authoritative, source-agnostic way to define your entire data layer. The OpenDD spec allows you to create a
+[Open Data Domain specification (OpenDD spec)](https://hasura.io/docs/3.0/latest/data-domain-modeling/introduction/) to
+be a simple, authoritative, source-agnostic way to define your entire data layer. The OpenDD spec allows you to create a
 supergraph of all your data sources, including databases, REST APIs, GraphQL APIs, and more. Within a metadata file
 written according to this specification, you can also quickly and easily define relationships between your data sources,
 create permissions, and more.
@@ -38,3 +38,11 @@ found in the `up.sql` from the [prerequisites](/setup) page:
 
 **Be sure to apply the `up.sql` and then the `table_seeds.sql` files from the [prerequisites](/setup) page before
 continuing.**
+
+If you're unsure how to apply these files, you can use the following commands with
+[psql](https://www.postgresql.org/download/):
+
+```bash
+psql -h localhost -p <PORT> -U <USERNAME> -d <DATABASE_NAME> -a -f up.sql
+psql -h localhost -p <PORT> -U <USERNAME> -d <DATABASE_NAME> -a -f table_seed.sql
+```

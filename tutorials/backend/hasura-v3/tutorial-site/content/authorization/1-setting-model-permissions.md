@@ -44,4 +44,7 @@ permissions:
           sessionVariable: x-hasura-user-id
 ```
 
+When working with your own models, you can leverage the power of the Hasura VS Code extension to generate these
+permissions using autocomplete.
+
 Next, we'll check out how we can restrict access to specific **fields** based on role.

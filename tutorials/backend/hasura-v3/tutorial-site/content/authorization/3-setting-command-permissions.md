@@ -5,9 +5,8 @@ metaDescription:
   'Here, we cover how to set up permissions for the orders and notifications tables for select operations.'
 ---
 
-In Hasura, commands are backed by functions or procedures declared in a `DataSource`. This allows you to utilize
-user-defined functions (UDFs) or stored procedures (SPs) in your database to perform complex operations and expose them
-to your GraphQL API.
+In Hasura, commands are backed by functions or procedures declared in a `DataSource`. You can use these to perform
+complex operations and expose them to your GraphQL API.
 
 ## Create a new function
 
@@ -56,3 +55,9 @@ graphql:
 ```
 
 ## Create the permission
+
+<!-- TODO: Finish out after verifying ☝️ works -->
+
+## Test the permission with a new build
+
+<!-- TODO: Finish out after verifying ☝️☝️ works -->

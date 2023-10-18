@@ -19,11 +19,14 @@ their IDs.
 
 The CLI will return:
 
-- the project ID
-- a build ID
-- a build Version
-- a GraphQL API Endpoint for this build
-- the Console URL for your project
+```text
+ Creating build... ok
+ Project ID            <PROJECT_ID>
+ Build ID              <BUILD_ID>
+ Build Version         <BUILD_VERSION>
+ GraphQL API Endpoint  <GRAPHQL_ENDPOINT_FOR_BUILD>
+ Console URL           <CONSOLE_LINK_FOR_PROJECT>
+```
 
 ## Test your build
 

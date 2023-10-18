@@ -8,6 +8,10 @@ Anyone who's built an API knows that most of the time spent creating it is cente
 to meet security and compliance requirements. Hasura v3 is a powerful tool that allows you to build a production-ready,
 compliant GraphQL API in minutes, not weeks.
 
+Hasura was created to help developers build APIs faster. It's a powerful tool that allows you to build a
+production-ready GraphQL API. Hasura v3 is the latest version of Hasura and is a complete rewrite of the Hasura
+architecture. It's faster, more powerful, and more flexible than ever before.
+
 ## What will I learn? {#what-will-i-learn}
 
 This tutorial is designed to give you a complete overview of Hasura v3 and its capabilities. By the end of this
@@ -15,8 +19,6 @@ tutorial, you will have a working Hasura v3 project deployed to [Hasura DDN](htt
 near-instant data delivery network.
 
 You'll learn how to:
-
-<!-- TODO: ol outcomes -->
 
 1. Create a new Hasura project.
 2. Author a single, declarative metadata file that defines your entire API.
@@ -35,9 +37,10 @@ PostgreSQL database and will be deployed to Hasura DDN.
 
 We'll go into more detail in the next section, but you'll need:
 
-- The new Hasura CLI
-- The Hasura VS Code extension (optional, but recommended)
-- A Hasura Cloud account
+- The new [Hasura CLI](https://hasura.io/docs/3.0/latest/cli/overview/)
+- The [Hasura VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) (optional, but
+  recommended)
+- A [Hasura Cloud](https://cloud.hasura.io/) account
 - A PostgreSQL database (either hosted or local)
 
 ## How long will this tutorial take? {#how-long-will-this-tutorial-take}
@@ -47,4 +50,4 @@ Less than 30 mins.
 ## Additional Resources {#additional-resources}
 
 We'll link to the docs throughout this tutorial, but if you feel like opening them up in a new tab,
-[here](https://hasura.io/docs/3.0) they are.
+[here](https://hasura.io/docs/3.0/) they are.

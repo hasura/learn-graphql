@@ -5,9 +5,34 @@ metaDescription:
   "In this section, we'll cover how to set up permissions for the models called by the user model for select operations."
 ---
 
-One of the greatest benefits of GraphQL is the ability to perform nested queries across types. For this, you can also
-implement permissions. In this section, we'll cover how to set up permissions for the `orders` and `notifications`
-models for select operations so that a user can only see their own orders and notifications — all from a single query!
+One of the greatest benefits of GraphQL is the ability to perform nested queries across types — all from a single query!
+For this, you can also implement permissions.
+
+Imagine wanting to execute the following query:
+
+```graphql
+query GetUsers {
+  users {
+    id
+    name
+    email
+    orders {
+      id
+      created_at
+      status
+      delivery_date
+    }
+    notifications {
+      id
+      message
+      created_at
+      updated_at
+    }
+  }
+}
+```
+
+In order to do this, we'll need to set up permissions for the `orders` and `notifications` models.
 
 ## Orders
 
@@ -135,8 +160,7 @@ You guessed it: create a new build 🚀
 hasura3 cloud build create --project-id <PROJECT_ID> --metadata-file metadata.hml
 ```
 
-Then, run the following query in the Console, ensuring that you have the `x-hasura-role` and `x-hasura-user-id` headers
-set:
+Then, run the query in the Console, ensuring that you have the `x-hasura-role` and `x-hasura-user-id` headers set:
 
 ```graphql
 query GetUsers {

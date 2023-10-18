@@ -6,7 +6,7 @@ metaDescription: "Let's add a data source to our project."
 
 Hasura can connect to a variety of data sources. We understand that your data is likely spread across multiple sources
 with various owners and in a number of different formats. We want to make it easy for you to access all of your data
-from a single GraphQL API. We call this concept the **data supergraph**.
+from a single GraphQL API. We call this concept the [**data supergraph**](https://hasura.io/supergraph).
 
 ## Data Connectors {#data-connectors}
 
@@ -16,7 +16,7 @@ service that exposes a set of APIs which Hasura uses to communicate with the dat
 responsible for interpreting work to be done on behalf of the Hasura Engine, using the native query language of the data
 source.
 
-Data connectors are available for a number of data sources, including PostgreSQL, MongoDB, ClickHouse, and more. You can
+Data connectors are available for a number of data sources, including PostgreSQL, ClickHouse, Qdrant, and more. You can
 learn more about them on the [Connector Hub](https://hasura.io/connectors).
 
 In this guide, we'll be using the `hasura/postgres` data connector to connect to a PostgreSQL database.
@@ -70,7 +70,8 @@ postgresql://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE_NAME>
 ### Local data sources {#local-data-sources}
 
 If you want to connect a local database for development, you can use the new Hasura CLI to create a local daemon and
-securely connect to your database. We call this a **Secure Connect** tunnel.
+securely connect to your database. We call this a **Secure Connect** tunnel. Tunnels are beneficial because they allow
+you to connect your local database to your Hasura project on Hasura DDN without exposing it to the internet.
 
 #### Start your database
 

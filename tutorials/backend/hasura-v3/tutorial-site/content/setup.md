@@ -9,11 +9,9 @@ building your Hasura project.
 
 ## Install the Hasura CLI {#hasura-cli}
 
-<!-- TODO: Update link below -->
-
 We've redesigned the Hasura CLI from the ground up to make it easier to use and more powerful. Follow the
-[install instructions from the docs](#) for your platform. **Please note, this is a new CLI and is not the same as the
-previous version.**
+[install instructions from the docs](https://hasura.io/docs/3.0/latest/cli/installation/) for your platform. **Please
+note, this is a new CLI and is not the same as the previous version.**
 
 ## Install the VS Code extension {#vs-code-extensions}
 
@@ -50,5 +48,3 @@ With Hasura, you can use either a hosted database or a local database.
 If you're using a hosted database, use the files above to create the tables and seed data according to your provider's
 instructions. If you're running a local PostgreSQL database ([such as with Docker](https://hub.docker.com/_/postgres)),
 create the tables and seeds and then start the database.
-
-<!-- TODO: Additionally, add a note if they're wishing to use a local database, they'll need something like PostgreSQL running in Docker -->

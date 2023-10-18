@@ -10,8 +10,8 @@ building your Hasura project.
 ## Install the Hasura CLI {#hasura-cli}
 
 We've redesigned the Hasura CLI from the ground up to make it easier to use and more powerful. Follow the
-[install instructions from the docs](https://hasura.io/docs/3.0/latest/cli/installation/) for your platform. **Please
-note, this is a new CLI and is not the same as the previous version.**
+[install instructions from the docs](https://hasura.io/docs/3.0/cli/installation/) for your platform. **Please note,
+this is a new CLI and is not the same as the previous version.**
 
 ## Install the VS Code extension {#vs-code-extensions}
 

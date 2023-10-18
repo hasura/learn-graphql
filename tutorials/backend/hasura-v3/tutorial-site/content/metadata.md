@@ -12,8 +12,8 @@ across others - to keep track of changes to your data layer.
 ## The Open Data Domain (OpenDD) Specification
 
 We designed the
-[Open Data Domain specification (OpenDD spec)](https://hasura.io/docs/3.0/latest/data-domain-modeling/introduction/) to
-be a simple, authoritative, source-agnostic way to define your entire data layer. The OpenDD spec allows you to create a
+[Open Data Domain specification (OpenDD spec)](https://hasura.io/docs/3.0/data-domain-modeling/introduction/) to be a
+simple, authoritative, source-agnostic way to define your entire data layer. The OpenDD spec allows you to create a
 supergraph of all your data sources, including databases, REST APIs, GraphQL APIs, and more. Within a metadata file
 written according to this specification, you can also quickly and easily define relationships between your data sources,
 create permissions, and more.

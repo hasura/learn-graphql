@@ -10,11 +10,10 @@ from a single GraphQL API. We call this concept the [**data supergraph**](https:
 
 ## Data Connectors {#data-connectors}
 
-To connect to data sources, Hasura utilizes
-[**data connectors**](https://v3-docs-eny.pages.dev/latest/connectors/introduction/). A data connector is an HTTP
-service that exposes a set of APIs which Hasura uses to communicate with the data source. The data connector is
-responsible for interpreting work to be done on behalf of the Hasura Engine, using the native query language of the data
-source.
+To connect to data sources, Hasura utilizes [**data connectors**](https://hasura.io/docs/3.0/connectors/introduction/).
+A data connector is an HTTP service that exposes a set of APIs which Hasura uses to communicate with the data source.
+The data connector is responsible for interpreting work to be done on behalf of the Hasura Engine, using the native
+query language of the data source.
 
 Data connectors are available for a number of data sources, including PostgreSQL, ClickHouse, Qdrant, and more. You can
 learn more about them on the [Connector Hub](https://hasura.io/connectors).
@@ -113,7 +112,7 @@ postgresql://<USERNAME>:<PASSWORD>@<URL_RETURNED_BY_THE_CLI>/<DATABASE_NAME>
 
 Optionally, you can utilize **secrets** to store your connection strings. Secrets are a new concept in Hasura that allow
 you to store sensitive information securely. You can quickly create them
-[using the CLI](https://v3-docs-eny.pages.dev/latest/ci-cd/secrets/) as key-value pairs:
+[using the CLI](https://hasura.io/docs/3.0/ci-cd/secrets/) as key-value pairs:
 
 ```bash
 hasura3 cloud secret set --project-id <PROJECT_ID_FROM_PREVIOUS_STEP> <KEY>=<VALUE>

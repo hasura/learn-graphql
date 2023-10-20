@@ -13,7 +13,7 @@ With just a couple of commands, we'll have our entire data layer defined and an 
 In VS Code, press `Command + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows) to open the Command Palette. Type
 `hasura refresh data source` and choose the option that appears.
 
-![Refreshing data source in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-refresh-data-source-8e1fdf22272b2fdb134d79ca9aeb07fc.png)
+![Refreshing data source in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-refresh-data-source.png)
 
 You should now see the name you provided in the previous step. Clicking this will introspect your data source and add
 information to your metadata about the tables and views in your database.
@@ -23,7 +23,7 @@ Hasura VS Code extension. Bring up the command palette again, type `hasura track
 dropdown. Then, select your data source's name and, viola — your metadata file will be populated with **models** and
 everything you need to get started! 🎉
 
-![Tracking all models, relationships, etc. in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-track-everything-b628eb5816a34f898a95e8f5f6af31cc.png)
+![Tracking all models, relationships, etc. in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-track-everything.png)
 
 Models are a new way to represent your data in Hasura.
 
@@ -36,11 +36,10 @@ operations. You can learn more about models [here](https://hasura.io/docs/3.0/da
 
 To keep your API secure, Hasura requires an `AuthConfig`. This can utilize webhooks or JWTs to authenticate users and
 ensure only the appropriate users can access your data. To keep you from having to set up your own authentication
-platform, Hasura Cloud comes with a built-in auth system that you can use to get started quickly. Add this `AuthConfig`
-to the bottom of your metadata:
+platform, Hasura Cloud comes with a built-in auth system that you can use to get started quickly. This `AuthConfig` is
+provided by default in the metadata file.
 
 ```yaml
----
 kind: AuthConfig
 allowRoleEmulationBy: admin
 webhook:

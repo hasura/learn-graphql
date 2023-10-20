@@ -157,7 +157,7 @@ permissions:
 You guessed it: create a new build 🚀
 
 ```bash
-hasura3 cloud build create --project-id <PROJECT_ID> --metadata-file metadata.hml
+hasura3 cloud build create --project ./hasura.yaml --description "Set nested permissions for users"
 ```
 
 Then, run the query in the Console, ensuring that you have the `x-hasura-role` and `x-hasura-user-id` headers set:

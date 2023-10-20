@@ -58,7 +58,7 @@ As we've made modifications to our metadata, we'll need to create a new build. L
 a new build:
 
 ```bash
-hasura3 cloud build create --project-id <PROJECT_ID> --metadata-file metadata.hml
+hasura3 cloud build create --project ./hasura.yaml --description "Set output permissions for users"
 ```
 
 Head to the [Console](https://console.hasura.io) and select the newest build. With the pre-configured headers, run the

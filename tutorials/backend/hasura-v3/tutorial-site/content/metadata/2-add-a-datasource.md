@@ -22,39 +22,53 @@ In this guide, we'll be using the `hasura/postgres` data connector to connect to
 
 ## Create the HasuraHubDataConnector kind
 
-Open your empty `metadata.hml` file and start typing `HasuraHubDataConnector`. Hit Enter and the
+Open your `metadata.hml` file and start typing `HasuraHubDataConnector`. Hit Enter and the
 [VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) will automatically populate the
-rest of the template for you:
+rest of the template for you: Open your `metadata.hml`, head to the bottom of the file file, add `---` and start typing
+`HasuraHubDataConnector` on a new line. Hit `Enter` and the extension will automatically populate the rest of the
+template for you:
 
 ```yaml
 kind: HasuraHubDataConnector
-name:
-connectorId:
-connectorConfiguration:
-  version:
-  connection_uris:
+version: v1
+definition:
+  name:
+  connectorId:
+  connectorConfiguration:
+    - region:
+      mode:
+      configuration:
+        version:
 ```
 
-You can tab through and add values for each of the fields:
+| Field                    | Description                                                                                                                                              |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                   | The name of your data source. Put `default` for now.                                                                                                     |
+| `connectorId`            | The ID of the connector you want to use. In this example, we'll use `hasura/postgres`.                                                                   |
+| `connectorConfiguration` | List of regional configurations or your data connector. You can specify different configurations for different regions.                                  |
+| `region`                 | Hit `Ctrl + Space` and choose the region that your database is closest to. If you're not sure, just use `gcp-us-east4`.                                  |
+| `mode`                   | This can be `ReadOnly`, `ReadWrite` and `WriteOnly`. In this example, we'll use `ReadWrite`.                                                             |
+| `configuration`          | The configuration for your data source. Contains `version`, `connectionUri`, and other fields.                                                           |
+| `version`                | Version of the data source configuration. We'll use `1`.                                                                                                 |
+| `connectionUri`          | Connection string for your Postgres database which can be a value or a [secret](/ci-cd/secrets.mdx). For this guide, enter your database URL as a value. |
 
-| Field                    | Description                                                                                |
-| ------------------------ | ------------------------------------------------------------------------------------------ |
-| `name`                   | The name of your data source. Put `default` for now.                                       |
-| `connectorId`            | The ID of the connector you want to use. In this example, we'll use `hasura/postgres`.     |
-| `connectorConfiguration` | The configuration for your connector, made up of `version` and `connection_uris`.          |
-| `version`                | The version of your connector. Put `1` for now.                                            |
-| `connection_uris`        | The array of connection strings for your databases. Add your database's connection string. |
-
-A simple, completed `HasuraHubDataConnector` kind looks like this:
+After you add the `connectionUri` information in `HasuraHubDataConnector`, your metadata field should look something
+like this:
 
 ```yaml
 kind: HasuraHubDataConnector
-name: default
-connectorId: hasura/postgres
-connectorConfiguration:
-  version: 1
-  connection_uris:
-    - <YOUR_CONNECTION_STRING>
+version: v1
+definition:
+  name: default
+  connectorId: hasura/postgres
+  connectorConfiguration:
+    - region: gcp-us-east4
+      mode: ReadWrite
+      configuration:
+        version: 1
+        connectionUri:
+          uri:
+            value: <postgres://user:pass@host:port/db>
 ```
 
 ### Hosted data sources {#hosted-data-sources}
@@ -121,6 +135,7 @@ hasura3 cloud secret set --project-id <PROJECT_ID_FROM_PREVIOUS_STEP> <KEY>=<VAL
 And then reference the key in your `connection_uris` array:
 
 ```yaml
-connection_uris:
-  - stringValueFromSecret: <KEY>
+connectionUri:
+  uri:
+    stringValueFromSecret: <KEY>
 ```

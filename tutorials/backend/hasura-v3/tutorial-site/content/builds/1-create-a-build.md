@@ -11,21 +11,24 @@ Once you're satisfied with your metadata's state and want to test it out, you ca
 To create a build, run the following command from directory containing your metadata file:
 
 ```bash
-hasura3 cloud build create --project-id <PROJECT_ID> --metadata-file metadata.hml
+hasura3 cloud build create --project ./hasura.yaml --description "Connect Datasource and track entities"
 ```
 
-If you don't remember your project's ID, you can run `hasura3 cloud project list` to get a list of your projects and
-their IDs.
+Here, we're telling the CLI to create a build for the project defined in `hasura.yaml` and to use the description
+"Connect Datasource and track entities". This description will be visible in the Console and makes it clearer to you and
+your team what this build is for.
 
 The CLI will return:
 
 ```text
- Creating build... ok
- Project ID            <PROJECT_ID>
- Build ID              <BUILD_ID>
- Build Version         <BUILD_VERSION>
- GraphQL API Endpoint  <GRAPHQL_ENDPOINT_FOR_BUILD>
- Console URL           <CONSOLE_LINK_FOR_PROJECT>
+Build ID              <BUILD_ID>
+Build Version         <BUILD_VERSION>
+Project ID            <PROJECT_ID>
+GraphQL API Endpoint  https://<PROJECT_NAME>-<BUILD_VERSION>.ddn.hasura.me/graphql
+Console URL           https://console.arusah.com/project/<PROJECT_ID>/graphql
+FQDN                  <PROJECT_NAME>-<BUILD_VERSION>.ddn.hasura.me
+Environment           default
+Description           Connect Datasource and track entities
 ```
 
 ## Test your build

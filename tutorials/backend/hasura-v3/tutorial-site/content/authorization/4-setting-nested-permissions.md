@@ -38,71 +38,95 @@ In order to do this, we'll need to set up permissions for the `orders` and `noti
 
 ### ModelSelectPermissions
 
-Begin by finding the `ModelSelectPermissions` for your `orders` table:
+Begin by finding the `ModelPermissions` for your `orders` table:
 
 ```yaml
-kind: ModelSelectPermissions
-modelName: orders
-permissions:
-  admin:
-    filter: null
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: orders
+  permissions:
+    - role: admin
+      select:
+        filter: null
 ```
 
 We'll add a filter to compare the `x-hasura-user-id` session variable to the `user_id` field on the `orders` table.
 
-The complete `ModelSelectPermissions` for `orders` should look like this:
+The complete `ModelPermissions` for `orders` should look like this:
 
 ```yaml
-kind: ModelSelectPermissions
-modelName: orders
-permissions:
-  admin:
-    filter: null
-  user:
-    filter:
-      fieldComparison:
-        field: user_id
-        operator: _eq
-        value:
-          sessionVariable: x-hasura-user-id
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: orders
+  permissions:
+    - role: admin
+      select:
+        filter: null
+    - role: user
+      select:
+        filter:
+          fieldComparison:
+            field: user_id
+            operator: _eq
+            value:
+              sessionVariable: x-hasura-user-id
 ```
 
-### TypeOutputPermissions
+### TypePermissions
 
-You can search for the `TypeOutputPermissions` for your `orders` table:
+You can search for the `TypePermissions` for your `orders` table:
 
 ```yaml
-kind: TypeOutputPermissions
-typeName: orders
+kind: TypePermissions
+version: v1
+definition:
+  typeName: orders
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - delivery_date
+          - id
+          - is_reviewed
+          - product_id
+          - status
+          - updated_at
+          - user_id
 ```
 
-We'll let the user see all fields for their orders, so our final `TypeOutputPermissions` for `orders` should look like
-this:
+We'll let the user see all fields for their orders, so our final `TypePermissions` for `orders` should look like this:
 
 ```yaml
-kind: TypeOutputPermissions
-typeName: orders
-permissions:
-  admin:
-    fields:
-      - created_at
-      - delivery_date
-      - id
-      - is_reviewed
-      - product_id
-      - status
-      - updated_at
-      - user_id
-  user:
-    fields:
-      - created_at
-      - delivery_date
-      - id
-      - is_reviewed
-      - product_id
-      - status
-      - updated_at
-      - user_id
+kind: TypePermissions
+version: v1
+definition:
+  typeName: orders
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - delivery_date
+          - id
+          - is_reviewed
+          - product_id
+          - status
+          - updated_at
+          - user_id
+    - role: user
+      output:
+        allowedFields:
+          - created_at
+          - delivery_date
+          - id
+          - is_reviewed
+          - product_id
+          - status
+          - updated_at
+          - user_id
 ```
 
 ## Notifications
@@ -111,45 +135,53 @@ We'll repeat the process for our `notifications` table:
 
 ## ModelSelectPermissions
 
-After modifying the `ModelSelectPermissions` for your `notifications` table, it should look like this:
+After modifying the `ModelPermissions` for your `notifications` table, it should look like this:
 
 ```yaml
-kind: ModelSelectPermissions
-modelName: notifications
-permissions:
-  admin:
-    filter: null
-  user:
-    filter:
-      fieldComparison:
-        field: user_id
-        operator: _eq
-        value:
-          sessionVariable: x-hasura-user-id
+kind: ModelPermissions
+version: v1
+definition:
+  modelName: notifications
+  permissions:
+    - role: admin
+      select:
+        filter: null
+    - role: user
+      select:
+        filter:
+          fieldComparison:
+            field: user_id
+            operator: _eq
+            value:
+              sessionVariable: x-hasura-user-id
 ```
 
-## TypeOutputPermissions
+## TypePermissions
 
-Finally, we'll modify the `TypeOutputPermissions` for our `notifications` table:
+Finally, we'll modify the `TypePermissions` for our `notifications` table:
 
 ```yaml
-kind: TypeOutputPermissions
-typeName: notifications
-permissions:
-  admin:
-    fields:
-      - created_at
-      - id
-      - message
-      - updated_at
-      - user_id
-  user:
-    fields:
-      - created_at
-      - id
-      - message
-      - updated_at
-      - user_id
+kind: TypePermissions
+version: v1
+definition:
+  typeName: notifications
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - id
+          - message
+          - updated_at
+          - user_id
+    - role: user
+      output:
+        allowedFields:
+          - created_at
+          - id
+          - message
+          - updated_at
+          - user_id
 ```
 
 ## Test the new permissions

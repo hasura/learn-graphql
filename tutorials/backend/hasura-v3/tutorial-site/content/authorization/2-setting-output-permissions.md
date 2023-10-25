@@ -1,55 +1,62 @@
 ---
-title: 'Create Type Output Permissions'
+title: 'Create Type Permissions'
 metaTitle: 'Create users table permissions | Hasura v3 Tutorial'
 metaDescription: "In this section, we'll cover how to set up permissions for the users table for select operations."
 ---
 
-We can also set permissions for which fields a role can access by setting `TypeOutputPermissions`.
+We can also set permissions for which fields a role can access by setting `TypePermissions`.
 
 ## Set fields for the user role
 
 Begin by finding this section of your `metadata.hml`:
 
 ```yaml
-kind: TypeOutputPermissions
-typeName: users
-permissions:
-  admin:
-    fields:
-      - created_at
-      - email
-      - id
-      - is_email_verified
-      - last_seen
-      - name
-      - password
-      - updated_at
+kind: TypePermissions
+version: v1
+definition:
+  typeName: users
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - email
+          - id
+          - is_email_verified
+          - last_seen
+          - name
+          - password
+          - updated_at
 ```
 
 As we can see, the `admin` role has access to all fields. We'll create a new role called `user` and only allow them to
 access the `id`, `name`, and `email` fields.
 
-Our complete `TypeOutputPermissions` section for the `users` type should look like this:
+Our complete `TypePermissions` section for the `users` type should look like this:
 
 ```yaml
-kind: TypeOutputPermissions
-typeName: users
-permissions:
-  admin:
-    fields:
-      - created_at
-      - email
-      - id
-      - is_email_verified
-      - last_seen
-      - name
-      - password
-      - updated_at
-  user:
-    fields:
-      - id
-      - name
-      - email
+kind: TypePermissions
+version: v1
+definition:
+  typeName: users
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - created_at
+          - email
+          - id
+          - is_email_verified
+          - last_seen
+          - name
+          - password
+          - updated_at
+    - role: user
+      output:
+        allowedFields:
+          - email
+          - id
+          - name
 ```
 
 ## Test the user role with a new build
@@ -58,7 +65,7 @@ As we've made modifications to our metadata, we'll need to create a new build. L
 a new build:
 
 ```bash
-hasura3 cloud build create --project ./hasura.yaml --description "Set output permissions for users"
+hasura3 cloud build create --project ./hasura.yaml --description "Set type permissions for users"
 ```
 
 Head to the [Console](https://console.hasura.io) and select the newest build. With the pre-configured headers, run the

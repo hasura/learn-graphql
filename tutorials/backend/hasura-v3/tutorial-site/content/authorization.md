@@ -18,10 +18,10 @@ Model permissions allow you to control which roles can access which collections 
 to ensure that anonymous users can't access sensitive data, or that only admins can access certain collections (tables,
 documents, etc.).
 
-## Output permissions
+## Type permissions
 
-Output permissions allow you to control which fields from models are returned to which roles. You can use these to
-ensure that users can only access editable fields, or that only admins can access sensitive fields of a particular type.
+Type permissions allow you to control which fields from models are returned to which roles. You can use these to ensure
+that users can only access editable fields, or that only admins can access sensitive fields of a particular type.
 
 ## Command permissions
 

@@ -10,7 +10,7 @@ One of the most time-consuming parts of building an application is implementing 
 allowing you to write access control rules declaratively in your metadata. This allows you to define who can access what
 data in your database, right down to the row and column level.
 
-We break down authorization into three sets of permissions:
+We break down authorization into two main sets of permissions:
 
 ## Model permissions
 
@@ -22,8 +22,3 @@ documents, etc.).
 
 Type permissions allow you to control which fields from models are returned to which roles. You can use these to ensure
 that users can only access editable fields, or that only admins can access sensitive fields of a particular type.
-
-## Command permissions
-
-Command permissions focus on custom code and functions or procedures that can be run on your database. You can use these
-to ensure that only admins can execute certain code or functions.

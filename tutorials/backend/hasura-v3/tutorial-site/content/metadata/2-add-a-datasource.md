@@ -22,11 +22,11 @@ In this guide, we'll be using the `hasura/postgres` data connector to connect to
 
 ## Create the HasuraHubDataConnector kind
 
-Open your `metadata.hml` file and start typing `HasuraHubDataConnector`. Hit Enter and the
-[VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) will automatically populate the
-rest of the template for you: Open your `metadata.hml`, head to the bottom of the file file, add `---` and start typing
-`HasuraHubDataConnector` on a new line. Hit `Enter` and the extension will automatically populate the rest of the
-template for you:
+Inside the `/subgraphs/default/dataconnectors` directory, create a new file called `app.hml`. This directory will
+contain the configuration for your data source. We'll use this file to connect to a PostgreSQL database.
+
+Then, start typing `HasuraHubDataConnector` on a new line. Hit `Enter` and the extension will automatically populate the
+rest of the template for you:
 
 ```yaml
 kind: HasuraHubDataConnector
@@ -99,7 +99,7 @@ docker run -d --name <DATABASE_NAME> -e POSTGRES_PASSWORD=<YOUR_PASSWORD> -p 543
 Start the Hasura daemon with the `daemon start` command:
 
 ```bash
-hasura3 local daemon start
+hasura3 daemon start
 ```
 
 The daemon will block this window while it runs.
@@ -109,7 +109,7 @@ The daemon will block this window while it runs.
 Open a new tab or window for your terminal and run the `create` command:
 
 ```bash
-hasura3 cloud tunnel create <SOCKET>
+hasura3 tunnel create <SOCKET>
 ```
 
 The `<SOCKET>` argument is the address of your local database. For example, if you are running a local PostgreSQL
@@ -129,7 +129,7 @@ you to store sensitive information securely. You can quickly create them
 [using the CLI](https://hasura.io/docs/3.0/ci-cd/secrets/) as key-value pairs:
 
 ```bash
-hasura3 cloud secret set --project-id <PROJECT_ID_FROM_PREVIOUS_STEP> <KEY>=<VALUE>
+hasura3 secret set --project-id <PROJECT_ID_FROM_PREVIOUS_STEP> <KEY>=<VALUE>
 ```
 
 And then reference the key in your `connection_uris` array:
@@ -139,3 +139,19 @@ connectionUri:
   uri:
     stringValueFromSecret: <KEY>
 ```
+
+## Introspect your data source
+
+With our data source connected, the VS Code extension can easily introspect it and generate metadata for us. This takes
+the boilerplate tasks of creating types and relationships off your hands and lets you focus on the work that matters.
+With just a couple of commands, we'll have our entire data layer defined and an API ready to go 🚀
+
+In VS Code, with the `app.hml` file open, press `Command + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows) to open the
+Command Palette. Type `hasura refresh data source` and choose the option that appears.
+
+![Refreshing data source in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-refresh-data-source.png)
+
+You should now see the name you provided in the previous step. Clicking this will introspect your data source and add
+information to your metadata about the tables and views in your database 🎉
+
+Next, we'll create `hml` files for each of our tables and add them to the `models` directory in the `default` subgraph.

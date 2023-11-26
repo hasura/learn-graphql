@@ -13,7 +13,7 @@ worldwide.
 You can apply a build by running the following command:
 
 ```bash
-hasura3 cloud build apply --project-id <PROJECT_ID> --build-id <BUILD_ID>
+hasura3 build apply --project <PROJECT_NAME> --version <BUILD_VERSION>
 ```
 
 When you run this command, the selected build will be promoted to production and accessible via your project's endpoint

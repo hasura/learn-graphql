@@ -11,7 +11,7 @@ Once you're satisfied with your metadata's state and want to test it out, you ca
 To create a build, run the following command from directory containing your metadata file:
 
 ```bash
-hasura3 cloud build create --project ./hasura.yaml --description "Connect Datasource and track entities"
+hasura3 build create -d "Connect Datasource and track entities"
 ```
 
 Here, we're telling the CLI to create a build for the project defined in `hasura.yaml` and to use the description
@@ -21,14 +21,23 @@ your team what this build is for.
 The CLI will return:
 
 ```text
-Build ID              <BUILD_ID>
-Build Version         <BUILD_VERSION>
-Project ID            <PROJECT_ID>
-GraphQL API Endpoint  https://<PROJECT_NAME>-<BUILD_VERSION>.ddn.hasura.me/graphql
-Console URL           https://console.arusah.com/project/<PROJECT_ID>/graphql
-FQDN                  <PROJECT_NAME>-<BUILD_VERSION>.ddn.hasura.me
-Environment           default
-Description           Connect Datasource and track entities
++---------------+------------------------------------------------------------+
+| Build ID      | <BUILD_ID>                                                 |
++---------------+------------------------------------------------------------+
+| Build Version | <BUILD_VERSION>                                            |
++---------------+------------------------------------------------------------+
+| Build URL     | https://<PROJECT_NAME_AND_BUILD_ID>.ddn.hasura.app/graphql |
++---------------+------------------------------------------------------------+
+| Project Id    | <PROJECT_ID>                                               |
++---------------+------------------------------------------------------------+
+| Console Url   | https://console.hasura.io/project/<PROJECT_NAME>/graphql   |
++---------------+------------------------------------------------------------+
+| FQDN          | <PROJECT_NAME_AND_BUILD_ID_STUB>.ddn.hasura.app            |
++---------------+------------------------------------------------------------+
+| Environment   | default                                                    |
++---------------+------------------------------------------------------------+
+| Description   | Connect Datasource and track entities                      |
++---------------+------------------------------------------------------------+
 ```
 
 ## Test your build
@@ -59,6 +68,9 @@ query OrdersQuery {
 You should see a response like this:
 
 ![A working query in the Hasura DDN Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/working-query-console.png)
+
+If you're having trouble with your query, check to ensure you've defined all of your relationships correctly. Any red
+lines under a field in the GraphiQL Explorer indicate that there's an issue with your metadata.
 
 From here, you can either continue to iterate on your metadata, or apply this build to your project's production
 endpoint.

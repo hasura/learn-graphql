@@ -9,7 +9,7 @@ only allow users to see their own information.
 
 ## Create a user role {#model-permissions}
 
-Begin by finding the following section in `metadata.hml`:
+Begin by finding the following section in `/subgraphs/default/models/users.hml`:
 
 ```yaml
 kind: ModelPermissions

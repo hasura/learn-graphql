@@ -8,7 +8,7 @@ We can also set permissions for which fields a role can access by setting `TypeP
 
 ## Set fields for the user role
 
-Begin by finding this section of your `metadata.hml`:
+Begin by finding this section of your `/subgraphs/default/models/users.hml`:
 
 ```yaml
 kind: TypePermissions
@@ -65,7 +65,7 @@ As we've made modifications to our metadata, we'll need to create a new build. L
 a new build:
 
 ```bash
-hasura3 cloud build create --project ./hasura.yaml --description "Set type permissions for users"
+hasura3 build create -d "Set type permissions for users"
 ```
 
 Head to the [Console](https://console.hasura.io) and select the newest build. With the pre-configured headers, run the

@@ -1,7 +1,7 @@
 ---
 title: 'Metadata'
 metaTitle: 'Data Modeling with Hasura | Hasura GraphQL Tutorial'
-metaDescription: 'This tutorial covers how to do data modeling in PostgreSQL and create tables using Hasura console'
+metaDescription: 'This tutorial covers how to do data modeling in PostgreSQL and create tables'
 ---
 
 Hasura allows you to define your entire data model using a declarative set of metadata files. This metadata is written

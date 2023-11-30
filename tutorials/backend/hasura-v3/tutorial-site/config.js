@@ -1,6 +1,6 @@
 const config = {
   gatsby: {
-    pathPrefix: '/learn/graphql/hasura',
+    pathPrefix: '/learn/graphql/hasura-v3',
     siteUrl: 'https://hasura.io',
     gaTrackingId: 'GTM-WBBW2LN',
     trailingSlash: true,

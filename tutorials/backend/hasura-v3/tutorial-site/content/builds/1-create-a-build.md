@@ -6,9 +6,18 @@ metaDescription: 'Learn how to create a build in Hasura v3.'
 
 Once you're satisfied with your metadata's state and want to test it out, you can create a build.
 
+## Using watch mode
+
+If you're using `hasura3 watch`, your build was generated for you when you imported all of your models. You can find the
+output of your build in the terminal window where you ran `hasura3 watch`. You can skip ahead to the
+[test your build](#test-your-build) section below.
+
+**Note: If you're using watch mode and see an error in the build, try killing the process and restarting it.**
+
 ## Create a build
 
-To create a build, run the following command from directory containing your metadata file:
+Alternatively, if you'd like to see the manual steps involved in creating a build, run the following command from
+directory containing your metadata file:
 
 ```bash
 hasura3 build create -d "Connect Datasource and track entities"
@@ -40,7 +49,7 @@ The CLI will return:
 +---------------+------------------------------------------------------------+
 ```
 
-## Test your build
+## Test your build {#test-your-build}
 
 Head to the [Console](https://console.hasura.io) URL returned by the CLI. You'll be prompted to log in. Once you're
 logged in, you'll be taken to the GraphiQL Explorer, where you can execute queries against your API. Try running the

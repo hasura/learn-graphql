@@ -8,6 +8,10 @@ Applying a build means that it's being promoted to your project's production end
 which allows you to quickly iterate — and, if needed, roll back — your project's metadata to all of your users,
 worldwide.
 
+## Using watch mode
+
+If you're using `hasura3 watch`, your latest build is always automatically applied to your project's endpoint.
+
 ## Apply a build
 
 You can apply a build by running the following command:

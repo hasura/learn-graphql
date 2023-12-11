@@ -10,11 +10,10 @@ to create your project so that you can easily version control your metadata.
 
 ## Authenticate your CLI
 
-To authenticate your CLI, run the following command while passing the PAT you generated earlier on
-[Hasura Cloud](https://cloud.hasura.io/account-settings/access-tokens):
+If you didn't do so before, to authenticate your CLI, run the following command:
 
 ```bash
-hasura3 login --pat <YOUR_PAT>
+hasura3 login
 ```
 
 ## Create a new project {#create-a-new-project}

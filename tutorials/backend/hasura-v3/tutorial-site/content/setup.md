@@ -21,12 +21,16 @@ to instantly scaffold out your metadata using the Open Data Domain Specification
 You can download the extension from the
 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura).
 
-## Create a PAT using your Hasura Cloud account {#hasura-cloud-account}
+## Authenticate your CLI {#cli-auth}
 
-To authenticate your CLI to our network, you'll need to create a PAT (personal access token) using your Hasura Cloud
-account. You can navigate to
-[https://cloud.hasura.io/account-settings/access-tokens](https://cloud.hasura.io/account-settings/access-tokens) to
-create a new PAT.
+To authenticate your CLI to our network, run the following command:
+
+```bash
+hasura3 login
+```
+
+This will open a browser window where you can log in with your Hasura account. Once you've logged in, you can close the
+browser window and return to your terminal.
 
 ## Download the Sample data {#sample-data}
 

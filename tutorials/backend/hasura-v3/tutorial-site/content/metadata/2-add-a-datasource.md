@@ -20,56 +20,26 @@ learn more about them on the [Connector Hub](https://hasura.io/connectors).
 
 In this guide, we'll be using the `hasura/postgres` data connector to connect to a PostgreSQL database.
 
-## Create the HasuraHubDataConnector kind
+## Connect to your data source {#connect-to-your-data-source}
 
-Inside the `/subgraphs/default/dataconnectors` directory, create a new file called `app.hml`. This directory will
-contain the configuration for your data source. We'll use this file to connect to a PostgreSQL database.
+The Hasura CLI makes it easy to connect to your data source. You can use the `metadata add-hub-connector` command to
+connect to a data source from the connector hub.
 
-Then, start typing `HasuraHubDataConnector` on a new line. Hit `Enter` and the extension will automatically populate the
-rest of the template for you:
+When you run the command below, the CLI will generate a `.env` file in your project's root directory with the connection
+string for your data source. It will then create a new subdirectory in the `default` subgraph's `dataconnectors`
+directory with the connection information in a file named after the value you pass immediately after the
+`add-hub-connector` command (`pg_db` in the example below):
 
-```yaml
-kind: HasuraHubDataConnector
-version: v1
-definition:
-  name:
-  connectorId:
-  connectorConfiguration:
-    - region:
-      mode:
-      configuration:
-        version:
+```bash
+hasura3 metadata add-hub-connector pg_db --dir . --subgraph default --id hasura/postgres --url <DATABASE_URL>
 ```
 
-| Field                    | Description                                                                                                                                              |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                   | The name of your data source. Put `default` for now.                                                                                                     |
-| `connectorId`            | The ID of the connector you want to use. In this example, we'll use `hasura/postgres`.                                                                   |
-| `connectorConfiguration` | List of regional configurations or your data connector. You can specify different configurations for different regions.                                  |
-| `region`                 | Hit `Ctrl + Space` and choose the region that your database is closest to. If you're not sure, just use `gcp-us-east4`.                                  |
-| `mode`                   | This can be `ReadOnly`, `ReadWrite` and `WriteOnly`. In this example, we'll use `ReadWrite`.                                                             |
-| `configuration`          | The configuration for your data source. Contains `version`, `connectionUri`, and other fields.                                                           |
-| `version`                | Version of the data source configuration. We'll use `1`.                                                                                                 |
-| `connectionUri`          | Connection string for your Postgres database which can be a value or a [secret](/ci-cd/secrets.mdx). For this guide, enter your database URL as a value. |
+We're passing a few flags to this command:
 
-After you add the `connectionUri` information in `HasuraHubDataConnector`, your metadata field should look something
-like this:
-
-```yaml
-kind: HasuraHubDataConnector
-version: v1
-definition:
-  name: default
-  connectorId: hasura/postgres
-  connectorConfiguration:
-    - region: gcp-us-east4
-      mode: ReadWrite
-      configuration:
-        version: 1
-        connectionUri:
-          uri:
-            value: <postgres://user:pass@host:port/db>
-```
+- `--dir .` tells the CLI to use the current directory as the project directory.
+- `--subgraph default` tells the CLI to add the data source to the default
+  [subgraph](https://hasura.io/docs/3.0/ci-cd/subgraphs/).
+- `--id hasura/postgres` tells the CLI to use the `hasura/postgres` connector from the connector hub.
 
 ### Hosted data sources {#hosted-data-sources}
 
@@ -142,16 +112,25 @@ connectionUri:
 
 ## Introspect your data source
 
-With our data source connected, the VS Code extension can easily introspect it and generate metadata for us. This takes
-the boilerplate tasks of creating types and relationships off your hands and lets you focus on the work that matters.
-With just a couple of commands, we'll have our entire data layer defined and an API ready to go 🚀
+With our data source connected, the CLI can easily introspect it and generate metadata for us. This takes the
+boilerplate tasks of creating types and relationships off your hands and lets you focus on the work that matters. With
+just a couple of commands, we'll have our entire data layer defined and an API ready to go 🚀
 
-In VS Code, with the `app.hml` file open, press `Command + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows) to open the
-Command Palette. Type `hasura refresh data source` and choose the option that appears.
+The `hasura3 watch` command will watch your project directory for changes and automatically apply them to your Hasura
+project. This is useful for development because it allows you to make changes to your project and see them reflected in
+your Hasura project without having to manually apply them.
 
-![Refreshing data source in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-refresh-data-source.png)
+```bash
+hasura3 watch --dir .
+```
 
-You should now see the name you provided in the previous step. Clicking this will introspect your data source and add
-information to your metadata about the tables and views in your database 🎉
+A daemon will start that will watch your project directory for changes. You can stop the daemon by pressing `Ctrl + C`.
+**It's important to note: if you're using a tunnel, you'll need to kill that process before starting `hasura3 watch`, as
+`watch` will take care of creating a tunnel for you.**
+
+![Refreshing data source in VS Code](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.2_vs-code-refresh-data-source.png)
+
+If you head to the `pg_db.hml` file in the `dataconnectors` directory, you'll see that the CLI has added information to
+your metadata about the tables and views in your database 🎉
 
 Next, we'll create `hml` files for each of our tables and add them to the `models` directory in the `default` subgraph.

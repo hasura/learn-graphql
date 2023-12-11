@@ -61,8 +61,8 @@ definition:
 
 ## Test the user role with a new build
 
-As we've made modifications to our metadata, we'll need to create a new build. Like before, run the following to create
-a new build:
+As we've made modifications to our metadata, we'll need to create a new build if not using watch mode. Like before, run
+the following to create a new build:
 
 ```bash
 hasura3 build create -d "Set type permissions for users"

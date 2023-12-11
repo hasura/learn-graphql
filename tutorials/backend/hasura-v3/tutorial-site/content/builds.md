@@ -15,3 +15,7 @@ production.
 A typical workflow will see you create a build, test it, and then apply it to production. If you need to make changes,
 you can create a new build and apply that to production instead. This workflow allows for easier rollbacks on
 production, and greater collaboration during development.
+
+Additionally, for ease in development, the `hasura3 watch` command will watch your project directory for changes and
+automatically create a new build when it detects a change. This allows you to quickly iterate on your project's metadata
+and shorten feedback loops.

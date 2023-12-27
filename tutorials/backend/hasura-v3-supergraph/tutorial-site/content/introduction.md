@@ -1,37 +1,47 @@
 ---
 title: 'Course Introduction'
-metaTitle: 'Course Introduction | Hasura v3 Tutorial'
-metaDescription: 'A powerful and concise tutorial that will introduce you to Hasura v3 and its concepts.'
+metaTitle: 'Course Introduction | Hasura v3 Supergraph Modeling Tutorial'
+metaDescription:
+  'A powerful and comprehensive tutorial that will introduce you Hasura v3 supergraph modeling and its core concepts.'
 ---
 
-Anyone who's built an API knows that most of the time spent creating it is centered around writing access control rules
-to meet security and compliance requirements. Hasura v3 is a powerful tool that allows you to build a production-ready,
-compliant GraphQL API in minutes, not weeks.
-
-Hasura was created to help developers build APIs faster. It's a powerful tool that allows you to build a
-production-ready GraphQL API. Hasura v3 is the latest version of Hasura and is a complete rewrite of the Hasura
-architecture. It's faster, more powerful, and more flexible than ever before.
+Delve into the world of supergraphs with our comprehensive course designed for modern API developers. Supergraphs
+represent a breakthrough in API design, offering a unified, interconnected data layer from various subgraphs. In this
+course, you will learn the intricacies of building subgraphs, connecting them to your data supergraph using Hasura’s
+versatile data connectors, and infusing them with custom business logic to work seamlessly across teams.
 
 ## What will I learn? {#what-will-i-learn}
 
-This tutorial is designed to give you a complete overview of Hasura v3 and its capabilities. By the end of this
-tutorial, you will have a working Hasura v3 project deployed to [Hasura DDN](https://console.hasura.io), our global and
-near-instant data delivery network.
+This tutorial is designed to give you a complete overview of how to model and architect a data supergraph using Hasura
+v3. By the end of this tutorial, you will have a working supergraph — complete with separate subgraphs that include
+relational data sources and custom business logic hosted by Hasura — deployed to
+[Hasura DDN](https://console.hasura.io), our global and near-instant data delivery network.
 
 You'll learn how to:
 
-1. Create a new Hasura project.
-2. Author a single, declarative metadata file that defines your entire API.
-3. Connect a data source using Hasura's data connectors.
-4. Configure fine-grained access control rules for your API.
-5. Deploy a development build of your API to Hasura DDN.
-6. Test your API using the Hasura Console.
-7. Deploy a production build of your API to Hasura DDN.
+1. Identify subgraphs in an organization.
+1. Understand the concept of a supergraph.
+1. Create relationships across models in subgraphs.
+1. Create environments for a DDN project.
+1. Create build profiles for individual subgraphs (teams).
+1. Test changes to a subgraph with other production supergraph metadata.
+1. Add custom business logic using the TypeScript connector.
+1. Use watch mode to develop custom business logic and get instant feedback in your API.
+1. Deploy a custom connector to Hasura DDN.
+1. Identify possible relationships between models and types.
+1. Understand the components of the command type.
+1. Create relationships with the aid of LSP.
 
 ## What will we be building? {#what-will-we-be-building}
 
-We'll build an e-commerce API that allows users to manage their orders and notifications. The API will be backed by a
-PostgreSQL database and will be deployed to Hasura DDN.
+We'll build an e-commerce supergraph that mimics the real world by simulating a series of development teams that must
+work collaboratively to build their subgraphs independently. Each team will be responsible for a subgraph that
+represents a different part of the e-commerce application. Our teams are:
+
+- User Experience
+- Product Management
+- Payment Processing
+- Fulfillment Services
 
 ## What do I need to take this tutorial? {#what-do-i-need-to-take-this-tutorial}
 
@@ -40,11 +50,13 @@ We'll go into more detail in the next section, but you'll need:
 - The new [Hasura CLI](https://hasura.io/docs/3.0/cli/overview/)
 - The [Hasura VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) (optional, but
   recommended)
-- A PostgreSQL database (either hosted or local)
+- A Hasura DDN account
+- Docker
+- Completion of the [Hasura Basics v3 course](https://hasura.io/learn/graphql/hasura-v3/introduction/)
 
 ## How long will this tutorial take? {#how-long-will-this-tutorial-take}
 
-Less than 30 mins.
+About 90 mins.
 
 ## Additional Resources {#additional-resources}
 

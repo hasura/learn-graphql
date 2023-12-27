@@ -1,11 +1,11 @@
 ---
 title: 'Prerequisites'
-metaTitle: 'Prerequisites | Hasura v3 Tutorial'
-metaDescription: "We'll cover everything you need to know to get started with Hasura."
+metaTitle: 'Prerequisites | Hasura v3 Supergraph Tutorial'
+metaDescription: "We'll cover everything you need to know to get started with building your supergraph."
 ---
 
-After getting this page sorted, you'll be off to the races. This set of one-time setup steps will get you ready to start
-building your Hasura project.
+After getting this page sorted, you'll be ready to develop your first supergraph. This set of one-time setup steps will
+get you ready to start building.
 
 ## Install the Hasura CLI {#hasura-cli}
 
@@ -32,23 +32,35 @@ hasura3 login
 This will open a browser window where you can log in with your Hasura account. Once you've logged in, you can close the
 browser window and return to your terminal.
 
-## Download the Sample data {#sample-data}
+## Clone the sample repository {#sample-data}
 
-Finally, you'll need the sample data we'll be using for this tutorial. We're using a PostgreSQL database for this
-tutorial, and you can use the initial `up.sql` file to create the tables:
-
-```bash
-curl https://raw.githubusercontent.com/hasura/docs-sample-app/main/migrations/default/1669033533483_init/up.sql -o up.sql
-```
-
-And then you can use the `tables_seed.sql` file to populate the tables with some sample data:
+Finally, you'll need the sample data we'll be using for this tutorial. We have a series of PostgreSQL databases that
+will act as the data sources for our supergraph. You can clone the repository with the following command:
 
 ```bash
-curl https://raw.githubusercontent.com/hasura/docs-sample-app/main/seeds/default/tables_seed.sql -o tables_seed.sql
+git clone https://github.com/hasura/supergraph-learn-course-assets.git
 ```
 
-With Hasura, you can use either a hosted database or a local database.
+This repository contains a docker-compose file that will spin up the databases we'll be using. To start the databases,
+run the following command from the root of the repository:
 
-If you're using a hosted database, use the files above to create the tables and seed data according to your provider's
-instructions. If you're running a local PostgreSQL database ([such as with Docker](https://hub.docker.com/_/postgres)),
-create the tables and seeds and then start the database.
+```bash
+docker-compose up -d
+```
+
+This will build your containers, populate your databases, and run them in the background. You can verify that the
+databases are running by running the following command:
+
+```bash
+docker ps
+```
+
+You should see the following output:
+
+```bash
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                    NAMES
+f99183fa1a20   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:5432->5432/tcp   supergraph-course-db_product_management-1
+560c830b4885   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:5434->5432/tcp   supergraph-course-db_payment_processing-1
+8c30b8382907   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:5433->5432/tcp   supergraph-course-db_user_experience-1
+02902d925779   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:5435->5432/tcp   supergraph-course-db_fulfillment_services-1
+```

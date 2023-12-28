@@ -64,3 +64,23 @@ f99183fa1a20   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2
 8c30b8382907   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:5433->5432/tcp   supergraph-course-db_user_experience-1
 02902d925779   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:5435->5432/tcp   supergraph-course-db_fulfillment_services-1
 ```
+
+## Create a new Hasura project {#new-project}
+
+From the root of this repository, run the following command to create a new Hasura project:
+
+```bash
+hasura3 init --dir .
+```
+
+Choose the option for creating a new project. This will create all the configuration files and scaffold out your
+metadata. It will also create a `default` subgraph that we'll learn about in our first lesson.
+
+## Start watch mode {#watch-mode}
+
+Finally, we'll start the CLI in watch mode so that it will automatically apply our metadata changes to our Hasura
+instance. From the root of the repository, run the following command:
+
+```bash
+hasura3 watch
+```

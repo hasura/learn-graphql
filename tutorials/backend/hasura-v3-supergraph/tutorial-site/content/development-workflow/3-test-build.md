@@ -85,3 +85,5 @@ query OrdersQuery {
 
 While this query's authorization logic will succeed in the `fulfillment-dev` environment, it won't be acknowledged in
 the `default` environment because the `user` role doesn't exist there.
+
+In our next lesson, we'll examine how to deploy our changes to production.

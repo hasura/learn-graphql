@@ -34,7 +34,7 @@ hasura3 metadata add-hub-connector pg_db --dir . --subgraph product_management -
 
 ### Add the subgraph to the default build profile
 
-Make the `subgraphs` section of our `build-profile.yaml` in the root of the project should look like this:
+Make the `subgraphs` section of our `build-profile.yaml` in the root of the project look like this:
 
 ```yaml
 # other configuration above
@@ -67,12 +67,7 @@ Bring up the command palette and type `Hasura track all`, then select the comman
 data source to use. Select `pg_db` for the data source and `product_management` for the subgraph and your models will be
 automatically created along with a new build on the default environment.
 
-We can now navigate to our project's Console and see the new subgraph and data source. Our `Explorer` should look like
-this:
-
-<!-- TODO: Add screenshot -->
-
-We can also query data in our `product_management` subgraph using our API:
+We can now navigate to our project's Console and query data in our `product_management` subgraph using our API:
 
 ```graphql
 query ProductsAndSupplierQuery {
@@ -158,6 +153,6 @@ use. Select `pg_db` for the data source and `fulfillment_services` for the subgr
 
 At this point, your supergraph should look like this:
 
-<!-- TODO: Add screenshot -->
+![Supergraph without relationships](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/supergraph-course/supegraph-without-relationships.png)
 
 In the next section, we'll create relationships between our subgraphs.

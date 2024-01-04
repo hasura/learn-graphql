@@ -105,7 +105,7 @@ this relationship.
 
 We can now head to our `Explorer` and see the visualization of our supergraph 🎉
 
-<!-- TODO: Add screenshot -->
+![Supergraph Visualization](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/supergraph-course/supergraph-visualization-with-relationships.png)
 
 We can also execute a query that spans across multiple subgraphs. For example, we can query for a user's orders, its
 associated products, and any payment transactions associated with the user:

@@ -15,7 +15,6 @@ In the root of the project, we'll create a build profile called `build-profile_f
 version: 2
 spec:
   environment: fulfillment-dev
-  # TODO: optimistic this will change to patch 👇
   mode: replace
   supergraph:
     resources:
@@ -51,8 +50,8 @@ spec:
           connectorConfigFile: pg_db.hml
 ```
 
-Here, we're using the `fulfillment-dev` environment and `mode: patch` to test our changes to the `fulfillment_services`
-subgraph with the production metadata from the other subgraphs.
+Here, we're using the `fulfillment-dev` environment and `mode: replace` to test our changes to the
+`fulfillment_services` subgraph with the production metadata from the other subgraphs.
 
 ### Add the build profile to the project {#add-build-profile}
 

@@ -27,8 +27,6 @@ terminal, you'll see output displaying information about the build. This will in
 You can open this link in your browser to view the Console and explore the API. However, we've only connected a data
 source...we don't yet have any models to explore.
 
-<!-- TODO: Add screenshot -->
-
 ## Scaffold the UX metadata {#scaffold-ux}
 
 We can now use LSP to create models for each table in our database. While we can do these one-by-one, we can also
@@ -36,13 +34,11 @@ generate them all at once using a simple command by typing `Ctrl+Shift+P` (`Cmd+
 `Hasura: track all`. This will create the types for each table in our database, add them to our metadata, and also
 create named files for each model in our `/subgraphs/default/models` directory.
 
-<!-- TODO: Add screenshot -->
+![Track everything](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/0.0.1_vs-code-track-everything.png)
 
 As this has altered our metadata, the CLI will automatically detect changes and create a new build on our `default`
 environment. If you check your terminal, you'll see output displaying information about the build. Head to the Console
 and you'll see that we now have models for each table in our database.
-
-<!-- TODO: Add screenshot -->
 
 We can even run a query like this across tables as Hasura was able to determine the relationships between them:
 
@@ -63,4 +59,4 @@ You can also visit the `Explorer` tab to see a visual representation of our supe
 exciting as we only have one subgraph and it only has one data source. However, as we add more subgraphs and connect
 them to our supergraph, this will become a very useful tool.
 
-<!-- TODO: Add screenshot -->
+![Track everything](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/supergraph-course/initial-visualization.png)

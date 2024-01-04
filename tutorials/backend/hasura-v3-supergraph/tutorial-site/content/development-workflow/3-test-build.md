@@ -4,8 +4,6 @@ metaTitle: 'Test a Build | Hasura v3 Supergraph Modeling Tutorial'
 metaDescription: 'Test a build of your supergraph using one of your build profiles.'
 ---
 
-<!-- TODO: Intro -->
-
 ## Add permissions to your metadata
 
 We'll create a new role called `user` and add permissions to the `orders` model. We'll make it so that only a user can
@@ -81,7 +79,7 @@ query OrdersQuery {
 }
 ```
 
-<!-- TODO: Add screenshot -->
+![Supergraph Visualization](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/supergraph-course/orders-query.png)
 
 While this query's authorization logic will succeed in the `fulfillment-dev` environment, it won't be acknowledged in
 the `default` environment because the `user` role doesn't exist there.

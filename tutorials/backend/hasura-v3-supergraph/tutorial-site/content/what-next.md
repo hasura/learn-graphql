@@ -1,6 +1,6 @@
 ---
 title: "What's next?"
-metaTitle: "What's next? | Hasura v3 Tutorial"
+metaTitle: "What's next? | Supergraph Tutorial"
 metaDescription:
   'Learn what to do next with GraphQL and Hasura with more community resources. Join our discord channel for support.'
 ---
@@ -9,7 +9,7 @@ import TwitterShare from './twitter-share';
 
 Congratulations! You have successfully completed the course.
 
-We took you from start to finish on how to build your data supergraph with Hasura. In less than thirty minutes, you
+We took you from start to finish on how to build your data supergraph with Hasura. In less than ninety minutes, you
 created a secure, scalable, and production-ready GraphQL API that can be deployed to users around the world — instantly.
 
 In case you are wondering what to do next, you have the following options:

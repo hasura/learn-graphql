@@ -35,7 +35,7 @@ const config = {
       '/supergraph-modeling/',
       '/development-workflow/',
       '/custom-business-logic/',
-      '/relationships/',
+      '/command-permissions/',
       '/what-next/',
     ],
     links: [

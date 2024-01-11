@@ -17,20 +17,32 @@ v3. By the end of this tutorial, you will have a working supergraph — complete
 relational data sources and custom business logic hosted by Hasura — deployed to
 [Hasura DDN](https://console.hasura.io), our global and near-instant data delivery network.
 
-You'll learn how to:
+You'll learn:
 
-1. Identify subgraphs in an organization.
-1. Understand the concept of a supergraph.
-1. Create relationships across models in subgraphs.
-1. Create environments for a DDN project.
-1. Create build profiles for individual subgraphs (teams).
-1. Test changes to a subgraph with other production supergraph metadata.
-1. Add custom business logic using the TypeScript connector.
-1. Use watch mode to develop custom business logic and get instant feedback in your API.
-1. Deploy a custom connector to Hasura DDN.
-1. Identify possible relationships between models and types.
-1. Understand the components of the command type.
-1. Create relationships with the aid of LSP.
+**Conceptual Understanding**
+
+- Understand the concept of a supergraph.
+
+**Subgraph and Supergraph Management**
+
+- Identify subgraphs in an organization.
+- Create relationships across models in subgraphs.
+- Test changes to a subgraph with other production supergraph metadata.
+
+**Development and Customization**
+
+- Add custom business logic using the TypeScript connector.
+- Use watch mode to develop custom business logic and get instant feedback in your API.
+- Create relationships with the aid of LSP.
+
+**Environment and Build Management**
+
+- Create environments for a DDN project.
+- Create build profiles for individual subgraphs (teams).
+
+**Deployment and Integration**
+
+- Deploy a custom connector to Hasura DDN.
 
 ## What will we be building? {#what-will-we-be-building}
 
@@ -50,7 +62,7 @@ We'll go into more detail in the next section, but you'll need:
 - The new [Hasura CLI](https://hasura.io/docs/3.0/cli/overview/)
 - The [Hasura VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) (optional, but
   recommended)
-- A Hasura DDN account
+- A [Hasura DDN](https://console.hasura.io) account
 - Docker
 - Completion of the [Hasura Basics v3 course](https://hasura.io/learn/graphql/hasura-v3/introduction/)
 

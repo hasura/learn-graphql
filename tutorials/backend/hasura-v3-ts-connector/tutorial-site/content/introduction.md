@@ -1,5 +1,5 @@
 ---
-title: "Let's Build a Connector!"
+title: "Intro - Let's Build a Connector!"
 metaTitle: 'Course Introduction | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---

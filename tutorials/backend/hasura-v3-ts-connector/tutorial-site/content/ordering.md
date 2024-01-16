@@ -1,4 +1,8 @@
-# Let's Build a Connector - Part 3 - Ordering
+---
+title: "Ordering"
+metaTitle: 'Ordering | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector for Hasura DDN'
+---
 
 https://github.com/hasura/ndc-sqlite/assets/630306/8147efa9-3342-4a5b-8c9d-18abf82113b5
 

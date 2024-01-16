@@ -29,7 +29,7 @@ const config = {
     },
   },
   sidebar: {
-    forcedNavOrder: ['/introduction/'],
+    forcedNavOrder: ['/introduction/', '/setup-connector/', '/predicates/', '/ordering/', '/aggregates/'],
     links: [
       {
         text: 'Hasura Docs',

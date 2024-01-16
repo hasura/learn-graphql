@@ -1,10 +1,8 @@
-# Let's Build a Connector - Part 2 - Predicates
-
-https://github.com/hasura/ndc-sqlite/assets/630306/5eb5d2a0-55f0-46ed-add7-8e3daefe70e3
-
-## Transcript
-
-Hi everyone.
+---
+title: "Predicates"
+metaTitle: 'Predicates | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector for Hasura DDN'
+---
 
 In the last video, we set up a basic data connector for a sqlite database running locally. In this video, we'll start to
 implement predicates by turning them into where clauses in the generated SQL.

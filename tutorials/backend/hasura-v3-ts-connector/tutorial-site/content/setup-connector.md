@@ -1,10 +1,11 @@
-# Let's Build a Connector - Part 1 - Setup
+---
+title: "Setup"
+metaTitle: 'Setup | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector for Hasura DDN'
+---
 
-https://github.com/hasura/ndc-sqlite/assets/630306/deabac72-e7b3-4d62-a727-9edb79a6669a
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
 
-## Transcript
-
-Hi everyone. 
 In this video series we'll be building a native data connector for Hasura in small steps. Data connectors allow us to
 target arbitrary data sources and bring their data into our Hasura graph.
 

@@ -6,19 +6,23 @@ https://github.com/hasura/ndc-sqlite/assets/630306/5eb5d2a0-55f0-46ed-add7-8e3da
 
 Hi everyone.
 
-In the last video, we set up a basic data connector for a sqlite database running locally. In this video, we'll start to implement predicates by turning them into where clauses in the generated SQL.
+In the last video, we set up a basic data connector for a sqlite database running locally. In this video, we'll start to
+implement predicates by turning them into where clauses in the generated SQL.
 
 Let's pick up from where we left off. We can modify our SQL template to include a `WHERE clause`:
 
 ```typescript
 const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${where_clause} ${limit_clause} ${offset_clause}`;
 ```
+To generate our `WHERE` clause, we will need to interpret the contents of the `where` property of the query request. To
+see what this will look like, we can find some examples in the snapshots we generated last time.
 
-To generate our `WHERE` clause, we will need to interpret the contents of the `where` property of the query request. To see what this will look like, we can find some examples in the snapshots we generated last time.
+This predicate expression has type `binary_comparison_operator`, which means it is a predicate which compares a column
+to a value using an operator - in this case, the equality operator - this predicate asserts that the `artist_id` column
+equals the literal value `5`.
 
-This predicate expression has type `binary_comparison_operator`, which means it is a predicate which compares a column to a value using an operator - in this case, the equality operator - this predicate asserts that the `artist_id` column equals the literal value `5`.
-
-In the SDK, these predicate expressions are given the TypeScript type `Expression`, and we can see that there are several different types of expression.
+In the SDK, these predicate expressions are given the TypeScript type `Expression`, and we can see that there are
+several different types of expression.
 
 There are logical expressions like `and`, `or`, and `not`, which combine other simpler expressions.
 
@@ -28,7 +32,9 @@ And there are `exists` expressions, which are expressed using a subquery against
 
 For now, we'll concentrate on logical expressions and comparison operator expressions.
 
-We're going to build up the `WHERE` clause recursively, starting with the simplest expressions at the leaves of the predicate expression tree, and working upwards. As we go, we will need to keep track of any query parameters that we also need to pass to sqlite, so let's make a place to store those.
+We're going to build up the `WHERE` clause recursively, starting with the simplest expressions at the leaves of the
+predicate expression tree, and working upwards. As we go, we will need to keep track of any query parameters that we
+also need to pass to sqlite, so let's make a place to store those.
 
 ```typescript
 const parameters: any[] = [];
@@ -44,7 +50,8 @@ console.log(JSON.stringify({ sql, parameters }));
 return state.db.all(sql, ...parameters);
 ```
 
-Let's delegate to a helper function in order to build our `WHERE` clause. Let's call our function `visit_expression`, because we're using the visitor design pattern.
+Let's delegate to a helper function in order to build our `WHERE` clause. Let's call our function `visit_expression`,
+because we're using the visitor design pattern.
 
 ```typescript
 const where_clause = request.query.where == null ? "" : `WHERE ${visit_expression(parameters, request.query.where)}`;
@@ -73,7 +80,8 @@ switch (expr.type) {
 }
 ```
 
-For the logical expressions `and` and `or`, we will visit each of the subexpressions in turn, and concatenate the generated SQL.
+For the logical expressions `and` and `or`, we will visit each of the subexpressions in turn, and concatenate the
+generated SQL.
 
 ```typescript
 if (expr.expressions.length > 0) {
@@ -83,7 +91,8 @@ if (expr.expressions.length > 0) {
 }
 ```
 
-We need a helper function here, which visits an expression, but always wraps the results in parentheses. This way, we don't generate SQL with the wrong operator precedence in cases where logical operators are nested.
+We need a helper function here, which visits an expression, but always wraps the results in parentheses. This way, we
+don't generate SQL with the wrong operator precedence in cases where logical operators are nested.
 
 ```typescript
 function visit_expression_with_parens(parameters: any[], expr: Expression): string {
@@ -106,7 +115,8 @@ case "not":
     return `NOT ${visit_expression_with_parens(parameters, expr.expression)}`;
 ```
 
-For `unary_comparison_operator` expressions, we can switch on `expr.operator`. Right now, the only option is the `is_null` operator:
+For `unary_comparison_operator` expressions, we can switch on `expr.operator`. Right now, the only option is the
+`is_null` operator:
 
 ```typescript
 switch (expr.operator) {
@@ -117,7 +127,9 @@ switch (expr.operator) {
 }
 ```
 
-For `binary_comparison_operator` expressions, we can switch on `expr.operator.type`.  We will only implement the `equal` operator, because our schema doesn't advertise any custom binary operators. If we wanted to add another operator, like a "greater than" operator for numbers, we would do that here, and also advertise that operator in the NDC schema response.
+For `binary_comparison_operator` expressions, we can switch on `expr.operator.type`.  We will only implement the `equal`
+operator, because our schema doesn't advertise any custom binary operators. If we wanted to add another operator, like a
+"greater than" operator for numbers, we would do that here, and also advertise that operator in the NDC schema response.
 
 ```typescript
 switch (expr.operator.type) {
@@ -128,7 +140,10 @@ switch (expr.operator.type) {
 }
 ```
 
-Here we're using two helper functions. The `column` property in an equality expression has type `ComparisonTarget`, so we have one helper function to break that type down into a SQL expression. The `value` property represents the right hand side of the equality expression, and has type `ComparisonValue`, so we need a second helper function to break _that_ type down.
+Here we're using two helper functions. The `column` property in an equality expression has type `ComparisonTarget`, so
+we have one helper function to break that type down into a SQL expression. The `value` property represents the right
+hand side of the equality expression, and has type `ComparisonValue`, so we need a second helper function to break
+_that_ type down.
 
 Let's define those functions:
 
@@ -160,9 +175,11 @@ function visit_comparison_value(parameters: any[], target: ComparisonValue) {
 
 We're skipping a lot here, but we'll handle the simplest cases.
 
-In the `visit_comparison_target` function, we only handle the `column` case where the `path` is empty. The other cases will be added when we support the `relationships` capability.
+In the `visit_comparison_target` function, we only handle the `column` case where the `path` is empty. The other cases
+will be added when we support the `relationships` capability.
 
-In the `visit_comparison_value` function, we only handle the `scalar` case, in which we push the value onto our parameter list. Again, the other cases correspond to capabilities we haven't implemented yet.
+In the `visit_comparison_value` function, we only handle the `scalar` case, in which we push the value onto our
+parameter list. Again, the other cases correspond to capabilities we haven't implemented yet.
 
 The other two expression types are unsupported for now, so we'll throw an error here. We can come back to these later.
 
@@ -174,9 +191,11 @@ case "exists":
 
 Now let's remove our old snapshots and re-run the test suite.
 
-We can see that predicate tests are passing, but some other test cases are not. That's okay - we'll keep iterating over the next few videos until we have all green tests here.
+We can see that predicate tests are passing, but some other test cases are not. That's okay - we'll keep iterating over
+the next few videos until we have all green tests here.
 
-In our snapshots directory, we can also see that we're returning the correct data for some simple predicate queries. This query searches for albums for artist with ID `5`, and we can see that the response contains the correct rows.
+In our snapshots directory, we can also see that we're returning the correct data for some simple predicate queries.
+This query searches for albums for artist with ID `5`, and we can see that the response contains the correct rows.
 
 Now let's deploy to Hasura and see how the GraphQL schema looks.
 
@@ -200,8 +219,10 @@ query MyQuery {
 }
 ```
 
-Again, we generate valid SQL and parameters, although we do have too many parentheses here. That's something we can improve later, but it's better to err on the safe side for now.
+Again, we generate valid SQL and parameters, although we do have too many parentheses here. That's something we can
+improve later, but it's better to err on the safe side for now.
 
-That's all for this video. We've added support for basic where clauses, and we'll come back and fill in some of the missing expression types later, but next time, we'll take a look at order by clauses.
+That's all for this video. We've added support for basic where clauses, and we'll come back and fill in some of the
+missing expression types later, but next time, we'll take a look at order by clauses.
 
 Thanks for watching!

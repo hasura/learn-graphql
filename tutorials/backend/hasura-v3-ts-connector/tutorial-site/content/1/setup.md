@@ -141,13 +141,15 @@ const connector: Connector<RawConfiguration, Configuration, State> = {
   query
 };
 ```
-
-Right now, we only need to implement five functions: `validate_raw_configuration`, which validates the configuration from the user; `try_init_state`, which initializes our database connection; `get_capabilities`,
-which returns the NDC capabilities of our connector; `get_schema`, which returns an NDC schema containing our tables and columns; and `query`, which actually responds to query requests.
+Right now, we only need to implement five functions: `validate_raw_configuration`, which validates the configuration
+from the user; `try_init_state`, which initializes our database connection; `get_capabilities`, which returns the NDC
+capabilities of our connector; `get_schema`, which returns an NDC schema containing our tables and columns; and `query`,
+which actually responds to query requests.
 
 We'll skip configuration validation entirely for now, and just return the raw configuration.
 
-To initialize our state, we'll use the `open` function to open a connection to the database, and store the resulting connection object in our connector state:
+To initialize our state, we'll use the `open` function to open a connection to the database, and store the resulting
+connection object in our connector state:
 
 ```typescript
 const db = await open({
@@ -171,8 +173,9 @@ return {
 
 We just return the version range of the specification that we are compatible with, and the basic `query` capability.
 
-`get_schema` is the first interesting function. We're going to define scalar types, and an object type and a collection for each table in the configuration.
-Let's first define the scalar types. In fact, we're only going to define one, called `any`:
+`get_schema` is the first interesting function. We're going to define scalar types, and an object type and a collection
+for each table in the configuration. Let's first define the scalar types. In fact, we're only going to define one,
+called `any`:
 
 ```typescript
 let scalar_types: { [k: string]: ScalarType } = {
@@ -184,8 +187,9 @@ let scalar_types: { [k: string]: ScalarType } = {
 };
 ```
 
-`any` is a generic scalar type that we'll use as the type of all of our columns. It doesn't have any comparison operators or aggregates defined. Later, when we talk about those features, we'll need to 
-split this type up into several different scalar types.
+`any` is a generic scalar type that we'll use as the type of all of our columns. It doesn't have any comparison
+operators or aggregates defined. Later, when we talk about those features, we'll need to split this type up into several
+different scalar types.
 
 Now let's define the object types.
 
@@ -212,7 +216,8 @@ for (const table of configuration.tables) {
 
 Here I create one `ObjectType` definition for each table in the configuration. 
 
-Notice that the name of the object type is the name of the table, and each column uses the `any` type that we just defined.
+Notice that the name of the object type is the name of the table, and each column uses the `any` type that we just
+defined.
 
 Now let's define the collections:
 
@@ -229,7 +234,8 @@ let collections: CollectionInfo[] = configuration.tables.map((table) => {
 });
 ```
 
-Again, we define one collection per table in the configuration, and we use the object type with the same name that we just defined.
+Again, we define one collection per table in the configuration, and we use the object type with the same name that we
+just defined.
 
 Now we can put the schema response together:
 
@@ -245,7 +251,10 @@ return {
 
 Notice that we don't define `functions` or `procedures`, but we'll cover those features later in the series.
 
-So we have one more function to define, which is the query function, but before we do, let's talk about tests. The NDC specification repository provides a test runner executable called `ndc-test`, which can be used to implement a test suite for a connector. We can also use ndc-test to run some automatic tests and validate the work we've done so far. Let's compile and run our connector, and then use the test runner with the running connector.
+So we have one more function to define, which is the query function, but before we do, let's talk about tests. The NDC
+specification repository provides a test runner executable called `ndc-test`, which can be used to implement a test
+suite for a connector. We can also use ndc-test to run some automatic tests and validate the work we've done so far.
+Let's compile and run our connector, and then use the test runner with the running connector.
 
 Here I have a configuration.json file which I can use to run the connector against my sample database.
 
@@ -263,9 +272,12 @@ Let's modify our query function to print out the request it receives, and this w
 console.log(JSON.stringify(request, null, 2));
 ```
 
-In the logs, we can see the request that was sent. It identifies the name of the collection, and a query object to run. The query has a list of fields to retrieve, and a limit of 10 rows. With this as a guide, we can start to implement our query function.
+In the logs, we can see the request that was sent. It identifies the name of the collection, and a query object to run.
+The query has a list of fields to retrieve, and a limit of 10 rows. With this as a guide, we can start to implement our
+query function.
 
-The query function is going to delegate to a function called `fetch_rows`, but only when rows are requested, which is indicated by the presence of the query fields property.
+The query function is going to delegate to a function called `fetch_rows`, but only when rows are requested, which is
+indicated by the presence of the query fields property.
 
 ```typescript
 const rows = request.query.fields && await fetch_rows(state, request);
@@ -311,25 +323,31 @@ async function fetch_rows(state: State, request: QueryRequest): Promise<{
   return state.db.all(sql);
 }
 ```
-
-This function breaks down the request that we saw earlier and produces some SQL with this basic shape here. The requested fields get pushed down in the target list here, and the limit and offset clauses are generated based on the request as well. Notice that we don't fetch more data than we need, either in terms of rows or columns. That's the benefit of connectors - we get to push down the query execution to the data sources themselves.
+This function breaks down the request that we saw earlier and produces some SQL with this basic shape here. The
+requested fields get pushed down in the target list here, and the limit and offset clauses are generated based on the
+request as well. Notice that we don't fetch more data than we need, either in terms of rows or columns. That's the
+benefit of connectors - we get to push down the query execution to the data sources themselves.
 
 Now let's see it work in the test runner. We'll rebuild and restart the connector, and run the tests again.
 
-Of course we still see our tests fail, but now we've made some progress because the most basic tests are passing. If we look at the connector logs, we can see that we're now receiving some
-more advanced queries which we're not handling yet, such as queries with predicates and orderings.
+Of course we still see our tests fail, but now we've made some progress because the most basic tests are passing. If we
+look at the connector logs, we can see that we're now receiving some more advanced queries which we're not handling yet,
+such as queries with predicates and orderings.
 
-In fact, we can get the test runner to write these expectations out as snapshot files to disk by adding the `--snapshots-dir` argument.
+In fact, we can get the test runner to write these expectations out as snapshot files to disk by adding the
+`--snapshots-dir` argument.
 
 ```sh
 ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
 ```
+Here we can build up a library of query requests and expected responses that can be replayed in order to make sure that
+our connector continues to exhibit the same behavior over time.
 
-Here we can build up a library of query requests and expected responses that can be replayed in order to make sure that our connector continues to exhibit the same behavior over time.
+Finally, let's see what this connector looks like when we add it to our Hasura graph. I have some Hasura metadata ready
+here, but I won't go into the setup now - I'll save that explanation for a later video.
 
-Finally, let's see what this connector looks like when we add it to our Hasura graph. I have some Hasura metadata ready here, but I won't go into the setup now - I'll save that explanation for a later video.
-
-For now, we can run a command to deploy this metadata to Hasura cloud, and see our connector in action. I can use the `build create` command to create a new build from my metadata:
+For now, we can run a command to deploy this metadata to Hasura cloud, and see our connector in action. I can use the
+`build create` command to create a new build from my metadata:
 
 ```sh
 hasura3 cloud build create -p deployment/hasura.yaml
@@ -337,8 +355,11 @@ hasura3 cloud build create -p deployment/hasura.yaml
 
 As you can see, I get a GraphQL endpoint and a console URL that I can use to test it. Let's take a look.
 
-Let's make a request for albums, and specify a limit of 5 rows. In my metadata configuration, I've set up Hasura Cloud to tunnel requests for this connector to my local machine, so as we can see, our connector has received the request and generated the appropriate SQL.
+Let's make a request for albums, and specify a limit of 5 rows. In my metadata configuration, I've set up Hasura Cloud
+to tunnel requests for this connector to my local machine, so as we can see, our connector has received the request and
+generated the appropriate SQL.
 
-So that's it for this video. In the next one, we'll start to fill out some of the missing query functionality, beginning with where clauses.
+So that's it for this video. In the next one, we'll start to fill out some of the missing query functionality, beginning
+with where clauses.
 
 Thanks for watching!

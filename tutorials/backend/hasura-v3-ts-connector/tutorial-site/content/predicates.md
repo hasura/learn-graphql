@@ -4,7 +4,7 @@ metaTitle: 'Predicates | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-[![Predicates in the connector video](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
+[![Predicates in the connector video](https://img.youtube.com/vi/2URtvnYi3o/0.jpg)](https://www.youtube.com/watch?v=2URtvnYi3o)
 
 So now we've set up a basic data connector for a SQLite database running locally. Now we'll start to implement 
 predicates by turning them into where clauses in the generated SQL.

@@ -4,7 +4,7 @@ metaTitle: 'Ordering | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-[![Ordering results in the connector video](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
+[![Ordering results in the connector video](https://img.youtube.com/vi/52MANo4K2hs/0.jpg)](https://www.youtube.com/watch?v=52MANo4K2hs)
 
 ## Transcript
 Last time, we implemented basic predicates, and started to see some test cases passing. This time, we'll implement basic

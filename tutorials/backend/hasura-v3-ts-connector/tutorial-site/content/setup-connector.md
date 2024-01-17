@@ -4,7 +4,7 @@ metaTitle: 'Setup | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-[![Setup the connector video](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
+[![Setup the connector video](https://img.youtube.com/vi/Dw3mV6toU3I/0.jpg)](https://www.youtube.com/watch?v=Dw3mV6toU3I)
 
 ## Clone the finished repo
 

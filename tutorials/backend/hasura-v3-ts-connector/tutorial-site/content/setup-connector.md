@@ -6,6 +6,10 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 [![Setup the connector video](https://img.youtube.com/vi/Dw3mV6toU3I/0.jpg)](https://www.youtube.com/watch?v=Dw3mV6toU3I)
 
+[_**Click here to watch the video**_](https://www.youtube.com/watch?v=Dw3mV6toU3I)
+
+[//]: # (TODO - embed player?)
+
 ## Clone the finished repo
 
 You can use this course by following the videos and instructions, and you can also clone the finished repo to see 
@@ -35,7 +39,10 @@ TypeScript connector SDK.
 Here I have an empty TypeScript project, and I've added the SDK as a dependency along with the SQLite library and its
 TypeScript bindings.
 
-Let's start by following the [SDK guidelines](https://github.com/hasura/ndc-sdk-typescript) and using the `start` function.
+Let's start by following the [SDK guidelines](https://github.com/hasura/ndc-sdk-typescript) and using the `start` 
+function.
+
+## Start
 
 In your `src/index.ts` file, add the following:
 
@@ -80,6 +87,8 @@ type State = {
 };
 ```
 
+## Configuration
+
 `RawConfiguration` is the type of configuration that the user will see. By convention, this configuration should be
 enough to reproducibly determine the NDC schema, so for our SQLite connector, we configure the connector with a list of
 tables that we want to expose. Each table is defined by its name and a list of columns. Columns don't have any specific
@@ -89,9 +98,13 @@ later on.
 The `Configuration` type is a validated version of the raw configuration, but for our purposes, we'll reuse the same
 type.
 
+## State
+
 The `State` type is for things like connection pools, handles, or any non-serializable state that gets allocated on
 startup, and which lives for the lifetime of the connector. For our connector, we need to keep a handle to our SQLite
 database.
+
+## Defining the connector
 
 Now let's fill in some function definitions.
 
@@ -268,6 +281,8 @@ Here I create one `ObjectType` definition for each table in the configuration.
 Notice that the name of the object type is the name of the table, and each column uses the `any` type that we just
 defined.
 
+## Collections
+
 Now let's define the collections:
 
 ```typescript
@@ -369,6 +384,8 @@ async function get_schema(configuration: RawConfiguration): Promise<SchemaRespon
 
 Notice that we don't define `functions` or `procedures`, but we'll cover those features later in the series.
 
+## Testing
+
 So we have one more function to define, which is the query function, but before we do, let's talk about tests. The [NDC
 specification repository](https://github.com/hasura/ndc-spec/) provides a 
 [test runner executable](https://github.com/hasura/ndc-spec/tree/main/ndc-test) called `ndc-test`, which can be used to 
@@ -412,6 +429,8 @@ async function query(configuration: RawConfiguration, state: State, request: Que
 ```
 
 Let's recompile and restart the connector, and run the tests again.
+
+[//]: # (TODO correct)
 
 ```text
 {"level":30,"time":1705491544618,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-3","req":{"method":"POST","url":"/query","hostname":"localhost:8100","remoteAddress":"127.0.0.1","remotePort":55462},"msg":"incoming request"}
@@ -494,6 +513,8 @@ In the logs of the app, we can see the request that was sent. It identifies the 
 object to run. The query has a list of fields to retrieve, and a limit of 10 rows. With this as a guide, we can 
 start to implement our query function.
 
+## Query
+
 The query function is going to delegate to a function called `fetch_rows`, but only when rows are requested, which is
 indicated by the presence of the query fields property.
 
@@ -548,6 +569,8 @@ requested fields get pushed down in the target list, and the limit and offset cl
 request as well. Notice that we don't fetch more data than we need, either in terms of rows or columns. That's the
 benefit of connectors - we get to push down the query execution to the data sources themselves.
 
+## Test again
+
 Now let's see it work in the test runner. We'll rebuild and restart the connector, and run the tests again.
 
 Of course, we still see our tests fail, but now we've made some progress because the most basic tests are passing. If we
@@ -566,7 +589,7 @@ our connector continues to exhibit the same behavior over time.
 
 Finally, let's see what this connector looks like when we add it to our Hasura graph. 
 
-[//]: # (TODO)
+[//]: # (TODO - link out to how to implement this in the docs)
 I have some Hasura metadata ready here, but I won't go into the setup now - I'll save that explanation for a later 
 video.
 

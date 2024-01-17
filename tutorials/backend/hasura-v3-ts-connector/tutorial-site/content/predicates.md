@@ -6,11 +6,17 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 [![Predicates in the connector video](https://img.youtube.com/vi/-2URtvnYi3o/0.jpg)](https://www.youtube.com/watch?v=-2URtvnYi3o)
 
+[_**Click here to watch the video**_](https://www.youtube.com/watch?v=-2URtvnYi3o)
+
+[//]: # (TODO - embed player?)
+
 So now we've set up a basic data connector for a SQLite database running locally. Now we'll start to implement 
 predicates by turning them into where clauses in the generated SQL.
 
 Predicates in GraphQL are expressions which determine the conditions under which data is retrieved or manipulated. 
 For example: a `where` clause.
+
+## Where Clause
 
 Let's pick up from where we left off. We can modify our SQL template in our `fetch_rows` function to include a `WHERE 
 clause`:
@@ -47,6 +53,8 @@ see what this will look like, we can find some examples in the snapshots we gene
 This predicate expression has type `binary_comparison_operator`, which means it is a predicate which compares a column
 to a value using an operator - in this case, the equality operator - this predicate asserts that the `artist_id` column
 equals the literal value `5`.
+
+## Expression Types
 
 In the SDK, these predicate expressions are given the TypeScript type `Expression`, and we can see that there are
 several different types of expression.

@@ -6,6 +6,10 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 [![Ordering results in the connector video](https://img.youtube.com/vi/52MANo4K2hs/0.jpg)](https://www.youtube.com/watch?v=52MANo4K2hs)
 
+[_**Click here to watch the video**_](https://www.youtube.com/watch?v=52MANo4K2hs)
+
+[//]: # (TODO - embed player?)
+
 Now that we've implemented basic predicates and started to see some test cases passing, we'll now implement basic
 sorting, and see more of our tests turn green.
 
@@ -13,6 +17,8 @@ Implementing sorting is much simpler than implementing predicates, because there
 Instead, we have a simple list of orderings that we will turn into a SQL `ORDER BY` clause.
 
 Let's get started.
+
+## Order By
 
 Just like last time, we will modify our SQL template to add a new `ORDER BY` clause, and delegate to a new function to
 generate the SQL for that new clause.

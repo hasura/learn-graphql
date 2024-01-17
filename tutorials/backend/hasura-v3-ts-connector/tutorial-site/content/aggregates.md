@@ -6,6 +6,10 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 [![Aggregates in the connector video](https://img.youtube.com/vi/yO4Fo90ts1o/0.jpg)](https://www.youtube.com/watch?v=yO4Fo90ts1o)
 
+[_**Click here to watch the video**_](https://www.youtube.com/watch?v=yO4Fo90ts1o)
+
+[//]: # (TODO - embed player?)
+
 Let's implement aggregates in our SQLite connector.
 
 Like we've done before, we won't implement aggregates in their full generality, and instead we're going to implement two

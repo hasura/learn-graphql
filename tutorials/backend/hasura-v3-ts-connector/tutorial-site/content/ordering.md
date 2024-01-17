@@ -6,8 +6,7 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 [![Ordering results in the connector video](https://img.youtube.com/vi/52MANo4K2hs/0.jpg)](https://www.youtube.com/watch?v=52MANo4K2hs)
 
-## Transcript
-Last time, we implemented basic predicates, and started to see some test cases passing. This time, we'll implement basic
+Now that we've implemented basic predicates and started to see some test cases passing, we'll now implement basic
 sorting, and see more of our tests turn green.
 
 Implementing sorting is much simpler than implementing predicates, because there is no recursive structure to process.
@@ -82,9 +81,28 @@ if (value.target.path.length > 0) {
 return `${value.target.name} ${direction}`;
 ```
 
+Here's the full implementation of `visit_order_by_element`:
+
+```typescript
+function visit_order_by_element(element: OrderByElement): String {
+    const direction = element.order_direction === 'asc' ? 'ASC' : 'DESC';
+
+    switch (element.target.type) {
+        case 'column':
+            if (element.target.path.length > 0) {
+                throw new NotSupported("Relationships are not supported");
+            }
+            return `${element.target.name} ${direction}`;
+        case 'single_column_aggregate':
+        case 'star_count_aggregate':
+            throw new NotSupported("order_by_aggregate are not supported");
+    }
+}
+```
+
 In this case, the generated SQL is simple: just the name of the column, followed by the sort direction.
 
 Actually, that's all that's needed to implement sorting. We can rebuild our connector and re-run the test suite to make
 sure that our new test cases are passing.
 
-That's all for now. Next time, we'll start to look at aggregates.
+That's all for now. Next up: aggregates.

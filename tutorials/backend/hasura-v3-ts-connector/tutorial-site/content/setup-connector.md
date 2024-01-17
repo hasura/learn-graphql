@@ -16,8 +16,9 @@ You can use this course by following the videos and instructions, and you can al
 it in action straight away too. To set up a skeleton project and follow on your own, clone the repo and checkout the 
 `follow-along` branch:
 
+[//]: # (TODO make public)
 ```shell
-git clone TODO TODO
+git clone git@github.com:hasura/ndc-typescript-learn-course.git
 ```
 
 ```shell

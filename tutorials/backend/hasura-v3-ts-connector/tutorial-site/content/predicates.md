@@ -264,6 +264,49 @@ case "exists":
 // ...
 ```
 
+Here's the finished `visit_expression` function:
+
+```typescript
+function visit_expression(parameters: any[], expr: Expression): string {
+    switch (expr.type) {
+        case "and":
+            if (expr.expressions.length > 0) {
+                return expr.expressions.map(e => visit_expression_with_parens(parameters, e)).join(" AND ");
+            } else {
+                return "TRUE";
+            }
+        case "or":
+            if (expr.expressions.length > 0) {
+                return expr.expressions.map(e => visit_expression_with_parens(parameters, e)).join(" OR ");
+            } else {
+                return "FALSE";
+            }
+        case "not":
+            return `NOT ${visit_expression_with_parens(parameters, expr.expression)}`;
+        case "unary_comparison_operator":
+            switch (expr.operator) {
+                case 'is_null':
+                    return `${visit_comparison_target(expr.column)} IS NULL`;
+                default:
+                    throw new BadRequest("Unknown comparison operator");
+            }
+        case "binary_comparison_operator":
+            switch (expr.operator.type) {
+                case 'equal':
+                    return `${visit_comparison_target(expr.column)} = ${visit_comparison_value(parameters, expr.value)}`
+                default:
+                    throw new BadRequest("Unknown comparison operator");
+            }
+        case "binary_array_comparison_operator":
+            throw new NotSupported("binary_array_comparison_operator is not supported");
+        case "exists":
+            throw new NotSupported("exists is not supported");
+        default:
+            throw new BadRequest("Unknown expression type");
+    }
+}
+```
+
 Now let's remove our old snapshots and re-run the test suite.
 
 We can see that predicate tests are passing, but some other test cases are not. That's okay - we'll keep iterating over

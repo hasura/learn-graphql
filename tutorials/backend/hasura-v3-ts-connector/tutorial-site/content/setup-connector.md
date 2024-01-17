@@ -128,7 +128,7 @@ async function mutation(configuration: RawConfiguration, state: State, request: 
   throw new Error("Function not implemented.");
 }
 
-// Implementat these 5 functions below for this course
+// Implement these 5 functions below for this course
 
 async function validate_raw_configuration(configuration: RawConfiguration): Promise<RawConfiguration> {
   throw new Error("Function not implemented.");

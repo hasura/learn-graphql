@@ -30,7 +30,7 @@ working `ndc-test` executable on your `PATH`. `ndc-test` can be installed using 
 
 ## How long will this tutorial take? {#how-long-will-this-tutorial-take}
 
-Roughly 30 minutes.
+About an hour.
 
 ## Additional Resources {#additional-resources}
 

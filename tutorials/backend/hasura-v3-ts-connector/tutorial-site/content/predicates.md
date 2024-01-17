@@ -4,21 +4,45 @@ metaTitle: 'Predicates | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-[![Predicates in the connector video](https://img.youtube.com/vi/2URtvnYi3o/0.jpg)](https://www.youtube.com/watch?v=2URtvnYi3o)
+[![Predicates in the connector video](https://img.youtube.com/vi/-2URtvnYi3o/0.jpg)](https://www.youtube.com/watch?v=-2URtvnYi3o)
 
 So now we've set up a basic data connector for a SQLite database running locally. Now we'll start to implement 
 predicates by turning them into where clauses in the generated SQL.
 
 Predicates in GraphQL are expressions which determine the conditions under which data is retrieved or manipulated. 
-For example a `where` clause.
+For example: a `where` clause.
 
-Let's pick up from where we left off. We can modify our SQL template to include a `WHERE clause`:
+Let's pick up from where we left off. We can modify our SQL template in our `fetch_rows` function to include a `WHERE 
+clause`:
 
 ```typescript
 const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${where_clause} ${limit_clause} ${offset_clause}`;
 ```
+
 To generate our `WHERE` clause, we will need to interpret the contents of the `where` property of the query request. To
 see what this will look like, we can find some examples in the snapshots we generated last time.
+
+```JSON
+// ...
+}
+    "Limit"：10,
+    "where":
+        "type": "binary_comparison_operator",
+        "column"：｛
+            "type": "column":
+            "name": "artist_id",
+            "path": []
+        "operator"; {
+            "type": "equal"
+        ｝，
+        "value"; {
+            "type": "scalar",
+            "value": 5  
+        }
+    }
+}
+// ...
+```
 
 This predicate expression has type `binary_comparison_operator`, which means it is a predicate which compares a column
 to a value using an operator - in this case, the equality operator - this predicate asserts that the `artist_id` column
@@ -26,6 +50,37 @@ equals the literal value `5`.
 
 In the SDK, these predicate expressions are given the TypeScript type `Expression`, and we can see that there are
 several different types of expression.
+
+```typescript
+export type Expression = {
+    expressions: Expression[];
+    type: "and";
+} | {
+    expressions: Expression[];
+    type: "or";
+} | {
+    expression: Expression;
+    type: "not";
+} | {
+    column: ComparisonTarget;
+    operator: UnaryComparisonOperator;
+    type: "unary_comparison_operator";
+} | {
+    column: ComparisonTarget;
+    operator: BinaryComparisonOperator;
+    type: "binary_comparison_operator";
+    value: ComparisonValue;
+} | {
+    column: ComparisonTarget;
+    operator: BinaryArrayComparisonOperator;
+    type: "binary_array_comparison_operator";
+    values: ComparisonValue[];
+} | {
+    in_collection: ExistsInCollection;
+    type: "exists";
+    where: Expression;
+};
+```
 
 There are logical expressions like `and`, `or`, and `not`, which combine other simpler expressions.
 
@@ -38,6 +93,8 @@ For now, we'll concentrate on logical expressions and comparison operator expres
 We're going to build up the `WHERE` clause recursively, starting with the simplest expressions at the leaves of the
 predicate expression tree, and working upwards. As we go, we will need to keep track of any query parameters that we
 also need to pass to SQLite, so let's make a place to store those.
+
+In the `fetch_rows` function, let's add a new variable to store our parameters:
 
 ```typescript
 const parameters: any[] = [];
@@ -63,7 +120,8 @@ const where_clause = request.query.where == null ? "" : `WHERE ${visit_expressio
 We'll handle each different type of expression by pattern matching on the `type` field of the current expression.
 
 ```typescript
-switch (expr.type) {
+function visit_expression(parameters: any[], expr: Expression): string {
+  switch (expr.type) {
     case "and":
 
     case "or":
@@ -79,7 +137,8 @@ switch (expr.type) {
     case "exists":
 
     default:
-        throw new BadRequest("Unknown expression type");
+      throw new BadRequest("Unknown expression type");
+  }
 }
 ```
 
@@ -87,11 +146,14 @@ For the logical expressions `and` and `or`, we will visit each of the subexpress
 generated SQL.
 
 ```typescript
-if (expr.expressions.length > 0) {
-    return expr.expressions.map(e => visit_expression_with_parens(parameters, e)).join(" AND ");
-} else {
-    return "TRUE";
-}
+// ...
+case "and":
+    if (expr.expressions.length > 0) {
+        return expr.expressions.map(e => visit_expression_with_parens(parameters, e)).join(" AND ");
+    } else {
+        return "TRUE";
+    }
+// ...
 ```
 
 We need a helper function here, which visits an expression, but always wraps the results in parentheses. This way, we
@@ -108,6 +170,7 @@ Note that we also need to make a special case for zero subexpressions, or else w
 We can complete the `or` and `not` cases very similarly.
 
 ```typescript
+// ...
 case "or":
     if (expr.expressions.length > 0) {
         return expr.expressions.map(e => visit_expression_with_parens(parameters, e)).join(" OR ");
@@ -116,18 +179,22 @@ case "or":
     }
 case "not":
     return `NOT ${visit_expression_with_parens(parameters, expr.expression)}`;
+// ...
 ```
 
 For `unary_comparison_operator` expressions, we can switch on `expr.operator`. Right now, the only option is the
 `is_null` operator:
 
 ```typescript
-switch (expr.operator) {
-    case 'is_null':
+// ...
+case "unary_comparison_operator":
+    switch (expr.operator) {
+      case 'is_null':
         return `${visit_comparison_target(expr.column)} IS NULL`;
-    default:
+      default:
         throw new BadRequest("Unknown comparison operator");
-}
+    }
+// ...
 ```
 
 For `binary_comparison_operator` expressions, we can switch on `expr.operator.type`.  We will only implement the `equal`
@@ -135,12 +202,14 @@ operator, because our schema doesn't advertise any custom binary operators. If w
 "greater than" operator for numbers, we would do that here, and also advertise that operator in the NDC schema response.
 
 ```typescript
+// ...
 switch (expr.operator.type) {
     case 'equal':
         return `${visit_comparison_target(expr.column)} = ${visit_comparison_value(parameters, expr.value)}`
     default:
         throw new BadRequest("Unknown comparison operator");
 }
+//...
 ```
 
 Here we're using two helper functions. The `column` property in an equality expression has type `ComparisonTarget`, so
@@ -187,9 +256,12 @@ parameter list. Again, the other cases correspond to capabilities we haven't imp
 The other two expression types are unsupported for now, so we'll throw an error here. We can come back to these later.
 
 ```typescript
+// ...
 case "binary_array_comparison_operator":
+  throw new NotSupported("binary_array_comparison_operator is not supported");
 case "exists":
-    throw new NotSupported("Unsupported expression type");
+  throw new NotSupported("exists is not supported");
+// ...
 ```
 
 Now let's remove our old snapshots and re-run the test suite.
@@ -225,7 +297,5 @@ query MyQuery {
 Again, we generate valid SQL and parameters, although we do have too many parentheses here. That's something we can
 improve later, but it's better to err on the safe side for now.
 
-That's all for this video. We've added support for basic where clauses, and we'll come back and fill in some of the
-missing expression types later, but next time, we'll take a look at order by clauses.
-
-Thanks for watching!
+We've added support for basic where clauses, and we'll come back and fill in some of the missing expression types 
+later, but next time, we'll take a look at order by clauses.

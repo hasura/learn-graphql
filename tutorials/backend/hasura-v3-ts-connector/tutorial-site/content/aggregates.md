@@ -4,10 +4,7 @@ metaTitle: 'Aggregates | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-# Let's Build a Connector - Part 4 - Aggregates
-
 [![Aggregates in the connector video](https://img.youtube.com/vi/yO4Fo90ts1o/0.jpg)](https://www.youtube.com/watch?v=yO4Fo90ts1o)
-
 
 Let's implement aggregates in our SQLite connector.
 

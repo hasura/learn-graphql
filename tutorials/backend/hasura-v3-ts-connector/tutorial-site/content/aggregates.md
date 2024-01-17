@@ -6,13 +6,10 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 # Let's Build a Connector - Part 4 - Aggregates
 
-https://github.com/hasura/ndc-learn/assets/630306/fdb4eb12-c8a7-4425-bead-12459e257128
+[![Aggregates in the connector video](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
 
-## Transcript
 
-Hi everyone.
-
-This time, we're going to start to implement aggregates in our sqlite connector.
+Let's implement aggregates in our SQLite connector.
 
 Like we've done before, we won't implement aggregates in their full generality, and instead we're going to implement two
 types of aggregates, called `star_count` and `column_count`. Other aggregates like `SUM` and `MAX` that you know from

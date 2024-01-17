@@ -4,28 +4,40 @@ metaTitle: 'Setup | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
+[![Setup the connector video](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
 
-In this video series we'll be building a native data connector for Hasura in small steps. Data connectors allow us to
-target arbitrary data sources and bring their data into our Hasura graph.
+## Clone the finished repo
 
-If you're not familiar with Native Data Connectors, I would suggest that you review the NDC specification briefly first,
-and then come back to watch these videos.
+You can use this course by following the videos and instructions, and you can also clone the finished repo to see 
+it in action straight away too. To set up a skeleton project and follow on your own, clone the repo and checkout the 
+`follow-along` branch:
 
-In this first video, I'll set up the scaffolding for our connector, and we'll see the first queries start to work. We'll
-also start to develop a test suite, and see our connector running in Hasura.
+```shell
+git clone TODO TODO
+```
 
-For now, we'll just handle the most basic queries, but in some later videos, we'll start to fill in some of the gaps in
-our implementation, and see more queries return results correctly. We'll also cover topics such as metrics, connector
+```shell
+npm install
+```
+
+## Setup
+
+Let's set up the scaffolding for our connector, and we'll see the first queries start to work. We'll also start to 
+develop a test suite, and see our connector running in Hasura.
+
+For now, we'll just handle the most basic queries, but later, we'll start to fill in some of the gaps in our 
+implementation, and see more queries return results correctly. We'll also cover topics such as metrics, connector
 configuration, error reporting, and tracing.
 
-The data source we'll be targeting is a sqlite database running on my local machine, and we'll be using the Hasura
+The data source we'll be targeting is a SQLite database running on my local machine, and we'll be using the Hasura
 TypeScript connector SDK.
 
-Here I have an empty TypeScript project, and I've added the SDK as a dependency along with the sqlite library and its
+Here I have an empty TypeScript project, and I've added the SDK as a dependency along with the SQLite library and its
 TypeScript bindings.
 
-Let's start by following the SDK guidelines and using the `start` function.
+Let's start by following the [SDK guidelines](https://github.com/hasura/ndc-sdk-typescript) and using the `start` function.
+
+In your `src/index.ts` file, add the following:
 
 ```typescript
 const connector: Connector<RawConfiguration, Configuration, State> = {};
@@ -37,7 +49,7 @@ We need to fill in implementations for each of the required functions, but we wo
 
 First, you'll see that we define three types: `RawConfiguration`, `Configuration`, and `State`.
 
-Let's define those now.
+Let's define those now above the `connector` and `start` function:
 
 ```typescript
 type RawConfiguration = {
@@ -59,7 +71,7 @@ type State = {
 ```
 
 `RawConfiguration` is the type of configuration that the user will see. By convention, this configuration should be
-enough to reproducibly determine the NDC schema, so for our sqlite connector, we configure the connector with a list of
+enough to reproducibly determine the NDC schema, so for our SQLite connector, we configure the connector with a list of
 tables that we want to expose. Each table is defined by its name and a list of columns. Columns don't have any specific
 configuration yet, but we leave an empty object type here because we might want to capture things like column types
 later on.
@@ -68,7 +80,7 @@ The `Configuration` type is a validated version of the raw configuration, but fo
 type.
 
 The `State` type is for things like connection pools, handles, or any non-serializable state that gets allocated on
-startup, and which lives for the lifetime of the connector. For our connector, we need to keep a handle to our sqlite
+startup, and which lives for the lifetime of the connector. For our connector, we need to keep a handle to our SQLite
 database.
 
 Now let's fill in some function definitions.
@@ -106,6 +118,8 @@ async function mutation(configuration: RawConfiguration, state: State, request: 
   throw new Error("Function not implemented.");
 }
 
+// Implementat these 5 functions below for this course
+
 async function validate_raw_configuration(configuration: RawConfiguration): Promise<RawConfiguration> {
   throw new Error("Function not implemented.");
 }
@@ -142,32 +156,51 @@ const connector: Connector<RawConfiguration, Configuration, State> = {
   query
 };
 ```
-Right now, we only need to implement five functions: `validate_raw_configuration`, which validates the configuration
-from the user; `try_init_state`, which initializes our database connection; `get_capabilities`, which returns the NDC
-capabilities of our connector; `get_schema`, which returns an NDC schema containing our tables and columns; and `query`,
-which actually responds to query requests.
+Right now, we only need to implement five functions: 
+- `validate_raw_configuration`, which validates the configuration from the user
+- `try_init_state`, which initializes our database connection
+- `get_capabilities`, which returns the NDC capabilities of our connector
+- `get_schema`, which returns an NDC schema containing our tables and columns
+- `query`, which actually responds to query requests
 
 We'll skip configuration validation entirely for now, and just return the raw configuration.
+
+```typescript
+async function validate_raw_configuration(configuration: RawConfiguration): Promise<RawConfiguration> {
+  return configuration;
+}
+```
 
 To initialize our state, we'll use the `open` function to open a connection to the database, and store the resulting
 connection object in our connector state:
 
 ```typescript
-const db = await open({
-  filename: 'database.db',
-  driver: sqlite3.Database
-});
+async function try_init_state(configuration: RawConfiguration, metrics: unknown): Promise<State> {
+  const db = await open({
+    filename: 'database.db',
+    driver: sqlite3.Database
+  });
 
-return { db };
+  return { db };
+}
+```
+
+You will need to add these imports:
+
+```typescript
+import { Database, open } from 'sqlite';
+import sqlite3 from 'sqlite3';
 ```
 
 Our capabilities response will be very simple, because we won't support many capabilities yet.
 
 ```typescript
-return {
-  versions: "^0.1.0",
-  capabilities: {
-    query: {}
+function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {\
+  return {
+    versions: "^0.1.0",
+    capabilities: {
+      query: {}
+    }
   }
 }
 ```
@@ -179,13 +212,15 @@ for each table in the configuration. Let's first define the scalar types. In fac
 called `any`:
 
 ```typescript
-let scalar_types: { [k: string]: ScalarType } = {
-  'any': {
-    aggregate_functions: {},
-    comparison_operators: {},
-    update_operators: {},
-  }
-};
+async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
+  let scalar_types: { [k: string]: ScalarType } = {
+    'any': {
+      aggregate_functions: {},
+      comparison_operators: {},
+      update_operators: {},
+    }
+  };
+}
 ```
 
 `any` is a generic scalar type that we'll use as the type of all of our columns. It doesn't have any comparison
@@ -193,6 +228,37 @@ operators or aggregates defined. Later, when we talk about those features, we'll
 different scalar types.
 
 Now let's define the object types.
+
+```typescript
+async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
+  let scalar_types: { [k: string]: ScalarType } = {
+    'any': {
+      aggregate_functions: {},
+      comparison_operators: {},
+      update_operators: {},
+    }
+  };
+
+  let object_types: { [k: string]: ObjectType } = {};
+
+  for (const table of configuration.tables) {
+    let fields: { [k: string]: ObjectField } = {};
+
+    for (const columnName in table.columns) {
+      fields[columnName] = {
+        type: {
+          type: 'named',
+          name: 'any'
+        }
+      };
+    }
+
+    object_types[table.tableName] = {
+      fields
+    };
+  }
+}
+```
 
 ```typescript
 let object_types: { [k: string]: ObjectType } = {};
@@ -364,3 +430,21 @@ So that's it for this video. In the next one, we'll start to fill out some of th
 with where clauses.
 
 Thanks for watching!
+
+
+
+
+
+
+```shell
+npm i
+npm run build # this just runs tsc
+```
+
+Run the connector:
+
+```shell
+node dist/index.js serve --configuration configuration.json
+```
+
+To start from scratch and create the initial project:

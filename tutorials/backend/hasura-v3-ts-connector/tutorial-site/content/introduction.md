@@ -30,7 +30,7 @@ working `ndc-test` executable on your `PATH`. `ndc-test` can be installed using 
 
 ## How long will this tutorial take? {#how-long-will-this-tutorial-take}
 
-Less than 30 mins.
+Roughly 30 minutes.
 
 ## Additional Resources {#additional-resources}
 
@@ -43,30 +43,3 @@ Less than 30 mins.
   - [Clickhouse](https://github.com/hasura/ndc-clickhouse) (Rust)
   - [QDrant](https://github.com/hasura/ndc-qdrant) (Typescript)
   - [Deno](https://github.com/hasura/ndc-typescript-deno) (Typescript)
-
-
-
-
-## Getting Started
-
-```sh
-npm i
-npm run build
-```
-
-Run the connector:
-
-```sh
-node dist/index.js serve --configuration configuration.json
-```
-
-To start from scratch and create the initial project:
-
-```sh
-npm init
-npm i typescript
-npx tsc --init
-npm i @hasura/ndc-sdk-typescript sqlite sqlite3
-```
-
-

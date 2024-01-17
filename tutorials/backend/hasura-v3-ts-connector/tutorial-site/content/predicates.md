@@ -4,8 +4,13 @@ metaTitle: 'Predicates | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-In the last video, we set up a basic data connector for a sqlite database running locally. In this video, we'll start to
-implement predicates by turning them into where clauses in the generated SQL.
+[![Predicates in the connector video](https://img.youtube.com/vi/9V8IwOaozqE/0.jpg)](https://www.youtube.com/watch?v=9V8IwOaozqE)
+
+So now we've set up a basic data connector for a SQLite database running locally. Now we'll start to implement 
+predicates by turning them into where clauses in the generated SQL.
+
+Predicates in GraphQL are expressions which determine the conditions under which data is retrieved or manipulated. 
+For example a `where` clause.
 
 Let's pick up from where we left off. We can modify our SQL template to include a `WHERE clause`:
 
@@ -32,7 +37,7 @@ For now, we'll concentrate on logical expressions and comparison operator expres
 
 We're going to build up the `WHERE` clause recursively, starting with the simplest expressions at the leaves of the
 predicate expression tree, and working upwards. As we go, we will need to keep track of any query parameters that we
-also need to pass to sqlite, so let's make a place to store those.
+also need to pass to SQLite, so let's make a place to store those.
 
 ```typescript
 const parameters: any[] = [];

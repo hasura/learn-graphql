@@ -148,6 +148,7 @@ async function fetch_aggregates(state: State, request: QueryRequest): Promise<{
     const parameters: any[] = [];
 
     const limit_clause = request.query.limit == null ? "" : `LIMIT ${request.query.limit}`;
+    
     const offset_clause = request.query.offset == null ? "" : `OFFSET ${request.query.offset}`;
 
     const where_clause = request.query.where == null ? "" : `WHERE ${visit_expression(parameters, request.query.where)}`;

@@ -45,6 +45,16 @@ const connector: Connector<RawConfiguration, Configuration, State> = {};
 start(connector);
 ```
 
+We will also need these imports over the course of the tutorial:
+
+```typescript
+import sqlite3 from 'sqlite3';
+import { Database, open } from 'sqlite';
+import { BadRequest, CapabilitiesResponse, CollectionInfo, ComparisonValue, Connector, ExplainResponse, InternalServerError, MutationRequest, MutationResponse, NotSupported, ObjectField, ObjectType, OrderByElement, QueryRequest, QueryResponse, RowFieldValue, ScalarType, SchemaResponse, start } from "@hasura/ndc-sdk-typescript";
+import { JSONSchemaObject } from "@json-schema-tools/meta-schema";
+import { ComparisonTarget, Expression } from '@hasura/ndc-sdk-typescript/dist/generated/typescript/QueryRequest';
+```
+
 We need to fill in implementations for each of the required functions, but we won't need all of these to work just yet.
 
 First, you'll see that we define three types: `RawConfiguration`, `Configuration`, and `State`.
@@ -185,13 +195,6 @@ async function try_init_state(configuration: RawConfiguration, metrics: unknown)
 }
 ```
 
-You will need to add these imports:
-
-```typescript
-import { Database, open } from 'sqlite';
-import sqlite3 from 'sqlite3';
-```
-
 Our capabilities response will be very simple, because we won't support many capabilities yet.
 
 ```typescript
@@ -260,27 +263,6 @@ async function get_schema(configuration: RawConfiguration): Promise<SchemaRespon
 }
 ```
 
-```typescript
-let object_types: { [k: string]: ObjectType } = {};
-
-for (const table of configuration.tables) {
-  let fields: { [k: string]: ObjectField } = {};
-
-  for (const columnName in table.columns) {
-    fields[columnName] = {
-      type: {
-        type: 'named',
-        name: 'any'
-      }
-    };
-  }
-
-  object_types[table.tableName] = {
-    fields
-  };
-}
-```
-
 Here I create one `ObjectType` definition for each table in the configuration. 
 
 Notice that the name of the object type is the name of the table, and each column uses the `any` type that we just
@@ -289,16 +271,45 @@ defined.
 Now let's define the collections:
 
 ```typescript
-let collections: CollectionInfo[] = configuration.tables.map((table) => {
-  return {
-    arguments: {},
-    name: table.tableName,
-    deletable: false,
-    foreign_keys: {},
-    uniqueness_constraints: {},
-    type: table.tableName,
+async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
+  let scalar_types: { [k: string]: ScalarType } = {
+    'any': {
+      aggregate_functions: {},
+      comparison_operators: {},
+      update_operators: {},
+    }
   };
-});
+
+  let object_types: { [k: string]: ObjectType } = {};
+
+  for (const table of configuration.tables) {
+    let fields: { [k: string]: ObjectField } = {};
+
+    for (const columnName in table.columns) {
+      fields[columnName] = {
+        type: {
+          type: 'named',
+          name: 'any'
+        }
+      };
+    }
+
+    object_types[table.tableName] = {
+      fields
+    };
+  }
+
+  let collections: CollectionInfo[] = configuration.tables.map((table) => {
+    return {
+      arguments: {},
+      name: table.tableName,
+      deletable: false,
+      foreign_keys: {},
+      uniqueness_constraints: {},
+      type: table.tableName,
+    };
+  });
+}
 ```
 
 Again, we define one collection per table in the configuration, and we use the object type with the same name that we
@@ -307,54 +318,196 @@ just defined.
 Now we can put the schema response together:
 
 ```typescript
-return {
+async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
+  let scalar_types: { [k: string]: ScalarType } = {
+    'any': {
+      aggregate_functions: {},
+      comparison_operators: {},
+      update_operators: {},
+    }
+  };
+
+  let object_types: { [k: string]: ObjectType } = {};
+
+  for (const table of configuration.tables) {
+    let fields: { [k: string]: ObjectField } = {};
+
+    for (const columnName in table.columns) {
+      fields[columnName] = {
+        type: {
+          type: 'named',
+          name: 'any'
+        }
+      };
+    }
+
+    object_types[table.tableName] = {
+      fields
+    };
+  }
+
+  let collections: CollectionInfo[] = configuration.tables.map((table) => {
+    return {
+      arguments: {},
+      name: table.tableName,
+      deletable: false,
+      foreign_keys: {},
+      uniqueness_constraints: {},
+      type: table.tableName,
+    };
+  });
+
+  return {
     functions: [],
     procedures: [],
     collections,
     object_types,
     scalar_types,
-};
+  };
+}
 ```
 
 Notice that we don't define `functions` or `procedures`, but we'll cover those features later in the series.
 
-So we have one more function to define, which is the query function, but before we do, let's talk about tests. The NDC
-specification repository provides a test runner executable called `ndc-test`, which can be used to implement a test
-suite for a connector. We can also use ndc-test to run some automatic tests and validate the work we've done so far.
-Let's compile and run our connector, and then use the test runner with the running connector.
+So we have one more function to define, which is the query function, but before we do, let's talk about tests. The [NDC
+specification repository](https://github.com/hasura/ndc-spec/) provides a 
+[test runner executable](https://github.com/hasura/ndc-spec/tree/main/ndc-test) called `ndc-test`, which can be used to 
+implement a test suite for a connector. 
+
+We can also use ndc-test to run some automatic tests and validate the work we've done so far. Let's compile and run 
+our connector, and then use the test runner with the running connector.
 
 Here I have a configuration.json file which I can use to run the connector against my sample database.
 
 First let's run the connector.
 
-```sh
+```shell
 npm run build && node dist/index.js serve --configuration configuration.json
 ```
 
-Now, let's run the tests. Of course, we expected it to fail, but we can already see that our schema response is good.
+[//]: # (TODO)
+Now, let's run the tests. (You will need to have the 
+[ndc test runner](https://github.com/hasura/graphql-engine-mono/pull/10626#pullrequestreview-1826948556) installed on 
+your machine.)
+
+```shell
+ndc-test test --endpoint http://localhost:8100
+```
+
+OR
+
+```shell
+cargo run --bin ndc-test -- test --endpoint http://localhost:8100
+````
+
+Of course, we expected it to fail, but we can already see that our schema response is good.
 
 Let's modify our query function to print out the request it receives, and this will give us a goal to work towards.
 
 ```typescript
-console.log(JSON.stringify(request, null, 2));
+async function query(configuration: RawConfiguration, state: State, request: QueryRequest): Promise<QueryResponse> {
+  console.log(JSON.stringify(request, null, 2));
+  throw new Error("Function not implemented.");
+}
 ```
 
-In the logs, we can see the request that was sent. It identifies the name of the collection, and a query object to run.
-The query has a list of fields to retrieve, and a limit of 10 rows. With this as a guide, we can start to implement our
-query function.
+Let's recompile and restart the connector, and run the tests again.
+
+```text
+{"level":30,"time":1705491544618,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-3","req":{"method":"POST","url":"/query","hostname":"localhost:8100","remoteAddress":"127.0.0.1","remotePort":55462},"msg":"incoming request"}
+{
+  "collection": "albums",
+  "query": {
+    "fields": {
+      "artist_id": {
+        "type": "column",
+        "column": "artist_id"
+      },
+      "id": {
+        "type": "column",
+        "column": "id"
+      },
+      "title": {
+        "type": "column",
+        "column": "title"
+      }
+    },
+    "limit": 10
+  },
+  "arguments": {},
+  "collection_relationships": {}
+}
+{"level":30,"time":1705491544622,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-3","res":{"statusCode":500},"responseTime":4.2100830078125,"msg":"request completed"}
+{"level":30,"time":1705491544623,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-4","req":{"method":"POST","url":"/query","hostname":"localhost:8100","remoteAddress":"127.0.0.1","remotePort":55462},"msg":"incoming request"}
+{
+  "collection": "albums",
+  "query": {
+    "aggregates": {
+      "count": {
+        "type": "star_count"
+      }
+    },
+    "limit": 10
+  },
+  "arguments": {},
+  "collection_relationships": {}
+}
+{"level":30,"time":1705491544624,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-4","res":{"statusCode":500},"responseTime":0.9287499785423279,"msg":"request completed"}
+{"level":30,"time":1705491544624,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-5","req":{"method":"POST","url":"/query","hostname":"localhost:8100","remoteAddress":"127.0.0.1","remotePort":55462},"msg":"incoming request"}
+{
+  "collection": "artists",
+  "query": {
+    "fields": {
+      "id": {
+        "type": "column",
+        "column": "id"
+      },
+      "name": {
+        "type": "column",
+        "column": "name"
+      }
+    },
+    "limit": 10
+  },
+  "arguments": {},
+  "collection_relationships": {}
+}
+{"level":30,"time":1705491544625,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-5","res":{"statusCode":500},"responseTime":0.482666015625,"msg":"request completed"}
+{"level":30,"time":1705491544625,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-6","req":{"method":"POST","url":"/query","hostname":"localhost:8100","remoteAddress":"127.0.0.1","remotePort":55462},"msg":"incoming request"}
+{
+  "collection": "artists",
+  "query": {
+    "aggregates": {
+      "count": {
+        "type": "star_count"
+      }
+    },
+    "limit": 10
+  },
+  "arguments": {},
+  "collection_relationships": {}
+}
+{"level":30,"time":1705491544625,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-6","res":{"statusCode":500},"responseTime":0.37700000405311584,"msg":"request completed"}
+```
+
+In the logs of the app, we can see the request that was sent. It identifies the name of the collection, and a query 
+object to run. The query has a list of fields to retrieve, and a limit of 10 rows. With this as a guide, we can 
+start to implement our query function.
 
 The query function is going to delegate to a function called `fetch_rows`, but only when rows are requested, which is
 indicated by the presence of the query fields property.
 
 ```typescript
-const rows = request.query.fields && await fetch_rows(state, request);
-
-return [{ rows }];
+async function query(configuration: RawConfiguration, state: State, request: QueryRequest): Promise<QueryResponse> {
+  console.log(JSON.stringify(request, null, 2));
+  const rows = request.query.fields && await fetch_rows(state, request);
+  return [{ rows }];
+}
 ```
 
 Later, we'll also implement aggregates here.
 
-Let's fill in the `fetch_rows` function:
+Let's define the `fetch_rows` function:
 
 ```typescript
 async function fetch_rows(state: State, request: QueryRequest): Promise<{
@@ -391,13 +544,13 @@ async function fetch_rows(state: State, request: QueryRequest): Promise<{
 }
 ```
 This function breaks down the request that we saw earlier and produces some SQL with this basic shape here. The
-requested fields get pushed down in the target list here, and the limit and offset clauses are generated based on the
+requested fields get pushed down in the target list, and the limit and offset clauses are generated based on the
 request as well. Notice that we don't fetch more data than we need, either in terms of rows or columns. That's the
 benefit of connectors - we get to push down the query execution to the data sources themselves.
 
 Now let's see it work in the test runner. We'll rebuild and restart the connector, and run the tests again.
 
-Of course we still see our tests fail, but now we've made some progress because the most basic tests are passing. If we
+Of course, we still see our tests fail, but now we've made some progress because the most basic tests are passing. If we
 look at the connector logs, we can see that we're now receiving some more advanced queries which we're not handling yet,
 such as queries with predicates and orderings.
 
@@ -407,11 +560,15 @@ In fact, we can get the test runner to write these expectations out as snapshot 
 ```sh
 ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
 ```
+
 Here we can build up a library of query requests and expected responses that can be replayed in order to make sure that
 our connector continues to exhibit the same behavior over time.
 
-Finally, let's see what this connector looks like when we add it to our Hasura graph. I have some Hasura metadata ready
-here, but I won't go into the setup now - I'll save that explanation for a later video.
+Finally, let's see what this connector looks like when we add it to our Hasura graph. 
+
+[//]: # (TODO)
+I have some Hasura metadata ready here, but I won't go into the setup now - I'll save that explanation for a later 
+video.
 
 For now, we can run a command to deploy this metadata to Hasura cloud, and see our connector in action. I can use the
 `build create` command to create a new build from my metadata:
@@ -426,25 +583,4 @@ Let's make a request for albums, and specify a limit of 5 rows. In my metadata c
 to tunnel requests for this connector to my local machine, so as we can see, our connector has received the request and
 generated the appropriate SQL.
 
-So that's it for this video. In the next one, we'll start to fill out some of the missing query functionality, beginning
-with where clauses.
-
-Thanks for watching!
-
-
-
-
-
-
-```shell
-npm i
-npm run build # this just runs tsc
-```
-
-Run the connector:
-
-```shell
-node dist/index.js serve --configuration configuration.json
-```
-
-To start from scratch and create the initial project:
+In the next section, we'll start to fill out some of the missing query functionality, beginning with `where` clauses.

@@ -12,11 +12,10 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 ## Clone the finished repo
 
-You can use this course by following the videos and instructions, and you can also clone the finished repo to see 
-it in action straight away too. To set up a skeleton project and follow on your own, clone the repo and checkout the 
-`follow-along` branch:
+You can use this course by following the videos and instructions, and you can also 
+[clone the finished repo](https://github.com/hasura/ndc-typescript-learn-course) to see it in action straight away 
+too. To set up a skeleton project and follow on your own, clone the repo and checkout the `follow-along` branch:
 
-[//]: # (TODO make public)
 ```shell
 git clone git@github.com:hasura/ndc-typescript-learn-course.git
 ```
@@ -403,7 +402,7 @@ First let's run the connector.
 npm run build && node dist/index.js serve --configuration configuration.json
 ```
 
-[//]: # (TODO)
+[//]: # (TODO - document the test runner better in the spec repo)
 Now, let's run the tests. (You will need to have the 
 [ndc test runner](https://github.com/hasura/graphql-engine-mono/pull/10626#pullrequestreview-1826948556) installed on 
 your machine.)
@@ -430,8 +429,6 @@ async function query(configuration: RawConfiguration, state: State, request: Que
 ```
 
 Let's recompile and restart the connector, and run the tests again.
-
-[//]: # (TODO correct)
 
 ```text
 {"level":30,"time":1705491544618,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-3","req":{"method":"POST","url":"/query","hostname":"localhost:8100","remoteAddress":"127.0.0.1","remotePort":55462},"msg":"incoming request"}
@@ -590,9 +587,9 @@ our connector continues to exhibit the same behavior over time.
 
 Finally, let's see what this connector looks like when we add it to our Hasura graph. 
 
-[//]: # (TODO - link out to how to implement this in the docs)
-I have some Hasura metadata ready here, but I won't go into the setup now - I'll save that explanation for a later 
-video.
+I have some [Hasura metadata ready here](https://github.com/hasura/ndc-typescript-learn-course/blob/main/deployment/metadata.hml), 
+but I won't go into the setup now. For more information on this you can check out 
+[the quickstart guide in the docs](https://hasura.io/docs/3.0/local-dev/).
 
 For now, we can run a command to deploy this metadata to Hasura cloud, and see our connector in action. I can use the
 `build create` command to create a new build from my metadata:

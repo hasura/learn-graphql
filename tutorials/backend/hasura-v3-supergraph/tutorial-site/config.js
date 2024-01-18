@@ -22,7 +22,7 @@ const config = {
     ],
     search: {
       enabled: true,
-      indexName: 'learn-hasura-backend',
+      indexName: 'learn-hasura-v3-supergraph',
       algoliaAppId: process.env.GATSBY_ALGOLIA_APP_ID,
       algoliaSearchKey: process.env.GATSBY_ALGOLIA_SEARCH_KEY,
       algoliaAdminKey: process.env.ALGOLIA_ADMIN_KEY,
@@ -58,29 +58,8 @@ const config = {
       'https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/hasura-v3-supergraph/tutorial-site/content',
     favicon: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png',
   },
-  language: {
-    code: 'en',
-    name: 'English',
-    translations: [
-      {
-        code: 'ja',
-        name: 'Japanese',
-        link: 'https://hasura.io/learn/ja/graphql/hasura/introduction/',
-      },
-      {
-        code: 'es',
-        name: 'Spanish',
-        link: 'https://hasura.io/learn/es/graphql/hasura/introduction/',
-      },
-      {
-        code: 'zh',
-        name: 'Chinese',
-        link: 'https://hasura.io/learn/zh/graphql/hasura/introduction/',
-      },
-    ],
-  },
   newsletter: {
-    ebookAvailable: true,
+    ebookAvailable: false,
   },
 };
 

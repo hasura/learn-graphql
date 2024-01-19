@@ -50,7 +50,7 @@ async function try_init_state(configuration: RawConfiguration, metrics: unknown)
   throw new Error("Function not implemented.");
 }
 
-function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {\
+function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {
   throw new Error("Function not implemented.");
 }
 

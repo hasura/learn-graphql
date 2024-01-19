@@ -17,6 +17,11 @@ our connector, and then use the test runner with the running connector.
 Back in your `ndc-typescript-learn-course` directory that we cloned during setup, you have a `configuration.json` file 
 which you can use to run the connector against your sample database.
 
+In this context of this course you need not worry about the configuration file or how it was created, although it is 
+a core feature of Hasura DDN. You can read more about it in the 
+[Hasura DDN quickstart](https://hasura.io/docs/3.0/local-dev/) and in the 
+[supergraph modeling](https://hasura.io/docs/3.0/supergraph-modeling/overview/) section of docs. 
+
 First let's run the connector.
 
 ```shell
@@ -25,7 +30,7 @@ npm run build && node dist/index.js serve --configuration configuration.json
 
 [//]: # (TODO - document the test runner better in the spec repo)
 Now, let's run the tests. (You will need to have the
-[ndc test runner](https://github.com/hasura/graphql-engine-mono/pull/10626#pullrequestreview-1826948556) installed on
+[ndc test runner](https://github.com/hasura/ndc-spec/tree/main/ndc-test) installed on
 your machine.)
 
 ```shell

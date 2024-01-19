@@ -37,7 +37,7 @@ async function try_init_state(configuration: RawConfiguration, metrics: unknown)
 Our capabilities response will be very simple, because we won't support many capabilities yet.
 
 ```typescript
-function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {\
+function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {
   return {
     versions: "^0.1.0",
     capabilities: {

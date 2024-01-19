@@ -10,7 +10,11 @@ A data connector in Hasura DDN is an agent which allows you to connect Hasura to
 
 ## What will we be building? {#what-will-we-be-building}
 
-We will build a connector to an SQLite file system database which you can run locally on your machine. 
+We will build a connector to an [SQLite](https://www.sqlite.org/index.html) file system database which you can run 
+locally on your machine. 
+
+You can watch the videos and also follow along with the code in this tutorial by first cloning the 
+[repo](/get-started/2-clone/).
 
 ## What will I learn? {#what-will-i-learn}
 
@@ -19,9 +23,8 @@ what you've learned into creating a data connector for any data source.
 
 ## What do I need to take this tutorial? {#what-do-i-need-to-take-this-tutorial}
 
-It is recommended that you first review the [Hasura NDC Specification](http://hasura.github.io/ndc-spec/) and
-accompanying reference implementation, at least to gain a basic familiarity with the concepts, but these materials are
-intended to be complementary.
+It is recommended that you first review the [Hasura NDC Specification](http://hasura.github.io/ndc-spec/), at least to 
+gain a basic familiarity with the concepts, but these materials are intended to be complementary.
 
 The dependencies required to follow along here are minimal - you will need Node and `npm` so that you can run the
 TypeScript compiler. If you'd like to follow along using the same test-driven approach, then you will also need a

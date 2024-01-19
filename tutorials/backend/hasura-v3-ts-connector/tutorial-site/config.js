@@ -13,7 +13,7 @@ const config = {
     githubUrl: 'https://github.com/hasura/learn-graphql',
     helpUrl: 'https://discord.com/invite/hasura',
     tweetText:
-      'Check out this Introduction to Hasura GraphQL backend course for frontend developers by @HasuraHQ https://hasura.io/learn/graphql/hasura/introduction/',
+      'Check out this course in building TypeScript data connectors for Hasura DDN by @HasuraHQ https://hasura.io/learn/graphql/react-apollo-components/introduction/',
     links: [
       {
         text: '',
@@ -42,9 +42,9 @@ const config = {
     ],
   },
   siteMetadata: {
-    title: 'Introduction to Hasura backend course for frontend developers | Hasura',
+    title: 'Build a data connector for Hasura DDN using TypeScript | Hasura',
     description:
-      'A concise and powerful tutorial that covers fundamental concepts of developing GraphQL backends instantly using Hasura',
+      'A concise tutorial that covers the fundamental concepts of building a data connector for Hasura DDN using TypeScript',
     ogImage: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura.png',
     docsLocation: 'https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/tutorial-site/content',
     favicon: 'https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png',

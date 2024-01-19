@@ -30,10 +30,10 @@ type State = {
 ```
 
 `RawConfiguration` is the type of configuration that the user will see. By convention, this configuration should be
-enough to reproducibly determine the NDC schema, so for our SQLite connector, we configure the connector with a list of
-tables that we want to expose. Each table is defined by its name and a list of columns. Columns don't have any specific
-configuration yet, but we leave an empty object type here because we might want to capture things like column types
-later on.
+enough to reproducibly determine the connector's schema, so for our SQLite connector, we configure the connector with a
+list of tables that we want to expose. Each table is defined by its name and a list of columns. Columns don't have any
+specific configuration yet, but we leave an empty object type here because we might want to capture things like column
+types later on.
 
 The `Configuration` type is a validated version of the raw configuration, but for our purposes, we'll reuse the same
 type.

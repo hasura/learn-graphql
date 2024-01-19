@@ -4,7 +4,8 @@ metaTitle: 'Function Definitions | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
 ---
 
-Now let's fill in some function definitions.
+Now let's fill in some function definitions, these are the functions required to provide to the connector to satisfy 
+the Hasura connector specification, and we'll be implementing them as we go through the course.
 
 ```typescript
 function get_raw_configuration_schema(): JSONSchemaObject {

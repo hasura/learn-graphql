@@ -11,11 +11,10 @@ For now, we'll just handle the most basic queries, but later, we'll start to fil
 implementation, and see more queries return results correctly. We'll also cover topics such as metrics, connector
 configuration, error reporting, and tracing.
 
-The data source we'll be targeting is a SQLite database running on my local machine, and we'll be using the Hasura
+The data source we'll be targeting is a SQLite database running on your local machine, and we'll be using the Hasura
 TypeScript connector SDK.
 
-Here I have an empty TypeScript project, and I've added the SDK as a dependency along with the SQLite library and its
-TypeScript bindings.
+If you've cloned the repo in the previous step, you can follow along with the code in this tutorial.
 
 Let's start by following the [SDK guidelines](https://github.com/hasura/ndc-sdk-typescript) and using the `start`
 function.

@@ -46,12 +46,13 @@ About an hour.
 
 ## Additional Resources {#additional-resources}
 
-- [NDC Specification](https://hasura.github.io/ndc-spec/specification/)
+- The [NDC Specification](https://hasura.github.io/ndc-spec/specification/) details the specification for data 
+  connectors which work with Hasura DDN.
   - [Reference Implementation with Tutorial](https://github.com/hasura/ndc-spec/tree/main/ndc-reference/tests)
-- SDKs
+- SDKs for data connectors built with Rust, and the one we will be using, TypeScript.
   - [NDC Rust SDK](https://github.com/hasura/ndc-hub)
   - [NDC Typescript SDK](https://github.com/hasura/ndc-sdk-typescript)
-- Examples of Native Connectors
+- Examples of existing native data connectors built by Hasura.
   - [Clickhouse](https://github.com/hasura/ndc-clickhouse) (Rust)
   - [QDrant](https://github.com/hasura/ndc-qdrant) (Typescript)
   - [Deno](https://github.com/hasura/ndc-typescript-deno) (Typescript)

@@ -10,8 +10,11 @@ A data connector in Hasura DDN is an agent which allows you to connect Hasura to
 
 ## What will we be building? {#what-will-we-be-building}
 
-We will build a connector to an [SQLite](https://www.sqlite.org/index.html) file system database which you can run 
+We will build a connector to an [SQLite](https://www.sqlite.org/index.html) file-system database which you can run 
 locally on your machine. 
+
+This will familiarize you with the process of creating a connector to the Hasura DDN specification. You can then take
+what you've learned and apply it to any data source you'd like to integrate with Hasura.
 
 ## How do I follow along? {#how-do-I-follow-along}
 

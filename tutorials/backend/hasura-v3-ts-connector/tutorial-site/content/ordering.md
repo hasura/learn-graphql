@@ -4,11 +4,9 @@ metaTitle: 'Ordering | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-[![Ordering results in the connector video](https://img.youtube.com/vi/52MANo4K2hs/0.jpg)](https://www.youtube.com/watch?v=52MANo4K2hs)
+import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
-[_**Click here to watch the video**_](https://www.youtube.com/watch?v=52MANo4K2hs)
-
-[//]: # (TODO - embed player?)
+<YoutubeEmbed link="https://www.youtube.com/embed/52MANo4K2hs" />
 
 Now that we've implemented basic predicates and started to see some test cases passing, we'll now implement basic
 sorting, and see more of our tests turn green.

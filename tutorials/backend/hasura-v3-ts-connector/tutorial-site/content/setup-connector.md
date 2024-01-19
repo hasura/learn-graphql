@@ -1,14 +1,12 @@
 ---
-title: "Setup"
+title: "1 - Setup"
 metaTitle: 'Setup | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector for Hasura DDN'
 ---
 
-[![Setup the connector video](https://img.youtube.com/vi/Dw3mV6toU3I/0.jpg)](https://www.youtube.com/watch?v=Dw3mV6toU3I)
+import YoutubeEmbed from "../src/YoutubeEmbed.js";
 
-[_**Click here to watch the video**_](https://www.youtube.com/watch?v=Dw3mV6toU3I)
-
-[//]: # (TODO - embed player?)
+<YoutubeEmbed link="https://www.youtube.com/embed/Dw3mV6toU3I" />
 
 ## Clone the finished repo
 

@@ -33,10 +33,12 @@ what you've learned into creating a data connector for any data source.
 It is recommended that you first review the [Hasura NDC Specification](http://hasura.github.io/ndc-spec/), at least to 
 gain a basic familiarity with the concepts, but these materials are intended to be complementary.
 
-The dependencies required to follow along here are minimal - you will need Node and `npm` so that you can run the
-TypeScript compiler. If you'd like to follow along using the same test-driven approach, then you will also need a
-working `ndc-test` executable on your `PATH`. `ndc-test` can be installed using the Rust toolchain from the
-[`ndc-spec`](https://github.com/hasura/ndc-spec) repository.
+The dependencies required to follow along here are minimal:
+- you will need Node and `npm` so that you can run the  TypeScript compiler. 
+- If you'd like to follow along using the same test-driven approach, then you will also need a working `ndc-test` 
+  executable on your `PATH`.
+
+`ndc-test` can be installed using the Rust toolchain from the [`ndc-spec`](https://github.com/hasura/ndc-spec) repository.
 
 ## How long will this tutorial take? {#how-long-will-this-tutorial-take}
 

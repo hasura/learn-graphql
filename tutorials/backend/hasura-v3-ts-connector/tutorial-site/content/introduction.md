@@ -13,7 +13,7 @@ A data connector in Hasura DDN is an agent which allows you to connect Hasura to
 We will build a connector to an [SQLite](https://www.sqlite.org/index.html) file system database which you can run 
 locally on your machine. 
 
-## How to follow along {#how-to-follow-along}
+## How do I follow along? {#how-do-I-follow-along}
 
 You can watch the walkthrough videos in each section and also follow along with the code in this tutorial by first 
 cloning the [repo](/get-started/2-clone/).

@@ -1,3 +1,10 @@
+---
+title: "Order By"
+metaTitle: 'Order By | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
+
+
 Now that we've implemented basic predicates and started to see some test cases passing, we'll now implement basic
 sorting, and see more of our tests turn green.
 

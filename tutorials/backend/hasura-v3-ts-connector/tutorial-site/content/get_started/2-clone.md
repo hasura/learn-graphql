@@ -1,4 +1,8 @@
-## Clone the finished repo
+---
+title: "Clone the repo"
+metaTitle: 'Clone the repo | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
 
 You can use this course by following the videos and instructions, and you can also
 [clone the finished repo](https://github.com/hasura/ndc-typescript-learn-course) to see it in action straight away

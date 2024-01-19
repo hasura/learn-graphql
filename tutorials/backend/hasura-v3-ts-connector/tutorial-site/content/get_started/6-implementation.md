@@ -1,3 +1,16 @@
+---
+title: "Implementation"
+metaTitle: 'Implementation | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
+
+Right now, we only need to implement five functions:
+- `validate_raw_configuration`, which validates the configuration from the user
+- `try_init_state`, which initializes our database connection
+- `get_capabilities`, which returns the NDC capabilities of our connector
+- `get_schema`, which returns an NDC schema containing our tables and columns
+- `query`, which actually responds to query requests
+
 We'll skip configuration validation entirely for now, and just return the raw configuration.
 
 ```typescript

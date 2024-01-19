@@ -1,4 +1,8 @@
-## Setup
+---
+title: "Basic Setup"
+metaTitle: 'Basic Setup | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
 
 Let's set up the scaffolding for our connector, and we'll see the first queries start to work. We'll also start to
 develop a test suite, and see our connector running in Hasura.

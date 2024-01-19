@@ -1,4 +1,8 @@
-## Query
+---
+title: "The Query Function"
+metaTitle: 'The Query Function | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
 
 The query function is going to delegate to a function called `fetch_rows`, but only when rows are requested, which is
 indicated by the presence of the query fields property.

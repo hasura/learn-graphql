@@ -1,4 +1,8 @@
-## Expression Types
+---
+title: "Expression Types"
+metaTitle: 'Expression Types | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
 
 In the SDK, these predicate expressions are given the TypeScript type `Expression`, and we can see that there are
 several different types of expression.

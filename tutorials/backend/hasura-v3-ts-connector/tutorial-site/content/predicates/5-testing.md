@@ -1,3 +1,10 @@
+---
+title: "Testing"
+metaTitle: 'Testing the where clause | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
+
+
 Now let's remove our old snapshots and re-run the test suite.
 
 We can see that predicate tests are passing, but some other test cases are not. That's okay - we'll keep iterating over

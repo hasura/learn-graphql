@@ -1,4 +1,8 @@
-## Configuration and State
+---
+title: "Configuration and State"
+metaTitle: 'Configuration and State | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
 
 We need to fill in implementations for each of the required functions, but we won't need all of these to work just yet.
 

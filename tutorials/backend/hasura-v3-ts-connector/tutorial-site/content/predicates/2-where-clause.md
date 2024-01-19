@@ -1,3 +1,9 @@
+---
+title: "Where Clause"
+metaTitle: 'Ordering | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
+
 So now we've set up a basic data connector for a SQLite database running locally. Now we'll start to implement
 predicates by turning them into where clauses in the generated SQL.
 

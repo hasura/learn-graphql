@@ -1,3 +1,9 @@
+---
+title: "Implementing Aggregates"
+metaTitle: 'Aggregates | Hasura DDN Typescript Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
+
 Let's implement aggregates in our SQLite connector.
 
 Like we've done before, we won't implement aggregates in their full generality, and instead we're going to implement two
@@ -9,7 +15,7 @@ field in the query request body. Just like the `fields` property that we handled
 with a key, and has a `type`, in this case `star_count`. So we're going to handle aggregates very similarly to fields,
 by building up a SQL target list from these aggregates.
 
-[//]: # (TODO)
+[//]: # (TODO - show tests)
 
 The NDC spec says that each aggregate should act over the same set of rows that we consider when returning `rows`. That
 is, we should apply any predicates, sorting, pagination, and so on, and then apply the aggregate functions over the

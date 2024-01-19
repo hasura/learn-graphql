@@ -1,3 +1,9 @@
+---
+title: "Building the 'where' clause"
+metaTitle: 'Building the Where clause | Hasura DDN Data Connector Tutorial'
+metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
+---
+
 We're going to build up the `WHERE` clause recursively, starting with the simplest expressions at the leaves of the
 predicate expression tree, and working upwards. As we go, we will need to keep track of any query parameters that we
 also need to pass to SQLite, so let's make a place to store those.

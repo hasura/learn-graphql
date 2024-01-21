@@ -169,6 +169,8 @@ cargo run --bin ndc-test -- test --endpoint http://localhost:8100
 │ │ │ ├ star_count ... FAIL
 ```
 
+[//]: # (TODO - why are predicates passing here? They have not been implemented)
+
 Of course, we still see some tests fail, but now we've made some progress because the most basic tests are passing.
 
 We can get the test runner to write these expectations out as snapshot files to disk by adding the `--snapshots-dir` 

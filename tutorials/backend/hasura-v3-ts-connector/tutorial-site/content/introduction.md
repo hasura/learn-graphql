@@ -48,9 +48,8 @@ About an hour.
 
 ## Additional Resources {#additional-resources}
 
-- The [NDC Specification](https://hasura.github.io/ndc-spec/specification/) details the specification for data 
-  connectors which work with Hasura DDN.
-  - [Reference Implementation with Tutorial](https://github.com/hasura/ndc-spec/blob/main/ndc-reference/README.md)
+- The [NDC Specification](https://hasura.github.io/ndc-spec/specification/) details the specification for data connectors which work with Hasura DDN.
+- [Reference Implementation with Tutorial](https://github.com/hasura/ndc-spec/blob/main/ndc-reference/README.md)
 - SDKs for data connectors built with Rust, and the one which we will be using in this course, TypeScript.
   - [NDC Rust SDK](https://github.com/hasura/ndc-hub)
   - [NDC Typescript SDK](https://github.com/hasura/ndc-sdk-typescript)
@@ -59,4 +58,6 @@ About an hour.
   - [QDrant](https://github.com/hasura/ndc-qdrant) (Typescript)
   - [Deno](https://github.com/hasura/ndc-typescript-deno) (Typescript)
 - [Hasura DDN Docs](https://hasura.io/docs/3.0/index/)
+- [Hasura DDN Hub](https://hasura.io/connectors#connectors-list) - This is where data connectors are published and can be installed 
+  into your Hasura DDN instance.
 - [Hasura DDN Open Source Engine codebase](https://github.com/hasura/graphql-engine/tree/master/v3)

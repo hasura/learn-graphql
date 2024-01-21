@@ -15,16 +15,17 @@ Let's get started.
 
 ## Order By
 
-Just like last time, we will modify our SQL template to add a new `ORDER BY` clause, and delegate to a new function to
-generate the SQL for that new clause.
+Just like with the `WHERE` clause last time, we will modify our SQL template to add a new `ORDER BY` clause, and
+delegate to a new function to generate the SQL for that new clause.
 
 ```typescript
 const order_by_clause = request.query.order_by == null ? "" : `ORDER BY ${visit_order_by_elements(request.query.order_by.elements)}`;
 
 const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${where_clause} ${order_by_clause} ${limit_clause} ${offset_clause}`;
 ```
-In this case, our new function is called `visit_order_by_elements`, and it breaks down the `order_by` property of the
-query request.
+
+In this case, our new helper function is called `visit_order_by_elements`, and it breaks down the `order_by` property 
+of the query request.
 
 `visit_order_by_elements` processes a list of "order-by elements", each of which identifies an expression to order by,
 and a sort order - ascending or descending.
@@ -43,9 +44,9 @@ function visit_order_by_elements(values: OrderByElement[]): String {
 
 The function makes a special case for zero elements, because otherwise we'd generate invalid SQL.
 
-Otherwise, it delegates to another function to generate the SQL for a single order-by element, and concatenates the
-results. This has the desired effect of implementing the lexicographical order, where the first order-by element takes
-precedence, the second acts as tie-breaker in case of equality, and so on.
+Otherwise, it delegates to another function, `visit_order_by_element`, to generate the SQL for a single order-by 
+element, and concatenates the results. This has the desired effect of implementing the lexicographical order, where 
+the first order-by element takes precedence, the second acts as tie-breaker in case of equality, and so on.
 
 Now let's implement the `visit_order_by_element` function.
 
@@ -94,8 +95,7 @@ function visit_order_by_element(element: OrderByElement): String {
                 throw new NotSupported("Relationships are not supported");
             }
             return `${element.target.name} ${direction}`;
-        case 'single_column_aggregate':
-        case 'star_count_aggregate':
+            case 'single_column_aggregate': case 'star_count_aggregate':
             throw new NotSupported("order_by_aggregate are not supported");
     }
 }
@@ -106,4 +106,4 @@ In this case, the generated SQL is simple: just the name of the column, followed
 Actually, that's all that's needed to implement sorting. We can rebuild our connector and re-run the test suite to make
 sure that our new test cases are passing.
 
-That's all for now. Next up: aggregates.
+Next up: aggregates.

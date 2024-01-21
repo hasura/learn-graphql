@@ -5,7 +5,8 @@ metaDescription: 'Learn how to build a data connector in Typescript for Hasura D
 ---
 
 In the SDK, these predicate expressions are given the TypeScript type `Expression`, and we can see that there are
-several different types of expression.
+several different types of expression. These are all expression types which can be used in the `where` clause of a
+query our `query` function will need to handle them via the `fetch_rows` function.
 
 ```typescript
 export type Expression = {
@@ -38,9 +39,10 @@ export type Expression = {
 };
 ```
 
-There are logical expressions like `and`, `or`, and `not`, which combine other simpler expressions.
+There are logical expressions like `and`, `or`, and `not`, which serve to combine other simpler expressions.
 
-There are unary and binary comparison operator expressions.
+There are unary (eg: `NULL`, `IS NOT NULL`, etc...) and binary (eg: `=` (equal), `!=` (not-equal), `>` (greater-than), 
+`<` (less-than), `>=` (greater-or-equal)) comparison operator expressions.
 
 And there are `exists` expressions, which are expressed using a sub-query against another collection.
 

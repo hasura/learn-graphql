@@ -15,24 +15,54 @@ field in the query request body. Just like the `fields` property that we handled
 with a key, and has a `type`, in this case `star_count`. So we're going to handle aggregates very similarly to fields,
 by building up a SQL target list from these aggregates.
 
-[//]: # (TODO - show tests)
+```JSON
+{
+  "collection": "albums",
+  "query": {
+    "aggregates": {
+      "count": {
+        "type": "star_count"
+      }
+    },
+    "limit": 10
+  },
+  "arguments": {},
+  "collection_relationships": {}
+}
+```
 
-The NDC spec says that each aggregate should act over the same set of rows that we consider when returning `rows`. That
-is, we should apply any predicates, sorting, pagination, and so on, and then apply the aggregate functions over the
-resulting set of rows.
+[The NDC spec](https://hasura.github.io/ndc-spec/specification/queries/aggregates.html) says that each aggregate should
+act over the same set of rows that we consider when returning `rows`. That is, we should apply any predicates, sorting,
+pagination, and so on, and then apply the aggregate functions over the resulting set of rows.
 
 So assuming we have a function called `fetch_aggregates` which builds the SQL in this way, we can fill in the
-`aggregates` in the response:
+`aggregates` in the response.
+
+If the `query` function, add this line and amend the return type to include aggregates:
 
 ```typescript
 const aggregates = request.query.aggregates && await fetch_aggregates(state, request);
+
+return [{ rows,aggregates }];
 ```
 
-Now let's start to fill in a `fetch_aggregates` function.
+So the final query function becomes:
+```typescript
+async function query(configuration: Configuration, state: State, request: QueryRequest): Promise<QueryResponse> {
+    console.log(JSON.stringify(request, null, 2));
 
-We'll actually copy/paste the `fetch_rows` function and create a new function for handling aggregates. It'd be possible
-to extract that commonality into a shared function, but arguably not worth it, since so much is already extracted out
-into small helper functions anyway.
+    const rows = request.query.fields && await fetch_rows(state, request);
+    const aggregates = request.query.aggregates && await fetch_aggregates(state, request);
+
+    return [{ rows, aggregates }];
+}
+```
+
+Now let's start to fill in a `fetch_aggregates` helper function.
+
+We'll actually copy/paste the `fetch_rows` function and create a new function for handling aggregates. It would be 
+possible to extract that commonality into a shared function, but arguably not worth it, since so much is already 
+extracted out into small helper functions anyway.
 
 The first difference is the return type. Instead of `RowFieldValue`, we're going to return a value directly from the
 database, so let's change that to `unknown`.
@@ -40,9 +70,7 @@ database, so let's change that to `unknown`.
 Next, we want to generate the target list using the requested aggregates, so let's change that.
 
 ```typescript
-async function fetch_aggregates(state: State, request: QueryRequest): Promise<{
-    [k: string]: unknown
-}> {
+async function fetch_aggregates(state: State, request: QueryRequest): Promise<{ [k: string]: unknown }> {
     const target_list = [];
 
     for (const aggregateName in request.query.aggregates) {
@@ -61,7 +89,7 @@ async function fetch_aggregates(state: State, request: QueryRequest): Promise<{
 }
 ```
 
-For now, we'll handle the first two cases here, and save the last for when we talk about custom aggregates.
+For now, we'll handle the first two cases here.
 
 In the first case, we want to generate a target list element which uses the `COUNT` SQL aggregate function.
 
@@ -98,9 +126,9 @@ Now let's update our generated SQL to use the generated target list:
 ```typescript
 // ...
 const sql = `SELECT ${target_list.join(", ")} FROM (
-               (
-                 SELECT * FROM ${request.collection} ${where_clause} ${order_by_clause} ${limit_clause} ${offset_clause}
-               )`;
+    (
+        SELECT * FROM ${request.collection} ${where_clause} ${order_by_clause} ${limit_clause} ${offset_clause}
+    )`;
 // ...
 ```
 
@@ -169,9 +197,29 @@ async function fetch_aggregates(state: State, request: QueryRequest): Promise<{
 }
 ```
 
-That's it, so let's test our connector one more time, and hopefully see some passing tests this time. And let's
-check that we're generating the right SQL.
+That's it, so let's test our connector one more time, and hopefully see some passing tests this time. 
 
-We've now implemented the `star_count` and `column_count` aggregates, and we've seen how to generate SQL for them.
+Remember to delete the snapshots first, so that we can generate new ones:
 
-[//]: # (TODO)
+```bash
+rm -rf snapshots
+```
+
+Make sure to rebuild and restart the server:
+
+```bash
+npm run build && node dist/index.js serve --configuration configuration.json
+```
+
+And re-run the tests with the snapshots directory:
+
+```shell
+ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
+```
+
+OR
+```shell
+cargo run --bin ndc-test -- test --endpoint http://localhost:8100 --snapshots-dir snapshots
+```
+
+Nice! We've now implemented the `star_count` and `column_count` aggregates, and we've seen how to generate SQL for them.

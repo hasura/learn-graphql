@@ -4,8 +4,55 @@ metaTitle: 'The Query Function | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
 ---
 
+Let's modify our query function to log out the request it receives, and this will give us a goal to work towards.
+
+```typescript
+async function query(configuration: RawConfiguration, state: State, request: QueryRequest): Promise<QueryResponse> {
+  console.log(JSON.stringify(request, null, 2));
+  throw new Error("Function not implemented.");
+}
+```
+
+Let's recompile and restart the connector, and run the tests again.
+
+```shell
+npm run build && node dist/index.js serve --configuration configuration.json
+```
+
+In the logs of the app, we can see the request
+that was sent. It identifies the name of the collection, and a query object to run. The query has a list of fields
+to retrieve, and a limit of 10 rows. With this as a guide, we can start to implement our query function in the next
+section.
+
+```text
+...
+{
+  "collection": "albums",
+  "query": {
+    "fields": {
+      "artist_id": {
+        "type": "column",
+        "column": "artist_id"
+      },
+      "id": {
+        "type": "column",
+        "column": "id"
+      },
+      "title": {
+        "type": "column",
+        "column": "title"
+      }
+    },
+    "limit": 10
+  },
+  "arguments": {},
+  "collection_relationships": {}
+}
+...
+```
+
 The query function is going to delegate to a function called `fetch_rows`, but only when rows are requested, which is
-indicated by the presence of the query fields property.
+indicated by the presence of the query fields property. Let's do that:
 
 ```typescript
 async function query(configuration: RawConfiguration, state: State, request: QueryRequest): Promise<QueryResponse> {
@@ -17,12 +64,10 @@ async function query(configuration: RawConfiguration, state: State, request: Que
 
 Later, we'll also implement aggregates here.
 
-Let's define the `fetch_rows` function:
+Let's define the `fetch_rows` function the `query` function is delegating to:
 
 ```typescript
-async function fetch_rows(state: State, request: QueryRequest): Promise<{
-  [k: string]: RowFieldValue
-}[]> {
+async function fetch_rows(state: State, request: QueryRequest): Promise<{ [k: string]: RowFieldValue }[]> {
   const fields = [];
 
   for (const fieldName in request.query.fields) {
@@ -44,6 +89,7 @@ async function fetch_rows(state: State, request: QueryRequest): Promise<{
   }
 
   const limit_clause = request.query.limit == null ? "" : `LIMIT ${request.query.limit}`;
+  
   const offset_clause = request.query.offset == null ? "" : `OFFSET ${request.query.offset}`;
 
   const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${limit_clause} ${offset_clause}`;
@@ -53,46 +99,114 @@ async function fetch_rows(state: State, request: QueryRequest): Promise<{
   return state.db.all(sql);
 }
 ```
-This function breaks down the request that we saw earlier and produces some SQL with this basic shape here. The
-requested fields get pushed down in the target list, and the limit and offset clauses are generated based on the
-request as well. Notice that we don't fetch more data than we need, either in terms of rows or columns. That's the
-benefit of connectors - we get to push down the query execution to the data sources themselves.
+This function breaks down the request that we saw earlier and produces SQL with a basic shape. Here is what `fetch_rows` 
+does: 
+
+1. It initializes an empty array `fields` to store the fields that will be selected in the SQL query.
+
+2. It iterates over the `fields` property of the `request.query` object. Each field represents a column in the database 
+table that needs to be fetched.
+
+3. For each field, it checks the `type` of the field. If the type is 'column', it adds the column name to the `fields` 
+array. If the type is 'relationship', it throws an error because relationships are not supported in this context.
+
+4. It checks if the `request.query.order_by` is not null. If it is not null, it throws an error because sorting is 
+not supported.
+
+5. It generates the `LIMIT` and `OFFSET` clauses for the SQL query based on the `request.query.limit` and 
+`request.query.offset` values.
+
+6. It constructs the SQL query string using the `fields` array, the collection name (which corresponds to the table 
+name in the database), and the `LIMIT` and `OFFSET` clauses.
+
+7. It logs the constructed SQL query.
+
+8. Finally, it executes the SQL query on the database and returns the result. The database connection is accessed 
+through the `db` object in the state.
+
+Notice that we don't fetch more data than we need, either in terms of rows or columns. That's the benefit of 
+connectors - we get to push down the query execution to the data sources themselves.
+
 
 ## Test again
 
 Now let's see it work in the test runner. We'll rebuild and restart the connector, and run the tests again.
 
-Of course, we still see our tests fail, but now we've made some progress because the most basic tests are passing. If we
-look at the connector logs, we can see that we're now receiving some more advanced queries which we're not handling yet,
-such as queries with predicates and orderings.
+```text
+cargo run --bin ndc-test -- test --endpoint http://localhost:8100
+    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
+     Running `/Users/me/ndc-spec/target/debug/ndc-test test --endpoint 'http://localhost:8100'`
+├ Capabilities ...
+│ ├ Fetching /capabilities ... OK
+│ ├ Validating capabilities ... OK
+├ Schema ...
+│ ├ Fetching schema ... OK
+│ ├ Validating schema ...
+│ │ ├ object_types ... OK
+│ │ ├ Collections ...
+│ │ │ ├ albums ...
+│ │ │ │ ├ Arguments ... OK
+│ │ │ │ ├ Collection type ... OK
+│ │ │ ├ artists ...
+│ │ │ │ ├ Arguments ... OK
+│ │ │ │ ├ Collection type ... OK
+│ │ ├ Functions ...
+│ │ │ ├ Procedures ...
+├ Query ...
+│ ├ albums ...
+│ │ ├ Simple queries ...
+│ │ │ ├ Select top N ... OK
+│ │ │ ├ Predicates ... OK
+│ │ │ ├ Sorting ... FAIL
+│ │ ├ Aggregate queries ...
+│ │ │ ├ star_count ... FAIL
+│ ├ artists ...
+│ │ ├ Simple queries ...
+│ │ │ ├ Select top N ... OK
+│ │ │ ├ Predicates ... OK
+│ │ │ ├ Sorting ... FAIL
+│ │ ├ Aggregate queries ...
+│ │ │ ├ star_count ... FAIL
+```
 
-In fact, we can get the test runner to write these expectations out as snapshot files to disk by adding the
-`--snapshots-dir` argument.
+Of course, we still see some tests fail, but now we've made some progress because the most basic tests are passing.
 
-```sh
+We can get the test runner to write these expectations out as snapshot files to disk by adding the `--snapshots-dir` 
+argument.
+
+```shell
 ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
 ```
 
-Here we can build up a library of query requests and expected responses that can be replayed in order to make sure that
-our connector continues to exhibit the same behavior over time.
+OR
+```shell
+cargo run --bin ndc-test -- test --endpoint http://localhost:8100 --snapshots-dir snapshots
+```
+
+Here we can build up a library of **query requests** and **expected responses** that can be replayed in order to make 
+sure that our connector continues to exhibit the same behavior over time.
 
 Finally, let's see what this connector looks like when we add it to our Hasura graph.
 
-I have some [Hasura metadata ready here](https://github.com/hasura/ndc-typescript-learn-course/blob/main/deployment/metadata.hml),
-but I won't go into the setup now. For more information on this you can check out
-[the quickstart guide in the docs](https://hasura.io/docs/3.0/local-dev/).
+Going over the process of initializing a project and creating a Hasura graph is beyond the scope of this course and 
+we don't want to go off-track, but is covered in the Hasura Docs which you can 
+[check out here](https://hasura.io/docs/3.0/local-dev/).
 
-For now, we can run a command to deploy this metadata to Hasura cloud, and see our connector in action. I can use the
-`build create` command to create a new build from my metadata:
+[//]: # (TODO: How to add this data connector to the metadata and use vscode plugin to generate schema)
 
-```sh
-hasura3 cloud build create -p deployment/hasura.yaml
-```
+[//]: # (For now, follow along in the video to see the connector in action. )
+[//]: # (I have some [Hasura metadata ready here]&#40;https://github.com/hasura/ndc-typescript-learn-course/blob/main/deployment/metadata.hml&#41;,)
+[//]: # (but I won't go into the setup now. For more information on this you can check out)
+[//]: # ([the quickstart guide in the docs]&#40;https://hasura.io/docs/3.0/local-dev/&#41;.)
+[//]: # (For now, we can run a command to deploy this metadata to Hasura cloud, and see our connector in action. I can use the)
+[//]: # (`hasura3 build create` command to create a new build from my metadata:)
+[//]: # (```sh)
+[//]: # (hasura3 cloud build create -p deployment/hasura.yaml)
+[//]: # (```)
 
-As you can see, I get a GraphQL endpoint and a console URL that I can use to test it. Let's take a look.
+As you can see in the video, we get a GraphQL endpoint and a console URL that I can use to test it. Let's take a look.
 
-Let's make a request for albums, and specify a limit of 5 rows. In my metadata configuration, I've set up Hasura Cloud
-to tunnel requests for this connector to my local machine, so as we can see, our connector has received the request and
-generated the appropriate SQL.
+In the video we've set Hasura DDN up to tunnel requests to our local machine. If we make a request for albums, and 
+specify a limit of 5 rows as we can see, our connector has received the request and generated the appropriate SQL.
 
 In the next section, we'll start to fill out some of the missing query functionality, beginning with `where` clauses.

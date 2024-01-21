@@ -1,6 +1,6 @@
 ---
-title: "Clone the repo"
-metaTitle: 'Clone the repo | Hasura DDN Data Connector Tutorial'
+title: "Clone the Repo"
+metaTitle: 'Clone the Repo | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
 ---
 

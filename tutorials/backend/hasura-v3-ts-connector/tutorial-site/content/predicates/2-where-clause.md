@@ -12,38 +12,39 @@ For example: a `where` clause.
 
 ## Where Clause
 
-Let's pick up from where we left off. We can modify our SQL template in our `fetch_rows` function to include a `WHERE
-clause`:
+Let's pick up from where we left off. We can modify our SQL template in our `fetch_rows` function to now include a 
+`WHERE clause`:
 
 ```typescript
 const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${where_clause} ${limit_clause} ${offset_clause}`;
 ```
 
 To generate our `WHERE` clause, we will need to interpret the contents of the `where` property of the query request. To
-see what this will look like, we can find some examples in the snapshots we generated last time.
+see what this will look like, we can find some examples in the snapshots we generated last time:
 
 ```JSON
-// ...
-}
-    "Limit"：10,
-    "where":
+{
+    "Limit": 10,
+    "where": {
         "type": "binary_comparison_operator",
-        "column"：｛
-            "type": "column":
-            "name": "artist_id",
-            "path": []
-        "operator"; {
-            "type": "equal"
-        ｝，
-        "value"; {
-            "type": "scalar",
-            "value": 5  
+        "column": {
+          "type": "column",
+          "name": "artist_id",
+          "path": []
+        },
+        "operator": {
+          "type": "equal"
+        },
+        "value": {
+          "type": "scalar",
+          "value": 5
         }
     }
 }
-// ...
 ```
 
 This predicate expression has type `binary_comparison_operator`, which means it is a predicate which compares a column
-to a value using an operator - in this case, the equality operator - this predicate asserts that the `artist_id` column
+to a value using an operator, in this case, the equality operator - this predicate asserts that the `artist_id` column
 equals the literal value `5`.
+
+Let's look at other expression types in the next section.

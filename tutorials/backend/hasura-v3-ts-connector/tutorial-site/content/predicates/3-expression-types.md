@@ -42,6 +42,8 @@ There are logical expressions like `and`, `or`, and `not`, which combine other s
 
 There are unary and binary comparison operator expressions.
 
-And there are `exists` expressions, which are expressed using a subquery against another collection.
+And there are `exists` expressions, which are expressed using a sub-query against another collection.
 
 For now, we'll concentrate on logical expressions and comparison operator expressions.
+
+Let's begin to construct the where clause in the next section.

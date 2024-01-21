@@ -7,6 +7,10 @@ metaDescription: 'Learn how to build a data connector in Typescript for Hasura D
 Now let's fill in some function definitions, these are the functions required to provide to the connector to satisfy 
 the Hasura connector specification, and we'll be implementing them as we go through the course.
 
+Copy and paste the following required functions into the `src/index.ts` file. Note that the amended `connector` is 
+also included at the bottom, overwriting the previous connector definition with this which takes these functions as 
+arguments.
+
 ```typescript
 function get_raw_configuration_schema(): JSONSchemaObject {
   throw new Error("Function not implemented.");
@@ -78,3 +82,7 @@ const connector: Connector<RawConfiguration, Configuration, State> = {
   query
 };
 ```
+
+Ok, moving on swiftly, for this course we will only need to implement the last 5 functions of 
+`validate_raw_configuration`, `try_init_state`, `get_capabilities`, `get_schema`, and `query`, in order to get a 
+basic working connector. Let's do that now.

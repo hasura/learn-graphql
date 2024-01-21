@@ -5,14 +5,16 @@ metaDescription: 'Learn how to build a data connector in Typescript for Hasura D
 ---
 
 Right now, we only need to implement five required functions:
-- `validate_raw_configuration`, which validates the configuration from the user
-- `try_init_state`, which initializes our database connection
-- `get_capabilities`, which returns the NDC capabilities of our connector
-- `get_schema`, which returns an NDC schema containing our tables and columns
-- `query`, which actually responds to query requests
+- `validate_raw_configuration` - which validates the configuration provided by the user.
+- `try_init_state` - which initializes our database connection.
+- `get_capabilities` - which returns the capabilities of our connector as per the spec.
+- `get_schema` - which returns a spec-compatible schema containing our tables and columns.
+- `query` - which actually responds to query requests.
 
 We'll skip configuration validation entirely for now, so in the `validate_raw_configuration` function which you 
 pasted in the previous step, we'll just return the configuration. Edit it as follows:
+
+[//]: # (TODO: Need to understand what this is)
 
 ```typescript
 async function validate_raw_configuration(configuration: RawConfiguration): Promise<RawConfiguration> {
@@ -20,8 +22,8 @@ async function validate_raw_configuration(configuration: RawConfiguration): Prom
 }
 ```
 
-To initialize our state, we'll use the `open` function to open a connection to the database, and store the resulting
-connection object in our connector state:
+To initialize our state, which in our case contains a connection to the database, we'll use the `open` function to 
+open a connection to it, and store the resulting connection object in our state by returning it:
 
 ```typescript
 async function try_init_state(configuration: RawConfiguration, metrics: unknown): Promise<State> {
@@ -34,7 +36,9 @@ async function try_init_state(configuration: RawConfiguration, metrics: unknown)
 }
 ```
 
-Our capabilities response will be very simple, because we won't support many capabilities yet.
+[//]: # (TODO: Link to the relevant part of the spec)
+Our capabilities response will be very simple, because we won't support many capabilities yet. We just return the 
+version range of the specification that we are compatible with, and the basic `query` capability.
 
 ```typescript
 function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {
@@ -46,166 +50,3 @@ function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse
   }
 }
 ```
-
-We just return the version range of the specification that we are compatible with, and the basic `query` capability.
-
-`get_schema` is the first interesting function. We're going to define scalar types, and an object type and a collection
-for each table in the configuration. Let's first define the scalar types. In fact, we're only going to define one,
-called `any`:
-
-```typescript
-async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
-  let scalar_types: { [k: string]: ScalarType } = {
-    'any': {
-      aggregate_functions: {},
-      comparison_operators: {},
-      update_operators: {},
-    }
-  };
-}
-```
-
-`any` is a generic scalar type that we'll use as the type of all of our columns. It doesn't have any comparison
-operators or aggregates defined. Later, when we talk about those features, we'll need to split this type up into several
-different scalar types.
-
-Now let's define the object types.
-
-```typescript {5}
-async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
-  let scalar_types: { [k: string]: ScalarType } = {
-    'any': {
-      aggregate_functions: {},
-      comparison_operators: {},
-      update_operators: {},
-    }
-  };
-
-  let object_types: { [k: string]: ObjectType } = {};
-
-  for (const table of configuration.tables) {
-    let fields: { [k: string]: ObjectField } = {};
-
-    for (const columnName in table.columns) {
-      fields[columnName] = {
-        type: {
-          type: 'named',
-          name: 'any'
-        }
-      };
-    }
-
-    object_types[table.tableName] = {
-      fields
-    };
-  }
-}
-```
-
-Here I create one `ObjectType` definition for each table in the configuration.
-
-Notice that the name of the object type is the name of the table, and each column uses the `any` type that we just
-defined.
-
-## Collections
-
-Now let's define the collections:
-
-```typescript
-async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
-  let scalar_types: { [k: string]: ScalarType } = {
-    'any': {
-      aggregate_functions: {},
-      comparison_operators: {},
-      update_operators: {},
-    }
-  };
-
-  let object_types: { [k: string]: ObjectType } = {};
-
-  for (const table of configuration.tables) {
-    let fields: { [k: string]: ObjectField } = {};
-
-    for (const columnName in table.columns) {
-      fields[columnName] = {
-        type: {
-          type: 'named',
-          name: 'any'
-        }
-      };
-    }
-
-    object_types[table.tableName] = {
-      fields
-    };
-  }
-
-  let collections: CollectionInfo[] = configuration.tables.map((table) => {
-    return {
-      arguments: {},
-      name: table.tableName,
-      deletable: false,
-      foreign_keys: {},
-      uniqueness_constraints: {},
-      type: table.tableName,
-    };
-  });
-}
-```
-
-Again, we define one collection per table in the configuration, and we use the object type with the same name that we
-just defined.
-
-Now we can put the schema response together:
-
-```typescript
-async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
-  let scalar_types: { [k: string]: ScalarType } = {
-    'any': {
-      aggregate_functions: {},
-      comparison_operators: {},
-      update_operators: {},
-    }
-  };
-
-  let object_types: { [k: string]: ObjectType } = {};
-
-  for (const table of configuration.tables) {
-    let fields: { [k: string]: ObjectField } = {};
-
-    for (const columnName in table.columns) {
-      fields[columnName] = {
-        type: {
-          type: 'named',
-          name: 'any'
-        }
-      };
-    }
-
-    object_types[table.tableName] = {
-      fields
-    };
-  }
-
-  let collections: CollectionInfo[] = configuration.tables.map((table) => {
-    return {
-      arguments: {},
-      name: table.tableName,
-      deletable: false,
-      foreign_keys: {},
-      uniqueness_constraints: {},
-      type: table.tableName,
-    };
-  });
-
-  return {
-    functions: [],
-    procedures: [],
-    collections,
-    object_types,
-    scalar_types,
-  };
-}
-```
-
-Notice that we don't define `functions` or `procedures`, but we'll cover those features later in the series.

@@ -12,15 +12,15 @@ implement a test suite for a connector.
 We can also use `ndc-test` to run some automatic tests and validate the work we've done so far. Let's compile and run
 our connector, and then use the test runner with the running connector.
 
-[//]: # (TODO link out to docs)
-
 Back in your `ndc-typescript-learn-course` directory that we cloned during setup, you have a `configuration.json` file 
 which you can use to run the connector against your sample database.
 
-In this context of this course you need not worry about the configuration file or how it was created, although it is 
-a core feature of Hasura DDN. You can read more about it in the 
-[Hasura DDN quickstart](https://hasura.io/docs/3.0/local-dev/) and in the 
-[supergraph modeling](https://hasura.io/docs/3.0/supergraph-modeling/overview/) section of docs. 
+[//]: # (TODO more info about configuration.json)
+
+[//]: # (In this context of this course you need not worry about the configuration file or how it was created, although it is )
+[//]: # (a core feature of Hasura DDN. You can read more about it in the )
+[//]: # ([Hasura DDN quickstart]&#40;https://hasura.io/docs/3.0/local-dev/&#41; and in the )
+[//]: # ([supergraph modeling]&#40;https://hasura.io/docs/3.0/supergraph-modeling/overview/&#41; section of docs. )
 
 First let's run the connector.
 
@@ -45,7 +45,7 @@ cargo run --bin ndc-test -- test --endpoint http://localhost:8100
 
 Of course, we expected it to fail, but we can already see that our schema response is good.
 
-Let's modify our query function to print out the request it receives, and this will give us a goal to work towards.
+Let's modify our query function to log out the request it receives, and this will give us a goal to work towards.
 
 ```typescript
 async function query(configuration: RawConfiguration, state: State, request: QueryRequest): Promise<QueryResponse> {
@@ -54,7 +54,10 @@ async function query(configuration: RawConfiguration, state: State, request: Que
 }
 ```
 
-Let's recompile and restart the connector, and run the tests again.
+Let's recompile and restart the connector, and run the tests again. In the logs of the app, we can see the request 
+that was sent. It identifies the name of the collection, and a query object to run. The query has a list of fields 
+to retrieve, and a limit of 10 rows. With this as a guide, we can start to implement our query function in the next 
+section.
 
 ```text
 {"level":30,"time":1705491544618,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-3","req":{"method":"POST","url":"/query","hostname":"localhost:8100","remoteAddress":"127.0.0.1","remotePort":55462},"msg":"incoming request"}
@@ -132,7 +135,3 @@ Let's recompile and restart the connector, and run the tests again.
 }
 {"level":30,"time":1705491544625,"pid":47901,"hostname":"Seans-MBP.lan","reqId":"req-6","res":{"statusCode":500},"responseTime":0.37700000405311584,"msg":"request completed"}
 ```
-
-In the logs of the app, we can see the request that was sent. It identifies the name of the collection, and a query
-object to run. The query has a list of fields to retrieve, and a limit of 10 rows. With this as a guide, we can
-start to implement our query function.

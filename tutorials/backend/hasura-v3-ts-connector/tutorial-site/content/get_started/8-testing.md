@@ -22,12 +22,6 @@ which you can use to run the connector against your sample database.
 [//]: # ([Hasura DDN quickstart]&#40;https://hasura.io/docs/3.0/local-dev/&#41; and in the )
 [//]: # ([supergraph modeling]&#40;https://hasura.io/docs/3.0/supergraph-modeling/overview/&#41; section of docs. )
 
-First let's run the connector with the configuration file.
-
-```shell
-npm run build && node dist/index.js serve --configuration configuration.json
-```
-
 [//]: # (TODO - document the test runner better in the spec repo)
 Now, let's run the tests. (You will need to have the
 [ndc test runner](https://github.com/hasura/ndc-spec/tree/main/ndc-test) installed on

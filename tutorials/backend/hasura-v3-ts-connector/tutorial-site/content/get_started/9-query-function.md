@@ -13,10 +13,19 @@ async function query(configuration: RawConfiguration, state: State, request: Que
 }
 ```
 
-Let's recompile and restart the connector, and run the tests again.
+Let's run the tests again.
 
 ```shell
-npm run build && node dist/index.js serve --configuration configuration.json
+rm -rf snapshots
+```
+
+```shell
+ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
+```
+
+OR
+```shell
+cargo run --bin ndc-test -- test --endpoint http://localhost:8100 --snapshots-dir snapshots
 ```
 
 In the logs of the app, we can see the request

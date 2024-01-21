@@ -31,6 +31,12 @@ You can build and run the connector, when you need to, with:
 npm run build && node dist/index.js serve --configuration configuration.json
 ```
 
+However, you can run nodemon to watch for changes and rebuild automatically:
+
+```shell
+npm run watch
+```
+
 [//]: # (TODO: Cannot find more information about the configuration file creation and usage.)
 
 _Note: the configuration.json file is a pre-configured file which gives the connector information about the data 

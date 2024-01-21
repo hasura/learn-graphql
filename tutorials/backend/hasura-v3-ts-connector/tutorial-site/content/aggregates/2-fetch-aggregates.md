@@ -205,12 +205,6 @@ Remember to delete the snapshots first, so that we can generate new ones:
 rm -rf snapshots
 ```
 
-Make sure to rebuild and restart the server:
-
-```bash
-npm run build && node dist/index.js serve --configuration configuration.json
-```
-
 And re-run the tests with the snapshots directory:
 
 ```shell

@@ -121,7 +121,7 @@ case 'column_count':
 // ...
 ```
 
-Now let's update our generated SQL to use the generated target list:
+We'll create a new generated SQL function within `fetch_aggregates()` to use the generated target list:
 
 ```typescript
 // ...

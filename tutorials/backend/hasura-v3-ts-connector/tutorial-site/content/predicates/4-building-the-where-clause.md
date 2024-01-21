@@ -126,12 +126,13 @@ Also, one new helper function `visit_comparison_value` is needed here, defined l
 
 ```typescript
 // ...
-switch (expr.operator.type) {
-    case 'equal':
+case "binary_comparison_operator":
+    switch (expr.operator.type) {
+      case 'equal':
         return `${visit_comparison_target(expr.column)} = ${visit_comparison_value(parameters, expr.value)}`
-    default:
+      default:
         throw new BadRequest("Unknown comparison operator");
-}
+    }
 //...
 ```
 

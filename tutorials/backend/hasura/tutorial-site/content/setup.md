@@ -44,7 +44,7 @@ We have two options to connect a database:
 
 To quickstart this process, we are going to create a new Postgres DB from scratch using Neon Postgres. Click on
 `Create New Database (Free)` tab. In this tab, you now have an option to click on the `Connect Neon Database` button.
-Note that Neon gives you 3 free Posgres database instances.
+Note that Neon gives you 3 free Postgres database instances.
 
 ![Create Neon Database](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura/create-neon-database.png)
 

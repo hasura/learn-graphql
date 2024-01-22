@@ -40,7 +40,6 @@ We'll go into more detail in the next section, but you'll need:
 - The new [Hasura CLI](https://hasura.io/docs/3.0/cli/overview/)
 - The [Hasura VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) (optional, but
   recommended)
-- A [Hasura Cloud](https://cloud.hasura.io/) account
 - A PostgreSQL database (either hosted or local)
 
 ## How long will this tutorial take? {#how-long-will-this-tutorial-take}

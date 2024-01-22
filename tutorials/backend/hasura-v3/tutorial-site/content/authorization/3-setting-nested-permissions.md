@@ -186,7 +186,7 @@ definition:
 
 ## Test the new permissions
 
-You guessed it: create a new build 🚀
+You guessed it: create a new build if not using watch mode 🚀
 
 ```bash
 hasura3 build create -d "Set nested permissions for users"

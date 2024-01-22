@@ -38,7 +38,7 @@ This adds a column called `created_at` with a type timestamptz.
 Lets rename the column from `created_at` to `created`, retaining the same data type. This would look like:
 
 ```sql
-ALTER TABLE users RENAME COLUMN created_at TO created;
+ALTER TABLE users_renamed RENAME COLUMN created_at TO created;
 ```
 
 ## Example of PostgreSQL SET DEFAULT

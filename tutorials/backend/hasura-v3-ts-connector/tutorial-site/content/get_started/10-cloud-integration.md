@@ -4,13 +4,13 @@ metaTitle: 'Cloud Integration | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
 ---
 
-Going over the process of initializing a project and creating a Hasura graph is beyond the scope of this course and
+Going over the process of creating and deploying a project to Hasura DDN is beyond the scope of this course and
 we don't want to go too off-track, but is covered in the Hasura Docs which you can
 [check out here](https://hasura.io/docs/3.0/local-dev/).
 
 We have created and included a Hasura DDN metadata configuration in the 
 [repo for this course](https://github.com/hasura/ndc-typescript-learn-course/blob/main/hasura/) which you can use to
-deploy a Hasura graph, query it and see album and artist results - all powered by your connector.
+test your API, query it and see album and artist results - all powered by your connector.
 
 ## Install Hasura CLI and start a tunnel
 
@@ -40,7 +40,7 @@ project: my-project-name
 
 ## Create a build
 
-Now we can create a build with `hasura3 build create`. This will return a table like the following:
+Now we can create a build and apply it with `hasura3 watch`. This will return a table like the following:
 
 ```text
 +---------------+---------------------------------------------------------------+
@@ -58,15 +58,19 @@ Now we can create a build with `hasura3 build create`. This will return a table 
 +---------------+---------------------------------------------------------------+
 | Environment   | default                                                       |
 +---------------+---------------------------------------------------------------+
-| Description   |                                                               |
+| Description   | Watch build Tue, 23 Jan 2024                                  |
+|               | 20:33:28 +07                                                  |
 +---------------+---------------------------------------------------------------+
++-----------------+-------------------------------------------------+
+| GraphQL API URL | https://trusty-colt-7733.ddn.hasura.app/graphql |
++-----------------+-------------------------------------------------+
 ```
 
 Paste the Console URL in your browser to see a GraphiQL console for your Hasura graph. 
 
 Now you can run a GraphQL query against your data to see it in action.
 
-![A working query in the Hasura DDN Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/hasura-ddn-query.png)
+![A working query in the Hasura DDN Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/connector-ts-sdk-course/hasura_ddn_query.png)
 
 Success!
 

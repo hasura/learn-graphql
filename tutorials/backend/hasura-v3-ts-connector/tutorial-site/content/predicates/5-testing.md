@@ -142,7 +142,7 @@ Let's add a `where` clause to fetch the albums for artist ID `1`.
 
 We can see that the generated SQL is correct and that we're correctly parameterizing the query as well.
 
-Let's try a query which uses a logical operator:
+Let's try a query which uses a logical operator in the Hasura DDN GraphiQL console: 
 
 ```graphql
 query MyQuery {

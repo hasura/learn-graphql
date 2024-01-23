@@ -197,27 +197,6 @@ cargo run --bin ndc-test -- test --endpoint http://localhost:8100 --snapshots-di
 Here we can build up a library of **query requests** and **expected responses** that can be replayed in order to make 
 sure that our connector continues to exhibit the same behavior over time.
 
-Finally, let's see what this connector looks like when we add it to our Hasura graph.
+Finally, let's see what this connector looks like when we add it to our Hasura graph, let's check that out in the 
+next section. 
 
-Going over the process of initializing a project and creating a Hasura graph is beyond the scope of this course and 
-we don't want to go off-track, but is covered in the Hasura Docs which you can 
-[check out here](https://hasura.io/docs/3.0/local-dev/).
-
-[//]: # (TODO: How to add this data connector to the metadata and use vscode plugin to generate schema)
-
-[//]: # (For now, follow along in the video to see the connector in action. )
-[//]: # (I have some [Hasura metadata ready here]&#40;https://github.com/hasura/ndc-typescript-learn-course/blob/main/deployment/metadata.hml&#41;,)
-[//]: # (but I won't go into the setup now. For more information on this you can check out)
-[//]: # ([the quickstart guide in the docs]&#40;https://hasura.io/docs/3.0/local-dev/&#41;.)
-[//]: # (For now, we can run a command to deploy this metadata to Hasura cloud, and see our connector in action. I can use the)
-[//]: # (`hasura3 build create` command to create a new build from my metadata:)
-[//]: # (```sh)
-[//]: # (hasura3 cloud build create -p deployment/hasura.yaml)
-[//]: # (```)
-
-As you can see in the video, we get a GraphQL endpoint and a console URL that I can use to test it. Let's take a look.
-
-In the video we've set Hasura DDN up to tunnel requests to our local machine. If we make a request for albums, and 
-specify a limit of 5 rows as we can see, our connector has received the request and generated the appropriate SQL.
-
-In the next section, we'll start to fill out some of the missing query functionality, beginning with `where` clauses.

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ddn-ts-connector-sdk
+  name: ddn-ts-connector-sdk
+  namespace: learn
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: ddn-ts-connector-sdk
+  type: ClusterIP

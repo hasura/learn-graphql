@@ -15,5 +15,3 @@ There is no configuration required at the Hasura project level.
 ## Hasura HA {#hasura-ha}
 
 You can run multiple instances of Hasura with the open-source graphql-engine. In Hasura Cloud, the process of automatically scaling and the infrastructure required is taken care of without requiring manual intervention.
-
-Also, with multiple instances of Hasura connected to the same database, you might run into issues such as the event triggers duplicating events or unreliable subscriptions. Hasura HA eliminates those issues.

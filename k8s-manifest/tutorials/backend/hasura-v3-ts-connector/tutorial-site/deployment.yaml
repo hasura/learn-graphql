@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ddn-ts-connector-sdk
-  name: ddn-ts-connector-sdk
+    app: hasura-v3-ts-connector
+  name: hasura-v3-ts-connector
   namespace: learn
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ddn-ts-connector-sdk
+      app: hasura-v3-ts-connector
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: ddn-ts-connector-sdk
+        app: hasura-v3-ts-connector
     spec:
       containers:
         - image: IMG_PATH:latest
           imagePullPolicy: Always
-          name: ddn-ts-connector-sdk
+          name: hasura-v3-ts-connector
           ports:
             - containerPort: 8080
               protocol: TCP

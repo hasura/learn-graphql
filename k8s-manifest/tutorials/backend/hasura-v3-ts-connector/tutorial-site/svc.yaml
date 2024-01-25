@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: ddn-ts-connector-sdk
-  name: ddn-ts-connector-sdk
+    app: hasura-v3-ts-connector
+  name: hasura-v3-ts-connector
   namespace: learn
 spec:
   ports:
@@ -11,5 +11,5 @@ spec:
       protocol: TCP
       targetPort: 8080
   selector:
-    app: ddn-ts-connector-sdk
+    app: hasura-v3-ts-connector
   type: ClusterIP

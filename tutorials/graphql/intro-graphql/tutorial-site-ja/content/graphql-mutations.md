@@ -6,11 +6,11 @@ metaDescription: "GraphiQLを使ってGraphQLミューテーションを試し�
 
 import {Link} from "gatsby";
 
-これらは、ミューテーションを攻略する（笑）前に知っておくべき概念を以下に示します
+これらは、ミューテーションを学習する前に知っておくべき概念を以下に示します
 - <Link to="/graphql-queries/#graphiql">GraphiQLの使い方</Link>
 - <Link to="/graphql-queries/#graphqlvariables:passingargumentstoyourqueriesdynamically">クエリ変数の使い方</Link>
 
-さっそくGraphQLを使ってデータを「書き込む」方法を見ていきましょう。GraphQLのミューテーションはGraphQLクエリの一種であるため、`'POST'`、`'PUT'``'PATCH'`、`'DELETE'`、およびAPIによく見られるようなバックエンドでの「ミューテーション」や変更を引き起こす可能性があります。
+さっそくGraphQLを使ってデータを「書き込む」方法を見ていきましょう。GraphQLのミューテーションはGraphQLクエリの一種であるため、`'POST'`、`'PUT'`、`'PATCH'`、`'DELETE'`、およびAPIによく見られるようなバックエンドでの「ミューテーション」や変更を引き起こす可能性があります。
 
 ## 基本的なミューテーション {#basic-mutations}
 GraphQL APIにHasuraを使用しているため、アプリで使用できる挿入、更新、削除のミューテーションを取得できます。
@@ -39,7 +39,7 @@ mutation {
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank"> GraphiQLを試してみましょう </a></b>
 
 ## ミューテーション後のデータを返す {#returning-data-after-the-mutation}
-挿入されるtodoのデータは、`insert_todos` ミューテーションの引数として送信されることに注意してください。ただし、ミューテーションの「フィールド」は、サーバーから提供してほしい_応答_内容を指定しています。
+挿入されるtodoのデータは、`insert_todos` ミューテーションの引数として送信されることに注意してください。ただし、ミューテーションの「フィールド」は、サーバーから提供してほしいレスポンス内容を指定しています。
 
 試しに一度作成されたすべてのtodoオブジェクトを応答として取得してみましょう。
 
@@ -86,12 +86,12 @@ mutation($todo: todos_insert_input!){
 }
 ```
 
-ここでは、`todos_insert_input` は変数 `$todo` のタイプであり、`!` は必須入力であることを示すために使用されます。
+ここでは、`todos_insert_input` は変数 `$todo` の型であり、`!` は必須入力であることを示すために使用されます。
 
 <!-- [//]: # TODO: -->
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank"> GraphiQLを試してみましょう </a></b>
 
-ミューテーションを使ったデータの更新や削除については、少し後で紹介します。これでミューテーションを攻略るための良いスタートが切れました。
+ミューテーションを使ったデータの更新や削除については、少し後で紹介します。これでミューテーションを攻略するための良いスタートが切れました。
 
 ## チュートリアルの総括 {#summary}
 

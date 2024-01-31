@@ -218,7 +218,7 @@ Choose the provider (Auth0) and then enter your "Auth0 Domain Name" which you ca
 that, press the button "Generate Config" to get your JWT Config.
 
 You will set the value as an environment variable in your Hasura Project. To do so, go to the
-[Hasura Dashboard](https://cloud.hasura.io?skip_onboarding=true/) and then click the "Gear ⚙️" icon.
+[Hasura console](https://cloud.hasura.io?skip_onboarding=true/) and then click the "Gear ⚙️" icon.
 
 After that, go to the `Env vars` section and click the `+ New Env Var` option. See the image for reference.
 
@@ -234,7 +234,7 @@ Congratulations! Auth0 is successfully integrated with your Hasura instance.
 
 ## Test Users Syncing Action
 
-Go to your Hasura app dashboard and create a `users` table with the following columns:
+Go to your Hasura console and create a `users` table with the following columns:
 
 - `userId` of type Text (Primary key)
 - `userName` of type Text

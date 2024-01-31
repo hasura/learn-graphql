@@ -14,7 +14,19 @@ Once your application is connected to Auth0, it can take care of all your authen
 
 ## How to Integrate Auth0 with Hasura
 
-In this guide, you will learn how to integrate Auth0 with Hasura.
+In this guide, you will learn how to integrate Auth0 with Hasura. This is the process which we will be following:
+
+- Create an Auth0 app. In Auth0, an application is a representation of your own software that can request authentication 
+  and authorization services from Auth0.
+- Create an Auth0 API. An API is a logical entity that represents an external resource, capable of accepting and 
+  responding to requests to your authorized Auth0 applications.
+- Set Custom JWT claims. We'll use the Actions feature in Auth0 to set custom JWT claims. These claims are just 
+  values, encoded into the JWT in order to, for example, provide verified information about the user which Hasura can 
+  then use to determine what they can access. 
+- Sync users between Auth0 and Hasura. We'll use the Actions feature in Auth0 to sync users between Auth0 and Hasura. 
+  This will ensure that the users who signed up or logged in via Hasura are available in the database and can be 
+  used to create permissions.
+- Test the integration. We'll use the built-in Actions testing features and the API Debugger to test the integration.
 
 ### Create Auth0 App
 

@@ -26,7 +26,8 @@ In this guide, you will learn how to integrate Auth0 with Hasura. This is the pr
 - Sync users between Auth0 and Hasura. We'll use the Actions feature in Auth0 to sync users between Auth0 and Hasura. 
   This will ensure that the users who signed up or logged in via Hasura are available in the database and can be 
   used to create permissions.
-- Test the integration. We'll use the built-in Actions testing features and the API Debugger to test the integration.
+- Test the integration. We'll use the built-in Actions testing features and the API Debugger extension to test the 
+  integration.
 
 ### Create Auth0 App
 

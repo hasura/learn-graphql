@@ -10,7 +10,7 @@ metaDescription:
 
 Auth0 is a service that allows you to integrate authentication and authorization into your applications.
 
-Once you connect your application to Auth0, Auth0 can take care of everything auth-related.
+Once your application is connected to Auth0, it can take care of all your authentication requirements.
 
 ## How to Integrate Auth0 with Hasura
 

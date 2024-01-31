@@ -21,14 +21,14 @@ In this guide, you will learn how to integrate Auth0 with Hasura.
 To integrate Auth0 with Hasura, you need an Auth0 account. You can manually sign up with a username and password or 
 log in with a third party provider account, such as a Google account.
 
-The first step is to navigate to the [Auth0 dashboard](https://manage.auth0.com/dashboard). Once you log in, you should
+The first step is to navigate to the [Auth0 dashboard](https://auth0.com/api/auth/login?redirectTo=dashboard). Once you log in, you should
 see the following page:
 
-![Auth0 Dashboard](./auth0-images/auth0-dashboard.png)
+![Auth0 Dashboard](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-dashboard.png)
 
 After that, go to the `Applications` page and click the `+ Create Application` button.
 
-![Auth0 Applications Page](./auth0-images/auth0-applications-page.png)
+![Auth0 Applications Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-applications-page.png)
 
 Once you click the button, a new pop-up appears where you can enter the app name and select your application type.
 
@@ -41,7 +41,7 @@ You can choose:
 
 This tutorial uses the "Single Page Web Applications" type as an example.
 
-![Auth0 Create Application](./auth0-images/auth0-create-application.png)
+![Auth0 Create Application](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-create-application.png)
 
 Enter a name such as "My Hasura App" and press the "Create" button to create the application.
 
@@ -62,13 +62,13 @@ The next step is to create an Auth0 API so you can make the `accessToken` a vali
 
 Go to the `APIs` page, as shown in the image below, and click on the `+ Create API` button.
 
-![Auth0 API Page](./auth0-images/auth0-api-page.png)
+![Auth0 API Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-api-page.png)
 
 A new pop-up will appear where you can name your API, provide an identifier and select the signing algorithm.
 
 Fill the "Name" and "Identifier" fields, but leave the "Signing Algorithm" field as it is.
 
-![Auth0 New API Page](./auth0-images/auth0-new-api-page.png)
+![Auth0 New API Page](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-new-api-page.png)
 
 After adding the values, click the `Create` button.
 
@@ -79,16 +79,16 @@ we can enforce the appropriate authorization permissions on Hasura which define 
 
 Go to the `Actions` section and click on `Flows`, then `Login`.
 
-![Auth0 Action Flows](./auth0-images/auth0-action-flows.png)
+![Auth0 Action Flows](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-action-flows.png)
 
 On the Login flow diagram in the right hand `Add Action` sidebar, go to the `Custom` tab and click on `Create Action`.
 
-![Auth0 Action Flows](./auth0-images/auth0-action-flows-login.png)
+![Auth0 Action Flows](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-action-flows-login.png)
 
 
 Choose a name such as `Hasura JWT Claims` for your action, the trigger as `Login / Post Login` in Node.js:
 
-![Auth0 Action Flows](./auth0-images/auth0-create-action-jwt.png)
+![Auth0 Action Flows](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-create-action-jwt.png)
 
 Then add the following script:
 
@@ -112,7 +112,7 @@ exports.onExecutePostLogin = async (event, api) => {
 }
 ```
 
-![Auth0 Create JWT Action](./auth0-images/auth0-create-jwt-action.png)
+![Auth0 Create JWT Action](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-create-jwt-action.png)
 
 Save the new action by clicking the `Deploy` button. 
 
@@ -181,12 +181,12 @@ Before saving the changes, do not forget to replace the `admin_secret` and `url`
 
 The image illustrates the process of adding the action.
 
-![Hasura Auth0 Users Sync](./auth0-images/auth0-hasura-users-sync.png?refresh)
+![Hasura Auth0 Users Sync](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-users-sync.png?refresh)
 
 Now click Deploy to save the action and navigate back to the `flows` > `login` page to add these actions to your 
 login flow.
 
-![Hasura Auth0 Users Sync](./auth0-images/auth0-login-flow.png?refresh)
+![Hasura Auth0 Users Sync](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-login-flow.png?refresh)
 
 ## Connect Hasura with Auth0
 
@@ -199,7 +199,7 @@ It's time to integrate the newly created Auth0 application with Hasura.
 After adding the `admin secret`, you need to configure the public keys for Auth0. One way to generate the JWT config is
 to use the [Hasura JWT configurator](https://hasura.io/jwt-config/).
 
-![Hasura JWT Configurator](./auth0-images/auth0-hasura-generate-jwt-config.png)
+![Hasura JWT Configurator](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-generate-jwt-config.png)
 
 Choose the provider (Auth0) and then enter your "Auth0 Domain Name" which you can find in your Auth0 application. After
 that, press the button "Generate Config" to get your JWT Config.
@@ -209,11 +209,11 @@ You will set the value as an environment variable in your Hasura Project. To do 
 
 After that, go to the `Env vars` section and click the `+ New Env Var` option. See the image for reference.
 
-![Hasura Project Env Vars](./auth0-images/auth0-hasura-project-env-vars.png)
+![Hasura Project Env Vars](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-project-env-vars.png)
 
 Select `HASURA_GRAPHQL_JWT_SECRET` for the "Key" and then paste the JWT config generated previously.
 
-![Hasura JWT Secret](./auth0-images/auth0-hasura-project-add-new-env-var.png)
+![Hasura JWT Secret](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-project-add-new-env-var.png)
 
 Click on `Add`, and the environment variable will be applied to your project.
 
@@ -229,7 +229,7 @@ Go to your Hasura app dashboard and create a `users` table with the following co
 
 See the image below for reference.
 
-![Hasura Create Table](./auth0-images/auth0-hasura-create-table.png)
+![Hasura Create Table](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-create-table.png)
 
 The next step is to create a `user` role for the app. Users should be only be able to access their own records, but 
 not other users' records.
@@ -237,7 +237,7 @@ not other users' records.
 Configure the `user` role as shown in the image below. For more information, read about
 [configuring permission rules in Hasura](https://hasura.io/docs/latest/graphql/core/auth/authorization/permission-rules/).
 
-![Hasura Permissions](./auth0-images/auth0-hasura-permissions.png)
+![Hasura Permissions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-permissions.png)
 
 This way, users cannot read other people’s records. They can only access theirs.
 
@@ -246,11 +246,11 @@ the rule.
 
 Then click on the `Test` "play" button, and test the action with the default event payload. 
 
-![Hasura Permissions](./auth0-images/auth0-actions-test-sync-users.png)
+![Hasura Permissions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-actions-test-sync-users.png)
 
 Press the `Run` button. The test should be successful, and you should see the new user in your Hasura app.
 
-![Hasura Users Table](./auth0-images/auth0-hasura-users.png)
+![Hasura Users Table](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-users.png)
 
 As the image illustrates, the user was successfully added to the database.
 
@@ -262,12 +262,12 @@ will use it with Hasura to make authenticated requests.
 You will get the Auth0 token using the **Authentication API Debugger Extension** from Auth0. Go to the `Extension` page
 and search for `api debugger`, as shown in the image below.
 
-![Auth0 Extensions](./auth0-images/auth0-check-token-debugger.png)
+![Auth0 Extensions](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-check-token-debugger.png)
 
 Follow the instructions to install and authorize the extension. Once you are done with that, you need to configure the
 Authentication API Debugger.
 
-![Auth0 Authentication API Debugger](./auth0-images/auth0-authentication-api-debugger.png)
+![Auth0 Authentication API Debugger](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-authentication-api-debugger.png)
 
 Select the application and copy the callback URL.
 
@@ -278,17 +278,17 @@ Hasura app URL and turn on the "Save in Local Storage" option.
 
 See the image for reference.
 
-![Auth0 Set Audience](./auth0-images/auth0-save-audience-in-local-storage.png)
+![Auth0 Set Audience](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-save-audience-in-local-storage.png)
 
 After that, go to the application you created in the first step and add the callback URL you copied earlier. Save the
 changes, and you are ready to test the application.
 
-![Auth0 Application Settings Callback URLs](./auth0-images/auth0-callback-urls.png)
+![Auth0 Application Settings Callback URLs](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-callback-urls.png)
 
 Go back to the "Auth0 Authentication API Debugger" again and then to the "OAuth2 / OIDC" page. You should see an option
 called `OAUTH2/OIDC LOGIN` button under the "User Flows" section. Click that to test the login.
 
-![Auth0 Test OAUTH2/OIDC LOGIN](./auth0-images/auth0-test-login-flow.png)
+![Auth0 Test OAUTH2/OIDC LOGIN](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-test-login-flow.png)
 
 Click on the button, and within a couple of seconds, you will be redirected to another page. On this page, you can see
 the following:
@@ -299,7 +299,7 @@ the following:
 
 This is where you get the access token that you can use with your Hasura application.
 
-![Auth0 Test OAUTH2/OIDC LOGIN](./auth0-images/auth0-test-login-flow-token-result.png)
+![Auth0 Test OAUTH2/OIDC LOGIN](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-test-login-flow-token-result.png)
 
 The above image illustrates an example access token. You will use that access token with the Authorization header when
 you make a request to your Hasura app.
@@ -308,12 +308,12 @@ Add an `Authorization` header with the value `Bearer` and the token value, eg: `
 
 You can see a successful request to the Hasura app using the Auth0 Bearer token below.
 
-![Hasura GraphQL Request with Authorization Bearer Token Generated by Auth0](./auth0-images/auth0-hasura-auth-bearer-token.png)
+![Hasura GraphQL Request with Authorization Bearer Token Generated by Auth0](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-auth-bearer-token.png)
 
 If you remove the Authorization token, you will get an error telling you that the token is missing. As a result, you
 cannot access the database records.
 
-![Hasura GraphQL Request without Authorization Bearer Token Generated by Auth0](./auth0-images/auth0-hasura-no-auth-bearer-token.png)
+![Hasura GraphQL Request without Authorization Bearer Token Generated by Auth0](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-authentication/auth0/auth0-images-2/auth0-hasura-no-auth-bearer-token.png)
 
 If the Authorization token is present, the users can access their records. If the token is missing, the users cannot
 access any records. As a result, it can be concluded that the integration works successfully.

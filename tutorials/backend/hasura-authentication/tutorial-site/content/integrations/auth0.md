@@ -24,8 +24,8 @@ In this guide, you will learn how to integrate Auth0 with Hasura. This is the pr
   values, encoded into the JWT in order to, for example, provide verified information about the user which Hasura can 
   then use to determine what they can access. 
 - Sync users between Auth0 and Hasura. We'll use the Actions feature in Auth0 to sync users between Auth0 and Hasura. 
-  This will ensure that the users who signed up or logged in via Hasura are available in the database and can be 
-  used to create permissions.
+  This will ensure that the users who sign-up or login via Hasura are available in the database and can be 
+  used to create permissions and store other user related data.
 - Test the integration. We'll use the built-in Actions testing features and the API Debugger extension to test the 
   integration.
 

@@ -1,23 +1,21 @@
 ---
-title: "Node.js"
-metaTitle: "GraphQL Server with Node.js | Backend Tutorial"
+title: "Building a GraphQL server in Node.js"
+metaTitle: "Building a GraphQL Server in Node.js | Backend Tutorial"
 metaDescription: "In this tutorial, learn how to integrate Node.js in a GraphQL backend server stack with Hasura"
 ---
 
-## GraphQL server with Node
-
 Node.js is an open-source, cross-platform JavaScript runtime environment. Learn more at [the official website](https://nodejs.org).
-
-This guide covers common backend application tasks, such as creating REST endpoints using [Express](https://expressjs.com/) and [TypeScript](https://www.typescriptlang.org/). We use Node version 18 or above. We also go over how to integrate your Node app with Hasura.
 
 > New to GraphQL? Check out the [Introduction to GraphQL](https://hasura.io/learn/graphql/intro-graphql/introduction/) tutorial to learn the core concepts quickly.
 
-- You will learn how to create a GraphQL server with Node.js.
+- You will learn how to create a GraphQL server with Node.js and why you actually shouldn't
 - If you have an existing GraphQL API with Node.js, you can integrate it with Hasura as a [Remote Schema](https://hasura.io/docs/latest/remote-schemas/index/) to get a unified GraphQL API.
 - If you have an existing REST API with Node.js, you can transform that declaratively to GraphQL without writing any code using [Hasura REST Connectors](https://hasura.io/docs/latest/actions/rest-connectors/).
 - You can also re-use or custom write REST endpoints with Node.js and map the endpoint to a GraphQL schema in Hasura.
 
 > New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
+
+This guide covers common backend application tasks, such as creating REST endpoints using [Express](https://expressjs.com/) and [TypeScript](https://www.typescriptlang.org/). This example works with Node version 18 or above. We also go over how to integrate your Node app with Hasura.
 
 ## Node.js Project Setup for GraphQL Server
 

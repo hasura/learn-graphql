@@ -31,6 +31,14 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>" \
    -d mcr.microsoft.com/mssql/server:2019-latest
 ```
 
+Note that on modern Macs with Apple Silicon based processors you will likely get a message from Docker along the lines of:
+
+`WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`
+
+To circumvent this you can navigate to Settings in your Docker Desktop and click Features in Development and check "Use Rosetta for x86/amd64 emulation on Apple Silicon.
+
+Docker will restart and your containers should be running properly. 
+
 3. To view your Docker containers, use the `docker ps` command.
 
 ```bash

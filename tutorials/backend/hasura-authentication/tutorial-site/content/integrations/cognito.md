@@ -198,7 +198,7 @@ Select `HASURA_GRAPHQL_JWT_SECRET` for the “Key” and then add the JWK URL:
 {
   "type":"RS256",
   "jwk_url": "https://cognito-idp.<aws-region>.amazonaws.com/<user-pool-id>/.well-known/jwks.json",
-  "claims_format": "stringified_json
+  "claims_format": "stringified_json"
 }
 ```
 

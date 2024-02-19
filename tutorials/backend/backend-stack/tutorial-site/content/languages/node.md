@@ -1,5 +1,5 @@
 ---
-title: "Instant GraphQL for Node.js Backend Stack"
+title: "Node.js"
 metaTitle: "Instant GraphQL for Node.js Backend Stack"
 metaDescription: "In this tutorial, learn how to integrate Node.js in a GraphQL backend server stack with Hasura"
 ---

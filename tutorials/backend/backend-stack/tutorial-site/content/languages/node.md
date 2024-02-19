@@ -1,25 +1,40 @@
 ---
-title: "Node.js"
-metaTitle: "GraphQL Server with Node.js | Backend Tutorial"
+title: "Instant GraphQL for Node.js Backend Stack"
+metaTitle: "Instant GraphQL for Node.js Backend Stack"
 metaDescription: "In this tutorial, learn how to integrate Node.js in a GraphQL backend server stack with Hasura"
 ---
 
-## GraphQL server with Node
-
-Node.js is an open-source, cross-platform JavaScript runtime environment. Learn more at [the official website](https://nodejs.org).
-
-This guide covers common backend application tasks, such as creating REST endpoints using [Express](https://expressjs.com/) and [TypeScript](https://www.typescriptlang.org/). We use Node version 18 or above. We also go over how to integrate your Node app with Hasura.
+This guide is for you if any of the following satisfies:
+- You want to accelerate your API creation journey.
+- You want to expose a GraphQL API (possibly with Node.js)
+- You want a high performance API, REST or GraphQL.
 
 > New to GraphQL? Check out the [Introduction to GraphQL](https://hasura.io/learn/graphql/intro-graphql/introduction/) tutorial to learn the core concepts quickly.
 
-- You will learn how to create a GraphQL server with Node.js.
-- If you have an existing GraphQL API with Node.js, you can integrate it with Hasura as a [Remote Schema](https://hasura.io/docs/latest/remote-schemas/index/) to get a unified GraphQL API.
+- You will learn how to create a GraphQL server with Node.js and why you actually shouldn't.
+- You will come across performance implications of implementing a GraphQL server and how Hasura mitigates it with some benchmarks to showcase.
+- If you have an existing GraphQL API with Node.js, you can integrate it with Hasura as a [Remote Schema](https://hasura.io/docs/latest/remote-schemas/index/) to get a unified GraphQL API or Supergraph.
 - If you have an existing REST API with Node.js, you can transform that declaratively to GraphQL without writing any code using [Hasura REST Connectors](https://hasura.io/docs/latest/actions/rest-connectors/).
 - You can also re-use or custom write REST endpoints with Node.js and map the endpoint to a GraphQL schema in Hasura.
 
 > New to Hasura? The Hasura GraphQL Engine makes your data instantly accessible over a real-time GraphQL API so that you can build and ship modern, performant apps and APIs 10x faster. Hasura connects to your databases, REST and GraphQL endpoints, and third-party APIs to provide a unified, connected, real-time, secured GraphQL API for all your data. Check out [the documentation](https://hasura.io/docs/latest/index/).
 
-## Node.js Project Setup for GraphQL Server
+This guide covers common backend application tasks, such as creating REST endpoints using [Express](https://expressjs.com/) and [TypeScript](https://www.typescriptlang.org/). This example works with Node version 18 or above. We also go over how to integrate your Node app with Hasura.
+
+## Building a Custom GraphQL Server in Node.js
+If you have ever built a GraphQL server in any of the Node.js frameworks, you would have come across various steps before exposing the API endpoint in GraphQL. Some of them include:
+
+- Setting up GraphQL dependencies and npm modules
+- Defining GraphQL schema type definitions
+- Writing GraphQL resolvers
+- Set up dataloader / batching libraries for optimized performance
+- Exposing a restricted list of queries to the clients with Authorization
+
+and many more during maintenance and updates.
+
+Among all the repetitive steps above, writing resolvers in GraphQL is the most time consuming, is a heavy lift and is something you keep fiddling with as the API changes. Let us go over the steps outlined above.
+
+### Node.js Project Setup for GraphQL Server
 
 Initialize a Node app in a new folder
 
@@ -63,7 +78,7 @@ module.exports = {
 };
 ```
 
-Borrowing from the [GraphQL Yoga quickstart](https://www.the-guild.dev/graphql/yoga-server/tutorial/basic/01-project-setup) we add two scripts to our `package.json`
+Borrowing from the [GraphQL Yoga quickstart](https://the-guild.dev/graphql/yoga-server/tutorial/basic/01-project-setup) we add two scripts to our `package.json`
 
 ```json
 {
@@ -74,9 +89,9 @@ Borrowing from the [GraphQL Yoga quickstart](https://www.the-guild.dev/graphql/y
 }
 ```
 
-## Create a Node.js GraphQL server with GraphQL Yoga
+### Create a Node.js GraphQL server with GraphQL Yoga
 
-We can make a custom GraphQL server in Node using [GraphQL Yoga](https://www.the-guild.dev/graphql/yoga-server) and [GraphQL Code Generator](https://www.the-guild.dev/graphql/codegen). Then we connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
+We can make a custom GraphQL server in Node using [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) and [GraphQL Code Generator](https://the-guild.dev/graphql/codegen). Then we connect it to Hasura using a [remote schema](https://hasura.io/docs/latest/graphql/core/remote-schemas/index/).
 
 1. Create `server-codegen.ts`
 
@@ -153,7 +168,59 @@ We can make a custom GraphQL server in Node using [GraphQL Yoga](https://www.the
    app.use("/graphql", graphQLServer);
    ```
 
-7. Run the Express app and navigate to `<Express URL>/graphql`, if everything worked you should be able to query `posts`
+7. Run the Express app and navigate to `<Express URL>/graphql`, if everything worked you should be able to query `posts`.
+
+> Here's the [source code](https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend-stack/source-code/node) for the above GraphQL server.
+
+This is the bare minimum boilerplate that you need to get your GraphQL API running for a simple query. Extrapolating this for an app like ecommerce or even a blog system, you might need to replicate schema type definitions and resolver code for as many models as your application has. 
+
+We looked at creating an API for simple CRUD. Extending this for realtime apps and use cases, you need an API layer which supports streaming data in real time. Interestingly, GraphQL spec provides a cleaner abstraction for consumers of realtime API through GraphQL Subscriptions.
+
+### Realtime Subscriptions
+
+Let us break down the creation of a GraphQL Subscription API with a GraphQL Server in Node.js that you write yourself.
+
+- You will need a pub-sub connection, exposed via WebSockets.
+- Setup some directives (`@live` etc). This varies for server implementations and clients consuming them.
+- Optimize performance through multiplexing.
+
+Hasura exposes a realtime GraphQL API on many databases. There are two forms of subscriptions that your clients can listen in. 
+- Live queries (Gives the entire result set of the query)
+- Streaming Subscriptions (Gives only the newly added result set from the cursor)
+
+The GraphQL Subscriptions API is out of the box with Hasura.
+
+> Read more about various [types of GraphQL Subscriptions](https://hasura.io/blog/types-of-realtime-graphql-subscriptions/) and the intricacies around the same.
+
+### High performance GraphQL for Node.js
+
+Building a high performance GraphQL server is tricky. Look at Ben Awad’s performance benchmarks for Node.js GraphQL servers. Although these numbers are old, it throws light on why writing your own GraphQL Server in Node.js is not a great choice.
+
+Let’s deep dive into how performance becomes a blocker at a high level.
+
+- You start with one data source/database. Define Schema. Write GraphQL Resolvers
+- Find N+1 query problem 😭 with naive implementations
+- Optimize with Dataloader pattern and batching techniques
+- Try to federate across multiple data sources.
+- Face more performance issues
+
+and finally give up GraphQL. 
+
+#### Why is it hard to nail performance with a GraphQL API?
+
+It is easy to implement a naive resolver that has N+1 problems. Resolvers typically overfetch data on the server side and return the same or a filtered object back to the client.
+
+Compiler approach to GraphQL allows you to transform an incoming GraphQL query of any arbitrary depth, querying a single relational store to a highly optimized SQL query.
+
+In a series of benchmarks with varying complexity of queries and data shapes, we measured query response times, query execution times, memory usage and found that Hasura significantly outperformed a custom written GraphQL resolver in Node.js. Some key takeaways include:
+
+- Hasura was 3.6x faster in a benchmark against graphql-yoga on Postgres.
+- Apollo server requires 9x more nodes to have similar performance that Hasura was able to accomplish for 1k concurrent users on Oracle.
+
+> [Benchmarks for Hasura vs Apollo on Oracle](https://hasura.io/blog/hasura-vs-apollo-graphql-performance-benchmarks-oracle-rds/)
+
+> [Benchmarks for Hasura vs GraphQL Yoga on Postgres](https://github.com/hasura/sample-apps/tree/main/graphql-benchmark)
+> [Read more on the benchmark setup](https://hasura.io/blog/graphql-performance-benchmarks-hasura-vs-diy-nodejs-dataloader/)
 
 ### Node.js GraphQL API Federation using Hasura Remote Schema
 
@@ -174,6 +241,8 @@ We can connect our custom GraphQL server to Hasura using [remote schemas](https:
 <img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/node/node-remote-schema.png" alt="Hasura Event Triggers with Node backend" />
 
 ## Convert a Node.js REST API endpoint to GraphQL
+
+<img src="https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/node/expose-a-graphql-api.jpg" alt="Expose a GraphQL API" />
 
 In this section, we will write a REST Endpoint in Node.js using Express and see how to transform that to GraphQL. We will create a login POST endpoint that takes a username and password and returns an access code.
 
@@ -448,7 +517,7 @@ To query a GraphQL endpoint from Node we use [graphql-request](https://github.co
 
 ## Summary
 
-When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us escape hatches for this custom logic. We've gone over a few ways you can use the power of Node and TypeScript.
+When developing backend applications, we may need to write custom business logic. When we use Hasura, it autogenerates most of our API but gives us nice hooks for this custom logic. We've gone over a few ways you can use the power of Node and TypeScript. This is also improving a lot more with Hasura v3 that lets you write TypeScript functions that gets mapped to a GraphQL API. We will update this guide once that becomes GA.
 
 See the [server source code on Github](https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/backend-stack/source-code/node).
 

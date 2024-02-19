@@ -1,4 +1,4 @@
-FROM node:buster
+FROM --platform=linux/amd64 node:buster
 
 # update this line when gatsby-gitbook-starter repo changes
 RUN sh -c 'echo -e "Updated at: 2021-09-03  16:00:00 IST"'

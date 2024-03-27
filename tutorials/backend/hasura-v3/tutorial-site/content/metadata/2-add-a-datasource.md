@@ -99,7 +99,7 @@ you to store sensitive information securely. You can quickly create them
 [using the CLI](https://hasura.io/docs/3.0/ci-cd/secrets/) as key-value pairs:
 
 ```bash
-hasura3 secret set --project-id <PROJECT_ID_FROM_PREVIOUS_STEP> <KEY>=<VALUE>
+hasura3 secret set --project <PROJECT_ID_FROM_PREVIOUS_STEP> --environment default --subgraph default --key <KEY> --value <VALUE>
 ```
 
 And then reference the key in your `connection_uris` array:

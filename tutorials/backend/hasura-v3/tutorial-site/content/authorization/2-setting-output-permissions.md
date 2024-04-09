@@ -1,6 +1,6 @@
 ---
-title: 'Create Type Permissions'
-metaTitle: 'Create users table permissions | Hasura v3 Tutorial'
+title: "Create Type Permissions"
+metaTitle: "Create users table permissions | Hasura v3 Tutorial"
 metaDescription: "In this section, we'll cover how to set up permissions for the users table for select operations."
 ---
 
@@ -65,7 +65,7 @@ As we've made modifications to our metadata, we'll need to create a new build if
 the following to create a new build:
 
 ```bash
-hasura3 build create -d "Set type permissions for users"
+ddn build supergraph --description "Set type permissions for users"
 ```
 
 Head to the [Console](https://console.hasura.io) and select the newest build. With the pre-configured headers, run the

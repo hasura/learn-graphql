@@ -1,23 +1,21 @@
 ---
-title: 'Apply a build'
-metaTitle: 'Apply a build | Hasura v3 Tutorial'
-metaDescription: 'Learn how to apply a build in Hasura v3.'
+title: "Apply a build"
+metaTitle: "Apply a build | Hasura v3 Tutorial"
+metaDescription: "Learn how to apply a build in Hasura v3."
 ---
 
-Applying a build means that it's being promoted to your project's production endpoint. This is a new concept in Hasura
-which allows you to quickly iterate — and, if needed, roll back — your project's metadata to all of your users,
-worldwide.
+Applying a build means that it's being promoted to serve requests from an environment's endpoint. This is a new concept
+in Hasura which allows you to quickly iterate — and, if needed, roll back — your project's metadata to all of your
+users, worldwide.
 
-## Using watch mode
-
-If you're using `hasura3 watch`, your latest build is always automatically applied to your project's endpoint.
+## Using dev mode
 
 ## Apply a build
 
 You can apply a build by running the following command:
 
 ```bash
-hasura3 build apply --project <PROJECT_NAME> --version <BUILD_VERSION>
+ddn apply supergraph-build <build-version>
 ```
 
 When you run this command, the selected build will be promoted to production and accessible via your project's endpoint

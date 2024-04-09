@@ -1,26 +1,24 @@
 ---
-title: 'Create a build'
-metaTitle: 'Create a build | Hasura v3 Tutorial'
-metaDescription: 'Learn how to create a build in Hasura v3.'
+title: "Create a build"
+metaTitle: "Create a build | Hasura v3 Tutorial"
+metaDescription: "Learn how to create a build in Hasura v3."
 ---
 
 Once you're satisfied with your metadata's state and want to test it out, you can create a build.
 
 ## Using watch mode
 
-If you're using `hasura3 watch`, your build was generated for you when you imported all of your models. You can find the
-output of your build in the terminal window where you ran `hasura3 watch`. You can skip ahead to the
+If you're using `ddn dev`, your build was generated for you when you imported all of your models. You can find the
+output of your build in the terminal window where you ran `ddn dev`. You can skip ahead to the
 [test your build](#test-your-build) section below.
-
-**Note: If you're using watch mode and see an error in the build, try killing the process and restarting it.**
 
 ## Create a build
 
-Alternatively, if you'd like to see the manual steps involved in creating a build, run the following command from
-directory containing your metadata file:
+Alternatively, if you'd like to see the manual steps involved in creating a build, run the following command from your
+project's directory:
 
 ```bash
-hasura3 build create -d "Connect Datasource and track entities"
+ddn build supergraph --description "Connect Datasource and track entities"
 ```
 
 Here, we're telling the CLI to create a build for the project defined in `hasura.yaml` and to use the description
@@ -78,8 +76,5 @@ You should see a response like this:
 
 ![A working query in the Hasura DDN Console](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/working-query-console.png)
 
-If you're having trouble with your query, check to ensure you've defined all of your relationships correctly. Any red
-lines under a field in the GraphiQL Explorer indicate that there's an issue with your metadata.
-
-From here, you can either continue to iterate on your metadata, or apply this build to your project's production
+From here, you can either continue to iterate on your metadata, or apply this build to your project's `dev` (default)
 endpoint.

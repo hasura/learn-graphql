@@ -1,6 +1,6 @@
 ---
-title: 'Builds'
-metaTitle: 'Builds with Hasura | Hasura v3 Tutorial'
+title: "Builds"
+metaTitle: "Builds with Hasura | Hasura v3 Tutorial"
 metaDescription: "Here, we'll cover what builds are and how to create them in Hasura v3."
 ---
 
@@ -16,6 +16,6 @@ A typical workflow will see you create a build, test it, and then apply it to pr
 you can create a new build and apply that to production instead. This workflow allows for easier rollbacks on
 production, and greater collaboration during development.
 
-Additionally, for ease in development, the `hasura3 watch` command will watch your project directory for changes and
+Additionally, for ease in development, the `ddn dev` command will watch your project directory for changes and
 automatically create a new build when it detects a change. This allows you to quickly iterate on your project's metadata
 and shorten feedback loops.

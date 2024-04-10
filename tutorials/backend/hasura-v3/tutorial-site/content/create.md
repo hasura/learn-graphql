@@ -20,195 +20,151 @@ use the link shown in the terminal output to launch the flow.
 
 ## Create a new project
 
-We'll use the `quickstart` command to create a new project. This will quickly walk us through all the necessary steps to
-create our API:
+We'll use the `create project` command to create a new project:
 
 ```bash
-ddn quickstart
+ddn create project --dir ./my-first-supergraph
 ```
 
-## Choose a host
-
-We'll be prompted to choose the data delivery network on which we want to host our project:
+The CLI will respond with information about your new project, including the console URL:
 
 ```bash
-? Choose the DDN to create your project on  [Use arrows to move, type to filter]
-> Hasura DDN
-  Custom DDN
++-------------+-----------------------------------------------------+
+| Name        | <NAME>                                              |
++-------------+-----------------------------------------------------+
+| ID          | <ID>                                                |
++-------------+-----------------------------------------------------+
+| Console URL | https://console.hasura.io/project/<NAME>            |
++-------------+-----------------------------------------------------+
 ```
 
-We'll choose `Hasura DDN` as we want Hasura to host this project for us.
+Additionally, it will log some information about the project that was created locally.
 
-## Choose a directory
+## Add a connector manifest
 
-Next, we'll be prompted to choose the directory to house this project; let's call it `my-first-supergraph`:
+A **connector manifest** is the file which contains the details of the connector's configuration. This tells Hasura DDN
+what capabilities the connector has and how to build that connector for your data source.
+
+Let's move into the project directory:
 
 ```bash
-? Choose the DDN to create your project on Hasura DDN
-? Enter the path where you want to create the Hasura project directory (./) my-first-supergraph
+cd my-first-supergraph
 ```
 
-The CLI will then return information about our newly-created project and where the local files are stored:
+Then, create a connector manifest by passing a name — in this case `app_connector` — to the `add connector-manifest`
+command:
 
 ```bash
-INF Creating project: ddn create project --dir my-first-supergraph
-INF Project <PROJECT_NAME> is created at /<CURRENT_PATH>/my-first-supergraph
+ddn add connector-manifest app_connector --subgraph app --hub-connector hasura/postgres --type cloud
 ```
 
-## Connect a data source
-
-The CLI will next ask us if we want to connect a data source. Type `y` and then choose `hasura/postgres` from the
-provided options:
+The CLI will respond with information about our successfully-added connector and alert us to our next steps:
 
 ```bash
-? We have the following data connectors available. Choose one as per your data source:  [Use arrows to move, type to filter]
-> hasura/postgres:v0.4.1
-  hasura/sendgrid:v0.5.0
-  hasura/turso:v0.0.1
+INF connector "hasura/postgres:<VERSION>" with name "app_connector" added successfully to Subgraph "app"
+INF Please add your Postgres Connection URI as the value for CONNECTION_URI env var in app/app_connector/connector/app_connector.build.hml file
 ```
 
-The CLI will add the PostgreSQL connector configuration to our project; we'll use the default name of `app_connector`,
-so we can simply press `ENTER` to bring up the next prompt. Once the connector is added, the CLI will ask us for the
-connection URI. If you have your own, you can provide it. Otherwise, we'll use the demo database's URI:
+With connection strings, you have two options for adding them to your metadata. You can either add them as environment
+variables in your `*.env.yaml` files — which is the preferred secure method — or as raw connection strings in a
+connector's build manifest. Make your choice below and add your connection string:
 
-```
-postgresql://read_only_user:readonlyuser@35.236.11.122:5432/v3-docs-sample-app
-```
+Our sample database is located in `us-west-1`. As such, there may be some performance issues as the data traverses the
+network from where it's hosted to your nearest Hasura region.
 
-:::info Want to use a local DB?
+Open your project in VS Code and open the `base.env.yaml` file in the root of your project. Then, add the
+`APP_CONNECTOR_CONNECTION_URI` environment variable with the connection string under the `app` subgraph:
 
-You can create a [Secure Connect tunnel](/ci-cd/tunnels.mdx) to connect to a locally running PostgreSQL instance.
-
-:::
-
-The CLI will update the `.local.yaml` file in the project's directory with our connection string and let us know if our
-connector has been set up successfully:
-
-```bash
-INF Setting env vars
-INF env file .local.yaml updated
-INF Data connector app_connector set up successfully
+```yaml
+supergraph: {}
+subgraphs:
+  app:
+    APP_CONNECTOR_CONNECTION_URI: "postgresql://read_only_user:readonlyuser@35.236.11.122:5432/v3-docs-sample-app"
 ```
 
-## Track tables and relationships
+Next, update your `/app/app_connector/connector/app_connector.build.hml` file to reference this new environment
+variable:
 
-When we enter our connection string, the CLI will introspect our data source and ask us if we'd like to track all of our
-tables and relationships; we'll select `y` as this will automatically write our metadata for us! 🎉
-
-:::danger HEY!
-
-NOT YET READY VIA CLI — IF YOU'RE FOLLOWING ALONG FOR TESTING, TRACK THINGS VIA THE VS CODE EXTENSION ONCE YOU RUN DDN
-DEV
-
-:::
-
-```bash
-TODO when above is complete
+```yaml
+# other configuration above
+CONNECTION_URI:
+  valueFromEnv: APP_CONNECTOR_CONNECTION_URI
 ```
 
-At this point, the CLI will ask us if we want to connect another data source. For now, we don't, so type `n` and hit
-`ENTER`.
-
-## Add the TypeScript Connector
-
-We won't use this until later in the guide, but we can go ahead and add the NodeJS/TypeScript connector to incorporate
-our own custom business logic into our API. When prompted, type `y` and hit `ENTER`. Then, let's name this connector
-`app_functions`:
-
-```bash
-? Do you want add custom business logic using NodeJS/TypeScript functions? y
-? What do you want to name your hasura/nodejs:v1.0.0 connector? (app_connector) app_functions
-```
-
-:::info Ensure Docker is running
-
-We'll utilize a local development workflow to iteratively test our TypeScript connector and update our project's
-configuration; this requires the Docker daemon running in the background. Before proceeding, ensure the daemon is up.
-
-If you're on a Unix or Linux machine that requires `sudo` when running Docker, in the next step, prefix `ddn dev` with
-`sudo ddn dev`.
-
-:::
-
-Finally, the CLI will configure our TypeScript connector and let us know we're ready to go!
-
-```bash
-INF Adding connector manifest: ddn add connector-manifest app_functions --type local --hub hasura/nodejs:v1.0.0 --subgraph app
-INF Setting env vars
-INF env file .local.yaml updated
-INF Data connector app_functions set up successfully
-INF Your DDN project is all set up
-INF Run 'cd my-first-supergraph && ddn dev' to build your GraphQL API.
-```
+Notice, when we use an environment variable, we must change the key to `valueFromEnv` instead of `value`. This tells
+Hasura DDN to look for the value in the environment variable we've defined instead of using the value directly.
 
 ## Build your GraphQL API
 
-If we run the provided command from the previous step's output, we'll see the CLI created our first build, including the
-URL for our project's Console 🎉
+We can use `dev` mode to watch our project and create new builds as changes are made to our metadata:
 
 ```bash
-INF Preparing project...
-INF Preparing connector "app_connector" in subgraph "app"
-INF Updating ConnectorManifest for connector "app_connector" in subgraph "app"
-INF Building connector "app_connector" in subgraph "app"
-INF Waiting for deployment with ID "d2c96069-8dc6-452f-9b12-84896535492b" to go through...
-◑+---------------+------------------------------------------------------------------------------+
-| File Id       | e50204eb-1198-42c0-80fe-af049d79d4ae                                         |
-+---------------+------------------------------------------------------------------------------+
-| Deployment Id | d2c96069-8dc6-452f-9b12-84896535492b                                         |
-+---------------+------------------------------------------------------------------------------+
-| Build Url     | <URL>                                                                        |
-+---------------+------------------------------------------------------------------------------+
-INF Connectors built and running successfully
-INF Updating ConnectorLink for connector "app_connector" in subgraph app
-INF Updating URL...
-INF env file .local.yaml updated
-INF Connector Link updated...
-INF Doing a supergraph build...
-◑+---------------+--------------------------------------------------------------------+
-| Build ID      | 39aea467-07c4-4b13-8bbf-e475bb083267                               |
-+---------------+--------------------------------------------------------------------+
-| Build Version | cfe1ca9abf                                                         |
-+---------------+--------------------------------------------------------------------+
-| Build URL     | https://<PROJECT_NAME>-<ENV>-cfe1ca9abf.ddn.hasura.me/graphql      |
-+---------------+--------------------------------------------------------------------+
-| Project Id    | <PROJECT_ID>                                                       |
-+---------------+--------------------------------------------------------------------+
-# highlight-start
-| Console Url   | https://console.hasura.com/project/<PROJECT_NAME>/graphql          |
-# highlight-end
-+---------------+--------------------------------------------------------------------+
-| FQDN          | <PROJECT_NAME>.ddn.hasura.me                                       |
-+---------------+--------------------------------------------------------------------+
-| Environment   | dev                                                                |
-+---------------+--------------------------------------------------------------------+
-| Description   | Hasura Watch build at                                              |
-|               | <TIMESTAMP>                                                        |
-+---------------+--------------------------------------------------------------------+
+ddn dev
 ```
+
+We'll see the CLI creates our first build, displays the URL for our project's Console, and continues to watch for
+changes 🎉
+
+```bash
+INF Models and commands added to the project successfully
+INF Doing a supergraph build...
+INF Building SupergraphManifest "base"...
+◑+---------------+----------------------------------------------------------------------------------------------------+
+| Build Version | 3405408c06                                                                                         |
++---------------+----------------------------------------------------------------------------------------------------+
+| Description   | Dev build - Tue, 02 Apr 2024                                                                       |
+|               | 13:36:57 CDT                                                                                       |
++---------------+----------------------------------------------------------------------------------------------------+
+| API URL       | https://<PROJECT_NAME>-default-3405408c06.ddn.hasura.app/graphql                                   |
++---------------+----------------------------------------------------------------------------------------------------+
+| Console URL   | https://console.hasura.io/project/<PROJECT_NAME>/environment/default/build/3405408c06/graphql      |
++---------------+----------------------------------------------------------------------------------------------------+
+| Project Name  | <PROJECT_NAME>                                                                                     |
++---------------+----------------------------------------------------------------------------------------------------+
+INF Starting ConnectorManifest watcher for connector "app_connector" in subgraphName "app"
+INF Starting ConnectorLink watcher for connector "app_connector" in subgraphName "app"
+```
+
+## What's a build?
+
+A [**build**](https://hasura.io/docs/3.0/project-configuration/builds) in Hasura DDN is an immutable state of your
+GraphQL API that represents a milestone in your development cycle.
+
+Each [**project**](https://hasura.io/docs/3.0/project-configuration/projects) can have multiple builds, but only one can
+be applied to a the project's endpoint. All builds on a project have a unique URL on Hasura DDN to access their GraphQL
+API which can be shared with other users.
+
+Builds allow you and your team to quickly iterate and experiment with your project's metadata and allow for easier
+rollbacks on production and greater collaboration during development.
+
+Under the hood, `ddn dev` is using two CLI commands:
+
+- `update connector-manifest`
+- `update connector-link`
+
+These commands update a connector's
+[`BuildContext`](https://hasura.io/docs/3.0/supergraph-modeling/build-manifests#connector-manifests) and the schema of
+its
+[`DataConnectorLink`](https://hasura.io/docs/3.0/supergraph-modeling/data-connectors#dataconnectorlink-dataconnectorlink)
+respectively. Running these two allows you to track tables from your data source and can be run independently of
+`ddn dev` in situations such as when your underlying database's schema changes.
 
 ## Run your first query
 
-We're using the docs sample app's schema for this guide's visuals, but you can use the GraphiQL Explorer to create your
-query or write it manually:
-
-<!-- TODO: Add screenshot -->
-
-<details>
-<summary>Using our sample db? You can use this query!</summary>
+You can use the GraphiQL Explorer in your project's Console to create your own query or write it manually:
 
 ```graphql
 query OrdersQuery {
-  orders {
+  app_orders {
     id
     status
-    delivery_date
-    user {
+    deliveryDate
+    users {
       id
       name
       email
     }
-    product {
+    products {
       id
       name
     }
@@ -216,4 +172,51 @@ query OrdersQuery {
 }
 ```
 
-</details>
+![Execute a query](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/beta/0.0.1_console-execute-query-on-build.png)
+
+**Now would be a good time to git init**
+
+If you wish to use Git for version control and want to create a starting point to which you can rewind, run the
+following at this point in a new tab of your terminal:
+
+```bash
+git init .
+git add .
+git commit -m "init supergraph"
+```
+
+## What just happened?
+
+### Project configuration
+
+When you ran the `create project` command, the CLI created a new project for you on Hasura DDN. It also scaffolded out
+all the necessary configuration and metadata in your project's directory:
+
+```text
+├── app
+├── base.supergraph.hml
+├── hasura.yaml
+└── supergraph
+```
+
+You can learn more about project structure by visiting our
+[CI/CD section](https://hasura.io/docs/3.0/project-configuration/config/).
+
+### Connector deployment
+
+You created, configured, and deployed a PostgreSQL connector to Hasura DDN! Hasura can host these for you or you can
+deploy them on your own infrastructure.
+
+### Models tracked
+
+When you ran `ddn dev`, the CLI tracked all the tables in the PostgreSQL database as models.
+[**Models**](https://hasura.io/docs/3.0/supergraph-modeling/models/), defined in metadata, tell our GraphQL API how to
+expose collections from our data sources.
+
+### Relationships
+
+Additionally, Hasura instantly added all foreign-key
+[**relationships**](https://hasura.io/docs/3.0/supergraph-modeling/relationships/) from our data source to our API. This
+unlocks the potential for rich, deeply-nested queries that reach across different models in our API.
+
+Next, let's see how easy it is to add authorization to your API!

@@ -186,12 +186,6 @@ definition:
 
 ## Test the new permissions
 
-You guessed it: create a new build if not using watch mode 🚀
-
-```bash
-ddn build supergraph --description "Set nested permissions for users"
-```
-
 Then, run the query in the Console, ensuring that you have the `x-hasura-role` and `x-hasura-user-id` headers set:
 
 ```graphql

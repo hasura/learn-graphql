@@ -6,7 +6,7 @@ metaDescription: 'Learn how to build a data connector for Hasura DDN'
 
 In this course we will go through the process of creating a Hasura DDN data connector in TypeScript step-by-step.
 
-A data connector in Hasura DDN is an agent which allows you to connect Hasura to any arbitrary data source.
+Data connectors allow us to target arbitrary data sources and bring their data into our Hasura graph.
 
 ## What will we be building? {#what-will-we-be-building}
 

@@ -5,20 +5,26 @@ metaDescription: 'Learn how to build a data connector in Typescript for Hasura D
 ---
 
 Right now, we only need to implement five required functions:
-- `validate_raw_configuration` - which validates the configuration provided by the user.
-- `try_init_state` - which initializes our database connection.
-- `get_capabilities` - which returns the capabilities of our connector as per the spec.
-- `get_schema` - which returns a spec-compatible schema containing our tables and columns.
-- `query` - which actually responds to query requests.
+- `parseConfiguration`: which reads the configuration from files on disk.
+- `tryInitState`: which initializes our database connection.
+- `getCapabilities`: which returns the NDC capabilities of our connector.
+- `getSchema`: which returns an NDC schema containing our tables and columns.
+- `query`: which actually responds to query requests.
 
-We'll skip configuration validation entirely for now, so in the `validate_raw_configuration` function which you 
-pasted in the previous step, we'll just return the configuration. Edit it as follows:
+We'll skip configuration validation entirely for now, and just read the raw configuration from a `configuration.json` 
+file in the configuration directory:
 
 [//]: # (TODO: Need to understand what this is)
 
 ```typescript
-async function validate_raw_configuration(configuration: RawConfiguration): Promise<RawConfiguration> {
-  return configuration;
+async function parseConfiguration(configurationDir: string): Promise<Configuration> {
+  const configuration_file = resolve(configurationDir, 'configuration.json');
+  const configuration_data = await readFile(configuration_file);
+  const configuration = JSON.parse(configuration_data.toString());
+  return {
+    filename: resolve(configurationDir, 'database.db'),
+    ...configuration
+  };
 }
 ```
 
@@ -28,7 +34,7 @@ open a connection to it, and store the resulting connection object in our state 
 ```typescript
 async function try_init_state(configuration: RawConfiguration, metrics: unknown): Promise<State> {
   const db = await open({
-    filename: 'database.db',
+    filename: configuration.filename,
     driver: sqlite3.Database
   });
 
@@ -38,14 +44,15 @@ async function try_init_state(configuration: RawConfiguration, metrics: unknown)
 
 [//]: # (TODO: Link to the relevant part of the spec)
 Our capabilities response will be very simple, because we won't support many capabilities yet. We just return the 
-version range of the specification that we are compatible with, and the basic `query` capability.
+version range of the specification that we are compatible with, and the basic `query` and `mutation` capabilities.
 
 ```typescript
 function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {
   return {
-    versions: "^0.1.0",
+    version: "^0.1.2",
     capabilities: {
-      query: {}
+      query: {},
+      mutation: {}
     }
   }
 }

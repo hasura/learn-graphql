@@ -12,27 +12,15 @@ also included at the bottom, overwriting the previous connector definition with 
 arguments.
 
 ```typescript
-function get_raw_configuration_schema(): JSONSchemaObject {
+async function parseConfiguration(configurationDir: string): Promise<Configuration> {
   throw new Error("Function not implemented.");
 }
 
-function get_configuration_schema(): JSONSchemaObject {
+async function fetchMetrics(configuration: RawConfiguration, state: State): Promise<undefined> {
   throw new Error("Function not implemented.");
 }
 
-function make_empty_configuration(): RawConfiguration {
-  throw new Error("Function not implemented.");
-}
-
-async function update_configuration(configuration: RawConfiguration): Promise<RawConfiguration> {
-  throw new Error("Function not implemented.");
-}
-
-async function fetch_metrics(configuration: RawConfiguration, state: State): Promise<undefined> {
-  throw new Error("Function not implemented.");
-}
-
-async function health_check(configuration: RawConfiguration, state: State): Promise<undefined> {
+async function healthCheck(configuration: RawConfiguration, state: State): Promise<undefined> {
   throw new Error("Function not implemented.");
 }
 
@@ -44,21 +32,15 @@ async function mutation(configuration: RawConfiguration, state: State, request: 
   throw new Error("Function not implemented.");
 }
 
-// Implement these 5 functions below for this course
-
-async function validate_raw_configuration(configuration: RawConfiguration): Promise<RawConfiguration> {
+async function tryInitState(configuration: RawConfiguration, metrics: unknown): Promise<State> {
   throw new Error("Function not implemented.");
 }
 
-async function try_init_state(configuration: RawConfiguration, metrics: unknown): Promise<State> {
+function getCapabilities(configuration: RawConfiguration): CapabilitiesResponse {\
   throw new Error("Function not implemented.");
 }
 
-function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {
-  throw new Error("Function not implemented.");
-}
-
-async function get_schema(configuration: RawConfiguration): Promise<SchemaResponse> {
+async function getSchema(configuration: RawConfiguration): Promise<SchemaResponse> {
   throw new Error("Function not implemented.");
 }
 
@@ -66,23 +48,25 @@ async function query(configuration: RawConfiguration, state: State, request: Que
   throw new Error("Function not implemented.");
 }
 
-const connector: Connector<RawConfiguration, Configuration, State> = {
-  get_raw_configuration_schema,
-  get_configuration_schema,
-  make_empty_configuration,
-  update_configuration,
-  validate_raw_configuration,
-  try_init_state,
-  fetch_metrics,
-  health_check,
-  get_capabilities,
-  get_schema,
-  explain,
+const connector: Connector<Configuration, State> = {
+  parseConfiguration,
+  tryInitState,
+  fetchMetrics,
+  healthCheck,
+  getCapabilities,
+  getSchema,
+  queryExplain,
+  mutationExplain,
   mutation,
   query
 };
 ```
 
-Ok, moving on swiftly, for this course we will only need to implement the last 5 functions of 
-`validate_raw_configuration`, `try_init_state`, `get_capabilities`, `get_schema`, and `query`, in order to get a 
-basic working connector. Let's do that now.
+Ok, moving on swiftly, for this course we will only need to implement the last five functions: 
+- `parseConfiguration`: which reads the configuration from files on disk.
+- `tryInitState`: which initializes our database connection. 
+- `getCapabilities`: which returns the NDC capabilities of our connector.
+- `getSchema`: which returns an NDC schema containing our tables and columns.
+- `query`: which actually responds to query requests.
+
+Let's do that now.

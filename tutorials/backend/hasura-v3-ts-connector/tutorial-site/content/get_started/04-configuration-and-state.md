@@ -11,7 +11,7 @@ First, you'll see that we define three types: `RawConfiguration`, `Configuration
 Let's define those now above the `connector` and `start` function:
 
 ```typescript
-type RawConfiguration = {
+type Configuration = {
   tables: TableConfiguration[];
 };
 
@@ -22,30 +22,23 @@ type TableConfiguration = {
 
 type Column = {};
 
-type Configuration = RawConfiguration;
-
 type State = {
   db: Database;
 };
 ```
 
-`RawConfiguration` is the type of configuration that the user will see. By convention, this configuration should be
-enough to reproducibly determine the connector's schema, so for our SQLite connector, we configure the connector 
-with an array of tables that we want to expose. Each of these table types in `TableConfiguration` is defined by its 
-name and a list of columns. 
-
-`Column`s don't have any specific configuration yet, but we leave an empty object type here because we might want to 
-capture things like column types later on.
-
-The `Configuration` type is supposed to be a validated version of the raw configuration, but for our purposes, we'll 
-reuse the same type.
+`Configuration` is the type of the connector's configuration, which will be read from a directory on disk. By
+convention, this configuration should be enough to reproducibly determine the NDC schema, so for our sqlite connector,
+we configure the connector with a list of tables that we want to expose. Each table is defined by its name and a list of
+columns. Columns don't have any specific configuration yet, but we leave an empty object type here because we might want
+to capture things like column types later on.
 
 [//]: # (TODO: What does it mean to validate the configuration? What does it mean to have a validated configuration?)
 
 ## State
 
 The `State` type is for things like connection pools, handles, or any non-serializable state that gets allocated on
-startup, and which lives for the lifetime of the connector. For our connector, we need to keep a handle to our SQLite
+startup, and which lives for the lifetime of the connector. For our connector, we need to keep a handle to our sqlite
 database.
 
 Cool, so now that we've got our types defined, we can fill in the function definitions which the connector requires 

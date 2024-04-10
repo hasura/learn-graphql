@@ -1,6 +1,6 @@
 ---
-title: 'Create Nested Permissions'
-metaTitle: 'Create nested permissions for models | Hasura v3 Tutorial'
+title: "Create Nested Permissions"
+metaTitle: "Create nested permissions for models | Hasura v3 Tutorial"
 metaDescription:
   "In this section, we'll cover how to set up permissions for the models called by the user model for select operations."
 ---
@@ -185,12 +185,6 @@ definition:
 ```
 
 ## Test the new permissions
-
-You guessed it: create a new build if not using watch mode 🚀
-
-```bash
-hasura3 build create -d "Set nested permissions for users"
-```
 
 Then, run the query in the Console, ensuring that you have the `x-hasura-role` and `x-hasura-user-id` headers set:
 

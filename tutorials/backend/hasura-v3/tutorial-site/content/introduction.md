@@ -1,7 +1,7 @@
 ---
-title: 'Course Introduction'
-metaTitle: 'Course Introduction | Hasura v3 Tutorial'
-metaDescription: 'A powerful and concise tutorial that will introduce you to Hasura v3 and its concepts.'
+title: "Course Introduction"
+metaTitle: "Course Introduction | Hasura v3 Tutorial"
+metaDescription: "A powerful and concise tutorial that will introduce you to Hasura v3 and its concepts."
 ---
 
 Anyone who's built an API knows that most of the time spent creating it is centered around writing access control rules
@@ -21,7 +21,7 @@ near-instant data delivery network.
 You'll learn how to:
 
 1. Create a new Hasura project.
-2. Author a single, declarative metadata file that defines your entire API.
+2. Author declarative metadata that defines your entire API.
 3. Connect a data source using Hasura's data connectors.
 4. Configure fine-grained access control rules for your API.
 5. Deploy a development build of your API to Hasura DDN.
@@ -37,7 +37,7 @@ PostgreSQL database and will be deployed to Hasura DDN.
 
 We'll go into more detail in the next section, but you'll need:
 
-- The new [Hasura CLI](https://hasura.io/docs/3.0/cli/overview/)
+- The new [Hasura CLI](https://hasura.io/docs/3.0/cli/installation/)
 - The [Hasura VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) (optional, but
   recommended)
 - A PostgreSQL database (either hosted or local)

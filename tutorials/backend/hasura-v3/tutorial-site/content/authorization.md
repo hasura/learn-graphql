@@ -1,9 +1,9 @@
 ---
-title: 'Authorization'
-metaTitle: 'Authorization with Hasura | Hasura v3 Tutorial'
+title: "Authorization"
+metaTitle: "Authorization with Hasura | Hasura v3 Tutorial"
 metaDescription:
-  'This part of the tutorial covers how to implement Authorization in Hasura v3 by defining role-based access control
-  rules for models.'
+  "This part of the tutorial covers how to implement Authorization in Hasura v3 by defining role-based access control
+  rules for models."
 ---
 
 One of the most time-consuming parts of building an application is implementing authorization. Hasura makes this easy by

@@ -1,6 +1,6 @@
 ---
-title: 'Prerequisites'
-metaTitle: 'Prerequisites | Hasura v3 Tutorial'
+title: "Prerequisites"
+metaTitle: "Prerequisites | Hasura v3 Tutorial"
 metaDescription: "We'll cover everything you need to know to get started with Hasura."
 ---
 
@@ -16,7 +16,7 @@ this is a new CLI and is not the same as the previous version.**
 ## Install the VS Code extension {#vs-code-extensions}
 
 We recommend using [VS Code](https://code.visualstudio.com/) and installing the Hasura VS Code extension. It allows you
-to instantly scaffold out your metadata using the Open Data Domain Specification (OpenDD Spec) format 🚀
+to instantly scaffold out your metadata 🚀
 
 You can download the extension from the
 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura).
@@ -26,29 +26,26 @@ You can download the extension from the
 To authenticate your CLI to our network, run the following command:
 
 ```bash
-hasura3 login
+ddn login
 ```
 
 This will open a browser window where you can log in with your Hasura account. Once you've logged in, you can close the
 browser window and return to your terminal.
 
-## Download the Sample data {#sample-data}
+## Our data model
 
-Finally, you'll need the sample data we'll be using for this tutorial. We're using a PostgreSQL database for this
-tutorial, and you can use the initial `up.sql` file to create the tables:
+In this tutorial, we'll be building the data layer for an e-commerce application. We'll use the following data model,
+which we'll connect to our project in the next section:
 
-```bash
-curl https://raw.githubusercontent.com/hasura/docs-sample-app/main/migrations/default/1669033533483_init/up.sql -o up.sql
-```
-
-And then you can use the `tables_seed.sql` file to populate the tables with some sample data:
-
-```bash
-curl https://raw.githubusercontent.com/hasura/docs-sample-app/main/seeds/default/tables_seed.sql -o tables_seed.sql
-```
-
-With Hasura, you can use either a hosted database or a local database.
-
-If you're using a hosted database, use the files above to create the tables and seed data according to your provider's
-instructions. If you're running a local PostgreSQL database ([such as with Docker](https://hub.docker.com/_/postgres)),
-create the tables and seeds and then start the database.
+| Table name    | Description                                                                                                                       |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| users         | Stores information about users, including their name and email address.                                                           |
+| categories    | Stores information about categories of products, including their name.                                                            |
+| manufacturers | Stores information about manufacturers of products, including their name.                                                         |
+| products      | Stores information about products, including their name and price.                                                                |
+| reviews       | Stores information about reviews of products, including the user who wrote the review and the product that was reviewed.          |
+| orders        | Stores information about orders, including the user who placed the order and the product that was ordered.                        |
+| carts         | Stores information about carts, including the user who owns the cart.                                                             |
+| cart_items    | Stores information about items in a user's cart, including the user who owns the cart and the product that was added to the cart. |
+| notifications | Stores information about notifications, including the user who owns the notification.                                             |
+| coupons       | Stores information about coupons, including the coupon code and the discount amount.                                              |

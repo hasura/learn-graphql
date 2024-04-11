@@ -151,5 +151,5 @@ async function getSchema(configuration: Configuration): Promise<SchemaResponse> 
 
 As mentioned before, we aren't defining `functions` or `procedures`, but we'll cover those features later.
 
-Now we almost have a working connector apart from actually querying the database. Let's set up some testing so we 
+Now we almost have a working connector apart from actually querying the database. Let's set up some testing, so we 
 know what we're working to and when we're done.

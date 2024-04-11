@@ -13,10 +13,10 @@ For example: a `where` clause.
 ## Where Clause
 
 Let's pick up from where we left off. We can modify our SQL template in our `fetch_rows` function to now include a 
-`WHERE clause`:
+`WHERE` clause:
 
 ```typescript
-const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${where_clause} ${limit_clause} ${offset_clause}`;
+const sql = `SELECT ${fields.length ? fields.join(", ") : '1 AS __empty'} FROM ${request.collection} ${where_clause} ${limit_clause} ${offset_clause}`;
 ```
 
 To generate our `WHERE` clause, we will need to interpret the contents of the `where` property of the query request. To
@@ -24,22 +24,37 @@ see what this will look like, we can find some examples in the snapshots we gene
 
 ```JSON
 {
-    "Limit": 10,
-    "where": {
-        "type": "binary_comparison_operator",
-        "column": {
-          "type": "column",
-          "name": "artist_id",
-          "path": []
-        },
-        "operator": {
-          "type": "equal"
-        },
-        "value": {
-          "type": "scalar",
-          "value": 5
-        }
+  "collection": "albums",
+  "query": {
+    "fields": {
+      "id": {
+        "type": "column",
+        "column": "id",
+        "fields": null
+      },
+      "title": {
+        "type": "column",
+        "column": "title",
+        "fields": null
+      }
+    },
+    "limit": 10,
+    "predicate": {
+      "type": "binary_comparison_operator",
+      "column": {
+        "type": "column",
+        "name": "artist_id",
+        "path": []
+      },
+      "operator": "eq",
+      "value": {
+        "type": "scalar",
+        "value": 5
+      }
     }
+  },
+  "arguments": {},
+  "collection_relationships": {}
 }
 ```
 

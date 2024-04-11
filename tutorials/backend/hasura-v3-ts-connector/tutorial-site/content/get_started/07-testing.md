@@ -4,13 +4,17 @@ metaTitle: 'Testing | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
 ---
 
-So we have one more function to define, which is the query function, but before we do, let's talk about tests. The [NDC
+So we have one more function to define, which is the `query` function, but before we do, let's talk about tests. The [NDC
 specification repository](https://github.com/hasura/ndc-spec/) provides a
 [test runner executable](https://github.com/hasura/ndc-spec/tree/main/ndc-test) called `ndc-test`, which can be used to
 implement a test suite for a connector.
 
 We can also use `ndc-test` to run some automatic tests and validate the work we've done so far. Let's compile and run
 our connector, and then use the test runner with the running connector.
+
+```sh
+npm run build && node dist/index.js serve --configuration .
+```
 
 Back in your `ndc-typescript-learn-course` directory that we cloned during setup, you have a `configuration.json` file 
 which you can use to run the connector against your sample database.

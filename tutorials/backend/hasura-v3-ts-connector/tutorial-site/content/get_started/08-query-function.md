@@ -76,7 +76,9 @@ Later, we'll also implement aggregates here.
 Let's define the `fetch_rows` function the `query` function is delegating to:
 
 ```typescript
-async function fetch_rows(state: State, request: QueryRequest): Promise<{ [k: string]: RowFieldValue }[]> {
+async function fetch_rows(state: State, request: QueryRequest): Promise<{
+  [k: string]: RowFieldValue
+}[]> {
   const fields = [];
 
   for (const fieldName in request.query.fields) {
@@ -89,7 +91,6 @@ async function fetch_rows(state: State, request: QueryRequest): Promise<{ [k: st
         case 'relationship':
           throw new Error("Relationships are not supported");
       }
-
     }
   }
 
@@ -98,14 +99,15 @@ async function fetch_rows(state: State, request: QueryRequest): Promise<{ [k: st
   }
 
   const limit_clause = request.query.limit == null ? "" : `LIMIT ${request.query.limit}`;
-  
   const offset_clause = request.query.offset == null ? "" : `OFFSET ${request.query.offset}`;
 
-  const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${limit_clause} ${offset_clause}`;
+  const sql = `SELECT ${fields.length ? fields.join(", ") : '1 AS __empty'} FROM ${request.collection} ${limit_clause} ${offset_clause}`;
 
   console.log(JSON.stringify({ sql }, null, 2));
 
-  return state.db.all(sql);
+  const rows = await state.db.all(sql, ...parameters);
+
+  return rows.map((row) => { delete row.__empty; return row; });
 }
 ```
 This function breaks down the request that we saw earlier and produces SQL with a basic shape. Here is what `fetch_rows` 

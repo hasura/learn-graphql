@@ -1,7 +1,7 @@
 ---
-title: 'Model a Supergraph'
-metaTitle: 'Model a Supergraph | Hasura v3 Supergraph Modeling Tutorial'
-metaDescription: 'Everything you need to know to get started with building your supergraph.'
+title: "Model a Supergraph"
+metaTitle: "Model a Supergraph | Hasura v3 Supergraph Modeling Tutorial"
+metaDescription: "Everything you need to know to get started with building your supergraph."
 ---
 
 ## How to model a supergraph {#modeling}
@@ -37,10 +37,10 @@ organize your data and relationships.
 
 For this course, we'll use the examples above to create four subgraphs:
 
-- `default`\*
+- `app`\*
 - `product_management`
 - `payment_processing`
 - `fulfillment_services`
 
-\*The `default` subgraph was created automatically when you created a new Hasura project. We'll use this for our `ux`
+\*The `app` subgraph was created automatically when you created a new Hasura project. We'll use this for our `ux`
 team and model it in the next lesson.

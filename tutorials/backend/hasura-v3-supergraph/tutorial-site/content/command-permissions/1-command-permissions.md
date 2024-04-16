@@ -1,18 +1,18 @@
 ---
-title: 'Create a Command Permission'
-metaTitle: 'Create a Command Permission | Hasura v3 Supergraph Modeling Tutorial'
-metaDescription: 'Create a command permission to allow a user to use the command.'
+title: "Create a Command Permission"
+metaTitle: "Create a Command Permission | Hasura v3 Supergraph Modeling Tutorial"
+metaDescription: "Create a command permission to allow a user to use the command."
 ---
 
-With watch mode still running, open the `subgraphs/default/commands` directory. You'll see two files here: one for the
+With watch mode still running, open the `app/ts_logic/commands` directory. You'll see two files here: one for the
 `greeting()` function we wrote earlier and one for the `hello()` function that was part of the boilerplate created by
-the CLI. Open the `greeting.hml` file and modify it to look like this:
+the CLI. Open the `Greeting.hml` file and modify it to look like this:
 
 ```yaml
 kind: CommandPermissions
 version: v1
 definition:
-  commandName: greeting
+  commandName: Greeting
   permissions:
     - role: admin
       allowExecution: true

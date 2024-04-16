@@ -1,8 +1,8 @@
 ---
-title: 'Course Introduction'
-metaTitle: 'Course Introduction | Hasura v3 Supergraph Modeling Tutorial'
+title: "Course Introduction"
+metaTitle: "Course Introduction | Hasura v3 Supergraph Modeling Tutorial"
 metaDescription:
-  'A powerful and comprehensive tutorial that will introduce you Hasura v3 supergraph modeling and its core concepts.'
+  "A powerful and comprehensive tutorial that will introduce you Hasura v3 supergraph modeling and its core concepts."
 ---
 
 Delve into the world of supergraphs with our comprehensive course designed for modern API developers. Supergraphs
@@ -35,11 +35,6 @@ You'll learn:
 - Use watch mode to develop custom business logic and get instant feedback in your API.
 - Create relationships with the aid of LSP.
 
-**Environment and Build Management**
-
-- Create environments for a DDN project.
-- Create build profiles for individual subgraphs (teams).
-
 **Deployment and Integration**
 
 - Deploy a custom connector to Hasura DDN.
@@ -63,8 +58,8 @@ We'll go into more detail in the next section, but you'll need:
 - The [Hasura VS Code extension](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura) (optional, but
   recommended)
 - A [Hasura DDN](https://console.hasura.io) account
-- Docker
 - Completion of the [Hasura Basics v3 course](https://hasura.io/learn/graphql/hasura-v3/introduction/)
+- [ngrok](https://ngrok.com/) (for tunneling locally-running databases) or a cloud-hosted PostgreSQL provider
 
 ## How long will this tutorial take? {#how-long-will-this-tutorial-take}
 

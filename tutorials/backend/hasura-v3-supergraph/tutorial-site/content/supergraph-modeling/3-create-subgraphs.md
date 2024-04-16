@@ -1,82 +1,86 @@
 ---
-title: 'Create Subgraphs'
-metaTitle: 'Create Subgraphs | Hasura v3 Supergraph Modeling Tutorial'
-metaDescription: 'Create subgraphs and connect them to your supergraph.'
+title: "Create Subgraphs"
+metaTitle: "Create Subgraphs | Hasura v3 Supergraph Modeling Tutorial"
+metaDescription: "Create subgraphs and connect them to your supergraph."
 ---
 
-With our `default` subgraph taken care of, we can now create subgraphs for each of the remaining teams in our
-organization. We'll start by creating a subgraph for the `product_management` team.
+With our `app` subgraph taken care of, we can now create subgraphs for each of the remaining teams in our organization.
+We'll start by creating a subgraph for the `product_management` team.
 
 The pattern we'll use for each of these teams is to:
 
 - [ ] create the new subgraph on Hasura DDN using the CLI.
 - [ ] connect the data source using the CLI.
-- [ ] add the subgraph to our `default` build profile.
-- [ ] scaffold the metadata using LSP.
+- [ ] add the subgraph to our `base` supergraph manifest.
+- [ ] scaffold the metadata using the CLI.
+- [ ] create relationships across the supergraph using the LSP extension.
 
 ## Create the product_management subgraph {#create-product-management}
 
-Create a new subgraph for the `product_management` team by running the following command:
+Let's start by killing dev mode by pressing `CTRL+C` in our terminal. Then, create a new subgraph for the
+`product_management` team by running the following command:
 
-### Create the product_management subgraph on DDN
+### Create the product_management subgraph
 
 ```bash
-hasura3 subgraph create --name product_management
+ddn create subgraph product_management
 ```
+
+And then add the connector manifest:
+
+```bash
+ddn add connector-manifest pg_db --subgraph product_management --hub-connector hasura/postgres --type cloud
+```
+
+This adds a new subgraph named `product_management` and tells the build process to look for metadata in this directory.
+When we connected the data source, the CLI created a new directory `product_management/pg_db` and added a
+`pg_db.build.hml` file to its `connectors` subdirectory. This file, along with the `configuration.json` contains the
+configuration and metadata for the PostgreSQL connector.
 
 ### Connect the data source
 
-We can then connect the data source using the PostgreSQL connector:
+We can then connect the data source using our environment variables and supergraph manifest:
 
-```bash
-hasura3 metadata add-hub-connector pg_db --dir . --subgraph product_management --id hasura/postgres --url "postgres://user:password@localhost:5432/product_management"
+```yaml
+supergraph: {}
+subgraphs:
+  app:
+    PG_DB_CONNECTION_URI: "postgres://user:password@0.tcp.<REGION>.ngrok.io:<PORT>/user_experience"
+  product_management:
+    PG_DB_CONNECTION_URI: "postgres://user:password@0.tcp.<REGION>.ngrok.io:<PORT>/product_management"
 ```
 
-### Add the subgraph to the default build profile
-
-Make the `subgraphs` section of our `build-profile.yaml` in the root of the project look like this:
+In your `/product_management/pg_db/connector/pg_db.build.hml` file, update the referenced value to match the new
+environment variable:
 
 ```yaml
 # other configuration above
-subgraphs:
-  - name: default
-    resources:
-      - subgraphs/default/**/*.hml
-    connectors:
-      pg_db:
-        path: subgraphs/default/dataconnectors/pg_db
-        connectorConfigFile: pg_db.hml
-  - name: product_management
-    resources:
-      - subgraphs/product_management/**/*.hml
-    connectors:
-      pg_db:
-        path: subgraphs/product_management/dataconnectors/pg_db
-        connectorConfigFile: pg_db.hml
+CONNECTION_URI:
+  valueFromEnv: PG_DB_CONNECTION_URI
 ```
 
-This adds a new subgraph named `product_management` and tells the build process to look for metadata in the
-`subgraphs/product_management` directory. When we connected the data source, the CLI created a new directory
-`subgraphs/product_management/dataconnectors/pg_db` and added a `pg_db.hml` file to it. This file contains the
-configuration for the PostgreSQL connector. However, we still need to scaffold the metadata for the subgraph.
+## Scaffold the metadata
 
-### Scaffold the metadata
+As we did with the `app` subgraph, we'll use the CLI to scaffold the metadata for the `product_management` subgraph.
+Remember, when we run `ddn dev`, the CLI will automatically introspect our data source, track all tables as models, and
+create relationships based on foreign keys.
 
-As we did with the `default` subgraph, we'll use the LSP to scaffold the metadata for the `product_management` subgraph.
-Bring up the command palette and type `Hasura track all`, then select the command. You'll be asked which subgraph and
-data source to use. Select `pg_db` for the data source and `product_management` for the subgraph and your models will be
-automatically created along with a new build on the default environment.
+Start dev mode:
+
+```bash
+ddn dev
+```
 
 We can now navigate to our project's Console and query data in our `product_management` subgraph using our API:
 
 ```graphql
 query ProductsAndSupplierQuery {
-  products {
+  productManagement_products {
     id
     name
     price
     supplier {
-      id
+      supplierId
       name
     }
   }
@@ -85,74 +89,61 @@ query ProductsAndSupplierQuery {
 
 Below, you'll find the abbreviated steps for adding our remaining subgraphs.
 
-## Create the payment_processing subgraph on DDN {#create-payment-processing}
+## Create the payment_processing and fulfillment_services subgraphs {#create-remaining}
 
-Create a new subgraph for the `payment_processing` team by running the following command:
+**As before, let's kill dev mode using `CTRL+C` before running the following commands.**
 
-```bash
-hasura3 subgraph create --name payment_processing
-```
-
-Add the data source:
+Create a new subgraph for the `payment_processing` and `fulfillment_services` teams by running the following commands:
 
 ```bash
-hasura3 metadata add-hub-connector pg_db --dir . --subgraph payment_processing --id hasura/postgres --url "postgres://user:password@localhost:5434/payment_processing"
+ddn create subgraph payment_processing
+ddn create subgraph fulfillment_services
 ```
 
-Add the subgraph to the build profile:
+And then add the connector manifests:
+
+```bash
+ddn add connector-manifest pg_db --subgraph payment_processing --hub-connector hasura/postgres --type cloud
+ddn add connector-manifest pg_db --subgraph fulfillment_services --hub-connector hasura/postgres --type cloud
+```
+
+## Update the environment variables
 
 ```yaml
-- name: payment_processing
-      resources:
-        - subgraphs/payment_processing/**/*.hml
-      connectors:
-        pg_db:
-          path: subgraphs/payment_processing/dataconnectors/pg_db
-          connectorConfigFile: pg_db.hml
+supergraph: {}
+subgraphs:
+  app:
+    PG_DB_CONNECTION_URI: "postgres://user:password@0.tcp.<REGION>.ngrok.io:<PORT>/user_experience"
+  product_management:
+    PG_DB_CONNECTION_URI: "postgres://user:password@0.tcp.<REGION>.ngrok.io:<PORT>/product_management"
+  payment_processing:
+    PG_DB_CONNECTION_URI: "postgres://user:password@0.tcp.<REGION>.ngrok.io:<PORT>/payment_processing"
+  fulfillment_services:
+    PG_DB_CONNECTION_URI: "postgres://user:password@0.tcp.<REGION>.ngrok.io:<PORT>/fulfillment_services"
 ```
 
-Scaffold the metadata:
+## Update the build manifests
 
-Remember, you can use the LSP to scaffold the metadata for the `payment_processing` subgraph. Bring up the command
-palette and type `Hasura track all`, then select the command. You'll be asked which subgraph and data source to use.
-Select `pg_db` for the data source and `payment_processing` for the subgraph and your models will be automatically
-created along with a new build on the default environment.
-
-## Create the fulfillment_services subgraph {#create-fulfillment-services}
-
-Finally, create a new subgraph for the `fulfillment_services` team by running the following command:
-
-```bash
-hasura3 subgraph create --name fulfillment_services
-```
-
-Add the data source:
-
-```bash
-hasura3 metadata add-hub-connector pg_db --dir . --subgraph fulfillment_services --id hasura/postgres --url "postgres://user:password@localhost:5435/fulfillment_services"
-```
-
-Add the subgraph to the build profile:
+For each of the new connectors, update its build manifest to include the new environment variable. You'll modify
+**both** `payment_processing.build.hml` and `fulfillment_services.build.hml` to include their respective
+`PG_DB_CONNECTION_URI`:
 
 ```yaml
-- name: fulfillment_services
-      resources:
-        - subgraphs/fulfillment_services/**/*.hml
-      connectors:
-        pg_db:
-          path: subgraphs/fulfillment_services/dataconnectors/pg_db
-          connectorConfigFile: pg_db.hml
+# other configuration above
+CONNECTION_URI:
+  valueFromEnv: PG_DB_CONNECTION_URI
 ```
 
-Scaffold the metadata:
+Now, re-start dev mode by running:
 
-After bringing up the command palette and typing `Hasura track all`, you'll be asked which subgraph and data source to
-use. Select `pg_db` for the data source and `fulfillment_services` for the subgraph.
-
-## Next steps {#next-steps}
+```bash
+ddn dev
+```
 
 At this point, your supergraph should look like this:
 
 ![Supergraph without relationships](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/backend-stack/v3/supergraph-course/supegraph-without-relationships.png)
+
+## Next steps {#next-steps}
 
 In the next section, we'll create relationships between our subgraphs.

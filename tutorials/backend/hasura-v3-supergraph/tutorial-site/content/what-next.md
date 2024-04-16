@@ -2,7 +2,7 @@
 title: "What's next?"
 metaTitle: "What's next? | Supergraph Tutorial"
 metaDescription:
-  'Learn what to do next with GraphQL and Hasura with more community resources. Join our discord channel for support.'
+  "Learn what to do next with GraphQL and Hasura with more community resources. Join our discord channel for support."
 ---
 
 import TwitterShare from './twitter-share';

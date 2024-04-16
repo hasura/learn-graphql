@@ -1,6 +1,6 @@
 ---
-title: 'Prerequisites'
-metaTitle: 'Prerequisites | Hasura v3 Supergraph Tutorial'
+title: "Prerequisites"
+metaTitle: "Prerequisites | Hasura v3 Supergraph Tutorial"
 metaDescription: "We'll cover everything you need to know to get started with building your supergraph."
 ---
 
@@ -16,7 +16,7 @@ this is a new CLI and is not the same as the previous version.**
 ## Install the VS Code extension {#vs-code-extensions}
 
 We recommend using [VS Code](https://code.visualstudio.com/) and installing the Hasura VS Code extension. It allows you
-to instantly scaffold out your metadata using the Open Data Domain Specification (OpenDD Spec) format 🚀
+to instantly scaffold out your metadata and track all tables + relationships present in your data source 🚀
 
 You can download the extension from the
 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=HasuraHQ.hasura).
@@ -26,7 +26,7 @@ You can download the extension from the
 To authenticate your CLI to our network, run the following command:
 
 ```bash
-hasura3 login
+ddn login
 ```
 
 This will open a browser window where you can log in with your Hasura account. Once you've logged in, you can close the
@@ -65,22 +65,49 @@ f99183fa1a20   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2
 02902d925779   postgres:latest   "docker-entrypoint.s…"   3 seconds ago   Up 2 seconds   0.0.0.0:5435->5432/tcp   supergraph-course-db_fulfillment_services-1
 ```
 
+## Create tunnels for your endpoints
+
+If you're running these databases locally, you can use a tool like [ngrok](https://ngrok.com/) to create a tunnel for
+each database and expose it to the internet. This value can then be used to create a connection string for each database
+and used by Hasura to introspect the data source and generate your GraphQL schema. Alternatively, you could apply the
+`up.sql` for each of these (like
+[this example](https://github.com/hasura/supergraph-learn-course-assets/blob/main/db/user_experience/up.sql)) and serve
+these via a cloud-hosted PostgreSQL provider.
+
+If you're using ngrok, follow these steps for **each** database:
+
+### Step 1: Create a config file
+
+Create an ngrok config file serving a tunnel for each port (`5432` thru `5435`)
+
+This will create a set of tunnels with this format:
+
+```plaintext
+tcp://0.tcp.<REGION>.ngrok.io:<PORT>
+```
+
+We'll only need the hosts and port numbers from the tunnels in the next step.
+
+### Step 2: Create connection strings
+
+For now, create a set of connection strings and store them in a text file for safe keeping. There should be four that
+follow this format:
+
+```plaintext
+postgres://user:password@0.tcp.<REGION>.ngrok.io:<PORT>/<POSTGRES_DB>
+```
+
+The `POSTGRES_DB` value can be read from
+[this `docker-compose.yaml`](https://github.com/hasura/supergraph-learn-course-assets/blob/main/docker-compose.yaml).
+
 ## Create a new Hasura project {#new-project}
 
 From the root of this repository, run the following command to create a new Hasura project:
 
 ```bash
-hasura3 init --dir .
+ddn create project --dir ./supergraph-learn-course
+cd supergraph-learn-course
 ```
 
-Choose the option for creating a new project. This will create all the configuration files and scaffold out your
-metadata. It will also create a `default` subgraph that we'll learn about in our first lesson.
-
-## Start watch mode {#watch-mode}
-
-Finally, we'll start the CLI in watch mode so that it will automatically apply our metadata changes to our Hasura
-instance. From the root of the repository, run the following command:
-
-```bash
-hasura3 watch
-```
+This will create all the configuration files and scaffold out your metadata. It will also create an `app` subgraph that
+we'll learn about in our first lesson.

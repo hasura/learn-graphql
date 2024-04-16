@@ -135,8 +135,3 @@ query SupergraphQuery {
   }
 }
 ```
-
-## Next steps {#next-steps}
-
-With our subgraphs integrated into a supergraph, let's take a look at adding custom business logic to our application in
-the form of TypeScript functions.

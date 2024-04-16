@@ -8,14 +8,14 @@ metaDescription:
 Delve into the world of supergraphs with our comprehensive course designed for modern API developers. Supergraphs
 represent a breakthrough in API design, offering a unified, interconnected data layer from various subgraphs. In this
 course, you will learn the intricacies of building subgraphs, connecting them to your data supergraph using Hasura’s
-versatile data connectors, and infusing them with custom business logic to work seamlessly across teams.
+versatile data connectors, and create relationships to work seamlessly across teams.
 
 ## What will I learn? {#what-will-i-learn}
 
 This tutorial is designed to give you a complete overview of how to model and architect a data supergraph using Hasura
 v3. By the end of this tutorial, you will have a working supergraph — complete with separate subgraphs that include
-relational data sources and custom business logic hosted by Hasura — deployed to
-[Hasura DDN](https://console.hasura.io), our global and near-instant data delivery network.
+relational data sources — deployed to [Hasura DDN](https://console.hasura.io), our global and near-instant data delivery
+network.
 
 You'll learn:
 
@@ -31,8 +31,7 @@ You'll learn:
 
 **Development and Customization**
 
-- Add custom business logic using the TypeScript connector.
-- Use watch mode to develop custom business logic and get instant feedback in your API.
+- Use dev mode to get instant feedback on your API's changes.
 - Create relationships with the aid of LSP.
 
 **Deployment and Integration**

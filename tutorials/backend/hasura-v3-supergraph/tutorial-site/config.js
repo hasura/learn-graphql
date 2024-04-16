@@ -29,14 +29,7 @@ const config = {
     },
   },
   sidebar: {
-    forcedNavOrder: [
-      "/introduction/",
-      "/setup/",
-      "/supergraph-modeling/",
-      "/custom-business-logic/",
-      "/command-permissions/",
-      "/what-next/",
-    ],
+    forcedNavOrder: ["/introduction/", "/setup/", "/supergraph-modeling/", "/what-next/"],
     links: [
       {
         text: "Hasura Docs",
@@ -49,16 +42,13 @@ const config = {
     ],
   },
   siteMetadata: {
-    title:
-      "Introduction to Hasura v3 Supergraph modeling course for architects and backend engineers | Hasura",
+    title: "Introduction to Hasura v3 Supergraph modeling course for architects and backend engineers | Hasura",
     description:
       "A concise and powerful tutorial that covers fundamental concepts of modeling a supergraph and instantly getting an API using Hasura",
-    ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura.png",
+    ogImage: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-hasura.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/backend/hasura/hasura-v3-supergraph/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
   },
   newsletter: {
     ebookAvailable: false,

@@ -5,8 +5,10 @@ metaDescription: 'Learn how to build a data connector in Typescript for Hasura D
 ---
 
 In the SDK, these predicate expressions are given the TypeScript type `Expression`, and we can see that there are
-several different types of expression. These are all expression types which can be used in the `where` clause of a
-query our `query` function will need to handle them via the `fetch_rows` function.
+several different types of expression. 
+
+These are all expression types which can be used in the `where` clause of a query. Our `query` function will need to 
+handle them via the `fetch_rows` function.
 
 ```typescript
 export type Expression = {

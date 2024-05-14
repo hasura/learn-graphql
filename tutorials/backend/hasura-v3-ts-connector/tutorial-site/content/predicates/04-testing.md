@@ -17,7 +17,7 @@ rm -rf snapshots
 ```
 
 ```shell
-ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
+ndc-test test --endpoint http://localhost:8080/ --snapshots-dir snapshots
 ```
 
 OR

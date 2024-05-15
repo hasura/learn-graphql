@@ -16,6 +16,10 @@ async function parseConfiguration(configurationDir: string): Promise<Configurati
   throw new Error("Function not implemented.");
 }
 
+async function tryInitState(configuration: RawConfiguration, metrics: unknown): Promise<State> {
+  throw new Error("Function not implemented.");
+}
+
 async function fetchMetrics(configuration: RawConfiguration, state: State): Promise<undefined> {
   throw new Error("Function not implemented.");
 }
@@ -24,23 +28,24 @@ async function healthCheck(configuration: RawConfiguration, state: State): Promi
   throw new Error("Function not implemented.");
 }
 
-async function explain(configuration: RawConfiguration, state: State, request: QueryRequest): Promise<ExplainResponse> {
-  throw new Error("Function not implemented.");
-}
-
-async function mutation(configuration: RawConfiguration, state: State, request: MutationRequest): Promise<MutationResponse> {
-  throw new Error("Function not implemented.");
-}
-
-async function tryInitState(configuration: RawConfiguration, metrics: unknown): Promise<State> {
-  throw new Error("Function not implemented.");
-}
-
-function getCapabilities(configuration: RawConfiguration): CapabilitiesResponse {\
+function getCapabilities(configuration: RawConfiguration): CapabilitiesResponse {
   throw new Error("Function not implemented.");
 }
 
 async function getSchema(configuration: RawConfiguration): Promise<SchemaResponse> {
+  throw new Error("Function not implemented.");
+}
+
+async function queryExplain(configuration: RawConfiguration, state: State, request: QueryRequest): 
+  Promise<ExplainResponse> {
+  throw new Error("Function not implemented.");
+}
+
+async function mutationExplain(configuration: Configuration, state: State, request: MutationRequest): Promise<ExplainResponse> {
+  throw new Error("Function not implemented.");
+}
+
+async function mutation(configuration: RawConfiguration, state: State, request: MutationRequest): Promise<MutationResponse> {
   throw new Error("Function not implemented.");
 }
 

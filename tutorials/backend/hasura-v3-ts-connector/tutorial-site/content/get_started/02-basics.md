@@ -34,11 +34,14 @@ start(connector);
 We will also need some imports over the course of the tutorial. Paste these at the top of your index.ts file:
 
 ```typescript
+import opentelemetry from '@opentelemetry/api';
 import sqlite3 from 'sqlite3';
-import { Database, open } from 'sqlite';
-import { BadRequest, CapabilitiesResponse, CollectionInfo, ComparisonTarget, ComparisonValue, Connector, ExplainResponse, Expression, ForeignKeyConstraint, InternalServerError, MutationRequest, MutationResponse, NotSupported, ObjectField, ObjectType, OrderByElement, Query, QueryRequest, QueryResponse, Relationship, RowFieldValue, ScalarType, SchemaResponse, start } from "@hasura/ndc-sdk-typescript";
 import { readFile } from 'fs/promises';
 import { resolve } from 'path';
+import { Database, open } from 'sqlite';
+import { BadGateway, BadRequest, CapabilitiesResponse, CollectionInfo, ComparisonTarget, ComparisonValue, Connector, ConnectorError, ExplainResponse, Expression, ForeignKeyConstraint, InternalServerError, MutationRequest, MutationResponse, NotSupported, ObjectField, ObjectType, OrderByElement, Query, QueryRequest, QueryResponse, Relationship, RowFieldValue, ScalarType, SchemaResponse, start } from "@hasura/ndc-sdk-typescript";
+import { withActiveSpan } from "@hasura/ndc-sdk-typescript/instrumentation";
+import { Counter, Registry } from 'prom-client';
 ```
 
 You'll notice that your IDE will complain about the `connector` object not having the correct type, and 

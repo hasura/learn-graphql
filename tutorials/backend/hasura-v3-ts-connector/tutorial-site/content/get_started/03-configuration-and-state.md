@@ -12,19 +12,34 @@ Let's define those now above the `connector` and `start` function:
 
 ```typescript
 type Configuration = {
+  filename: string,
   tables: TableConfiguration[];
 };
 
 type TableConfiguration = {
   tableName: string;
   columns: { [k: string]: Column };
+  foreignKeys: { [k: string]: ForeignKey };
 };
 
-type Column = {};
+
+type Column = {
+  type: string;
+};
+
+type ForeignKey = {
+  targetTable: string,
+  columns: { [k: string]: string };
+};
 
 type State = {
   db: Database;
+  metrics: Metrics;
 };
+
+type Metrics = {
+  query_count: Counter;
+}
 ```
 
 `Configuration` is the type of the connector's configuration, which will be read from a directory on disk. By

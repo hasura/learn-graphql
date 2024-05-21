@@ -14,15 +14,11 @@ We will build a basic connector to an [SQLite](https://www.sqlite.org/index.html
 run locally on your machine. 
 
 This will familiarize you with the process of creating a connector to the Hasura DDN specification. You can then 
-take the concepts you've learned and apply it to any data source you'd like to integrate with Hasura DDN.
+take the concepts you've learned and apply them to any data source you'd like to integrate with Hasura DDN.
 
 ## How do I follow along? {#how-do-I-follow-along}
 
-You can watch the walkthrough videos in each section and also follow along with the code in this tutorial by first 
-cloning the [repo](/get-started/2-clone/).
-
-The YouTube playlist for all the videos is 
-[here](https://www.youtube.com/playlist?list=PLTRTpHrUcSB_WmbGviXZUx0z-jVZXm4Yc). 
+You can follow along with the code in this tutorial by first cloning the [repo](/get-started/01-clone/).
 
 ## What will I learn? {#what-will-i-learn}
 
@@ -49,9 +45,8 @@ About an hour.
 ## Additional Resources {#additional-resources}
 
 - The [NDC Specification](https://hasura.github.io/ndc-spec/specification/) details the specification for data connectors which work with Hasura DDN.
-- [Reference Implementation with Tutorial](https://github.com/hasura/ndc-spec/blob/main/ndc-reference/README.md)
 - SDKs for data connectors built with Rust, and the one which we will be using in this course, TypeScript.
-  - [NDC Rust SDK](https://github.com/hasura/ndc-hub)
+  - [NDC Rust SDK](https://github.com/hasura/ndc-sdk-rs)
   - [NDC Typescript SDK](https://github.com/hasura/ndc-sdk-typescript)
 - Examples of existing native data connectors built by Hasura.
   - [Clickhouse](https://github.com/hasura/ndc-clickhouse) (Rust)

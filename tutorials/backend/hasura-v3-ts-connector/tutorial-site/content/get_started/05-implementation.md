@@ -32,13 +32,24 @@ To initialize our state, which in our case contains a connection to the database
 open a connection to it, and store the resulting connection object in our state by returning it:
 
 ```typescript
-async function try_init_state(configuration: RawConfiguration, metrics: unknown): Promise<State> {
+async function tryInitState(
+  configuration: Configuration,
+  registry: Registry
+): Promise<State> {
   const db = await open({
     filename: configuration.filename,
-    driver: sqlite3.Database
+    driver: sqlite3.Database,
   });
 
-  return { db };
+  const query_count = new Counter({
+    name: "query_count",
+    help: "Number of queries executed since the connector was started",
+    labelNames: ["table"],
+  });
+  registry.registerMetric(query_count);
+  const metrics = { query_count };
+
+  return { db, metrics };
 }
 ```
 
@@ -47,12 +58,16 @@ Our capabilities response will be very simple, because we won't support many cap
 version range of the specification that we are compatible with, and the basic `query` and `mutation` capabilities.
 
 ```typescript
-function get_capabilities(configuration: RawConfiguration): CapabilitiesResponse {
+function getCapabilities(configuration: Configuration): CapabilitiesResponse {
   return {
-    version: "^0.1.2",
+    version: "0.1.2",
     capabilities: {
-      query: {},
-      mutation: {}
+      query: {
+        aggregates: {},
+        explain: {}
+      },
+      mutation: {},
+      relationships: {}
     }
   }
 }

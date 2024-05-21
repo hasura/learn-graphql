@@ -4,8 +4,9 @@ metaTitle: 'The Get Schema Function | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
 ---
 
-`getSchema` is the first interesting function. We're going to define scalar types, and an object type and a collection for each table in the configuration.
-Let's first define the scalar types. In fact, we're only going to define one, called `any`:
+`getSchema` is the first interesting function. We're going to define scalar types, and an object type and a collection 
+for each table in the configuration. Let's first define the scalar types. In fact, we're only going to define one, 
+called `any`:
 
 In it, we're going to define scalar types, and an object type and a collection for each table in the configuration. 
 For this course, we're going to ignore the `functions` and `procedures` fields, but we'll cover those in a later 
@@ -13,7 +14,6 @@ courses.
 
 It takes the RawConfiguration as an argument, and returns an abject in the format of the `SchemaResponse`
 shape.
-
 
 Let's first define the scalar types. In fact, we're only going to define one, called `any` as  a string literal:
 
@@ -43,8 +43,11 @@ async function getSchema(configuration: RawConfiguration): Promise<SchemaRespons
   let scalar_types: { [k: string]: ScalarType } = {
     'any': {
       aggregate_functions: {},
-      comparison_operators: {},
-      update_operators: {},
+      comparison_operators: {
+        'eq': {
+          type: 'equal'
+        }
+      },
     }
   };
 
@@ -76,7 +79,7 @@ defined.
 
 ## Collections
 
-Now let's define the collections:
+Now let's define the collections for the getSchema function:
 
 ```typescript
 let collections: CollectionInfo[] = configuration.tables.map((table) => {

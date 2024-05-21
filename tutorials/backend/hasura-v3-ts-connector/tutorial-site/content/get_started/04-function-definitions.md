@@ -16,28 +16,27 @@ async function parseConfiguration(configurationDir: string): Promise<Configurati
   throw new Error("Function not implemented.");
 }
 
-async function tryInitState(configuration: RawConfiguration, metrics: unknown): Promise<State> {
+async function tryInitState(configuration: Configuration, registry: Registry): Promise<State> {
   throw new Error("Function not implemented.");
 }
 
-async function fetchMetrics(configuration: RawConfiguration, state: State): Promise<undefined> {
+async function fetchMetrics(configuration: Configuration, state: State): Promise<undefined> {
   throw new Error("Function not implemented.");
 }
 
-async function healthCheck(configuration: RawConfiguration, state: State): Promise<undefined> {
+async function healthCheck(configuration: Configuration, state: State): Promise<undefined> {
   throw new Error("Function not implemented.");
 }
 
-function getCapabilities(configuration: RawConfiguration): CapabilitiesResponse {
+function getCapabilities(configuration: Configuration): CapabilitiesResponse {
   throw new Error("Function not implemented.");
 }
 
-async function getSchema(configuration: RawConfiguration): Promise<SchemaResponse> {
+async function getSchema(configuration: Configuration): Promise<SchemaResponse> {
   throw new Error("Function not implemented.");
 }
 
-async function queryExplain(configuration: RawConfiguration, state: State, request: QueryRequest): 
-  Promise<ExplainResponse> {
+async function queryExplain(configuration: Configuration, state: State, request: QueryRequest): Promise<ExplainResponse> {
   throw new Error("Function not implemented.");
 }
 
@@ -45,14 +44,18 @@ async function mutationExplain(configuration: Configuration, state: State, reque
   throw new Error("Function not implemented.");
 }
 
-async function mutation(configuration: RawConfiguration, state: State, request: MutationRequest): Promise<MutationResponse> {
+async function mutation(configuration: Configuration, state: State, request: MutationRequest): Promise<MutationResponse> {
   throw new Error("Function not implemented.");
 }
 
-async function query(configuration: RawConfiguration, state: State, request: QueryRequest): Promise<QueryResponse> {
+async function query(configuration: Configuration, state: State, request: QueryRequest): Promise<QueryResponse> {
   throw new Error("Function not implemented.");
 }
+```
 
+Now we need to update the `connector` definition to include these functions.
+
+```typescript
 const connector: Connector<Configuration, State> = {
   parseConfiguration,
   tryInitState,

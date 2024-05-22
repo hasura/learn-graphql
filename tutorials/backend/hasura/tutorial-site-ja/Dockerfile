@@ -1,4 +1,4 @@
-FROM gcr.io/websitecloud-352908/github.com/hasura/gatsby-gitbook-starter:72f8ba9b87c661a38e343b181c0972a6ce0eaf4d
+FROM gcr.io/websitecloud-352908/github.com/hasura/gatsby-gitbook-starter:192a2674f05822edf4d804f579511a57d3f24954
 
 # Create app directory
 WORKDIR /app

@@ -6,7 +6,7 @@ metaDescription: 'Learn how to build a data connector in Typescript for Hasura D
 
 We need to fill in implementations for each of the required functions, but we won't need all of these to work just yet.
 
-First, you'll see that we define three types: `RawConfiguration`, `Configuration`, and `State`.
+First, you'll see that we define two types: `Configuration`, and `State`.
 
 Let's define those now above the `connector` and `start` function:
 
@@ -19,31 +19,15 @@ type Configuration = {
 type TableConfiguration = {
   tableName: string;
   columns: { [k: string]: Column };
-  foreignKeys: { [k: string]: ForeignKey };
-};
-
-
-type Column = {
-  type: string;
-};
-
-type ForeignKey = {
-  targetTable: string,
-  columns: { [k: string]: string };
 };
 
 type State = {
   db: Database;
-  metrics: Metrics;
 };
-
-type Metrics = {
-  query_count: Counter;
-}
 ```
 
 `Configuration` is the type of the connector's configuration, which will be read from a directory on disk. By
-convention, this configuration should be enough to reproducibly determine the NDC schema, so for our sqlite connector,
+convention, this configuration should be enough to reproducibly determine the NDC schema, so for our SQLite connector,
 we configure the connector with a list of tables that we want to expose. Each table is defined by its name and a list of
 columns. Columns don't have any specific configuration yet, but we leave an empty object type here because we might want
 to capture things like column types later on.

@@ -59,18 +59,18 @@ Now we need to update the `connector` definition to include these functions.
 const connector: Connector<Configuration, State> = {
   parseConfiguration,
   tryInitState,
-  fetchMetrics,
-  healthCheck,
   getCapabilities,
   getSchema,
+  query,
+  fetchMetrics,
+  healthCheck,
   queryExplain,
   mutationExplain,
-  mutation,
-  query
+  mutation
 };
 ```
 
-Ok, moving on swiftly, for this course we will only need to implement the last five functions: 
+Ok, moving on swiftly, for this course we will only need to implement the first five functions: 
 - `parseConfiguration`: which reads the configuration from files on disk.
 - `tryInitState`: which initializes our database connection. 
 - `getCapabilities`: which returns the NDC capabilities of our connector.

@@ -32,27 +32,29 @@ Now, let's run the tests. (You will need to have the
 your machine.)
 
 ```shell
-ndc-test test --endpoint http://localhost:8100
+ndc-test test --endpoint http://localhost:8080
 ```
 
 OR
 
 ```shell
-cargo run --bin ndc-test -- test --endpoint http://localhost:8100
+cargo run --bin ndc-test -- test --endpoint http://localhost:8080
 ````
 
 Some tests fail, but we expected them to fail, but we can already see that our schema response is good.
 
 ```text
-cargo run --bin ndc-test -- test --endpoint http://localhost:8100
-    Finished dev [unoptimized + debuginfo] target(s) in 0.21s
-     Running `/Users/me/ndc-spec/target/debug/ndc-test test --endpoint 'http://localhost:8100'`
+cargo run --bin ndc-test -- test --endpoint http://localhost:8080
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running `/Users/sean/ProjectsHasura/ndc-spec/target/debug/ndc-test test --endpoint 'http://localhost:8080'`
+
 ├ Capabilities ...
 │ ├ Fetching /capabilities ... OK
 │ ├ Validating capabilities ... OK
 ├ Schema ...
 │ ├ Fetching schema ... OK
 │ ├ Validating schema ...
+│ │ ├ scalar_types ... OK
 │ │ ├ object_types ... OK
 │ │ ├ Collections ...
 │ │ │ ├ albums ...
@@ -67,13 +69,24 @@ cargo run --bin ndc-test -- test --endpoint http://localhost:8100
 │ ├ albums ...
 │ │ ├ Simple queries ...
 │ │ │ ├ Select top N ... FAIL
-│ │ ├ Aggregate queries ...
-│ │ │ ├ star_count ... FAIL
 │ ├ artists ...
 │ │ ├ Simple queries ...
 │ │ │ ├ Select top N ... FAIL
-│ │ ├ Aggregate queries ...
-│ │ │ ├ star_count ... FAIL
+Failed with 2 test failures:
+
+[1] Select top N
+  in Query
+  in albums
+  in Simple queries
+  in Select top N
+Details: error communicating with the connector: error in response: status code 500 Internal Server Error
+
+[2] Select top N
+  in Query
+  in artists
+  in Simple queries
+  in Select top N
+Details: error communicating with the connector: error in response: status code 500 Internal Server Error
 ```
 
 In the next section, we'll start to implement the query function, and see some of these tests pass.

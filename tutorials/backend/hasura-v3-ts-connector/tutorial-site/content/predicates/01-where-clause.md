@@ -20,7 +20,7 @@ const sql = `SELECT ${fields.length ? fields.join(", ") : '1 AS __empty'} FROM $
 ```
 
 To generate our `WHERE` clause, we will need to interpret the contents of the `where` property of the query request. To
-see what this will look like, we can find some examples in the snapshots we generated last time:
+see what this will look like, we can find some examples in the query snapshots we generated last time:
 
 ```JSON
 {

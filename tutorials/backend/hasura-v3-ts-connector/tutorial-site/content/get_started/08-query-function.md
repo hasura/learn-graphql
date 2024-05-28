@@ -13,22 +13,28 @@ async function query(configuration: RawConfiguration, state: State, request: Que
 }
 ```
 
-Let's run the tests again.
+Remember to rebuild and restart the connector:
+
+```shell
+npm run build && node dist/index.js serve --configuration .
+```
+
+Let's run the tests again. In the `ndc-test` directory:
 
 ```shell
 rm -rf snapshots
 ```
 
 ```shell
-ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
+ndc-test test --endpoint http://0.0.0.0:8080 --snapshots-dir snapshots
 ```
 
 OR
 ```shell
-cargo run --bin ndc-test -- test --endpoint http://localhost:8100 --snapshots-dir snapshots
+cargo run --bin ndc-test -- test --endpoint http://localhost:8080 --snapshots-dir snapshots
 ```
 
-In the logs of the app, we can see the request
+In the logs of the running app, we can see the request
 that was sent. It identifies the name of the collection, and a query object to run. The query has a list of fields
 to retrieve, and a limit of 10 rows. With this as a guide, we can start to implement our query function in the next
 section.
@@ -36,20 +42,18 @@ section.
 ```text
 ...
 {
-  "collection": "albums",
+  "collection": "artists",
   "query": {
     "fields": {
-      "artist_id": {
-        "type": "column",
-        "column": "artist_id"
-      },
       "id": {
         "type": "column",
-        "column": "id"
+        "column": "id",
+        "fields": null
       },
-      "title": {
+      "name": {
         "type": "column",
-        "column": "title"
+        "column": "name",
+        "fields": null
       }
     },
     "limit": 10
@@ -104,12 +108,13 @@ async function fetch_rows(state: State, request: QueryRequest): Promise<{
   const sql = `SELECT ${fields.length ? fields.join(", ") : '1 AS __empty'} FROM ${request.collection} ${limit_clause} ${offset_clause}`;
 
   console.log(JSON.stringify({ sql }, null, 2));
-
-  const rows = await state.db.all(sql, ...parameters);
+  
+  const rows = await state.db.all(sql, {});
 
   return rows.map((row) => { delete row.__empty; return row; });
 }
 ```
+
 This function breaks down the request that we saw earlier and produces SQL with a basic shape. Here is what `fetch_rows` 
 does: 
 
@@ -144,40 +149,19 @@ connectors - we get to push down the query execution to the data sources themsel
 Now let's see it work in the test runner. We'll rebuild and restart the connector, and run the tests again.
 
 ```text
-cargo run --bin ndc-test -- test --endpoint http://localhost:8100
-    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
-     Running `/Users/me/ndc-spec/target/debug/ndc-test test --endpoint 'http://localhost:8100'`
-├ Capabilities ...
-│ ├ Fetching /capabilities ... OK
-│ ├ Validating capabilities ... OK
-├ Schema ...
-│ ├ Fetching schema ... OK
-│ ├ Validating schema ...
-│ │ ├ object_types ... OK
-│ │ ├ Collections ...
-│ │ │ ├ albums ...
-│ │ │ │ ├ Arguments ... OK
-│ │ │ │ ├ Collection type ... OK
-│ │ │ ├ artists ...
-│ │ │ │ ├ Arguments ... OK
-│ │ │ │ ├ Collection type ... OK
-│ │ ├ Functions ...
-│ │ │ ├ Procedures ...
+...
 ├ Query ...
 │ ├ albums ...
 │ │ ├ Simple queries ...
 │ │ │ ├ Select top N ... OK
 │ │ │ ├ Predicates ... OK
 │ │ │ ├ Sorting ... FAIL
-│ │ ├ Aggregate queries ...
-│ │ │ ├ star_count ... FAIL
 │ ├ artists ...
 │ │ ├ Simple queries ...
 │ │ │ ├ Select top N ... OK
 │ │ │ ├ Predicates ... OK
 │ │ │ ├ Sorting ... FAIL
-│ │ ├ Aggregate queries ...
-│ │ │ ├ star_count ... FAIL
+...
 ```
 
 [//]: # (TODO - why are predicates passing here? They have not been implemented)

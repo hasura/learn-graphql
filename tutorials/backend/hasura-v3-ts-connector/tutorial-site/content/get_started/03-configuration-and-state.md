@@ -12,7 +12,6 @@ Let's define those now above the `connector` and `start` function:
 
 ```typescript
 type Configuration = {
-  filename: string,
   tables: TableConfiguration[];
 };
 
@@ -20,6 +19,8 @@ type TableConfiguration = {
   tableName: string;
   columns: { [k: string]: Column };
 };
+
+type Column = {};
 
 type State = {
   db: Database;

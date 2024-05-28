@@ -20,19 +20,23 @@ async function tryInitState(configuration: Configuration, registry: Registry): P
   throw new Error("Function not implemented.");
 }
 
-async function fetchMetrics(configuration: Configuration, state: State): Promise<undefined> {
-  throw new Error("Function not implemented.");
-}
-
-async function healthCheck(configuration: Configuration, state: State): Promise<undefined> {
-  throw new Error("Function not implemented.");
-}
-
 function getCapabilities(configuration: Configuration): CapabilitiesResponse {
   throw new Error("Function not implemented.");
 }
 
 async function getSchema(configuration: Configuration): Promise<SchemaResponse> {
+  throw new Error("Function not implemented.");
+}
+
+async function query(configuration: Configuration, state: State, request: QueryRequest): Promise<QueryResponse> {
+  throw new Error("Function not implemented.");
+}
+
+async function fetchMetrics(configuration: Configuration, state: State): Promise<undefined> {
+  throw new Error("Function not implemented.");
+}
+
+async function healthCheck(configuration: Configuration, state: State): Promise<undefined> {
   throw new Error("Function not implemented.");
 }
 
@@ -45,10 +49,6 @@ async function mutationExplain(configuration: Configuration, state: State, reque
 }
 
 async function mutation(configuration: Configuration, state: State, request: MutationRequest): Promise<MutationResponse> {
-  throw new Error("Function not implemented.");
-}
-
-async function query(configuration: Configuration, state: State, request: QueryRequest): Promise<QueryResponse> {
   throw new Error("Function not implemented.");
 }
 ```

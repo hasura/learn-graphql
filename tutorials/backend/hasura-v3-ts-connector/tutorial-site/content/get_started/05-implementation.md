@@ -14,8 +14,6 @@ Right now, we only need to implement five required functions:
 We'll skip configuration validation entirely for now, and just read the raw configuration from a `configuration.json` 
 file in the configuration directory:
 
-[//]: # (TODO: Need to understand what this is)
-
 ```typescript
 async function parseConfiguration(configurationDir: string): Promise<Configuration> {
   const configuration_file = resolve(configurationDir, 'configuration.json');
@@ -38,18 +36,10 @@ async function tryInitState(
 ): Promise<State> {
   const db = await open({
     filename: configuration.filename,
-    driver: sqlite3.Database,
+    driver: sqlite3.Database
   });
 
-  const query_count = new Counter({
-    name: "query_count",
-    help: "Number of queries executed since the connector was started",
-    labelNames: ["table"],
-  });
-  registry.registerMetric(query_count);
-  const metrics = { query_count };
-
-  return { db, metrics };
+  return { db };
 }
 ```
 
@@ -62,12 +52,8 @@ function getCapabilities(configuration: Configuration): CapabilitiesResponse {
   return {
     version: "0.1.2",
     capabilities: {
-      query: {
-        aggregates: {},
-        explain: {}
-      },
-      mutation: {},
-      relationships: {}
+      query: {},
+      mutation: {}
     }
   }
 }

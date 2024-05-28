@@ -143,10 +143,10 @@ async function getSchema(configuration: Configuration): Promise<SchemaResponse> 
   }
 
   return {
-    collections,
     functions: [],
-    object_types,
     procedures: [],
+    collections,
+    object_types,
     scalar_types,
   };
 }

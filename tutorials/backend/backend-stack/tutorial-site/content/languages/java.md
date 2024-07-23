@@ -1,6 +1,6 @@
 ---
-title: "GraphQL APIs with Java: Tutorial with server examples"
-metaTitle: "GraphQL APIs with Java: Tutorial with server examples"
+title: "GraphQL with Java: Tutorial with server and API examples"
+metaTitle: "GraphQL with Java: Tutorial with server and API examples"
 metaDescription: "In this tutorial, learn how to integrate Java with GraphQL using various frameworks like Springboot and Netflix DGS along with performance and security considerations."
 ---
 

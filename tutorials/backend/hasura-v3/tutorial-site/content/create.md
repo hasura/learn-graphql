@@ -12,7 +12,7 @@ Hasura CLI and then explore it using the Hasura Console.
 If you didn't do so before, to authenticate your CLI, run the following command:
 
 ```bash
-ddn login
+ddn auth login
 ```
 
 This will open up a browser window and initiate an OAuth2 login flow. If the browser window doesn't open automatically,

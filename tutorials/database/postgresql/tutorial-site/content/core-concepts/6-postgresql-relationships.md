@@ -56,10 +56,10 @@ Now let us create a bridge table called `article_tag`.
 
 ```sql
 CREATE TABLE article_tag (
-  article_id INT
-  tag_id INT
-  PRIMARY KEY (article_id, tag_id)
-  CONSTRAINT fk_article FOREIGN KEY(article_id) REFERENCES article(id)
+  article_id INT,
+  tag_id INT,
+  PRIMARY KEY (article_id, tag_id),
+  CONSTRAINT fk_article FOREIGN KEY(article_id) REFERENCES article(id),
   CONSTRAINT fk_tag FOREIGN KEY(tag_id) REFERENCES tag(id)
 )
 ```

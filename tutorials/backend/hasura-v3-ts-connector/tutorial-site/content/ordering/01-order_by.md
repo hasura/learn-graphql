@@ -11,8 +11,6 @@ sorting, and see more of our tests turn green.
 Implementing sorting is much simpler than implementing predicates, because there is no recursive structure to process.
 Instead, we have a simple list of orderings that we will turn into a SQL `ORDER BY` clause.
 
-Let's get started.
-
 ## Order By
 
 Just like with the `WHERE` clause last time, we will modify our SQL template to add a new `ORDER BY` clause, and
@@ -21,7 +19,7 @@ delegate to a new function to generate the SQL for that new clause.
 ```typescript
 const order_by_clause = request.query.order_by == null ? "" : `ORDER BY ${visit_order_by_elements(request.query.order_by.elements)}`;
 
-const sql = `SELECT ${fields.join(", ")} FROM ${request.collection} ${where_clause} ${order_by_clause} ${limit_clause} ${offset_clause}`;
+const sql = `SELECT ${fields.length ? fields.join(", ") : '1 AS __empty'} FROM ${request.collection} ${where_clause} ${order_by_clause} ${limit_clause} ${offset_clause}`;
 ```
 
 In this case, our new helper function is called `visit_order_by_elements`, and it breaks down the `order_by` property 

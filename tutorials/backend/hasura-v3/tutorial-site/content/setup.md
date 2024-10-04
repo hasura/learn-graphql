@@ -26,7 +26,7 @@ You can download the extension from the
 To authenticate your CLI to our network, run the following command:
 
 ```bash
-ddn login
+ddn auth login
 ```
 
 This will open a browser window where you can log in with your Hasura account. Once you've logged in, you can close the

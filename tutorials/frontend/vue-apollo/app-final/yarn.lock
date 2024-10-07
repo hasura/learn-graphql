@@ -1155,8 +1155,8 @@ yallist@^4.0.0:
   resolved "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
 
 yaml@^2.0.0-9:
-  version "2.0.0-9"
-  resolved "https://registry.npmjs.org/yaml/-/yaml-2.0.0-9.tgz"
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.2.2.tgz#ec551ef37326e6d42872dad1970300f8eb83a073"
 
 zen-observable-ts@^1.2.0:
   version "1.2.3"

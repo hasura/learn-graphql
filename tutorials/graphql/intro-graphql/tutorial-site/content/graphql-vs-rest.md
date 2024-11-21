@@ -73,7 +73,7 @@ Here's a quick chart to show you the GraphQL analogs of typical REST-ish terms:
 In REST APIs, there isn't a concept of a schema or type system.
 On the other hand, GraphQL has a strong type system to define what the API looks like. A schema is defined with fields mapped to types and serves as a contract between the client and the server.
 
-This schema contract lets the frontend and backend developers to work independently with a guarantee that the data requirements are met. In REST APIs though there's no strict contract, following the OpenAPI spec will get you closer to GraphQL in terms of documentation. Community tooling around the OpenAPI spec gives an idea about the various endpoints and data payloads for the REST APIs.
+This schema contract allows the frontend and backend developers to work independently with a guarantee that the data requirements are met. In REST APIs though there's no strict contract, following the OpenAPI spec will get you closer to GraphQL in terms of documentation. Community tooling around the OpenAPI spec gives an idea about the various endpoints and data payloads for the REST APIs.
 
 ### HTTP Status Codes {#http-status-codes}
 

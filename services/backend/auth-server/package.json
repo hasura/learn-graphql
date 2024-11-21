@@ -29,7 +29,7 @@
     "dotenv": "6.2.0",
     "express": "4.16.4",
     "express-validator": "5.3.0",
-    "jsonwebtoken": "8.3.0",
+    "jsonwebtoken": "9.0.0",
     "knex": "0.19.5",
     "multer": "1.4.1",
     "objection": "2.2.16",

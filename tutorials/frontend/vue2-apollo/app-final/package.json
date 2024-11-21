@@ -12,7 +12,7 @@
     "apollo-client": "2.6.10",
     "apollo-link-http": "1.5.17",
     "apollo-link-ws": "1.0.20",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "graphql": "14.5.8",
     "morgan": "1.9.1",
     "subscriptions-transport-ws": "0.9.16",

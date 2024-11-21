@@ -87,10 +87,19 @@ Create the apollo client inside `App` and pass the client prop to `<ApolloProvid
 ```javascript
 const App = ({ idToken }) => {
   const { loading, logout } = useAuth0();
+
++ const client = useMemo(() => {
++   if (!idToken) {
++     return;
++   }
++
++   return createApolloClient(idToken);
++ }, [idToken]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
-+  const [client] = useState(createApolloClient(idToken));
+
    return (
 +    <ApolloProvider client={client}>
        <div>

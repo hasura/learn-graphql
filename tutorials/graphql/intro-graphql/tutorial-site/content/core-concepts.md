@@ -123,7 +123,7 @@ The variable(s) is defined at the top of the operation and the value for the var
 
 ```
 {
-  limit: 5
+  "limit": 5
 }
 ```
 

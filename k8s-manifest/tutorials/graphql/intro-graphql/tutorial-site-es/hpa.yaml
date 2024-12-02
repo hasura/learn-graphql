@@ -1,7 +1,8 @@
-apiVersion: autoscaling/v2kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
 metadata:
   name: intro-graphql-es
-  namespace: learn 
+  namespace: learn
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

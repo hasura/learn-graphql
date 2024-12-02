@@ -1,5 +1,4 @@
-apiVersion: autoscaling/v2beta2
-kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2kind: HorizontalPodAutoscaler
 metadata:
   name: react-apollo-hooks-zh
   namespace: learn 

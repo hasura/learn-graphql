@@ -26,8 +26,7 @@ We will explore the fundamentals of GraphQL and the especially things that make 
 
 We will be building a realtime todo app using authenticated GraphQL APIs.
 
-Try this deployed version of the app to see what we'll be building:
-https://learn-hasura-todo-app.netlify.com/
+You can run the completed version of this application by following the development setup instructions in this [repo](https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/react-apollo-hooks/app-final).
 
 ## Will this course teach ReasonReact concepts as well?
 

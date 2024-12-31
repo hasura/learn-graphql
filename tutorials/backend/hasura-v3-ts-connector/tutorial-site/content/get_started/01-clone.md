@@ -4,7 +4,7 @@ metaTitle: 'Clone the Repo | Hasura DDN Data Connector Tutorial'
 metaDescription: 'Learn how to build a data connector in Typescript for Hasura DDN'
 ---
 
-You can use this course by watching the videos and reading, but you can also
+You can use this course by following this guide but you can also
 [clone the finished repo](https://github.com/hasura/ndc-typescript-learn-course) to see the finished result in 
 action straight away. Or, to follow along starting from a skeleton project, clone the repo and checkout the  
 `follow-along` branch:
@@ -28,7 +28,7 @@ npm install
 
 You can build and run the connector, when you need to, with:
 ```shell
-npm run build && node dist/index.js serve --configuration configuration.json
+npm run build && node dist/index.js serve --configuration .
 ```
 
 However, you can run nodemon to watch for changes and rebuild automatically:

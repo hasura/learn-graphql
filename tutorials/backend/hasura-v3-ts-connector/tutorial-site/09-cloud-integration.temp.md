@@ -6,7 +6,7 @@ metaDescription: 'Learn how to build a data connector in Typescript for Hasura D
 
 Going over the process of creating and deploying a project to Hasura DDN is beyond the scope of this course and
 we don't want to go too off-track, but is covered in the Hasura Docs which you can
-[check out here](https://hasura.io/docs/3.0/local-dev/).
+[check out here](https://hasura.io/docs/3.0/getting-started/overview).
 
 We have created and included a Hasura DDN metadata configuration in the 
 [repo for this course](https://github.com/hasura/ndc-typescript-learn-course/blob/main/hasura/) which you can use to

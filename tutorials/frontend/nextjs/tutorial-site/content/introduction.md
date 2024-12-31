@@ -28,9 +28,6 @@ We will explore the fundamentals of GraphQL and the things that make GraphQL esp
 
 We will be building a realtime todo app using authenticated GraphQL APIs.
 
-Try this deployed version of the app to see what we'll be building:
-https://learn-hasura-todo-app.netlify.com/
-
 ## Will this course teach Next.js concepts as well?
 
 No, we will be simulating a scenario where we already have a GraphQL API and the basic UI of a Next.js app built. Our task in this scenario is to integrate the GraphQL APIs into our Next.js app to build a complete and working app.

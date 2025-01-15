@@ -20,10 +20,6 @@ We have a Discord Channel for those who are new to GraphQL. Please post your que
 
 Here's the [invite link](https://discord.com/invite/hasura) to join Discord.
 
-## More sample apps
-
-We have many [sample apps created using React and Hasura GraphQL Engine](https://hasura.io/sample-apps/).
-
 ## Spread the word!
 
 Liked the course?

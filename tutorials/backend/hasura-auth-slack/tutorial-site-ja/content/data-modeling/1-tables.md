@@ -26,7 +26,7 @@ Slackアプリには、ユーザーが参加できるワークスペースがあ
 
 - `channel`、`channel_member`、`channel_thread`、`channel_thread_message`
 
-最期のモデルには、基本的な関連列があり、おおむね以下のようになります。
+最終的なモデルは、基本的なリレーショナルカラムを持ち、おおよそ次のようになります。
 
 ![Slackデータモデル](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-hasura-auth/slack-datamodel.png)
 

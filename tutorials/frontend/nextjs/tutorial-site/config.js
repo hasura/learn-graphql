@@ -63,10 +63,9 @@ const config = {
       "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in Next.js with Apollo, Hasura and Serverless",
     ogImage:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-nextjs-fullstack-serverless.png",
-    docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/nextjs/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    docsLocation: "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/nextjs/tutorial-site/content",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

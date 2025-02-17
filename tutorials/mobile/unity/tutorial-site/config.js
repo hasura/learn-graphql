@@ -54,14 +54,11 @@ const config = {
   },
   siteMetadata: {
     title: "GraphQL Tutorial for Unity Developers | Hasura",
-    description:
-      "A great tutorial showing how to integrate multiplayer features in Unity games using Hasura",
-    ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-unity.png",
-    docsLocation:
-      "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/unity/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    description: "A great tutorial showing how to integrate multiplayer features in Unity games using Hasura",
+    ogImage: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-unity.png",
+    docsLocation: "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/unity/tutorial-site/content",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

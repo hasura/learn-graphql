@@ -56,16 +56,15 @@ const config = {
     ignoreIndex: true,
   },
   siteMetadata: {
-    title:
-      "2 hour GraphQL Apollo course for ReScript React developers | Hasura",
+    title: "2 hour GraphQL Apollo course for ReScript React developers | Hasura",
     description:
       "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in ReScript with Apollo Hooks",
     ogImage:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-rescript-react-apollo.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/rescript-react-apollo/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

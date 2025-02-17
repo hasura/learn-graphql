@@ -62,8 +62,8 @@ const config = {
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-reason-react-apollo.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/reason-react-apollo/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

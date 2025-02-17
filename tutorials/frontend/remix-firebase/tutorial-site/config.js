@@ -56,14 +56,13 @@ const config = {
   },
   siteMetadata: {
     title: "A fullstack Remix tutorial with Firebase and Hasura GraphQL",
-    description:
-      "A tutorial that combines Remix with Firebase, Hasura and GraphQL",
+    description: "A tutorial that combines Remix with Firebase, Hasura and GraphQL",
     ogImage:
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-remix-fullstack-firebase.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/remix-firebase/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

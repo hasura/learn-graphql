@@ -35,7 +35,7 @@ const config = {
       "/hasura-backend/",
       "/project-setup/",
       "/queries/",
-      "/what-next/"
+      "/what-next/",
     ],
     links: [
       {
@@ -54,13 +54,12 @@ const config = {
     title: "2 hour GraphQL course for ASP.NET developers | Hasura",
     description:
       "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in ASP.NET",
-    ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-asp-dotnet-mvc.png",
+    ogImage: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-asp-dotnet-mvc.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/dotnet-mvc/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
-  }
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
+  },
 };
 
 module.exports = config;

@@ -51,16 +51,14 @@ const config = {
     ignoreIndex: true,
   },
   siteMetadata: {
-    title:
-      "2 hour course on building offline first for React developers | Hasura",
+    title: "2 hour course on building offline first for React developers | Hasura",
     description:
       "A concise and powerful tutorial that covers fundamental concepts of Offline first and implementing offline first in a React App using RxDB and Hasura GraphQL",
-    ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-react-rxdb.png",
+    ogImage: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-react-rxdb.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/react-rxdb/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

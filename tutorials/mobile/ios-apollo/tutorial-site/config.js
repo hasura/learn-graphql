@@ -58,12 +58,11 @@ const config = {
     title: "2 hour GraphQL course for iOS developers | Hasura",
     description:
       "A concise and powerful tutorial that covers fundamental concepts of both GraphQL and using GraphQL in iOS",
-    ogImage:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-ios.png",
+    ogImage: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-ios.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/ios-apollo/tutorial-site/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

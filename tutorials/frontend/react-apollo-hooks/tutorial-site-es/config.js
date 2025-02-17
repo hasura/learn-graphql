@@ -62,29 +62,29 @@ const config = {
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-react-apollo-hooks-es.png",
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/react-apollo-hooks/tutorial-site-es/content",
-    favicon:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
-  "language": {
-    "code": "es",
-    "name": "Spanish",
-    "translations": [
+  language: {
+    code: "es",
+    name: "Spanish",
+    translations: [
       {
-        "code": "zh",
-        "name": "Chinese",
-        "link": "https://hasura.io/learn/zh/graphql/react/introduction/"
+        code: "zh",
+        name: "Chinese",
+        link: "https://hasura.io/learn/zh/graphql/react/introduction/",
       },
       {
-        "code": "ja",
-        "name": "Japanese",
-        "link": "https://hasura.io/learn/ja/graphql/react/introduction/"
+        code: "ja",
+        name: "Japanese",
+        link: "https://hasura.io/learn/ja/graphql/react/introduction/",
       },
       {
-        "code": "en",
-        "name": "English",
-        "link": "https://hasura.io/learn/graphql/react/introduction/"
+        code: "en",
+        name: "English",
+        link: "https://hasura.io/learn/graphql/react/introduction/",
       },
-    ]
+    ],
   },
 };
 

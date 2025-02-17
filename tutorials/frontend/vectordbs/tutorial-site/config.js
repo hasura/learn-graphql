@@ -57,6 +57,7 @@ const config = {
       "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/social-media/twitter-card-vectordbs.png",
     docsLocation: "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/vectordbs/tutorial-site/content",
     favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+    isMaintained: false,
   },
 };
 

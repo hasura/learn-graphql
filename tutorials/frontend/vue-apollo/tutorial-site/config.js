@@ -61,6 +61,7 @@ const config = {
         docsLocation:
             "https://github.com/hasura/learn-graphql/tree/master/tutorials/frontend/vue-apollo/tutorial-site/content",
         favicon: "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/hasura-favicon.png",
+        isMaintained: false,
     },
 }
 

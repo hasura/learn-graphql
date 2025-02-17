@@ -64,6 +64,7 @@ const config = {
     docsLocation:
       "https://github.com/hasura/learn-graphql/tree/master/tutorials/mobile/flutter-graphql/tutorial-site/content",
     favicon: "",
+    isMaintained: false,
   },
 };
 

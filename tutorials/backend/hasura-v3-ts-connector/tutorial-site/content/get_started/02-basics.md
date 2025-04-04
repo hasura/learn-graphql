@@ -26,7 +26,7 @@ function which take a `connector` of type `Connector`.
 In your `src/index.ts` file, add the following:
 
 ```typescript
-const connector: Connector<RawConfiguration, Configuration, State> = {};
+const connector: Connector<Configuration, State> = {};
 
 start(connector);
 ```
@@ -34,12 +34,42 @@ start(connector);
 We will also need some imports over the course of the tutorial. Paste these at the top of your index.ts file:
 
 ```typescript
-import sqlite3 from 'sqlite3';
-import { Database, open } from 'sqlite';
-import { BadRequest, CapabilitiesResponse, CollectionInfo, ComparisonValue, Connector, ExplainResponse, InternalServerError, MutationRequest, MutationResponse, NotSupported, ObjectField, ObjectType, OrderByElement, QueryRequest, QueryResponse, RowFieldValue, ScalarType, SchemaResponse, start } from "@hasura/ndc-sdk-typescript";
-import { JSONSchemaObject } from "@json-schema-tools/meta-schema";
-import { ComparisonTarget, Expression } from '@hasura/ndc-sdk-typescript/dist/generated/typescript/QueryRequest';
+import opentelemetry from "@opentelemetry/api";
+import sqlite3 from "sqlite3";
+import { readFile } from "fs/promises";
+import { resolve } from "path";
+import { Database, open } from "sqlite";
+import {
+  BadGateway,
+  BadRequest,
+  CapabilitiesResponse,
+  CollectionInfo,
+  ComparisonTarget,
+  ComparisonValue,
+  Connector,
+  ConnectorError,
+  ExplainResponse,
+  Expression,
+  ForeignKeyConstraint,
+  InternalServerError,
+  MutationRequest,
+  MutationResponse,
+  NotSupported,
+  ObjectField,
+  ObjectType,
+  OrderByElement,
+  Query,
+  QueryRequest,
+  QueryResponse,
+  Relationship,
+  RowFieldValue,
+  ScalarType,
+  SchemaResponse,
+  start,
+} from "@hasura/ndc-sdk-typescript";
+import { withActiveSpan } from "@hasura/ndc-sdk-typescript/instrumentation";
+import { Counter, Registry } from "prom-client";
 ```
 
 You'll notice that your IDE will complain about the `connector` object not having the correct type, and 
-`RawConfiguration, Configuration, State` all being undefined. Let's fix that in the next section...
+`Configuration, State` all being undefined. Let's fix that in the next section...

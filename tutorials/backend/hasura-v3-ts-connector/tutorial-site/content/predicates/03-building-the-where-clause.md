@@ -118,9 +118,18 @@ case "unary_comparison_operator":
 // ...
 ```
 
-For `binary_comparison_operator` expressions, we can switch on `expr.operator.type`. We will only implement the `equal`
-operator, because our schema doesn't advertise any custom binary operators. If we wanted to add another operator, like a
+For `binary_comparison_operator` expressions, we can switch on `expr.operator`. We only need to implement the `eq`
+operator, because our schema doesn't advertise any other binary operators. If we wanted to add another operator, like a
 "greater than" operator for numbers, we would do that here, and also advertise that operator in the NDC schema response.
+
+```typescript
+switch (expr.operator) {
+    case 'eq':
+        return `${visit_comparison_target(expr.column)} = ${visit_comparison_value(parameters, expr.value)}`
+    default:
+        throw new BadRequest("Unknown comparison operator");
+}
+```
 
 Also, one new helper function `visit_comparison_value` is needed here, defined later, and we'll call it as per below:
 
@@ -178,8 +187,7 @@ will be added later when we support the `relationships` capability.
 In the `visit_comparison_value` function, we only handle the `scalar` case, in which we push the value onto our
 parameter list. Again, the other cases correspond to capabilities we haven't implemented yet.
 
-The other two expression types are unsupported for now, so we'll throw an error here. We can also come back to these 
-later.
+`exists` expressions are unsupported for now, so we'll throw an error here. We can come back to these later.
 
 ```typescript
 // ...

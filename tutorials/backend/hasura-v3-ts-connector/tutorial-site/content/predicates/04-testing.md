@@ -17,7 +17,7 @@ rm -rf snapshots
 ```
 
 ```shell
-ndc-test test --endpoint http://0.0.0.0:8100 --snapshots-dir snapshots
+ndc-test test --endpoint http://localhost:8080/ --snapshots-dir snapshots
 ```
 
 OR
@@ -25,8 +25,8 @@ OR
 cargo run --bin ndc-test -- test --endpoint http://localhost:8100 --snapshots-dir snapshots
 ```
 
-We can see that predicate tests are passing, but some other test cases are not. That's okay - we'll keep iterating over
-the next few videos until we have all green tests here.
+We can see that predicate tests are passing, but some other test cases are not. That's okay - we'll keep iterating 
+until we have all green tests here.
 
 [//]: # (TODO predicate tests were passing before)
 
@@ -134,7 +134,7 @@ Response:
 ]
 ```
 
-Now let's deploy to Hasura and see how the GraphQL schema looks. Check out the video to follow along here. 
+Now let's deploy to Hasura and see how the GraphQL schema looks. 
 
 [//]: # (TODO Need to have the deploy section done)
 

@@ -96,7 +96,7 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 
 ## Run the GraphQL Query {#basic-graphql-query}
 
-1. Open GraphiQL at: [hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql). 
+1. Open GraphiQL at: [hasura.io/learn/graphql/graphiql](https://hasura.io/learn/graphql/graphiql).
    You'll have to login to get an auth token to query the API. In a real-world scenario
    your GraphQL APIs will be protected.
 2. You'll see a URL, and headers that contain the auth
@@ -104,11 +104,11 @@ use a tool like GraphiQL to explore and test your GraphQL queries.
 3. Now, paste this GraphQL query in the GraphiQL window
 
 ```graphql
- query {
-   users {
-     name
-   }
- }
+query {
+  users {
+    name
+  }
+}
 ```
 
 4. Hit `ctrl + enter` or `cmd + enter` (mac) or click on the ▶️ icon to run the GraphQL query
@@ -123,9 +123,10 @@ that you see on the right hand side.
 ## GraphQL Nested Query {#graphql-nested-query}
 
 The todo application has:
-* users
-* todos
-* information about users that are currently online
+
+- users
+- todos
+- information about users that are currently online
 
 This is what the API "schema" looks like:
 
@@ -146,14 +147,14 @@ For example, there is a relationship between `users` and `todos` in the todo app
 This GraphQL query will fetch all the users and their publicly visible todos:
 
 ```graphql
- query {
-   users {
-     name
-     todos {
-       title
-     }
-   }
- }
+query {
+  users {
+    name
+    todos {
+      title
+    }
+  }
+}
 ```
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
@@ -164,14 +165,14 @@ This GraphQL query will fetch all the currently online users
 and their profile information (which is just their name for now):
 
 ```graphql
- query {
-   online_users {
-     last_seen
-     user {
-       name
-     }
-   }
- }
+query {
+  online_users {
+    last_seen
+    user {
+      name
+    }
+  }
+}
 ```
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
@@ -182,7 +183,7 @@ In most API calls, you usually use parameters. e.g. to specify what data you're 
 If you're familiar with making `GET` calls, you would have used a query parameter. For example,
 to fetch only 10 todos you might have made this API call: `GET /api/todos?limit=10`.
 
-The GraphQL query analog of this is *arguments*, which are key-value pairs that you can attach to a "field" or "nested object". GraphQL servers come with a default list of arguments, but you can also define custom arguments.
+The GraphQL query analog of this is _arguments_, which are key-value pairs that you can attach to a "field" or "nested object". GraphQL servers come with a default list of arguments, but you can also define custom arguments.
 
 ### GraphQL Query With an Argument: Fetch 10 Todos {#basic-argument}
 
@@ -212,10 +213,10 @@ Let's fetch 1 user and the 5 most recent todos for that user to showcase that.
 
 ```graphql
 query {
-  users (limit: 1) {
+  users(limit: 1) {
     id
     name
-    todos(order_by: {created_at: desc}, limit: 5) {
+    todos(order_by: { created_at: desc }, limit: 5) {
       id
       title
     }
@@ -224,6 +225,7 @@ query {
 ```
 
 Notice that we are passing arguments to different fields. The above GraphQL query reads as:
+
 > Fetch users (with limit 1), and their todos (ordered by descending creation time, and limited to 5).
 
 <b><a href="https://hasura.io/learn/graphql/graphiql" target="_blank">Try it out in GraphiQL</a></b>
@@ -249,14 +251,14 @@ query ($limit: Int!) {
 
 If you look at the previous GraphQL queries with arguments, you might spot two differences:
 
-* You define the type of the variable accepted by the query - an integer (number), in this case
-* The hardcoded value is replaced by the variable `$limit`
+- You define the type of the variable accepted by the query - an integer (number), in this case
+- The hardcoded value is replaced by the variable `$limit`
 
 But before you can run the query, there is an additional step. You also need to send a variables object:
 
 ```json
 {
-   "limit": 10
+  "limit": 10
 }
 ```
 
@@ -265,6 +267,7 @@ The GraphQL server will automatically use the variable in the right place in the
 Instead of sending just the query to the GraphQL server from our client, we'll send both the query and the variables.
 
 Let's try this out in GraphiQL:
+
 1. Head to GraphiQL
 2. Write out this query
 3. Scroll to the bottom of the page, where you see a smaller panel "Query Variables"
@@ -286,7 +289,7 @@ In GraphQL, you can limit the number of rows returned by the query with the `lim
 }
 ```
 
-In this example, you fetch only 5 todos. 
+In this example, you fetch only 5 todos.
 
 But why would you want to do that? One of the most common scenarios is pagination, where you would use the `limit` and `offset` arguments. The `offset` argument specifies how many records to skip.
 
@@ -294,7 +297,7 @@ For example, if we have 50 todos, we could split them into 5 pages of 10 todos. 
 
 ```graphql
 {
-  todos(limit: 5, offset: 0) {
+  todos(limit: 10, offset: 0) {
     title
     is_completed
     is_public
@@ -302,11 +305,11 @@ For example, if we have 50 todos, we could split them into 5 pages of 10 todos. 
 }
 ```
 
-You would want to skip the first 5 todos on the second page, so the `offset` would be "5".
+You would want to skip the first 10 todos on the second page, so the `offset` would be "10".
 
 ```graphql
 {
-  todos(limit: 5, offset: 5) {
+  todos(limit: 10, offset: 10) {
     title
     is_completed
     is_public
@@ -326,7 +329,7 @@ The query is as follows:
 
 ```graphql
 {
-  todos(where: {is_public: {_eq: false}}) {
+  todos(where: { is_public: { _eq: false } }) {
     title
     is_public
     is_completed
@@ -338,9 +341,9 @@ You can also use the `where` argument multiple times in one query. Let's say you
 
 ```graphql
 {
-  users(where: {id: {_eq: "61dd5e7dc4b05c0069a39att"}}) {
+  users(where: { id: { _eq: "61dd5e7dc4b05c0069a39att" } }) {
     name
-    todos(where: {is_public: {_eq: true}}) {
+    todos(where: { is_public: { _eq: true } }) {
       title
       is_public
     }
@@ -357,6 +360,7 @@ And
 > Fetch all the todos where the value of the field `is_public` equals "true" for the user whose id equals to "61dd5e7dc4b05c0069a39att".
 
 There are other operators that you can see in the [API Reference](https://hasura.io/docs/latest/graphql/core/api-reference/graphql-api/query.html#whereexp) documentation.
+
 ## Summary {#summary}
 
 - You can now write simple and nested GraphQL queries

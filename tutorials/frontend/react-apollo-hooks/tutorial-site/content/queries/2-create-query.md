@@ -101,7 +101,8 @@ Let's remove the mock `todos` data which was used to populate sample data.
 
 ```javascript
 
-const TodoPrivateList = props => {
+- const TodoPrivateList = props => {
++ const TodoPrivateList = ({ todos }) => {
   const [state, setState] = useState({
     filter: "all",
     clearInProgress: false,

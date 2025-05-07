@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "express": "4.17.1",
+    "express": "4.17.3",
     "morgan": "1.9.1"
   },
   "devDependencies": {

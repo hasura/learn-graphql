@@ -12,9 +12,9 @@
     "morgan": "1.9.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "3.11.0",
+    "@vue/cli-plugin-babel": "5.0.8",
     "@vue/cli-plugin-eslint": "3.11.0",
-    "@vue/cli-service": "3.11.0",
+    "@vue/cli-service": "5.0.8",
     "@vue/eslint-config-prettier": "5.1.0",
     "auth0-js": "9.13.2",
     "babel-eslint": "10.1.0",

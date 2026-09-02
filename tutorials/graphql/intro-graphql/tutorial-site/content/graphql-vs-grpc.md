@@ -29,8 +29,8 @@ message UserRequest {
 
 message UserResponse {
   string name = 1;
-  int32 age = 1;
-  string address = 1;
+  int32 age = 2;
+  string address = 3;
 }
 ```
 
